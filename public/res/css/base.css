@@ -1,0 +1,54 @@
+BODY, HTML {margin:0px;padding:0px;height:100%;-webkit-text-size-adjust:100%;
+background: #a1dbff; /* Old browsers */
+background: -moz-linear-gradient(top,  #a1dbff 29%, #cbebff 68%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(29%,#a1dbff), color-stop(68%,#cbebff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #a1dbff 29%,#cbebff 68%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #a1dbff 29%,#cbebff 68%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #a1dbff 29%,#cbebff 68%); /* IE10+ */
+background: linear-gradient(to bottom,  #a1dbff 29%,#cbebff 68%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1dbff', endColorstr='#cbebff',GradientType=0 ); /* IE6-9 */
+}
+HTML, BODY , TABLE {font-family: Arial;font-size:13px;font-family: 'Lucida Grande', sans-serif;font-family: Arial, Helvetica, sans-serif;margin:0px;padding:0px;border-spacing:0px;}
+FORM {margin:0px;padding:0px;}
+IMG.block {display:block;}
+
+
+.progressicon {background:url(../imgs/progress.gif);background-repeat:no-repeat;width:32px;height:15px;overflow:hidden;display:inline-block;}
+
+H2 {display:block;margin:0px;padding:0px;font-size:19px;line-height:130%;font-weight:bold;margin-bottom:8px;}
+H3 {display:block;margin:0px;padding:0px;font-size:15px;line-height:150%;font-weight:normal;}
+H4 {display:block;margin:0px;padding:0px;font-size:17px;line-height:130%;font-weight:bold;margin-bottom:6px;}
+H5 {display:block;margin:0px;padding:0px;font-size:13px;line-height:150%;font-weight:normal;}
+
+a {text-decoration:none;}
+a,a:visited,a:hover {color:green;}
+a:hover {text-decoration:underline;}
+
+label {font-size:12px;margin:0px;padding:0px;color:#666;}
+.lbl {display:block;font-size:12px;color:#666;margin-bottom:2px;}
+.error{background-color:#ffebe8;border:1px solid #dd3c10;padding:10px;margin:8px 0;font-size:12px;}
+.error a{color:#dd3c10}
+.error DIV{margin:0 0 5px 0;}
+
+INPUT, BUTTON {margin:0px;border:1px solid #888;padding:3px;font-size:16px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;transition:border linear .2s,box-shadow linear .2s;-moz-transition:border linear .2s,-moz-box-shadow linear .2s;-webkit-transition:border linear .2s,-webkit-box-shadow linear .2s;}
+INPUT.button, BUTTON {background-color:#eee;background-image:url(../imgs/gradient.png);background-position:0px -32px;height:28px;cursor:pointer;font-size:14px;padding:4px;text-shadow:0px 1px 0px white ;}
+INPUT:hover {border-color:green;}
+INPUT.button.green, BUTTON.green {background-position:0px 0px;background-color:green;color:white;border-color:green;font-weight:bold;text-shadow:0px -1px 0px darkgreen ;}
+BUTTON.blue  {background:#3B5998;color:white;border-color:#3B5998;font-weight:bold;text-shadow:0px 1px 1px black ;}
+INPUT[type="checkbox"] {border:0px;padding:0px;}
+INPUT[type="text"],INPUT[type="password"] {font-weight:bold;}
+
+input[type=text]:focus,input[type=password]:focus,textarea:focus{outline:none;border-color:green;box-shadow:0 0 8px rgba(82,168,82,.5);-moz-box-shadow:0 0 8px rgba(82,168,82,.5);-webkit-box-shadow:0 0 8px rgba(82,168,82,.5);}
+.pnl {padding:20px;}
+.pnlBox {width:900px;margin:0px auto;position:relative;background:white;border:1px solid #ccc;margin-bottom:16px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
+.pnlBox.notop {border-top:0px none;-webkit-border-top-right-radius:0px;-moz-border-radius-topright:0px;border-top-right-radius:0px;-webkit-border-top-left-radius:0px;-moz-border-radius-topleft:0px;;border-top-left-radius:0px;}
+.pnlBox.nobottom {border-bottom:0px none;-webkit-border-bottom-right-radius:0px;-moz-border-radius-bottomright:0px;border-bottom-right-radius:0px;-webkit-border-bottom-left-radius:0px;-moz-border-radius-bottomleft:0px;border-top-bottom-radius:0px;margin-bottom:0px;}
+
+#pnlBox0 {min-height:400px;}
+
+
+#slider { margin: 10px; }
+.icons_wrapper{width:100%;margin-bottom: 10px;}
+.cat_icon{float:left; background: url(/catBee/public/res/images/cat.png);width:44px;height: 34px;}
+.bee_icon{float:right;background: url(/catBee/public/res/images/bee.png);width:48px;height: 42px;}
+#slider{clear:both;}
