@@ -1,20 +1,20 @@
 <?php
 error_reporting(E_ERROR);
 //require_once "Mail.php";
-$dirBase = "C:/Program Files/EasyPHP-12.1/www/CatBee";
-$dbhost = "localhost:3307";
+$dirBase = "C:/Program Files (x86)/EasyPHP-5.3.9/www/CatBee";
+$dbhost = "localhost";
 $dbusername = "root";
-$dbpassword = "Abcd1234";
-$dbname = "catbee";
+$dbpassword = "tomer165";
+$dbname = "test";
 $smtphost ="localhost";
 $smtpport = 25;
-
+$rootPath = "/CatBee/public/";
 
 function includeScript($name, &$p) {
 	include $GLOBALS["dirBase"] . "/scripts/" . $name . ".php";
 }
 
-function includeClass($name) {
+function includeModel($name) {
 	include_once $GLOBALS["dirBase"] . "/scripts/models/" . $name . ".php";
 }
 
@@ -23,8 +23,6 @@ function catbeeComp($comp, &$p) {
 }
 
 function catbeeLayoutComp(&$layout, $comp, $params) {
-
-    echo "---";
 	if (gettype($layout) == "NULL")
 		$layout = array();
 	$layout[] = array("comp" => $comp, "params" => $params);

@@ -7,7 +7,7 @@ class slogan {
     public $secondLine; 
 
     public function __construct($firstLine, $secondLine)  
-    {
+    {  
         $this->firstLine = $firstLine;  
         $this->secondLine = $secondLine; 
     }  
