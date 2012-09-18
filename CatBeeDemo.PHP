@@ -33,9 +33,12 @@ Price Reduction:
 </select><br />
 Team members : <input type="text" name="Members"/>
 <br/>
-<?Php $con = mysql_connect("localhost","root","tomer165");
-mysql_select_db("test", $con);
-$result = mysql_query("SELECT CustomerName FROM testtable;");
+<?Php
+//    $con = mysql_connect("localhost","root","tomer165");
+    $con = mysql_connect();
+//    mysql_select_db("test", $con);
+    mysql_select_db("catbee", $con);
+        $result = mysql_query("SELECT CustomerName FROM testtable;");
 
 while($row = mysql_fetch_array($result))
   {
