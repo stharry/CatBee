@@ -11,6 +11,8 @@ $smtpport = 25;
 $rootPath = "/CatBee/public/";
 
 function includeScript($name, &$p) {
+    echo "include script: ".$GLOBALS["dirBase"] . "/scripts/" . $name . ".php";;
+
 	include $GLOBALS["dirBase"] . "/scripts/" . $name . ".php";
 }
 

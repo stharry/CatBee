@@ -5,13 +5,15 @@ class leaderReward {
     public $low; 
 	public $med;
 	public $high;
+	public $value;
 
-    public function __construct($reward, $low,$med,$high)  
+    public function __construct($reward, $low,$med,$high,$value)  
     {  
         $this->reward = $reward;  
         $this->low = $low; 
 		$this->med = $med; 
 		$this->high = $high; 
+		$this->value = $value;
     }  
      function getleaderReward($store)
 	{

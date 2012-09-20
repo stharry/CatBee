@@ -13,7 +13,7 @@ p { color: #656565; font-size: 1.2em; margin-bottom: 10px; }
 
 #wrapper { width: 640px; margin: 0 auto; padding: 30px 45px; }
 
-#inline { display: none; width: 600px; }
+#mailInline { display: none; width: 600px; }
 
 label { margin-right: 12px; margin-bottom: 9px; font-family: Georgia, serif; color: #646464; font-size: 1.2em; }
 
@@ -48,7 +48,7 @@ line-height: 1.4em;
 input.error, textarea.error { border-color: #973d3d; border-style: solid; background: #f0bebe; color: #a35959; }
 input.error:focus, textarea.error:focus { border-color: #973d3d; color: #a35959; }
 
-#send { 
+#sendViaEmail {
 color: #dee5f0;
 display: block;
 cursor: pointer;
@@ -65,7 +65,7 @@ background: -ms-linear-gradient(top, #2f52b7, #0e3a7d);
 background: linear-gradient(top, #2f52b7, #0e3a7d);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2f52b7', endColorstr='#0e3a7d'); 
 }
-#send:hover {
+#sendViaEmail:hover {
 background: #183d80; 
 background: -webkit-gradient(linear, left top, left bottom, from(#284f9d), to(#0c2b6b)); 
 background: -moz-linear-gradient(top,  #284f9d, #0c2b6b); 
@@ -75,7 +75,7 @@ background: -ms-linear-gradient(top, #284f9d, #0c2b6b);
 background: linear-gradient(top, #284f9d, #0c2b6b);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#284f9d', endColorstr='#0c2b6b');
 }
-#send:active {
+#sendViaEmail:active {
 color: #8c9dc0; 
 background: -webkit-gradient(linear, left top, left bottom, from(#0e387d), to(#2f55b7)); 
 background: -moz-linear-gradient(top,  #0e387d,  #2f55b7);
