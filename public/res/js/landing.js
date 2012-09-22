@@ -1,11 +1,5 @@
 $(document).ready(function() {
-
-    alert("Before slider 1");
-
     CreateAndInitializeSlider();
-
-   // alert("Before email 1");
-   // CreateAndInitializeEmailForm();
 });
 
 
@@ -18,7 +12,6 @@ function CreateAndInitializeSlider()
         value : 1,
         change : function(event, ui) {
             var val = ui.value;
-            //alert(ui.value);
             updateRewards(ui.value);
         }
     });

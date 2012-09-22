@@ -1,8 +1,7 @@
 <?php
 require_once 'System.php';
-var_dump(class_exists('System', false));
 //phpInfo();exit;
-var_dump($_POST);
+//var_dump($_POST);
 ?>
 <html>
 <head>

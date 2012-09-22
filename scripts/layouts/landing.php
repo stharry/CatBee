@@ -34,9 +34,11 @@
 
 	</head>
 	<body>
-		<div class="pnlBox" style="margin-top: 100px;padding:20px;">
-			<h2 class="title"><?php echo $GLOBALS["title"] ?></h2>
-			<h4 class="title"><?php echo $GLOBALS["subtitle"] ?></h4>
+		<div class="pnlBox">
+            <div class="headerSection" id="header">
+			    <h2 class="title"><?php echo $GLOBALS["title"] ?></h2>
+			    <h4 class="title"><?php echo $GLOBALS["subtitle"] ?></h4>
+            </div>
 			<hr>
 			<?php
 				catbeeRender($p);

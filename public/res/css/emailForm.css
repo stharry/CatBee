@@ -1,21 +1,21 @@
-* { margin: 0; padding: 0; outline: none; }
-html { font-size: 62.5%; height: 101%; }
+*.mailForm { margin: 0; padding: 0; outline: none; }
+html.mailForm { font-size: 62.5%; height: 101%; }
 
-body { background: #fff; font-family: "Calibri", Arial, sans-serif; }
-img { border: 0; }
+body.mailForm { background: #fff; font-family: "Calibri", Arial, sans-serif; }
+img.mailForm { border: 0; }
 
-a { color: #3a51b2; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a.mailForm { color: #3a51b2; text-decoration: none; }
+a.mailForm:hover { text-decoration: underline; }
 
-h2 { font-size: 1.8em; line-height: 1.9em; margin-bottom: 15px;  }
+h2.mailForm { font-size: 1.8em; line-height: 1.9em; margin-bottom: 15px;  }
 
-p { color: #656565; font-size: 1.2em; margin-bottom: 10px; }
+p.mailForm { color: #656565; font-size: 1.2em; margin-bottom: 10px; }
 
 #wrapper { width: 640px; margin: 0 auto; padding: 30px 45px; }
 
 #mailInline { display: none; width: 600px; }
 
-label { margin-right: 12px; margin-bottom: 9px; font-family: Georgia, serif; color: #646464; font-size: 1.2em; }
+label.mailForm { margin-right: 12px; margin-bottom: 9px; font-family: Georgia, serif; color: #646464; font-size: 1.2em; }
 
 .txt { 
 display: inline-block; 
@@ -75,6 +75,13 @@ background: -ms-linear-gradient(top, #284f9d, #0c2b6b);
 background: linear-gradient(top, #284f9d, #0c2b6b);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#284f9d', endColorstr='#0c2b6b');
 }
+#mailToFriend {
+    background-image: url(/catBee/public/res/images//Email.png);
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+}
+
 #sendViaEmail:active {
 color: #8c9dc0; 
 background: -webkit-gradient(linear, left top, left bottom, from(#0e387d), to(#2f55b7)); 
