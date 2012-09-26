@@ -5,6 +5,6 @@ class Customer
     public $id;
     public $email;
     public $firstName;
-    public $secondName;
+    public $lastName;
     public $nickName;
 }
