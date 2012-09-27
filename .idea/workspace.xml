@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adapters/demo/res/PostPurchasePageForDemo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adapters/demo/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/land/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/IModelAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonDealAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonPurchaseAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonPurchasesAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/rest/RestUtils.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Order.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Store.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Customer.php" afterPath="$PROJECT_DIR$/model/Customer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/index.php" afterPath="$PROJECT_DIR$/adapters/demo/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/campaign/CampaignManager.php" afterPath="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
     </list>
     <ignored path="CatBee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,88 +27,48 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="JsonDealAdapter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonDealAdapter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="12" selection-start="91" selection-end="91" vertical-scroll-proportion="-2.1">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestUtils.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/rest/RestUtils.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="25" selection-start="6856" selection-end="6856" vertical-scroll-proportion="12.266666">
-              <folding>
-                <element signature="n#RestUtils#0;n#!!top" expanded="false" />
-                <element signature="n#sendResponse#0;n#RestUtils#0;n#!!top" expanded="false" />
-                <element signature="n#getStatusCodeMessage#0;n#RestUtils#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JsonOrderAdapter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="845" selection-end="845" vertical-scroll-proportion="-16.433332">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Order.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="92" selection-end="100" vertical-scroll-proportion="-4.9">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/land/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="41" selection-start="448" selection-end="448" vertical-scroll-proportion="-8.4">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adapters/demo/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="26" selection-start="988" selection-end="988" vertical-scroll-proportion="-13.3">
-              <folding>
-                <marker date="1348682250078" expanded="true" signature="1100:1604" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampaignManager.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CampaignManager.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="30" selection-start="263" selection-end="263" vertical-scroll-proportion="0.5675676">
+            <state line="16" column="5" selection-start="399" selection-end="399" vertical-scroll-proportion="-11.2">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonPurchasesAdapter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonPurchasesAdapter.php">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adapters/demo/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="28" selection-start="313" selection-end="313" vertical-scroll-proportion="-9.1">
+            <state line="38" column="0" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.17427386">
+              <folding>
+                <marker date="1348728478281" expanded="true" signature="1100:1623" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="globals.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/globals.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="92" selection-end="161" vertical-scroll-proportion="-1.4">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonPurchaseAdapter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonPurchaseAdapter.php">
+      <file leaf-file-name="landing.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/post/landing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="12" selection-start="89" selection-end="89" vertical-scroll-proportion="-2.1">
+            <state line="27" column="0" selection-start="38" selection-end="734" vertical-scroll-proportion="-18.9">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="globals.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/globals.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="9" selection-start="385" selection-end="385" vertical-scroll-proportion="-8.2">
               <folding />
             </state>
           </provider>
@@ -129,7 +77,7 @@
       <file leaf-file-name="JsonCustomerAdapter.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="12" selection-start="89" selection-end="89" vertical-scroll-proportion="-2.1">
+            <state line="2" column="0" selection-start="7" selection-end="76" vertical-scroll-proportion="-1.4">
               <folding />
             </state>
           </provider>
@@ -153,17 +101,17 @@
         <option value="$PROJECT_DIR$/model/Share.php" />
         <option value="$PROJECT_DIR$/model/FriendDeal.php" />
         <option value="$PROJECT_DIR$/model/Order.php" />
-        <option value="$PROJECT_DIR$/adapters/demo/index.php" />
         <option value="$PROJECT_DIR$/model/Customer.php" />
         <option value="$PROJECT_DIR$/components/adapters/IAdapter.php" />
         <option value="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" />
         <option value="$PROJECT_DIR$/components/adapters/json/JsonDealAdapter.php" />
         <option value="$PROJECT_DIR$/components/adapters/json/JsonPurchaseAdapter.php" />
         <option value="$PROJECT_DIR$/components/adapters/json/JsonPurchasesAdapter.php" />
-        <option value="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
         <option value="$PROJECT_DIR$/components/rest/RestUtils.php" />
         <option value="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
         <option value="$PROJECT_DIR$/api/land/index.php" />
+        <option value="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
+        <option value="$PROJECT_DIR$/adapters/demo/index.php" />
       </list>
     </option>
   </component>
@@ -310,25 +258,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,69 +330,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assorted" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="email" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="land" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="adapters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -553,7 +425,11 @@
       <created>1348606234890</created>
       <updated>1348606234890</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new classes model">
+      <created>1348698546203</created>
+      <updated>1348698546203</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -637,28 +513,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/post/landing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/res/PostPurchasePageForDemo.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/Customer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="16" selection-start="98" selection-end="98" vertical-scroll-proportion="-4.9">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/globals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="70" selection-end="105" vertical-scroll-proportion="-2.1">
           <folding />
         </state>
       </provider>
@@ -673,13 +530,6 @@
     <entry file="file://$PROJECT_DIR$/components/adapters/IModelAdapter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="-4.9">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="89" selection-end="89" vertical-scroll-proportion="-2.1">
           <folding />
         </state>
       </provider>
@@ -702,15 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="28" selection-start="313" selection-end="313" vertical-scroll-proportion="-9.1">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="26" selection-start="988" selection-end="988" vertical-scroll-proportion="-13.3">
-          <folding>
-            <marker date="1348682250078" expanded="true" signature="1100:1604" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -746,10 +587,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="7" selection-end="76" vertical-scroll-proportion="-1.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/globals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="9" selection-start="385" selection-end="385" vertical-scroll-proportion="-8.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/post/landing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="38" selection-end="734" vertical-scroll-proportion="-18.9">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/globals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="92" selection-end="161" vertical-scroll-proportion="-1.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="30" selection-start="263" selection-end="263" vertical-scroll-proportion="0.5675676">
+        <state line="16" column="5" selection-start="399" selection-end="399" vertical-scroll-proportion="-11.2">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/demo/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.17427386">
+          <folding>
+            <marker date="1348728478281" expanded="true" signature="1100:1623" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

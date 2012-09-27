@@ -59,6 +59,8 @@
 
 </head>
 <body background="res/PostPurchasePageForDemo.jpg" onload="load()">
+<iframe>
 
+</iframe>
 </body>
 </html>
