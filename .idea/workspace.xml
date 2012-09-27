@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adapters/demo/goDeal.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adapters/demo/res/demoAdapter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/index.php" afterPath="$PROJECT_DIR$/adapters/demo/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/campaign/CampaignManager.php" afterPath="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/rest/RestUtils.php" afterPath="$PROJECT_DIR$/components/rest/RestUtils.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/js/landing.js" afterPath="$PROJECT_DIR$/public/res/js/landing.js" />
     </list>
     <ignored path="CatBee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,57 +30,94 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CampaignManager.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adapters/demo/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="5" selection-start="399" selection-end="399" vertical-scroll-proportion="-11.2">
+            <state line="11" column="76" selection-start="276" selection-end="276" vertical-scroll-proportion="-7.7">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/adapters/demo/index.php">
+      <file leaf-file-name="demoAdapter.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoAdapter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.17427386">
+            <state line="25" column="29" selection-start="538" selection-end="538" vertical-scroll-proportion="0.48427674">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RestUtils.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/rest/RestUtils.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="28" selection-start="53" selection-end="53" vertical-scroll-proportion="-2.8">
               <folding>
-                <marker date="1348728478281" expanded="true" signature="1100:1623" placeholder="..." />
+                <element signature="n#sendResponse#0;n#RestUtils#0;n#!!top" expanded="false" />
+                <element signature="n#getStatusCodeMessage#0;n#RestUtils#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="globals.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/globals.php">
+      <file leaf-file-name="CampaignManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="92" selection-end="161" vertical-scroll-proportion="-1.4">
+            <state line="2" column="0" selection-start="7" selection-end="76" vertical-scroll-proportion="-1.4">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goDeal.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="16" selection-start="149" selection-end="149" vertical-scroll-proportion="-4.2">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="email.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="149" selection-end="387" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="landing.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/res/js/landing.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="9" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deal.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/models/deal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="landing.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/post/landing.php">
+        <entry file="file://$PROJECT_DIR$/scripts/layouts/landing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="38" selection-end="734" vertical-scroll-proportion="-18.9">
+            <state line="16" column="0" selection-start="543" selection-end="666" vertical-scroll-proportion="-11.2">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="globals.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/globals.php">
+      <file leaf-file-name="landing.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/comps/inputforms/landing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="9" selection-start="385" selection-end="385" vertical-scroll-proportion="-8.2">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JsonCustomerAdapter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="7" selection-end="76" vertical-scroll-proportion="-1.4">
+            <state line="1" column="22" selection-start="36" selection-end="45" vertical-scroll-proportion="12.7">
               <folding />
             </state>
           </provider>
@@ -96,9 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/model/Campaign.php" />
-        <option value="$PROJECT_DIR$/model/Purchase.php" />
-        <option value="$PROJECT_DIR$/model/Share.php" />
         <option value="$PROJECT_DIR$/model/FriendDeal.php" />
         <option value="$PROJECT_DIR$/model/Order.php" />
         <option value="$PROJECT_DIR$/model/Customer.php" />
@@ -107,11 +144,14 @@
         <option value="$PROJECT_DIR$/components/adapters/json/JsonDealAdapter.php" />
         <option value="$PROJECT_DIR$/components/adapters/json/JsonPurchaseAdapter.php" />
         <option value="$PROJECT_DIR$/components/adapters/json/JsonPurchasesAdapter.php" />
-        <option value="$PROJECT_DIR$/components/rest/RestUtils.php" />
         <option value="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
         <option value="$PROJECT_DIR$/api/land/index.php" />
         <option value="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
+        <option value="$PROJECT_DIR$/adapters/demo/goDeal.php" />
+        <option value="$PROJECT_DIR$/public/res/js/landing.js" />
         <option value="$PROJECT_DIR$/adapters/demo/index.php" />
+        <option value="$PROJECT_DIR$/components/rest/RestUtils.php" />
+        <option value="$PROJECT_DIR$/adapters/demo/res/demoAdapter.js" />
       </list>
     </option>
   </component>
@@ -176,75 +216,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="post" />
+              <option name="myItemId" value="rest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,64 +235,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="campaign" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -335,6 +253,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -429,7 +369,11 @@
       <created>1348698546203</created>
       <updated>1348698546203</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new classes model">
+      <created>1348728496500</created>
+      <updated>1348728496500</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -442,11 +386,11 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31685576" sideWeight="0.54755783" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31685576" sideWeight="0.6709511" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29434448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -513,66 +457,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/Customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="98" selection-end="98" vertical-scroll-proportion="-4.9">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/layouts/landing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="30" selection-start="422" selection-end="422" vertical-scroll-proportion="-7.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/IModelAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="-4.9">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonDealAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="91" selection-end="91" vertical-scroll-proportion="-2.1">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonPurchaseAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="89" selection-end="89" vertical-scroll-proportion="-2.1">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonPurchasesAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="28" selection-start="313" selection-end="313" vertical-scroll-proportion="-9.1">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/rest/RestUtils.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="25" selection-start="6856" selection-end="6856" vertical-scroll-proportion="12.266666">
-          <folding>
-            <element signature="n#RestUtils#0;n#!!top" expanded="false" />
-            <element signature="n#sendResponse#0;n#RestUtils#0;n#!!top" expanded="false" />
-            <element signature="n#getStatusCodeMessage#0;n#RestUtils#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="92" selection-end="100" vertical-scroll-proportion="-4.9">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="0" selection-start="845" selection-end="845" vertical-scroll-proportion="-16.433332">
@@ -587,47 +471,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
+    <entry file="file://$PROJECT_DIR$/public/globals.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="7" selection-end="76" vertical-scroll-proportion="-1.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/globals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="9" selection-start="385" selection-end="385" vertical-scroll-proportion="-8.2">
+        <state line="2" column="0" selection-start="92" selection-end="161" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/post/landing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="38" selection-end="734" vertical-scroll-proportion="-18.9">
+        <state line="27" column="0" selection-start="38" selection-end="734" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/globals.php">
+    <entry file="file://$PROJECT_DIR$/scripts/globals.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="92" selection-end="161" vertical-scroll-proportion="-1.4">
+        <state line="16" column="9" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="-2.1">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/models/deal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/comps/inputforms/landing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="22" selection-start="36" selection-end="45" vertical-scroll-proportion="12.7">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="5" selection-start="399" selection-end="399" vertical-scroll-proportion="-11.2">
+        <state line="2" column="0" selection-start="7" selection-end="76" vertical-scroll-proportion="-1.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/res/js/landing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="9" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="16" selection-start="149" selection-end="149" vertical-scroll-proportion="-4.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="149" selection-end="387" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/layouts/landing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="543" selection-end="666" vertical-scroll-proportion="-11.2">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/adapters/demo/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.17427386">
+        <state line="11" column="76" selection-start="276" selection-end="276" vertical-scroll-proportion="-7.7">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/rest/RestUtils.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="28" selection-start="53" selection-end="53" vertical-scroll-proportion="-2.8">
           <folding>
-            <marker date="1348728478281" expanded="true" signature="1100:1623" placeholder="..." />
+            <element signature="n#sendResponse#0;n#RestUtils#0;n#!!top" expanded="false" />
+            <element signature="n#getStatusCodeMessage#0;n#RestUtils#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoAdapter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="29" selection-start="538" selection-end="538" vertical-scroll-proportion="0.48427674">
+          <folding />
         </state>
       </provider>
     </entry>

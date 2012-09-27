@@ -1,5 +1,7 @@
 $(document).ready(function() {
     CreateAndInitializeSlider();
+
+    SetFormPopup();
 });
 
 
@@ -17,6 +19,26 @@ function CreateAndInitializeSlider()
     });
 }
 
+function SetFormPopup()
+{
+    /*
+    $(".pnlBox").fancybox({
+        helpers : {
+            title : {
+                type : 'inside'
+            },
+            overlay : {
+                css : {
+                    'background' : 'rgba(238,238,238,0.85)'
+                }
+            }
+        }
+
+    });
+
+    $(".pnlBox").fancybox().trigger('click');
+*/
+}
 
 function updateRewards(sliderVal) {
 	$("#LeaderReward").val((3 - sliderVal) * 50);

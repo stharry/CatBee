@@ -1,42 +1,6 @@
 <?php
 
-    include('../../components/rest/RestUtils.php');
-//    foreach (glob("../model/*.php") as $filename){    include $filename;}
-
-    if (isset($_COOKIE["deal"]))
-    {
-
-        $order = array("order" => array(
-           "amount" => 76.00,
-            "id" => 123,
-            "purchases" => array(
-                "purchase" => array(
-                    "itemcode" => "123456789",
-                    "url" => "...",
-                    "price" => "76.00",
-                    "description" => ""
-                )
-            ),
-            "customer" => array(
-                "email" => "spidernah@gmail.com",
-                "firstName" => "Vadim",
-                "lastName" => "Regev",
-                "nickName" => "spidernah"
-            ),
-            "store" => array(
-                "authCode" => "demo",
-                "description" => "...",
-                "url" => "..."
-            )
-        ));
-
-        $restUtils = new RestUtils();
-        $restUtils->SendPostRequest("land", "", $order);
-
-        setcookie("deal" , '');
-        return;
-    }
-
+include_once $_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php";
 ?>
 
 <!DOCTYPE html>
@@ -45,22 +9,21 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <title>CatBee Demo</title>
 
-    <script>
-        function load()
-        {
-            setTimeout(
-                    function(){
-                        document.cookie = "deal=go";
-                            window.location="http://127.0.0.1:8887/CatBee/adapters/demo/index.php";
-                        }, 1500);
+    <link rel="stylesheet" type="text/css" media="all" href="/CatBee/public/res/css/jquery.fancybox.css">
 
-        }
-    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="/CatBee/public/res/js/jquery.fancybox.js"></script>
+    <script src="res/demoAdapter.js"></script>
 
 </head>
-<body background="res/PostPurchasePageForDemo.jpg" onload="load()">
-<iframe>
-
-</iframe>
+<body
+        background="res/PostPurchasePageForDemo.jpg"
+        onload="$('#autostart').trigger('click');"
+        >
+<a
+        id="autostart"
+        href="http://127.0.0.1:8887/CatBee/adapters/demo/goDeal.php"
+        ></a>
 </body>
 </html>
