@@ -6,4 +6,5 @@ class Order
     public $amount;
     public $purchases;
     public $customer;
+    public $store;
 }

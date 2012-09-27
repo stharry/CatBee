@@ -23,7 +23,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php";
         >
 <a
         id="autostart"
-        href="http://127.0.0.1:8887/CatBee/adapters/demo/goDeal.php"
+        href="/CatBee/adapters/demo/goDeal.php"
         ></a>
 </body>
 </html>

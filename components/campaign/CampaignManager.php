@@ -3,11 +3,38 @@
 include_once $_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php";
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Order.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/LandingDeal.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/ICustomerDao.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/PdoCustomerDao.php");
 
 class CampaignManager
 {
+    private function GetCustomerDao()
+    {
+        return new PdoCustomerDao();
+    }
+    private function checkCustomer($customer)
+    {
+        $customerDao = $this->GetCustomerDao();
+
+        if (!$customerDao->IsCustomerExists($customer))
+        {
+            $customerDao->InsertCustomer($customer);
+        }
+        return true;
+    }
+
+    private function checkStore($store)
+    {
+        true;
+
+    }
+
     private function validateOrder($order)
     {
+        if (!$this->checkCustomer($order->customer)) return false;
+
+        if (!$this->checkStore($order->store)) return false;
+
         return true;
     }
 
@@ -54,11 +81,11 @@ class CampaignManager
 
     public function pushCampaign($order)
     {
-        $this->validateOrder($order) or die ("customer is not valid");
+        //$this->validateOrder($order) or die ("customer is not valid");
 
-        $landing = $this->getLeaderLanding($order) or die("Cannot get landing page for given store");
+        //$landing = $this->getLeaderLanding($order) or die("Cannot get landing page for given store");
 
-        $leaderDeal = $this->createPendingDeal($landing);
+        //$leaderDeal = $this->createPendingDeal($landing);
 
         $this->showLeaderDeal($leaderDeal);
     }

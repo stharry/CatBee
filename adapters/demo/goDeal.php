@@ -22,9 +22,7 @@ $order = array("order" => array(
         "nickName" => "spidernah"
     ),
     "store" => array(
-        "authCode" => "demo",
-        "description" => "...",
-        "url" => "..."
+        "authCode" => "19FB6C0C-3943-44D0-A40F-3DC401CB3703",
     ),
     "render" => array(
         "popup" => true

@@ -4,6 +4,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Order.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
 include_once("JsonCustomerAdapter.php");
 include_once("JsonPurchasesAdapter.php");
+include_once("JsonStoreAdapter.php");
 
 class JsonOrderAdapter implements IModelAdapter
 {
@@ -18,6 +19,7 @@ class JsonOrderAdapter implements IModelAdapter
 
         $jsonCustomerAdapter = new JsonCustomerAdapter();
         $jsonPurchasesAdapter = new JsonPurchasesAdapter();
+        $jsonStoreAdapter = new JsonStoreAdapter();
 
         $orderProps = $obj["order"];
 
@@ -30,6 +32,7 @@ class JsonOrderAdapter implements IModelAdapter
 
         $order->purchases = $jsonPurchasesAdapter->fromArray($orderProps["purchases"]);
 
+        $order->store = $jsonStoreAdapter->fromArray($orderProps["store"]);
         return $order;
     }
 }
