@@ -3,21 +3,51 @@
   <component name="AnalysisUIOptions">
     <option name="ANALYSIS_IN_BACKGROUND" value="true" />
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/components/campaign/CampaignManager.php" line="5" />
+    <bookmark url="file://$PROJECT_DIR$/components/dao/DbManager.php" line="92" mnemonic="1" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonStoreAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/ICustomerDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/IStoreDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/DbManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoStoreDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/dbTests.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/campaign/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonCampaignAdapter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonLeaderLandingAdapter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonRewardAdapter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/campaign/DefaultCampaignStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/DbManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingRewardDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/deal/DealManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/components/ICampaignManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/components/ICampaignStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/components/IDealManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ICampaignDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ICustomerDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/IDealDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ILeaderLandingDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ILeaderLandingRewardDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/IStoreDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/DemoCampaign.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/DemoOrder.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/makeCampaign.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/pushDeal.php" />
+      <change type="DELETED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\components\dao\ICustomerDao.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\components\dao\IStoreDao.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\components\dao\PDO\DbManager.php" afterPath="" />
+      <change type="MOVED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\api\land\index.php" afterPath="$PROJECT_DIR$/api/deal/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/goDeal.php" afterPath="$PROJECT_DIR$/adapters/demo/goDeal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/index.php" afterPath="$PROJECT_DIR$/adapters/demo/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonStoreAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonStoreAdapter.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/campaign/CampaignManager.php" afterPath="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Order.php" afterPath="$PROJECT_DIR$/model/Order.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoStoreDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoStoreDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/LeaderDeal.php" afterPath="$PROJECT_DIR$/model/LeaderDeal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Reward.php" afterPath="$PROJECT_DIR$/model/Reward.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/layouts/landing.php" afterPath="$PROJECT_DIR$/scripts/layouts/landing.php" />
     </list>
     <ignored path="CatBee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,94 +67,91 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="goDeal.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
+      <file leaf-file-name="pushDeal.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/pushDeal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="-3.5">
+            <state line="29" column="24" selection-start="1164" selection-end="1164" vertical-scroll-proportion="-19.678572">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Campaign.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Campaign.php">
+      <file leaf-file-name="DealManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="22" column="27" selection-start="562" selection-end="562" vertical-scroll-proportion="-14.928572">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CampaignManager.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="IDealManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/components/IDealManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="-3.392857">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ILeaderLandingStrategy.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="32" selection-start="17" selection-end="39" vertical-scroll-proportion="-1.3571428">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultLeaderLandingStrategy.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="34" selection-start="195" selection-end="209" vertical-scroll-proportion="-4.75">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultCampaignStrategy.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/campaign/DefaultCampaignStrategy.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="7" selection-end="97" vertical-scroll-proportion="-2.0357144">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ICampaignManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/components/ICampaignManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="39" selection-start="101" selection-end="120" vertical-scroll-proportion="-4.071429">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CampaignManager.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="28" selection-start="2032" selection-end="2032" vertical-scroll-proportion="-13.966666">
+            <state line="81" column="0" selection-start="2230" selection-end="2230" vertical-scroll-proportion="0.58815026">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RestUtils.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/rest/RestUtils.php">
+      <file leaf-file-name="PdoCustomerDao.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="9" selection-start="212" selection-end="212" vertical-scroll-proportion="-7.7">
-              <folding>
-                <element signature="n#sendResponse#0;n#RestUtils#0;n#!!top" expanded="false" />
-                <element signature="n#getStatusCodeMessage#0;n#RestUtils#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JsonCustomerAdapter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="11" column="20" selection-start="296" selection-end="296" vertical-scroll-proportion="-7.464286">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonOrderAdapter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php">
+      <file leaf-file-name="makeCampaign.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/makeCampaign.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="-4.9">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="landing.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/post/landing.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inviteFriendViaEmail.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assorted/email/inviteFriendViaEmail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="33" selection-start="297" selection-end="297" vertical-scroll-proportion="7.366667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="landing.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/comps/inputforms/landing.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="43" selection-start="860" selection-end="860" vertical-scroll-proportion="0.3">
+            <state line="29" column="0" selection-start="1078" selection-end="1093" vertical-scroll-proportion="-19.678572">
               <folding />
             </state>
           </provider>
@@ -143,22 +170,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/adapters/demo/index.php" />
-        <option value="$PROJECT_DIR$/components/rest/RestUtils.php" />
-        <option value="$PROJECT_DIR$/components/rest/DbManager.php" />
-        <option value="$PROJECT_DIR$/model/dao/ICustomerDao.php" />
-        <option value="$PROJECT_DIR$/model/dao/PDO/PdoCustomerDao.php" />
-        <option value="$PROJECT_DIR$/components/dao/ICustomerDao.php" />
-        <option value="$PROJECT_DIR$/model/Order.php" />
-        <option value="$PROJECT_DIR$/tests/dbTests.php" />
+        <option value="$PROJECT_DIR$/model/components/ICampaignStrategy.php" />
+        <option value="$PROJECT_DIR$/components/campaign/DefaultCampaignStrategy.php" />
+        <option value="$PROJECT_DIR$/tests/json/DemoOrder.json" />
+        <option value="$PROJECT_DIR$/model/dao/DealDao.php" />
+        <option value="$PROJECT_DIR$/model/dao/IDealDao.php" />
+        <option value="$PROJECT_DIR$/model/LeaderDeal.php" />
+        <option value="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
+        <option value="$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php" />
+        <option value="$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php" />
+        <option value="$PROJECT_DIR$/model/components/ICampaignManager.php" />
+        <option value="$PROJECT_DIR$/model/components/IDealManager.php" />
+        <option value="$PROJECT_DIR$/components/deal/DealManager.php" />
         <option value="$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php" />
-        <option value="$PROJECT_DIR$/components/dao/IStoreDao.php" />
-        <option value="$PROJECT_DIR$/components/dao/PDO/PdoStoreDao.php" />
-        <option value="$PROJECT_DIR$/adapters/demo/goDeal.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonStoreAdapter.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
+        <option value="$PROJECT_DIR$/tests/json/makeCampaign.php" />
+        <option value="$PROJECT_DIR$/tests/json/pushDeal.php" />
         <option value="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
-        <option value="$PROJECT_DIR$/components/dao/PDO/DbManager.php" />
       </list>
     </option>
   </component>
@@ -237,7 +264,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -251,11 +282,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comps" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -269,15 +296,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="comps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inputforms" />
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -291,65 +314,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="post" />
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -384,6 +353,68 @@
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Landing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PDO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -416,68 +447,6 @@
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assorted" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="email" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="land" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -494,28 +463,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -528,7 +475,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
-    <property name="options.lastSelected" value="settings.github" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TribZi" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -540,11 +487,11 @@
       <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\assorted\email" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\components\dao" />
+      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\model\dao" />
+      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\tests" />
+      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\adapters\demo\json" />
       <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\components\dao\PDO" />
-      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\components" />
-      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\services\rest" />
-      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee" />
-      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\model" />
     </key>
   </component>
   <component name="RunManager">
@@ -618,11 +565,35 @@
       <created>1348735106359</created>
       <updated>1348735106359</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new classes model">
+      <created>1348747944859</created>
+      <updated>1348747944859</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1288" height="938" extended-state="0" />
+    <frame x="-4" y="-4" width="1288" height="938" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -633,9 +604,9 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3395462" sideWeight="0.6709511" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29659644" sideWeight="0.54755783" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29434448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -702,115 +673,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/dbTests.php">
+    <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="26" selection-start="105" selection-end="105" vertical-scroll-proportion="-2.1">
+        <state line="24" column="59" selection-start="625" selection-end="661" vertical-scroll-proportion="-16.285715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/DemoOrder.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="7" selection-end="142" vertical-scroll-proportion="-1.3571428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/dao/IDealDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="1" selection-start="153" selection-end="153" vertical-scroll-proportion="-6.107143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/LeaderDeal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="-12.892858">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="756" selection-end="756" vertical-scroll-proportion="-16.964285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="32" selection-start="17" selection-end="39" vertical-scroll-proportion="-1.3571428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/campaign/DefaultCampaignStrategy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="7" selection-end="97" vertical-scroll-proportion="-2.0357144">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="34" selection-start="195" selection-end="209" vertical-scroll-proportion="-4.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/components/ICampaignManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="39" selection-start="101" selection-end="120" vertical-scroll-proportion="-4.071429">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/components/IDealManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="-3.392857">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="44" selection-start="828" selection-end="841" vertical-scroll-proportion="-11.2">
+        <state line="11" column="20" selection-start="296" selection-end="296" vertical-scroll-proportion="-7.464286">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/DbManager.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/makeCampaign.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="11" selection-start="440" selection-end="440" vertical-scroll-proportion="-9.733334">
+        <state line="29" column="0" selection-start="1078" selection-end="1093" vertical-scroll-proportion="-19.678572">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/comps/inputforms/form.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/pushDeal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="29" column="24" selection-start="1164" selection-end="1164" vertical-scroll-proportion="-19.678572">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assorted/email/mailViewTest.php">
+    <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="199" selection-end="199" vertical-scroll-proportion="-5.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assorted/email/inviteFriendViaEmail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="33" selection-start="297" selection-end="297" vertical-scroll-proportion="7.366667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="-3.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Campaign.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/images/Twitter.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/rest/RestUtils.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="9" selection-start="212" selection-end="212" vertical-scroll-proportion="-7.7">
-          <folding>
-            <element signature="n#sendResponse#0;n#RestUtils#0;n#!!top" expanded="false" />
-            <element signature="n#getStatusCodeMessage#0;n#RestUtils#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="-4.9">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/post/landing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="22" column="27" selection-start="562" selection-end="562" vertical-scroll-proportion="-14.928572">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="28" selection-start="2032" selection-end="2032" vertical-scroll-proportion="-13.966666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/comps/inputforms/landing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="43" selection-start="860" selection-end="860" vertical-scroll-proportion="0.3">
+        <state line="81" column="0" selection-start="2230" selection-end="2230" vertical-scroll-proportion="0.58815026">
           <folding />
         </state>
       </provider>

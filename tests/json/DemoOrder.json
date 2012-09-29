@@ -1,0 +1,21 @@
+{
+    "amount":"76",
+    "id":"123",
+    "purchases":[
+        {
+            "itemcode":"1234567890",
+            "url":"http://TribZi/Demo/Items/1234567890.jpeg",
+            "price":"76.00",
+            "description":"toy"
+        }
+    ],
+    "customer":{
+        "email": "spidernah@gmail.com",
+        "firstName": "Vadim",
+        "lastName": "Regev",
+        "nickName": "spidernah"
+    },
+    "store":{
+        "authCode": "19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+    }
+}

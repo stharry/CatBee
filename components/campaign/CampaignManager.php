@@ -3,91 +3,88 @@
 include_once $_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php";
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Order.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/LandingDeal.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/ICustomerDao.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/PdoCustomerDao.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/components/ICampaignManager.php");
 
-class CampaignManager
+class CampaignManager implements ICampaignManager
 {
-    private function GetCustomerDao()
+    private $storeDao;
+    private $customerDao;
+    private $campaignDao;
+    private $campaignStrategy;
+    private $landingStrategy;
+
+    function __construct($storeDao, $customerDao, $campaignDao,
+                         $campaignStrategy, $landingStrategy)
     {
-        return new PdoCustomerDao();
+        $this->storeDao = $storeDao;
+        $this->customerDao = $customerDao;
+        $this->campaignDao = $campaignDao;
+        $this->campaignStrategy = $campaignStrategy;
+        $this->landingStrategy = $landingStrategy;
+
     }
+
     private function checkCustomer($customer)
     {
-        $customerDao = $this->GetCustomerDao();
-
-        if (!$customerDao->IsCustomerExists($customer))
+        if (!$this->customerDao->IsCustomerExists($customer))
         {
-            $customerDao->InsertCustomer($customer);
+            $this->customerDao->InsertCustomer($customer);
         }
         return true;
     }
 
     private function checkStore($store)
     {
-        true;
-
+        if (!$this->storeDao->isStoreExists($store))
+        {
+            $this->storeDao->insertStore($store);
+        }
+        return true;
     }
 
     private function validateOrder($order)
     {
-        if (!$this->checkCustomer($order->customer)) return false;
+        if (!$this->checkCustomer($order->customer)) die("Unknown customer");
 
-        if (!$this->checkStore($order->store)) return false;
+        if (!$this->checkStore($order->store)) die ("Unknown store");
 
-        return true;
     }
 
-    private  function  getLeaderLanding($order)
+    private function getValidCampaigns($store)
     {
-        return true;
+        return $this->getCampaigns($store);
     }
 
-    private function createPendingDeal($landing)
+    private function chooseCompatibleCampaign($campaigns, $order)
     {
-        $leaderDeal = new LeaderDeal();
-
-        return $leaderDeal;
+        return $this->campaignStrategy->chooseCampaign($campaigns, $order);
     }
 
-    private function showLeaderDeal($leaderDeal)
+    public function chooseCampaign($order)
     {
-        includeModel("slogan");
-        includeModel("sliderPhrase");
-        includeModel("leaderReward");
+        $this->validateOrder($order);
 
-//$temp = new slogan('a','b');
-        $slogan = slogan::getSlogan('DefCamp');
+        $campaigns = $this->getValidCampaigns($order->store);
 
-//temp vad todo: remove it
-        $slogan->firstLine = "You got the power!!!";
-        $slogan->secondLine = "Create an Awesome Deal";
-
-        $temp1 = new sliderPhrase('a','b');
-        $sliderPhrase= $temp1->getSliderPhrase('DefCamp');
-
-        $temp2 = new leaderReward('1','b','a','d',10);
-        $leaderReward= $temp2->getleaderReward('DefCamp');
-
-        $GLOBALS["page_title"] = "CatBee Landing Page";
-        $GLOBALS["title"] = $slogan->firstLine;
-        $GLOBALS["subtitle"] = $slogan->secondLine;
-
-        catbeeLayoutComp($layout, "inputforms/landing",$sliderPhrase);
-
-        catbeeLayout($layout, 'landing');
-
+        return $this->chooseCompatibleCampaign($campaigns, $order);
     }
 
-    public function pushCampaign($order)
+    public function getCampaigns($store)
     {
-        //$this->validateOrder($order) or die ("customer is not valid");
-
-        //$landing = $this->getLeaderLanding($order) or die("Cannot get landing page for given store");
-
-        //$leaderDeal = $this->createPendingDeal($landing);
-
-        $this->showLeaderDeal($leaderDeal);
+        return $this->campaignDao->getCampaigns($store);
     }
 
+    public function saveCampaign($campaign)
+    {
+        $this->checkStore($campaign->store);
+
+        $this->checkCustomer($campaign->customer);
+
+        $this->campaignDao->insertCampaign($campaign);
+    }
+
+    public function chooseLeaderLanding($campaign, $order)
+    {
+        return $this->landingStrategy->chooseStrategy($campaign, $order);
+    }
 }

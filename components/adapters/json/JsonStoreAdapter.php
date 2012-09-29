@@ -17,6 +17,8 @@ class JsonStoreAdapter implements  IModelAdapter
         $store = new Store();
 
         $store->authCode = $obj["authCode"];
+        $store->description = $obj["description"];
+        $store->url = $obj["url"];
 
         return $store;
     }

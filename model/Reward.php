@@ -3,7 +3,8 @@
 class Reward
 {
     public $id;
-    public $amount;
+    public $value;
     public $type;
-    public $couponCode;
+    public $code;
+    public $description;
 }

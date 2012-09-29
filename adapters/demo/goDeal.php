@@ -30,5 +30,5 @@ $order = array("order" => array(
 ));
 
 $restUtils = new RestUtils();
-$restUtils->SendPostRequest("land", "", $order);
+$restUtils->SendPostRequest("deal", "", $order);
 

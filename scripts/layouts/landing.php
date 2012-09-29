@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <!--Todo Ask Ais about js caching-->
         <meta http-equiv="Cache-control" content="no-cache">
 		<title><?php echo $GLOBALS["page_title"] ?></title>
 
