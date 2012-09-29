@@ -52,7 +52,10 @@ class CampaignManager implements ICampaignManager
 
     private function getValidCampaigns($store)
     {
-        return $this->getCampaigns($store);
+        $campaignFilter = new CampaignFilter();
+        $campaignFilter->storeCode = $store->authCode;
+
+        return $this->getCampaigns($campaignFilter);
     }
 
     private function chooseCompatibleCampaign($campaigns, $order)
@@ -62,6 +65,8 @@ class CampaignManager implements ICampaignManager
 
     public function chooseCampaign($order)
     {
+        //echo "</p>choose campaign";
+
         $this->validateOrder($order);
 
         $campaigns = $this->getValidCampaigns($order->store);
@@ -69,22 +74,20 @@ class CampaignManager implements ICampaignManager
         return $this->chooseCompatibleCampaign($campaigns, $order);
     }
 
-    public function getCampaigns($store)
+    public function getCampaigns($campaignFilter)
     {
-        return $this->campaignDao->getCampaigns($store);
+        return $this->campaignDao->getCampaigns($campaignFilter);
     }
 
     public function saveCampaign($campaign)
     {
         $this->checkStore($campaign->store);
 
-        $this->checkCustomer($campaign->customer);
-
         $this->campaignDao->insertCampaign($campaign);
     }
 
     public function chooseLeaderLanding($campaign, $order)
     {
-        return $this->landingStrategy->chooseStrategy($campaign, $order);
+        return $this->landingStrategy->chooseLeaderLanding($campaign, $order);
     }
 }

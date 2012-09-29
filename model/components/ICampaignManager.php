@@ -6,7 +6,7 @@ interface ICampaignManager
 
     public function chooseLeaderLanding($campaign, $order);
 
-    public function getCampaigns($store);
+    public function getCampaigns($campaignFilter);
 
     public function saveCampaign($campaign);
 }

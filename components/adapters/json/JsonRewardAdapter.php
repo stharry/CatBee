@@ -6,10 +6,30 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapte
 
 class JsonRewardAdapter implements IModelAdapter
 {
+    private function singleRewardToArray($reward)
+    {
+        return
+            array("value" => $reward->value,
+                "code" => $reward->code,
+                "type" => $reward->type,
+                "description" => $reward->description);
+
+    }
 
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        $landingRewardsProps = array();
+
+        foreach ($obj as $landingReward)
+        {
+            $singleRewardProps = array(
+                "leaderReward" => $this->singleRewardToArray($landingReward->leaderReward),
+                "friendReward" => $this->singleRewardToArray($landingReward->friendReward)
+            );
+            array_push($landingRewardsProps, $singleRewardProps);
+        }
+
+        return $landingRewardsProps;
     }
 
     public function fromArray($obj)

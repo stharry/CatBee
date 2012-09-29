@@ -4,7 +4,7 @@ interface ICampaignDao
 {
     public function isCampaignExists($campaign);
 
-    public function getCampaigns($store);
+    public function getCampaigns($campaignFilter);
 
     public function insertCampaign($campaign);
 

@@ -5,7 +5,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/components/ILeaderLandingS
 class DefaultLeaderLandingStrategy implements ILeaderLandingStrategy
 {
 
-    public function chooseStrategy($campaign, $order)
+    public function chooseLeaderLanding($campaign, $order)
     {
         return $campaign->landings[0];
     }

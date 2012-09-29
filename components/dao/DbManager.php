@@ -1,6 +1,6 @@
 <?php
 
-include_once("/CatBee/scripts/global.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php");
 
 class DbManager
 {
@@ -65,13 +65,16 @@ class DbManager
         $conn = DbManager::getConnection();
         $stmt = $conn->prepare($selectExpression);
 
-        $paramInd = 1;
+        $paramNo = 1;
         foreach ($params as $key => $value) {
-            $stmt->bindValue($paramInd, $key, $value);
+            $stmt->bindValue($paramNo, $key, $value);
+            $paramNo++;
         }
         $stmt->execute();
 
         if ($stmt->rowCount() == 0) {
+            //echo "</p> There is nothing to return in: ".$selectExpression;
+            //var_dump($params);
             return null;
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -88,7 +91,8 @@ class DbManager
 
         $params = DbManager::buildParameters($fieldNames, $fieldValues);
 
-        echo "</p> insert to <".$table."> as : ".$expr."</p>";
+        //echo "</p> insert to <".$table."> as : ".$expr."</p>";
+        //var_dump($params);
 
         return DbManager::setValues($expr,  $params);
     }
@@ -98,7 +102,7 @@ class DbManager
         try {
             $conn = DbManager::insert($table, $fieldNames, $fieldValues);
 
-            echo "</p>before get last id</p>";
+            //echo "</p>before get last id</p>";
 
             return $conn->lastInsertId($idColumnName);
 

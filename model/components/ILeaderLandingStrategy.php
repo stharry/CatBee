@@ -2,6 +2,6 @@
 
 interface ILeaderLandingStrategy
 {
-    public function chooseStrategy($campaign, $order);
+    public function chooseLeaderLanding($campaign, $order);
 
 }

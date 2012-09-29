@@ -2,12 +2,19 @@
 error_reporting(E_ERROR);
 //require_once "Mail.php";
 $dirBase = $_SERVER['DOCUMENT_ROOT']."/CatBee";
-$dbhost = "localhost:3307";
-$dbusername = "root";
-$dbpassword = "Abcd1234";
-$dbname = "catbee";
-$smtphost ="localhost";
-$smtpport = 25;
+
+$catBeeParams = parse_ini_file($dirBase."/COnfig/config.ini");
+
+$dbhost = $catBeeParams["catbee_db_host"];
+$dbusername = $catBeeParams["catbee_db_user"];
+$dbpassword = $catBeeParams["catbee_db_pass"];
+$dbname = $catBeeParams["catbee_db_name"];
+
+$smtphost =$catBeeParams["catbee_email_hostname"];
+$smtpport = $catBeeParams["catbee_email_hostport"];
+$smtpuser = $catBeeParams["catbee_email_hostpass"];
+$smtppass = $catBeeParams[""];
+
 $rootPath = "/CatBee/public/";
 
 function includeScript($name, &$p) {

@@ -1,19 +1,49 @@
 <?php
 
-include('../../components/rest/RestUtils.php');
-include('../../components/campaign/CampaignManager.php');
-include('../../components/adapters/json/JsonOrderAdapter.php');
-include('../../components/adapters/json/JsonDealAdapter.php');
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/rest/RestUtils.php");
 
-$campaignProps = RestUtils::processRequest() or die("Basa");
+foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/json/*.php") as $filename) include_once($filename);
+foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/*.php") as $filename) include_once($filename);
 
-$orderAdapter = new JsonOrderAdapter();
-$order = $orderAdapter->fromArray($orderProps->getRequestVars());
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/campaign/CampaignManager.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/deal/DealManager.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/campaign/DefaultCampaignStrategy.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/landing/DefaultLeaderLandingStrategy.php");
 
-$campaignManager = new CampaignManager();
-$deal = $campaignManager->pushCampaign($order);
+$campaignProps = RestUtils::processRequest()->getRequestVars() or die("Campaign format is wrong");
+$action = $campaignProps["action"];
+$context = $campaignProps["context"];
 
-$jsonDealAdapter = new JsonDealAdapter();
-$dealProps = $jsonDealAdapter->toArray($deal);
+$campaignManager = new CampaignManager(new PdoStoreDao(),
+    new PdoCustomerDao(),
+    new PdoCampaignDao(
+        new PdoLeaderLandingDao(
+            new PdoLeaderLandingRewardDao())),
+    new DefaultCampaignStrategy(),
+    new DefaultLeaderLandingStrategy());
 
-RestUtils::sendResponse(0, $dealProps);
+switch ($action)
+{
+    case "get":
+        $campaignFilterAdapter = new JsonCampaignFilterAdapter();
+        $campaignFilter = $campaignFilterAdapter->fromArray($context);
+
+        $campaigns = $campaignManager->getCampaigns($campaignFilter);
+        $campaignAdapter = new JsonCampaignAdapter();
+
+        $campaignsProps = $campaignAdapter->toArray($campaigns);
+
+        RestUtils::sendResponse(0, $campaignsProps);
+
+        break;
+
+    case "push":
+        $campaignAdapter = new JsonCampaignAdapter();
+        $campaign = $campaignAdapter->fromArray($context);
+
+        $campaignManager->saveCampaign($campaign);
+
+        RestUtils::sendResponse(0, "OK");
+        break;
+
+}

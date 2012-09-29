@@ -2,12 +2,38 @@
 
 class RestUtils
 {
+    public function SendGetRequest($api, $id, $obj)
+    {
+        $url = "http://127.0.0.1:8887/CatBee/api/{$api}/";
+
+        if (isset($id)) {
+            $url .= $id;
+        }
+
+        $getData = http_build_query($obj);
+
+        echo "get data: ".$getData;
+
+        $opts = array('http' =>
+            array(
+                'method' => 'GET',
+                'content' => $getData
+            )
+        );
+
+        $context = stream_context_create($opts);
+
+        $response = file_get_contents($url, false, $context);
+
+        return $response;
+
+    }
+
     public function SendPostRequest($api, $id, $obj)
     {
         $url = "http://127.0.0.1:8887/CatBee/api/{$api}/";
 
-        if (isset($id))
-        {
+        if (isset($id)) {
             $url .= $id;
         }
 
@@ -30,12 +56,11 @@ class RestUtils
     {
         // get our verb
         $request_method = strtolower($_SERVER['REQUEST_METHOD']);
-        $return_obj     = new RestRequest();
+        $return_obj = new RestRequest();
         // we'll store our data here
-        $data           = array();
+        $data = array();
 
-        switch ($request_method)
-        {
+        switch ($request_method) {
             // gets are easy...
             case 'get':
                 $data = $_GET;
@@ -62,8 +87,7 @@ class RestUtils
         // other pieces to your requests)
         $return_obj->setRequestVars($data);
 
-        if(isset($data['data']))
-        {
+        if (isset($data['data'])) {
             // translate the JSON to an Object for use however you want
             $return_obj->setData(json_decode($data['data']));
         }
@@ -79,32 +103,25 @@ class RestUtils
         header('Content-type: ' . $content_type);
 
         // pages with body are easy
-        if($body != '')
-        {
+        if ($body != '') {
             // send the body
-            if (is_array($body))
-            {
+            if (is_array($body)) {
                 $bodyStr = stripslashes(json_encode($body));
-            }
-            else
-            {
+            } else {
                 $bodyStr = $body;
             }
 
             echo $bodyStr;
             exit;
-        }
-        // we need to create the body if none is passed
-        else
-        {
+        } // we need to create the body if none is passed
+        else {
             // create some body messages
             $message = '';
 
             // this is purely optional, but makes the pages a little nicer to read
             // for your users.  Since you won't likely send a lot of different status codes,
             // this also shouldn't be too ponderous to maintain
-            switch($status)
-            {
+            switch ($status) {
                 case 401:
                     $message = 'You must be authorized to view this page.';
                     break;

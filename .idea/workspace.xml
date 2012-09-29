@@ -5,49 +5,44 @@
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/components/campaign/CampaignManager.php" line="5" />
-    <bookmark url="file://$PROJECT_DIR$/components/dao/DbManager.php" line="92" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/components/dao/DbManager.php" line="96" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/campaign/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonCampaignAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonLeaderLandingAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonRewardAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/campaign/DefaultCampaignStrategy.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/DbManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingRewardDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/deal/DealManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/components/ICampaignManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/components/ICampaignStrategy.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/components/IDealManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ICampaignDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ICustomerDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/IDealDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ILeaderLandingDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ILeaderLandingRewardDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/IStoreDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/DemoCampaign.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/DemoOrder.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/makeCampaign.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/pushDeal.php" />
-      <change type="DELETED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\components\dao\ICustomerDao.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\components\dao\IStoreDao.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\components\dao\PDO\DbManager.php" afterPath="" />
-      <change type="MOVED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\api\land\index.php" afterPath="$PROJECT_DIR$/api/deal/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Config/config.ini" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/share/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonCampaignFilterAdapter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/CampaignFilter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/getCampaigns.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/getCampaigns.php" />
+      <change type="DELETED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\dbTests.php" afterPath="" />
+      <change type="MOVED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json\DemoCampaign.json" afterPath="$PROJECT_DIR$/tests/json/pushCampaign.json" />
+      <change type="MOVED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json\DemoOrder.json" afterPath="$PROJECT_DIR$/tests/json/pushDeal.json" />
+      <change type="MOVED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json\makeCampaign.php" afterPath="$PROJECT_DIR$/tests/json/pushCampaign.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/goDeal.php" afterPath="$PROJECT_DIR$/adapters/demo/goDeal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/campaign/index.php" afterPath="$PROJECT_DIR$/api/campaign/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/deal/index.php" afterPath="$PROJECT_DIR$/api/deal/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php" afterPath="$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonCampaignAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonCampaignAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonLeaderLandingAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonLeaderLandingAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonRewardAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonRewardAdapter.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonStoreAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonStoreAdapter.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/campaign/CampaignManager.php" afterPath="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/DbManager.php" afterPath="$PROJECT_DIR$/components/dao/DbManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoStoreDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoStoreDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/LeaderDeal.php" afterPath="$PROJECT_DIR$/model/LeaderDeal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Reward.php" afterPath="$PROJECT_DIR$/model/Reward.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/layouts/landing.php" afterPath="$PROJECT_DIR$/scripts/layouts/landing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingRewardDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingRewardDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/deal/DealManager.php" afterPath="$PROJECT_DIR$/components/deal/DealManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/rest/RestUtils.php" afterPath="$PROJECT_DIR$/components/rest/RestUtils.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/components/ICampaignManager.php" afterPath="$PROJECT_DIR$/model/components/ICampaignManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php" afterPath="$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/dao/ICampaignDao.php" afterPath="$PROJECT_DIR$/model/dao/ICampaignDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/dao/IDealDao.php" afterPath="$PROJECT_DIR$/model/dao/IDealDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/globals.php" afterPath="$PROJECT_DIR$/scripts/globals.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/pushDeal.php" afterPath="$PROJECT_DIR$/tests/json/pushDeal.php" />
     </list>
     <ignored path="CatBee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,10 +62,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pushDeal.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/json/pushDeal.php">
+      <file leaf-file-name="DbManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/dao/DbManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="24" selection-start="1164" selection-end="1164" vertical-scroll-proportion="-19.678572">
+            <state line="116" column="5" selection-start="3340" selection-end="3340" vertical-scroll-proportion="-11.821428">
               <folding />
             </state>
           </provider>
@@ -79,61 +74,70 @@
       <file leaf-file-name="DealManager.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="27" selection-start="562" selection-end="562" vertical-scroll-proportion="-14.928572">
+            <state line="73" column="27" selection-start="2089" selection-end="2089" vertical-scroll-proportion="-19.964285">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IDealManager.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/components/IDealManager.php">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/deal/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="-3.392857">
+            <state line="27" column="0" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.32658958">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ILeaderLandingStrategy.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php">
+      <file leaf-file-name="LandingReward.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/LandingReward.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="32" selection-start="17" selection-end="39" vertical-scroll-proportion="-1.3571428">
+            <state line="5" column="24" selection-start="57" selection-end="69" vertical-scroll-proportion="-3.392857">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultLeaderLandingStrategy.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php">
+      <file leaf-file-name="LeaderLanding.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/LeaderLanding.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="34" selection-start="195" selection-end="209" vertical-scroll-proportion="-4.75">
+            <state line="12" column="0" selection-start="228" selection-end="228" vertical-scroll-proportion="-8.142858">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultCampaignStrategy.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/campaign/DefaultCampaignStrategy.php">
+      <file leaf-file-name="PdoDealDao.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="7" selection-end="97" vertical-scroll-proportion="-2.0357144">
+            <state line="16" column="0" selection-start="417" selection-end="417" vertical-scroll-proportion="-10.857142">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ICampaignManager.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/components/ICampaignManager.php">
+      <file leaf-file-name="LeaderDeal.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/LeaderDeal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="39" selection-start="101" selection-end="120" vertical-scroll-proportion="-4.071429">
+            <state line="14" column="33" selection-start="319" selection-end="340" vertical-scroll-proportion="-9.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CampaignManager.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JsonOrderAdapter.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="29" selection-start="743" selection-end="743" vertical-scroll-proportion="-15.535714">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CampaignManager.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="0" selection-start="2230" selection-end="2230" vertical-scroll-proportion="0.58815026">
+            <state line="48" column="0" selection-start="1409" selection-end="1409" vertical-scroll-proportion="-13.642858">
               <folding />
             </state>
           </provider>
@@ -142,16 +146,7 @@
       <file leaf-file-name="PdoCustomerDao.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="20" selection-start="296" selection-end="296" vertical-scroll-proportion="-7.464286">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="makeCampaign.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/json/makeCampaign.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="1078" selection-end="1093" vertical-scroll-proportion="-19.678572">
+            <state line="27" column="0" selection-start="855" selection-end="855" vertical-scroll-proportion="-16.892857">
               <folding />
             </state>
           </provider>
@@ -170,22 +165,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/model/components/ICampaignStrategy.php" />
-        <option value="$PROJECT_DIR$/components/campaign/DefaultCampaignStrategy.php" />
-        <option value="$PROJECT_DIR$/tests/json/DemoOrder.json" />
-        <option value="$PROJECT_DIR$/model/dao/DealDao.php" />
+        <option value="$PROJECT_DIR$/tests/json/pushDeal.json" />
+        <option value="$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php" />
+        <option value="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingDao.php" />
+        <option value="$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingRewardDao.php" />
         <option value="$PROJECT_DIR$/model/dao/IDealDao.php" />
-        <option value="$PROJECT_DIR$/model/LeaderDeal.php" />
-        <option value="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
+        <option value="$PROJECT_DIR$/tests/json/pushDeal.php" />
+        <option value="$PROJECT_DIR$/api/campaign/index.php" />
+        <option value="$PROJECT_DIR$/api/deal/index.php" />
         <option value="$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php" />
         <option value="$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php" />
-        <option value="$PROJECT_DIR$/model/components/ICampaignManager.php" />
-        <option value="$PROJECT_DIR$/model/components/IDealManager.php" />
-        <option value="$PROJECT_DIR$/components/deal/DealManager.php" />
+        <option value="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
         <option value="$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php" />
-        <option value="$PROJECT_DIR$/tests/json/makeCampaign.php" />
-        <option value="$PROJECT_DIR$/tests/json/pushDeal.php" />
+        <option value="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
         <option value="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
+        <option value="$PROJECT_DIR$/components/dao/DbManager.php" />
+        <option value="$PROJECT_DIR$/components/deal/DealManager.php" />
       </list>
     </option>
   </component>
@@ -253,6 +248,10 @@
               <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -264,11 +263,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -332,11 +327,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rest" />
+              <option name="myItemId" value="Config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -351,10 +342,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Landing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -445,6 +432,104 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assorted" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="email" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="share" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaign" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -569,7 +654,11 @@
       <created>1348747944859</created>
       <updated>1348747944859</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="remodelling finished:&#10;1. Model completed&#10;2. dao services completed&#10;3. components completed&#10;4. base tests (add compaign/push deal) added">
+      <created>1348928719656</created>
+      <updated>1348928719656</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -651,7 +740,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="new classes model" />
+    <option name="LAST_COMMIT_MESSAGE" value="remodelling finished:&#10;1. Model completed&#10;2. dao services completed&#10;3. components completed&#10;4. base tests (add compaign/push deal) added" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -668,119 +757,120 @@
     <MESSAGE value="added email as assorted" />
     <MESSAGE value="first stable version with email showed but still not sending (need to connect pear)&#10;Also need to merge css" />
     <MESSAGE value="new classes model" />
+    <MESSAGE value="remodelling finished:&#10;1. Model completed&#10;2. dao services completed&#10;3. components completed&#10;4. base tests (add compaign/push deal) added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/pushCampaign.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="59" selection-start="625" selection-end="661" vertical-scroll-proportion="-16.285715">
+        <state line="17" column="13" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/DemoOrder.json">
+    <entry file="file://$PROJECT_DIR$/api/campaign/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="7" selection-end="142" vertical-scroll-proportion="-1.3571428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/dao/IDealDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="1" selection-start="153" selection-end="153" vertical-scroll-proportion="-6.107143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/LeaderDeal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="-12.892858">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="756" selection-end="756" vertical-scroll-proportion="-16.964285">
+        <state line="43" column="27" selection-start="1734" selection-end="1734" vertical-scroll-proportion="-17.928572">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/components/ILeaderLandingStrategy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="32" selection-start="17" selection-end="39" vertical-scroll-proportion="-1.3571428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/campaign/DefaultCampaignStrategy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="7" selection-end="97" vertical-scroll-proportion="-2.0357144">
+        <state line="2" column="0" selection-start="7" selection-end="7" vertical-scroll-proportion="-1.3571428">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/Landing/DefaultLeaderLandingStrategy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="34" selection-start="195" selection-end="209" vertical-scroll-proportion="-4.75">
+        <state line="7" column="39" selection-start="214" selection-end="214" vertical-scroll-proportion="-4.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/components/ICampaignManager.php">
+    <entry file="file://$PROJECT_DIR$/model/dao/IDealDao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="39" selection-start="101" selection-end="120" vertical-scroll-proportion="-4.071429">
+        <state line="8" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="-5.428571">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/components/IDealManager.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/pushDeal.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="-3.392857">
+        <state line="13" column="20" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="29" selection-start="743" selection-end="743" vertical-scroll-proportion="-15.535714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/LandingReward.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="57" selection-end="69" vertical-scroll-proportion="-3.392857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/LeaderLanding.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="228" selection-end="228" vertical-scroll-proportion="-8.142858">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="296" selection-end="296" vertical-scroll-proportion="-7.464286">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/makeCampaign.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="1078" selection-end="1093" vertical-scroll-proportion="-19.678572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/pushDeal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="24" selection-start="1164" selection-end="1164" vertical-scroll-proportion="-19.678572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="562" selection-end="562" vertical-scroll-proportion="-14.928572">
+        <state line="27" column="0" selection-start="855" selection-end="855" vertical-scroll-proportion="-16.892857">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="0" selection-start="2230" selection-end="2230" vertical-scroll-proportion="0.58815026">
+        <state line="48" column="0" selection-start="1409" selection-end="1409" vertical-scroll-proportion="-13.642858">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/dao/DbManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="5" selection-start="3340" selection-end="3340" vertical-scroll-proportion="-11.821428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="417" selection-end="417" vertical-scroll-proportion="-10.857142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/LeaderDeal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="33" selection-start="319" selection-end="340" vertical-scroll-proportion="-9.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="27" selection-start="2089" selection-end="2089" vertical-scroll-proportion="-19.964285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/deal/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.32658958">
           <folding />
         </state>
       </provider>

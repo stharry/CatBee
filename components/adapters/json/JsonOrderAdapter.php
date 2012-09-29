@@ -21,18 +21,16 @@ class JsonOrderAdapter implements IModelAdapter
         $jsonPurchasesAdapter = new JsonPurchasesAdapter();
         $jsonStoreAdapter = new JsonStoreAdapter();
 
-        $orderProps = $obj["order"];
-
-
         $order = new Order();
 
-        $order->amount = $orderProps["amount"];
+        $order->amount = $obj["amount"];
+        $order->id = $obj["id"];
 
-        $order->customer = $jsonCustomerAdapter->fromArray($orderProps["customer"]);
+        $order->customer = $jsonCustomerAdapter->fromArray($obj["customer"]);
 
-        $order->purchases = $jsonPurchasesAdapter->fromArray($orderProps["purchases"]);
+        $order->purchases = $jsonPurchasesAdapter->fromArray($obj["purchases"]);
 
-        $order->store = $jsonStoreAdapter->fromArray($orderProps["store"]);
+        $order->store = $jsonStoreAdapter->fromArray($obj["store"]);
         return $order;
     }
 }

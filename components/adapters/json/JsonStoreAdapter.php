@@ -9,7 +9,10 @@ class JsonStoreAdapter implements  IModelAdapter
 
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        return
+            array("authCode" => $obj->authCode,
+                "description" => $obj->description,
+                "url" => $obj->url);
     }
 
     public function fromArray($obj)

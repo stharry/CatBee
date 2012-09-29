@@ -9,9 +9,40 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapte
 class JsonCampaignAdapter implements IModelAdapter
 {
 
+    private $jsonStoreAdapter;
+    private $jsonLeaderLandingAdapter;
+
+    function __construct()
+    {
+        $this->jsonStoreAdapter = new JsonStoreAdapter();
+        $this->jsonLeaderLandingAdapter = new JsonLeaderLandingAdapter();
+    }
+
+    private function singleCampaignToArray($campaign)
+    {
+        $campaignProps =
+            array("name" => $campaign->name,
+                "description" => $campaign->description,
+                "store" => $this->jsonStoreAdapter->toArray($campaign->store),
+                "landings" => $this->jsonLeaderLandingAdapter->toArray($campaign->landings)
+                );
+
+        return $campaignProps;
+    }
+
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        if (is_array($obj))
+        {
+            $campaignsProps = array();
+
+            foreach ($obj as $campaign)
+            {
+                array_push($campaignsProps, $this->singleCampaignToArray($campaign));
+            }
+            return $campaignsProps;
+        }
+        return $this->singleCampaignToArray($obj);
     }
 
     public function fromArray($obj)
@@ -20,11 +51,11 @@ class JsonCampaignAdapter implements IModelAdapter
         $campaign->name = $obj["name"];
         $campaign->description = $obj["description"];
 
-        $jsonStoreAdapter = new JsonStoreAdapter();
-        $campaign->store = $jsonStoreAdapter->fromArray($obj["store"]);
 
-        $jsonLeaderLandingAdapter = new JsonLeaderLandingAdapter();
-        $campaign->landings = $jsonLeaderLandingAdapter->fromArray($obj["landings"]);
+        $campaign->store = $this->jsonStoreAdapter->fromArray($obj["store"]);
+
+
+        $campaign->landings = $this->jsonLeaderLandingAdapter->fromArray($obj["landings"]);
 
         return $campaign;
     }

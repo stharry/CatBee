@@ -4,7 +4,8 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/components/IDealManager.
 
 
 class DealManager implements IDealManager
-{private $campaignManager;
+{
+    private $campaignManager;
     private $dealDao;
 
     function __construct($campaignManager, $dealDao)
@@ -26,17 +27,17 @@ class DealManager implements IDealManager
         $slogan->firstLine = "You got the power!!!";
         $slogan->secondLine = "Create an Awesome Deal";
 
-        $temp1 = new sliderPhrase('a','b');
-        $sliderPhrase= $temp1->getSliderPhrase('DefCamp');
+        $temp1 = new sliderPhrase('a', 'b');
+        $sliderPhrase = $temp1->getSliderPhrase('DefCamp');
 
-        $temp2 = new leaderReward('1','b','a','d',10);
-        $leaderReward= $temp2->getleaderReward('DefCamp');
+        $temp2 = new leaderReward('1', 'b', 'a', 'd', 10);
+        $leaderReward = $temp2->getleaderReward('DefCamp');
 
         $GLOBALS["page_title"] = "CatBee Landing Page";
         $GLOBALS["title"] = $slogan->firstLine;
         $GLOBALS["subtitle"] = $slogan->secondLine;
 
-        catbeeLayoutComp($layout, "inputforms/landing",$sliderPhrase);
+        catbeeLayoutComp($layout, "inputforms/landing", $sliderPhrase);
 
         catbeeLayout($layout, 'landing');
 
@@ -50,6 +51,11 @@ class DealManager implements IDealManager
         $leaderDeal->customer = $order->customer;
         $leaderDeal->date = time();
         $leaderDeal->landing = $landing;
+        $leaderDeal->order = $order;
+        $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
+        $leaderDeal->selectedLandingReward = $landing->landingRewards[0]->leaderReward->value;
+
+        $this->dealDao->insertDeal($leaderDeal);
 
         return $leaderDeal;
     }
@@ -64,5 +70,7 @@ class DealManager implements IDealManager
         $leaderDeal = $this->createPendingDeal($leaderLanding, $order);
 
         $this->showLeaderDeal($leaderDeal);
+
+        return $leaderDeal;
     }
 }

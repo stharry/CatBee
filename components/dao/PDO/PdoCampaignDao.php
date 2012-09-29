@@ -1,8 +1,8 @@
 <?php
 
-include_once("../../model/Campaign.php");
-include_once("../../model/dao/ICampaignDao.php");
-include_once("../DbManager.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Campaign.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/ICampaignDao.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
 
 class PdoCampaignDao implements ICampaignDao
 {
@@ -17,7 +17,8 @@ class PdoCampaignDao implements ICampaignDao
     public function isCampaignExists($campaign)
     {
         $rows = DbManager::selectValues("SELECT id FROM campaign WHERE store=? AND name=?",
-            array($campaign->store => PDO::PARAM_STR, $campaign->name, PDO::PARAM_STR));
+            array($campaign->store => PDO::PARAM_INT,
+                    $campaign->name => PDO::PARAM_STR));
 
         if (!isset($rows)) {
             return false;
@@ -27,19 +28,23 @@ class PdoCampaignDao implements ICampaignDao
         return true;
     }
 
-    public function getCampaigns($store)
+    public function getCampaigns($campaignFilter)
     {
-        $rows = DbManager::selectValues("SELECT id, name, description  FROM campaign WHERE store=?",
-            array($store->id => PDO::PARAM_STR));
+        $rows = DbManager::selectValues("SELECT c.id, c.name, c.description  FROM campaign c
+                    INNER JOIN store s
+                    ON c.store = s.id WHERE s.authCode = ?",
+            array($campaignFilter->storeCode => PDO::PARAM_STR));
 
         $campaigns = array();
 
         foreach ($rows as $row)
         {
             $campaign = new Campaign();
-            $campaign->id = $row[0];
-            $campaign->name = $row[1];
-            $campaign->description = $row[2];
+            $campaign->id = $row["id"];
+            $campaign->name = $row["name"];
+            $campaign->description = $row["description"];
+
+            $this->leaderLandingDao->getLeaderLandings($campaign);
 
             array_push($campaigns, $campaign);
         }

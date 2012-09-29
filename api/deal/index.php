@@ -1,24 +1,47 @@
 <?php
 
-//hello from Tomer
+//hello from Vadim
 
-include('../../components/rest/RestUtils.php');
-include('../../components/campaign/CampaignManager.php');
-include('../../components/deal/DealManager.php');
-include('../../components/adapters/json/JsonOrderAdapter.php');
-include('../../components/adapters/json/JsonDealAdapter.php');
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/rest/RestUtils.php");
 
-$orderProps = RestUtils::processRequest() or die("Basa");
+foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/json/*.php") as $filename) include_once($filename);
+foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/*.php") as $filename) include_once($filename);
 
-$orderAdapter = new JsonOrderAdapter();
-$order = $orderAdapter->fromArray($orderProps->getRequestVars());
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/campaign/CampaignManager.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/deal/DealManager.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/campaign/DefaultCampaignStrategy.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/landing/DefaultLeaderLandingStrategy.php");
 
-$campaignManager = new CampaignManager(new PdoStoreDao(), new PdoCustomerDao());
-$dealManager = new DealManager($campaignManager, new DealDao());
+$campaignProps = RestUtils::processRequest()->getRequestVars() or die("Campaign format is wrong");
+$action = $campaignProps["action"];
+$context = $campaignProps["context"];
 
-$deal = $dealManager->pushDeal($order);
+$campaignManager = new CampaignManager(new PdoStoreDao(),
+    new PdoCustomerDao(),
+    new PdoCampaignDao(
+        new PdoLeaderLandingDao(
+            new PdoLeaderLandingRewardDao())),
+    new DefaultCampaignStrategy(),
+    new DefaultLeaderLandingStrategy());
 
-$jsonDealAdapter = new JsonDealAdapter();
-$dealProps = $jsonDealAdapter->toArray($deal);
+$dealManager = new DealManager($campaignManager, new PdoDealDao());
 
-RestUtils::sendResponse(0, $dealProps);
+switch ($action)
+{
+    case "push":
+        $orderAdapter = new JsonOrderAdapter();
+        $order = $orderAdapter->fromArray($context);
+
+        $deal = $dealManager->pushDeal($order);
+
+        $jsonDealAdapter = new JsonDealAdapter();
+        $dealProps = $jsonDealAdapter->toArray($deal);
+
+        RestUtils::sendResponse(0, $dealProps);
+        break;
+
+
+}
+
+
+

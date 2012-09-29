@@ -1,0 +1,69 @@
+{
+    "action":"push",
+    "context":{
+        "name":"Cat Bee Demo campaign",
+        "description":"Fan Toys campaign",
+        "store":{
+            "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703",
+            "description":"Socialize your experience with CatBee",
+            "utl":"www.TribZi.com"
+        },
+        "landings":[
+            {
+                "firstSloganLine":"You got the power!!!",
+                "secondSloganLine":"Create an awesome deal",
+                "firstSliderLine":"Move the slider",
+                "secondSliderLine":"to create the reward for you and your friends",
+
+                "landingRewards":[
+                    {
+                        "friendReward":{
+                            "description":"5% discount",
+                            "value":"5",
+                            "type":"percent",
+                            "code":"ABCD1234_05"
+                        },
+                        "leaderReward":{
+                            "description":"15% discount",
+                            "value":"15",
+                            "type":"percent",
+                            "code":"ABCD1234_15"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"10% discount",
+                            "value":"10",
+                            "type":"percent",
+                            "code":"ABCD1234_10"
+                        },
+                        "leaderReward":{
+                            "description":"10% discount",
+                            "value":"10",
+                            "type":"percent",
+                            "code":"ABCD1234_10"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"15% discount",
+                            "value":"15",
+                            "type":"percent",
+                            "code":"ABCD1234_15"
+                        },
+                        "leaderReward":{
+                            "description":"5% discount",
+                            "value":"5",
+                            "type":"percent",
+                            "code":"ABCD1234_05"
+
+                        }
+                    }
+                ]
+
+            }
+        ]
+    }
+}

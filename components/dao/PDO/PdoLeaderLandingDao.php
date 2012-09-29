@@ -1,8 +1,8 @@
 <?php
 
-include_once("../../model/LeaderLanding.php");
-include_once("../../model/dao/ILeaderLandingDao.php");
-include_once("../DbManager.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/LeaderLanding.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/ILeaderLandingDao.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
 
 class PdoLeaderLandingDao implements ILeaderLandingDao
 {
@@ -18,7 +18,7 @@ class PdoLeaderLandingDao implements ILeaderLandingDao
     {
         $rows = DbManager::selectValues("SELECT l.id, l.sloganFirst, l.sloganSecond,
           l.sliderFirst, l.sliderSecond FROM landing l
-                       INNER JOIN CampaignLandings cl on l.campaignId = cl.campaignId
+                       INNER JOIN CampaignLandings cl on l.Id = cl.landingId
                        WHERE cl.campaignId=?",
             array($campaign->id => PDO::PARAM_STR));
 
@@ -27,11 +27,13 @@ class PdoLeaderLandingDao implements ILeaderLandingDao
         foreach ($rows as $row)
         {
             $leaderLanding = new LeaderLanding();
-            $leaderLanding->id = $row[0];
-            $leaderLanding->firstSloganLine = $row[1];
-            $leaderLanding->secondSloganLine = $row[2];
-            $leaderLanding->firstSliderLine = $row[3];
-            $leaderLanding->secondSliderLine = $row[4];
+            $leaderLanding->id = $row["id"];
+            $leaderLanding->firstSloganLine = $row["sloganFirst"];
+            $leaderLanding->secondSloganLine = $row["sloganSecond"];
+            $leaderLanding->firstSliderLine = $row["sliderFirst"];
+            $leaderLanding->secondSliderLine = $row["sliderSecond"];
+
+            $this->leaderLandingRewardDao->getLeaderLandingRewards($leaderLanding);
 
             array_push($landings, $leaderLanding);
         }

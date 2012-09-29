@@ -6,16 +6,43 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapte
 
 class JsonLeaderLandingAdapter implements IModelAdapter
 {
+    private $jsonRewardAdapter;
+
+    private function singleLandingToArray($landing)
+    {
+        return
+            array("firstSloganLine" => $landing->firstSloganLine,
+                "secondSloganLine" => $landing->secondSloganLine,
+                "firstSliderLine" => $landing->firstSliderLine,
+                "secondSliderLine" => $landing->secondSliderLine,
+                "landingRewards" => $this->jsonRewardAdapter->toArray($landing->landingRewards));
+
+    }
+
+    function __construct()
+    {
+        $this->jsonRewardAdapter = new JsonRewardAdapter();
+    }
 
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        if (is_array($obj))
+        {
+            $landingsProps = array();
+
+            foreach ($obj as $landing)
+            {
+                array_push($landingsProps, $this->singleLandingToArray($landing));
+            }
+            return $landingsProps;
+        }
+        return $this->singleLandingToArray($obj);
     }
 
     public function fromArray($obj)
     {
         $landings = array();
-        $sonRewardAdapter = new JsonRewardAdapter();
+
 
         foreach ($obj as $landingProps)
         {
@@ -26,7 +53,7 @@ class JsonLeaderLandingAdapter implements IModelAdapter
             $landing->firstSliderLine = $landingProps["firstSliderLine"];
             $landing->secondSliderLine = $landingProps["secondSliderLine"];
 
-            $landing->landingRewards = $sonRewardAdapter->fromArray($landingProps["landingRewards"]);
+            $landing->landingRewards = $this->jsonRewardAdapter->fromArray($landingProps["landingRewards"]);
 
             array_push($landings, $landing);
         }
