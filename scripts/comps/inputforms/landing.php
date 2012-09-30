@@ -1,10 +1,10 @@
 <div id="landingPage">
     <div id="titleArea">
         <div id="firstLine">
-            <?=$p->firstLine?>
+            <?=$p->landing->firstSliderLine?>
         </div>
         <div id="secondLine">
-            <?=$p->secondLine?>
+            <?=$p->landing->secondSliderLine?>
         </div>
     </div>
     <div id="compainArea">
@@ -13,12 +13,12 @@
             <div class="bee_icon" id="bee_icon"></div>
         </div>
         <div id="slider"></div>
-        <label id="LeaderRewardPhrase" for="LeaderReward">You Get</label>
+        <label id="LeaderRewardPhrase" for="LeaderReward"><?=$p->landing->landingRewards[0]->leaderReward->description?></label>
         <input id="LeaderReward"/>
 
 
         <p></p>
-        <label id="FriendRewardPhrase" for="FriendReward">Your friends get</label>
+        <label id="FriendRewardPhrase" for="FriendReward"><?=$p->landing->landingRewards[0]->friendReward->description?></label>
         <input id="FriendReward"/>
     </div>
     <div id="sharingArea">

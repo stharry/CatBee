@@ -2,7 +2,8 @@
 
 class Share
 {
-    public $leaderDeal;
-    public $sendTo;
+    public $sendFrom;
+    public $dealId;
     public $message;
+    public $shareAs;
 }

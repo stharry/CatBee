@@ -20,14 +20,14 @@
 
     	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
-                <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
                 <!--email scripts
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
  -->
         <script src="<?= $GLOBALS["rootPath"] ?>/res/js/jquery.fancybox.js"></script>
 
-        <script src="<?= $GLOBALS["rootPath"] ?>/res/js/landing.js"></script>
+        <script src="<?= $GLOBALS["rootPath"] ?>/res/js/landing.js" type="text/javascript"></script>
 
 
         <script src="<?= $GLOBALS["rootPath"] ?>/res/js/email.js"></script>
@@ -37,8 +37,8 @@
 	<body>
 		<div class="pnlBox">
             <div class="headerSection" id="header">
-			    <h2 class="title"><?php echo $GLOBALS["title"] ?></h2>
-			    <h4 class="title"><?php echo $GLOBALS["subtitle"] ?></h4>
+			    <h2 class="title"><?php echo $GLOBALS["leaderDeal"]->landing->firstSloganLine ?></h2>
+			    <h4 class="title"><?php echo $GLOBALS["leaderDeal"]->landing->secondSloganLine ?></h4>
             </div>
 			<hr>
 			<?php

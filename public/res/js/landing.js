@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     CreateAndInitializeSlider();
 
@@ -7,10 +8,11 @@ $(document).ready(function() {
 
 function CreateAndInitializeSlider()
 {
+    //alert("<?=count($p->landing->landingRewards)?>");
     //$( ".selector" ).slider({ values: [1,5,9] });
     $("#slider").slider({
         min : 0,
-        max : 4,
+        max : 3,
         value : 1,
         change : function(event, ui) {
             var val = ui.value;

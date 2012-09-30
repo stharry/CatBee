@@ -19,7 +19,7 @@ class DealManager implements IDealManager
         includeModel("slogan");
         includeModel("sliderPhrase");
         includeModel("leaderReward");
-
+/*
 //$temp = new slogan('a','b');
         $slogan = slogan::getSlogan('DefCamp');
 
@@ -36,8 +36,10 @@ class DealManager implements IDealManager
         $GLOBALS["page_title"] = "CatBee Landing Page";
         $GLOBALS["title"] = $slogan->firstLine;
         $GLOBALS["subtitle"] = $slogan->secondLine;
+*/
+        $GLOBALS["leaderDeal"] = $leaderDeal;
 
-        catbeeLayoutComp($layout, "inputforms/landing", $sliderPhrase);
+        catbeeLayoutComp($layout, "inputforms/landing", $leaderDeal);
 
         catbeeLayout($layout, 'landing');
 
