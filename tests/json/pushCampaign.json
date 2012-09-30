@@ -18,13 +18,13 @@
                 "landingRewards":[
                     {
                         "friendReward":{
-                            "description":"5% discount",
+                            "description":"Your friends will get <b>5%</b> discount",
                             "value":"5",
                             "type":"percent",
                             "code":"ABCD1234_05"
                         },
                         "leaderReward":{
-                            "description":"15% discount",
+                            "description":"You get <b>15%</b> discount on next deal",
                             "value":"15",
                             "type":"percent",
                             "code":"ABCD1234_15"
@@ -33,13 +33,13 @@
                     },
                     {
                         "friendReward":{
-                            "description":"10% discount",
+                            "description":"Your friends will get <b>10%</b> discount",
                             "value":"10",
                             "type":"percent",
                             "code":"ABCD1234_10"
                         },
                         "leaderReward":{
-                            "description":"10% discount",
+                            "description":"You get <b>10%</b> discount on this deal",
                             "value":"10",
                             "type":"percent",
                             "code":"ABCD1234_10"
@@ -48,13 +48,13 @@
                     },
                     {
                         "friendReward":{
-                            "description":"15% discount",
+                            "description":"Your friends will get <b>15%</b> discount",
                             "value":"15",
                             "type":"percent",
                             "code":"ABCD1234_15"
                         },
                         "leaderReward":{
-                            "description":"5% discount",
+                            "description":"You get <b>5%</b> discount on this deal",
                             "value":"5",
                             "type":"percent",
                             "code":"ABCD1234_05"

@@ -37,7 +37,7 @@ switch ($action)
         $jsonDealAdapter = new JsonDealAdapter();
         $dealProps = $jsonDealAdapter->toArray($deal);
 
-        RestUtils::sendResponse(0, $dealProps);
+        //RestUtils::sendResponse(0, $dealProps);
         break;
 
 

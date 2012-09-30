@@ -8,12 +8,11 @@ $(document).ready(function() {
 
 function CreateAndInitializeSlider()
 {
-    //alert("<?=count($p->landing->landingRewards)?>");
     //$( ".selector" ).slider({ values: [1,5,9] });
     $("#slider").slider({
         min : 0,
-        max : 3,
-        value : 1,
+        max : $('#rewardsCount').text() - 1,
+        value : 0,
         change : function(event, ui) {
             var val = ui.value;
             updateRewards(ui.value);
@@ -43,6 +42,11 @@ function SetFormPopup()
 }
 
 function updateRewards(sliderVal) {
-	$("#LeaderReward").val((3 - sliderVal) * 50);
-	$("#FriendReward").val((sliderVal + 1) * 50);
+
+    var leaderText = $('#leaderRewardDesc' + sliderVal).text();
+    var friendText = $('#friendRewardDesc' + sliderVal).text();
+
+    $('#LeaderRewardPhrase').text(leaderText);
+    $('#FriendRewardPhrase').text(friendText);
+
 }

@@ -6,5 +6,3 @@ $order = json_decode(file_get_contents("pushDeal.json"));
 
 $restUtils = new RestUtils();
 $restUtils->SendPostRequest("deal", "", $order);
-
-echo "THE END";

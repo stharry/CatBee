@@ -14,12 +14,13 @@
         </div>
         <div id="slider"></div>
         <label id="LeaderRewardPhrase" for="LeaderReward"><?=$p->landing->landingRewards[0]->leaderReward->description?></label>
-        <input id="LeaderReward"/>
+        <input id="LeaderReward" style="display: none;"/>
 
 
         <p></p>
         <label id="FriendRewardPhrase" for="FriendReward"><?=$p->landing->landingRewards[0]->friendReward->description?></label>
-        <input id="FriendReward"/>
+        <input id="FriendReward" style="display: none;"/>
+
     </div>
     <div id="sharingArea">
 
