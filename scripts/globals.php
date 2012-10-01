@@ -25,6 +25,10 @@ function includeModel($name) {
 	include_once $GLOBALS["dirBase"] . "/scripts/models/" . $name . ".php";
 }
 
+function IncludeComponent($dir,$name){
+    include_once $GLOBALS["dirBase"] . "/components/" . $dir . "/".$name.".php";
+}
+
 function catbeeComp($comp, &$p) {
 	includeScript("comps/" . $comp, $p);
 }
@@ -47,8 +51,8 @@ function catbeeLayout($layout, $layoutfile) {
 }
 
 function dbConnect() {
-   // mysql_connect($GLOBALS["dbhost"], $GLOBALS["dbusername"], $GLOBALS["dbpassword"]) or die('Could not connect: ' . mysql_error());
-    mysql_connect() or die('Could not connect: ' . mysql_error());
+   mysql_connect($GLOBALS["dbhost"], $GLOBALS["dbusername"], $GLOBALS["dbpassword"]) or die('Could not connect: ' . mysql_error());
+    //mysql_connect() or die('Could not connect: ' . mysql_error());
 	mysql_select_db($GLOBALS["dbname"]) or die('Could not select database');
 }
 
