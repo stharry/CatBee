@@ -14,7 +14,7 @@ class PdoStoreDao implements IStoreDao
         if (!isset($rows)) {
             return false;
         }
-        $store->id = $rows[0][0];
+        $store->id = $rows[0]["id"];
 
         return true;
     }

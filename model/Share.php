@@ -3,7 +3,9 @@
 class Share
 {
     public $sendFrom;
-    public $dealId;
+    public $sendTo;
     public $message;
-    public $shareAs;
+    public $store;
+    public $campaign;
+    public $context;
 }
