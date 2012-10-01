@@ -25,6 +25,10 @@ function includeModel($name) {
 	include_once $GLOBALS["dirBase"] . "/scripts/models/" . $name . ".php";
 }
 
+function IncludeComponent($dir,$name){
+    include_once $GLOBALS["dirBase"] . "/components/" . $dir . "/".$name.".php";
+}
+
 function catbeeComp($comp, &$p) {
 	includeScript("comps/" . $comp, $p);
 }
