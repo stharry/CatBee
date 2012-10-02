@@ -1,0 +1,17 @@
+{
+    "action": "set",
+    "context":
+    {
+        "store":
+        {
+            "authCode": "19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+        },
+        "shareContext":{
+            "type": "email"
+        },
+        "templatePage": {
+            "url": "http://127.0.0.1:8887/CatBee/tests/json/res/emailTemplate.php",
+            "type": "file"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "action": "get",
+    "context":
+    {
+        "store":
+        {
+            "authCode": "19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+        }
+    }
+}
