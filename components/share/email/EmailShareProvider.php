@@ -34,8 +34,6 @@ class EmailShareProvider implements IShareProvider
                 'username' => $GLOBALS["smtpuser"],
                 'password' => $GLOBALS["smtppass"]));
 
-        echo htmlentities($body, ENT_QUOTES, "UTF-8");
-
         $mail = $smtp->send($share->sendTo, $headers, $body);
 
         if (PEAR::isError($mail)) {
