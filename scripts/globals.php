@@ -12,8 +12,8 @@ $dbname = $catBeeParams["catbee_db_name"];
 
 $smtphost =$catBeeParams["catbee_email_hostname"];
 $smtpport = $catBeeParams["catbee_email_hostport"];
-$smtpuser = $catBeeParams["catbee_email_hostpass"];
-$smtppass = $catBeeParams[""];
+$smtpuser = $catBeeParams["catbee_email_hostuser"];
+$smtppass = $catBeeParams["catbee_email_hostpass"];
 
 $rootPath = "/CatBee/public/";
 

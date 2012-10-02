@@ -30,6 +30,7 @@ class JsonShareAdapter implements IModelAdapter
         $share->sendFrom = $obj["sendFrom"];
         $share->sendTo = $obj["sendTo"];
         $share->message = $obj["message"];
+        $share->subject = $obj["subject"];
 
         $share->store = $this->jsonStoreAdapter->fromArray($obj["store"]);
         $share->context = $this->jsonShareContextAdapter->fromArray($obj["context"]);

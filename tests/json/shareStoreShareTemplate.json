@@ -5,6 +5,7 @@
         "sendFrom":"regev147@013.net",
         "sendTo":"spidernah@gmail.com",
         "message":"Just a campaign test email, relax bro",
+        "subject": "Test CatBee message",
         "context":{
             "type":"email"
         },

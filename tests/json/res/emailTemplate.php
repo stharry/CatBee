@@ -1,13 +1,7 @@
-<!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
+   <p>Test message before.<br>
+   <p><b>[Message]</b><br>
+   <p>Test message after.<br>
 
-   Test message before.</p>
-    [Message]</p>
-   Test message after.</p>
-
-</body>
 </html>
 
