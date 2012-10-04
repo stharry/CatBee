@@ -17,6 +17,8 @@ $smtppass = $catBeeParams["catbee_email_hostpass"];
 
 $rootPath = "/CatBee/public/";
 
+$restURL = $catBeeParams["Rest_url"];
+
 function includeScript($name, &$p) {
 	include $GLOBALS["dirBase"] . "/scripts/" . $name . ".php";
 }
