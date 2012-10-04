@@ -61,7 +61,7 @@ class ShareManager implements IShareManager
 
         $shareProvider = $this->getCompatibleShareProvider($share->context);
 
-        $shareProvider->share($share);
+        return $shareProvider->share($share);
     }
 
     public function setShareTemplate($shareTemplate)

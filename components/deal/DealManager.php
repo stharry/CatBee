@@ -46,6 +46,10 @@ class DealManager implements IDealManager
 
     }
 
+    private function createSharePoint()
+    {
+        return "http://".$_SERVER["SERVER_ADDR"].":".$_SERVER["SERVER_PORT"]."/CatBee/api/share/";
+    }
 
     private function createPendingDeal($landing, $order)
     {
@@ -59,6 +63,8 @@ class DealManager implements IDealManager
         $leaderDeal->selectedLandingReward = $landing->landingRewards[0]->leaderReward->value;
 
         $this->dealDao->insertDeal($leaderDeal);
+
+        $leaderDeal->sharePoint = $this->createSharePoint();
 
         return $leaderDeal;
     }
