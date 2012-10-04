@@ -12,7 +12,7 @@ function CreateAndInitializeSlider()
     $("#slider").slider({
         min : 0,
         max : $('#rewardsCount').text() - 1,
-        value : 0,
+        value : 1,
         change : function(event, ui) {
             var val = ui.value;
             updateRewards(ui.value);

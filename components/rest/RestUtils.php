@@ -1,11 +1,13 @@
 <?php
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php");
 
 class RestUtils
 {
     public function SendGetRequest($api, $id, $obj)
     {
-        $url = "http://127.0.0.1:8887/CatBee/api/{$api}/";
-
+       // $url = "http://127.0.0.1:8080/CatBee/api/{$api}/";
+      //  echo $GLOBALS["restURL"];
+       $url = $GLOBALS["restURL"]."/CatBee/api/{$api}/";
         if (isset($id)) {
             $url .= $id;
         }
@@ -31,8 +33,8 @@ class RestUtils
 
     public function SendPostRequest($api, $id, $obj)
     {
-        $url = "http://127.0.0.1:8887/CatBee/api/{$api}/";
-
+        //$url = "http://127.0.0.1:8887/CatBee/api/{$api}/";
+        $url = $GLOBALS["restURL"]."/CatBee/api/{$api}/";
         if (isset($id)) {
             $url .= $id;
         }

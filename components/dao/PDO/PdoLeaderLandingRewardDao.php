@@ -10,7 +10,7 @@ class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
 
     public function getLeaderLandingRewards($leaderLanding)
     {
-        $rows = DbManager::selectValues(" SELECT lr.id, l.id leaderId, l.description leaderDescription,
+        $rows = DbManager::selectValues(" SELECT lr.LandingId, l.id leaderId, l.description leaderDescription,
         l.value leaderValue, l.type leaderType, l.code leaderCode, f.id friendId, f.description friendDescription,
         f.value friendValue, f.type friendType, f.code friendCode
          FROM landingReward lr
@@ -24,7 +24,7 @@ class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
         foreach ($rows as $row)
         {
             $landingReward = new LandingReward();
-            $landingReward->id = $row["id"];
+            $landingReward->id = $row["LandingId"];
 
             $landingReward->leaderReward = new Reward();
             $landingReward->leaderReward->id = $row["leaderId"];
