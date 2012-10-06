@@ -14,6 +14,12 @@ class DealManager implements IDealManager
         $this->dealDao = $dealDao;
     }
 
+    private function getCatBeeSharePoint()
+    {
+        return $GLOBALS["restURL"]."/CatBee/api/share/";
+
+    }
+
     private function showLeaderDeal($leaderDeal)
     {
         $GLOBALS["leaderDeal"] = $leaderDeal;
@@ -23,12 +29,6 @@ class DealManager implements IDealManager
      //   catbeeLayoutComp($layout, "MailForm", $leaderDeal);
         catbeeLayoutComp($layout, "sliderOptions", $leaderDeal);
         catbeeLayout($layout, 'landing');
-
-    }
-
-    private function getCatBeeSharePoint()
-    {
-        return $GLOBALS["restURL"]."/CatBee/api/share/";
 
     }
 
@@ -45,6 +45,7 @@ class DealManager implements IDealManager
         $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
 
         $this->dealDao->insertDeal($leaderDeal);
+        $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
         return $leaderDeal;
     }
 
