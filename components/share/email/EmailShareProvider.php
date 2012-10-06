@@ -43,4 +43,9 @@ class EmailShareProvider implements IShareProvider
         }
 
     }
+
+    public function getContacts($customer)
+    {
+        // TODO: Implement getContacts() method.
+    }
 }

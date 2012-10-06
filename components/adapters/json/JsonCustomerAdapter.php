@@ -5,10 +5,30 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapte
 
 class JsonCustomerAdapter implements IModelAdapter
 {
+    private function singleCustomerToArray($customer)
+    {
+        return array("email" => $customer->email,
+            "firstName" => $customer->firstName,
+            "lastName" => $customer->lastName,
+            );
+    }
 
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        if (is_array($obj))
+        {
+            $customers = array();
+
+            foreach ($obj as $customer)
+            {
+                array_push($customers, $this->singleCustomerToArray($customer));
+            }
+            return$customers;
+        }
+        else
+        {
+            return $this->singleCustomerToArray($obj);
+        }
     }
 
     public function fromArray($obj)

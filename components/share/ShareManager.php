@@ -88,4 +88,9 @@ class ShareManager implements IShareManager
 
         return $this->shareDao->getShareTemplates($shareFilter);
     }
+
+    public function getContacts($customer)
+    {
+
+    }
 }

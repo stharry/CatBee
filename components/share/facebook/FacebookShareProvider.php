@@ -9,4 +9,9 @@ class FacebookShareProvider implements IShareProvider
     {
         // TODO: Implement share() method.
     }
+
+    public function getContacts($customer)
+    {
+        // TODO: Implement getContacts() method.
+    }
 }
