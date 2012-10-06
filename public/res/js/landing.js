@@ -97,10 +97,12 @@ function openWindow(){
 
 function updateRewards(sliderVal) {
 
-    var leaderText = $('#leaderRewardDesc' + sliderVal).text();
-    var friendText = $('#friendRewardDesc' + sliderVal).text();
+    $('#LeaderRewardPhrase').text($('#leaderRewardDesc' + sliderVal).text());
+    $('#LeaderReward').val($('#leaderRewardValue' + sliderVal).text());
+    $('#leaderArea').val($('#leaderRewardTypeDesc' + sliderVal).text());
 
-    $('#LeaderRewardPhrase').text(leaderText);
-    $('#FriendRewardPhrase').text(friendText);
+    $('#FriendRewardPhrase').text($('#friendRewardDesc' + sliderVal).text());
+    $('#FriendReward').val($('#friendRewardValue' + sliderVal).text());
+    $('#FriendArea').val($('#friendRewardTypeDesc' + sliderVal).text());
 
 }

@@ -12,7 +12,8 @@ class JsonRewardAdapter implements IModelAdapter
             array("value" => $reward->value,
                 "code" => $reward->code,
                 "type" => $reward->type,
-                "description" => $reward->description);
+                "description" => $reward->description,
+                "typeDescription" => $reward->typeDescription);
 
     }
 
@@ -57,6 +58,7 @@ class JsonRewardAdapter implements IModelAdapter
         $reward->code = $rewardProps["code"];
         $reward->type = $rewardProps["type"];
         $reward->description = $rewardProps["description"];
+        $reward->typeDescription = $rewardProps["typeDescription"];
 
         return$reward;
     }

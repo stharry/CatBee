@@ -11,17 +11,24 @@
                 </div>
                 <div id="slider"></div>
                 <div class="clearfix">
-                    <div class="unit"></div><div class="unit pos_center"></div><div class="unit pos_right"></div>
+                    <div class="unit"></div>
+                    <div class="unit pos_center"></div>
+                    <div class="unit pos_right"></div>
                 </div>
             </div>
 
             <div class="gifts">
-            <div> <label id="LeaderRewardPhrase" for="LeaderReward"><?=$p->landing->landingRewards[0]->leaderReward->description?></label>
-            <input id="LeaderReward" style="display: none;"/></div>
+                <div id="leaderArea"><label id="LeaderRewardPhrase"
+                            for="LeaderReward"><?=$p->landing->landingRewards[0]->leaderReward->description?></label>
+                    <input id="LeaderReward" readonly="readonly"/>
+                  <?=$p->landing->landingRewards[0]->leaderReward->typeDescription?>
+                </div>
 
-            <div> <label id="FriendRewardPhrase" for="FriendReward"><?=$p->landing->landingRewards[0]->friendReward->description?></label>
-             <input id="FriendReward" style="display: none;"/>
-            </div>
+                <div id="friendArea"><label id="FriendRewardPhrase"
+                            for="FriendReward"><?=$p->landing->landingRewards[0]->friendReward->description?></label>
+                    <input id="FriendReward" readonly="readonly"/>
+                    <?=$p->landing->landingRewards[0]->friendReward->typeDescription?>
+                </div>
 
             </div>
             <div class="gift-desc">

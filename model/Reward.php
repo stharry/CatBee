@@ -7,4 +7,5 @@ class Reward
     public $type;
     public $code;
     public $description;
+    public $typeDescription;
 }
