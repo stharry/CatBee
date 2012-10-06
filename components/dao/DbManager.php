@@ -100,9 +100,6 @@ class DbManager
     {
         try {
             $conn = DbManager::insert($table, $fieldNames, $fieldValues);
-
-            echo "</p>before get last id</p>";
-
             return $conn->lastInsertId($idColumnName);
 
         } catch (PDOException $pe) {
