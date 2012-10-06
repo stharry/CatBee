@@ -4,51 +4,52 @@ $(document).ready(function () {
 
 
 function CreateAndInitializeEmailForm() {
-    $(".mailmodalbox").fancybox({
-        helpers:{
-            title:{
-                type:'inside'
-            },
-            overlay:{
-                css:{
-                    'background':'rgba(238,238,238,0.85)'
-                }
-            }
-        }
-    });
+//    $(".mailmodalbox").fancybox({
+//        helpers:{
+//            title:{
+//                type:'inside'
+//            },
+//            overlay:{
+//                css:{
+//                    'background':'rgba(238,238,238,0.85)'
+//                }
+//            }
+//        }
+//    });
     $("#contact").submit(function () {
         return false;
     });
 
-    $("#sendViaEmail").click(function () {
+    $("#emailSubmit").click(function () {
 
-        var emailval = $("#email").val();
-        var msgval = $("#msg").val();
+        alert(1);
+        var emailval = $("#mail-input").val();
+        var msgval = $("#message").val();
         var msglen = msgval.length;
         var mailvalid = validateEmail(emailval);
 
         if (mailvalid == false) {
-            $("#email").addClass("error");
+            $("#mail-input").addClass("error");
         }
         else if (mailvalid == true) {
-            $("#email").removeClass("error");
+            $("#mail-input").removeClass("error");
         }
 
         if (msglen < 4) {
-            $("#msg").addClass("error");
+            $("#message").addClass("error");
         }
         else if (msglen >= 4) {
-            $("#msg").removeClass("error");
+            $("#message").removeClass("error");
         }
-
+        alert(2);
         if (mailvalid == true && msglen >= 4) {
             // if both validate we attempt to send the e-mail
             // first we hide the submit btn so the user doesnt click twice
-            $("#send").replaceWith("<em>sending...</em>");
+            $("#emailSubmit").replaceWith("<em>sending...</em>");
 
             var postData = createCatBeeShareRequest();
             var sharePoint = getCatBeeShareUrl();
-
+            alert(3);
             $.ajax({
                 type:'POST',
                 url:sharePoint,
@@ -112,9 +113,9 @@ function createCatBeeShareRequest() {
         context:{
 
             sendFrom:$("#leaderEmail").text(),
-            sendTo:$("#email").val(),
-            message:$("#msg").val(),
-            subject:$("#msg").val(),
+            sendTo:$("#mail-input").val(),
+            message:$("#message").val(),
+            subject:$("#message").val(),
             context:{
                 type:'email'
             },

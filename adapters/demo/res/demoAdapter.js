@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     $("#autostart").fancybox({
 
-        'width' : '75%',
-        'height' : '75%',
+        'width' : '175%',
+        'height' : '175%',
         'autoScale' : true,
         'transitionIn' : 'none',
         'transitionOut' : 'none',

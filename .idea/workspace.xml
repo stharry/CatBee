@@ -9,14 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="added Include Component Class">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/comps/mailForm.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/deal/DealManager.php" afterPath="$PROJECT_DIR$/components/deal/DealManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/css/jquery-ui.css" afterPath="$PROJECT_DIR$/public/res/css/jquery-ui.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/css/style.css" afterPath="$PROJECT_DIR$/public/res/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/js/landing.js" afterPath="$PROJECT_DIR$/public/res/js/landing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/comps/landing.php" afterPath="$PROJECT_DIR$/scripts/comps/landing.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/comps/share.php" afterPath="$PROJECT_DIR$/scripts/comps/share.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/res/demoAdapter.js" afterPath="$PROJECT_DIR$/adapters/demo/res/demoAdapter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/js/email.js" afterPath="$PROJECT_DIR$/public/res/js/email.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/comps/mailForm.php" afterPath="$PROJECT_DIR$/scripts/comps/mailForm.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/layouts/landing.php" afterPath="$PROJECT_DIR$/scripts/layouts/landing.php" />
     </list>
     <ignored path="CatBee.iws" />
@@ -38,58 +34,52 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="landing.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/comps/landing.php">
+        <entry file="file://$PROJECT_DIR$/scripts/layouts/landing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="18" selection-start="1308" selection-end="1308" vertical-scroll-proportion="-17.653847">
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="share.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/comps/share.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="31" selection-start="406" selection-end="406" vertical-scroll-proportion="-3.2692308">
+            <state line="23" column="0" selection-start="1141" selection-end="1141" vertical-scroll-proportion="-15.607142">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DealManager.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
+      <file leaf-file-name="demoAdapter.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoAdapter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="48" selection-start="772" selection-end="785" vertical-scroll-proportion="0.7619784">
+            <state line="18" column="10" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="send_mail_btn.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/res/images/send_mail_btn.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="ICampaignDao.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/dao/ICampaignDao.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="20" selection-start="52" selection-end="52" vertical-scroll-proportion="-2.7142856">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mail_form_bg.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/res/images/mail_form_bg.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="email.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="21" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Twitter.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/res/images/Twitter.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="emailTemplate.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/res/emailTemplate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="-4.75">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestDeal.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adapters/demo/TestDeal.php">
+      <file leaf-file-name="addStoreShareTemplate.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/addStoreShareTemplate.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
@@ -97,10 +87,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostPurchasePageForDemo.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adapters/demo/res/PostPurchasePageForDemo.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="addStoreShareTemplate.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/json/addStoreShareTemplate.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="77" selection-start="299" selection-end="312" vertical-scroll-proportion="0.3986014">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="landing.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/comps/landing.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="42" selection-start="847" selection-end="847" vertical-scroll-proportion="-12.214286">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/comps/share.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="31" selection-start="406" selection-end="406" vertical-scroll-proportion="-3.392857">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mailForm.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/comps/mailForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="28" selection-start="130" selection-end="140" vertical-scroll-proportion="-1.3571428">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -117,29 +136,31 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/scripts/globals.php" />
-        <option value="$PROJECT_DIR$/adapters/demo/goDeal.php" />
         <option value="$PROJECT_DIR$/api/deal/index.php" />
         <option value="$PROJECT_DIR$/api/campaign/index.php" />
         <option value="$PROJECT_DIR$/components/rest/RestUtils.php" />
         <option value="$PROJECT_DIR$/public/res/js/jquery.inline-labels.js" />
         <option value="$PROJECT_DIR$/adapters/demo/TestDeal.php" />
-        <option value="$PROJECT_DIR$/scripts/comps/mailForm.php" />
         <option value="$PROJECT_DIR$/components/deal/DealManager.php" />
         <option value="$PROJECT_DIR$/components/dao/DbManager.php" />
         <option value="$PROJECT_DIR$/public/res/css/jquery-ui.css" />
-        <option value="$PROJECT_DIR$/scripts/layouts/landing.php" />
         <option value="$PROJECT_DIR$/scripts/comps/landing.php" />
         <option value="$PROJECT_DIR$/public/res/css/style.css" />
         <option value="$PROJECT_DIR$/public/res/js/landing.js" />
         <option value="$PROJECT_DIR$/scripts/comps/share.php" />
+        <option value="$PROJECT_DIR$/adapters/demo/res/demoAdapter.js" />
+        <option value="$PROJECT_DIR$/scripts/comps/mailForm.php" />
+        <option value="$PROJECT_DIR$/public/res/js/email.js" />
+        <option value="$PROJECT_DIR$/scripts/layouts/landing.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1600" />
-    <option name="height" value="860" />
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1288" />
+    <option name="height" value="938" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -167,6 +188,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -195,6 +217,88 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="comps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -209,7 +313,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -223,47 +335,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -271,9 +343,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,17 +374,17 @@
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TribZi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CatBeeTomer/CatBee" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="213" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="887" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="883" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="887" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="215" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="212" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -484,24 +569,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1600" height="860" extended-state="0" />
+    <frame x="-4" y="-4" width="1288" height="938" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282123" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30689207" sideWeight="0.67178774" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3119935" sideWeight="0.8097686" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282123" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19023137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45244217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29434448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -569,26 +654,30 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/res/css/jquery-ui.css">
+    <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="451" column="63" selection-start="29138" selection-end="29138" vertical-scroll-proportion="0.0">
+        <state line="19" column="0" selection-start="451" selection-end="451" vertical-scroll-proportion="-12.892858">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/images/catbee_blue_bg_h500.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/images/catbee_blue_bg.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/layouts/landing.php">
+    <entry file="file://$PROJECT_DIR$/adapters/demo/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="63" selection-start="997" selection-end="1004" vertical-scroll-proportion="-13.730769">
+        <state line="13" column="44" selection-start="351" selection-end="351" vertical-scroll-proportion="-8.821428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/res/js/landing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="28" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -600,72 +689,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/css/style.css">
+    <entry file="file://$PROJECT_DIR$/Config/config.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="21" selection-start="4457" selection-end="4457" vertical-scroll-proportion="-61.2">
+        <state line="14" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoAdapter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="10" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/dao/ICampaignDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="20" selection-start="52" selection-end="52" vertical-scroll-proportion="-2.7142856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/comps/share.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="31" selection-start="406" selection-end="406" vertical-scroll-proportion="-3.392857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/comps/mailForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="28" selection-start="130" selection-end="140" vertical-scroll-proportion="-1.3571428">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/comps/landing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="18" selection-start="1308" selection-end="1308" vertical-scroll-proportion="-17.653847">
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="18" column="42" selection-start="847" selection-end="847" vertical-scroll-proportion="-12.214286">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/images/send_mail_btn.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/scripts/layouts/landing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="1141" selection-end="1141" vertical-scroll-proportion="-15.607142">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/images/mail_form_bg.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="21" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/images/Twitter.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/tests/json/res/emailTemplate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="-4.75">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/TestDeal.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/addStoreShareTemplate.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/res/PostPurchasePageForDemo.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/js/landing.js">
+    <entry file="file://$PROJECT_DIR$/tests/json/addStoreShareTemplate.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="20" selection-start="3056" selection-end="3056" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/images/go_btn.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/comps/share.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="31" selection-start="406" selection-end="406" vertical-scroll-proportion="-3.2692308">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="48" selection-start="772" selection-end="785" vertical-scroll-proportion="0.7619784">
+        <state line="12" column="77" selection-start="299" selection-end="312" vertical-scroll-proportion="0.3986014">
           <folding />
         </state>
       </provider>
