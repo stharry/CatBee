@@ -25,8 +25,8 @@ class DealManager implements IDealManager
         $GLOBALS["leaderDeal"] = $leaderDeal;
 
         catbeeLayoutComp($layout, "landing", $leaderDeal);
-     //   catbeeLayoutComp($layout, "share", $leaderDeal);
-     //   catbeeLayoutComp($layout, "MailForm", $leaderDeal);
+        catbeeLayoutComp($layout, "share", $leaderDeal);
+        catbeeLayoutComp($layout, "mailForm", $leaderDeal);
         catbeeLayoutComp($layout, "sliderOptions", $leaderDeal);
         catbeeLayout($layout, 'landing');
 

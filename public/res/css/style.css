@@ -40,7 +40,7 @@ h4.title {
     font-size: 1.5em;
     margin-top: -15px;
 }
-a, a img { 
+a, a img {
     outline : none;
 }
 img {
@@ -62,13 +62,12 @@ img {
     height: 449px;
     background: url(../images/catbee_blue_bg_h500.jpg) repeat-x;
     position: absolute;
-    display: none;
     padding: 23px 23px 28px 23px;
 }
 .box {
     background: #fff;
     z-index:1002;
-    overflow: auto; 
+    overflow: auto;
     margin-bottom: 10px;
 }
 .box-title{
@@ -76,7 +75,7 @@ img {
     -webkit-box-shadow: 0px 3px 3px 0px #9eb3bc;
     box-shadow: 0px 3px 3px 0px #9eb3bc;
     background: #d4ecf5;
-    
+
     position: relative;
     z-index: 3;
 }
@@ -141,7 +140,7 @@ img {
     line-height: 1;
 }
 .icons_wrapper {
-    margin-bottom: 15px 
+    margin-bottom: 15px
 }
 .cat_icon {
     background: url(../images/cat.png) no-repeat;
@@ -162,7 +161,7 @@ img {
     margin: 21px auto 0 auto;
     width: 60%;
 }
-.ui-slider-horizontal .ui-state-default { 
+.ui-slider-horizontal .ui-state-default {
     background: url(../images/scroller.png) no-repeat scroll 50% 50%;
     margin-top: -4px;
     border: none;
@@ -170,7 +169,7 @@ img {
     height: 1.2em;
 }
 .ui-slider-horizontal .ui-state-focus {
-    outline: none;   
+    outline: none;
 }
 .ui-slider-horizontal {
     height: 2px;
@@ -200,7 +199,7 @@ img {
     width: 300px;
 }
 .gifts label{
-    width: 135px;
+   /* width: 135px;*/
     text-align: right;
     display: inline-block;
 }
@@ -244,7 +243,7 @@ img {
     visibility: hidden;
 }
 .share-hover .active {
-    
+
 }
 .email-form {
     background: url(../images/mail_form_bg.jpg) repeat-x;
@@ -252,7 +251,7 @@ img {
     z-index: 0;
     padding: 20px 40px;
     margin-top: -7px;
-    
+
 }
 .email-form textarea {
     font-family: 'Calibri';
