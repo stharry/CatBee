@@ -22,7 +22,7 @@ function CreateAndInitializeEmailForm() {
 
     $("#emailSubmit").click(function () {
 
-        alert(1);
+
         var emailval = $("#mail-input").val();
         var msgval = $("#message").val();
         var msglen = msgval.length;
@@ -41,15 +41,15 @@ function CreateAndInitializeEmailForm() {
         else if (msglen >= 4) {
             $("#message").removeClass("error");
         }
-        alert(2);
+
         if (mailvalid == true && msglen >= 4) {
             // if both validate we attempt to send the e-mail
             // first we hide the submit btn so the user doesnt click twice
-            $("#emailSubmit").replaceWith("<em>sending...</em>");
+            //$("#emailSubmit").replaceWith("<em>sending...</em>");
 
             var postData = createCatBeeShareRequest();
             var sharePoint = getCatBeeShareUrl();
-            alert(3);
+
             $.ajax({
                 type:'POST',
                 url:sharePoint,
