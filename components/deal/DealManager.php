@@ -26,6 +26,11 @@ class DealManager implements IDealManager
 
     }
 
+    private function getCatBeeSharePoint()
+    {
+        return $GLOBALS["restURL"]."/CatBee/api/share/";
+
+    }
 
     private function createPendingDeal($landing, $order)
     {
@@ -37,6 +42,8 @@ class DealManager implements IDealManager
         $leaderDeal->order = $order;
         $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
         $leaderDeal->selectedLandingReward = $landing->landingRewards[0]->leaderReward->value;
+        $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
+
         $this->dealDao->insertDeal($leaderDeal);
         return $leaderDeal;
     }

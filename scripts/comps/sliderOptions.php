@@ -1,4 +1,8 @@
-<div id="sliderOptions" height=0 width=0 style="display: none;">10
+<div id="sliderOptions" height=0 width=0 style="display: none;">
+
+    <div id="catBeeSharePoint"><?=$p->sharePoint?></div>
+    <div id="leaderEmail"><?=$p->customer->email?></div>
+    <div id="storeCode"><?=$p->order->store->authCode?></div>
 
 <?php
 $rewardsCount = count($p->landing->landingRewards);

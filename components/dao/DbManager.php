@@ -92,6 +92,7 @@ class DbManager
         $params = DbManager::buildParameters($fieldNames, $fieldValues);
        // echo "</p> insert to <".$table."> as : ".$expr."</p>";
         //var_dump($params);
+
         return DbManager::setValues($expr,  $params);
     }
 
@@ -100,7 +101,7 @@ class DbManager
         try {
             $conn = DbManager::insert($table, $fieldNames, $fieldValues);
 
-           // echo "</p>before get last id</p>";
+            echo "</p>before get last id</p>";
 
             return $conn->lastInsertId($idColumnName);
 

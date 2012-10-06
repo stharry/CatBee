@@ -37,11 +37,10 @@ class EmailShareProvider implements IShareProvider
         $mail = $smtp->send($share->sendTo, $headers, $body);
 
         if (PEAR::isError($mail)) {
-            echo("Message_Failed");
+            return "failed";
         } else {
-            echo("Message_Sent");
+            return "ok";
         }
 
-        // TODO: Implement share() method.
     }
 }

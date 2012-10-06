@@ -8,7 +8,13 @@ foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/*.php") as $
 
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/share/ShareManager.php");
 
-$shareProps = RestUtils::processRequest()->getRequestVars() or die("Share format is wrong");
+//echo "-------";
+//var_dump($_POST);
+//echo "-------";
+
+$return_obj = RestUtils::processRequest() or die ("Cannot parse post data in share request");
+$shareProps = $return_obj->getRequestVars() or die("Unknown share format");
+
 $action = $shareProps["action"];
 $context = $shareProps["context"];
 
@@ -42,9 +48,10 @@ switch ($action)
         $jsonShareAdapter = new JsonShareAdapter();
         $share = $jsonShareAdapter->fromArray($context);
 
-        $shareManager->share($share);
+        $status = $shareManager->share($share);
 
-        RestUtils::sendResponse(0, "OK");
+        $response = array("status" => $status);
+        RestUtils::sendResponse(0, $response);
         break;
 
 }
