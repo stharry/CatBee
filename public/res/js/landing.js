@@ -37,26 +37,51 @@ $(document).ready(function() {
         }
     )
 
-    $('.share-box a[rel="email"]').click(function(){
-        var target = $(this);
-        if( $('.email-form').css('display') == 'none' ){
-            //I know this is not the Way yo Call a relative URL..
-            $('.box-wrapper').css({height:'810px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'});
-        }else{
-            //I know this is not the Way yo Call a relative URL..
-            $('.box-wrapper').css({height:'500px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
-        }
-        $('.email-form').slideToggle("fast", function(){
-            if( $('.email-form').css('display') == 'none' ){
-                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
-                $('.share-hover .'+target.attr('rel')).removeClass('active');
-            }else{
-                $('.share-hover .'+target.attr('rel')).css('visibility', 'visible');
-                $('.share-hover .'+target.attr('rel')).addClass('active');
+    try
+    {
+    $("#emailShare").fancybox({
+
+        width : 490,
+        height : 500,
+        autoScale : false,
+        scrolling   : 'no',
+        overlay : {
+            css : {
+                'background' : 'rgba(238,238,238,0.85)'
             }
-            goToByScroll('email-form');
-        });
+        }
     });
+    }
+    catch (e)
+    {
+        alert(e)
+    }
+
+
+//
+//    $('.share-box a[rel="email"]').click(function(){
+//
+//        var target = $(this);
+//        if( $('.email-form').css('display') == 'none' ){
+//            //I know this is not the Way yo Call a relative URL..
+//            $('.box-wrapper').css({height:'810px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'});
+//        }else{
+//            //I know this is not the Way yo Call a relative URL..
+//            $('.box-wrapper').css({height:'500px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
+//        }
+//        $('.email-form').slideToggle("fast", function(){
+//            if( $('.email-form').css('display') == 'none' ){
+//                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
+//                $('.share-hover .'+target.attr('rel')).removeClass('active');
+//            }else{
+//                $('.share-hover .'+target.attr('rel')).css('visibility', 'visible');
+//                $('.share-hover .'+target.attr('rel')).addClass('active');
+//            }
+//            goToByScroll('email-form');
+//        });
+//
+//    });
+
     //infield label
     $('textarea').each(function() {
         var $this = $(this);
