@@ -90,6 +90,8 @@ CREATE  TABLE IF NOT EXISTS deal (
 
 id INT AUTO_INCREMENT ,
 
+parentId INT NULL,
+
 code VARCHAR(45) NULL ,
 
 landing INT NOT NULL ,

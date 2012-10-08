@@ -10,11 +10,13 @@ class JsonShareAdapter implements IModelAdapter
 {
     private $jsonStoreAdapter;
     private $jsonShareContextAdapter;
+    private $jsonRewardAdapter;
 
     function __construct()
     {
         $this->jsonStoreAdapter = new JsonStoreAdapter();
         $this->jsonShareContextAdapter = new JsonShareContextAdapter();
+        $this->jsonRewardAdapter = new JsonSingleRewardAdapter();
 
     }
 
@@ -34,6 +36,7 @@ class JsonShareAdapter implements IModelAdapter
 
         $share->store = $this->jsonStoreAdapter->fromArray($obj["store"]);
         $share->context = $this->jsonShareContextAdapter->fromArray($obj["context"]);
+        $share->reward = $this->jsonRewardAdapter->fromArray($obj["reward"]);
 
         return $share;
     }

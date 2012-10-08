@@ -26,10 +26,10 @@ $campaignManager = new CampaignManager(new PdoStoreDao(),
 
 
 $dealManager = new DealManager($campaignManager, new PdoDealDao());
-switch ($action)
+switch (strtolower($action))
 {
 
-    case "push":
+    case "deal":
         $orderAdapter = new JsonOrderAdapter();
         $order = $orderAdapter->fromArray($context);
         $deal = $dealManager->pushDeal($order);
@@ -37,6 +37,10 @@ switch ($action)
         $dealProps = $jsonDealAdapter->toArray($deal);
 
         //RestUtils::sendResponse(0, $dealProps);
+        break;
+
+    case "frienddeal":
+        echo json_encode($context);
         break;
 
 

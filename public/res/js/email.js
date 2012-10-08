@@ -84,6 +84,9 @@ function getCatBeeShareUrl()
 }
 
 function createCatBeeShareRequest() {
+
+    var rewardInd = $("#slider").slider("value");
+
     return {
         action:'share',
         context:{
@@ -97,6 +100,15 @@ function createCatBeeShareRequest() {
             },
             store:{
                 authCode:$("#storeCode").text()
+            },
+            reward:
+            {
+                value: $('#friendRewardValue' + rewardInd).text(),
+                type: $('#friendRewardType' + rewardInd).text(),
+                code: $('#friendRewardCode' + rewardInd).text(),
+                description: $('#friendRewardDesc' + rewardInd).text(),
+                typeDescription: $('#friendRewardTypeDesc' + rewardInd).text()
+
             }
         }
     };
