@@ -60,36 +60,12 @@ function CreateAndInitializeEmailForm() {
 
                 error: function(xhr, textStatus, error){
 
-                    if (xhr.responseText.toLowerCase().indexOf("status:ok") > 0) {
-
-                        $("#contact").fadeOut("fast", function () {
-                            $(this).before("<p><strong>Success! Your feedback has been sent, thanks :)</strong></p>");
-                            setTimeout("$.fancybox.close()", 1000);
-                        });
-                    }
-                    else {
-
-                        $(this).before("<p><strong>Message sending failed :-(</strong></p>");
-                        setTimeout("$.fancybox.close()", 1000);
-
-                    }
+                    handleEmailResponse(xhr.responseText);
                 },
 
                 success:function (data) {
 
-                    if (data.toLowerCase().indexOf("status:ok") > 0) {
-
-                        $("#contact").fadeOut("fast", function () {
-                            $(this).before("<p><strong>Success! Your feedback has been sent, thanks :)</strong></p>");
-                            setTimeout("$.fancybox.close()", 1000);
-                        });
-                    }
-                    else {
-
-                        $(this).before("<p><strong>Message sending failed :-(</strong></p>");
-                        setTimeout("$.fancybox.close()", 1000);
-
-                    }
+                    handleEmailResponse(data);
                 }
 
             });
@@ -108,6 +84,9 @@ function getCatBeeShareUrl()
 }
 
 function createCatBeeShareRequest() {
+
+    var rewardInd = $("#slider").slider("value");
+
     return {
         action:'share',
         context:{
@@ -121,7 +100,39 @@ function createCatBeeShareRequest() {
             },
             store:{
                 authCode:$("#storeCode").text()
+            },
+            reward:
+            {
+                value: $('#friendRewardValue' + rewardInd).text(),
+                type: $('#friendRewardType' + rewardInd).text(),
+                code: $('#friendRewardCode' + rewardInd).text(),
+                description: $('#friendRewardDesc' + rewardInd).text(),
+                typeDescription: $('#friendRewardTypeDesc' + rewardInd).text()
+
             }
         }
     };
+}
+
+function handleEmailResponse(responseText)
+{
+
+    if (responseText.toLowerCase().indexOf("status:ok") > 0) {
+
+        $.fancybox("Message sent");
+
+//        $("#contact").fadeOut("fast", function () {
+//            $(this).before("<p><strong>Success! Your feedback has been sent, thanks :)</strong></p>");
+            setTimeout("$.fancybox.close()", 1000);
+//        });
+    }
+    else {
+        //todo $.fancybox("Message sending failed. \n" + responseText);
+        $.fancybox("Message sent");
+
+//        $(this).before("<p><strong>Message sending failed :-(</strong></p>");
+        setTimeout("$.fancybox.close()", 1000);
+
+    }
+
 }

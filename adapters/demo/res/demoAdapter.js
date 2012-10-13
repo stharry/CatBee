@@ -2,12 +2,13 @@ $(document).ready(function () {
 
     $("#autostart").fancybox({
 
-        'width' : '175%',
-        'height' : '175%',
-        'autoScale' : true,
+        'width' : 490,
+        'height' : 500,
+        'autoScale' : false,
         'transitionIn' : 'none',
         'transitionOut' : 'none',
         'type' : 'iframe',
+        'scrolling'   : 'no',
         overlay : {
             css : {
                 'background' : 'rgba(238,238,238,0.85)'

@@ -1,16 +1,22 @@
 {
     "action":"share",
-    "context":
-    {
+    "context":{
         "sendFrom":"regev147@013.net",
         "sendTo":"spidernah@gmail.com",
         "message":"Just a campaign test email, relax bro",
-        "subject": "Test CatBee message",
+        "subject":"Test CatBee message",
         "context":{
             "type":"email"
         },
         "store":{
             "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+        },
+        "reward":{
+            "description":"You get",
+            "value":"10",
+            "type":"coupon",
+            "code":"ABCD1234_10",
+            "typeDescription": "% coupon"
         }
     }
 }

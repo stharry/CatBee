@@ -2,7 +2,7 @@
     <div>Share via:</div>
     <a href="#" rel="twitter"><img src="<?= $GLOBALS["rootPath"] ?>/res/images/twitter.png" alt="" /></a>
     <a href="#" rel="facebook"><img src="<?= $GLOBALS["rootPath"] ?>/res/images/facebook.png" alt="" /></a>
-    <a href="#" rel="email"><img src="<?= $GLOBALS["rootPath"] ?>/res/images/email.png" alt="" /></a>
+    <a href="#emailForm" rel="email" id="emailShare"><img src="<?= $GLOBALS["rootPath"] ?>/res/images/email.png" alt="" /></a>
     <!--<a href="#">more</a>-->
     <div class="share-hover">
         <img class="twitter" src="<?= $GLOBALS["rootPath"] ?>/res/images/triangle.png" alt="" />

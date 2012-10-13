@@ -17,10 +17,15 @@ class EmailShareProvider implements IShareProvider
 
         ob_end_clean();
 
+        echo htmlentities($body);
+
         $headers = array ('From' => $share->sendFrom,
             'To' => $share->sendTo,
             'Subject' => $share->subject);
 
+
+        echo "headers--------";
+        var_dump($headers);
 
         $mime = new Mail_mime();
         $mime->setHTMLBody($body);

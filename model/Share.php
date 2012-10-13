@@ -9,4 +9,5 @@ class Share
     public $store;
     public $campaign;
     public $context;
+    public $reward;
 }

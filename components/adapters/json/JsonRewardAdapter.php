@@ -1,28 +1,29 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Reward.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/LandingReward.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
+include_once("JsonSingleRewardAdapter.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/Reward.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/LandingReward.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/components/adapters/IModelAdapter.php");
 
 class JsonRewardAdapter implements IModelAdapter
 {
+    private $singleRewardAdapter;
+
+    function __construct()
+    {
+        $this->singleRewardAdapter = new JsonSingleRewardAdapter();
+    }
+
     private function singleRewardToArray($reward)
     {
-        return
-            array("value" => $reward->value,
-                "code" => $reward->code,
-                "type" => $reward->type,
-                "description" => $reward->description,
-                "typeDescription" => $reward->typeDescription);
-
+        return $this->singleRewardAdapter->toArray($reward);
     }
 
     public function toArray($obj)
     {
         $landingRewardsProps = array();
 
-        foreach ($obj as $landingReward)
-        {
+        foreach ($obj as $landingReward) {
             $singleRewardProps = array(
                 "leaderReward" => $this->singleRewardToArray($landingReward->leaderReward),
                 "friendReward" => $this->singleRewardToArray($landingReward->friendReward)
@@ -37,8 +38,7 @@ class JsonRewardAdapter implements IModelAdapter
     {
         $landingRewards = array();
 
-        foreach ($obj as $landingRewardProps)
-        {
+        foreach ($obj as $landingRewardProps) {
             $landingReward = new LandingReward();
 
             $landingReward->leaderReward = $this->rewardFromArray($landingRewardProps["leaderReward"]);
@@ -52,14 +52,6 @@ class JsonRewardAdapter implements IModelAdapter
 
     private function rewardFromArray($rewardProps)
     {
-        $reward = new Reward();
-
-        $reward->value = $rewardProps["value"];
-        $reward->code = $rewardProps["code"];
-        $reward->type = $rewardProps["type"];
-        $reward->description = $rewardProps["description"];
-        $reward->typeDescription = $rewardProps["typeDescription"];
-
-        return$reward;
+        return $this->singleRewardAdapter->fromArray($rewardProps);
     }
 }

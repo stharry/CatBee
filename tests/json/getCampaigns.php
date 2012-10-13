@@ -5,7 +5,7 @@
 
 include('../../components/rest/RestUtils.php');
 
-$campaignFilter = json_decode(file_get_contents("getCampaigns.json"));
+$campaignFilter = json_decode(file_get_contents("res/getCampaigns.json"));
 
 //var_dump($campaign);
 
