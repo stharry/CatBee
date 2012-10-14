@@ -139,7 +139,7 @@ img {
     line-height: 1;
 }
 .icons_wrapper {
-    margin-bottom: 15px
+    margin-bottom: 10px
 }
 .cat_icon {
     background: url(../images/cat.png) no-repeat;
@@ -162,7 +162,7 @@ img {
 }
 .ui-slider-horizontal .ui-state-default {
     background: url(../images/scroller.png) no-repeat scroll 50% 50%;
-    margin-top: -4px;
+    margin-top: -1px;
     border: none;
     width: 1.2em;
     height: 1.2em;
@@ -171,15 +171,16 @@ img {
     outline: none;
 }
 .ui-slider-horizontal {
-    height: 2px;
-    background: #747a7c;
+    height: 12px;
+    background: url(../images/slider_bg.jpg) repeat-x center center;
+    border: none;
 }
 .unit {
     width: 2px;
     height: 10px;
     background: #595740;
     float: left;
-    margin-top: -7px;
+    margin-top: -10px;
     position: relative;
 }
 .pos_center {
@@ -295,6 +296,10 @@ img {
     background: url(../images/send_mail_btn.png) no-repeat;
     width: 155px;
     height: 37px;
-    text-indent: 99999px;
     overflow: hidden;
+    text-shadow: 2px 2px 2px #5F5F5F;
+    font-family: 'allerregular';
+    font-size: 15px;
+    font-weight: bold;
 }
+
