@@ -20,4 +20,27 @@ class PdoFriendLandingDao implements IFriendLandingDao
 
         DbManager::insert("campfriendlanding", $names, $values);
     }
+    public function GetFriendLanding($campaign)
+    {
+
+        $rows = DbManager::selectValues("SELECT F.id, F.slogan, F.friendMessage,
+          F.rewardMessage1, F.rewardMessage2 FROM friendlanding F
+                       INNER JOIN campfriendlanding cf on F.Id = cf.FriendLandingID
+                       WHERE cf.campaignId=?",
+            array($campaign->id => PDO::PARAM_STR));
+
+        $Friendlandings = array();
+        foreach ($rows as $row)
+        {
+            $FriendLanding = new FriendLanding();
+            $FriendLanding->id = $row["id"];
+            $FriendLanding->slogan = $row["slogan"];
+            $FriendLanding->friendMessage = $row["friendMessage"];
+            $FriendLanding->rewardMessage1 = $row["rewardMessage1"];
+            $FriendLanding->rewardMessage2 = $row["rewardMessage2"];
+            array_push($Friendlandings, $FriendLanding);
+        }
+        $campaign->friendLandings = $Friendlandings;
+        var_dump($campaign);
+    }
 }

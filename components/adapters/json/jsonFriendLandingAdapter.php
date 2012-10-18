@@ -9,7 +9,7 @@ class JsonFriendLandingAdapter implements IModelAdapter
     private function singleFriendLandingToArray($Friendlanding)
     {
         return
-            array("slogan" => $Friendlanding->Slogan,
+            array("slogan" => $Friendlanding->slogan,
                 "friendMessage" => $Friendlanding->friendMessage,
                 "rewardMessage1" => $Friendlanding->rewardMessage1,
                 "rewardMessage2" => $Friendlanding->rewardMessage2);
@@ -21,7 +21,6 @@ class JsonFriendLandingAdapter implements IModelAdapter
 
     public function toArray($obj)
     {
-        echo "Frined:ToArray";
         if (is_array($obj))
         {
             $FriendlandingsProps = array();
@@ -32,7 +31,7 @@ class JsonFriendLandingAdapter implements IModelAdapter
             }
             return $FriendlandingsProps;
         }
-        return $this->singleLandingToArray($obj);
+        return $this->singleFriendLandingToArray($obj);
     }
 
     public function fromArray($obj)

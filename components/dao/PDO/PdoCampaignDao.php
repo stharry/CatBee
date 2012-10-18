@@ -8,10 +8,13 @@ class PdoCampaignDao implements ICampaignDao
 {
 
     private $leaderLandingDao;
+    private $FriendLandingDao;
 
-    function __construct($leaderLandingDao)
+
+    function __construct($leaderLandingDao,$FriendLandingDao)
     {
         $this->leaderLandingDao = $leaderLandingDao;
+        $this->FriendLandingDao = $FriendLandingDao;
     }
 
     public function isCampaignExists($campaign)
@@ -43,9 +46,9 @@ class PdoCampaignDao implements ICampaignDao
             $campaign->id = $row["id"];
             $campaign->name = $row["name"];
             $campaign->description = $row["description"];
-
+            //TODO - dont think the following 2 calls should be here... can we take them above to the
             $this->leaderLandingDao->getLeaderLandings($campaign);
-
+            $this->FriendLandingDao->GetFriendLanding($campaign);
             array_push($campaigns, $campaign);
         }
         return $campaigns;

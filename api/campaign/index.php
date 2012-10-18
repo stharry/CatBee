@@ -20,7 +20,7 @@ $campaignManager = new CampaignManager(new PdoStoreDao(),
     new PdoCustomerDao(),
     new PdoCampaignDao(
         new PdoLeaderLandingDao(
-            new PdoLeaderLandingRewardDao())),
+            new PdoLeaderLandingRewardDao()),new pdoFriendLAndingDao()),
     new DefaultCampaignStrategy(),
     new DefaultLeaderLandingStrategy()
    ,new friendLandingManager()

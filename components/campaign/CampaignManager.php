@@ -82,10 +82,8 @@ class CampaignManager implements ICampaignManager
     public function saveCampaign($campaign)
     {
         $this->checkStore($campaign->store);
-
         $this->campaignDao->insertCampaign($campaign);
-        //ToDO - change the DAO to a Business logic layer
-      $this->FriendLandingManager->SaveFriendLandingManager($campaign);
+        $this->FriendLandingManager->SaveFriendLandingManager($campaign);
 
     }
 
