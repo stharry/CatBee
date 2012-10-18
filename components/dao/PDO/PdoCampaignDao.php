@@ -58,11 +58,12 @@ class PdoCampaignDao implements ICampaignDao
             $campaign->description);
 
         $campaign->id = DbManager::insertAndReturnId("campaign", $names, $values);
-
+        //Tomer - I dont think it is good to Call from Dao To Dao, this part should be part of the Business logic
         foreach ($campaign->landings as $leaderLanding)
         {
             $this->leaderLandingDao->insertLeaderLanding($campaign, $leaderLanding);
         }
+
     }
 
     public function updateCampaign($campaign)

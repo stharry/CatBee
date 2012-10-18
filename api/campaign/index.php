@@ -9,6 +9,8 @@ IncludeComponent("campaign","CampaignManager");
 IncludeComponent("deal","DealManager");
 IncludeComponent("campaign","DefaultCampaignStrategy");
 IncludeComponent("landing","DefaultLeaderLandingStrategy");
+IncludeComponent("FriendLanding","friendLandingManager");
+
 
 $campaignProps = RestUtils::processRequest()->getRequestVars() or die("Campaign format is wrong");
 $action = $campaignProps["action"];
@@ -20,7 +22,9 @@ $campaignManager = new CampaignManager(new PdoStoreDao(),
         new PdoLeaderLandingDao(
             new PdoLeaderLandingRewardDao())),
     new DefaultCampaignStrategy(),
-    new DefaultLeaderLandingStrategy());
+    new DefaultLeaderLandingStrategy()
+   ,new friendLandingManager()
+);
 
 switch ($action)
 {
@@ -40,7 +44,6 @@ switch ($action)
     case "push":
         $campaignAdapter = new JsonCampaignAdapter();
         $campaign = $campaignAdapter->fromArray($context);
-
         $campaignManager->saveCampaign($campaign);
 
         RestUtils::sendResponse(0, "OK");

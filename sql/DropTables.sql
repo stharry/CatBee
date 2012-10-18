@@ -12,3 +12,5 @@ DROP TABLE IF EXISTS purchase;
 DROP TABLE IF EXISTS activeshare;
 DROP TABLE IF EXISTS StoreShareTemplate;
 DROP TABLE IF EXISTS friendlanding;
+DROP Table IF EXISTS campfriendlanding;
+
