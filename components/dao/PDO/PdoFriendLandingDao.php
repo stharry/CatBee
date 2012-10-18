@@ -41,6 +41,5 @@ class PdoFriendLandingDao implements IFriendLandingDao
             array_push($Friendlandings, $FriendLanding);
         }
         $campaign->friendLandings = $Friendlandings;
-        var_dump($campaign);
     }
 }
