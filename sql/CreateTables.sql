@@ -173,6 +173,11 @@ rewardMessage2 varchar(60) DEFAULT NULL,
 PRIMARY KEY (id)
 );
 
+CREATE  TABLE IF NOT EXISTS campfriendlanding (
+ campaignId INT NOT NULL ,
+ FriendLandingID INT NOT NULL ,
+  PRIMARY KEY (CampaignId, FriendLandingID) );
+
 CREATE TABLE IF NOT EXISTS customerAuth (
   contextId INT NOT NULL,
   customerId INT NOT NULL,
