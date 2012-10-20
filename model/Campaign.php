@@ -9,4 +9,5 @@ class Campaign
     public $landings;
     public $startDate;
     public $endDate;
+    public $friendLandings;
 }

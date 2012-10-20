@@ -12,16 +12,17 @@ class CampaignManager implements ICampaignManager
     private $campaignDao;
     private $campaignStrategy;
     private $landingStrategy;
+    private $FriendLStrategy;
 
     function __construct($storeDao, $customerDao, $campaignDao,
-                         $campaignStrategy, $landingStrategy)
+                         $campaignStrategy, $landingStrategy,$friendLandingManager)
     {
         $this->storeDao = $storeDao;
         $this->customerDao = $customerDao;
         $this->campaignDao = $campaignDao;
         $this->campaignStrategy = $campaignStrategy;
         $this->landingStrategy = $landingStrategy;
-
+        $this->FriendLandingManager = $friendLandingManager;
     }
 
     private function checkCustomer($customer)
@@ -65,7 +66,6 @@ class CampaignManager implements ICampaignManager
 
     public function chooseCampaign($order)
     {
-        //echo "</p>choose campaign";
 
         $this->validateOrder($order);
 
@@ -82,12 +82,18 @@ class CampaignManager implements ICampaignManager
     public function saveCampaign($campaign)
     {
         $this->checkStore($campaign->store);
-
         $this->campaignDao->insertCampaign($campaign);
+        $this->FriendLandingManager->SaveFriendLandingManager($campaign);
+
     }
 
     public function chooseLeaderLanding($campaign, $order)
     {
         return $this->landingStrategy->chooseLeaderLanding($campaign, $order);
+    }
+
+    public function chooseFriendLStrategy($campaign, $order)
+    {
+      return $this->FriendLStrategy->chooseFriendLanding($campaign, $order);
     }
 }

@@ -9,9 +9,14 @@ CREATE TABLE IF NOT EXISTS customers (
 
 
 CREATE  TABLE IF NOT EXISTS CampaignLandings (
-campaignId INT AUTO_INCREMENT ,
+campaignId INT NOT NULL ,
 landingId INT NOT NULL ,
 PRIMARY KEY (campaignId, landingId) );
+
+CREATE  TABLE IF NOT EXISTS campfriendlanding (
+ campaignId INT NOT NULL ,
+ FriendLandingID INT NOT NULL ,
+  PRIMARY KEY (CampaignId, FriendLandingID) );
 
 
 CREATE  TABLE IF NOT EXISTS landing (

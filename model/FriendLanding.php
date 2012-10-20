@@ -3,5 +3,8 @@
 class FriendLanding
 {
     public $id;
-    public $sloganLine;
+    public $slogan;
+    public $friendMessage;
+    public $rewardMessage1;
+    public $rewardMessage2;
 }

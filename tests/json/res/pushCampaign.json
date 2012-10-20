@@ -1,6 +1,7 @@
 {
     "action":"push",
-    "context":{
+    "context":
+    {
         "name":"Cat Bee Demo campaign",
         "description":"Fan Toys campaign",
         "store":{
@@ -70,6 +71,16 @@
                 ]
 
             }
+
+        ],
+        "friendLandings":[
+            {
+                "slogan":"Get off any purchase at",
+                "friendMessage":"Crafted You a Great Deal",
+                "rewardMessage1":"Here is Your Promotion Code",
+                "rewardMessage2":"Just Apply it on Checkout"
+            }
         ]
+
     }
 }

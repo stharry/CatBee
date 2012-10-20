@@ -2,6 +2,7 @@
 
 include_once("JsonStoreAdapter.php");
 include_once("JsonLeaderLandingAdapter.php");
+include_once("jsonFriendLandingAdapter.php");
 include_once("JsonRewardAdapter.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Campaign.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
@@ -11,11 +12,13 @@ class JsonCampaignAdapter implements IModelAdapter
 
     private $jsonStoreAdapter;
     private $jsonLeaderLandingAdapter;
+    private $jsonFriendLandingAdapter;
 
     function __construct()
     {
         $this->jsonStoreAdapter = new JsonStoreAdapter();
         $this->jsonLeaderLandingAdapter = new JsonLeaderLandingAdapter();
+        $this->jsonFriendLandingAdapter = new jsonFriendLandingAdapter();
     }
 
     private function singleCampaignToArray($campaign)
@@ -24,7 +27,8 @@ class JsonCampaignAdapter implements IModelAdapter
             array("name" => $campaign->name,
                 "description" => $campaign->description,
                 "store" => $this->jsonStoreAdapter->toArray($campaign->store),
-                "landings" => $this->jsonLeaderLandingAdapter->toArray($campaign->landings)
+                "landings" => $this->jsonLeaderLandingAdapter->toArray($campaign->landings),
+                "friendlandings" => $this->jsonFriendLandingAdapter->toArray($campaign->friendLandings)
                 );
 
         return $campaignProps;
@@ -50,12 +54,9 @@ class JsonCampaignAdapter implements IModelAdapter
         $campaign = new Campaign();
         $campaign->name = $obj["name"];
         $campaign->description = $obj["description"];
-
-
         $campaign->store = $this->jsonStoreAdapter->fromArray($obj["store"]);
-
-
         $campaign->landings = $this->jsonLeaderLandingAdapter->fromArray($obj["landings"]);
+        $campaign->friendLandings = $this->jsonFriendLandingAdapter->fromArray($obj["friendLandings"]);
 
         return $campaign;
     }
