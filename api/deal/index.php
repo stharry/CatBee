@@ -11,6 +11,7 @@ IncludeComponent("campaign","CampaignManager");
 IncludeComponent("deal","DealManager");
 IncludeComponent("campaign","DefaultCampaignStrategy");
 IncludeComponent("landing","DefaultLeaderLandingStrategy");
+IncludeComponent("FriendLanding","friendLandingManager");
 
 $campaignProps = RestUtils::processRequest()->getRequestVars() or die("Campaign format is wrong");
 $action = $campaignProps["action"];
@@ -39,7 +40,7 @@ switch (strtolower($action))
 
         //RestUtils::sendResponse(0, $dealProps);
         break;
-
+        //TODO - ASk Vadim What did he mean By FreindDeal?
     case "frienddeal":
         echo json_encode($context);
         break;
