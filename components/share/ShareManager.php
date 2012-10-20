@@ -5,16 +5,34 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/FriendDealTemplate.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Customer.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Store.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Reward.php");
+
+
+
 include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/components/IShareManager.php");
 include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/components/adapters/json/JsonFriendDealTemplateAdapter.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/share/email/EmailShareProvider.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/share/facebook/FacebookShareProvider.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/PdoAuthorizationDao.php");
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
 
 class ShareManager implements IShareManager
 {
     private $shareDao;
     private $storeDao;
+    private $customerDao;
     private $pageAdapter;
+
+    private function validateCustomer($customer)
+    {
+        if ($customer->id > 0)
+        {
+            return;
+        }
+        if (!$this->customerDao->isCustomerExists($customer))
+        {
+            $this->customerDao->insertCustomer($customer);
+        }
+    }
 
     private function loadShareTemplatePageContext($shareTemplate)
     {
@@ -78,23 +96,23 @@ class ShareManager implements IShareManager
             case 1:
                 return new EmailShareProvider();
             case 2:
-                return new FacebookShareProvider();
+                return new FacebookShareProvider(new PdoAuthorizationDao());
             default:
                 die("Cannot find compatible share provider");
         }
     }
 
-    function __construct($storeDao, $shareDao, $pageAdapter)
+    function __construct($storeDao, $shareDao, $customerDao, $pageAdapter)
     {
         $this->storeDao = $storeDao;
         $this->shareDao = $shareDao;
+        $this->customerDao = $customerDao;
         $this->pageAdapter = $pageAdapter;
     }
 
     public function share($share)
     {
-        echo "share--------";
-        var_dump($share);
+        RestLogger::log("ShareManager::share ", $share);
 
         if (!$this->storeDao->isStoreExists($share->store))
         {
@@ -142,8 +160,39 @@ class ShareManager implements IShareManager
         return $this->shareDao->getShareTemplates($shareFilter);
     }
 
-    public function getContacts($customer)
+    public function getContacts($shareNode)
     {
 
+        $this->validateCustomer($shareNode->leader);
+
+        $shareProvider = $this->getCompatibleShareProvider($shareNode->context);
+
+        $shareNode->friends = $shareProvider->getContacts($shareNode->leader);
+    }
+
+    public function requiresAuthentication($shareNode)
+    {
+        $this->validateCustomer($shareNode->leader);
+
+        $shareProvider = $this->getCompatibleShareProvider($shareNode->context);
+
+        $result = $shareProvider->requiresAuthentication($shareNode);
+
+        RestLogger::log("ShareManager::requiresAuthentication ".$result);
+
+        return $result;
+    }
+
+    public function getAuthenticationUrl($shareNode, $params)
+    {
+        $this->validateCustomer($shareNode->leader);
+
+        $shareProvider = $this->getCompatibleShareProvider($shareNode->context);
+
+        $result = $shareProvider->getAuthenticationUrl($shareNode, $params);
+
+        RestLogger::log("ShareManager::getAuthenticationUrl ".$result);
+
+        return $result;
     }
 }

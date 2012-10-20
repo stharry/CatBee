@@ -212,6 +212,7 @@ abstract class BaseFacebook
    */
   protected $trustForwarded = false;
 
+    protected $lastUrl;
   /**
    * Initialize a Facebook Application.
    *
@@ -639,6 +640,7 @@ abstract class BaseFacebook
   public function api(/* polymorphic */) {
     $args = func_get_args();
     if (is_array($args[0])) {
+        //echo "</p>return rest server";
       return $this->_restserver($args[0]);
     } else {
       return call_user_func_array(array($this, '_graph'), $args);
@@ -910,7 +912,11 @@ abstract class BaseFacebook
    *
    * @return string The response text
    */
-  protected function makeRequest($url, $params, $ch=null) {
+    //todo was protected
+  public function makeRequest($url, $params, $ch=null) {
+
+    $this->lastUrl = $url." params ".json_encode($params);
+
     if (!$ch) {
       $ch = curl_init();
     }
@@ -934,6 +940,11 @@ abstract class BaseFacebook
     }
 
     curl_setopt_array($ch, $opts);
+
+      //echo "</p> make request 1.";
+      //echo "</p> url ".$url;
+      //var_dump($opts);
+
     $result = curl_exec($ch);
 
     if (curl_errno($ch) == 60) { // CURLE_SSL_CACERT
@@ -941,6 +952,9 @@ abstract class BaseFacebook
                      'using bundled information');
       curl_setopt($ch, CURLOPT_CAINFO,
                   dirname(__FILE__) . '/fb_ca_chain_bundle.crt');
+
+        //echo "</p> Make request with certificate";
+
       $result = curl_exec($ch);
     }
 
@@ -1126,6 +1140,7 @@ abstract class BaseFacebook
       $url .= '?' . http_build_query($params, null, '&');
     }
 
+      //echo "</p>api call: </p>".$url;
     return $url;
   }
 
@@ -1422,4 +1437,9 @@ abstract class BaseFacebook
    * @return void
    */
   abstract protected function clearAllPersistentData();
+
+    public function getLastUrl()
+    {
+        return $this->lastUrl;
+    }
 }

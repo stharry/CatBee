@@ -7,4 +7,6 @@ class Customer
     public $firstName;
     public $lastName;
     public $nickName;
+    public $sharedPhoto;
+    public $sharedUserId;
 }

@@ -12,3 +12,4 @@ TRUNCATE TABLE purchase;
 TRUNCATE TABLE activeshare;
 TRUNCATE TABLE StoreShareTemplate;
 TRUNCATE TABLE friendlanding;
+TRUNCATE TABLE customerAuth;

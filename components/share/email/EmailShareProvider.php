@@ -53,4 +53,14 @@ class EmailShareProvider implements IShareProvider
     {
         // TODO: Implement getContacts() method.
     }
+
+    public function requiresAuthentication($shareNode)
+    {
+        return false;
+    }
+
+    public function getAuthenticationUrl($shareNode, $params)
+    {
+        return "";
+    }
 }

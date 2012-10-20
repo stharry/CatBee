@@ -5,12 +5,42 @@
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/components/campaign/CampaignManager.php" line="5" />
-    <bookmark url="file://$PROJECT_DIR$/public/res/js/landing.js" line="2" mnemonic="2" />
-    <bookmark url="file://$PROJECT_DIR$/public/res/js/email.js" line="87" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/3dParty/facebook/base_facebook.php" line="948" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonShareNodeAdapter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoAuthorizationDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/rest/RestLogger.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/share/facebook/facebookLogin.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/ShareAuthorization.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/ShareNode.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/IAuthorizationDao.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/getFacebookContacts.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/getFacebookContactsTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/httpTest001.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/httpTest002.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/getFacebookContacts.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/kukuTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/loginClassTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/3dParty/facebook/base_facebook.php" afterPath="$PROJECT_DIR$/3dParty/facebook/base_facebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/share/index.php" afterPath="$PROJECT_DIR$/api/share/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonFriendDealTemplateAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonFriendDealTemplateAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/DbManager.php" afterPath="$PROJECT_DIR$/components/dao/DbManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/rest/RestUtils.php" afterPath="$PROJECT_DIR$/components/rest/RestUtils.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/share/ShareManager.php" afterPath="$PROJECT_DIR$/components/share/ShareManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/share/email/EmailShareProvider.php" afterPath="$PROJECT_DIR$/components/share/email/EmailShareProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/share/facebook/FacebookShareProvider.php" afterPath="$PROJECT_DIR$/components/share/facebook/FacebookShareProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Customer.php" afterPath="$PROJECT_DIR$/model/Customer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/components/IShareManager.php" afterPath="$PROJECT_DIR$/model/components/IShareManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/components/IShareProvider.php" afterPath="$PROJECT_DIR$/model/components/IShareProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/CreateTables.sql" afterPath="$PROJECT_DIR$/sql/CreateTables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/DropTables.sql" afterPath="$PROJECT_DIR$/sql/DropTables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/TruncateTables.sql" afterPath="$PROJECT_DIR$/sql/TruncateTables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/facebookTest.php" afterPath="$PROJECT_DIR$/tests/facebookTest.php" />
     </list>
     <ignored path="CatBee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,35 +60,44 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="email.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+      <file leaf-file-name="getFacebookContacts.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/getFacebookContacts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="0" selection-start="3078" selection-end="3078" vertical-scroll-proportion="0.0">
+            <state line="15" column="20" selection-start="546" selection-end="546" vertical-scroll-proportion="-10.178572">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HowTo.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/HowTo.txt">
+      <file leaf-file-name="JsonShareNodeAdapter.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonShareNodeAdapter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="12" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
+            <state line="22" column="24" selection-start="688" selection-end="688" vertical-scroll-proportion="-14.928572">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goDeal.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
+      <file leaf-file-name="loginClassTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/loginClassTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="23" column="39" selection-start="817" selection-end="817" vertical-scroll-proportion="-15.607142">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demoAdapter.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoAdapter.js">
+      <file leaf-file-name="getFacebookContacts.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/res/getFacebookContacts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="29" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="httpTest002.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/json/httpTest002.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -66,57 +105,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demoDeal.json" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoDeal.json">
+      <file leaf-file-name="getFacebookContactsTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/getFacebookContactsTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="18" selection-start="20" selection-end="20" vertical-scroll-proportion="0.025920874">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DropTables.sql" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sql/DropTables.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="458" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateTables.sql" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sql/CreateTables.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="9" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sliderOptions.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/comps/sliderOptions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="37" selection-start="1060" selection-end="1077" vertical-scroll-proportion="-12.892858">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="landing.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/res/js/landing.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="19" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="emailTemplate.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/json/res/emailTemplate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="215" selection-end="215" vertical-scroll-proportion="-8.142858">
+            <state line="23" column="22" selection-start="867" selection-end="867" vertical-scroll-proportion="-15.607142">
               <folding />
             </state>
           </provider>
@@ -132,25 +124,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/api/deal/index.php" />
-        <option value="$PROJECT_DIR$/tests/json/friendDeal.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/friendLink.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonFriendDealTemplate.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/shareStoreShareTemplate.json" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonSingleRewardAdapter.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonRewardAdapter.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonFriendDealTemplateAdapter.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonShareAdapter.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/emailTemplate.php" />
-        <option value="$PROJECT_DIR$/components/share/email/EmailShareProvider.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/pushDeal.json" />
+        <option value="$PROJECT_DIR$/3dParty/facebook/base_facebook.php" />
+        <option value="$PROJECT_DIR$/tests/json/res/kukuTest.php" />
+        <option value="$PROJECT_DIR$/components/share/facebook/facebookLogin.php" />
+        <option value="$PROJECT_DIR$/model/Customer.php" />
+        <option value="$PROJECT_DIR$/tests/json/httpTest002.php" />
+        <option value="$PROJECT_DIR$/tests/json/httpTest001.php" />
+        <option value="$PROJECT_DIR$/components/rest/RestUtils.php" />
+        <option value="$PROJECT_DIR$/api/share/index.php" />
         <option value="$PROJECT_DIR$/components/share/ShareManager.php" />
-        <option value="$PROJECT_DIR$/public/res/js/email.js" />
-        <option value="$PROJECT_DIR$/tests/HowTo.txt" />
-        <option value="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" />
+        <option value="$PROJECT_DIR$/tests/json/res/getFacebookCOntacts.js" />
+        <option value="$PROJECT_DIR$/tests/json/getFacebookContactsTest.html" />
+        <option value="$PROJECT_DIR$/components/share/facebook/FacebookShareProvider.php" />
+        <option value="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" />
+        <option value="$PROJECT_DIR$/tests/json/getFacebookContacts.php" />
+        <option value="$PROJECT_DIR$/tests/json/getFacebookContactsTest.php" />
+        <option value="$PROJECT_DIR$/tests/json/res/getFacebookContacts.js" />
       </list>
     </option>
   </component>
@@ -160,6 +155,22 @@
     <option name="y" value="-4" />
     <option name="width" value="1288" />
     <option name="height" value="938" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CSS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -269,39 +280,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -333,7 +312,213 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Config" />
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="comps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="share" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="share" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="facebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="share" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,36 +562,77 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dParty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="facebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="167" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="167" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="169" />
-    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="169" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CatBeeTomer/CatBee" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="168" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="689" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="686" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="689" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="169" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="167" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="preferences.sourceCode.PHP" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -583,10 +809,14 @@
       <created>1349734347515</created>
       <updated>1349734347515</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="added friend link creation">
+      <created>1349734359562</created>
+      <updated>1349734359562</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="3">
+  <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
       <are-packages-shown value="false" />
       <are-modules-shown value="false" />
@@ -607,16 +837,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1288" height="938" extended-state="6" />
+    <frame x="-4" y="-4" width="1288" height="938" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282123" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45244217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277635" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3176661" sideWeight="0.8097686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2828201" sideWeight="0.54755783" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -625,6 +853,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45244217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29434448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -689,18 +919,67 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonShareAdapter.php">
+    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="-8.357142">
+        <state line="38" column="0" selection-start="1030" selection-end="1030" vertical-scroll-proportion="-9.785714">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/res/friendLink.php">
+    <entry file="file://$PROJECT_DIR$/components/share/facebook/FacebookShareProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="31" selection-start="3323" selection-end="3323" vertical-scroll-proportion="-10.857142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerShareContextAdapter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="8" selection-start="628" selection-end="628" vertical-scroll-proportion="-9.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/pushCampaign.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/addStoreShareTemplate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/friendDeal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/getCampaigns.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="396" selection-end="396" vertical-scroll-proportion="0.41931033">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/getStoreShareTemplate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/pushDeal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -714,95 +993,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/share/email/EmailShareProvider.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/getFacebookContacts.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="34" selection-start="657" selection-end="657" vertical-scroll-proportion="-10.857142">
+        <state line="15" column="20" selection-start="546" selection-end="546" vertical-scroll-proportion="-10.178572">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/res/pushDeal.json">
+    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonShareNodeAdapter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="37" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
+        <state line="22" column="24" selection-start="688" selection-end="688" vertical-scroll-proportion="-14.928572">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
+    <entry file="file://$PROJECT_DIR$/tests/loginClassTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="44" selection-start="3661" selection-end="3661" vertical-scroll-proportion="-10.857142">
+        <state line="23" column="39" selection-start="817" selection-end="817" vertical-scroll-proportion="-15.607142">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/comps/sliderOptions.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/getFacebookContactsTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="37" selection-start="1060" selection-end="1077" vertical-scroll-proportion="-12.892858">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/js/landing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="19" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0">
+        <state line="23" column="22" selection-start="867" selection-end="867" vertical-scroll-proportion="-15.607142">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+    <entry file="file://$PROJECT_DIR$/tests/json/res/getFacebookContacts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="0" selection-start="3078" selection-end="3078" vertical-scroll-proportion="0.0">
+        <state line="63" column="29" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/res/emailTemplate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="215" selection-end="215" vertical-scroll-proportion="-8.142858">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql/DropTables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="458" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql/CreateTables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="9" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/HowTo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/goDeal.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/httpTest002.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoAdapter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoDeal.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="18" selection-start="20" selection-end="20" vertical-scroll-proportion="0.025920874">
           <folding />
         </state>
       </provider>

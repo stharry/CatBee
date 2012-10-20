@@ -1,25 +1,29 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/rest/RestUtils.php");
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestUtils.php");
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
 
-foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/json/*.php") as $filename) include_once($filename);
-foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/html/*.php") as $filename) include_once($filename);
-foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/*.php") as $filename) include_once($filename);
+foreach (glob($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/adapters/json/*.php") as $filename) include_once($filename);
+foreach (glob($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/adapters/html/*.php") as $filename) include_once($filename);
+foreach (glob($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/dao/PDO/*.php") as $filename) include_once($filename);
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/share/ShareManager.php");
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/share/ShareManager.php");
 
-echo "-------";
-var_dump($_POST);
-echo "-------";
+
+RestLogger::log("Share api call started");
+
 
 $return_obj = RestUtils::processRequest() or die ("Cannot parse post data in share request");
 $shareProps = $return_obj->getRequestVars() or die("Unknown share format");
 
-$action = $shareProps["action"];
-$context = $shareProps["context"];
+$action = $return_obj->getCatBeeAction();
+$context = $shareProps[ "context" ];
+
+RestLogger::log("Share api request vars: ", $shareProps);
 
 $shareManager = new ShareManager(
-    new PdoStoreDao(), new PdoShareDao(), new HtmlPageAdapter());
+    new PdoStoreDao(), new PdoShareDao(),
+    new PdoCustomerDao(), new HtmlPageAdapter());
 
 switch ($action)
 {
@@ -54,4 +58,41 @@ switch ($action)
         RestUtils::sendResponse(0, $response);
         break;
 
+    case "getcontacts":
+
+        RestLogger::log("share api:getcontacts start");
+
+        $shareNodeAdapter = new JsonShareNodeAdapter();
+        $shareNode = $shareNodeAdapter->fromArray($context);
+
+        $needToAuthenticate = $shareManager->requiresAuthentication($shareNode);
+
+        RestLogger::log("share api needToAuthenticate is ".$needToAuthenticate);
+
+        if ($needToAuthenticate)
+        {
+            $url = $shareManager->getAuthenticationUrl($shareNode,
+                null);
+
+            //RestUtils::SendComponentRequest($url, '',
+              //  array('api' => 'share', 'params' => $shareProps));
+              //  array('api' => 'share', 'params' => $shareProps));
+
+            $url .= '?api=share&params=' .urlencode(json_encode($shareProps));
+
+            RestLogger::log(" Authorization url: " . $url);
+
+            header('location: ' . $url);
+            exit();
+        }
+        else
+        {
+            RestLogger::log("share api:get contacts authorized");
+
+            $shareManager->getContacts($shareNode);
+
+            $response = $shareNodeAdapter->toArray($shareNode);
+            RestUtils::sendResponse(0, $response);
+            exit();
+        }
 }

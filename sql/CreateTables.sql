@@ -168,4 +168,10 @@ rewardMessage2 varchar(60) DEFAULT NULL,
 PRIMARY KEY (id)
 );
 
-
+CREATE TABLE IF NOT EXISTS customerAuth (
+  contextId INT NOT NULL,
+  customerId INT NOT NULL,
+  userId INT NOT NULL,
+  accessToken VARCHAR(250),
+  PRIMARY KEY (contextId, customerId)
+);
