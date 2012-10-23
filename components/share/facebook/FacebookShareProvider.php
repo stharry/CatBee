@@ -46,6 +46,10 @@ class FacebookShareProvider implements IShareProvider
 
     public function share($share)
     {
+//        http://www.facebook.com/dialog/send?app_id=123050457758183&
+//name=People%20Argue%20Just%20to%20Win&
+//        link=http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html&
+//redirect_uri=http://www.example.com/response
         // TODO: Implement share() method.
     }
 

@@ -107,6 +107,8 @@ switch ($action)
 
         $shareProps = $jsonShareAdapter->toArray($share);
 
+        RestLogger::log("share api:getshare response ", $shareProps);
+
         RestUtils::sendResponse(0, $shareProps);
         exit();
 

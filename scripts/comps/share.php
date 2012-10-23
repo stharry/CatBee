@@ -9,6 +9,7 @@
         <img class="facebook" src="<?= $GLOBALS["rootPath"] ?>/res/images/triangle.png" alt="" />
         <img class="email" src="<?= $GLOBALS["rootPath"] ?>/res/images/triangle.png" alt="" />
     </div>
+    <label id="shareResponse" style="display: none;"></label>
 </div>
 </div>
 </div>

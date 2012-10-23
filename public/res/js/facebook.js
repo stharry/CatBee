@@ -1,130 +1,99 @@
-
 $(document).ready(function () {
 
-        $('.facebook-form').hide();
-        $('#ContactsArea').hide();
+    $('.facebook-form').hide();
+    $('#ContactsArea').hide();
 
-        $("#facebookShare").fancybox({
+    $("#facebookShare").click(function () {
 
-            width : 490,
-            height : 500,
-            autoScale : false,
-            scrolling   : 'no',
-            overlay : {
-                css : {
-                    'background' : 'rgba(238,238,238,0.85)'
-                }
-            }
+        var data = createCatBeeFillShareRequest();
+
+        proceedCatBeeShareJsonRequest(data, shareViaFacebook);
+
+        FB.init({appId: '369374193139831', xfbml: true, cookie: true});
+
+        FB.ui({
+            method: 'send',
+            display: 'popup',
+            name: 'Hi, I shared a great deal for you...:)',
+            //redirect_uri: 'http://127.0.0.1:8080/CatBee/components/share/facebook/facebookLogin.php?kuku=1',
+            description: 'Press on link below to start shopping...http://127.0.0.1:8080/CatBee/api/deal/?action=friendDeal&context%5Bleader%5D%5Bemail%5D=vadim.chebyshev%40retalix.com&context%5Bfriend%5D%5Bemail%5D=Enter+your+friends+e-mail&context%5Breward%5D%5Bvalue%5D=10&context%5Breward%5D%5Bcode%5D=ABCD1234_10&context%5Breward%5D%5Btype%5D=coupon&context%5Bstore%5D%5BauthCode%5D=19FB6C0C-3943-44D0-A40F-3DC401CB3703',
+            link: 'http://www.TribZi.com'
         });
+//        try
+//        {
+//        alert(filledShare.link);
+//        }
+//        catch (err)
+//        {
+//            alert("err:" + err.message);
+//        }
+//
+//        FB.init({appId: '369374193139831', xfbml: true, cookie: true});
+//
+//        FB.ui({
+//            method: 'send',
+//            display: 'popup',
+//            name: 'People Argue Just to Win',
+//            description: '',
+//            link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html'
+//        });
 
-        $("#importFacebookContacts").fancybox({
+    });
+});
 
-            width : 490,
-            height : 500,
-            autoScale : false,
-            scrolling   : 'yes',
-            overlay : {
-                css : {
-                    'background' : 'rgba(238,238,238,0.85)'
-                }
-            }
-        });
-
-        $("#importFacebookContacts").click(function () {
-
-            var postData = createCatBeeGetFacebookContactsRequest();
-            var sharePoint = getCatBeeShareUrl();
-
-            $.ajax({
-                type:'POST',
-                url:sharePoint,
-                dataType: 'json',
-                data: postData,
-
-                timeout: 7200,
-
-                error: function(xhr, textStatus, error){
-
-                    addContacts(xhr.responseText);
-                },
-
-                success:function (data) {
-
-                    addContacts(data);
-                }
-
-            });
-        });
-    }
-);
-
-function addContacts(contactsData)
+function shareViaFacebook(data)
 {
-    try
-    {
-    var shareNode = $.parseJSON(contactsData);
 
-    var contacts = shareNode.friends;
+//    alert("txt " + data);
+//    alert("d " + data["link"]);
+//    try
+//    {
+//    var filledShare = $.parseJSON(data);
+//    }
+//    catch (err)
+//    {
+//        alert("err" + err.message);
+//
+//    }
 
-    var contactsContainer = document.getElementById('ContactsArea');
-
-
-    if ($('#contactsRemovableFrame').length > 0) {
-        var contactsRemovableFrame = document.getElementById('contactsRemovableFrame');
-        contactsContainer.removeChild(contactsRemovableFrame);
-    }
-
-    var contactsRemovableFrame = document.createElement('div');
-    contactsRemovableFrame.setAttribute('id', 'contactsRemovableFrame');
-    contactsContainer.appendChild(contactsRemovableFrame);
-
-
-    for (var x = 0; x < contacts.length; x++) {
-
-        var oneContactFrame = document.createElement('div');
-        contactsRemovableFrame.appendChild(oneContactFrame);
-
-        var contactImage = document.createElement('img');
-        contactImage.setAttribute('src', contacts[x].sharedPhoto);
-        oneContactFrame.appendChild(contactImage);
-
-        var contactLabel = document.createElement('label');
-        contactLabel.innerHTML = contacts[x].firstName;
-        contactLabel.setAttribute('for', 'contactCheckNo' + x);
-        oneContactFrame.appendChild(contactLabel);
-
-        var contactCheckbox = document.createElement('input');
-        contactCheckbox.type = "checkbox";
-        contactCheckbox.setAttribute('id', 'contactCheckNo' + x);
-        oneContactFrame.appendChild(contactCheckbox);
-    }
-    }
-    catch (e)
-    {
-        alert("Exception: " + e.message);
-    };
-
+//    FB.init({appId: '369374193139831', xfbml: true, cookie: true});
+//
+//    FB.ui({
+//        method: 'send',
+//        display: 'popup',
+//        name: 'Share CatBee deal',
+//        description: '',
+//        link: 'http://www.facebook.com'
+//    });
 }
 
-function getCatBeeShareUrl()
-{
-    return $("#catBeeSharePoint").text()
-}
+function createCatBeeFillShareRequest() {
 
-function createCatBeeGetFacebookContactsRequest() {
+    var rewardInd = $("#slider").slider("value");
 
     return {
-        action:'getcontacts',
+        action:'fillshare',
         context:{
 
-            leader:{
-                email:$("#leaderEmail").text()
+            sendFrom:$("#leaderEmail").text(),
+            sendTo:$("#mail-input").val(),
+            message:$("#message").val(),
+            subject:$("#message").val(),
+            context:{
+                type:'email'
             },
-            context:
+            store:{
+                authCode:$("#storeCode").text()
+            },
+            reward:
             {
-                type: "facebook"
+                value: $('#friendRewardValue' + rewardInd).text(),
+                type: $('#friendRewardType' + rewardInd).text(),
+                code: $('#friendRewardCode' + rewardInd).text(),
+                description: $('#friendRewardDesc' + rewardInd).text(),
+                typeDescription: $('#friendRewardTypeDesc' + rewardInd).text()
+
             }
         }
     };
 }
-
