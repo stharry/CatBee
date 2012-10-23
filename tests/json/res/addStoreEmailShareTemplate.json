@@ -10,7 +10,7 @@
             "type": "email"
         },
         "templatePage": {
-            "url": "http://127.0.0.1:8887/CatBee/tests/json/res/emailTemplate.php",
+            "url": "http://127.0.0.1:8080/CatBee/tests/json/res/emailTemplate.php",
             "type": "file"
         }
     }

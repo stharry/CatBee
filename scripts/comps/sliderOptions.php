@@ -3,6 +3,7 @@
     <div id="catBeeSharePoint"><?=$p->sharePoint?></div>
     <div id="leaderEmail"><?=$p->customer->email?></div>
     <div id="storeCode"><?=$p->order->store->authCode?></div>
+    <div id="dealNo"><?=$p->id?></div>
 
 <?php
 $rewardsCount = count($p->landing->landingRewards);

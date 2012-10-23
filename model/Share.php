@@ -10,4 +10,5 @@ class Share
     public $campaign;
     public $context;
     public $reward;
+    public $link;
 }

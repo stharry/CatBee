@@ -10,6 +10,8 @@ class JsonCustomerAdapter implements IModelAdapter
         return array("email" => $customer->email,
             "firstName" => $customer->firstName,
             "lastName" => $customer->lastName,
+            "sharedUserId" => $customer->sharedUserId,
+            "sharedPhoto" => $customer->sharedPhoto
             );
     }
 
@@ -39,6 +41,15 @@ class JsonCustomerAdapter implements IModelAdapter
         $customer->firstName = $obj["firstName"];
         $customer->lastName = $obj["lastName"];
         $customer->nickName = $obj["nickName"];
+
+        if (isset($obj["sharedUserId"]))
+        {
+            $customer->sharedUserId = $obj["sharedUserId"];
+        }
+        if (isset($obj["sharedPhoto"]))
+        {
+            $customer->sharedPhoto = $obj["sharedPhoto"];
+        }
 
         return $customer;
     }

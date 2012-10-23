@@ -1,6 +1,7 @@
 <?php
 
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php");
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
 
 class DbManager
 {
@@ -62,6 +63,8 @@ class DbManager
 
     public static function selectValues($selectExpression, $params = array())
     {
+        RestLogger::log("DbManager::selectValues SQL: ".$selectExpression, $params);
+
         $conn = DbManager::getConnection();
         $stmt = $conn->prepare($selectExpression);
 
@@ -90,8 +93,9 @@ class DbManager
         $expr = DbManager::buildInsertExpression($table, $fieldNames);
 
         $params = DbManager::buildParameters($fieldNames, $fieldValues);
-       // echo "</p> insert to <".$table."> as : ".$expr."</p>";
-        //var_dump($params);
+
+        RestLogger::log("DbManager::insert table: ".$table/" fields: ", $fieldNames);
+        RestLogger::log("DbManager::insert table: ".$table/" values: ", $fieldValues);
 
         return DbManager::setValues($expr,  $params);
     }

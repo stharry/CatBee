@@ -1,0 +1,17 @@
+{
+    "action": "set",
+    "context":
+    {
+        "store":
+        {
+            "authCode": "19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+        },
+        "shareContext":{
+            "type": "facebook"
+        },
+        "templatePage": {
+            "url": "http://127.0.0.1:8080/CatBee/tests/json/res/facebookTemplate.php",
+            "type": "file"
+        }
+    }
+}

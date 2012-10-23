@@ -32,6 +32,12 @@ class JsonFriendDealTemplateAdapter implements IModelAdapter
     public function fromArray($obj)
     {
         $friendDealTemplate = new FriendDealTemplate();
-        // TODO: Implement fromArray() method.
+
+        $friendDealTemplate->friend = $this->customerAdapter->fromArray($obj["friend"]);
+        $friendDealTemplate->leader = $this->customerAdapter->fromArray($obj["leader"]);
+        $friendDealTemplate->store = $this->storeAdapter->fromArray("store");
+        $friendDealTemplate->reward = $this->rewardAdapter->fromArray("reward");
+
+        return $friendDealTemplate;
     }
 }

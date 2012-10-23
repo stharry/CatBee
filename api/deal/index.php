@@ -9,6 +9,7 @@ foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/*.php") as $
 
 IncludeComponent("campaign","CampaignManager");
 IncludeComponent("deal","DealManager");
+IncludeComponent("FriendLanding","FriendLandingManager");
 IncludeComponent("campaign","DefaultCampaignStrategy");
 IncludeComponent("landing","DefaultLeaderLandingStrategy");
 IncludeComponent("FriendLanding","friendLandingManager");

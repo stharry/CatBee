@@ -5,16 +5,34 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/FriendDealTemplate.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Customer.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Store.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Reward.php");
+
+
+
 include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/components/IShareManager.php");
 include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/components/adapters/json/JsonFriendDealTemplateAdapter.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/share/email/EmailShareProvider.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/share/facebook/FacebookShareProvider.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/PdoAuthorizationDao.php");
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
 
 class ShareManager implements IShareManager
 {
     private $shareDao;
     private $storeDao;
+    private $customerDao;
     private $pageAdapter;
+
+    private function validateCustomer($customer)
+    {
+        if ($customer->id > 0)
+        {
+            return;
+        }
+        if (!$this->customerDao->isCustomerExists($customer))
+        {
+            $this->customerDao->insertCustomer($customer);
+        }
+    }
 
     private function loadShareTemplatePageContext($shareTemplate)
     {
@@ -44,7 +62,7 @@ class ShareManager implements IShareManager
         $friendTemplateProps = array("action" =>"friendDeal",
             "context" =>$friendDealTemplateAdapter->toArray($friendDealTemplate));
 
-        $link = "http://".$_SERVER['HTTP_HOST']."/CatBee/api/deal/?".http_build_query($friendTemplateProps);
+        $link = $GLOBALS["restURL"].'/CatBee/api/deal/?'.http_build_query($friendTemplateProps);
 
         return $link;
 
@@ -52,18 +70,10 @@ class ShareManager implements IShareManager
 
     private function createMessage($share, $shareTemplate)
     {
-//        $share->message = <<<EOF
-//        <html>
-//<body>
-//<a href="http://127.0.0.1:8887/CatBee/api/deal/?action=friendDeal&context%5Bleader%5D%5Bemail%5D=regev147%40013.net&context%5Bfriend%5D%5Bemail%5D=spidernah%40gmail.com&context%5Breward%5D%5Bvalue%5D=10&context%5Breward%5D%5Bcode%5D=ABCD1234_10&context%5Breward%5D%5Btype%5D=coupon&context%5Bstore%5D%5BauthCode%5D=19FB6C0C-3943-44D0-A40F-3DC401CB3703">Click Here!!!</a>
-//</body>
-//</html>
-//EOF;
-//
-//        return;
+        $share->link = $this->createShareLink($share);
 
         $share->message = str_replace('[message]', $share->message, $shareTemplate->templatePage->context);
-        $share->message = str_replace('[link]', $this->createShareLink($share), $share->message);
+        $share->message = str_replace('[link]', $share->link, $share->message);
         $share->message = str_replace('[reward.value]', $share->reward->value, $share->message);
         $share->message = str_replace('[reward.type]', $share->reward->type, $share->message);
         $share->message = str_replace('[reward.typeDescription]', $share->reward->typeDescription, $share->message);
@@ -78,39 +88,23 @@ class ShareManager implements IShareManager
             case 1:
                 return new EmailShareProvider();
             case 2:
-                return new FacebookShareProvider();
+                return new FacebookShareProvider(new PdoAuthorizationDao());
             default:
                 die("Cannot find compatible share provider");
         }
     }
 
-    function __construct($storeDao, $shareDao, $pageAdapter)
+    function __construct($storeDao, $shareDao, $customerDao, $pageAdapter)
     {
         $this->storeDao = $storeDao;
         $this->shareDao = $shareDao;
+        $this->customerDao = $customerDao;
         $this->pageAdapter = $pageAdapter;
     }
 
     public function share($share)
     {
-        echo "share--------";
-        var_dump($share);
-
-        if (!$this->storeDao->isStoreExists($share->store))
-        {
-            die ("share template store does not exists");
-        }
-
-        $shareFilter = new ShareFilter();
-        $shareFilter->store = $share->store;
-        $shareFilter->campaign = $share->campaign;
-
-        $shareTemplates = $this->getShareTemplates($shareFilter);
-
-        //todo: put strategy class here
-        if (count($shareTemplates) == 0) die ("There is no any share template for given store");
-
-        $this->createMessage($share, $shareTemplates[0]);
+        $this->fillShare($share);
 
         $shareProvider = $this->getCompatibleShareProvider($share->context);
 
@@ -142,8 +136,60 @@ class ShareManager implements IShareManager
         return $this->shareDao->getShareTemplates($shareFilter);
     }
 
-    public function getContacts($customer)
+    public function getContacts($shareNode)
     {
 
+        $this->validateCustomer($shareNode->leader);
+
+        $shareProvider = $this->getCompatibleShareProvider($shareNode->context);
+
+        $shareNode->friends = $shareProvider->getContacts($shareNode->leader);
+    }
+
+    public function requiresAuthentication($shareNode)
+    {
+        $this->validateCustomer($shareNode->leader);
+
+        $shareProvider = $this->getCompatibleShareProvider($shareNode->context);
+
+        $result = $shareProvider->requiresAuthentication($shareNode);
+
+        RestLogger::log("ShareManager::requiresAuthentication ".$result);
+
+        return $result;
+    }
+
+    public function getAuthenticationUrl($shareNode, $params)
+    {
+        $this->validateCustomer($shareNode->leader);
+
+        $shareProvider = $this->getCompatibleShareProvider($shareNode->context);
+
+        $result = $shareProvider->getAuthenticationUrl($shareNode, $params);
+
+        RestLogger::log("ShareManager::getAuthenticationUrl ".$result);
+
+        return $result;
+    }
+
+    public function fillShare($share)
+    {
+        RestLogger::log("ShareManager::share ", $share);
+
+        if (!$this->storeDao->isStoreExists($share->store))
+        {
+            die ("share template store does not exists");
+        }
+
+        $shareFilter = new ShareFilter();
+        $shareFilter->store = $share->store;
+        $shareFilter->campaign = $share->campaign;
+
+        $shareTemplates = $this->getShareTemplates($shareFilter);
+
+        //todo: put strategy class here
+        if (count($shareTemplates) == 0) die ("There is no any share template for given store");
+
+        $this->createMessage($share, $shareTemplates[0]);
     }
 }

@@ -1,0 +1,13 @@
+{
+    "action":"get contacts",
+    "context":{
+        "leader":
+        {
+            "email": "vadim.chebyshev@retalix.com"
+        },
+        "context":{
+            "type":"facebook"
+        }
+
+    }
+}

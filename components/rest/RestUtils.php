@@ -1,43 +1,96 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php");
+require_once 'RestLogger.php';
 
 class RestUtils
 {
-    public function SendGetRequest($api, $id, $obj)
-    {
-       // $url = "http://127.0.0.1:8080/CatBee/api/{$api}/";
-      //  echo $GLOBALS["restURL"];
-       $url = $GLOBALS["restURL"]."/CatBee/api/{$api}/";
-        if (isset($id)) {
-            $url .= $id;
-        }
+    private $logger;
 
+    function __construct()
+    {
+        $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
+        $this->logger = &Log::singleton('file', 'c:\CatBee.log', 'ident', $conf);
+    }
+
+    private static function sendAnyRequest($url, $obj)
+    {
         $getData = http_build_query($obj);
 
-        echo "get data: ".$getData;
+
+        RestLogger::log("RestUtils::sendAnyRequest url: ".$url." data: ".$getData);
 
         $opts = array('http' =>
-            array(
-                'method' => 'GET',
-                'content' => $getData
-            )
+        array(
+            'method' => 'GET',
+            'content' => $getData
+        )
         );
 
         $context = stream_context_create($opts);
 
         $response = file_get_contents($url, false, $context);
 
+        RestLogger::log("RestUtils::sendAnyRequest response: ".$response);
+
         return $response;
 
     }
 
-    public function SendPostRequest($api, $id, $obj)
+    private static function sendRequest($urlExtension, $id, $obj)
     {
-        //$url = "http://127.0.0.1:8887/CatBee/api/{$api}/";
+        $url = $GLOBALS["restURL"]."/CatBee/{$urlExtension}";
+        if (isset($id)) {
+            $url .= $id;
+        }
+
+        return RestUtils::sendAnyRequest($url, $obj);
+    }
+
+
+    public function SendFreeUrlRequest($url, $obj)
+    {
+        return RestUtils::sendAnyRequest($url, $obj);
+
+    }
+
+    public static function SendComponentRequest($comp, $id, $obj)
+    {
+        return RestUtils::sendRequest('components/'.$comp, $id, $obj);
+
+    }
+
+    public static function SendGetRequest($api, $id, $obj)
+    {
+        return RestUtils::sendRequest('api/'.$api.'/', $id, $obj);
+
+    }
+
+    public static function SendFreePostRequest($url, $obj)
+    {
+        $postData = http_build_query($obj);
+
+        $ch = curl_init($url);
+
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        //curl_setopt($url, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        curl_close($ch);
+
+        return $response;
+
+    }
+
+    public static function SendPostRequest($api, $id, $obj)
+    {
         $url = $GLOBALS["restURL"]."/CatBee/api/{$api}/";
         if (isset($id)) {
             $url .= $id;
         }
+
+        RestLogger::log("RestUtils::SendPostRequest Before send post: ".$url);
 
         $postData = http_build_query($obj);
 
@@ -262,5 +315,14 @@ class RestRequest
     public function getRequestVars()
     {
         return $this->request_vars;
+    }
+
+    public function getCatBeeAction()
+    {
+        if (isset($this->request_vars["action"]))
+        {
+            return str_replace(' ', '', strtolower($this->request_vars["action"]));
+        }
+        return "<action not defined>";
     }
 }

@@ -22,7 +22,13 @@ class JsonShareAdapter implements IModelAdapter
 
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        return array(
+            'sendFrom' => $obj->sendFrom,
+            'sendTo' => $obj->sendTo,
+            'message' => $obj->message,
+            'link' => $obj->link,
+            'subject' => $obj->subject
+        );
     }
 
     public function fromArray($obj)
@@ -32,6 +38,7 @@ class JsonShareAdapter implements IModelAdapter
         $share->sendFrom = $obj["sendFrom"];
         $share->sendTo = $obj["sendTo"];
         $share->message = $obj["message"];
+        $share->link = $obj["link"];
         $share->subject = $obj["subject"];
 
         $share->store = $this->jsonStoreAdapter->fromArray($obj["store"]);
