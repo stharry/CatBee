@@ -16,7 +16,7 @@ $(document).ready(function () {
             display: 'popup',
             name: 'Hi, I shared a great deal for you...:)',
             //redirect_uri: 'http://127.0.0.1:8080/CatBee/components/share/facebook/facebookLogin.php?kuku=1',
-            description: 'Press on link below to start shopping...http://127.0.0.1:8080/CatBee/api/deal/?action=friendDeal&context%5Bleader%5D%5Bemail%5D=vadim.chebyshev%40retalix.com&context%5Bfriend%5D%5Bemail%5D=Enter+your+friends+e-mail&context%5Breward%5D%5Bvalue%5D=10&context%5Breward%5D%5Bcode%5D=ABCD1234_10&context%5Breward%5D%5Btype%5D=coupon&context%5Bstore%5D%5BauthCode%5D=19FB6C0C-3943-44D0-A40F-3DC401CB3703',
+            description: 'Press on link below to start shopping...http://127.0.0.1:8080/CatBee/adapters/demo/api/?act=welcome&pdl=1&shr=facebook',
             link: 'http://www.TribZi.com'
         });
 //        try

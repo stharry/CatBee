@@ -1,6 +1,9 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php";
+include_once $_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php";
+
+$page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -15,15 +18,19 @@ include_once $_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php";
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js?reload"></script>
     <script src="/CatBee/public/res/js/jquery.fancybox.js?reload"></script>
     <script src="res/demoAdapter.js?reload"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="res/index.css?reload">
 
 </head>
 <body
-        background="res/PostPurchasePageForDemo.jpg"
-        onload="$('#autostart').trigger('click');"
-        >
+
 <a
         id="autostart"
-        href="/CatBee/adapters/demo/goDeal.php"
-        ></a>
+        href="/CatBee/adapters/demo/demoActions/<?= $GLOBALS["page"] ?>"
+        >Click to create awesome deal</a>
+
+<div id="background">
+    <img src="res/PostPurchasePageForDemo.jpg" class="stretch" alt=""/>
+</div>
+
 </body>
 </html>

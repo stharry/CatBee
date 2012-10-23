@@ -9,11 +9,14 @@ $(document).ready(function () {
         'transitionOut' : 'none',
         'type' : 'iframe',
         'scrolling'   : 'no',
-        overlay : {
-            css : {
-                'background' : 'rgba(238,238,238,0.85)'
-            }
+        'helpers' : {
+            'overlay' : null
         }
+//        overlay : {
+//            css : {
+//                'background' : 'rgba(238,238,238,0.85)'
+//            }
+//        }
 
 
 
