@@ -5,42 +5,46 @@
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/components/campaign/CampaignManager.php" line="5" />
-    <bookmark url="file://$PROJECT_DIR$/3dParty/facebook/base_facebook.php" line="948" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/components/share/ShareManager.php" line="64" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/adapters/json/JsonShareNodeAdapter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoAuthorizationDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/rest/RestLogger.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/share/facebook/facebookLogin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/ShareAuthorization.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/ShareNode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/IAuthorizationDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/getFacebookContacts.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/getFacebookContactsTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/httpTest001.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/httpTest002.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/getFacebookContacts.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/kukuTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/loginClassTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/res/css/facebookForm.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/res/js/facebook.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/comps/facebookForm.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/addStoreEmailShareTemplate.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/facebookFeed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/feedTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/addStoreFacebookShareTemplate.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/facebookSharerTest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/facebookTemplate.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/getFacebookCOntacts.js" />
+      <change type="MOVED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json\addStoreShareTemplate.php" afterPath="$PROJECT_DIR$/tests/json/addStoreFacebookShareTemplate.php" />
+      <change type="MOVED" beforePath="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json\res\addStoreShareTemplate.json" afterPath="$PROJECT_DIR$/tests/json/res/addStoreEmailShareTemplate.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/3dParty/facebook/base_facebook.php" afterPath="$PROJECT_DIR$/3dParty/facebook/base_facebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/config.ini" afterPath="$PROJECT_DIR$/Config/config.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" afterPath="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/deal/index.php" afterPath="$PROJECT_DIR$/api/deal/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/share/index.php" afterPath="$PROJECT_DIR$/api/share/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonFriendDealTemplateAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonFriendDealTemplateAdapter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/DbManager.php" afterPath="$PROJECT_DIR$/components/dao/DbManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/deal/DealManager.php" afterPath="$PROJECT_DIR$/components/deal/DealManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/rest/RestLogger.php" afterPath="$PROJECT_DIR$/components/rest/RestLogger.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/rest/RestUtils.php" afterPath="$PROJECT_DIR$/components/rest/RestUtils.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/share/ShareManager.php" afterPath="$PROJECT_DIR$/components/share/ShareManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/share/email/EmailShareProvider.php" afterPath="$PROJECT_DIR$/components/share/email/EmailShareProvider.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/share/facebook/FacebookShareProvider.php" afterPath="$PROJECT_DIR$/components/share/facebook/FacebookShareProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Customer.php" afterPath="$PROJECT_DIR$/model/Customer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/share/facebook/facebookLogin.php" afterPath="$PROJECT_DIR$/components/share/facebook/facebookLogin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Share.php" afterPath="$PROJECT_DIR$/model/Share.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/components/IShareManager.php" afterPath="$PROJECT_DIR$/model/components/IShareManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/components/IShareProvider.php" afterPath="$PROJECT_DIR$/model/components/IShareProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/CreateTables.sql" afterPath="$PROJECT_DIR$/sql/CreateTables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/DropTables.sql" afterPath="$PROJECT_DIR$/sql/DropTables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/TruncateTables.sql" afterPath="$PROJECT_DIR$/sql/TruncateTables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/css/style.css" afterPath="$PROJECT_DIR$/public/res/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/js/email.js" afterPath="$PROJECT_DIR$/public/res/js/email.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/comps/mailForm.php" afterPath="$PROJECT_DIR$/scripts/comps/mailForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/comps/share.php" afterPath="$PROJECT_DIR$/scripts/comps/share.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/layouts/landing.php" afterPath="$PROJECT_DIR$/scripts/layouts/landing.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/facebookTest.php" afterPath="$PROJECT_DIR$/tests/facebookTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/getFacebookContactsTest.php" afterPath="$PROJECT_DIR$/tests/json/getFacebookContactsTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/httpTest001.php" afterPath="$PROJECT_DIR$/tests/json/httpTest001.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/res/friendLink.php" afterPath="$PROJECT_DIR$/tests/json/res/friendLink.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/res/pushCampaign.json" afterPath="$PROJECT_DIR$/tests/json/res/pushCampaign.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/loginClassTest.php" afterPath="$PROJECT_DIR$/tests/loginClassTest.php" />
     </list>
     <ignored path="CatBee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,55 +64,93 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="getFacebookContacts.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/json/getFacebookContacts.php">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/share/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="20" selection-start="546" selection-end="546" vertical-scroll-proportion="-10.178572">
+            <state line="29" column="6" selection-start="1147" selection-end="1147" vertical-scroll-proportion="-10.178572">
+              <folding>
+                <element signature="e#1145#1406#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="facebookLogin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/share/facebook/facebookLogin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="59" selection-start="1715" selection-end="1744" vertical-scroll-proportion="-11.535714">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonShareNodeAdapter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonShareNodeAdapter.php">
+      <file leaf-file-name="ShareManager.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="24" selection-start="688" selection-end="688" vertical-scroll-proportion="-14.928572">
+            <state line="75" column="30" selection-start="2841" selection-end="2841" vertical-scroll-proportion="0.4785276">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginClassTest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/loginClassTest.php">
+      <file leaf-file-name="addStoreEmailShareTemplate.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/res/addStoreEmailShareTemplate.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="39" selection-start="817" selection-end="817" vertical-scroll-proportion="-15.607142">
+            <state line="4" column="16" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getFacebookContacts.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/json/res/getFacebookContacts.js">
+      <file leaf-file-name="emailTemplate.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/res/emailTemplate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="29" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="215" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpTest002.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/json/httpTest002.php">
+      <file leaf-file-name="facebookTemplate.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/res/facebookTemplate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="2" column="0" selection-start="25" selection-end="25" vertical-scroll-proportion="-1.3571428">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getFacebookContactsTest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/json/getFacebookContactsTest.php">
+      <file leaf-file-name="addStoreEmailShareTemplate.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/addStoreEmailShareTemplate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="22" selection-start="867" selection-end="867" vertical-scroll-proportion="-15.607142">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addStoreFacebookShareTemplate.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/addStoreFacebookShareTemplate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="68" selection-start="124" selection-end="124" vertical-scroll-proportion="-2.7142856">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addStoreFacebookShareTemplate.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/res/addStoreFacebookShareTemplate.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="29" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IShareManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/components/IShareManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="178" selection-end="178" vertical-scroll-proportion="-6.785714">
               <folding />
             </state>
           </provider>
@@ -130,22 +172,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/3dParty/facebook/base_facebook.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/kukuTest.php" />
-        <option value="$PROJECT_DIR$/components/share/facebook/facebookLogin.php" />
-        <option value="$PROJECT_DIR$/model/Customer.php" />
-        <option value="$PROJECT_DIR$/tests/json/httpTest002.php" />
-        <option value="$PROJECT_DIR$/tests/json/httpTest001.php" />
-        <option value="$PROJECT_DIR$/components/rest/RestUtils.php" />
-        <option value="$PROJECT_DIR$/api/share/index.php" />
-        <option value="$PROJECT_DIR$/components/share/ShareManager.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/getFacebookCOntacts.js" />
-        <option value="$PROJECT_DIR$/tests/json/getFacebookContactsTest.html" />
-        <option value="$PROJECT_DIR$/components/share/facebook/FacebookShareProvider.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" />
-        <option value="$PROJECT_DIR$/tests/json/getFacebookContacts.php" />
+        <option value="$PROJECT_DIR$/tests/loginClassTest.php" />
         <option value="$PROJECT_DIR$/tests/json/getFacebookContactsTest.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/getFacebookContacts.js" />
+        <option value="$PROJECT_DIR$/tests/json/httpTest001.php" />
+        <option value="$PROJECT_DIR$/tests/json/res/addStoreShareTemplate.json" />
+        <option value="$PROJECT_DIR$/tests/json/res/facebookSharerTest.html" />
+        <option value="$PROJECT_DIR$/tests/json/res/friendLink.php" />
+        <option value="$PROJECT_DIR$/tests/json/res/getFacebookCOntacts.js" />
+        <option value="$PROJECT_DIR$/tests/json/res/pushCampaign.json" />
+        <option value="$PROJECT_DIR$/tests/json/facebookFeed.php" />
+        <option value="$PROJECT_DIR$/model/Share.php" />
+        <option value="$PROJECT_DIR$/model/components/IShareManager.php" />
+        <option value="$PROJECT_DIR$/api/share/index.php" />
+        <option value="$PROJECT_DIR$/tests/json/res/facebookTemplate.php" />
+        <option value="$PROJECT_DIR$/tests/json/addStoreFacebookShareTemplate.php" />
+        <option value="$PROJECT_DIR$/tests/json/res/addStoreFacebookShareTemplate.json" />
+        <option value="$PROJECT_DIR$/components/share/ShareManager.php" />
       </list>
     </option>
   </component>
@@ -226,110 +268,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -344,261 +282,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="share" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="share" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="facebook" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="share" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="3dParty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="facebook" />
+              <option name="myItemId" value="Config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -608,19 +292,19 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="167" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="167" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="127" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="127" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="172" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="169" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CatBeeTomer/CatBee" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="168" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="686" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="689" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="169" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="167" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="128" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="822" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="689" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="173" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="170" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
@@ -636,11 +320,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json\res" />
+      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json" />
       <recent name="C:\Program Files (x86)\EasyPHP-5.3.9\www\CatBee\public\res\images" />
       <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\adapters\demo\res" />
       <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\components\adapters" />
-      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\api\services" />
-      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\assorted\email" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json\res" />
@@ -813,7 +497,15 @@
       <created>1349734359562</created>
       <updated>1349734359562</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="facebook goes live">
+      <created>1350761305531</created>
+      <updated>1350761305531</updated>
+    </task>
+    <task id="LOCAL-00034" summary="facebook goes live">
+      <created>1350763362156</created>
+      <updated>1350763362156</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -840,21 +532,21 @@
     <frame x="-4" y="-4" width="1288" height="938" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277635" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44215938" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2828201" sideWeight="0.54755783" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28768232" sideWeight="0.55784065" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19023137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44344473" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45244217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29434448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -895,7 +587,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added friend link creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="facebook goes live" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -916,6 +608,7 @@
     <MESSAGE value="connection to database was commented... just uncommented the connection" />
     <MESSAGE value="added Include Component Class" />
     <MESSAGE value="added friend link creation" />
+    <MESSAGE value="facebook goes live" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -923,114 +616,118 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/res/getFacebookCOntacts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1030" selection-end="1030" vertical-scroll-proportion="-9.785714">
+        <state line="75" column="33" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/share/facebook/FacebookShareProvider.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/facebookFeed.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="31" selection-start="3323" selection-end="3323" vertical-scroll-proportion="-10.857142">
+        <state line="25" column="24" selection-start="864" selection-end="864" vertical-scroll-proportion="-16.964285">
+          <folding>
+            <element signature="e#6#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCampaignAdapter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="26" selection-start="526" selection-end="526" vertical-scroll-proportion="-1.3571428">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonCustomerShareContextAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="8" selection-start="628" selection-end="628" vertical-scroll-proportion="-9.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/pushCampaign.php">
+    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonStoreAdapter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/addStoreShareTemplate.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/res/pushCampaign.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="10" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Share.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="17" selection-start="204" selection-end="204" vertical-scroll-proportion="-8.142858">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/components/IShareManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="178" selection-end="178" vertical-scroll-proportion="-6.785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/res/emailTemplate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="215" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/res/facebookTemplate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="25" selection-end="25" vertical-scroll-proportion="-1.3571428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/res/addStoreEmailShareTemplate.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="16" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/addStoreEmailShareTemplate.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/friendDeal.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/addStoreFacebookShareTemplate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="4" column="68" selection-start="124" selection-end="124" vertical-scroll-proportion="-2.7142856">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/getCampaigns.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/res/addStoreFacebookShareTemplate.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="396" selection-end="396" vertical-scroll-proportion="0.41931033">
+        <state line="9" column="29" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/getStoreShareTemplate.php">
+    <entry file="file://$PROJECT_DIR$/api/share/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="29" column="6" selection-start="1147" selection-end="1147" vertical-scroll-proportion="-10.178572">
+          <folding>
+            <element signature="e#1145#1406#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/share/facebook/facebookLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="59" selection-start="1715" selection-end="1744" vertical-scroll-proportion="-11.535714">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/pushDeal.php">
+    <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/shareStoreShareTemplate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/getFacebookContacts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="546" selection-end="546" vertical-scroll-proportion="-10.178572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/adapters/json/JsonShareNodeAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="24" selection-start="688" selection-end="688" vertical-scroll-proportion="-14.928572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/loginClassTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="39" selection-start="817" selection-end="817" vertical-scroll-proportion="-15.607142">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/getFacebookContactsTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="22" selection-start="867" selection-end="867" vertical-scroll-proportion="-15.607142">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/res/getFacebookContacts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="29" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/httpTest002.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="75" column="30" selection-start="2841" selection-end="2841" vertical-scroll-proportion="0.4785276">
           <folding />
         </state>
       </provider>

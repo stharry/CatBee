@@ -24,6 +24,7 @@
 
         <script src="<?= $GLOBALS["rootPath"] ?>/res/js/landing.js?reload" type="text/javascript"></script>
         <script src="<?= $GLOBALS["rootPath"] ?>/res/js/email.js?reload" type="text/javascript"></script>
+        <script src="<?= $GLOBALS["rootPath"] ?>/res/js/facebook.js?reload" type="text/javascript"></script>
 
                 <!--email scripts
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->

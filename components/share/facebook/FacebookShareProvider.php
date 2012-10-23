@@ -121,7 +121,7 @@ class FacebookShareProvider implements IShareProvider
 
     public function getAuthenticationUrl($shareNode, $params)
     {
-        $url = 'http://127.0.0.1:8887/CatBee/components/share/facebook/facebookLogin.php';
+        $url = $GLOBALS["restURL"].'/CatBee/components/share/facebook/facebookLogin.php';
 
         RestLogger::log("FacebookShareProvider::getAuthenticationUrl ".$url);
 

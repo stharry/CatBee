@@ -58,7 +58,7 @@ if (!$user) {
 //    return;
     $loginUrl = $facebook->getLoginUrl(
         array("scope" => "email,offline_access,publish_stream,user_birthday,user_location,user_work_history,user_about_me,user_hometown",
-            "redirect_uri" => "http://127.0.0.1:8887/CatBee/tests/facebookTest.php",
+            "redirect_uri" => $GLOBALS["restURL"]."/CatBee/tests/facebookTest.php",
             'display' => 'popup'));
 
     echo "</p>get login url:   ";

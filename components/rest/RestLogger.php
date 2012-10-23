@@ -15,7 +15,7 @@ class RestLogger
         }
         else
         {
-            $logger->log($message.":".http_build_query($params));
+            $logger->log($message.":".json_encode($params));
         }
     }
 

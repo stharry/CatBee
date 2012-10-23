@@ -2,7 +2,7 @@
 
 include('../../components/rest/RestUtils.php');
 
-$shareTemplate = json_decode(file_get_contents("res/addStoreShareTemplate.json"));
+$shareTemplate = json_decode(file_get_contents("res/addStoreFacebookShareTemplate.json"));
 
 //var_dump($campaign);
 

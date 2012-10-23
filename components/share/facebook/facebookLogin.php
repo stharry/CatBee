@@ -18,16 +18,32 @@ $facebook = new Facebook(array(
 ));
 
 $restRequest = RestUtils::processRequest();
-RestLogger::log("facebookLogin:before get user. Get params:", $restRequest->getRequestVars());
+$params = $restRequest->getRequestVars();
+RestLogger::log("facebookLogin:before get user. Get params:", $params);
+
+if (!isset($params) || (count($params) == 0))
+{
+    RestLogger::log("FacebookLogin: no parameters - failed");
+    RestUtils::sendResponse(0, "Failed");
+    exit();
+}
+elseif (isset($params["success"]))
+{
+    RestLogger::log("FacebookLogin: success stub response - sent OK");
+    RestUtils::sendResponse(0, "OK");
+    exit();
+}
 
 $code = $restRequest->getRequestVars()["code"];
-//$user = $facebook->getUser();
+
+$user = $facebook->getUser();
+RestLogger::log("facebookLogin: used ID".$user);
 
 if (!$code)
 {
     $loginUrl = $facebook->getLoginUrl(
         array("scope" => 'email,offline_access,publish_stream,user_birthday,user_location,user_work_history,user_about_me,user_hometown',
-            "redirect_uri" => 'http://127.0.0.1:8887/CatBee/components/share/facebook/facebookLogin.php?'
+            "redirect_uri" => $GLOBALS["restURL"].'/CatBee/components/share/facebook/facebookLogin.php?'
                 . http_build_query($restRequest->getRequestVars()),
             'display' => 'popup'));
 
@@ -52,7 +68,7 @@ else
 
     $token_url = "https://graph.facebook.com/oauth/access_token?"
         . "client_id=" . $facebook->getAppId()
-        . "&redirect_uri=" . urlencode('http://127.0.0.1:8887/CatBee/components/share/facebook/facebookLogin.php')
+        . "&redirect_uri=" . urlencode($GLOBALS["restURL"].'/CatBee/components/share/facebook/facebookLogin.php')
         . "&client_secret=" . $facebook->getAppSecret() . "&code=" . $code;
 
     $response = file_get_contents($token_url);
@@ -89,7 +105,7 @@ else
 
     $apiPath = $restRequest->getRequestVars()[ 'api' ];
 
-    $apiUrl = 'http://127.0.0.1:8887/CatBee/api/'.$apiPath
+    $apiUrl = $GLOBALS["restURL"].'/CatBee/api/'.$apiPath
         .'/?'.http_build_query($params);
 
     RestLogger::log("facebookLogin:before redirect to api: ".$apiUrl);

@@ -8,7 +8,7 @@ include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestUtils.ph
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
 
 $restUtils = new RestUtils();
-$response = $restUtils->SendFreePostRequest('http://127.0.0.1:8887/CatBee/tests/json/httpTest002.php', array());
+$response = $restUtils->SendFreePostRequest('http://127.0.0.1:8080/CatBee/tests/json/httpTest002.php', array());
 
 echo "</p>response:</p>";
 

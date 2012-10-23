@@ -34,7 +34,7 @@ switch ($action)
         $shareManager->setShareTemplate($shareTemplate);
 
         RestUtils::sendResponse(0, "OK");
-        break;
+        exit();
 
     case "get":
         $shareFilterAdapter = new JsonShareFilterAdapter();
@@ -46,7 +46,7 @@ switch ($action)
         $ShareTemplatesProps = $shareTemplateAdapter->toArray($shareTemplates);
 
         RestUtils::sendResponse(0, $ShareTemplatesProps);
-        break;
+        exit();
 
     case "share":
         $jsonShareAdapter = new JsonShareAdapter();
@@ -56,7 +56,7 @@ switch ($action)
 
         $response = array("status" => $status);
         RestUtils::sendResponse(0, $response);
-        break;
+        exit();
 
     case "getcontacts":
 
@@ -71,18 +71,15 @@ switch ($action)
 
         if ($needToAuthenticate)
         {
-            $url = $shareManager->getAuthenticationUrl($shareNode,
-                null);
-
-            //RestUtils::SendComponentRequest($url, '',
-              //  array('api' => 'share', 'params' => $shareProps));
-              //  array('api' => 'share', 'params' => $shareProps));
-
+            $url = $shareManager->getAuthenticationUrl($shareNode, null);
             $url .= '?api=share&params=' .urlencode(json_encode($shareProps));
 
             RestLogger::log(" Authorization url: " . $url);
 
-            header('location: ' . $url);
+            ob_end_clean();
+            session_start();
+
+            echo("<script> top.location.href='" . $url . "'</script>");
             exit();
         }
         else
@@ -92,7 +89,25 @@ switch ($action)
             $shareManager->getContacts($shareNode);
 
             $response = $shareNodeAdapter->toArray($shareNode);
+
+            RestLogger::log("share api:get contacts, send back", $response);
+
             RestUtils::sendResponse(0, $response);
             exit();
         }
+
+    case "fillshare":
+
+        $jsonShareAdapter = new JsonShareAdapter();
+        $share = $jsonShareAdapter->fromArray($context);
+
+        RestLogger::log("share api:getshare start ", $share);
+
+        $shareManager->fillShare($share);
+
+        $shareProps = $jsonShareAdapter->toArray($share);
+
+        RestUtils::sendResponse(0, $shareProps);
+        exit();
+
 }

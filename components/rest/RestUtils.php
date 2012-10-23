@@ -85,7 +85,6 @@ class RestUtils
 
     public static function SendPostRequest($api, $id, $obj)
     {
-        //$url = "http://127.0.0.1:8887/CatBee/api/{$api}/";
         $url = $GLOBALS["restURL"]."/CatBee/api/{$api}/";
         if (isset($id)) {
             $url .= $id;

@@ -7,7 +7,7 @@
         "store":{
             "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703",
             "description":"Socialize your experience with CatBee",
-            "utl":"http://127.0.0.1:8887/CatBee/adapters/demo/api/"
+            "url":"http://127.0.0.1:8080/CatBee/adapters/demo/api/"
         },
         "landings":[
             {

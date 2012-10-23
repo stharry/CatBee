@@ -4,18 +4,7 @@ $(document).ready(function () {
 
 
 function CreateAndInitializeEmailForm() {
-//    $(".mailmodalbox").fancybox({
-//        helpers:{
-//            title:{
-//                type:'inside'
-//            },
-//            overlay:{
-//                css:{
-//                    'background':'rgba(238,238,238,0.85)'
-//                }
-//            }
-//        }
-//    });
+
     $("#contact").submit(function () {
         return false;
     });
