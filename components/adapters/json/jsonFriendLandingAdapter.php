@@ -1,7 +1,7 @@
 <?php
 
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/FriendLanding.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/friendLanding.php");
 
 class JsonFriendLandingAdapter implements IModelAdapter
 {
@@ -36,17 +36,15 @@ class JsonFriendLandingAdapter implements IModelAdapter
 
     public function fromArray($obj)
     {
+
         $Friendlandings = array();
         foreach ($obj as $FriendlandingsProps)
         {
             $FriendLanding = new FriendLanding();
-
             $FriendLanding->slogan = $FriendlandingsProps["slogan"];
             $FriendLanding->friendMessage = $FriendlandingsProps["friendMessage"];
             $FriendLanding->rewardMessage1 = $FriendlandingsProps["rewardMessage1"];
             $FriendLanding->rewardMessage2 = $FriendlandingsProps["rewardMessage2"];
-
-
 
             array_push($Friendlandings, $FriendLanding);
         }

@@ -20,4 +20,12 @@ class FriendLandingManager
         }
 
     }
+    public function showFriendLanding($friendLanding,$leaderDeal)
+    {
+        catbeeLayoutComp($layout, "friendLanding", $friendLanding[0]);
+        //catbeeLayoutComp($layout, "FriendLanding", $leaderDeal);
+        catbeeLayout($layout, 'friendLanding');
+
+
+    }
 }

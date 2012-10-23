@@ -1,0 +1,13 @@
+{
+    "action":"friendLanding",
+    "context":{
+        "friendLandings":[
+            {
+                "slogan":"Get off any purchase at FunForToys.com",
+                "friendMessage":"Crafted You a Great Deal",
+                "rewardMessage1":"Here is Your Promotion Code",
+                "rewardMessage2":"Just Apply it on Checkout"
+            }]
+    }
+
+}

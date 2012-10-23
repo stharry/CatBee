@@ -28,6 +28,7 @@ $campaignManager = new CampaignManager(new PdoStoreDao(),
 );
 
 $dealManager = new DealManager($campaignManager, new PdoDealDao());
+$friendLandingManager = new friendLandingManager();
 switch (strtolower($action))
 {
 
@@ -43,6 +44,14 @@ switch (strtolower($action))
         //TODO - ASk Vadim What did he mean By FreindDeal?
     case "frienddeal":
         echo json_encode($context);
+        break;
+    case "friendlanding":
+            //Get The Deal with Deal ID from Context
+        //Get Campaign From Deal
+        //Extract from the Campign the FriendLanding
+        $JsonFriendLandingAdapter = new JsonFriendLandingAdapter();
+        $friendLanding = $JsonFriendLandingAdapter->fromArray($context["friendLandings"]);
+        $friendLandingManager->showFriendLAnding($friendLanding,$deal);
         break;
 
 

@@ -24,7 +24,7 @@ function includeScript($name, &$p) {
 }
 
 function includeModel($name) {
-	include_once $GLOBALS["dirBase"] . "/scripts/models/" . $name . ".php";
+	include_once $GLOBALS["dirBase"] . "/model/" . $name . ".php";
 }
 
 function IncludeComponent($dir,$name){
