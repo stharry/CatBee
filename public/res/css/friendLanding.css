@@ -5,7 +5,6 @@ body{
     width: 568px;
     height: 176px;
     background: url(../images/friend_page_blue_bg.jpg);
-    position: absolute;
     padding: 15px;
 }
 .box {
