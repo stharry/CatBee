@@ -9,4 +9,6 @@ interface ICampaignManager
     public function getCampaigns($campaignFilter);
 
     public function saveCampaign($campaign);
+
+    public function getCampaignFriendLanding($campaign);
 }

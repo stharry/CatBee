@@ -5,10 +5,12 @@
         "name":"Cat Bee Demo campaign",
         "description":"Fan Toys campaign",
         "store":{
-            "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703",
-            "description":"Socialize your experience with CatBee",
-            "url":"http://127.0.0.1:8080/CatBee/adapters/demo/api/"
+            "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
         },
+        "branch":{
+            "shopId":"1"
+        },
+
         "landings":[
             {
                 "firstSloganLine":"You got the power!!!",

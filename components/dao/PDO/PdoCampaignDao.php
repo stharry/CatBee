@@ -47,6 +47,7 @@ class PdoCampaignDao implements ICampaignDao
             $campaign->name = $row["name"];
             $campaign->description = $row["description"];
             //TODO - dont think the following 2 calls should be here... can we take them above to the
+            //Todo - yes, you right - need to move it campaign manager
             $this->leaderLandingDao->getLeaderLandings($campaign);
             $this->FriendLandingDao->GetFriendLanding($campaign);
             array_push($campaigns, $campaign);

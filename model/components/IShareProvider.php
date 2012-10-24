@@ -9,4 +9,7 @@ interface IShareProvider
     public function requiresAuthentication($shareNode);
 
     public function getAuthenticationUrl($shareNode, $params);
+
+    public function getCurrentSharedCustomer();
+
 }

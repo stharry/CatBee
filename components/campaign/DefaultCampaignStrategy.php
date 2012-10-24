@@ -1,6 +1,6 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/components/ICampaignStrategy.php");
+includeModel('components/ICampaignStrategy');
 
 class DefaultCampaignStrategy implements ICampaignStrategy
 {

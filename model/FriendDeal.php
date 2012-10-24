@@ -7,4 +7,6 @@ class FriendDeal
     public $status;
     public $date;
     public $order;
+    public $reward;
+    public $landing;
 }

@@ -63,4 +63,9 @@ class EmailShareProvider implements IShareProvider
     {
         return "";
     }
+
+    public function getCurrentSharedCustomer()
+    {
+        // TODO: Implement getCurrentSharedCustomer() method.
+    }
 }

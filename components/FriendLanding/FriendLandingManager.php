@@ -1,31 +1,59 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/PdoFriendLandingDao.php");
+includeModel('campaign');
+includeModel('FriendDeal');
+includeModel('components/IFriendLandingManager');
+IncludeComponent('rest', 'RestLogger');
+IncludeComponent('dao/PDO', 'PdoFriendLandingDao');
 
-
-class FriendLandingManager
+class FriendLandingManager implements IFriendLandingManager
 {
-    private $FriendLandingDao;
+    private $friendLandingDao;
+    private $dealDao;
 
-    function __construct()
+    private function getFriendReward($leaderDeal)
     {
-        $this->FriendLandingDao = new PdoFriendLandingDao();
+
+
+    }
+
+    function __construct($dealDao, $friendLandingDao)
+    {
+        $this->friendLandingDao = $friendLandingDao;
+        $this->dealDao = $dealDao;
     }
 
     public function SaveFriendLandingManager($campaign)
     {
         foreach ($campaign->friendLandings as $friend)
         {
-             $this->FriendLandingDao->insertFriendLanding($campaign, $friend);
+             $this->friendLandingDao->insertFriendLanding($campaign, $friend);
         }
 
     }
-    public function showFriendLanding($friendLanding,$leaderDeal)
+    public function showFriendLanding($friendDeal)
     {
-        catbeeLayoutComp($layout, "friendLanding", $friendLanding[0]);
-        //catbeeLayoutComp($layout, "FriendLanding", $leaderDeal);
+        catbeeLayoutComp($layout, "friendLanding", $friendDeal);
         catbeeLayout($layout, 'friendLanding');
+    }
 
+    public function startSharedDeal($parentDealId)
+    {
+        $parentDeal = $this->dealDao->getDealById($parentDealId);
+        RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
 
+        $friendDeal = new FriendDeal();
+
+        $friendDeal->reward = $this->getFriendReward($parentDeal);
+
+        //2. get reward by parent deal
+
+        $this->friendLandingDao->GetFriendLanding($parentDeal->campaign);
+        //todo move to strategy
+        $friendDeal->landing = $parentDeal->campaign->friendLandings[0];
+
+        RestLogger::log("FriendLandingManager::startSharedDeal landing ", $friendDeal->landing);
+
+        $this->showFriendLanding($friendDeal);
     }
 }

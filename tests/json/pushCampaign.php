@@ -1,6 +1,7 @@
 <?php
 
-include('../../components/rest/RestUtils.php');
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
+IncludeComponent('rest', 'RestUtils');
 
 $campaign = json_decode(file_get_contents("res/pushCampaign.json"));
 
@@ -12,4 +13,4 @@ $campaign = json_decode(file_get_contents("res/pushCampaign.json"));
 $restUtils = new RestUtils();
 $restUtils->SendPostRequest("campaign", "", $campaign);
 
-echo "THE END";
+echo "Push campaign - OK </p>";

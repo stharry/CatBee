@@ -1,26 +1,80 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/IDealDao.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/LeaderDeal.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
+includeModel('dao/IDealDao');
+includeModel('LeaderDeal');
+IncludeComponent('dao', 'DbManager');
+IncludeComponents('rest');
 
 class PdoDealDao implements IDealDao
 {
 
+    private function createAndFillDeal($row)
+    {
+        $leaderDeal = new LeaderDeal();
+
+        $leaderDeal->id = $row[ "id" ];
+        $leaderDeal->code = $row[ "code" ];
+        $leaderDeal->landing = $row[ "landing" ];
+        $leaderDeal->status = $row[ "status" ];
+        $leaderDeal->landingReward = $row[ "landingReward" ];
+        $leaderDeal->customer = $row[ "customerId" ];
+        $leaderDeal->initDate = $row[ "initDate" ];
+        $leaderDeal->updateDate = $row[ "updateDate" ];
+        $leaderDeal->campaign = new Campaign();
+        $leaderDeal->campaign->id = $row['campaignId'];
+
+        RestLogger::log("PdoDealDao::getDealByOrder deal restored from db ", $leaderDeal);
+
+        return $leaderDeal;
+
+    }
+
     public function getDealById($id)
     {
+        RestLogger::log("PdoDealDao::getDealByOrder begin");
+
+        try
+        {
+            $selectClause = " SELECT id, code, landing, status,
+            campaignId, landingReward, customerId, initDate, updateDate
+            FROM deal WHERE id = {$id} ";
+
+            $rows = DbManager::selectValues($selectClause);
+
+            if ($rows == null)
+            {
+                RestLogger::log("PdoDealDao::getDealByOrder deal not exists");
+                return null;
+            }
+
+            $leaderDeal = $this->createAndFillDeal($rows[0]);
+
+            return $leaderDeal;
+
+        } catch (Exception $e)
+        {
+            RestLogger::log("Exception: " . $e->getMessage());
+            throw new Exception("", 0, $e);
+        }
+
         // TODO: Implement getDealById() method.
     }
 
     public function insertDeal($deal)
     {
-        $names = array("code", "landing", "orderId", "status",
+        $names = array("code", "landing", 'campaignId', "branchId",
+            "orderId", "status",
             "landingReward", "customerId", "initDate", "updateDate");
 
-        $values = array($deal->uniqueCode, $deal->landing->id,
-            $deal->order->id, $deal->status,
+        $values = array($deal->uniqueCode,
+            $deal->landing->id,
+            $deal->campaign->id,
+            $deal->order->branch->id,
+            $deal->order->id,
+            $deal->status,
             $deal->selectedLandingReward,
-            $deal->customer->id, date("Y-m-d h:i:s"),
+            $deal->customer->id,
+            date("Y-m-d h:i:s"),
             date("Y-m-d h:i:s"));
 
         $deal->id = DbManager::insertAndReturnId("deal", $names, $values);
@@ -33,27 +87,31 @@ class PdoDealDao implements IDealDao
 
     public function getDealByOrder($order)
     {
-        $rows = DbManager::selectValues(" SELECT id, code, landing, status,
-            landingReward, customer, initDate, updateDate
-            FROM deal WHERE order = ?",
-            array($order->id => PDO::PARAM_INT));
+        RestLogger::log("PdoDealDao::getDealByOrder begin");
 
-        if ($rows == null)
+        try
         {
-            return null;
+            $selectClause = " SELECT id, code, landing, status,
+            landingReward, customerId, initDate, updateDate
+            FROM deal WHERE orderId = {$order->id} AND branchId = {$order->branch->id}";
+
+            $rows = DbManager::selectValues($selectClause);
+
+            if ($rows == null)
+            {
+                RestLogger::log("PdoDealDao::getDealByOrder deal not exists");
+                return null;
+            }
+
+            $leaderDeal = $this->createAndFillDeal($rows[0]);
+            $leaderDeal->order = $order;
+
+            return $leaderDeal;
+
+        } catch (Exception $e)
+        {
+            RestLogger::log("Exception: " . $e->getMessage());
+            throw new Exception("", 0, $e);
         }
-
-        $leaderDeal = new LeaderDeal();
-
-        $leaderDeal->id = $rows[0]["id"];
-        $leaderDeal->code = $rows[0]["code"];
-        $leaderDeal->landing = $rows[0]["landing"];
-        $leaderDeal->status = $rows[0]["status"];
-        $leaderDeal->landingReward = $rows[0]["landingReward"];
-        $leaderDeal->customer = $rows[0]["customer"];
-        $leaderDeal->initDate = $rows[0]["initDate"];
-        $leaderDeal->updateDate = $rows[0]["updateDate"];
-
-        return $leaderDeal;
     }
 }

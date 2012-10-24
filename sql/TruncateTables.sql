@@ -3,6 +3,7 @@ TRUNCATE TABLE CampaignLandings;
 TRUNCATE TABLE landing;
 TRUNCATE TABLE campaign;
 TRUNCATE TABLE Store;
+TRUNCATE TABLE StoreBranch;
 TRUNCATE TABLE reward;
 TRUNCATE TABLE landingReward;
 TRUNCATE TABLE customer;

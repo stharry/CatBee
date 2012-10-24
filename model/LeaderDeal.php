@@ -9,6 +9,7 @@ class LeaderDeal
     public static $STATUS_CANCELLED = 4;
 
     public $id;
+    public $campaign;
     public $landing;
     public $order;
     public $status;

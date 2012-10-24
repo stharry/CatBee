@@ -23,13 +23,13 @@ class JsonFriendLandingAdapter implements IModelAdapter
     {
         if (is_array($obj))
         {
-            $FriendlandingsProps = array();
+            $friendLandingsProps = array();
 
             foreach ($obj as $Friendlanding)
             {
-                array_push($FriendlandingsProps, $this->singleFriendLandingToArray($Friendlanding));
+                array_push($friendLandingsProps, $this->singleFriendLandingToArray($Friendlanding));
             }
-            return $FriendlandingsProps;
+            return $friendLandingsProps;
         }
         return $this->singleFriendLandingToArray($obj);
     }
@@ -37,17 +37,17 @@ class JsonFriendLandingAdapter implements IModelAdapter
     public function fromArray($obj)
     {
 
-        $Friendlandings = array();
-        foreach ($obj as $FriendlandingsProps)
+        $friendLandings = array();
+        foreach ($obj as $friendLandingsProps)
         {
             $FriendLanding = new FriendLanding();
-            $FriendLanding->slogan = $FriendlandingsProps["slogan"];
-            $FriendLanding->friendMessage = $FriendlandingsProps["friendMessage"];
-            $FriendLanding->rewardMessage1 = $FriendlandingsProps["rewardMessage1"];
-            $FriendLanding->rewardMessage2 = $FriendlandingsProps["rewardMessage2"];
+            $FriendLanding->slogan = $friendLandingsProps["slogan"];
+            $FriendLanding->friendMessage = $friendLandingsProps["friendMessage"];
+            $FriendLanding->rewardMessage1 = $friendLandingsProps["rewardMessage1"];
+            $FriendLanding->rewardMessage2 = $friendLandingsProps["rewardMessage2"];
 
-            array_push($Friendlandings, $FriendLanding);
+            array_push($friendLandings, $FriendLanding);
         }
-        return $Friendlandings;
+        return $friendLandings;
     }
 }

@@ -40,7 +40,14 @@ CREATE  TABLE IF NOT EXISTS Store (
 id INT AUTO_INCREMENT ,
 description VARCHAR(45) NULL ,
 authCode VARCHAR(50) NULL ,
-url VARCHAR(45) NULL ,
+url VARCHAR(1000) NULL ,
+PRIMARY KEY (id) );
+
+CREATE  TABLE IF NOT EXISTS StoreBranch (
+id INT AUTO_INCREMENT ,
+storeId INT NOT NULL ,
+shopId INT NOT NULL ,
+shopName VARCHAR(50) NULL ,
 PRIMARY KEY (id) );
 
 
@@ -100,6 +107,10 @@ parentId INT NULL,
 code VARCHAR(45) NULL ,
 
 landing INT NOT NULL ,
+
+campaignId INT NOT NULL ,
+
+branchId INT NOT NULL,
 
 orderId INT NOT NULL ,
 

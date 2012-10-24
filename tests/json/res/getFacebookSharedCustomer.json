@@ -1,0 +1,7 @@
+{
+    "action":"get shared customer",
+    "context":
+    {
+        "type": "facebook"
+    }
+}

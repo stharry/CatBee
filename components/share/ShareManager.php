@@ -1,19 +1,18 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/ShareFilter.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/FriendDealTemplate.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Customer.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Store.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Reward.php");
+includeModel('ShareFilter');
+includeModel('FriendDealTemplate');
+includeModel('Customer');
+includeModel('Store');
+includeModel('Reward');
+includeModel('components/IShareManager');
 
+IncludeComponent('adapters/json', 'JsonFriendDealTemplateAdapter');
+IncludeComponent('share/email', 'EmailShareProvider');
+IncludeComponent('share/facebook', 'FacebookShareProvider');
+IncludeComponent('dao/PDO', 'PdoAuthorizationDao');
+IncludeComponent('rest', 'RestLogger');
 
-
-include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/components/IShareManager.php");
-include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/components/adapters/json/JsonFriendDealTemplateAdapter.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/share/email/EmailShareProvider.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/share/facebook/FacebookShareProvider.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/PDO/PdoAuthorizationDao.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
 
 class ShareManager implements IShareManager
 {
@@ -191,5 +190,12 @@ class ShareManager implements IShareManager
         if (count($shareTemplates) == 0) die ("There is no any share template for given store");
 
         $this->createMessage($share, $shareTemplates[0]);
+    }
+
+    public function getCurrentSharedCustomer($context)
+    {
+        $shareProvider = $this->getCompatibleShareProvider($context);
+
+        return $shareProvider->getCurrentSharedCustomer();
     }
 }

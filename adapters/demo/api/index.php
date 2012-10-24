@@ -1,8 +1,7 @@
 <?php
 
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestUtils.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
-include_once('../components/CatBeeFacade.php');
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
+IncludeComponents('rest');
 
 RestLogger::log("Share api call started");
 
@@ -11,16 +10,16 @@ $shareProps = $return_obj->getRequestVars() or die("Unknown share format");
 
 if (!isset($shareProps['act'])) die("Undefined adapter action");
 
-$facade = new CatBeeFacade();
-
 switch (strtolower($shareProps['act']))
 {
     case 'welcome':
     {
-        $deal = $facade->GetCatBeeDealByNo($shareProps['pdl']);
 
-        $currentCustomer = $facade->GetCatBeeLoggedinCustomer($shareProps['shr']);
+        $url = $GLOBALS['Rest_url'].'/CatBee/adapters/demo/?'
+            .http_build_query(array('page'=>'goWelcome.php', 'id' =>$shareProps['pdl']));
+        RestLogger::log("demo adapter api url: ", $url);
 
-        //???
+        echo("<script> top.location.href='" . $url . "'</script>");
+        exit;
     }
 }

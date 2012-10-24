@@ -1,28 +1,29 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/components/IDealManager.php");
-
+includeModel('components/IDealManager');
 
 class DealManager implements IDealManager
 {
     private $campaignManager;
+    private $storeManager;
     private $dealDao;
 
-    function __construct($campaignManager, $dealDao)
+    function __construct($campaignManager, $storeManager, $dealDao)
     {
         $this->campaignManager = $campaignManager;
         $this->dealDao = $dealDao;
+        $this->storeManager = $storeManager;
     }
 
     private function getCatBeeSharePoint()
     {
-        return $GLOBALS["restURL"]."/CatBee/api/share/";
+        return $GLOBALS[ "restURL" ] . "/CatBee/api/share/";
 
     }
 
     private function showLeaderDeal($leaderDeal)
     {
-        $GLOBALS["leaderDeal"] = $leaderDeal;
+        $GLOBALS[ "leaderDeal" ] = $leaderDeal;
 
         catbeeLayoutComp($layout, "landing", $leaderDeal);
         catbeeLayoutComp($layout, "share", $leaderDeal);
@@ -33,31 +34,80 @@ class DealManager implements IDealManager
 
     }
 
-    private function createPendingDeal($landing, $order)
+    private function refreshDealProps($leaderDeal, $landing, $order)
     {
-        $leaderDeal = new LeaderDeal();
-
-        $leaderDeal->customer = $order->customer;
-        $leaderDeal->date = time();
+        $leaderDeal->selectedLandingReward = $landing->landingRewards[ 0 ]->leaderReward->value;
+        $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
         $leaderDeal->landing = $landing;
         $leaderDeal->order = $order;
-        $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
-        $leaderDeal->selectedLandingReward = $landing->landingRewards[0]->leaderReward->value;
-        $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
+    }
 
-        $this->dealDao->insertDeal($leaderDeal);
-        $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
-        return $leaderDeal;
+    private function createPendingDeal($landing, $order, $campaign)
+    {
+        try
+        {
+            RestLogger::log("aaa", $this->dealDao);
+
+            $leaderDeal = $this->dealDao->getDealByOrder($order);
+
+            if (!$leaderDeal)
+            {
+                RestLogger::log("DealManager::createPendingDeal new Deal adding");
+
+                $leaderDeal = new LeaderDeal();
+
+                $leaderDeal->customer = $order->customer;
+                $leaderDeal->date = time();
+                $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
+
+                $this->refreshDealProps($leaderDeal, $landing, $order);
+                $leaderDeal->campaign = $campaign;
+
+                $this->dealDao->insertDeal($leaderDeal);
+            }
+            else
+            {
+                $this->refreshDealProps($leaderDeal, $landing, $order);
+                $leaderDeal->campaign = $campaign;
+            }
+
+            return $leaderDeal;
+        } catch (Exception $e)
+        {
+            RestLogger::log("Exception: " . $e->getMessage());
+            throw new Exception("", 0, $e);
+        }
     }
 
 
     public function pushDeal($order)
     {
+        $this->storeManager->validateBranch($order->store, $order->branch);
+        RestLogger::log("DealManager::pushDeal after store validation");
 
         $campaign = $this->campaignManager->chooseCampaign($order);
+        RestLogger::log("DealManager::pushDeal after campaign choosing ", $campaign);
+
         $leaderLanding = $this->campaignManager->chooseLeaderLanding($campaign, $order);
-        $leaderDeal = $this->createPendingDeal($leaderLanding, $order);
+        RestLogger::log("DealManager::pushDeal after landing choosing ", $leaderLanding);
+
+        $leaderDeal = $this->createPendingDeal($leaderLanding, $order, $campaign);
+
+        RestLogger::log("DealManager::pushDeal after deal creation ", $leaderDeal);
+
         $this->showLeaderDeal($leaderDeal);
+        RestLogger::log("DealManager::pushDeal after rendering");
+
+        return $leaderDeal;
+    }
+
+    public function getDealById($dealId)
+    {
+        $leaderDeal = $this->dealDao->getDealById($dealId);
+
+        //todo fill customer, store, etc. props
+
         return $leaderDeal;
     }
 }
+

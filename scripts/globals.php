@@ -31,6 +31,18 @@ function IncludeComponent($dir,$name){
     include_once $GLOBALS["dirBase"] . "/components/" . $dir . "/".$name.".php";
 }
 
+function IncludeComponents($dir) {
+    foreach (glob($_SERVER['DOCUMENT_ROOT']."/CatBee/components/". $dir. "/*.php") as $filename) {
+        include_once($filename);
+    }
+}
+
+function include3rdParty($dir, $name)
+{
+    include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/3dParty/". $dir . "/".$name.".php");
+
+}
+
 function catbeeComp($comp, &$p) {
 	includeScript("comps/" . $comp, $p);
 }

@@ -33,13 +33,21 @@ class PdoFriendLandingDao implements IFriendLandingDao
         foreach ($rows as $row)
         {
             $FriendLanding = new FriendLanding();
-            $FriendLanding->id = $row["id"];
-            $FriendLanding->slogan = $row["slogan"];
-            $FriendLanding->friendMessage = $row["friendMessage"];
-            $FriendLanding->rewardMessage1 = $row["rewardMessage1"];
-            $FriendLanding->rewardMessage2 = $row["rewardMessage2"];
+            $FriendLanding->id = $row['id'];
+            $FriendLanding->slogan = $row['slogan'];
+            $FriendLanding->friendMessage = $row['friendMessage'];
+            $FriendLanding->rewardMessage1 = $row['rewardMessage1'];
+            $FriendLanding->rewardMessage2 = $row['rewardMessage2'];
             array_push($Friendlandings, $FriendLanding);
         }
         $campaign->friendLandings = $Friendlandings;
+    }
+
+    public function insertFriendLandings($campaign)
+    {
+        foreach ($campaign->friendLandings as $friendLanding)
+        {
+            $this->insertFriendLanding($campaign, $friendLanding);
+        }
     }
 }

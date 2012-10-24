@@ -2,22 +2,7 @@
     "action": "friendDeal",
     "context":
     {
-        "leader":
-        {
-            "email": "regev147@013.net"
-        },
-        "friend":
-        {
-            "email": "spidernah@gmail.com"
-        },
-        "reward":
-        {
-            "code":"ABCD1234_10"
-        },
-        "store":
-        {
-            "authCode": "19FB6C0C-3943-44D0-A40F-3DC401CB3703"
-        }
+        "parentDealId":"1"
 
     }
 }

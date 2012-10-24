@@ -149,6 +149,16 @@ class RestUtils
         return $return_obj;
     }
 
+    public static function sendSuccessResponse()
+    {
+        RestUtils::sendResponse(0, array('status' => 'ok'));
+    }
+
+    public static function sendFailedResponse($reason)
+    {
+        RestUtils::sendResponse(0, array('status' => 'failed', 'reason' => $reason));
+    }
+
     public static function sendResponse($status = 200, $body = '', $content_type = 'text/html')
     {
         $status_header = 'HTTP/1.1 ' . $status . ' ' . RestUtils::getStatusCodeMessage($status);
@@ -315,6 +325,16 @@ class RestRequest
     public function getRequestVars()
     {
         return $this->request_vars;
+    }
+
+    public function getCatBeeContext()
+    {
+        if (isset($this->request_vars["context"]))
+        {
+            return $this->request_vars["context"];
+        }
+        return "<context not defined>";
+
     }
 
     public function getCatBeeAction()

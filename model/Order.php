@@ -7,4 +7,5 @@ class Order
     public $purchases;
     public $customer;
     public $store;
+    public $branch;
 }

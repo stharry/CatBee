@@ -1,6 +1,7 @@
 <?php
 
-include('../../components/rest/RestUtils.php');
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
+IncludeComponent('rest', 'RestUtils');
 
 $shareTemplate = json_decode(file_get_contents("res/addStoreFacebookShareTemplate.json"));
 
@@ -12,4 +13,4 @@ $shareTemplate = json_decode(file_get_contents("res/addStoreFacebookShareTemplat
 $restUtils = new RestUtils();
 $restUtils->SendPostRequest("share", "", $shareTemplate);
 
-echo "THE END";
+echo "Add facebook template - OK </p>";

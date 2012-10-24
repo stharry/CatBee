@@ -26,11 +26,9 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
 <a
         id="autostart"
         href="/CatBee/adapters/demo/demoActions/<?= $GLOBALS["page"] ?>"
+
         >Click to create awesome deal</a>
 
-<div id="background">
-    <img src="res/PostPurchasePageForDemo.jpg" class="stretch" alt=""/>
-</div>
 
 </body>
 </html>

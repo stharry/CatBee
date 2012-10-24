@@ -1,11 +1,13 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/components/IShareProvider.php");
-include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/3dParty/facebook/facebook.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/ShareNode.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/ShareContext.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/ShareAuthorization.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
+includeModel('components/IShareProvider');
+include3rdParty('facebook', 'facebook');
+
+includeModel('Customer');
+includeModel('ShareNode');
+includeModel('ShareContext');
+includeModel('ShareAuthorization');
+IncludeComponents('res');
 
 class FacebookShareProvider implements IShareProvider
 {
@@ -130,5 +132,28 @@ class FacebookShareProvider implements IShareProvider
         RestLogger::log("FacebookShareProvider::getAuthenticationUrl ".$url);
 
         return $url;
+    }
+
+    public function getCurrentSharedCustomer()
+    {
+        $facebook = new Facebook(
+            array('appId' => $this->apiKey,
+                'secret' => $this->apiSecret,
+                'cookie' => true));
+
+        $user = $facebook->getUser();
+        if ($user)
+        {
+            $user_profile = $facebook->api('/me');
+
+            $customer = new Customer();
+            $customer->email = $user_profile["email"];
+            $customer->firstName = $user_profile["first_name"];
+            $customer->lastName = $user_profile["last_name"];
+            $customer->sharedUserId = $user;
+
+            return $customer;
+        }
+        return null;
     }
 }

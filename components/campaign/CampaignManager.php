@@ -1,28 +1,35 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php";
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Order.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/LandingDeal.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/components/ICampaignManager.php");
+includeModel('Order');
+includeModel('LandingDeal');
+includeModel('components/ICampaignManager');
+IncludeComponent('rest', 'RestLogger');
 
 class CampaignManager implements ICampaignManager
 {
     private $storeDao;
     private $customerDao;
     private $campaignDao;
+    private $friendLandingDao;
     private $campaignStrategy;
     private $landingStrategy;
-    private $FriendLStrategy;
+    private $friendLandingStrategy;
 
     function __construct($storeDao, $customerDao, $campaignDao,
-                         $campaignStrategy, $landingStrategy,$friendLandingManager)
+                         $friendLandingDao,
+                         $campaignStrategy, $landingStrategy,
+                         $friendLandingStrategy)
     {
+        RestLogger::log("--------campaignStrategy".get_class($campaignStrategy));
+
         $this->storeDao = $storeDao;
         $this->customerDao = $customerDao;
         $this->campaignDao = $campaignDao;
+        $this->friendLandingDao = $friendLandingDao;
+
         $this->campaignStrategy = $campaignStrategy;
         $this->landingStrategy = $landingStrategy;
-        $this->FriendLandingManager = $friendLandingManager;
+        $this->friendLandingStrategy = $friendLandingStrategy;
     }
 
     private function checkCustomer($customer)
@@ -83,7 +90,7 @@ class CampaignManager implements ICampaignManager
     {
         $this->checkStore($campaign->store);
         $this->campaignDao->insertCampaign($campaign);
-        $this->FriendLandingManager->SaveFriendLandingManager($campaign);
+        $this->friendLandingDao->insertFriendLandings($campaign);
 
     }
 
@@ -94,6 +101,11 @@ class CampaignManager implements ICampaignManager
 
     public function chooseFriendLStrategy($campaign, $order)
     {
-      return $this->FriendLStrategy->chooseFriendLanding($campaign, $order);
+      return $this->friendLandingStrategy->chooseFriendLanding($campaign, $order);
+    }
+
+    public function getCampaignFriendLanding($campaign)
+    {
+        return $this->friendLandingDao->GetFriendLanding($campaign);
     }
 }

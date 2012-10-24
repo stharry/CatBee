@@ -1,7 +1,6 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
+IncludeComponents('rest');
 
 class DbManager
 {
@@ -80,6 +79,9 @@ class DbManager
             //var_dump($params);
             return null;
         }
+
+        RestLogger::log("DbManager::selectValues row count: ".$stmt->rowCount());
+
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

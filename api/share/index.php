@@ -1,25 +1,21 @@
 <?php
 
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestUtils.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 
-foreach (glob($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/adapters/json/*.php") as $filename) include_once($filename);
-foreach (glob($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/adapters/html/*.php") as $filename) include_once($filename);
-foreach (glob($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/dao/PDO/*.php") as $filename) include_once($filename);
-
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/share/ShareManager.php");
-
+IncludeComponents('rest');
+IncludeComponents('adapters/json');
+IncludeComponents('adapters/html');
+IncludeComponents('dao/PDO');
+IncludeComponent('share', 'ShareManager');
 
 RestLogger::log("Share api call started");
 
-
 $return_obj = RestUtils::processRequest() or die ("Cannot parse post data in share request");
-$shareProps = $return_obj->getRequestVars() or die("Unknown share format");
 
 $action = $return_obj->getCatBeeAction();
-$context = $shareProps[ "context" ];
+$context = $return_obj->getCatBeeContext();
 
-RestLogger::log("Share api request vars: ", $shareProps);
+RestLogger::log("Share api {$action} request vars: ", $context);
 
 $shareManager = new ShareManager(
     new PdoStoreDao(), new PdoShareDao(),
@@ -72,7 +68,7 @@ switch ($action)
         if ($needToAuthenticate)
         {
             $url = $shareManager->getAuthenticationUrl($shareNode, null);
-            $url .= '?api=share&params=' .urlencode(json_encode($shareProps));
+            $url .= '?api=share&params=' .urlencode(json_encode($return_obj->getRequestVars()));
 
             RestLogger::log(" Authorization url: " . $url);
 
@@ -111,5 +107,24 @@ switch ($action)
 
         RestUtils::sendResponse(0, $shareProps);
         exit();
+
+    case "getsharedcustomer":
+
+        $contextAdapter = new JsonShareContextAdapter();
+        $shareContext = $contextAdapter->fromArray($context);
+
+        $customer = $shareManager->getCurrentSharedCustomer($shareContext);
+
+        if ($customer)
+        {
+            $customerAdapter = new JsonCustomerAdapter();
+            $customerProps = $customerAdapter->toArray($customer);
+            RestUtils::sendResponse(0, $customerProps);
+        }
+        else
+        {
+            RestUtils::sendFailedResponse('There is no connected user');
+        }
+        exit;
 
 }
