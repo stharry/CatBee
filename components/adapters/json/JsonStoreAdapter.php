@@ -1,9 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Store.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
-
-
 class JsonStoreAdapter implements  IModelAdapter
 {
 

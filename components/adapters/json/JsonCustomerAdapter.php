@@ -1,8 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Customer.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
-
 class JsonCustomerAdapter implements IModelAdapter
 {
     private function singleCustomerToArray($customer)

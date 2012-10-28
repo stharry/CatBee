@@ -3,6 +3,7 @@
 //var_dump($_SERVER);
 //var_dump($GLOBALS);
 
+include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php");
 include('../../components/rest/RestUtils.php');
 
 $campaignFilter = json_decode(file_get_contents("res/getCampaigns.json"));

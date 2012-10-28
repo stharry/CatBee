@@ -1,11 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Order.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
-include_once("JsonCustomerAdapter.php");
-include_once("JsonPurchasesAdapter.php");
-include_once("JsonStoreAdapter.php");
-
 class JsonOrderAdapter implements IModelAdapter
 {
 

@@ -2,18 +2,6 @@
 
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 
-IncludeComponents('rest');
-IncludeComponents('adapters/json');
-IncludeComponents('dao/PDO');
-
-IncludeComponent("campaign","CampaignManager");
-IncludeComponent("deal","DealManager");
-IncludeComponent("campaign","DefaultCampaignStrategy");
-IncludeComponent("landing","DefaultLeaderLandingStrategy");
-IncludeComponent("FriendLanding","FriendLandingManager");
-IncludeComponent("FriendLanding","DefaultFriendLandingStrategy");
-
-
 $requestObj = RestUtils::processRequest() or die("Campaign format is wrong");
 $action = $requestObj->getCatBeeAction();
 $context = $requestObj->getCatBeeContext();
@@ -23,7 +11,7 @@ $campaignManager = new CampaignManager(
     new PdoCustomerDao(),
     new PdoCampaignDao(
         new PdoLeaderLandingDao(
-            new PdoLeaderLandingRewardDao()),new pdoFriendLAndingDao()),
+            new PdoLeaderLandingRewardDao()),new PdoFriendLandingDao()),
     new PdoFriendLandingDao(),
     new DefaultCampaignStrategy(),
     new DefaultLeaderLandingStrategy(),

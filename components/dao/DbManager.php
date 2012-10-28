@@ -1,7 +1,5 @@
 <?php
 
-IncludeComponents('rest');
-
 class DbManager
 {
     private static $connection;

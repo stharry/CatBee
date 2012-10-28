@@ -1,9 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/friendLanding.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/IFriendLandingDao.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
-
 class PdoFriendLandingDao implements IFriendLandingDao
 {
     function __construct()

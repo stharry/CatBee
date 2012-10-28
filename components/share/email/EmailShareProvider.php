@@ -1,6 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/model/components/IShareProvider.php");
 require_once "Mail.php";
 require_once "Mail/mime.php";
 

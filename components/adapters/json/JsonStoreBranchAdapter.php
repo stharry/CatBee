@@ -1,8 +1,5 @@
 <?php
 
-includeModel('StoreBranch');
-IncludeComponent('adapters', 'IModelAdapter');
-
 class JsonStoreBranchAdapter implements IModelAdapter
 {
     private function singleBranchFromArray($obj)

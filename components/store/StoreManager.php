@@ -1,8 +1,5 @@
 <?php
 
-IncludeComponents('rest');
-includeModel('components/IStoreManager');
-
 class StoreManager implements IStoreManager
 {
 

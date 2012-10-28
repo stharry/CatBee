@@ -1,13 +1,6 @@
 <?php
 
-includeModel('components/IShareProvider');
 include3rdParty('facebook', 'facebook');
-
-includeModel('Customer');
-includeModel('ShareNode');
-includeModel('ShareContext');
-includeModel('ShareAuthorization');
-IncludeComponents('res');
 
 class FacebookShareProvider implements IShareProvider
 {
@@ -48,10 +41,26 @@ class FacebookShareProvider implements IShareProvider
 
     public function share($share)
     {
-//        http://www.facebook.com/dialog/send?app_id=123050457758183&
-//name=People%20Argue%20Just%20to%20Win&
-//        link=http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html&
-//redirect_uri=http://www.example.com/response
+        RestLogger::log("FacebookShareProvider::share NOT IMPLEMENTED");
+//
+//        $parameters = array(
+//            'app_id' => '369374193139831',
+//            'link' => 'http://www.tribzi.com/',
+//            'picture' => 'http://www.medfordmailboxshop.com/Merchant/Images_Product/Box/Wood/198-wood-train-L.jpg',
+//            'name' => 'Hi, I shared a great deal for you...:)',
+//            'caption' => 'TribZi Deal',
+//            'display' => 'popup',
+//            'redirect_uri' => $GLOBALS["restURL"].'/CatBee/components/share/facebook/facebookLogin.php'
+//
+//        );
+//        $url = 'http://www.facebook.com/dialog/send?'.http_build_query($parameters);
+//
+//        echo "<script>blah = window.open('".$url."')</script>";
+//
+//        //echo("<script> top.location.href='" . $url . "'</script>");
+//
+//        RestLogger::log("FacebookShareProvider::share end ".$url);
+
         // TODO: Implement share() method.
     }
 

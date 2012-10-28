@@ -1,8 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/ICustomerDao.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
-
 class PdoCustomerDao implements ICustomerDao
 {
 

@@ -15,4 +15,5 @@ DROP TABLE IF EXISTS StoreShareTemplate;
 DROP TABLE IF EXISTS friendlanding;
 DROP TABLE IF EXISTS customerAuth;
 DROP Table IF EXISTS campfriendlanding;
+DROP Table IF EXISTS oauthApps;
 

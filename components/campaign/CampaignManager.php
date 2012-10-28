@@ -1,9 +1,5 @@
 <?php
 
-includeModel('Order');
-includeModel('LandingDeal');
-includeModel('components/ICampaignManager');
-IncludeComponent('rest', 'RestLogger');
 
 class CampaignManager implements ICampaignManager
 {

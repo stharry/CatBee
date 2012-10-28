@@ -1,11 +1,5 @@
 <?php
 
-include_once("JsonStoreAdapter.php");
-include_once("JsonShareContextAdapter.php");
-
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Share.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
-
 class JsonShareAdapter implements IModelAdapter
 {
     private $jsonStoreAdapter;

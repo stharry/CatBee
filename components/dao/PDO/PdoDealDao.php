@@ -1,10 +1,5 @@
 <?php
 
-includeModel('dao/IDealDao');
-includeModel('LeaderDeal');
-IncludeComponent('dao', 'DbManager');
-IncludeComponents('rest');
-
 class PdoDealDao implements IDealDao
 {
 

@@ -1,7 +1,5 @@
 <?php
 
-includeModel('components/ICampaignStrategy');
-
 class DefaultCampaignStrategy implements ICampaignStrategy
 {
 

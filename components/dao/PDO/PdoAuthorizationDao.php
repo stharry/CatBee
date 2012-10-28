@@ -1,10 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/ShareAuthorization.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/IAuthorizationDao.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
-
 class PdoAuthorizationDao implements IAuthorizationDao
 {
 

@@ -1,12 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/ShareTemplate.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Store.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/TemplatePage.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Campaign.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/IShareDao.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
-
 class PdoShareDao implements IShareDao
 {
 

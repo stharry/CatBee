@@ -2,12 +2,6 @@
 
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 
-IncludeComponents('rest');
-IncludeComponents('adapters/json');
-IncludeComponents('adapters/html');
-IncludeComponents('dao/PDO');
-IncludeComponent('share', 'ShareManager');
-
 RestLogger::log("Share api call started");
 
 $return_obj = RestUtils::processRequest() or die ("Cannot parse post data in share request");

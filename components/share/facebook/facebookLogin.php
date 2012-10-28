@@ -3,13 +3,7 @@
 //// based on:
 //// https://developers.facebook.com/docs/howtos/login/server-side-login/
 
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestUtils.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/rest/RestLogger.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/3dParty/facebook/facebook.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/model/ShareAuthorization.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/adapters/json/JsonShareNodeAdapter.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/dao/PDO/PdoAuthorizationDao.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/components/dao/PDO/PdoCustomerDao.php");
+include3rdParty('facebook', 'facebook');
 
 $facebook = new Facebook(array(
     'appId' => '369374193139831',

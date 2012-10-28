@@ -196,3 +196,15 @@ CREATE TABLE IF NOT EXISTS customerAuth (
   accessToken VARCHAR(250),
   PRIMARY KEY (contextId, customerId)
 );
+
+CREATE TABLE IF NOT EXISTS oauthApps (
+
+  id INT AUTO_INCREMENT ,
+  contextId INT NOT NULL ,
+  oauthId VARCHAR(100) NOT NULL ,
+  oauthKey VARCHAR(100) NOT NULL ,
+  oauthSecret VARCHAR(100) NOT NULL ,
+  oauthUrl VARCHAR(500) NOT NULL ,
+  redirectUrl VARCHAR(500) NOT NULL ,
+  PRIMARY KEY (id)
+);

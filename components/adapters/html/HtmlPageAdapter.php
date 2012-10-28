@@ -1,7 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IPageAdapter.php");
-
 class HtmlPageAdapter implements IPageAdapter
 {
 

@@ -1,11 +1,5 @@
 <?php
 
-includeModel('campaign');
-includeModel('FriendDeal');
-includeModel('components/IFriendLandingManager');
-IncludeComponent('rest', 'RestLogger');
-IncludeComponent('dao/PDO', 'PdoFriendLandingDao');
-
 class FriendLandingManager implements IFriendLandingManager
 {
     private $friendLandingDao;

@@ -1,10 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/ILeaderLandingRewardDao.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/LandingReward.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Reward.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
-
 class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
 {
 

@@ -1,9 +1,5 @@
 <?php
 
-include_once("JsonRewardAdapter.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/LeaderLanding.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
-
 class JsonLeaderLandingAdapter implements IModelAdapter
 {
     private $jsonRewardAdapter;

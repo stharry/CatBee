@@ -1,7 +1,5 @@
 <?php
 
-includeModel('dao/IStoreBranchDao');
-
 class PdoStoreBranchDao implements IStoreBranchDao
 {
 

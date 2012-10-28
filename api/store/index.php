@@ -2,11 +2,6 @@
 
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 
-IncludeComponents('rest');
-IncludeComponents('adapters/json');
-IncludeComponents('dao/PDO');
-IncludeComponent('store', 'StoreManager');
-
 $requestObj = RestUtils::processRequest() or die("Campaign format is wrong");
 $action = $requestObj->getCatBeeAction();
 $context = $requestObj->getCatBeeContext();

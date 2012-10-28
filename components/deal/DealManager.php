@@ -1,7 +1,5 @@
 <?php
 
-includeModel('components/IDealManager');
-
 class DealManager implements IDealManager
 {
     private $campaignManager;

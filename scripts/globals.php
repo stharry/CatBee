@@ -1,6 +1,9 @@
 <?php
 error_reporting(E_ERROR);
 //require_once "Mail.php";
+
+require_once('CatBeeClassLoader.php');
+
 $dirBase = $_SERVER['DOCUMENT_ROOT']."/CatBee";
 
 $catBeeParams = parse_ini_file($dirBase."/COnfig/config.ini");
@@ -19,12 +22,34 @@ $rootPath = "/CatBee/public/";
 
 $restURL = $catBeeParams["Rest_url"];
 
+$loader = new CatBeeClassLoader($GLOBALS["dirBase"]);
+
+spl_autoload_register('catBeeAutoLoader');
+
+function catBeeAutoLoader($class)
+{
+    global $loader;
+    $loader->registerClass($class);
+}
+
 function includeScript($name, &$p) {
 	include $GLOBALS["dirBase"] . "/scripts/" . $name . ".php";
 }
 
 function includeModel($name) {
-	include_once $GLOBALS["dirBase"] . "/model/" . $name . ".php";
+    global $loader;
+    $loader->registerModel($name);
+	//include_once $GLOBALS["dirBase"] . "/model/" . $name . ".php";
+}
+
+function includeLogger()
+{
+    IncludeComponent('rest', 'RestLogger');
+}
+
+function includeDbManager()
+{
+    IncludeComponent('dao', 'DbManager');
 }
 
 function IncludeComponent($dir,$name){

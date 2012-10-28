@@ -1,9 +1,5 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Campaign.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/dao/ICampaignDao.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/dao/DbManager.php");
-
 class PdoCampaignDao implements ICampaignDao
 {
 

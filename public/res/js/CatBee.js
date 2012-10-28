@@ -1,6 +1,9 @@
+var catBeeResult = null;
+
 function proceedCatBeeShareJsonRequest(data, callback)
 {
     var sharePoint = getCatBeeShareApiUrl();
+
 
     $.ajax({
         type:'POST',
@@ -12,11 +15,14 @@ function proceedCatBeeShareJsonRequest(data, callback)
 
         error: function(xhr, textStatus, error){
 
+
+            catBeeResult = xhr.responseText;
             callback(xhr.responseText);
         },
 
         success:function (data) {
 
+            catBeeResult = data;
             callback(data);
         }
 

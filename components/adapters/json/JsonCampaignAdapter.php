@@ -1,12 +1,5 @@
 <?php
 
-include_once("JsonStoreAdapter.php");
-include_once("JsonLeaderLandingAdapter.php");
-include_once("jsonFriendLandingAdapter.php");
-include_once("JsonRewardAdapter.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/Campaign.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
-
 class JsonCampaignAdapter implements IModelAdapter
 {
 

@@ -1,11 +1,5 @@
 <?php
 
-include_once("JsonSingleRewardAdapter.php");
-include_once("JsonCustomerAdapter.php");
-include_once("JsonStoreAdapter.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/model/FriendDealTemplate.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/components/adapters/IModelAdapter.php");
-
 class JsonFriendDealTemplateAdapter implements IModelAdapter
 {
     private $customerAdapter;

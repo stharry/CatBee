@@ -1,6 +1,6 @@
 <?php
+
 include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php");
-require_once 'RestLogger.php';
 
 class RestUtils
 {

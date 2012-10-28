@@ -1,19 +1,5 @@
 <?php
 
-includeModel('ShareFilter');
-includeModel('FriendDealTemplate');
-includeModel('Customer');
-includeModel('Store');
-includeModel('Reward');
-includeModel('components/IShareManager');
-
-IncludeComponent('adapters/json', 'JsonFriendDealTemplateAdapter');
-IncludeComponent('share/email', 'EmailShareProvider');
-IncludeComponent('share/facebook', 'FacebookShareProvider');
-IncludeComponent('dao/PDO', 'PdoAuthorizationDao');
-IncludeComponent('rest', 'RestLogger');
-
-
 class ShareManager implements IShareManager
 {
     private $shareDao;
