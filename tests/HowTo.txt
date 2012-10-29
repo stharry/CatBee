@@ -1,7 +1,8 @@
 How to prepare environment for demo:
 
-1. Drop all the tables, using sql/DropTables.sql
-2. Create all the tables using sql/CreateTables.sql
+1. Drop/create all the tables, using sql/recreateDbTest.sql
 3. Run tests/json/pushCampaign.php from apache easy php
-4. Run tests/json/addStoreShareTemplate.php from
-5. Run adapters/Demo/index.php to start demo
+4. Run tests/json/addStoreFacebookShareTemplate.php
+5. Run tests/json/addStoreEmailShareTemplate.php
+6. Run tests/json/registerStoreBranches.php
+6. Run adapters/Demo/index.php to start demo
