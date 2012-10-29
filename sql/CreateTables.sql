@@ -79,6 +79,8 @@ CREATE  TABLE IF NOT EXISTS landingReward (
 
 	LeaderReward INT NOT NULL ,
 
+	RewardIndex INT ,
+
 PRIMARY KEY (id) );
 
 

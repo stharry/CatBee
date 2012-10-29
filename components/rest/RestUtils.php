@@ -4,12 +4,9 @@ include_once($_SERVER['DOCUMENT_ROOT']."/CatBee/scripts/globals.php");
 
 class RestUtils
 {
-    private $logger;
-
     function __construct()
     {
         $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
-        $this->logger = &Log::singleton('file', 'c:\CatBee.log', 'ident', $conf);
     }
 
     private static function sendAnyRequest($url, $obj)

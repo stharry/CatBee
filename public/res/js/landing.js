@@ -1,9 +1,10 @@
 $(document).ready(function() {
     $('.email-form').hide();
+
     $("#slider").slider({
         animate: true,
         min : 0,
-        max : 2,
+        max : $('#rewardsCount').text() - 1,
         value : 1,
         change : function(event, ui) {
             var val = ui.value;
@@ -22,6 +23,16 @@ $(document).ready(function() {
                 }
             }
         }
+    });
+
+    $('.cat_icon').click(function(){
+
+        $("#slider").slider('value', 0);
+    });
+
+    $('.bee_icon').click(function(){
+
+        $("#slider").slider('value', $('#rewardsCount').text() - 1);
     });
 
     updateBoxPosition();
@@ -64,10 +75,10 @@ $(document).ready(function() {
         var target = $(this);
         if( $('.email-form').css('display') == 'none' ){
             //I know this is not the Way yo Call a relative URL..
-            $('.box-wrapper').css({height:'810px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'});
+            $('.box-wrapper').css({height:'740px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'});
         }else{
             //I know this is not the Way yo Call a relative URL..
-            $('.box-wrapper').css({height:'500px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
+            $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
         }
         $('.email-form').slideToggle("fast", function(){
             if( $('.email-form').css('display') == 'none' ){

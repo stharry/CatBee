@@ -12,7 +12,7 @@ $(document).ready(function () {
         FB.init({appId: '369374193139831', xfbml: true, cookie: true});
 
         FB.ui({
-            method: 'send',
+            method: 'feed',
             display: 'popup',
             name: 'Hi, I shared a great deal for you...:)',
             //redirect_uri: 'http://127.0.0.1:8080/CatBee/components/share/facebook/facebookLogin.php?kuku=1',
