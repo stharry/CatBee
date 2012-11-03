@@ -1,5 +1,4 @@
 <?php
-
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 
 $restRequest = RestUtils::processRequest() or die("Campaign format is wrong");

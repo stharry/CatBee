@@ -6,6 +6,20 @@ require_once "Mail/mime.php";
 class EmailShareProvider implements IShareProvider
 {
 
+    private function validateEmailAddress($address)
+    {
+        $addresses = explode(',', $address);
+
+        $result = '';
+
+        foreach ($addresses as $singleAddress)
+        {
+            $result .= substr($singleAddress, 0, strpos($singleAddress, '@'))
+                .' '.'<'.$singleAddress.'>,';
+        }
+        return $result;
+    }
+
     public function share($share)
     {
         ob_start();
@@ -16,15 +30,10 @@ class EmailShareProvider implements IShareProvider
 
         ob_end_clean();
 
-        echo htmlentities($body);
-
-        $headers = array ('From' => $share->sendFrom,
-            'To' => $share->sendTo,
+        $headers = array ('From' => $this->validateEmailAddress($share->sendFrom),
+            'To' => $this->validateEmailAddress($share->sendTo),
             'Subject' => $share->subject);
 
-
-        echo "headers--------";
-        var_dump($headers);
 
         $mime = new Mail_mime();
         $mime->setHTMLBody($body);
@@ -36,13 +45,19 @@ class EmailShareProvider implements IShareProvider
             array ('host' => $GLOBALS["smtphost"],
                 'auth' => true,
                 'username' => $GLOBALS["smtpuser"],
-                'password' => $GLOBALS["smtppass"]));
+                'password' => $GLOBALS["smtppass"],
+                'port' => $GLOBALS['smtpport']));
 
         $mail = $smtp->send($share->sendTo, $headers, $body);
 
-        if (PEAR::isError($mail)) {
+        if (PEAR::isError($mail))
+        {
+            RestLogger::log("email sending failed ".$mail);
             return "failed";
-        } else {
+        }
+        else
+        {
+            RestLogger::log("email sent");
             return "ok";
         }
 

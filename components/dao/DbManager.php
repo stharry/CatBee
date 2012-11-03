@@ -41,10 +41,20 @@ class DbManager
         $dbHost = $GLOBALS["dbhost"];
         $dbName = $GLOBALS["dbname"];
 
+        try
+        {
         DbManager:: $connection = new PDO("mysql:host={$dbHost};dbname={$dbName}",
             $GLOBALS["dbusername"], $GLOBALS["dbpassword"],
             array(PDO::ATTR_PERSISTENT => true
             ));
+        }
+        catch (Exception $e)
+        {
+            mysql_close();
+            RestLogger::log("Error opening connection ", $e);
+            throw new Exception("Cannot connection to the data base");
+        }
+
 
         DbManager:: $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         DbManager:: $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
