@@ -21,6 +21,9 @@ $campaignManager = new CampaignManager(
 
 $dealManager = new DealManager($campaignManager,
     new StoreManager(new PdoStoreDao(), new PdoStoreBranchDao()),
+    new ShareManager(new PdoStoreDao(), new PdoShareDao(),
+        new PdoCustomerDao(), new PdoShareApplicationDao(),
+        new HtmlPageAdapter()),
     new PdoDealDao());
 
 $friendLandingManager = new FriendLandingManager(

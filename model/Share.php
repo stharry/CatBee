@@ -11,4 +11,5 @@ class Share
     public $context;
     public $reward;
     public $link;
+    public $deal;
 }

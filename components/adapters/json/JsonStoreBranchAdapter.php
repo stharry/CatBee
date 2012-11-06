@@ -8,13 +8,17 @@ class JsonStoreBranchAdapter implements IModelAdapter
 
         $storeBranch->shopId = $obj['shopId'];
         $storeBranch->shopName = $obj['shopName'];
+        $storeBranch->url = $obj['url'];
 
         return $storeBranch;
     }
 
     public function toArray($obj)
     {
-        return array('shopId' => $obj->shopId, 'shopName' => $obj->shopName );
+        return array(
+            'shopId' => $obj->shopId,
+            'shopName' => $obj->shopName,
+            'url' => $obj->url);
     }
 
     public function fromArray($obj)

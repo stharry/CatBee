@@ -48,6 +48,9 @@ class EmailShareProvider implements IShareProvider
                 'password' => $GLOBALS["smtppass"],
                 'port' => $GLOBALS['smtpport']));
 
+        RestLogger::log('email headers: ', $headers);
+        RestLogger::log('email body: ', $body);
+
         $mail = $smtp->send($share->sendTo, $headers, $body);
 
         if (PEAR::isError($mail))

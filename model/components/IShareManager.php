@@ -17,4 +17,8 @@ interface IShareManager
     public function getAuthenticationUrl($shareNode, $params);
 
     public function getCurrentSharedCustomer($context);
+
+    public function addShareApplication($context);
+
+    public function getAvailableShares($deal);
 }

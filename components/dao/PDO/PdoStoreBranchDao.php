@@ -21,8 +21,9 @@ class PdoStoreBranchDao implements IStoreBranchDao
     {
         if (!$this->isStoreBranchExists($store, $branch))
         {
-            $names = array("storeId", "shopId", "shopName");
-            $values = array($store->id,$branch->shopId, $branch->shopName);
+            $names = array("storeId", "shopId", "shopName", 'url');
+            $values = array($store->id,$branch->shopId,
+                            $branch->shopName, $branch->url);
 
             $branch->id = DbManager::insertAndReturnId("StoreBranch", $names, $values);
 

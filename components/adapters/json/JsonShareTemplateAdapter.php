@@ -18,7 +18,9 @@ class JsonShareTemplateAdapter implements IModelAdapter
     private function singleShareTemplateToArray($shareTemplate)
     {
         $shareTemplateProps =
-            array("store" => $this->jsonStoreAdapter->toArray($shareTemplate->store),
+            array(
+                "message" => $shareTemplate->messge,
+                "store" => $this->jsonStoreAdapter->toArray($shareTemplate->store),
                 "shareContext" => $this->jsonShareContextAdapter->toArray($shareTemplate->shareContext),
                 "templatePage" => $this->jsonTemplatePageAdapter->toArray($shareTemplate->templatePage)
             );
@@ -45,6 +47,7 @@ class JsonShareTemplateAdapter implements IModelAdapter
     public function fromArray($obj)
     {
         $shareTemplate = new ShareTemplate();
+        $shareTemplate->message = $obj['message'];
         $shareTemplate->store = $this->jsonStoreAdapter->fromArray($obj["store"]);
         $shareTemplate->shareContext = $this->jsonShareContextAdapter->fromArray($obj["shareContext"]);
         $shareTemplate->templatePage = $this->jsonTemplatePageAdapter->fromArray( $obj["templatePage"]);

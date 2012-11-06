@@ -1,32 +1,125 @@
 var catBeeResult = null;
+var catBeeData = null;
 
-function proceedCatBeeShareJsonRequest(data, callback)
+$(document).ready(function () {
+
+    FillCatBeeStorage();
+
+});
+
+function waitCatBeeResultAndRun(timeoutMs, callback)
 {
+    try
+    {
+    if (timeoutMs <= 0)
+    {
+        //need to set any kind of alert
+    }
+    else if (catBeeResult == null)
+    {
+        setTimeout(function(){ waitCatBeeResultAndRun(timeoutMs - 500, callback)}, 500)
+    }
+    else
+    {
+        callback();
+    }
+    }
+    catch (e)
+    {
+        alert(e);
+    }
+}
+function FillCatBeeStorage()
+{
+    catBeeData = JSON.parse($('#catBeeData').text());
+}
+
+function proceedCatBeeShareJsonRequest(data) {
+
     var sharePoint = getCatBeeShareApiUrl();
 
+    catBeeResult = null;
 
-    $.ajax({
-        type:'POST',
-        url:sharePoint,
-        dataType: 'json',
-        data: data,
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
 
-        timeout: 7200,
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            try
+            {
+                catBeeResult = JSON.parse(xmlhttp.responseText);
+            }
+            catch (e)
+            {
+                catBeeResult = xmlhttp.responseText;
+            }
+            //alert(xmlhttp.responseText);
+            //callback(xmlhttp.responseText);
 
-        error: function(xhr, textStatus, error){
-
-
-            catBeeResult = xhr.responseText;
-            callback(xhr.responseText);
-        },
-
-        success:function (data) {
-
-            catBeeResult = data;
-            callback(data);
         }
+    }
 
-    });
+    try
+    {
+    var kuku = jQuery.param(data);
+
+    xmlhttp.open("POST",sharePoint,true);
+    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xmlhttp.setRequestHeader("Content-Length",kuku.length);
+    xmlhttp.send(kuku);
+    }
+    catch (e)
+    {
+        alert(e);
+    }
+//    alert(sharePoint);
+//
+//    $.ajax({
+//        type:'POST',
+//        url:sharePoint,
+//        dataType:'json',
+//        data:data,
+//
+//        timeout:7200,
+//
+//        error:function (xhr, textStatus, error) {
+//
+//            try
+//            {
+//            catBeeResult = JSON.parse(xhr.responseText);
+//            callback(xhr.responseText);
+//            }
+//            catch (e)
+//            {
+//                alert(JSON.stringify(xhr));
+//                alert(textStatus);
+//                alert(error.toString());
+//                catBeeResult = "";
+//                callback("");
+//            }
+//        },
+//
+//        success:function (data) {
+//
+//            try
+//            {
+//            catBeeResult = data;
+//            callback(data);
+//            }
+//            catch (e)
+//            {
+//            }
+//        }
+//
+//    });
 
 //    alert("before response");
 //
@@ -37,26 +130,6 @@ function proceedCatBeeShareJsonRequest(data, callback)
 //    return $.parseJSON(result);
 }
 
-function getCatBeeShareApiUrl()
-{
-    return $("#catBeeSharePoint").text()
-}
-
-function setCatBeeResponse(response)
-{
-    $('#shareResponse').innerText("kuku");
-    try
-    {
-    alert($('#shareResponse').innerText);
-        alert($('#shareResponse'));
-    }
-    catch (err)
-    {
-        alert(err.message);
-    }
-}
-
-function getCatBeeResponse()
-{
-   return $('#shareResponse').innerHTML;
+function getCatBeeShareApiUrl() {
+    return catBeeData.sharePoint;
 }

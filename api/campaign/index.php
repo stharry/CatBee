@@ -29,7 +29,7 @@ switch ($action)
 
         $campaignsProps = $campaignAdapter->toArray($campaigns);
 
-        RestUtils::sendResponse(0, $campaignsProps);
+        RestUtils::sendResponse(200, $campaignsProps);
 
         break;
 

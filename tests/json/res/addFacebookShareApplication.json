@@ -1,0 +1,15 @@
+{
+    "action": "set application",
+    "context":
+    {
+        "type": "facebook",
+        "application":
+        {
+            "applicationApiKey":"",
+            "applicationCode":"369374193139831",
+            "applicationSecret":"894b434b7da7bca8c5549e6e5584581f",
+            "authorizationUrl":"http://tribzidemo.azurewebsites.net/CatBee/components/share/facebook/facebookLogin.php",
+            "redirectUrl":"http://tribzidemo.azurewebsites.net/CatBee/components/share/facebook/facebookLogin.php"
+        }
+    }
+}

@@ -59,15 +59,14 @@ img {
 }
 .box-wrapper{
     width: 424px;
-    height: 449px;
+    height: 418px;
     background: url(../images/catbee_blue_bg_h500.jpg) repeat-x;
-    padding: 23px 23px 28px 23px;
+    padding: 0px 0px 0px 0px;
 }
 .box {
     background: #fff;
     z-index:1002;
     overflow: auto;
-    margin-bottom: 10px;
 }
 .box-title{
     padding: 5px 5px 0 5px;

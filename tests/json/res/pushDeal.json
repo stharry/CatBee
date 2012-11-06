@@ -6,9 +6,9 @@
         "purchases":[
             {
                 "itemcode":"1234567890",
-                "url":"http://TribZi/Demo/Items/1234567890.jpeg",
+                "url":"http://tribzidemo.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
                 "price":"76.00",
-                "description":"toy"
+                "description":"Wooden train"
             }
         ],
         "customer":{

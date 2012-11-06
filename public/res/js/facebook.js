@@ -5,66 +5,36 @@ $(document).ready(function () {
 
     $("#facebookShare").click(function () {
 
-        var data = createCatBeeFillShareRequest();
+        StartFacebookSharing();
 
-        proceedCatBeeShareJsonRequest(data, shareViaFacebook);
-
-        FB.init({appId: '369374193139831', xfbml: true, cookie: true});
-
-        FB.ui({
-            method: 'feed',
-            display: 'popup',
-            name: 'Hi, I shared a great deal for you...:)',
-            //redirect_uri: 'http://127.0.0.1:8080/CatBee/components/share/facebook/facebookLogin.php?kuku=1',
-            description: 'Press on link below to start shopping...http://127.0.0.1:8080/CatBee/adapters/demo/api/?act=welcome&pdl=1&shr=facebook',
-            link: 'http://www.TribZi.com'
-        });
-//        try
-//        {
-//        alert(filledShare.link);
-//        }
-//        catch (err)
-//        {
-//            alert("err:" + err.message);
-//        }
-//
-//        FB.init({appId: '369374193139831', xfbml: true, cookie: true});
-//
-//        FB.ui({
-//            method: 'send',
-//            display: 'popup',
-//            name: 'People Argue Just to Win',
-//            description: '',
-//            link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html'
-//        });
-
+        waitCatBeeResultAndRun(7200, waitAndShare);
     });
 });
 
-function shareViaFacebook(data)
-{
+function StartFacebookSharing() {
 
-//    alert("txt " + data);
-//    alert("d " + data["link"]);
-//    try
-//    {
-//    var filledShare = $.parseJSON(data);
-//    }
-//    catch (err)
-//    {
-//        alert("err" + err.message);
-//
-//    }
+    var request = createCatBeeFillShareRequest();
+    proceedCatBeeShareJsonRequest(request);
+}
 
-//    FB.init({appId: '369374193139831', xfbml: true, cookie: true});
-//
-//    FB.ui({
-//        method: 'send',
-//        display: 'popup',
-//        name: 'Share CatBee deal',
-//        description: '',
-//        link: 'http://www.facebook.com'
-//    });
+function waitAndShare() {
+    try {
+        FB.init({appId:catBeeResult.context.application.applicationCode,
+            xfbml:true, cookie:true});
+
+        FB.ui({
+            method:'feed',
+            display:'popup',
+            name:'Hi, I shared a great deal for you...:)',
+            picture:catBeeData.order.purchases[0].url,
+            redirect_uri:catBeeResult.context.application.redirectUrl,
+            description:catBeeResult.message,
+            link:'http://www.TribZi.com'
+        });
+    }
+    catch (e) {
+        alert(e);
+    }
 }
 
 function createCatBeeFillShareRequest() {
@@ -75,24 +45,78 @@ function createCatBeeFillShareRequest() {
         action:'fillshare',
         context:{
 
-            sendFrom:$("#leaderEmail").text(),
-            sendTo:$("#mail-input").val(),
-            message:$("#message").val(),
-            subject:$("#message").val(),
-            context:{
-                type:'email'
+            "context":{
+                "type":"facebook"
             },
-            store:{
-                authCode:$("#storeCode").text()
+            "store":{
+                "authCode":$("#storeCode").text()
             },
-            reward:
-            {
-                value: $('#friendRewardValue' + rewardInd).text(),
-                type: $('#friendRewardType' + rewardInd).text(),
-                code: $('#friendRewardCode' + rewardInd).text(),
-                description: $('#friendRewardDesc' + rewardInd).text(),
-                typeDescription: $('#friendRewardTypeDesc' + rewardInd).text()
+            "deal":{
+                "id":catBeeData.id
+            }
+        }
+    };
+}
+$(document).ready(function () {
 
+    $('.facebook-form').hide();
+    $('#ContactsArea').hide();
+
+    $("#facebookShare").click(function () {
+
+        StartFacebookSharing();
+
+    });
+});
+
+function StartFacebookSharing() {
+
+    var request = createCatBeeFillShareRequest();
+    proceedCatBeeShareJsonRequest(request, shareViaFacebook);
+
+}
+
+function shareViaFacebook() {
+
+    alert(1);
+    try {
+        //catBeeResult = JSON.parse(data);
+
+        FB.init({appId:catBeeResult.context.application.applicationCode,
+            xfbml:true, cookie:true});
+
+        FB.ui({
+            method:'feed',
+            display:'popup',
+            name:'Hi, I shared a great deal for you...:)',
+            picture:catBeeData.order.purchases[0].url,
+            redirect_uri:catBeeResult.context.application.redirectUrl,
+            description:catBeeResult.message,
+            link:'http://www.TribZi.com'
+        });
+    }
+    catch (e) {
+        alert(e);
+    }
+
+}
+
+function createCatBeeFillShareRequest() {
+
+    var rewardInd = $("#slider").slider("value");
+
+    return {
+        action:'fillshare',
+        context:{
+
+            "context":{
+                "type":"facebook"
+            },
+            "store":{
+                "authCode":$("#storeCode").text()
+            },
+            "deal":{
+                "id":catBeeData.id
             }
         }
     };

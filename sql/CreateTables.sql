@@ -47,7 +47,8 @@ CREATE  TABLE IF NOT EXISTS StoreBranch (
 id INT AUTO_INCREMENT ,
 storeId INT NOT NULL ,
 shopId INT NOT NULL ,
-shopName VARCHAR(50) NULL ,
+shopName VARCHAR(50) NOT NULL ,
+url VARCHAR(500) NULL ,
 PRIMARY KEY (id) );
 
 
@@ -100,7 +101,8 @@ PRIMARY KEY (id) );
 
 
 
-CREATE  TABLE IF NOT EXISTS deal (
+CREATE  TABLE IF NOT EXISTS deal
+(
 
 id INT AUTO_INCREMENT ,
 
@@ -172,7 +174,9 @@ CREATE  TABLE IF NOT EXISTS StoreShareTemplate (
 
 	shareType INT NOT NULL ,
 
-	message BLOB NULL ,
+    message VARCHAR(200),
+
+	body BLOB NULL ,
 
 PRIMARY KEY (id) );
 

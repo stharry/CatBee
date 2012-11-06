@@ -3,28 +3,45 @@
 class JsonOrderAdapter implements IModelAdapter
 {
 
+    private $customerAdapter;
+    private $purchasesAdapter;
+    private $storeAdapter;
+    private $branchAdapter;
+
+    function __construct()
+    {
+        $this->customerAdapter = new JsonCustomerAdapter();
+        $this->purchasesAdapter = new JsonPurchasesAdapter();
+        $this->storeAdapter = new JsonStoreAdapter();
+        $this->branchAdapter = new JsonStoreBranchAdapter();
+
+    }
+
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        return array(
+            'amount' => $obj->amount,
+            'id' => $obj->id,
+            'customer' => $this->customerAdapter->toArray($obj->customer),
+            'purchases' => $this->purchasesAdapter->toArray($obj->purchases),
+            'store' => $this->storeAdapter->toArray($obj->store),
+            'branch' => $this->branchAdapter->toArray($obj->branch),
+
+        );
     }
 
     public function fromArray($obj)
     {
-
-        $customerAdapter = new JsonCustomerAdapter();
-        $purchasesAdapter = new JsonPurchasesAdapter();
-        $storeAdapter = new JsonStoreAdapter();
-        $branchAdapter = new JsonStoreBranchAdapter();
 
         $order = new Order();
 
         $order->amount = $obj["amount"];
         $order->id = $obj["id"];
 
-        $order->customer = $customerAdapter->fromArray($obj["customer"]);
-        $order->purchases = $purchasesAdapter->fromArray($obj["purchases"]);
-        $order->store = $storeAdapter->fromArray($obj["store"]);
-        $order->branch = $branchAdapter->fromArray($obj["branch"]);
+        $order->customer = $this->customerAdapter->fromArray($obj["customer"]);
+        $order->purchases = $this->purchasesAdapter->fromArray($obj["purchases"]);
+        $order->store = $this->storeAdapter->fromArray($obj["store"]);
+        $order->branch = $this->branchAdapter->fromArray($obj["branch"]);
 
         return $order;
     }

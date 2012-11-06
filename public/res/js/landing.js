@@ -1,10 +1,11 @@
 $(document).ready(function() {
+
     $('.email-form').hide();
 
     $("#slider").slider({
         animate: true,
         min : 0,
-        max : $('#rewardsCount').text() - 1,
+        max : catBeeData.landing.landingRewards.length - 1,
         value : 1,
         change : function(event, ui) {
             var val = ui.value;
@@ -133,12 +134,12 @@ function openWindow(){
 
 function updateRewards(sliderVal) {
 
-    $('#LeaderRewardPhrase').text($('#leaderRewardDesc' + sliderVal).text());
-    $('#LeaderReward').val($('#leaderRewardValue' + sliderVal).text());
-    $('#leaderArea').val($('#leaderRewardTypeDesc' + sliderVal).text());
+    $('#LeaderRewardPhrase').text(catBeeData.landing.landingRewards[sliderVal].leaderReward.description);
+    $('#LeaderReward').val(catBeeData.landing.landingRewards[sliderVal].leaderReward.value);
+    $('#leaderArea').val(catBeeData.landing.landingRewards[sliderVal].leaderReward.typeDescription);
 
-    $('#FriendRewardPhrase').text($('#friendRewardDesc' + sliderVal).text());
-    $('#FriendReward').val($('#friendRewardValue' + sliderVal).text());
-    $('#FriendArea').val($('#friendRewardTypeDesc' + sliderVal).text());
+    $('#FriendRewardPhrase').text(catBeeData.landing.landingRewards[sliderVal].friendReward.description);
+    $('#FriendReward').val(catBeeData.landing.landingRewards[sliderVal].friendReward.value);
+    $('#FriendArea').val(catBeeData.landing.landingRewards[sliderVal].friendReward.typeDescription);
 
 }

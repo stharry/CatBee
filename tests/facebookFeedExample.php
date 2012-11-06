@@ -6,7 +6,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
     <script src='http://connect.facebook.net/en_US/all.js'></script>
-    <script src='http://127.0.0.1:8080/CatBee/public/res/js/CatBee.js?reload'></script>
     <script src='http://127.0.0.1:8080/CatBee/tests/facebookFeedExample.js?reload'></script>
 
 </head>

@@ -13,7 +13,8 @@ RestLogger::log("Share api {$action} request vars: ", $context);
 
 $shareManager = new ShareManager(
     new PdoStoreDao(), new PdoShareDao(),
-    new PdoCustomerDao(), new HtmlPageAdapter());
+    new PdoCustomerDao(), new PdoShareApplicationDao(),
+    new HtmlPageAdapter());
 
 switch ($action)
 {
@@ -23,7 +24,7 @@ switch ($action)
 
         $shareManager->setShareTemplate($shareTemplate);
 
-        RestUtils::sendResponse(0, "OK");
+        RestUtils::sendSuccessResponse();
         exit();
 
     case "get":
@@ -35,7 +36,7 @@ switch ($action)
         $shareTemplateAdapter = new JsonShareTemplateAdapter();
         $ShareTemplatesProps = $shareTemplateAdapter->toArray($shareTemplates);
 
-        RestUtils::sendResponse(0, $ShareTemplatesProps);
+        RestUtils::sendSuccessResponse($ShareTemplatesProps);
         exit();
 
     case "share":
@@ -45,7 +46,7 @@ switch ($action)
         $status = $shareManager->share($share);
 
         $response = array("status" => $status);
-        RestUtils::sendResponse(0, $response);
+        RestUtils::sendSuccessResponse($response);
         exit();
 
     case "getcontacts":
@@ -82,7 +83,7 @@ switch ($action)
 
             RestLogger::log("share api:get contacts, send back", $response);
 
-            RestUtils::sendResponse(0, $response);
+            RestUtils::sendSuccessResponse($response);
             exit();
         }
 
@@ -91,15 +92,15 @@ switch ($action)
         $jsonShareAdapter = new JsonShareAdapter();
         $share = $jsonShareAdapter->fromArray($context);
 
-        RestLogger::log("share api:getshare start ", $share);
+        RestLogger::log("share api:fillshare start ", $share);
 
         $shareManager->fillShare($share);
 
         $shareProps = $jsonShareAdapter->toArray($share);
 
-        RestLogger::log("share api:getshare response ", $shareProps);
+        RestLogger::log("share api:fillshare response ", $shareProps);
 
-        RestUtils::sendResponse(0, $shareProps);
+        RestUtils::sendSuccessResponse($shareProps);
         exit();
 
     case "getsharedcustomer":
@@ -113,12 +114,25 @@ switch ($action)
         {
             $customerAdapter = new JsonCustomerAdapter();
             $customerProps = $customerAdapter->toArray($customer);
-            RestUtils::sendResponse(0, $customerProps);
+            RestUtils::sendSuccessResponse($customerProps);
         }
         else
         {
             RestUtils::sendFailedResponse('There is no connected user');
         }
         exit;
+
+    case "setapplication":
+        $contextAdapter = new JsonShareContextAdapter();
+        $shareContext = $contextAdapter->fromArray($context);
+
+        RestLogger::log("share api:setapplication before ", $shareContext);
+
+        $shareManager->addShareApplication($shareContext);
+
+        RestLogger::log("share api:setapplication after ");
+
+        RestUtils::sendSuccessResponse();
+        exit();
 
 }
