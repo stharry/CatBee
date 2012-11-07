@@ -15,7 +15,7 @@ switch (strtolower($shareProps['act']))
     case 'welcome':
     {
 
-        $url = $GLOBALS['Rest_url'].'/CatBee/adapters/demo/?'
+        $url = $GLOBALS['Rest_url'].'/CatBee/adapters/demo/Home.php?'
             .http_build_query(array('page'=>'goWelcome.php', 'id' =>$shareProps['pdl']));
         RestLogger::log("demo adapter api url: ", $url);
 

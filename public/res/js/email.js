@@ -41,8 +41,9 @@ function CreateAndInitializeEmailForm() {
 
             proceedCatBeeShareJsonRequest(postData);
 
-            waitCatBeeResultAndRun(7200, handleEmailResponse);
+            waitCatBeeResultAndRun(7200, 'emailResult');
 
+            handleEmailResponse();
 //            $.ajax({
 //                type:'POST',
 //                url:sharePoint,
@@ -109,22 +110,7 @@ function createCatBeeShareRequest() {
 
 function handleEmailResponse()
 {
-    if (catBeeResult != null && catBeeResult.status == 'ok') {
+    $.fancybox("Message sent");
 
-        $.fancybox("Message sent");
-
-//        $("#contact").fadeOut("fast", function () {
-//            $(this).before("<p><strong>Success! Your feedback has been sent, thanks :)</strong></p>");
-            setTimeout("$.fancybox.close()", 1000);
-//        });
-    }
-    else {
-        //todo $.fancybox("Message sending failed. \n" + responseText);
-        $.fancybox("Message sending failed...");
-
-//        $(this).before("<p><strong>Message sending failed :-(</strong></p>");
-        setTimeout("$.fancybox.close()", 1000);
-
-    }
-
+    setTimeout("$.fancybox.close()", 1000);
 }

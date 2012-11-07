@@ -1,11 +1,12 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: vadim
- * Date: 01/11/12
- * Time: 08:55
- * To change this template use File | Settings | File Templates.
- */
+
+include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
+
+//var_dump($GLOBALS);
+
+echo $GLOBALS['catBeeParams']['Rest_url'];
+
+echo CatBeeExpressions::validateString("{Rest_url}\/CatBee\/adapters\/demo\/api\/");
 
 echo "Hello world";
 echo "1";

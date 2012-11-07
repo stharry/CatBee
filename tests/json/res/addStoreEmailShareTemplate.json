@@ -11,7 +11,7 @@
             "type": "email"
         },
         "templatePage": {
-            "url": "http://127.0.0.1:8080/CatBee/tests/json/res/emailTemplate.php",
+            "url": "{Rest_url}/CatBee/tests/json/res/emailTemplate.php",
             "type": "file"
         }
     }

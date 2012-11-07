@@ -68,7 +68,7 @@ class ShareManager implements IShareManager
     {
         RestLogger::log("ShareManager::fillShareProps ", $share);
 
-        if (!$this->storeDao->isStoreExists($share->store))
+        if (!$this->storeDao->loadStore($share->store))
         {
             RestLogger::log("share template store does not exists ", $share->store);
             die ("share template store does not exists");
@@ -190,6 +190,11 @@ class ShareManager implements IShareManager
 
     public function addShareApplication($context)
     {
+        $context->application->authorizationUrl =
+            CatBeeExpressions::validateString($context->application->authorizationUrl);
+        $context->application->redirectUrl =
+            CatBeeExpressions::validateString($context->application->redirectUrl);
+
         $this->shareAppDao->setApplication($context);
     }
 
