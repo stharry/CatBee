@@ -5,6 +5,8 @@ class PdoStoreDao implements IStoreDao
 
     public function isStoreExists($store)
     {
+        if ($store->id > 0) return true;
+
         $rows = DbManager::selectValues("SELECT id FROM store  WHERE authCode=?",
             array($store->authCode => PDO::PARAM_STR));
 
@@ -27,5 +29,20 @@ class PdoStoreDao implements IStoreDao
     public function updateStore($store)
     {
         // TODO: Implement UpdateStore() method.
+    }
+
+    public function loadStore($store)
+    {
+        $rows = DbManager::selectValues("SELECT id, description, url FROM store  WHERE authCode=?",
+            array($store->authCode => PDO::PARAM_STR));
+
+        if (!isset($rows)) {
+            return false;
+        }
+        $store->id = $rows[0]["id"];
+        $store->description = $rows[0]["description"];
+        $store->url = $rows[0]["url"];
+
+        return true;
     }
 }

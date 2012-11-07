@@ -6,7 +6,7 @@ require_once('CatBeeClassLoader.php');
 
 $dirBase = $_SERVER['DOCUMENT_ROOT']."/CatBee";
 
-$catBeeParams = parse_ini_file($dirBase."/COnfig/config.ini");
+$catBeeParams = parse_ini_file($dirBase."/config/config.ini");
 
 $dbhost = $catBeeParams["catbee_db_host"];
 $dbusername = $catBeeParams["catbee_db_user"];
@@ -20,7 +20,8 @@ $smtppass = $catBeeParams["catbee_email_hostpass"];
 
 $rootPath = "/CatBee/public/";
 
-$restURL = $catBeeParams["Rest_url"];
+$restURL = $catBeeParams['Rest_url'];
+$restLogBaseDir = $catBeeParams['Rest_Log_Dir'];
 
 $loader = new CatBeeClassLoader($GLOBALS["dirBase"]);
 

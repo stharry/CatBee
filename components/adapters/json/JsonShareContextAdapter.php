@@ -3,7 +3,34 @@
 class JsonShareContextAdapter implements IModelAdapter
 {
 
+    private $applicationAdapter;
+
+    function __construct()
+    {
+        $this->applicationAdapter = new JsonShareApplicationAdapter();
+    }
+
     public function toArray($obj)
+    {
+        if (!$obj)
+        {
+            return array();
+        }
+        elseif (is_array($obj))
+        {
+            $contexts = array();
+
+            foreach ($obj as $context)
+            {
+                array_push($contexts, $this->SingleContextToArray($context));
+            }
+            return $contexts;
+
+        }
+        return $this->SingleContextToArray($obj);
+    }
+
+    private function SingleContextToArray($obj)
     {
         //todo: need to data base is
 
@@ -24,13 +51,15 @@ class JsonShareContextAdapter implements IModelAdapter
                 break;
         }
 
-        return array("type" => $contextType);
+        return array(
+            'type' => $contextType,
+            'application' => $this->applicationAdapter->toArray($obj->application));
     }
 
     public function fromArray($obj)
     {
         $shareContext = new ShareContext();
-        $shareContext->type = $obj["type"];
+        $shareContext->type = strtolower($obj["type"]);
 
         //todo: need to data base is
         switch ($shareContext->type)
@@ -52,6 +81,11 @@ class JsonShareContextAdapter implements IModelAdapter
                 break;
         }
 
+        if (isset($obj['application']))
+        {
+            $shareContext->application =
+                $this->applicationAdapter->fromArray($obj['application']);
+        }
         return $shareContext;
     }
 }

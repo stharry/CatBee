@@ -19,4 +19,6 @@ class LeaderDeal
     public $friendDeals;
     public $uniqueCode;
     public $sharePoint;
+//    public $shares;
+
 }

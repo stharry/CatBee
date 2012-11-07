@@ -4,13 +4,15 @@ class DealManager implements IDealManager
 {
     private $campaignManager;
     private $storeManager;
+    private $shareManager;
     private $dealDao;
 
-    function __construct($campaignManager, $storeManager, $dealDao)
+    function __construct($campaignManager, $storeManager, $shareManager, $dealDao)
     {
         $this->campaignManager = $campaignManager;
         $this->dealDao = $dealDao;
         $this->storeManager = $storeManager;
+        $this->shareManager = $shareManager;
     }
 
     private function getCatBeeSharePoint()
@@ -69,6 +71,8 @@ class DealManager implements IDealManager
                 $leaderDeal->campaign = $campaign;
             }
 
+            $this->addContextProviders($leaderDeal);
+
             return $leaderDeal;
         } catch (Exception $e)
         {
@@ -106,6 +110,15 @@ class DealManager implements IDealManager
         //todo fill customer, store, etc. props
 
         return $leaderDeal;
+    }
+
+    private function addContextProviders($leaderDeal)
+    {
+        //RestLogger::log('DealManager::addContextProviders before', $leaderDeal);
+
+        //$leaderDeal->shares = $this->shareManager->getAvailableShares($leaderDeal);
+
+        //RestLogger::log('DealManager::addContextProviders after ', $leaderDeal->shares);
     }
 }
 

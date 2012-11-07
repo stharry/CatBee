@@ -9,6 +9,15 @@ class RestUtils
         $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
     }
 
+    private static function unEscape($string)
+    {
+
+        $retString = str_replace('\"', '"', $string);
+
+        return $retString;
+
+    }
+
     private static function sendAnyRequest($url, $obj)
     {
         $getData = http_build_query($obj);
@@ -83,6 +92,7 @@ class RestUtils
     public static function SendPostRequest($api, $id, $obj)
     {
         $url = $GLOBALS["restURL"]."/CatBee/api/{$api}/";
+
         if (isset($id)) {
             $url .= $id;
         }
@@ -137,6 +147,9 @@ class RestUtils
 
         // set the raw data, so we can access it if needed (there may be
         // other pieces to your requests)
+
+        RestLogger::log("RestUtils::processRequest ", $data);
+
         $return_obj->setRequestVars($data);
 
         if (isset($data['data'])) {
@@ -146,9 +159,16 @@ class RestUtils
         return $return_obj;
     }
 
-    public static function sendSuccessResponse()
+    public static function sendSuccessResponse($params = null)
     {
-        RestUtils::sendResponse(0, array('status' => 'ok'));
+        if ($params)
+        {
+            RestUtils::sendResponse(200, $params);
+        }
+        else
+        {
+            RestUtils::sendResponse(200, array('status' => 'ok'));
+        }
     }
 
     public static function sendFailedResponse($reason)

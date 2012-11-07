@@ -5,7 +5,9 @@ class ShareManager implements IShareManager
     private $shareDao;
     private $storeDao;
     private $customerDao;
+    private $shareAppDao;
     private $pageAdapter;
+    private $predefinedContexts;
 
     private function validateCustomer($customer)
     {
@@ -27,27 +29,10 @@ class ShareManager implements IShareManager
 
     private function createShareLink($share)
     {
-        $friendDealTemplate = new FriendDealTemplate();
-        $friendDealTemplate->friend = new Customer();
-        $friendDealTemplate->friend->email = $share->sendTo;
-
-        $friendDealTemplate->leader = new Customer();
-        $friendDealTemplate->leader->email = $share->sendFrom;
-
-        $friendDealTemplate->store = new Store();
-        $friendDealTemplate->store->authCode = $share->store->authCode;
-
-        $friendDealTemplate->reward = new Reward();
-        $friendDealTemplate->reward->code = $share->reward->code;
-        $friendDealTemplate->reward->value = $share->reward->value;
-        $friendDealTemplate->reward->type = $share->reward->type;
-
-        $friendDealTemplateAdapter = new JsonFriendDealTemplateAdapter();
-
-        $friendTemplateProps = array("action" =>"friendDeal",
-            "context" =>$friendDealTemplateAdapter->toArray($friendDealTemplate));
-
-        $link = $GLOBALS["restURL"].'/CatBee/api/deal/?'.http_build_query($friendTemplateProps);
+        //todo check branch url
+        //todo ask store adapter to parameters set
+        $link = $share->store->url.'?ctx='.$share->context->type
+            .'&act=welcome&pdl='.$share->deal->id;
 
         return $link;
 
@@ -79,17 +64,46 @@ class ShareManager implements IShareManager
         }
     }
 
-    function __construct($storeDao, $shareDao, $customerDao, $pageAdapter)
+    private function fillShareProps($share)
+    {
+        RestLogger::log("ShareManager::fillShareProps ", $share);
+
+        if (!$this->storeDao->isStoreExists($share->store))
+        {
+            RestLogger::log("share template store does not exists ", $share->store);
+            die ("share template store does not exists");
+        }
+
+        $shareFilter = new ShareFilter();
+        $shareFilter->store = $share->store;
+        $shareFilter->campaign = $share->campaign;
+        $shareFilter->context = $share->context;
+
+        $shareTemplates = $this->getShareTemplates($shareFilter);
+
+        //todo: put strategy class here
+        if (count($shareTemplates) == 0) die ("There is no any share template for given store");
+
+        $this->createMessage($share, $shareTemplates[0]);
+
+    }
+
+    function __construct($storeDao, $shareDao, $customerDao,
+                         $shareAppDao, $pageAdapter)
     {
         $this->storeDao = $storeDao;
         $this->shareDao = $shareDao;
         $this->customerDao = $customerDao;
+        $this->shareAppDao = $shareAppDao;
         $this->pageAdapter = $pageAdapter;
+
+        $this->predefinedContexts =
+            array('email' => 1, 'facebook' => 2);
     }
 
     public function share($share)
     {
-        $this->fillShare($share);
+        $this->fillShareProps($share);
 
         $shareProvider = $this->getCompatibleShareProvider($share->context);
 
@@ -159,23 +173,12 @@ class ShareManager implements IShareManager
 
     public function fillShare($share)
     {
-        RestLogger::log("ShareManager::share ", $share);
+        if (!$this->storeDao->loadStore($share->store)) die ("share template store does not exists");
 
-        if (!$this->storeDao->isStoreExists($share->store))
-        {
-            die ("share template store does not exists");
-        }
+        $this->fillShareProps($share);
 
-        $shareFilter = new ShareFilter();
-        $shareFilter->store = $share->store;
-        $shareFilter->campaign = $share->campaign;
+        $this->getCompatibleShareApplication($share);
 
-        $shareTemplates = $this->getShareTemplates($shareFilter);
-
-        //todo: put strategy class here
-        if (count($shareTemplates) == 0) die ("There is no any share template for given store");
-
-        $this->createMessage($share, $shareTemplates[0]);
     }
 
     public function getCurrentSharedCustomer($context)
@@ -183,5 +186,49 @@ class ShareManager implements IShareManager
         $shareProvider = $this->getCompatibleShareProvider($context);
 
         return $shareProvider->getCurrentSharedCustomer();
+    }
+
+    public function addShareApplication($context)
+    {
+        $this->shareAppDao->setApplication($context);
+    }
+
+    private function getCompatibleShareApplication($share)
+    {
+        $share->context->application =
+            $this->shareAppDao->getApplication($share->context);
+    }
+
+    public function getAvailableShares($deal)
+    {
+        $shares = array();
+
+        foreach ($this->predefinedContexts as $type => $id)
+        {
+            $share = new Share();
+            $share->campaign = $deal->campaign;
+            $share->store = $deal->order->store;
+            $share->deal = $deal;
+
+            $context = new ShareContext();
+            $context->id = $id;
+            $context->type = $type;
+            $context->application = $this->shareAppDao->getApplication($context);
+
+            $share->context = $context;
+
+            $this->fillShareProps($share);
+
+            $share->message = htmlentities($share->message);
+
+            array_push($shares, $share);
+
+            $share->campaign = null;
+            $share->store = null;
+            $share->deal = null;
+
+        }
+
+        return $shares;
     }
 }

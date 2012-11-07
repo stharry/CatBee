@@ -16,4 +16,6 @@ $campaignFilter = json_decode(file_get_contents("res/getCampaigns.json"));
 $restUtils = new RestUtils();
 $response = $restUtils->SendPostRequest("campaign", "", $campaignFilter);
 
+var_dump($response);
+
 echo "THE END";

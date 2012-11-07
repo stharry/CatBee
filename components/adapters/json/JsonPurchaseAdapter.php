@@ -5,7 +5,12 @@ class JsonPurchaseAdapter implements IModelAdapter
 
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        return array(
+            'itemCode' => $obj->itemCode,
+            'description' => $obj->description,
+            'price' => $obj->price,
+            'url' => $obj->url
+        );
     }
 
     public function fromArray($obj)

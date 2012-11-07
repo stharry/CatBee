@@ -39,25 +39,29 @@ function CreateAndInitializeEmailForm() {
             var postData = createCatBeeShareRequest();
             var sharePoint = getCatBeeShareUrl();
 
-            $.ajax({
-                type:'POST',
-                url:sharePoint,
-                dataType: 'json',
-                data: postData,
+            proceedCatBeeShareJsonRequest(postData);
 
-                timeout: 7200,
+            waitCatBeeResultAndRun(7200, handleEmailResponse);
 
-                error: function(xhr, textStatus, error){
-
-                    handleEmailResponse(xhr.responseText);
-                },
-
-                success:function (data) {
-
-                    handleEmailResponse(data);
-                }
-
-            });
+//            $.ajax({
+//                type:'POST',
+//                url:sharePoint,
+//                dataType: 'json',
+//                data: postData,
+//
+//                timeout: 7200,
+//
+//                error: function(xhr, textStatus, error){
+//
+//                    handleEmailResponse(xhr.responseText);
+//                },
+//
+//                success:function (data) {
+//
+//                    handleEmailResponse(data);
+//                }
+//
+//            });
         }
     });
 }
@@ -69,7 +73,7 @@ function validateEmail(email) {
 
 function getCatBeeShareUrl()
 {
-    return $("#catBeeSharePoint").text()
+    return catBeeData.sharePoint;
 }
 
 function createCatBeeShareRequest() {
@@ -80,7 +84,7 @@ function createCatBeeShareRequest() {
         action:'share',
         context:{
 
-            sendFrom:$("#leaderEmail").text(),
+            sendFrom:catBeeData.order.customer.email,
             sendTo:$("#mail-input").val(),
             message:$("#message").val(),
             subject:$("#message").val(),
@@ -92,21 +96,20 @@ function createCatBeeShareRequest() {
             },
             reward:
             {
-                value: $('#friendRewardValue' + rewardInd).text(),
-                type: $('#friendRewardType' + rewardInd).text(),
-                code: $('#friendRewardCode' + rewardInd).text(),
-                description: $('#friendRewardDesc' + rewardInd).text(),
-                typeDescription: $('#friendRewardTypeDesc' + rewardInd).text()
+                value: catBeeData.landing.landingRewards[rewardInd].friendReward.value,
+                type: catBeeData.landing.landingRewards[rewardInd].friendReward.type,
+                code: catBeeData.landing.landingRewards[rewardInd].friendReward.code,
+                description: catBeeData.landing.landingRewards[rewardInd].friendReward.description.value,
+                typeDescription: catBeeData.landing.landingRewards[rewardInd].friendReward.typeDescription.value
 
             }
         }
     };
 }
 
-function handleEmailResponse(responseText)
+function handleEmailResponse()
 {
-
-    if (responseText.toLowerCase().indexOf("status:ok") > 0) {
+    if (catBeeResult != null && catBeeResult.status == 'ok') {
 
         $.fancybox("Message sent");
 
@@ -117,7 +120,7 @@ function handleEmailResponse(responseText)
     }
     else {
         //todo $.fancybox("Message sending failed. \n" + responseText);
-        $.fancybox("Message sent");
+        $.fancybox("Message sending failed...");
 
 //        $(this).before("<p><strong>Message sending failed :-(</strong></p>");
         setTimeout("$.fancybox.close()", 1000);
