@@ -24,11 +24,15 @@ if (!isset($params) || (count($params) == 0))
 elseif (isset($params["success"]))
 {
     RestLogger::log("FacebookLogin: success stub response - sent OK");
-    RestUtils::sendResponse(0, "OK");
+    exit();
+}
+elseif (isset($params["post_id"]))
+{
+    RestLogger::log("FacebookLogin: success stub response on post_id - sent OK");
     exit();
 }
 
-$code = $restRequest->getRequestVars()["code"];
+$code = $params["code"];
 
 $user = $facebook->getUser();
 RestLogger::log("facebookLogin: used ID".$user);
@@ -76,7 +80,7 @@ else
 
     $shareNodeAdapter = new JsonShareNodeAdapter();
 
-    $params = (array)json_decode(urldecode($restRequest->getRequestVars()[ "params" ]), true);
+    $params = (array)json_decode(urldecode($params[ "params" ]), true);
 
     $shareNodeProps = $params["context"];
 
@@ -97,7 +101,7 @@ else
     $authCustomersDao = new PdoAuthorizationDao();
     $authCustomersDao->setAuthorization($shareNode, $shareAuthorization);
 
-    $apiPath = $restRequest->getRequestVars()[ 'api' ];
+    $apiPath = $params[ 'api' ];
 
     $apiUrl = $GLOBALS["restURL"].'/CatBee/api/'.$apiPath
         .'/?'.http_build_query($params);

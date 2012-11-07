@@ -14,6 +14,7 @@ class StoreManager implements IStoreManager
 
     public function registerStore($store)
     {
+        $store->url = CatBeeExpressions::validateString($store->url);
         if (!$this->storeDao->isStoreExists($store))
         {
             $this->storeDao->insertStore($store);
@@ -32,6 +33,7 @@ class StoreManager implements IStoreManager
 
         foreach ($branches as $branch)
         {
+            $branch->redirectUrl = CatBeeExpressions::validateString($branch->redirectUrl);
             $this->branchesDao->AddStoreBranch($store, $branch);
         }
 

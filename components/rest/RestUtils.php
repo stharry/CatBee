@@ -9,15 +9,6 @@ class RestUtils
         $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
     }
 
-    private static function unEscape($string)
-    {
-
-        $retString = str_replace('\"', '"', $string);
-
-        return $retString;
-
-    }
-
     private static function sendAnyRequest($url, $obj)
     {
         $getData = http_build_query($obj);

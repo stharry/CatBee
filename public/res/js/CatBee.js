@@ -17,6 +17,7 @@ function waitCatBeeResultAndRun(timeoutMs, callback)
     }
     else if (catBeeResult == null)
     {
+        alert(1);
         setTimeout(function(){ waitCatBeeResultAndRun(timeoutMs - 500, callback)}, 500)
     }
     else
@@ -34,7 +35,7 @@ function FillCatBeeStorage()
     catBeeData = JSON.parse($('#catBeeData').text());
 }
 
-function proceedCatBeeShareJsonRequest(data) {
+function proceedCatBeeShareJsonRequest(data, resultName) {
 
     var sharePoint = getCatBeeShareApiUrl();
 
@@ -51,19 +52,10 @@ function proceedCatBeeShareJsonRequest(data) {
     xmlhttp.onreadystatechange=function()
     {
 
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        if (xmlhttp.readyState==4 && xmlhttp.status==200 && catBeeResult == null)
         {
-            try
-            {
-                catBeeResult = JSON.parse(xmlhttp.responseText);
-            }
-            catch (e)
-            {
-                catBeeResult = xmlhttp.responseText;
-            }
-            //alert(xmlhttp.responseText);
-            //callback(xmlhttp.responseText);
-
+            catBeeResult = xmlhttp.responseText;
+            localStorage.setItem(resultName, catBeeResult);
         }
     }
 

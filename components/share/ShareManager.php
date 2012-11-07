@@ -190,6 +190,11 @@ class ShareManager implements IShareManager
 
     public function addShareApplication($context)
     {
+        $context->application->authorizationUrl =
+            CatBeeExpressions::validateString($context->application->authorizationUrl);
+        $context->application->redirectUrl =
+            CatBeeExpressions::validateString($context->application->redirectUrl);
+
         $this->shareAppDao->setApplication($context);
     }
 
