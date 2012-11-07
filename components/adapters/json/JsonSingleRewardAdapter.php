@@ -10,7 +10,8 @@ class JsonSingleRewardAdapter implements IModelAdapter
                 "code" => $obj->code,
                 "type" => $obj->type,
                 "description" => $obj->description,
-                "typeDescription" => $obj->typeDescription);
+                "typeDescription" => $obj->typeDescription,
+                "id" => $obj->id);
     }
 
     public function fromArray($obj)
@@ -22,6 +23,7 @@ class JsonSingleRewardAdapter implements IModelAdapter
         $reward->type = $obj["type"];
         $reward->description = $obj["description"];
         $reward->typeDescription = $obj["typeDescription"];
+        $reward->id = $obj["id"];
 
         return $reward;
     }

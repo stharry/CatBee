@@ -2,7 +2,11 @@
 
 include_once $_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php";
 
+$params = 'pdl='.$_GET["pdl"].'&rwd='.$_GET["rwd"];
 $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
+$page = $page.'?'.$params;
+
+RestLogger::log("demo adapter home.php redirected to the ", $page);
 
 ?>
 

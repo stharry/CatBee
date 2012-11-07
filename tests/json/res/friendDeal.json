@@ -2,7 +2,10 @@
     "action": "friendDeal",
     "context":
     {
-        "parentDealId":"1"
-
+        "parentDealId":"1",
+        "reward":
+        {
+            "id":"4"
+        }
     }
 }

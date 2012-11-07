@@ -28,7 +28,9 @@ $dealManager = new DealManager($campaignManager,
 
 $friendLandingManager = new FriendLandingManager(
     new PdoDealDao(),
-    new PdoFriendLandingDao());
+    new PdoFriendLandingDao(),
+    new PdoCustomerDao(),
+    new PdoRewardDao());
 
 switch (strtolower($action))
 {
@@ -54,8 +56,9 @@ switch (strtolower($action))
         //TODO - ASk Vadim What did he mean By FreindDeal?
     //Todo - Vadim answers: welcome page
     case "frienddeal":
-        $parentDealId = $context['parentDealId'];
-        $friendLandingManager->startSharedDeal($parentDealId);
+        $friendDealAdapter = new JsonFriendDealAdapter();
+        $friendDeal = $friendDealAdapter->fromArray($context);
+        $friendLandingManager->startSharedDeal($friendDeal);
         exit;
 
     case "friendlanding":
@@ -64,7 +67,7 @@ switch (strtolower($action))
         //Extract from the Campign the FriendLanding
         $JsonFriendLandingAdapter = new JsonFriendLandingAdapter();
         $friendLanding = $JsonFriendLandingAdapter->fromArray($context["friendLandings"]);
-        $friendLandingManager->showFriendLAnding($friendLanding,$deal);
+        $friendLandingManager->showFriendLanding($friendLanding,$deal);
         break;
 
 

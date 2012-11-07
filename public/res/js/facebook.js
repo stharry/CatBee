@@ -76,6 +76,9 @@ function createCatBeeFillShareRequest() {
             },
             "deal":{
                 "id":catBeeData.id
+            },
+            "reward":{
+                "id":catBeeData.landing.landingRewards[rewardInd].id
             }
         }
     };

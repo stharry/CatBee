@@ -32,7 +32,8 @@ class ShareManager implements IShareManager
         //todo check branch url
         //todo ask store adapter to parameters set
         $link = $share->store->url.'?ctx='.$share->context->type
-            .'&act=welcome&pdl='.$share->deal->id;
+            .'&act=welcome&pdl='.$share->deal->id
+            .'&rwd='.$share->reward->id;
 
         return $link;
 

@@ -7,4 +7,6 @@ interface ICustomerDao
     public function insertCustomer($customer);
 
     public function updateCustomer($customer);
+
+    public function loadCustomerById($id);
 }
