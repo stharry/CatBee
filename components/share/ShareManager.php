@@ -68,7 +68,7 @@ class ShareManager implements IShareManager
     {
         RestLogger::log("ShareManager::fillShareProps ", $share);
 
-        if (!$this->storeDao->isStoreExists($share->store))
+        if (!$this->storeDao->loadStore($share->store))
         {
             RestLogger::log("share template store does not exists ", $share->store);
             die ("share template store does not exists");

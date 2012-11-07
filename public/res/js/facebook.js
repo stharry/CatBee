@@ -25,8 +25,6 @@ function waitAndShare() {
 
     facebookParams = JSON.parse(localStorage.getItem('facebookParams'));
 
-    alert(localStorage.getItem('facebookParams'));
-
     if (facebookParams != null)
     {
     try {

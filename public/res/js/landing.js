@@ -92,6 +92,8 @@ $(document).ready(function() {
             goToByScroll('email-form');
         });
 
+        $.fancybox.reshow();
+
     });
 
     //infield label

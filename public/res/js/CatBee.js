@@ -7,31 +7,26 @@ $(document).ready(function () {
 
 });
 
-function waitCatBeeResultAndRun(timeoutMs, callback)
-{
-    try
-    {
-    if (timeoutMs <= 0)
-    {
-        //need to set any kind of alert
+function waitCatBeeResultAndRun(timeoutMs, callback) {
+    try {
+        if (timeoutMs <= 0) {
+            //need to set any kind of alert
+        }
+        else if (catBeeResult == null) {
+            setTimeout(function () {
+                waitCatBeeResultAndRun(timeoutMs - 500, callback)
+            }, 500)
+        }
+        else {
+            callback();
+        }
     }
-    else if (catBeeResult == null)
-    {
-        alert(1);
-        setTimeout(function(){ waitCatBeeResultAndRun(timeoutMs - 500, callback)}, 500)
-    }
-    else
-    {
-        callback();
-    }
-    }
-    catch (e)
-    {
+    catch (e) {
         alert(e);
     }
 }
-function FillCatBeeStorage()
-{
+
+function FillCatBeeStorage() {
     catBeeData = JSON.parse($('#catBeeData').text());
 }
 
@@ -41,35 +36,29 @@ function proceedCatBeeShareJsonRequest(data, resultName) {
 
     catBeeResult = null;
 
-    if (window.XMLHttpRequest)
-    {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
     }
-    else
-    {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    xmlhttp.onreadystatechange=function()
-    {
+    xmlhttp.onreadystatechange = function () {
 
-        if (xmlhttp.readyState==4 && xmlhttp.status==200 && catBeeResult == null)
-        {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200 && catBeeResult == null) {
             catBeeResult = xmlhttp.responseText;
             localStorage.setItem(resultName, catBeeResult);
         }
     }
 
-    try
-    {
-    var kuku = jQuery.param(data);
+    try {
+        var kuku = jQuery.param(data);
 
-    xmlhttp.open("POST",sharePoint,true);
-    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xmlhttp.setRequestHeader("Content-Length",kuku.length);
-    xmlhttp.send(kuku);
+        xmlhttp.open("POST", sharePoint, true);
+        xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xmlhttp.setRequestHeader("Content-Length", kuku.length);
+        xmlhttp.send(kuku);
     }
-    catch (e)
-    {
+    catch (e) {
         alert(e);
     }
 //    alert(sharePoint);
