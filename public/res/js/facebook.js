@@ -34,7 +34,7 @@ function waitAndShare() {
 
         FB.ui({
             method:'feed',
-            //display:'popup',
+            display:'popup',
             name: facebookParams.message,
             picture: catBeeData.order.purchases[0].url,
             redirect_uri: facebookParams.context.application.redirectUrl,
