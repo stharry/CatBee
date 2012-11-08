@@ -3,9 +3,9 @@ body{
 }
 .box-wrapper{
     width: 568px;
-    height: 176px;
+    height: 216px;
     background: url(../images/friend_page_blue_bg.jpg);
-    padding: 15px;
+    padding: 0px;
 }
 .box {
     background: #fff;

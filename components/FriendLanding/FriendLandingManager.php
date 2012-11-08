@@ -4,17 +4,20 @@ class FriendLandingManager implements IFriendLandingManager
 {
     private $friendLandingDao;
     private $dealDao;
+    private $customerDao;
+    private $rewardDao;
 
-    private function getFriendReward($leaderDeal)
+    private function fillFriendReward($friendDeal)
     {
-
-
+        $this->rewardDao->fillRewardById($friendDeal->reward);
     }
 
-    function __construct($dealDao, $friendLandingDao)
+    function __construct($dealDao, $friendLandingDao, $customerDao, $rewardDao)
     {
         $this->friendLandingDao = $friendLandingDao;
         $this->dealDao = $dealDao;
+        $this->customerDao = $customerDao;
+        $this->rewardDao = $rewardDao;
     }
 
     public function SaveFriendLandingManager($campaign)
@@ -31,14 +34,17 @@ class FriendLandingManager implements IFriendLandingManager
         catbeeLayout($layout, 'friendLanding');
     }
 
-    public function startSharedDeal($parentDealId)
+    public function startSharedDeal($friendDeal)
     {
-        $parentDeal = $this->dealDao->getDealById($parentDealId);
+        RestLogger::log("FriendLandingManager::startSharedDeal before", $friendDeal);
+
+        $parentDeal = $this->dealDao->getDealById($friendDeal->parentDealId);
         RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
 
-        $friendDeal = new FriendDeal();
+        $this->fillFriendReward($friendDeal);
+        RestLogger::log("FriendLandingManager::startSharedDeal reward ", $friendDeal->reward);
 
-        $friendDeal->reward = $this->getFriendReward($parentDeal);
+        $friendDeal->friend = $this->customerDao->loadCustomerById($parentDeal->customer);
 
         //2. get reward by parent deal
 

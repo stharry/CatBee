@@ -2,9 +2,9 @@ $(document).ready(function () {
 
     $("#autostart").fancybox({
 
-        autoSize: true,
+        //autoSize: true,
         width : 600,
-        height: 200,
+        height: 400,
         'transitionIn' : 'none',
         'transitionOut' : 'none',
         'type' : 'iframe',

@@ -2,5 +2,5 @@
 
 interface IFriendLandingManager
 {
-    public function startSharedDeal($parentDealId);
+    public function startSharedDeal($friendDeal);
 }
