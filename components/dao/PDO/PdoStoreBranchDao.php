@@ -30,8 +30,14 @@ class PdoStoreBranchDao implements IStoreBranchDao
         }
     }
 
-    public function getStoreBranches($store)
+    public function getStoreBranches($storeBranchFilter)
     {
-        // TODO: Implement GetStoreBranches() method.
+        $row = DbManager::selectValues("SELECT ShopID,ShopName FROM storebranch
+            WHERE ShopID = {$storeBranchFilter->ShopID}",
+            array());
+        $storeBranch = new StoreBranch();
+        $storeBranch->shopId = $row[0]["ShopID"];
+        $storeBranch->shopName = $row[0]["ShopName"];
+        return $storeBranch;
     }
 }

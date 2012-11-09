@@ -64,4 +64,8 @@ class StoreManager implements IStoreManager
             throw new Exception("store $store->authCode branch $branch->shopId does not registered in the CatBee");
         }
     }
+    public function getStoreBranches($StoreBranchFilter)
+    {
+        return $this->branchesDao->getStoreBranches($StoreBranchFilter);
+    }
 }

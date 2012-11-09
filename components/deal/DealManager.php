@@ -84,10 +84,13 @@ class DealManager implements IDealManager
 
     public function pushDeal($order)
     {
-        $this->storeManager->validateBranch($order->store, $order->branch);
-        RestLogger::log("DealManager::pushDeal after store validation");
 
+        //TODO - What happens if the Branch Is not Validated?
+        $this->storeManager->validateBranch($order->store, $order->branch);
+
+         RestLogger::log("DealManager::pushDeal after store validation");
         $campaign = $this->campaignManager->chooseCampaign($order);
+
         RestLogger::log("DealManager::pushDeal after campaign choosing ", $campaign);
 
         $leaderLanding = $this->campaignManager->chooseLeaderLanding($campaign, $order);
