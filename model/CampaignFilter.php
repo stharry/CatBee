@@ -2,5 +2,7 @@
 
 class CampaignFilter
 {
-    public $storeCode;
+    public $storeID;
+    public $CampID;
+    public $Lazy = false;
 }

@@ -1,5 +1,6 @@
 <?php
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
+include ('../../components/adapters/json/JsonFriendLandingAdapter.php');
 
 $restRequest = RestUtils::processRequest() or die("Campaign format is wrong");
 $action = $restRequest->getCatBeeAction();
@@ -31,7 +32,10 @@ $friendLandingManager = new FriendLandingManager(
     new PdoDealDao(),
     new PdoFriendLandingDao(),
     new PdoCustomerDao(),
-    new PdoRewardDao());
+    new PdoRewardDao(),
+    new PdoCampaignDao(new PdoLeaderLandingDao(
+    new PdoLeaderLandingRewardDao()),new PdoFriendLandingDao()),
+    new StoreManager(new PdoStoreDao(),new PdoStoreBranchDao()));
 
 switch (strtolower($action))
 {
@@ -39,23 +43,19 @@ switch (strtolower($action))
     case "deal":
 
         RestLogger::log("Deal API before deal");
-
         $orderAdapter = new JsonOrderAdapter();
         $order = $orderAdapter->fromArray($context);
 
         RestLogger::log("Deal API order is ", $order);
 
         $deal = $dealManager->pushDeal($order);
-
-        $jsonDealAdapter = new JsonDealAdapter();
-        $dealProps = $jsonDealAdapter->toArray($deal);
-
-        RestLogger::log("Deal API after deal");
-        //RestUtils::sendResponse(0, $dealProps);
+//       $jsonDealAdapter = new JsonDealAdapter();
+//        $dealProps = $jsonDealAdapter->toArray($deal);
+//
+//        RestLogger::log("Deal API after deal");
+//       // RestUtils::sendResponse(0, $dealProps);
         exit;
 
-        //TODO - ASk Vadim What did he mean By FreindDeal?
-    //Todo - Vadim answers: welcome page
     case "frienddeal":
         $friendDealAdapter = new JsonFriendDealAdapter();
         $friendDeal = $friendDealAdapter->fromArray($context);
@@ -63,9 +63,6 @@ switch (strtolower($action))
         exit;
 
     case "friendlanding":
-            //Get The Deal with Deal ID from Context
-        //Get Campaign From Deal
-        //Extract from the Campign the FriendLanding
         $JsonFriendLandingAdapter = new JsonFriendLandingAdapter();
         $friendLanding = $JsonFriendLandingAdapter->fromArray($context["friendLandings"]);
         $friendLandingManager->showFriendLanding($friendLanding,$deal);

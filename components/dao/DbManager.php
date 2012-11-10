@@ -70,6 +70,7 @@ class DbManager
 
     public static function selectValues($selectExpression, $params = array())
     {
+
         RestLogger::log("DbManager::selectValues SQL: ".$selectExpression, $params);
 
         try
@@ -82,13 +83,14 @@ class DbManager
             $stmt->bindValue($paramNo, $key, $value);
             $paramNo++;
         }
+
         $stmt->execute();
+
 
         if ($stmt->rowCount() == 0) {
             //echo "</p> There is nothing to return in: ".$selectExpression;
             //var_dump($params);
-            return null;
-        }
+            return null;  }
 
         RestLogger::log("DbManager::selectValues row count: ".$stmt->rowCount());
 

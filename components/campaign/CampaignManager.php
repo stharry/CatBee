@@ -52,11 +52,10 @@ class CampaignManager implements ICampaignManager
 
     }
 
-    private function getValidCampaigns($store)
+    private function getValidCampaigns($branch)
     {
         $campaignFilter = new CampaignFilter();
-        $campaignFilter->storeCode = $store->authCode;
-
+        $campaignFilter->storeID = $branch->id;
         return $this->getCampaigns($campaignFilter);
     }
 
@@ -69,8 +68,7 @@ class CampaignManager implements ICampaignManager
     {
 
         $this->validateOrder($order);
-
-        $campaigns = $this->getValidCampaigns($order->store);
+        $campaigns = $this->getValidCampaigns($order->branch);
 
         return $this->chooseCompatibleCampaign($campaigns, $order);
     }

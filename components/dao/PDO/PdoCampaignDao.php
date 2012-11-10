@@ -29,10 +29,25 @@ class PdoCampaignDao implements ICampaignDao
 
     public function getCampaigns($campaignFilter)
     {
-        $rows = DbManager::selectValues("SELECT c.id, c.name, c.description  FROM campaign c
-                    INNER JOIN store s
-                    ON c.store = s.id WHERE s.authCode = ?",
-            array($campaignFilter->storeCode => PDO::PARAM_STR));
+        $selectParam = "";
+        //TO DO- This Should be Changed so the Join will be on the What is now the StoreBranch
+        $selectClause = "SELECT c.id, c.name, c.description,c.store  FROM campaign c
+                    INNER JOIN storebranch s
+                    ON c.store = s.shopid";
+        if($campaignFilter->storeID == null)
+        {
+            $selectClause = $selectClause." WHERE   c.id = ?";
+            $selectParam = $campaignFilter->CampID;
+        }
+        else
+        {
+            $selectClause = $selectClause." WHERE s.shopid = ?";
+            $selectParam = $campaignFilter->storeID;
+
+        }
+        $rows = DbManager::selectValues($selectClause,
+           array($selectParam => PDO::PARAM_STR));
+
 
         $campaigns = array();
 
@@ -42,10 +57,15 @@ class PdoCampaignDao implements ICampaignDao
             $campaign->id = $row["id"];
             $campaign->name = $row["name"];
             $campaign->description = $row["description"];
+            //TODO - The Store should be a full object here
+            $campaign->store =$row["store"];
             //TODO - dont think the following 2 calls should be here... can we take them above to the
             //Todo - yes, you right - need to move it campaign manager
-            $this->leaderLandingDao->getLeaderLandings($campaign);
-            $this->FriendLandingDao->GetFriendLanding($campaign);
+            If(!$campaignFilter->lazy)
+            {
+                $this->leaderLandingDao->getLeaderLandings($campaign);
+                $this->FriendLandingDao->GetFriendLanding($campaign);
+            }
             array_push($campaigns, $campaign);
         }
         return $campaigns;

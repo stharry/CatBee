@@ -6,10 +6,8 @@ class PdoStoreDao implements IStoreDao
     public function isStoreExists($store)
     {
         if ($store->id > 0) return true;
-
         $rows = DbManager::selectValues("SELECT id FROM store  WHERE authCode=?",
             array($store->authCode => PDO::PARAM_STR));
-
         if (!isset($rows)) {
             return false;
         }

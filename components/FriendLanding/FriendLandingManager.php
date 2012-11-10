@@ -6,18 +6,22 @@ class FriendLandingManager implements IFriendLandingManager
     private $dealDao;
     private $customerDao;
     private $rewardDao;
+    private $campaignDao;
+    private $storeManager;
 
     private function fillFriendReward($friendDeal)
     {
         $this->rewardDao->fillRewardById($friendDeal->reward);
     }
 
-    function __construct($dealDao, $friendLandingDao, $customerDao, $rewardDao)
+    function __construct($dealDao, $friendLandingDao, $customerDao, $rewardDao,$campDao,$storeManager)
     {
         $this->friendLandingDao = $friendLandingDao;
         $this->dealDao = $dealDao;
         $this->customerDao = $customerDao;
         $this->rewardDao = $rewardDao;
+        $this->campaignDao = $campDao;
+        $this->storeManager = $storeManager;
     }
 
     public function SaveFriendLandingManager($campaign)
@@ -28,9 +32,10 @@ class FriendLandingManager implements IFriendLandingManager
         }
 
     }
-    public function showFriendLanding($friendDeal)
+    public function showFriendLanding($friendDeal,$Store)
     {
-        catbeeLayoutComp($layout, "friendLanding", $friendDeal);
+        catbeeLayoutComp($layout, "friendLanding", array($friendDeal,$Store));
+        //catbeeLayoutComp($layout, "friendLanding", $friendDeal);
         catbeeLayout($layout, 'friendLanding');
     }
 
@@ -46,14 +51,21 @@ class FriendLandingManager implements IFriendLandingManager
 
         $friendDeal->friend = $this->customerDao->loadCustomerById($parentDeal->customer);
 
-        //2. get reward by parent deal
 
+        //Get The Store From The Campaign
+        $CampaignFilter = new CampaignFilter();
+        $CampaignFilter->Lazy = true;
+        $CampaignFilter->CampID= $parentDeal->campaign->id;
+        $Camp = $this->campaignDao->getCampaigns($CampaignFilter);
+        $StoreBranchFilter = new StoreBranchFilter();
+        $StoreBranchFilter->ShopID = $Camp[0]->store;
+        $Branch = $this->storeManager->getStoreBranches($StoreBranchFilter);
+        //2. get reward by parent deal
         $this->friendLandingDao->GetFriendLanding($parentDeal->campaign);
         //todo move to strategy
         $friendDeal->landing = $parentDeal->campaign->friendLandings[0];
 
         RestLogger::log("FriendLandingManager::startSharedDeal landing ", $friendDeal->landing);
-
-        $this->showFriendLanding($friendDeal);
+        $this->showFriendLanding($friendDeal,$Branch);
     }
 }
