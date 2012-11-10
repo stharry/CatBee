@@ -66,6 +66,7 @@ class StoreManager implements IStoreManager
     }
     public function getStoreBranches($StoreBranchFilter)
     {
+        RestLogger::log('StoreManager::getStoreBranches filter: ', $StoreBranchFilter);
         return $this->branchesDao->getStoreBranches($StoreBranchFilter);
     }
 }
