@@ -29,8 +29,10 @@ function waitAndShare() {
     {
     try {
 
-        FB.init({appId:facebookParams.context.application.applicationCode,
-            xfbml:true, cookie:true});
+        FB.init({
+            appId:facebookParams.context.application.applicationCode,
+
+            status:true, cookie:true});
 
         FB.ui({
             method:'feed',

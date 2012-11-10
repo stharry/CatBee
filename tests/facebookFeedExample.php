@@ -12,13 +12,8 @@
 <body>
 <div id='fb-root'></div>
 
-<a id="feedTest">Post to Feed ----</a>
+
 <a id="fbcTest">Post to Feed</a>
-<a id="catBeeSharePoint">http://127.0.0.1:8080/CatBee/api/share/</a>
-
-<p id='msg'></p>
-
-<a href="fbcServer.php">Press here to start server dialog</a>
 
 
 </body>

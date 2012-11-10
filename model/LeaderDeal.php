@@ -4,9 +4,10 @@ class LeaderDeal
 {
     public static $STATUS_UNKNOWN = 0;
     public static $STATUS_PENDING = 1;
-    public static $STATUS_FRIEND_CHECKOUT = 2;
-    public static $STATUS_CLOSED = 3;
-    public static $STATUS_CANCELLED = 4;
+    public static $STATUS_SHARED = 2;
+    public static $STATUS_FRIEND_CHECKOUT = 3;
+    public static $STATUS_CLOSED = 4;
+    public static $STATUS_CANCELLED = 5;
 
     public $id;
     public $campaign;

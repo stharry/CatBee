@@ -17,8 +17,9 @@ RestLogger::log("facebookLogin:before get user. Get params:", $params);
 
 if (!isset($params) || (count($params) == 0))
 {
-    RestLogger::log("FacebookLogin: no parameters - failed");
-    RestUtils::sendResponse(0, "Failed");
+    RestLogger::log("FacebookLogin: no parameters - return stub success");
+    include('facebookClose.php');
+    //RestUtils::sendSuccessResponse();
     exit();
 }
 elseif (isset($params["success"]))
@@ -28,7 +29,16 @@ elseif (isset($params["success"]))
 }
 elseif (isset($params["post_id"]))
 {
+    $dealId = $params['pdl'];
+
+    $updateParams = array('action' => 'add share',
+        'context' => array('sendTo' => $params['post_id'],
+                            'deal' => array('id' => $dealId),
+                            'context' => array('type' => 'facebook')));
+
+    RestUtils::SendPostRequest('deal', null, $updateParams);
     RestLogger::log("FacebookLogin: success stub response on post_id - sent OK");
+    include('facebookClose.php');
     exit();
 }
 

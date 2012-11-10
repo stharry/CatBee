@@ -71,10 +71,9 @@ class DealManager implements IDealManager
                 $leaderDeal->campaign = $campaign;
             }
 
-            $this->addContextProviders($leaderDeal);
-
             return $leaderDeal;
-        } catch (Exception $e)
+        }
+        catch (Exception $e)
         {
             RestLogger::log("Exception: " . $e->getMessage());
             throw new Exception("", 0, $e);
@@ -112,13 +111,17 @@ class DealManager implements IDealManager
         return $leaderDeal;
     }
 
-    private function addContextProviders($leaderDeal)
+    public function updateDeal($deal)
     {
-        //RestLogger::log('DealManager::addContextProviders before', $leaderDeal);
+        $this->dealDao->updateDealStatus($deal);
+    }
 
-        //$leaderDeal->shares = $this->shareManager->getAvailableShares($leaderDeal);
+    public function addDealShare($share)
+    {
+        $this->shareManager->addDealShare($share);
 
-        //RestLogger::log('DealManager::addContextProviders after ', $leaderDeal->shares);
+        $share->deal->status = LeaderDeal::$STATUS_SHARED;
+        $this->updateDeal($share->deal);
     }
 }
 

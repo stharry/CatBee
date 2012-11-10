@@ -23,6 +23,7 @@ $dealManager = new DealManager($campaignManager,
     new StoreManager(new PdoStoreDao(), new PdoStoreBranchDao()),
     new ShareManager(new PdoStoreDao(), new PdoShareDao(),
         new PdoCustomerDao(), new PdoShareApplicationDao(),
+        new PdoDealShareDao(),
         new HtmlPageAdapter()),
     new PdoDealDao());
 
@@ -70,6 +71,11 @@ switch (strtolower($action))
         $friendLandingManager->showFriendLanding($friendLanding,$deal);
         break;
 
+    case "addshare":
+        $shareAdapter = new JsonShareAdapter();
+        $share = $shareAdapter->fromArray($context);
+        $dealManager->addDealShare($share);
+        break;
 
 }
 

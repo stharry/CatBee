@@ -26,5 +26,5 @@ try
     echo "Recreate DB - OK </p>";
 } catch (Exception $e)
 {
-    echo "Failed: ".$e->getMessage()."</p>";
+    echo "Recreate DB - Failed: ".$e->getMessage()."</p>";
 }

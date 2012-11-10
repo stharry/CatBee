@@ -12,6 +12,8 @@ interface IShareManager
 
     public function fillShare($share);
 
+    public function addDealShare($share);
+
     public function requiresAuthentication($shareNode);
 
     public function getAuthenticationUrl($shareNode, $params);

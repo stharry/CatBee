@@ -7,6 +7,7 @@ class ShareManager implements IShareManager
     private $customerDao;
     private $shareAppDao;
     private $pageAdapter;
+    private $dealShareDao;
     private $predefinedContexts;
 
     private function validateCustomer($customer)
@@ -90,12 +91,14 @@ class ShareManager implements IShareManager
     }
 
     function __construct($storeDao, $shareDao, $customerDao,
-                         $shareAppDao, $pageAdapter)
+                         $shareAppDao, $dealShareDao,
+                         $pageAdapter)
     {
         $this->storeDao = $storeDao;
         $this->shareDao = $shareDao;
         $this->customerDao = $customerDao;
         $this->shareAppDao = $shareAppDao;
+        $this->dealShareDao = $dealShareDao;
         $this->pageAdapter = $pageAdapter;
 
         $this->predefinedContexts =
@@ -236,5 +239,10 @@ class ShareManager implements IShareManager
         }
 
         return $shares;
+    }
+
+    public function addDealShare($share)
+    {
+        $this->dealShareDao->addDealShare($share);
     }
 }

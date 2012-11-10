@@ -77,7 +77,13 @@ class PdoDealDao implements IDealDao
 
     public function updateDealStatus($deal)
     {
-        // TODO: Implement updateDealStatus() method.
+        $sql = "UPDATE deal SET status=:status WHERE id=:id";
+
+        $params = array(
+            ':status' => $deal->status,
+            ':id' => $deal->id);
+
+        DbManager::updateValues($sql, $params);
     }
 
     public function getDealByOrder($order)

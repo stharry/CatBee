@@ -5,20 +5,24 @@ require_once 'Log.php';
 
 class RestLogger
 {
+    private static $logger;
+
     public static function log($message, $params = null)
     {
         try
         {
-            $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
-            $logger = & Log::singleton('file', $GLOBALS['restLogBaseDir'].'\CatBee.log', 'ident', $conf);
-
+            if (!RestLogger::$logger)
+            {
+                $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
+                RestLogger::$logger = & Log::singleton('file', $GLOBALS['restLogBaseDir'].'\CatBee.log', 'ident', $conf);
+            }
             if (!$params)
             {
-                $logger->log($message);
+                RestLogger::$logger->log($message);
             }
             else
             {
-                $logger->log($message . ":" . json_encode($params));
+                RestLogger::$logger->log($message . ":" . json_encode($params));
             }
         }
         catch (Exception $e)

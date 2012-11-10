@@ -16,8 +16,6 @@ class CampaignManager implements ICampaignManager
                          $campaignStrategy, $landingStrategy,
                          $friendLandingStrategy)
     {
-        RestLogger::log("--------campaignStrategy".get_class($campaignStrategy));
-
         $this->storeDao = $storeDao;
         $this->customerDao = $customerDao;
         $this->campaignDao = $campaignDao;

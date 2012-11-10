@@ -156,11 +156,12 @@ price DOUBLE NULL ,
 
 PRIMARY KEY (id) );
 
-CREATE  TABLE IF NOT EXISTS activeshare (
-shareType int(11) NOT NULL,
+CREATE  TABLE IF NOT EXISTS ActiveShare (
+dealId INT NOT NULL,
+shareType INT NOT NULL,
+shareDate DATETIME,
 value blob,
-deal int(11) NOT NULL,
-PRIMARY KEY (shareType,deal)
+PRIMARY KEY (shareType, dealId, shareDate)
 );
 
 
@@ -208,4 +209,13 @@ CREATE TABLE IF NOT EXISTS oauthApps (
   oauthUrl VARCHAR(500) NOT NULL ,
   redirectUrl VARCHAR(500) NOT NULL ,
   PRIMARY KEY (id)
+);
+
+CREATE TABLE DealTraffic
+(
+	dealId INT NOT NULL,
+	customerId INT NOT NULL,
+	shareContextId INT NOT NULL,
+	entDate DATETIME NOT NULL,
+	PRIMARY KEY (dealId, entDate)
 );

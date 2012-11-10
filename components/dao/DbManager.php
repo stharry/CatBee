@@ -72,6 +72,8 @@ class DbManager
     {
         RestLogger::log("DbManager::selectValues SQL: ".$selectExpression, $params);
 
+        try
+        {
         $conn = DbManager::getConnection();
         $stmt = $conn->prepare($selectExpression);
 
@@ -91,6 +93,12 @@ class DbManager
         RestLogger::log("DbManager::selectValues row count: ".$stmt->rowCount());
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log('DbManager::selectValues exception ', $e->getMessage());
+            throw new Exception($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     public static function insertValues($insertExpression, $params = array())
@@ -117,6 +125,7 @@ class DbManager
             return $conn->lastInsertId($idColumnName);
 
         } catch (PDOException $pe) {
+            RestLogger::log('DbManager::insertAndReturnId exception ', $pe->getMessage());
             echo "PDO exception:".$pe->getMessage();
         }
 
@@ -124,6 +133,8 @@ class DbManager
     public static function updateValues($updateExpression, $params = array())
     {
         DbManager::setValues($updateExpression, $params);
+
+        RestLogger::log('DbManager::updateValues ok for '.$updateExpression, $params);
     }
 
     public static function insertValuesAndReturnId($insertExpression, $params = array(), $idColumnName = "id")
