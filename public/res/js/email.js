@@ -39,11 +39,13 @@ function CreateAndInitializeEmailForm() {
             var postData = createCatBeeShareRequest();
             var sharePoint = getCatBeeShareUrl();
 
+            $.fancybox.showLoading();
+
             proceedCatBeeShareJsonRequest(postData);
 
-            waitCatBeeResultAndRun(7200, 'emailResult');
+            waitCatBeeResultAndRun(7200, handleEmailResponse);
 
-            handleEmailResponse();
+//                 handleEmailResponse();
 //            $.ajax({
 //                type:'POST',
 //                url:sharePoint,
@@ -114,6 +116,8 @@ function createCatBeeShareRequest() {
 
 function handleEmailResponse()
 {
+    $.fancybox.hideLoading();
+
     $.fancybox("Message sent");
 
     setTimeout("$.fancybox.close()", 1000);
