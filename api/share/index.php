@@ -46,7 +46,6 @@ switch ($action)
 
         $status = $shareManager->share($share);
 
-        $response = array("status" => $status);
         RestUtils::sendSuccessResponse($response);
         exit();
 
@@ -87,22 +86,6 @@ switch ($action)
             RestUtils::sendSuccessResponse($response);
             exit();
         }
-
-    case "fillshare":
-
-        $jsonShareAdapter = new JsonShareAdapter();
-        $share = $jsonShareAdapter->fromArray($context);
-
-        RestLogger::log("share api:fillshare start ", $share);
-
-        $shareManager->fillShare($share);
-
-        $shareProps = $jsonShareAdapter->toArray($share);
-
-        RestLogger::log("share api:fillshare response ", $shareProps);
-
-        RestUtils::sendSuccessResponse($shareProps);
-        exit();
 
     case "getsharedcustomer":
 

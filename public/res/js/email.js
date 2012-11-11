@@ -84,7 +84,7 @@ function createCatBeeShareRequest() {
     var rewardInd = $("#slider").slider("value");
 
     return {
-        action:'share',
+        action:'share deal',
         context:{
 
             sendFrom:catBeeData.order.customer.email,
@@ -98,7 +98,7 @@ function createCatBeeShareRequest() {
                 type:'email'
             },
             store:{
-                authCode:$("#storeCode").text()
+                authCode:catBeeData.order.store.authCode
             },
             reward:
             {

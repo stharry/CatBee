@@ -17,7 +17,7 @@ class DealManager implements IDealManager
 
     private function getCatBeeSharePoint()
     {
-        return $GLOBALS[ "restURL" ] . "/CatBee/api/share/";
+        return $GLOBALS[ "restURL" ] . "/CatBee/api/deal/";
 
     }
 
@@ -125,6 +125,24 @@ class DealManager implements IDealManager
 
         $share->deal->status = LeaderDeal::$STATUS_SHARED;
         $this->updateDeal($share->deal);
+    }
+
+    public function shareDeal($share)
+    {
+        if ($this->shareManager->share($share))
+        {
+            $this->addDealShare($share);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function fillDealShare($share)
+    {
+        $this->shareManager->fillShare($share);
     }
 }
 
