@@ -32,9 +32,9 @@ class ShareManager implements IShareManager
     {
         //todo check branch url
         //todo ask store adapter to parameters set
-        $link = $share->store->url.'?ctx='.$share->context->type
-            .'&act=welcome&pdl='.$share->deal->id
-            .'&rwd='.$share->reward->id;
+        $link = $share->store->url . '?ctx=' . $share->context->type
+            . '&act=welcome&pdl=' . $share->deal->id
+            . '&rwd=' . $share->reward->id;
 
         return $link;
 
@@ -86,13 +86,14 @@ class ShareManager implements IShareManager
         //todo: put strategy class here
         if (count($shareTemplates) == 0) die ("There is no any share template for given store");
 
-        $this->createMessage($share, $shareTemplates[0]);
+        $this->createMessage($share, $shareTemplates[ 0 ]);
 
     }
 
-    function __construct($storeDao, $shareDao, $customerDao,
-                         $shareAppDao, $dealShareDao,
-                         $pageAdapter)
+    function __construct(
+        $storeDao, $shareDao, $customerDao,
+        $shareAppDao, $dealShareDao,
+        $pageAdapter)
     {
         $this->storeDao = $storeDao;
         $this->shareDao = $shareDao;
@@ -157,7 +158,7 @@ class ShareManager implements IShareManager
 
         $result = $shareProvider->requiresAuthentication($shareNode);
 
-        RestLogger::log("ShareManager::requiresAuthentication ".$result);
+        RestLogger::log("ShareManager::requiresAuthentication " . $result);
 
         return $result;
     }
@@ -170,7 +171,7 @@ class ShareManager implements IShareManager
 
         $result = $shareProvider->getAuthenticationUrl($shareNode, $params);
 
-        RestLogger::log("ShareManager::getAuthenticationUrl ".$result);
+        RestLogger::log("ShareManager::getAuthenticationUrl " . $result);
 
         return $result;
     }
@@ -206,6 +207,16 @@ class ShareManager implements IShareManager
     {
         $share->context->application =
             $this->shareAppDao->getApplication($share->context);
+
+        if ($share->context->application)
+        {
+            $url = $share->context->application->redirectUrl;
+            $url = strpos($url, '?') === true
+                ? $url . '&pdl=' . $share->deal->id
+                : $url . '?pdl=' . $share->deal->id;
+
+            $share->context->application->redirectUrl = $url;
+        }
     }
 
     public function getAvailableShares($deal)
