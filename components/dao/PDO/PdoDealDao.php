@@ -17,6 +17,8 @@ class PdoDealDao implements IDealDao
         $leaderDeal->updateDate = $row[ "updateDate" ];
         $leaderDeal->campaign = new Campaign();
         $leaderDeal->campaign->id = $row['campaignId'];
+        $leaderDeal->order = new Order();
+        $leaderDeal->order->id = $row['orderId'];
 
         RestLogger::log("PdoDealDao::getDealByOrder deal restored from db ", $leaderDeal);
 
@@ -30,7 +32,7 @@ class PdoDealDao implements IDealDao
 
         try
         {
-            $selectClause = " SELECT id, code, landing, status,
+            $selectClause = " SELECT id, code, landing, status, orderId,
             campaignId, landingReward, customerId, initDate, updateDate
             FROM deal WHERE id = {$id} ";
 
@@ -51,8 +53,6 @@ class PdoDealDao implements IDealDao
             RestLogger::log("Exception: " . $e->getMessage());
             throw new Exception("", 0, $e);
         }
-
-        // TODO: Implement getDealById() method.
     }
 
     public function insertDeal($deal)
@@ -106,6 +106,35 @@ class PdoDealDao implements IDealDao
 
             $leaderDeal = $this->createAndFillDeal($rows[0]);
             $leaderDeal->order = $order;
+
+            return $leaderDeal;
+
+        } catch (Exception $e)
+        {
+            RestLogger::log("Exception: " . $e->getMessage());
+            throw new Exception("", 0, $e);
+        }
+    }
+
+    public function getParentDealByOrderId($id)
+    {
+        RestLogger::log("PdoDealDao::getDealByOrder begin");
+
+        try
+        {
+            $selectClause = " SELECT id, code, landing, status, orderId,
+            campaignId, landingReward, customerId, initDate, updateDate
+            FROM deal WHERE orderId = {$id} AND parentId IS NULL";
+
+            $rows = DbManager::selectValues($selectClause);
+
+            if ($rows == null)
+            {
+                RestLogger::log("PdoDealDao::getDealByOrder deal not exists");
+                return null;
+            }
+
+            $leaderDeal = $this->createAndFillDeal($rows[0]);
 
             return $leaderDeal;
 
