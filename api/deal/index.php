@@ -62,10 +62,10 @@ switch (strtolower($action))
         $friendLandingManager->startSharedDeal($friendDeal);
         exit;
 
-    case "friendlanding":
-        $JsonFriendLandingAdapter = new JsonFriendLandingAdapter();
-        $friendLanding = $JsonFriendLandingAdapter->fromArray($context["friendLandings"]);
-        $friendLandingManager->showFriendLanding($friendLanding,$deal);
+    case "sharedeal":
+        $shareAdapter = new JsonShareAdapter();
+        $share = $shareAdapter->fromArray($context);
+        $dealManager->shareDeal($share);
         break;
 
     case "addshare":
