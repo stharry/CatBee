@@ -56,12 +56,12 @@ class EmailShareProvider implements IShareProvider
         if (PEAR::isError($mail))
         {
             RestLogger::log("email sending failed ".$mail);
-            return "failed";
+            return false;
         }
         else
         {
             RestLogger::log("email sent");
-            return "ok";
+            return true;
         }
 
     }

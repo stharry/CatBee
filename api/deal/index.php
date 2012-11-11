@@ -49,11 +49,6 @@ switch (strtolower($action))
         RestLogger::log("Deal API order is ", $order);
 
         $deal = $dealManager->pushDeal($order);
-//       $jsonDealAdapter = new JsonDealAdapter();
-//        $dealProps = $jsonDealAdapter->toArray($deal);
-//
-//        RestLogger::log("Deal API after deal");
-//       // RestUtils::sendResponse(0, $dealProps);
         exit;
 
     case "frienddeal":
@@ -66,13 +61,22 @@ switch (strtolower($action))
         $shareAdapter = new JsonShareAdapter();
         $share = $shareAdapter->fromArray($context);
         $dealManager->shareDeal($share);
-        break;
+        RestUtils::sendSuccessResponse($response);
+        exit;
 
     case "addshare":
         $shareAdapter = new JsonShareAdapter();
         $share = $shareAdapter->fromArray($context);
         $dealManager->addDealShare($share);
-        break;
+        exit;
+
+    case "fillshare":
+        $jsonShareAdapter = new JsonShareAdapter();
+        $share = $jsonShareAdapter->fromArray($context);
+        $dealManager->fillDealShare($share);
+        $shareProps = $jsonShareAdapter->toArray($share);
+        RestUtils::sendSuccessResponse($shareProps);
+        exit();
 
 }
 
