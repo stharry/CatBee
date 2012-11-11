@@ -87,7 +87,7 @@ class DealManager implements IDealManager
         //TODO - What happens if the Branch Is not Validated?
         $this->storeManager->validateBranch($order->store, $order->branch);
 
-         RestLogger::log("DealManager::pushDeal after store validation");
+         RestLogger::log("DealManager::pushDeal after store validation ", $order->store);
         $campaign = $this->campaignManager->chooseCampaign($order);
 
         RestLogger::log("DealManager::pushDeal after campaign choosing ", $campaign);

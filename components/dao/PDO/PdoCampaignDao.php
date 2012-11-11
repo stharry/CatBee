@@ -33,15 +33,15 @@ class PdoCampaignDao implements ICampaignDao
         //TO DO- This Should be Changed so the Join will be on the What is now the StoreBranch
         $selectClause = "SELECT c.id, c.name, c.description,c.store  FROM campaign c
                     INNER JOIN storebranch s
-                    ON c.store = s.shopid";
+                    ON c.store = ";
         if($campaignFilter->storeID == null)
         {
-            $selectClause = $selectClause." WHERE   c.id = ?";
+            $selectClause = $selectClause." s.id WHERE   s.id = ?";
             $selectParam = $campaignFilter->CampID;
         }
         else
         {
-            $selectClause = $selectClause." WHERE s.shopid = ?";
+            $selectClause = $selectClause." s.storeid WHERE s.storeid = ?";
             $selectParam = $campaignFilter->storeID;
 
         }
