@@ -43,7 +43,14 @@ class FriendLandingManager implements IFriendLandingManager
     {
         RestLogger::log("FriendLandingManager::startSharedDeal before", $friendDeal);
 
-        $parentDeal = $this->dealDao->getDealById($friendDeal->parentDealId);
+        if ($friendDeal->parentDealId)
+        {
+            $parentDeal = $this->dealDao->getDealById($friendDeal->parentDealId);
+        }
+        else if ($friendDeal->order)
+        {
+            $parentDeal = $this->dealDao->getParentDealByOrderId($friendDeal->order->id);
+        }
         RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
 
         $this->fillFriendReward($friendDeal);
