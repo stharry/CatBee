@@ -22,19 +22,20 @@ if (!isset($params) || (count($params) == 0))
     //RestUtils::sendSuccessResponse();
     exit();
 }
-elseif (isset($params["success"]))
+elseif (isset($params[ "success" ]))
 {
     RestLogger::log("FacebookLogin: success stub response - sent OK");
     exit();
 }
-elseif (isset($params["post_id"]))
+elseif (isset($params[ "sid" ]))
 {
-    $dealId = $params['pdl'];
-
-    $updateParams = array('action' => 'add share',
-        'context' => array('sendTo' => $params['post_id'],
-                            'deal' => array('id' => $dealId),
-                            'context' => array('type' => 'facebook')));
+    $isShared = isset($params[ 'post_id' ]);
+    $updateParams = array('action' => 'update share',
+        'context' => array(
+            'sendTo' => $isShared ? $params[ 'post_id' ] : '',
+            'id' => $params[ 'sid' ],
+            'status' => $isShared ? 'shared' : 'cancelled',
+            'context' => array('type' => 'facebook')));
 
     RestUtils::SendPostRequest('deal', null, $updateParams);
     RestLogger::log("FacebookLogin: success stub response on post_id - sent OK");
@@ -42,16 +43,16 @@ elseif (isset($params["post_id"]))
     exit();
 }
 
-$code = $params["code"];
+$code = $params[ "code" ];
 
 $user = $facebook->getUser();
-RestLogger::log("facebookLogin: used ID".$user);
+RestLogger::log("facebookLogin: used ID" . $user);
 
 if (!$code)
 {
     $loginUrl = $facebook->getLoginUrl(
         array("scope" => 'email,offline_access,publish_stream,user_birthday,user_location,user_work_history,user_about_me,user_hometown',
-            "redirect_uri" => $GLOBALS["restURL"].'/CatBee/components/share/facebook/facebookLogin.php?'
+            "redirect_uri" => $GLOBALS[ "restURL" ] . '/CatBee/components/share/facebook/facebookLogin.php?'
                 . http_build_query($restRequest->getRequestVars()),
             'display' => 'popup'));
 
@@ -76,15 +77,15 @@ else
 
     $token_url = "https://graph.facebook.com/oauth/access_token?"
         . "client_id=" . $facebook->getAppId()
-        . "&redirect_uri=" . urlencode($GLOBALS["restURL"].'/CatBee/components/share/facebook/facebookLogin.php')
+        . "&redirect_uri=" . urlencode($GLOBALS[ "restURL" ] . '/CatBee/components/share/facebook/facebookLogin.php')
         . "&client_secret=" . $facebook->getAppSecret() . "&code=" . $code;
 
     $response = file_get_contents($token_url);
     $params = null;
     parse_str($response, $params);
-    $facebook->setAccessToken($params['access_token']);
+    $facebook->setAccessToken($params[ 'access_token' ]);
 
-    RestLogger::log("facebookLogin: after get access token: ".$facebook->getAccessToken());
+    RestLogger::log("facebookLogin: after get access token: " . $facebook->getAccessToken());
 
 //    $facebook->setExtendedAccessToken();
 
@@ -92,7 +93,7 @@ else
 
     $params = (array)json_decode(urldecode($params[ "params" ]), true);
 
-    $shareNodeProps = $params["context"];
+    $shareNodeProps = $params[ "context" ];
 
     $shareNode = $shareNodeAdapter->fromArray($shareNodeProps);
 
@@ -113,12 +114,12 @@ else
 
     $apiPath = $params[ 'api' ];
 
-    $apiUrl = $GLOBALS["restURL"].'/CatBee/api/'.$apiPath
-        .'/?'.http_build_query($params);
+    $apiUrl = $GLOBALS[ "restURL" ] . '/CatBee/api/' . $apiPath
+        . '/?' . http_build_query($params);
 
-    RestLogger::log("facebookLogin:before redirect to api: ".$apiUrl);
+    RestLogger::log("facebookLogin:before redirect to api: " . $apiUrl);
 
-    header('location: '.$apiUrl);
+    header('location: ' . $apiUrl);
 
     //RestUtils::SendGetRequest($restRequest->getRequestVars()[ $apiPath ], '', $apiParams);
 
