@@ -36,12 +36,12 @@ class PdoCampaignDao implements ICampaignDao
                     ON c.store = ";
         if($campaignFilter->storeID == null)
         {
-            $selectClause = $selectClause." s.id WHERE   s.id = ?";
+            $selectClause = $selectClause." s.id WHERE   c.id = ?";
             $selectParam = $campaignFilter->CampID;
         }
         else
         {
-            $selectClause = $selectClause." s.storeid WHERE s.storeid = ?";
+            $selectClause = $selectClause." s.id WHERE s.id = ?";
             $selectParam = $campaignFilter->storeID;
 
         }
