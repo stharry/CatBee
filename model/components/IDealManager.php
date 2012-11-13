@@ -10,6 +10,8 @@ interface IDealManager
 
     public function addDealShare($share);
 
+    public function updateDealShare($share);
+
     public function shareDeal($share);
 
     public function fillDealShare($share);

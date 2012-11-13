@@ -16,9 +16,10 @@ switch (strtolower($shareProps['act']))
     {
 
         $url = $GLOBALS['Rest_url'].'/CatBee/adapters/demo/Home.php?'
-            .http_build_query(array('page'=>'goWelcome.php',
-                'pdl' => $shareProps['pdl'],
-                'rwd' => $shareProps['rwd']));
+            .http_build_query(array(
+                'page'=>'goWelcome.php',
+                'sid' => $shareProps['sid']));
+
         RestLogger::log("demo adapter api url: ", $url);
 
         echo("<script> top.location.href='" . $url . "'</script>");

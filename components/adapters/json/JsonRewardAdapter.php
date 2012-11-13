@@ -2,16 +2,11 @@
 
 class JsonRewardAdapter implements IModelAdapter
 {
-    private $singleRewardAdapter;
+    private $landingRewardAdapter;
 
     function __construct()
     {
-        $this->singleRewardAdapter = new JsonSingleRewardAdapter();
-    }
-
-    private function singleRewardToArray($reward)
-    {
-        return $this->singleRewardAdapter->toArray($reward);
+        $this->landingRewardAdapter = new JsonLandingRewardAdapter();
     }
 
     public function toArray($obj)
@@ -19,10 +14,7 @@ class JsonRewardAdapter implements IModelAdapter
         $landingRewardsProps = array();
 
         foreach ($obj as $landingReward) {
-            $singleRewardProps = array(
-                "leaderReward" => $this->singleRewardToArray($landingReward->leaderReward),
-                "friendReward" => $this->singleRewardToArray($landingReward->friendReward)
-            );
+            $singleRewardProps = $this->landingRewardAdapter->toArray($landingReward);
             array_push($landingRewardsProps, $singleRewardProps);
         }
 
@@ -34,19 +26,11 @@ class JsonRewardAdapter implements IModelAdapter
         $landingRewards = array();
 
         foreach ($obj as $landingRewardProps) {
-            $landingReward = new LandingReward();
 
-            $landingReward->leaderReward = $this->rewardFromArray($landingRewardProps["leaderReward"]);
-            $landingReward->friendReward = $this->rewardFromArray($landingRewardProps["friendReward"]);
-
+            $landingReward = $this->landingRewardAdapter->fromArray($landingRewardProps);
             array_push($landingRewards, $landingReward);
         }
 
         return $landingRewards;
-    }
-
-    private function rewardFromArray($rewardProps)
-    {
-        return $this->singleRewardAdapter->fromArray($rewardProps);
     }
 }

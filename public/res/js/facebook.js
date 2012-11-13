@@ -7,42 +7,43 @@ $(document).ready(function () {
 
     $("#facebookShare").click(function () {
 
+        getFacebookShare();
+
         waitAndShare();
 
         //waitCatBeeResultAndRun(7200, waitAndShare);
     });
 
-    StartFacebookSharing();
+
 });
 
-function StartFacebookSharing() {
+function getFacebookShare() {
 
     var request = createCatBeeFillShareRequest();
     proceedCatBeeShareJsonRequest(request, 'facebookParams');
 }
 
-function waitAndShare() {
-
-    facebookParams = JSON.parse(localStorage.getItem('facebookParams'));
-
-    if (facebookParams != null)
-    {
+function StartFacebookSharing()
+{
     try {
 
+        var s = localStorage.getItem('facebookParams');
+        facebookParams = JSON.parse(s);
+
         FB.init({
-            appId:facebookParams.context.application.applicationCode,
+            appId: facebookParams.context.application.applicationCode,
 
             status:true, cookie:true});
 
         FB.ui({
-            method:'feed',
-            display:'popup',
-            name: facebookParams.message,
-            picture: catBeeData.order.purchases[0].url,
-            redirect_uri: facebookParams.context.application.redirectUrl,
-            description: facebookParams.message,
-            link: facebookParams.link
-        },
+                method:'feed',
+                display:'popup',
+                name: facebookParams.message,
+                picture: catBeeData.order.purchases[0].url,
+                redirect_uri: facebookParams.context.application.redirectUrl,
+                description: facebookParams.message,
+                link: facebookParams.link
+            },
             function(response) {
                 if (response && response.post_id) {
                     alert('Post was published.' + response.post_id);
@@ -51,14 +52,27 @@ function waitAndShare() {
                 }
             }
         );
+
+        localStorage.removeItem('facebookParams');
     }
-    catch (e) {
+    catch (e)
+    {
         alert(e);
     }
+
+}
+
+function waitAndShare() {
+
+
+
+    if (localStorage.getItem('facebookParams') === null)
+    {
+        setTimeout(waitAndShare, 500);
     }
     else
     {
-        alert('is null');
+        StartFacebookSharing();
     }
 }
 
@@ -74,7 +88,7 @@ function createCatBeeFillShareRequest() {
                 "type":"facebook"
             },
             "store":{
-                "authCode":$("#storeCode").text()
+                "authCode":catBeeData.order.store.authCode
             },
             "deal":{
                 "id":catBeeData.id

@@ -33,7 +33,7 @@ class DbManager
 
             return $conn;
         } catch (PDOException $pe) {
-            echo "PDOException: ".$pe->getMessage();
+            RestLogger::log('ERROR '.$pe->getMessage());
         }
     }
     private static function MakePersistConnection()
@@ -114,21 +114,23 @@ class DbManager
 
         $params = DbManager::buildParameters($fieldNames, $fieldValues);
 
-        RestLogger::log("DbManager::insert table: ".$table/" fields: ", $fieldNames);
-        RestLogger::log("DbManager::insert table: ".$table/" values: ", $fieldValues);
+        RestLogger::log("DbManager::insert table: ".$table." fields: ", $fieldNames);
+        RestLogger::log("DbManager::insert table: ".$table." values: ", $fieldValues);
 
         return DbManager::setValues($expr,  $params);
     }
 
     public static function insertAndReturnId($table, $fieldNames, $fieldValues, $idColumnName="id")
     {
-        try {
+        try
+        {
             $conn = DbManager::insert($table, $fieldNames, $fieldValues);
             return $conn->lastInsertId($idColumnName);
 
-        } catch (PDOException $pe) {
+        }
+        catch (PDOException $pe)
+        {
             RestLogger::log('DbManager::insertAndReturnId exception ', $pe->getMessage());
-            echo "PDO exception:".$pe->getMessage();
         }
 
     }

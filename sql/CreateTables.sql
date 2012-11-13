@@ -157,11 +157,14 @@ price DOUBLE NULL ,
 PRIMARY KEY (id) );
 
 CREATE  TABLE IF NOT EXISTS ActiveShare (
+id INT AUTO_INCREMENT,
 dealId INT NOT NULL,
 shareType INT NOT NULL,
+status INT NOT NULL,
+landRewardId INT NOT NULL,
 shareDate DATETIME,
 value blob,
-PRIMARY KEY (shareType, dealId, shareDate)
+PRIMARY KEY (id)
 );
 
 

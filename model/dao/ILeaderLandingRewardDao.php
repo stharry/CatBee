@@ -8,4 +8,5 @@ interface ILeaderLandingRewardDao
 
     public function updateLeaderLanding($leaderLanding);
 
+    public function fillLandingRewardById($landingReward);
 }

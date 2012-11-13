@@ -31,7 +31,7 @@ class JsonLeaderDealAdapter implements IModelAdapter
     public function fromArray($obj)
     {
         $deal = new LeaderDeal();
-        $deal->id = $obj['id'];
+        $deal->id = is_array($obj) ? $obj['id'] : $obj;
 
         return $deal;
     }

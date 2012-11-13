@@ -1,6 +1,6 @@
 <?php
 
-class JsonStoreAdapter implements  IModelAdapter
+class JsonStoreAdapter implements IModelAdapter
 {
 
     public function toArray($obj)
@@ -15,9 +15,16 @@ class JsonStoreAdapter implements  IModelAdapter
     {
         $store = new Store();
 
-        $store->authCode = $obj["authCode"];
-        $store->description = $obj["description"];
-        $store->url = $obj["url"];
+        if (is_array($obj))
+        {
+            $store->authCode = $obj[ "authCode" ];
+            $store->description = $obj[ "description" ];
+            $store->url = $obj[ "url" ];
+        }
+        else
+        {
+            $store->authCode = $obj;
+        }
 
         return $store;
     }

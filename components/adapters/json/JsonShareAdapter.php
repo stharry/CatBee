@@ -11,7 +11,7 @@ class JsonShareAdapter implements IModelAdapter
     {
         $this->jsonStoreAdapter = new JsonStoreAdapter();
         $this->jsonShareContextAdapter = new JsonShareContextAdapter();
-        $this->jsonRewardAdapter = new JsonSingleRewardAdapter();
+        $this->jsonRewardAdapter = new JsonLandingRewardAdapter();
         $this->jsonDealAdapter = new JsonLeaderDealAdapter();
 
     }
@@ -19,6 +19,8 @@ class JsonShareAdapter implements IModelAdapter
     public function toArray($obj)
     {
         return array(
+            'id' => $obj->id,
+            'status' => $obj->status,
             'sendFrom' => $obj->sendFrom,
             'sendTo' => $obj->sendTo,
             'message' => $obj->message,
@@ -34,6 +36,8 @@ class JsonShareAdapter implements IModelAdapter
     {
         $share = new Share();
 
+        $share->id = $obj['id'];
+        $share->status = $obj['status'];
         $share->sendFrom = $obj["sendFrom"];
         $share->sendTo = $obj["sendTo"];
         $share->message = $obj["message"];

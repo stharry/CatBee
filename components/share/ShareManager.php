@@ -33,8 +33,7 @@ class ShareManager implements IShareManager
         //todo check branch url
         //todo ask store adapter to parameters set
         $link = $share->store->url . '?ctx=' . $share->context->type
-            . '&act=welcome&pdl=' . $share->deal->id
-            . '&rwd=' . $share->reward->id;
+            . '&act=welcome&sid=' . $share->id;
 
         return $link;
 
@@ -178,11 +177,18 @@ class ShareManager implements IShareManager
 
     public function fillShare($share)
     {
-        if (!$this->storeDao->loadStore($share->store)) die ("share template store does not exists");
+        RestLogger::log('ShareManager::fillshare begin');
+        if (!$this->storeDao->loadStore($share->store))
+        {
+            RestLogger::log('Error: share template store does not exists');
+            die ("share template store does not exists");
+        }
 
         $this->fillShareProps($share);
 
         $this->getCompatibleShareApplication($share);
+
+        RestLogger::log('ShareManager::fillshare end');
 
     }
 
@@ -211,9 +217,8 @@ class ShareManager implements IShareManager
         if ($share->context->application)
         {
             $url = $share->context->application->redirectUrl;
-            $url = strpos($url, '?') === true
-                ? $url . '&pdl=' . $share->deal->id
-                : $url . '?pdl=' . $share->deal->id;
+            $parDelim = strpos($url, '?') === true ? '&' : '?';
+            $url = $url . $parDelim . 'sid=' . $share->id;
 
             $share->context->application->redirectUrl = $url;
         }
@@ -255,5 +260,10 @@ class ShareManager implements IShareManager
     public function addDealShare($share)
     {
         $this->dealShareDao->addDealShare($share);
+    }
+
+    public function updateDealShare($share)
+    {
+        $this->dealShareDao->updateDealShare($share);
     }
 }

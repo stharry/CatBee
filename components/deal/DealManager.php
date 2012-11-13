@@ -72,8 +72,7 @@ class DealManager implements IDealManager
             }
 
             return $leaderDeal;
-        }
-        catch (Exception $e)
+        } catch (Exception $e)
         {
             RestLogger::log("Exception: " . $e->getMessage());
             throw new Exception("", 0, $e);
@@ -87,7 +86,7 @@ class DealManager implements IDealManager
         //TODO - What happens if the Branch Is not Validated?
         $this->storeManager->validateBranch($order->store, $order->branch);
 
-         RestLogger::log("DealManager::pushDeal after store validation ", $order->store);
+        RestLogger::log("DealManager::pushDeal after store validation ", $order->store);
         $campaign = $this->campaignManager->chooseCampaign($order);
 
         RestLogger::log("DealManager::pushDeal after campaign choosing ", $campaign);
@@ -116,33 +115,67 @@ class DealManager implements IDealManager
 
     public function updateDeal($deal)
     {
+        RestLogger::log('DealManager::updateDeal begin');
+
         $this->dealDao->updateDealStatus($deal);
+
+        RestLogger::log('DealManager::updateDeal end');
     }
 
     public function addDealShare($share)
     {
+        RestLogger::log('DealManager::addDealShare begin');
         $this->shareManager->addDealShare($share);
 
         $share->deal->status = LeaderDeal::$STATUS_SHARED;
         $this->updateDeal($share->deal);
+        RestLogger::log('DealManager::addDealShare end');
     }
 
     public function shareDeal($share)
     {
+        $share->status = Share::$SHARE_STATUS_PENDING;
+        $this->addDealShare($share);
+
         if ($this->shareManager->share($share))
         {
-            $this->addDealShare($share);
+            $share->status = Share::$SHARE_STATUS_SHARED;
+            $this->updateDealShare($share);
             return true;
         }
         else
         {
+            $share->status = Share::$SHARE_STATUS_PENDING;
             return false;
         }
     }
 
     public function fillDealShare($share)
     {
-        $this->shareManager->fillShare($share);
+        try
+        {
+            $share->status = Share::$SHARE_STATUS_PENDING;
+            $this->addDealShare($share);
+            $this->shareManager->fillShare($share);
+
+            RestLogger::log('DealManager::fillDealShare after', $share);
+        } catch (Exception $e)
+        {
+            RestLogger::log($e->getMessage());
+        }
+    }
+
+    public function updateDealShare($share)
+    {
+        RestLogger::log('DealManager::updateDealShare begin');
+        $this->shareManager->updateDealShare($share);
+
+        if ($share->isShared())
+        {
+            $share->deal->status = LeaderDeal::$STATUS_SHARED;
+            $this->updateDeal($share->deal);
+        }
+        RestLogger::log('DealManager::updateDealShare end');
     }
 }
 

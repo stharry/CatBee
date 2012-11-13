@@ -32,9 +32,11 @@ $friendLandingManager = new FriendLandingManager(
     new PdoDealDao(),
     new PdoFriendLandingDao(),
     new PdoCustomerDao(),
-    new PdoRewardDao(),
+    new PdoLeaderLandingRewardDao(),
     new PdoCampaignDao(new PdoLeaderLandingDao(
-    new PdoLeaderLandingRewardDao()),new PdoFriendLandingDao()),
+        new PdoLeaderLandingRewardDao()),
+        new PdoFriendLandingDao()),
+    new PdoDealShareDao(),
     new StoreManager(new PdoStoreDao(),new PdoStoreBranchDao()));
 
 switch (strtolower($action))
@@ -75,8 +77,16 @@ switch (strtolower($action))
         $share = $jsonShareAdapter->fromArray($context);
         $dealManager->fillDealShare($share);
         $shareProps = $jsonShareAdapter->toArray($share);
+        RestLogger::log('deal api fillshare response is ', $shareProps);
         RestUtils::sendSuccessResponse($shareProps);
         exit();
+
+    case "updateshare":
+        $shareAdapter = new JsonShareAdapter();
+        $share = $shareAdapter->fromArray($context);
+        $dealManager->addDealShare($share);
+        exit;
+
 
 }
 

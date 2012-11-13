@@ -3,9 +3,33 @@
 class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
 {
 
-    public function getLeaderLandingRewards($leaderLanding)
+    private function fillLandingReward($landingReward, $row)
     {
-        $rows = DbManager::selectValues(" SELECT lr.LandingId, l.id leaderId,
+        $landingReward->id = $row["LandingId"];
+
+        $landingReward->leaderReward = new Reward();
+        $landingReward->leaderReward->id = $row["leaderId"];
+
+        $landingReward->leaderReward->description = $row["leaderDescription"];
+        $landingReward->leaderReward->value = $row["leaderValue"];
+        $landingReward->leaderReward->type = $row["leaderType"];
+        $landingReward->leaderReward->code = $row["leaderCode"];
+        $landingReward->leaderReward->typeDescription = $row["leaderRewardTypeDesc"];
+
+        $landingReward->friendReward = new Reward();
+        $landingReward->friendReward->id = $row["friendId"];
+
+        $landingReward->friendReward->description = $row["friendDescription"];
+        $landingReward->friendReward->value = $row["friendValue"];
+        $landingReward->friendReward->type = $row["friendType"];
+        $landingReward->friendReward->code = $row["friendCode"];
+        $landingReward->friendReward->typeDescription = $row["friendRewardTypeDesc"];
+
+    }
+
+    private function getLandingRewardSelect()
+    {
+        return " SELECT lr.LandingId, l.id leaderId,
         l.RewardDesc leaderDescription,
         l.value leaderValue, l.type leaderType, l.code leaderCode,
         f.id friendId, f.RewardDesc friendDescription,
@@ -14,36 +38,24 @@ class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
         l.RewardTypeDesc leaderRewardTypeDesc
          FROM landingReward lr
           INNER JOIN reward l ON lr.LeaderReward = l.id
-           INNER JOIN reward f ON lr.FriendReward = f.id
-            WHERE lr.LandingId = ?
-            ORDER BY lr.RewardIndex ",
+           INNER JOIN reward f ON lr.FriendReward = f.id";
+    }
+
+    public function getLeaderLandingRewards($leaderLanding)
+    {
+        $rows = DbManager::selectValues($this->getLandingRewardSelect()
+            ." WHERE lr.LandingId = ?
+                ORDER BY lr.RewardIndex ",
         array($leaderLanding->id => PDO::PARAM_INT));
+
 
         $landingRewards = array();
 
         foreach ($rows as $row)
         {
             $landingReward = new LandingReward();
-            $landingReward->id = $row["LandingId"];
 
-            $landingReward->leaderReward = new Reward();
-            $landingReward->leaderReward->id = $row["leaderId"];
-
-            $landingReward->leaderReward->description = $row["leaderDescription"];
-            $landingReward->leaderReward->value = $row["leaderValue"];
-            $landingReward->leaderReward->type = $row["leaderType"];
-            $landingReward->leaderReward->code = $row["leaderCode"];
-            $landingReward->leaderReward->typeDescription = $row["leaderRewardTypeDesc"];
-
-            $landingReward->friendReward = new Reward();
-            $landingReward->friendReward->id = $row["friendId"];
-
-            $landingReward->friendReward->description = $row["friendDescription"];
-            $landingReward->friendReward->value = $row["friendValue"];
-            $landingReward->friendReward->type = $row["friendType"];
-            $landingReward->friendReward->code = $row["friendCode"];
-            $landingReward->friendReward->typeDescription = $row["friendRewardTypeDesc"];
-
+            $this->fillLandingReward($landingReward, $row);
             array_push($landingRewards, $landingReward);
 
         }
@@ -89,5 +101,21 @@ class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
     public function updateLeaderLanding($leaderLanding)
     {
         // TODO: Implement updateLeaderLanding() method.
+    }
+
+    public function fillLandingRewardById($landingReward)
+    {
+        $rows = DbManager::selectValues($this->getLandingRewardSelect()
+            ." WHERE lr.id = ? ",
+            array($landingReward->id => PDO::PARAM_INT));
+
+        if (!$rows)
+        {
+            RestLogger::log('PdoLeaderLandingRewardDao::fillLandingRewardById no such reward');
+            return;
+        }
+
+
+        $this->fillLandingReward($landingReward, $rows[0]);
     }
 }

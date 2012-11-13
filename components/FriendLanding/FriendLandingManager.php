@@ -7,20 +7,33 @@ class FriendLandingManager implements IFriendLandingManager
     private $customerDao;
     private $rewardDao;
     private $campaignDao;
+    private $dealShareDao;
     private $storeManager;
 
-    private function fillFriendReward($friendDeal)
+    private function fillLandingReward($friendDeal)
     {
-        $this->rewardDao->fillRewardById($friendDeal->reward);
+        $this->rewardDao->fillLandingRewardById($friendDeal->share->reward);
     }
 
-    function __construct($dealDao, $friendLandingDao, $customerDao, $rewardDao,$campDao,$storeManager)
+    private function getShareById($friendDeal)
+    {
+        RestLogger::log('FriendLandingManager::getShareById begin ', $friendDeal->share);
+
+        $this->dealShareDao->fillDealShareById($friendDeal->share);
+
+        RestLogger::log('FriendLandingManager::getShareById end');
+    }
+
+    function __construct($dealDao, $friendLandingDao,
+                         $customerDao, $rewardDao,
+                         $campDao, $dealShareDao, $storeManager)
     {
         $this->friendLandingDao = $friendLandingDao;
         $this->dealDao = $dealDao;
         $this->customerDao = $customerDao;
         $this->rewardDao = $rewardDao;
         $this->campaignDao = $campDao;
+        $this->dealShareDao = $dealShareDao;
         $this->storeManager = $storeManager;
     }
 
@@ -34,6 +47,9 @@ class FriendLandingManager implements IFriendLandingManager
     }
     public function showFriendLanding($friendDeal,$Store)
     {
+        RestLogger::log('FriendLandingManager::showFriendLanding deal: ', $friendDeal);
+        RestLogger::log('FriendLandingManager::showFriendLanding store: ', $Store);
+
         catbeeLayoutComp($layout, "friendLanding", array($friendDeal,$Store));
         //catbeeLayoutComp($layout, "friendLanding", $friendDeal);
         catbeeLayout($layout, 'friendLanding');
@@ -43,18 +59,13 @@ class FriendLandingManager implements IFriendLandingManager
     {
         RestLogger::log("FriendLandingManager::startSharedDeal before", $friendDeal);
 
-        if ($friendDeal->parentDealId)
-        {
-            $parentDeal = $this->dealDao->getDealById($friendDeal->parentDealId);
-        }
-        else if ($friendDeal->order)
-        {
-            $parentDeal = $this->dealDao->getParentDealByOrderId($friendDeal->order->id);
-        }
+        $this->getShareById($friendDeal);
+
+        $parentDeal = $this->dealDao->getDealById($friendDeal->share->deal->id);
         RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
 
-        $this->fillFriendReward($friendDeal);
-        RestLogger::log("FriendLandingManager::startSharedDeal reward ", $friendDeal->reward);
+        $this->fillLandingReward($friendDeal);
+        RestLogger::log("FriendLandingManager::startSharedDeal reward ", $friendDeal->share->reward);
 
         $friendDeal->friend = $this->customerDao->loadCustomerById($parentDeal->customer);
 
