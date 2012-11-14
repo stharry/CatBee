@@ -5,7 +5,8 @@ class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
 
     private function fillLandingReward($landingReward, $row)
     {
-        $landingReward->id = $row["LandingId"];
+        $landingReward->id = $row["id"];
+        $landingReward->landingId = $row["landingId"];
 
         $landingReward->leaderReward = new Reward();
         $landingReward->leaderReward->id = $row["leaderId"];
@@ -29,7 +30,7 @@ class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
 
     private function getLandingRewardSelect()
     {
-        return " SELECT lr.LandingId, l.id leaderId,
+        return " SELECT lr.id, lr.LandingId, l.id leaderId,
         l.RewardDesc leaderDescription,
         l.value leaderValue, l.type leaderType, l.code leaderCode,
         f.id friendId, f.RewardDesc friendDescription,

@@ -102,12 +102,7 @@ function createCatBeeShareRequest() {
             },
             reward:
             {
-                value: catBeeData.landing.landingRewards[rewardInd].friendReward.value,
-                type: catBeeData.landing.landingRewards[rewardInd].friendReward.type,
-                code: catBeeData.landing.landingRewards[rewardInd].friendReward.code,
-                description: catBeeData.landing.landingRewards[rewardInd].friendReward.description,
-                typeDescription: catBeeData.landing.landingRewards[rewardInd].friendReward.typeDescription,
-                id: catBeeData.landing.landingRewards[rewardInd].friendReward.id
+                id: catBeeData.landing.landingRewards[rewardInd].id
 
             }
         }
