@@ -23,11 +23,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
 </head>
 <body onload="">
 
-<a
-        id="autostart"
-        href="/CatBee/adapters/demo/demoActions/<?= $GLOBALS["page"] ?>"
-
-       ></a>
+<a id="autostart" href="/CatBee/adapters/demo/demoActions/<?= $GLOBALS["page"] ?>" ></a>
 
 <script type="text/javascript">jQuery(document).ready(function() {
     $("#autostart").trigger('click');
