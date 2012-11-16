@@ -42,7 +42,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
         buttons: [
             {
                 name: "Next",
-                onclick: function(){window.location='/CatBee/adapters/demo/HomeAutoStart.php';}
+                onclick: function(){window.location="/CatBee/adapters/demo/HomeAutoStart.php?sid=<?= $_GET['sid'] ?>";}
             }
         ],
         description: "The referred friend will be instructed how to Redeem the Reward",

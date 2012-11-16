@@ -60,6 +60,8 @@ class ShareManager implements IShareManager
                 return new EmailShareProvider();
             case 2:
                 return new FacebookShareProvider(new PdoAuthorizationDao());
+            case 1024:
+                return new TribziShareProvider();
             default:
                 die("Cannot find compatible share provider");
         }
@@ -102,7 +104,7 @@ class ShareManager implements IShareManager
         $this->pageAdapter = $pageAdapter;
 
         $this->predefinedContexts =
-            array('email' => 1, 'facebook' => 2);
+            array('email' => 1, 'facebook' => 2, 'tribzi' => 1024);
     }
 
     public function share($share)

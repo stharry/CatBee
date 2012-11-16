@@ -2,12 +2,9 @@
     "action": "friendDeal",
     "context":
     {
-        "order":{
-            "id":"123"
-        },
-        "reward":
+        "share":
         {
-            "id":"4"
+            "id": "1"
         }
     }
 }

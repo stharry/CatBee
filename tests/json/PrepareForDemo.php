@@ -10,6 +10,7 @@ try
     include_once('addStoreFacebookShareTemplate.php');
 
     include_once('pushDeal.php');
+    include_once('shareStoreShareTemplate.php');
     include_once('friendDeal.php');
 
 }

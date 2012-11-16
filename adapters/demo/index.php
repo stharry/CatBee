@@ -24,7 +24,6 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
 
 </head>
 <body
-
 <div id="fake" style="position:absolute;left:900px;top:250px;"> </div>
 <p> <script type="text/javascript">
     var guider_note = {
