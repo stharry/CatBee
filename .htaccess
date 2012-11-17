@@ -1,14 +1,14 @@
-##disable directory listing
+###disable directory listing
 IndexIgnore *
-
-## Disable access to any ini file
-RewriteEngine On
-RewriteBase /
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /Config/ .*$ [NC]
-RewriteCond %{REQUEST_FILENAME} ^.+\.php$
-RewriteRule .* - [F,NS,L]
-
-## Disable access to php.ini file
+#
+### Disable access to any ini file
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /Config/ .*$ [NC]
+#RewriteCond %{REQUEST_FILENAME} ^.+\.php$
+#RewriteRule .* - [F,NS,L]
+#
+### Disable access to php.ini file
 <FilesMatch "^php5?\.(ini|cgi)$">
 Order Deny,Allow
 Deny from All
