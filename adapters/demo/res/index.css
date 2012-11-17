@@ -1,8 +1,5 @@
+
 body {
-    background-image: url(PostPurchasePageForDemo4.jpg);
-    background-repeat:no-repeat;
-    /*background-position:center;*/
-
+    background: url(PostPurchasePageForDemo.jpg) no-repeat;
+    background-size: 100%;
 }
-
-

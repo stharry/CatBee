@@ -1,6 +1,4 @@
 body {
-    background-repeat: no-repeat;
-    background-image: url(HomePageForDemo.jpg)
+    background: url(HomePageForDemo.jpg) no-repeat;
+    background-size: 100%;
 }
-
-
