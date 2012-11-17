@@ -33,7 +33,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
         id="autostart"
         href="/CatBee/adapters/demo/demoActions/<?= $GLOBALS["page"] ?>"
 
-        >Click to create awesome deal</a>
+        ></a>
 <div id="Homefake" style="position:absolute;left:900px;top:200px;"> </div>
 <p> <script type="text/javascript">
     var guider_note = {
