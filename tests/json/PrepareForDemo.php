@@ -15,7 +15,7 @@ try
     include_once('pushDeal.php');
     include_once('shareStoreShareTemplate.php');
     include_once('friendDeal.php');
-
+    include_once('pushReferredDeal.php');
 }
 catch (Exception $e)
 {

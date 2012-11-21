@@ -86,21 +86,6 @@ PRIMARY KEY (id) );
 
 
 
-  CREATE  TABLE IF NOT EXISTS customer (
-
-id INT AUTO_INCREMENT ,
-
-email VARCHAR(60) NULL ,
-
-firstName VARCHAR(45) NULL ,
-
-lastName VARCHAR(45) NULL ,
-
-PRIMARY KEY (id) );
-
-
-
-
 CREATE  TABLE IF NOT EXISTS deal
 (
 
@@ -212,4 +197,10 @@ CREATE TABLE IF NOT EXISTS oauthApps (
   oauthUrl VARCHAR(500) NOT NULL ,
   redirectUrl VARCHAR(500) NOT NULL ,
   PRIMARY KEY (id)
+);
+
+CREATE TABLE If NOT EXISTS leads (
+  lead int(11) NOT NULL,
+  orderID int(11) NOT NULL,
+  PRIMARY KEY (lead,orderID)
 );

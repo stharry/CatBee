@@ -8,4 +8,5 @@ class Order
     public $customer;
     public $store;
     public $branch;
+    public $lead;
 }
