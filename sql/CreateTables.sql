@@ -213,12 +213,3 @@ CREATE TABLE IF NOT EXISTS oauthApps (
   redirectUrl VARCHAR(500) NOT NULL ,
   PRIMARY KEY (id)
 );
-
-CREATE TABLE DealTraffic
-(
-	dealId INT NOT NULL,
-	customerId INT NOT NULL,
-	shareContextId INT NOT NULL,
-	entDate DATETIME NOT NULL,
-	PRIMARY KEY (dealId, entDate)
-);

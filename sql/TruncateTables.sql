@@ -17,4 +17,3 @@ TRUNCATE TABLE customerAuth;
 TRUNCATE TABLE friendlanding;
 TRUNCATE TABLE campfriendlanding;
 TRUNCATE TABLE oauthApps;
-TRUNCATE TABLE DealTraffic;
