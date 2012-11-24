@@ -33,7 +33,7 @@ $(document).ready(function() {
 
     $('.bee_icon').click(function(){
 
-        $("#slider").slider('value', $('#rewardsCount').text() - 1);
+        $("#slider").slider('value', catBeeData.landing.landingRewards.length - 1);
     });
 
     updateBoxPosition();
