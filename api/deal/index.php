@@ -26,7 +26,7 @@ $dealManager = new DealManager($campaignManager,
         new PdoCustomerDao(), new PdoShareApplicationDao(),
         new PdoDealShareDao(),
         new HtmlPageAdapter()),
-    new PdoDealDao());
+    new PdoDealDao(),new LeadManager(new PdoLeadDao()));
 
 $friendLandingManager = new FriendLandingManager(
     new PdoDealDao(),
@@ -47,9 +47,7 @@ switch (strtolower($action))
         RestLogger::log("Deal API before deal");
         $orderAdapter = new JsonOrderAdapter();
         $order = $orderAdapter->fromArray($context);
-
         RestLogger::log("Deal API order is ", $order);
-
         $deal = $dealManager->pushDeal($order);
         exit;
 

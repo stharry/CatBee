@@ -6,13 +6,15 @@ class DealManager implements IDealManager
     private $storeManager;
     private $shareManager;
     private $dealDao;
+    private $leadManager;
 
-    function __construct($campaignManager, $storeManager, $shareManager, $dealDao)
+    function __construct($campaignManager, $storeManager, $shareManager, $dealDao,$leadManager)
     {
         $this->campaignManager = $campaignManager;
         $this->dealDao = $dealDao;
         $this->storeManager = $storeManager;
         $this->shareManager = $shareManager;
+        $this->leadManager = $leadManager;
     }
 
     private function getCatBeeSharePoint()
@@ -85,6 +87,9 @@ class DealManager implements IDealManager
 
         //TODO - What happens if the Branch Is not Validated?
         $this->storeManager->validateBranch($order->store, $order->branch);
+
+        //Register Leading Deal If Exist
+        $this->leadManager->saveLead($order,"1");
 
         RestLogger::log("DealManager::pushDeal after store validation ", $order->store);
         $campaign = $this->campaignManager->chooseCampaign($order);

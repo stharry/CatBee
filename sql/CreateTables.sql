@@ -86,21 +86,6 @@ PRIMARY KEY (id) );
 
 
 
-  CREATE  TABLE IF NOT EXISTS customer (
-
-id INT AUTO_INCREMENT ,
-
-email VARCHAR(60) NULL ,
-
-firstName VARCHAR(45) NULL ,
-
-lastName VARCHAR(45) NULL ,
-
-PRIMARY KEY (id) );
-
-
-
-
 CREATE  TABLE IF NOT EXISTS deal
 (
 
@@ -214,11 +199,8 @@ CREATE TABLE IF NOT EXISTS oauthApps (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE DealTraffic
-(
-	dealId INT NOT NULL,
-	customerId INT NOT NULL,
-	shareContextId INT NOT NULL,
-	entDate DATETIME NOT NULL,
-	PRIMARY KEY (dealId, entDate)
+CREATE TABLE If NOT EXISTS leads (
+  lead int(11) NOT NULL,
+  orderID int(11) NOT NULL,
+  PRIMARY KEY (lead,orderID)
 );

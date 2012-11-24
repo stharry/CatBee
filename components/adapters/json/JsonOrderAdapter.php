@@ -26,6 +26,7 @@ class JsonOrderAdapter implements IModelAdapter
             'purchases' => $this->purchasesAdapter->toArray($obj->purchases),
             'store' => $this->storeAdapter->toArray($obj->store),
             'branch' => $this->branchAdapter->toArray($obj->branch),
+            'lead' => $obj->lead,
 
         );
     }
@@ -42,7 +43,7 @@ class JsonOrderAdapter implements IModelAdapter
         $order->purchases = $this->purchasesAdapter->fromArray($obj["purchases"]);
         $order->store = $this->storeAdapter->fromArray($obj["store"]);
         $order->branch = $this->branchAdapter->fromArray($obj["branch"]);
-
+        $order->lead = $obj["lead"];
         return $order;
     }
 }
