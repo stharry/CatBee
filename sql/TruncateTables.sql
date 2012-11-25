@@ -8,7 +8,6 @@ TRUNCATE TABLE reward;
 TRUNCATE TABLE landingReward;
 TRUNCATE TABLE deal;
 TRUNCATE TABLE frienddeal;
-TRUNCATE TABLE purchase;
 TRUNCATE TABLE activeshare;
 TRUNCATE TABLE StoreShareTemplate;
 TRUNCATE TABLE friendlanding;

@@ -24,7 +24,10 @@ class ShareManager implements IShareManager
 
     private function loadShareTemplatePageContext($shareTemplate)
     {
-        $this->pageAdapter->loadPage($shareTemplate->templatePage);
+        if (!$shareTemplate->templatePage->context)
+        {
+            $this->pageAdapter->loadPage($shareTemplate->templatePage);
+        }
 
     }
 
@@ -39,15 +42,46 @@ class ShareManager implements IShareManager
 
     }
 
+    private function createTemplate($shareTemplate)
+    {
+        $templateAdapter = new JsonTemplateAdapter();
+
+        return $templateAdapter->fromArray(
+            json_decode($shareTemplate->templatePage->context, true));
+    }
+
+    private function getCompatibleTemplateBuilder($shareContext)
+    {
+        //todo: make something more solid (like a factory or something else...)
+        switch ($shareContext->id)
+        {
+            case 1:
+                return new HtmlTemplateBuilder();
+            case 2:
+                return new TemplateBuilder();
+            case 1024:
+                return new HtmlTemplateBuilder();
+            default:
+                die("Cannot find compatible share provider");
+        }
+
+    }
+
     private function createMessage($share, $shareTemplate)
     {
         $share->link = $this->createShareLink($share);
 
-        $share->message = str_replace('[message]', $share->message, $shareTemplate->templatePage->context);
-        $share->message = str_replace('[link]', $share->link, $share->message);
-        $share->message = str_replace('[reward.value]', $share->reward->value, $share->message);
-        $share->message = str_replace('[reward.type]', $share->reward->type, $share->message);
-        $share->message = str_replace('[reward.typeDescription]', $share->reward->typeDescription, $share->message);
+        $template = $this->createTemplate($shareTemplate);
+
+        $templateBuilder = $this->getCompatibleTemplateBuilder($share->context);
+
+        $share->message = $templateBuilder->buildTemplate($share, $template);
+
+//        $share->message = str_replace('[message]', $share->message, $shareTemplate->templatePage->context);
+//        $share->message = str_replace('[link]', $share->link, $share->message);
+//        $share->message = str_replace('[reward.value]', $share->reward->value, $share->message);
+//        $share->message = str_replace('[reward.type]', $share->reward->type, $share->message);
+//        $share->message = str_replace('[reward.typeDescription]', $share->reward->typeDescription, $share->message);
 
     }
 
@@ -128,7 +162,7 @@ class ShareManager implements IShareManager
 
         $this->loadShareTemplatePageContext($shareTemplate);
 
-        $this->shareDao->insertShareTemplate($shareTemplate);
+        $this->shareDao->insertOrUpdateShareTemplate($shareTemplate);
     }
 
     public function getShareTemplates($shareFilter)

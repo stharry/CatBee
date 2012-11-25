@@ -11,8 +11,17 @@ class JsonTemplatePageAdapter implements IModelAdapter
     public function fromArray($obj)
     {
         $templatePage = new TemplatePage();
-        $templatePage->url = $obj["url"];
+
+        if ($obj['url'])
+        {
+            $templatePage->url = $obj["url"];
+        }
+        else if ($obj['context'])
+        {
+            $templatePage->context = json_encode($obj['context']);
+        }
         $templatePage->type = $obj["type"];
+
 
         return$templatePage;
     }

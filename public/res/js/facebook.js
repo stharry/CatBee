@@ -39,7 +39,7 @@ function StartFacebookSharing()
                 method:'feed',
                 display:'popup',
                 name: facebookParams.message,
-                picture: catBeeData.order.purchases[0].url,
+                picture: catBeeData.order.items[0].url,
                 redirect_uri: facebookParams.context.application.redirectUrl,
                 description: facebookParams.message,
                 link: facebookParams.link

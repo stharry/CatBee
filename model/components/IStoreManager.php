@@ -11,4 +11,6 @@ interface IStoreManager
     public function unregisterStore($store);
 
     public function unregisterBranches($store, $branches);
+
+    public function queryStoreAdapter($store, $action);
 }

@@ -7,15 +7,20 @@ class RestLogger
 {
     private static $logger;
 
+    private static function setLogger()
+    {
+        if (!RestLogger::$logger)
+        {
+            $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
+            RestLogger::$logger = & Log::singleton('file', $GLOBALS['restLogBaseDir'].'\CatBee.log', 'ident', $conf);
+        }
+    }
+
     public static function log($message, $params = null)
     {
         try
         {
-            if (!RestLogger::$logger)
-            {
-                $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
-                RestLogger::$logger = & Log::singleton('file', $GLOBALS['restLogBaseDir'].'\CatBee.log', 'ident', $conf);
-            }
+            RestLogger::setLogger();
             if (!$params)
             {
                 RestLogger::$logger->log($message);

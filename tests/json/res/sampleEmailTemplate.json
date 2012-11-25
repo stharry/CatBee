@@ -1,0 +1,36 @@
+{
+    "style": {
+        "border-collapse": "collapse",
+        "mso-table-lspace": "0pt",
+        "mso-table-rspace": "0pt",
+        "background-color": "#F4F4F4"
+    },
+    "width":"600",
+    "sections": [
+        {
+            "style": {
+                "padding-top": "9px",
+                "padding-right": "18px",
+                "padding-bottom": "9px",
+                "padding-left": "18px",
+                "border-collapse": "collapse",
+                "mso-table-lspace": "0pt",
+                "mso-table-rspace": "0pt",
+                "color": "#505050",
+                "font-family": "Helvetica",
+                "font-size": "14px",
+                "line-height": "150%",
+                "text-align": "left"
+            },
+            "source": "1",
+            "fields": [
+                {
+                    "style": {
+                    },
+                    "source": "Hello",
+                    "type": null
+                }
+            ]
+        }
+    ]
+}

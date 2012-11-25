@@ -12,9 +12,17 @@ class JsonShareFilterAdapter implements IModelAdapter
     {
         $shareFilter = new ShareFilter();
 
-        //todo: use appropriate adapters for store and campaign
-        $shareFilter->store = new Store();
-        $shareFilter->store->authCode = $obj["store"]["authCode"];
+        if ($obj["store"])
+        {
+            $storeAdapter = new JsonStoreAdapter();
+            $shareFilter->store = $storeAdapter->fromArray($obj["store"]);
+        }
+
+        if ($obj['context'])
+        {
+            $contextAdapter = new JsonShareContextAdapter();
+            $shareFilter->context = $contextAdapter->fromArray($obj['context']);
+        }
 
         return $shareFilter;
     }

@@ -1,6 +1,5 @@
 <?php
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
-include ('../../components/adapters/json/JsonFriendLandingAdapter.php');
 
 $restRequest = RestUtils::processRequest() or die("Campaign format is wrong");
 $action = $restRequest->getCatBeeAction();

@@ -5,7 +5,10 @@ class TribziShareProvider implements IShareProvider
 
     public function share($share)
     {
-        // TODO: Implement share() method.
+        echo '<p>-----------before message----------<p>';
+        echo $share->message;
+        echo '<p>-----------after message----------<p>';
+
         return true;
     }
 

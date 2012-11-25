@@ -342,7 +342,15 @@ class RestRequest
             return $this->request_vars["context"];
         }
         return "<context not defined>";
+    }
 
+    public function getCatBeeCredentials()
+    {
+        if (isset($this->request_vars["app"]))
+        {
+            return $this->request_vars["app"];
+        }
+        return "<Credentials not defined>";
     }
 
     public function getCatBeeAction()

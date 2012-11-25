@@ -1,6 +1,6 @@
 <?php
 
-class Purchase
+class PurchaseItem
 {
     public $itemCode;
     public $price;

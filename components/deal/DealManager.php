@@ -48,7 +48,7 @@ class DealManager implements IDealManager
     {
         try
         {
-            RestLogger::log("aaa", $this->dealDao);
+            RestLogger::log("DealManager:createPendingDeal begin", $this->dealDao);
 
             $leaderDeal = $this->dealDao->getDealByOrder($order);
 
@@ -140,6 +140,9 @@ class DealManager implements IDealManager
     public function shareDeal($share)
     {
         $share->status = Share::$SHARE_STATUS_PENDING;
+
+        $this->fillShareOrderParams($share);
+
         $this->addDealShare($share);
 
         if ($this->shareManager->share($share))
@@ -181,6 +184,17 @@ class DealManager implements IDealManager
             $this->updateDeal($share->deal);
         }
         RestLogger::log('DealManager::updateDealShare end');
+    }
+
+    private function fillShareOrderParams($share)
+    {
+        $deal = $this->getDealById($share->deal->id);
+        $orderParams = $this->storeManager->queryStoreAdapter($share->store, 'orderdetails');
+
+        $orderAdapter = new JsonOrderAdapter();
+        $deal->order = $orderAdapter->fromArray($orderParams);
+
+        $share->deal = $deal;
     }
 }
 

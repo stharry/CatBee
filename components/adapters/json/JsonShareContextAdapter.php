@@ -49,6 +49,10 @@ class JsonShareContextAdapter implements IModelAdapter
             case 3:
                 $contextType = "twitter";
                 break;
+
+            case 1024:
+                $contextType = "tribzi";
+                break;
         }
 
         return array(
@@ -87,6 +91,10 @@ class JsonShareContextAdapter implements IModelAdapter
 
             case "twitter":
                 $shareContext->id = 3;
+                break;
+
+            case "tribzi":
+                $shareContext->id = 1024;
                 break;
 
             default:

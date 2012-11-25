@@ -49,6 +49,41 @@ class PdoShareDao implements IShareDao
 
     public function IsShareTemplateExists($shareTemplate)
     {
-        // TODO: Implement insertCampaignShareTemplate() method.
+        $selectClause = " SELECT id FROM StoreShareTemplate
+          WHERE storeId = {$shareTemplate->store->id}
+            AND campaignId = {$shareTemplate->campaign->id}
+            AND shareType = {$shareTemplate->shareContext->id}";
+
+        $rows = DbManager::selectValues($selectClause);
+
+        if ($rows == null)
+        {
+            RestLogger::log("PdoShareDao::IsShareTemplateExists - not exists");
+            return false;
+        }
+
+        $shareTemplate->id = $rows[0]['id'];
+        return true;
+    }
+
+    public function insertOrUpdateShareTemplate($shareTemplate)
+    {
+        if (!$this->IsShareTemplateExists($shareTemplate))
+        {
+            $this->insertShareTemplate($shareTemplate);
+        }
+        else
+        {
+            $sql = "UPDATE StoreShareTemplate
+                        SET message=:message, body=:body
+                        WHERE id=:id";
+
+            $params = array(
+                ':message' => $shareTemplate->message,
+                ':body' => $shareTemplate->templatePage->context,
+                ':id' => $shareTemplate->id);
+
+            DbManager::updateValues($sql, $params);
+        }
     }
 }

@@ -6,13 +6,14 @@ class JsonShareTemplateAdapter implements IModelAdapter
     private $jsonStoreAdapter;
     private $jsonTemplatePageAdapter;
     private $jsonShareContextAdapter;
+    private $jsonTemplateAdapter;
 
     function __construct()
     {
         $this->jsonStoreAdapter = new JsonStoreAdapter();
         $this->jsonTemplatePageAdapter = new JsonTemplatePageAdapter();
         $this->jsonShareContextAdapter = new JsonShareContextAdapter();
-
+        $this->jsonTemplateAdapter = new JsonTemplateAdapter();
     }
 
     private function singleShareTemplateToArray($shareTemplate)

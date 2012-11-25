@@ -69,4 +69,20 @@ class StoreManager implements IStoreManager
         RestLogger::log('StoreManager::getStoreBranches filter: ', $StoreBranchFilter);
         return $this->branchesDao->getStoreBranches($StoreBranchFilter);
     }
+
+    public function queryStoreAdapter($store, $action)
+    {
+        if (!$this->storeDao->loadStore($store))
+        {
+            RestLogger::log('queryStoreAdapter: Cannot load store');
+            die("Cannot load store");
+        }
+
+        $context = array('act' => $action);
+        $response = RestUtils::SendFreePostRequest($store->url, $context);
+
+        RestLogger::log('StoreManager:queryStoreAdapter after', $response);
+
+        return $response;
+    }
 }

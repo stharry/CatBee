@@ -25,4 +25,12 @@ switch (strtolower($shareProps['act']))
         echo("<script> top.location.href='" . $url . "'</script>");
         exit;
     }
+    case "orderdetails":
+    {
+        $dealProps = json_decode(file_get_contents($GLOBALS['Rest_url'].'/CatBee/adapters/demo/res/demoDeal.json'));
+        $orderProps = $dealProps['context'];
+
+        RestUtils::sendSuccessResponse($orderProps);
+        exit;
+    }
 }

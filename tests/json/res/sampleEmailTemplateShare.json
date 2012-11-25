@@ -1,0 +1,20 @@
+{
+    "sendFrom":"regev147@013.net",
+    "sendTo":"spidernah@gmail.com",
+    "message":"Just a campaign test email, relax bro",
+    "subject":"Test CatBee message",
+    "context":{
+        "type":"tribzi"
+    },
+    "store":{
+        "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+    },
+    "reward":{
+
+        "id":"4"
+    },
+    "deal":{
+        "id":"1"
+    }
+
+}

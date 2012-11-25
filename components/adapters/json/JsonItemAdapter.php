@@ -1,6 +1,6 @@
 <?php
 
-class JsonPurchaseAdapter implements IModelAdapter
+class JsonItemAdapter implements IModelAdapter
 {
 
     public function toArray($obj)
@@ -15,13 +15,13 @@ class JsonPurchaseAdapter implements IModelAdapter
 
     public function fromArray($obj)
     {
-        $purchase = new Purchase();
+        $item = new PurchaseItem();
 
-        $purchase->itemCode = $obj["itemCode"];
-        $purchase->description = $obj["description"];
-        $purchase->price = $obj["price"];
-        $purchase->url = $obj["url"];
+        $item->itemCode = $obj["itemCode"];
+        $item->description = $obj["description"];
+        $item->price = $obj["price"];
+        $item->url = $obj["url"];
 
-        return $purchase;
+        return $item;
     }
 }

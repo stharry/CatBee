@@ -56,6 +56,40 @@
                     {
                         "friendReward":{
                             "description":"Your friends get",
+                            "value":"1",
+                            "type":"coupon",
+                            "code":"ABCD1234_10",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"1",
+                            "type":"coupon",
+                            "code":"ABCD1234_10",
+                            "typeDescription": "% coupon"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"2",
+                            "type":"coupon",
+                            "code":"ABCD1234_10",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"2",
+                            "type":"coupon",
+                            "code":"ABCD1234_10",
+                            "typeDescription": "% coupon"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
                             "value":"15",
                             "type":"coupon",
                             "code":"ABCD1234_15",

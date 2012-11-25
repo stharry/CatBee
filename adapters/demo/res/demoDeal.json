@@ -1,9 +1,9 @@
 {
     "action":"deal",
     "context":{
-        "amount":"76",
+        "amount":"76.00",
         "id":"123",
-        "purchases":[
+        "items":[
             {
                 "itemcode":"1234567890",
                 "url":"http://tribzidemo.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",

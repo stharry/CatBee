@@ -3,7 +3,7 @@
     "context":{
         "amount":"100",
         "id":"234",
-        "purchases":[
+        "items":[
             {
                 "itemcode":"1234567890",
                 "url":"http://tribzidemo.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",

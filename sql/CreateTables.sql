@@ -129,18 +129,6 @@ updateDate datetime DEFAULT NULL,
 PRIMARY KEY (id)
 );
 
-CREATE  TABLE IF NOT EXISTS purchase (
-
-id INT AUTO_INCREMENT ,
-
-product VARCHAR(45) NULL ,
-
-url VARCHAR(45) NULL ,
-
-price DOUBLE NULL ,
-
-PRIMARY KEY (id) );
-
 CREATE  TABLE IF NOT EXISTS ActiveShare (
 id INT AUTO_INCREMENT,
 dealId INT NOT NULL,
