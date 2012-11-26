@@ -8,6 +8,7 @@ class ShareManager implements IShareManager
     private $shareAppDao;
     private $pageAdapter;
     private $dealShareDao;
+    private $landingRewardDao;
     private $predefinedContexts;
 
     private function validateCustomer($customer)
@@ -50,17 +51,17 @@ class ShareManager implements IShareManager
             json_decode($shareTemplate->templatePage->context, true));
     }
 
-    private function getCompatibleTemplateBuilder($shareContext)
+    private function getCompatibleTemplateDecorator($shareContext)
     {
         //todo: make something more solid (like a factory or something else...)
         switch ($shareContext->id)
         {
             case 1:
-                return new HtmlTemplateBuilder();
+                return new HtmlTemplateDecorator();
             case 2:
-                return new TemplateBuilder();
+                return new PlainTextTemplateDecorator();
             case 1024:
-                return new HtmlTemplateBuilder();
+                return new HtmlTemplateDecorator();
             default:
                 die("Cannot find compatible share provider");
         }
@@ -73,9 +74,11 @@ class ShareManager implements IShareManager
 
         $template = $this->createTemplate($shareTemplate);
 
-        $templateBuilder = $this->getCompatibleTemplateBuilder($share->context);
+        $templateDecorator = $this->getCompatibleTemplateDecorator($share->context);
 
-        $share->message = $templateBuilder->buildTemplate($share, $template);
+        $templateBuilder = new TemplateBuilder();
+
+        $share->message = $templateBuilder->buildTemplate($share, $template, $templateDecorator);
 
 //        $share->message = str_replace('[message]', $share->message, $shareTemplate->templatePage->context);
 //        $share->message = str_replace('[link]', $share->link, $share->message);
@@ -121,6 +124,11 @@ class ShareManager implements IShareManager
         //todo: put strategy class here
         if (count($shareTemplates) == 0) die ("There is no any share template for given store");
 
+        $share->sendFrom = $this->loadCustomerByEmail($share->sendFrom);
+        $share->sendTo = $this->loadCustomerByEmail($share->sendTo);
+
+        $this->landingRewardDao->fillLandingRewardById($share->reward);
+
         $this->createMessage($share, $shareTemplates[ 0 ]);
 
     }
@@ -128,6 +136,7 @@ class ShareManager implements IShareManager
     function __construct(
         $storeDao, $shareDao, $customerDao,
         $shareAppDao, $dealShareDao,
+        $landingRewardDao,
         $pageAdapter)
     {
         $this->storeDao = $storeDao;
@@ -135,6 +144,7 @@ class ShareManager implements IShareManager
         $this->customerDao = $customerDao;
         $this->shareAppDao = $shareAppDao;
         $this->dealShareDao = $dealShareDao;
+        $this->landingRewardDao = $landingRewardDao;
         $this->pageAdapter = $pageAdapter;
 
         $this->predefinedContexts =
@@ -301,5 +311,26 @@ class ShareManager implements IShareManager
     public function updateDealShare($share)
     {
         $this->dealShareDao->updateDealShare($share);
+    }
+
+    private function loadCustomerByEmail($email)
+    {
+        $customer = $this->customerDao->loadCustomerByEmail($email);
+
+        if (!$customer)
+        {
+            $customer = new Customer();
+            $customer->email = $email;
+
+            $ids = explode(".", substr($email, 0, strpos($email, "@")));
+            $customer->firstName = $ids[0];
+
+            if (count($ids) > 1)
+            {
+                $customer->lastName = $ids[1];
+            }
+        }
+
+        return $customer;
     }
 }

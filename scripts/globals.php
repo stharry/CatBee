@@ -91,9 +91,10 @@ function catbeeLayout($layout, $layoutfile) {
 }
 
 function dbConnect() {
+
    mysql_connect($GLOBALS["dbhost"], $GLOBALS["dbusername"], $GLOBALS["dbpassword"]) or die('Could not connect: ' . mysql_error());
     //mysql_connect() or die('Could not connect: ' . mysql_error());
-	mysql_select_db($GLOBALS["dbname"]) or die('Could not select database');
+	mysql_select_db($GLOBALS["dbname"]) or die('Could not select database '.$GLOBALS["dbname"]);
 }
 
 dbConnect();

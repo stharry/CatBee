@@ -2,11 +2,8 @@
 
 class TemplateBuilder
 {
-
     private $currentSource;
     private $masterSource;
-    private $currentSection;
-    private $currentField;
 
     protected function getCurrentSource()
     {
@@ -23,57 +20,27 @@ class TemplateBuilder
         return $this->currentField;
     }
 
-    protected function buildTemplateHeader($template)
+    public function buildTemplate($data, $template, $decorator)
     {
-        return "";
+        RestLogger::log("TemplateBuilder::buildTemplate data: ", $data);
 
-    }
-
-    protected function buildTemplateFooter($template)
-    {
-        return "";
-
-    }
-
-    protected function buildSectionHeader()
-    {
-        return "";
-    }
-
-    protected function buildSectionFooter()
-    {
-        return "";
-    }
-
-    protected function buildFieldHeader()
-    {
-        return "";
-    }
-
-    protected function buildFieldFooter()
-    {
-        return "";
-    }
-
-    public function buildTemplate($data, $template)
-    {
         $this->masterSource = $data;
         $this->currentSource = $data;
-        $result = $this->buildTemplateHeader($template);
+        $result = $decorator->decorateTemplateHeader($template);
 
         foreach ($template->sections as $section)
         {
-            $result .= $this->buildTemplateSection($data, $section);
+            $result .= $this->buildTemplateSection($data, $section, $decorator);
         }
 
         $this->currentSource = $data;
-        $result .= $this->buildTemplateFooter($template);
+        $result .= $decorator->decorateTemplateFooter($template);
 
         return $result;
 
     }
 
-    private function buildTemplateSection($data, $section)
+    private function buildTemplateSection($data, $section, $decorator)
     {
         if (!$section->fields || count($section->fields) == 0)
         {
@@ -87,20 +54,19 @@ class TemplateBuilder
             return "";
         }
 
-        $this->currentSection = $section;
         $this->currentSource = $data;
 
-        $result = $this->buildSectionHeader();
+        $result = $decorator->decorateSectionHeader($section);
 
         for ($rowNo = 0; $rowNo < count($source); $rowNo++)
         {
             foreach ($section->fields as $field)
             {
-                $result .= $this->buildSectionField($source[$rowNo], $field);
+                $result .= $this->buildSectionField($source[$rowNo], $field, $decorator);
             }
         }
 
-        $result .= $this->buildSectionFooter();
+        $result .= $decorator->decorateSectionFooter();
 
         return $result;
 
@@ -126,38 +92,55 @@ class TemplateBuilder
         return $tags;
     }
 
-    private function buildSectionField($data, $field)
+    private function buildSectionField($data, $field, $decorator)
     {
-        $this->currentField = $field;
         $this->currentSource = $data;
-
-        $result = $this->buildFieldHeader();
 
         if ($field->source)
         {
-            $fieldValue = $field->source;
-            $tags = $this->extractTags($fieldValue);
+            $fieldValue = $this->parseExpression($field->source, $data);
+        }
+        else
+        {
+            $fieldValue = '';
+        }
 
-            foreach ($tags as $tag)
+        if ($field->linkSource)
+        {
+            $linkValue = $this->parseExpression($field->linkSource, $data);
+        }
+        else
+        {
+            $linkValue = '';
+        }
+
+        $result = $decorator->decorateField($field, $fieldValue, $linkValue);
+
+        return $result;
+    }
+
+    private function parseExpression($source, $data)
+    {
+        $fieldValue = $source;
+        $tags = $this->extractTags($fieldValue);
+
+        RestLogger::log('------parse Expression: ', $source);
+
+        foreach ($tags as $tag)
+        {
+            $value = $this->getSource($data, $tag);
+            if (!$value)
             {
-                $value = $this->getSource($data, $tag);
-                if (!$value)
-                {
-                    $value = $this->getSource($this->masterSource, $tag);
-                }
-                if (!$value)
-                {
-                    $value ='';
-                }
-                $fieldValue = str_replace('['.$tag.']', $value, $fieldValue);
-
+                $value = $this->getSource($this->masterSource, $tag);
             }
-            //todo under construction
-            $result .= $fieldValue;
+            if (!$value)
+            {
+                $value = '';
+            }
+            $fieldValue = str_replace('[' . $tag . ']', $value, $fieldValue);
 
         }
-        $result .= $this->buildFieldFooter();
-        return $result;
+        return $fieldValue;
     }
 
     private function getSource($data, $source)
@@ -175,16 +158,24 @@ class TemplateBuilder
 
         $props = explode(".", $source);
 
+        RestLogger::log('----getSource props', $props);
+        RestLogger::log('------getSource data', $data);
+
         $result = $data;
         foreach ($props as $prop)
         {
+            RestLogger::log('--------getSource ploop', $prop);
             $result = $result->$prop;
+            RestLogger::log('--------getSource ploop res', $result);
             if (!$result)
             {
                 return null;
             }
         }
+
+        RestLogger::log('--------getSource result', $result);
         return $result;
+
     }
 
 }

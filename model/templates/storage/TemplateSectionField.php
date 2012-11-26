@@ -8,6 +8,8 @@ class TemplateSectionField
     }
 
     public $source;
+    public $linkSource;
     public $style;
     public $type;
+
 }

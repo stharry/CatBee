@@ -24,6 +24,7 @@ $dealManager = new DealManager($campaignManager,
     new ShareManager(new PdoStoreDao(), new PdoShareDao(),
         new PdoCustomerDao(), new PdoShareApplicationDao(),
         new PdoDealShareDao(),
+        new PdoLeaderLandingRewardDao(),
         new HtmlPageAdapter()),
     new PdoDealDao(),new LeadManager(new PdoLeadDao()));
 

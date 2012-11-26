@@ -15,7 +15,7 @@ class EmailShareProvider implements IShareProvider
         foreach ($addresses as $singleAddress)
         {
             $result .= substr($singleAddress, 0, strpos($singleAddress, '@'))
-                .' '.'<'.$singleAddress.'>,';
+                . ' ' . '<' . $singleAddress . '>,';
         }
         return $result;
     }
@@ -23,15 +23,14 @@ class EmailShareProvider implements IShareProvider
     public function share($share)
     {
         ob_start();
-
         echo $share->message;
-
         $body = ob_get_contents();
-
         ob_end_clean();
 
-        $headers = array ('From' => $this->validateEmailAddress($share->sendFrom),
-            'To' => $this->validateEmailAddress($share->sendTo),
+//        $body = $share->message;
+
+        $headers = array('From' => $this->validateEmailAddress($share->sendFrom->email),
+            'To' => $this->validateEmailAddress($share->sendTo->email),
             'Subject' => $share->subject);
 
 
@@ -42,26 +41,38 @@ class EmailShareProvider implements IShareProvider
         $headers = $mime->headers($headers);
 
         $smtp = Mail::factory('smtp',
-            array ('host' => $GLOBALS["smtphost"],
+            array('host' => $GLOBALS[ "smtphost" ],
                 'auth' => true,
-                'username' => $GLOBALS["smtpuser"],
-                'password' => $GLOBALS["smtppass"],
-                'port' => $GLOBALS['smtpport']));
+                'username' => $GLOBALS[ "smtpuser" ],
+                'password' => $GLOBALS[ "smtppass" ],
+                'port' => $GLOBALS[ 'smtpport' ]));
 
         RestLogger::log('email headers: ', $headers);
-        RestLogger::log('email body: ', $body);
+        RestLogger::log('email body: ', htmlentities($body));
 
-        $mail = $smtp->send($share->sendTo, $headers, $body);
-
-        if (PEAR::isError($mail))
+        try
         {
-            RestLogger::log("email sending failed ".$mail);
-            return false;
+            $mail = $smtp->send($share->sendTo->email, $headers, $body);
+
+            RestLogger::log("Email after", $mail);
+
+            if (PEAR::isError($mail))
+            {
+                RestLogger::log("email sending failed " . $mail);
+                return false;
+            }
+            else
+            {
+                RestLogger::log("email sent");
+                return true;
+            }
+
         }
-        else
+
+        catch (Exception $e)
         {
-            RestLogger::log("email sent");
-            return true;
+            RestLogger::log("Email sending error: " . $e->getMessage());
+            return false;
         }
 
     }

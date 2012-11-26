@@ -23,6 +23,7 @@ class JsonItemsAdapter implements IModelAdapter
 
         foreach ($obj as $itemProps)
         {
+            RestLogger::log("JsonItemsAdapter::fromArray one item", $itemProps);
             array_push($items, $itemAdapter->fromArray($itemProps));
         }
 

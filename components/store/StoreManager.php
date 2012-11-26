@@ -15,6 +15,7 @@ class StoreManager implements IStoreManager
     public function registerStore($store)
     {
         $store->url = CatBeeExpressions::validateString($store->url);
+        $store->logoUrl = CatBeeExpressions::validateString($store->logoUrl);
         if (!$this->storeDao->isStoreExists($store))
         {
             $this->storeDao->insertStore($store);

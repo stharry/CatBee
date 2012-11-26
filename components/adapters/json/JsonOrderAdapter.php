@@ -34,6 +34,8 @@ class JsonOrderAdapter implements IModelAdapter
     public function fromArray($obj)
     {
 
+        RestLogger::log("JsonOrderAdapter::fromArray ", $obj);
+
         $order = new Order();
 
         $order->amount = $obj["amount"];

@@ -3,20 +3,19 @@
 class JsonTemplateAdapter implements IModelAdapter
 {
 
-    private function styleFromArray($style, $obj)
+    private function propsFromArray(&$props, $obj)
     {
-        foreach ($obj as $styleElemName => $styleElemValue)
+        foreach ($obj as $propName => $propValue)
         {
-            $style->elements[$styleElemName] = $styleElemValue;
+            $props[$propName] = $propValue;
         }
-        return $style;
     }
 
     public function toArray($obj)
     {
         return array(
-            "width" => $obj->width,
-            "style" => $this->styleToArray($obj->style),
+            "attrs" => $this->propsToArray($obj->style->attributes),
+            "style" => $this->propsToArray($obj->style->elements),
             "sections" => $this->sectionsToArray($obj->sections));
     }
 
@@ -24,8 +23,8 @@ class JsonTemplateAdapter implements IModelAdapter
     {
         $template = new Template();
 
-        $template->width = $obj['width'];
-        $this->styleFromArray($template->style, $obj["style"]);
+        $this->propsFromArray($template->style->elements, $obj["style"]);
+        $this->propsFromArray($template->style->attributes, $obj["attrs"]);
 
         foreach ($obj['sections'] as $section)
         {
@@ -37,7 +36,8 @@ class JsonTemplateAdapter implements IModelAdapter
 
     private function sectionFromArray($section, $obj)
     {
-        $this->styleFromArray($section->style, $obj['style']);
+        $this->propsFromArray($section->style->attributes, $obj['attrs']);
+        $this->propsFromArray($section->style->elements, $obj['style']);
         $section->source = $obj['source'];
         $section->condition = $obj['condition'];
 
@@ -49,21 +49,22 @@ class JsonTemplateAdapter implements IModelAdapter
 
     private function fieldFromArray($field, $obj)
     {
-        $this->styleFromArray($field->style, $obj['style']);
+        $this->propsFromArray($field->style->elements, $obj['style']);
+        $this->propsFromArray($field->style->attributes, $obj['attrs']);
         $field->source = $obj['source'];
+        $field->linkSource = $obj['linkSource'];
         $field->type = $obj['type'];
 
     }
 
-    private function styleToArray($style)
+    private function propsToArray($props)
     {
         $result = array();
 
-        foreach ($style->elements as $elemName => $elemValue)
+        foreach ($props as $propName => $propValue)
         {
-            $result[$elemName] = $elemValue;
+            $result[$propName] = $propName;
         }
-
         return $result;
     }
 
@@ -82,7 +83,8 @@ class JsonTemplateAdapter implements IModelAdapter
     private function sectionToArray($section)
     {
         $result = array(
-            "style" => $this->styleToArray($section->style),
+            "attrs" => $this->propsToArray($section->style->attributes),
+            "style" => $this->propsToArray($section->style->elements),
             "source" => $section->source,
             "condition" => $section->condition,
             "fields" => $this->fieldsToArray($section->fields)
@@ -98,7 +100,8 @@ class JsonTemplateAdapter implements IModelAdapter
         foreach ($fields as $field)
         {
             $fieldProps = array(
-                "style" => $this->styleToArray($field->style),
+                "attrs" => $this->propsToArray($field->style->attributes),
+                "style" => $this->propsToArray($field->style->elements),
                 "source" => $field->source,
                 "type" => $field->type
             );

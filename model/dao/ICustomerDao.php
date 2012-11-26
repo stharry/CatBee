@@ -9,4 +9,6 @@ interface ICustomerDao
     public function updateCustomer($customer);
 
     public function loadCustomerById($id);
+
+    public function loadCustomerByEmail($customer);
 }

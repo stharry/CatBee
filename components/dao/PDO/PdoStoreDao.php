@@ -18,8 +18,9 @@ class PdoStoreDao implements IStoreDao
 
     public function insertStore($store)
     {
-        $names = array("authCode", "description", "url");
-        $values = array($store->authCode,$store->description, $store->url);
+        $names = array("authCode", "description", "url", "logoUrl");
+        $values = array($store->authCode,$store->description,
+            $store->url, $store->logoUrl);
 
         $store->id = DbManager::insertAndReturnId("store", $names, $values);
     }
@@ -31,7 +32,7 @@ class PdoStoreDao implements IStoreDao
 
     public function loadStore($store)
     {
-        $rows = DbManager::selectValues("SELECT id, description, url FROM store  WHERE authCode=?",
+        $rows = DbManager::selectValues("SELECT id, description, url, logoUrl FROM store  WHERE authCode=?",
             array($store->authCode => PDO::PARAM_STR));
 
         if (!isset($rows)) {
@@ -40,6 +41,7 @@ class PdoStoreDao implements IStoreDao
         $store->id = $rows[0]["id"];
         $store->description = $rows[0]["description"];
         $store->url = $rows[0]["url"];
+        $store->logoUrl = $rows[0]["logoUrl"];
 
         return true;
     }

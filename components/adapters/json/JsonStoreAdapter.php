@@ -8,7 +8,8 @@ class JsonStoreAdapter implements IModelAdapter
         return
             array("authCode" => $obj->authCode,
                 "description" => $obj->description,
-                "url" => $obj->url);
+                "url" => $obj->url,
+                'logoUrl' => $obj->logoUrl);
     }
 
     public function fromArray($obj)
@@ -20,6 +21,7 @@ class JsonStoreAdapter implements IModelAdapter
             $store->authCode = $obj[ "authCode" ];
             $store->description = $obj[ "description" ];
             $store->url = $obj[ "url" ];
+            $store->logoUrl = $obj[ "logoUrl" ];
         }
         else
         {

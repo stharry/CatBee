@@ -192,7 +192,9 @@ class DealManager implements IDealManager
         $orderParams = $this->storeManager->queryStoreAdapter($share->store, 'orderdetails');
 
         $orderAdapter = new JsonOrderAdapter();
-        $deal->order = $orderAdapter->fromArray($orderParams);
+        $deal->order = $orderAdapter->fromArray(json_decode($orderParams, true));
+
+        RestLogger::log('DealManager::fillShareOrderParams order', $deal->order);
 
         $share->deal = $deal;
     }

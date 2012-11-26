@@ -48,4 +48,22 @@ class PdoCustomerDao implements ICustomerDao
 
         return $customer;
     }
+
+    public function loadCustomerByEmail($email)
+    {
+        $rows = DbManager::selectValues("SELECT firstName, lastName, nickName, id
+            FROM customers WHERE email =?",
+            array($email => PDO::PARAM_INT));
+
+        if (!isset($rows)) {
+            return false;
+        }
+
+        $customer = new Customer();
+        $customer->email = $email;
+        $customer->id = $rows[0]["id"];
+        $customer->firstName = $rows[0]["firstName"];
+        $customer->lastName = $rows[0]["lastName"];
+        $customer->nickName = $rows[0]["nickName"];
+    }
 }

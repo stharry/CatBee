@@ -10,15 +10,53 @@
         },
         "templatePage":{
             "context":{
+                "attrs":{
+                    "width":"600"
+                },
                 "style":{
                     "border-collapse":"collapse",
                     "mso-table-lspace":"0pt",
                     "mso-table-rspace":"0pt",
                     "background-color":"#F4F4F4"
                 },
-                "width":"600",
+
                 "sections":[
                     {
+                        "style":{
+                            "padding":"9px",
+                            "border-collapse":"collapse",
+                            "mso-table-lspace":"0pt",
+                            "mso-table-rspace":"0pt"
+                        },
+                        "source":"1",
+                        "fields":[
+                            {
+                                "attrs":{
+                                    "width":"564",
+                                    "align":"left"
+
+                                },
+                                "style":{
+                                    "max-width":"653px",
+                                    "padding-bottom":"0",
+                                    "display":"inline !important",
+                                    "vertical-align":"bottom",
+                                    "border":"0",
+                                    "height":"auto",
+                                    "line-height":"100%",
+                                    "outline":"none",
+                                    "text-decoration":"none"
+                                },
+                                "source":"[store.logoUrl]",
+                                "type":"image"
+
+
+                            }
+                        ]
+
+                    },
+                    {
+
                         "style":{
                             "padding-top":"9px",
                             "padding-right":"18px",
@@ -32,27 +70,226 @@
                             "font-size":"14px",
                             "line-height":"150%",
                             "text-align":"left"
+
                         },
                         "source":"1",
                         "fields":[
-                            {
-                                "style":{
-                                },
-                                "source":"[store.logo]",
-                                "type":"image"
 
+                            {
+                                "attrs":{},
+                                "style":{},
+                                "source":"<br>Hi, [sendTo.firstName] <br><br>",
+                                "type":null
                             },
                             {
-                                "style":{
-                                },
-                                "source":"Hello",
+                                "attrs":{},
+                                "style":{},
+                                "source":"I just bought something from [store.description] and they gave me a special friends only gift to share with you. <br>",
                                 "type":null
                             }
                         ]
+                    },
+                    {
+                        "attrs":{
+                            "valign": "top"
+                        },
+
+                        "style":{
+                            "background-color": "#D6EAFF",
+                            "border": "1px solid #999999",
+                            "border-collapse": "collapse"
+                        },
+                        "source":"1",
+                        "fields":[
+
+                            {
+                                "attrs":{},
+                                "style":{
+                                    "text-align": "center",
+                                    "display": "block",
+                                    "font-family": "Helvetica",
+                                    "font-size": "14px",
+                                    "font-style": "normal",
+                                    "font-weight": "bold",
+                                    "line-height": "100%",
+                                    "letter-spacing": "normal",
+                                    "margin": "0",
+                                    "color": "#202020 !important"
+
+
+                                },
+                                "source":"<br><br>Use the following discount code at forfortoys.com To Get [reward.friendReward.value] [reward.friendReward.typeDescription]! <br><br>",
+                                "type":null
+                            },
+                            {
+                                "attrs":{},
+                                "style":{
+                                    "text-align": "center",
+                                    "display": "block",
+                                    "font-family": "Helvetica",
+                                    "font-size": "32px",
+                                    "font-style": "normal",
+                                    "font-weight": "bold",
+                                    "line-height": "100%",
+                                    "letter-spacing": "normal",
+                                    "margin": "0px 200px 20px 200px",
+                                    "color": "#696969 !important",
+                                    "background-color": "#FFFFE0"
+                                },
+                                "source":"[reward.friendReward.code]",
+                                "type":null
+                            }
+                        ]
+                    },
+                    {
+
+                        "style":{
+                            "padding-top":"9px",
+                            "padding-right":"18px",
+                            "padding-bottom":"9px",
+                            "padding-left":"18px",
+                            "border-collapse":"collapse",
+                            "mso-table-lspace":"0pt",
+                            "mso-table-rspace":"0pt",
+                            "color":"#505050",
+                            "font-family":"Helvetica",
+                            "font-size":"14px",
+                            "line-height":"150%",
+                            "text-align":"left",
+                            "height": "100px"
+
+                        },
+                        "source":"1",
+                        "fields":[
+
+                            {
+                                "attrs":{},
+                                "style":{
+                                    "font-weight": "bold",
+                                    "letter-spacing": "-0.5px",
+                                    "line-height": "100%",
+                                    "text-align": "center",
+                                    "text-decoration": "initial",
+                                    "color": "#FFFFFF"
+                                }
+                            }
+                        ]
+                    },
+
+                    {
+
+                        "style":{
+                            "padding-top":"9px",
+                            "padding-right":"18px",
+                            "padding-bottom":"9px",
+                            "padding-left":"18px",
+                            "border-collapse":"collapse",
+                            "mso-table-lspace":"0pt",
+                            "mso-table-rspace":"0pt",
+                            "color":"#505050",
+                            "font-family":"Helvetica",
+                            "font-size":"14px",
+                            "line-height":"150%",
+                            "text-align":"left",
+                            "height": "100px"
+
+                        },
+                        "source":"1",
+                        "fields":[
+
+                            {
+                                "attrs":{},
+                                "style":{
+                                    "font-weight": "bold",
+                                    "letter-spacing": "-0.5px",
+                                    "line-height": "100%",
+                                    "text-align": "center",
+                                    "text-decoration":
+                                            "initial","color": "#FFFFFF",
+                                    "font-family": "Arial",
+                                    "font-size": "16px",
+                                    "margin": "0px 200px 50px 200px",
+                                    "padding": "15px","word-wrap": "break-word !important",
+                                    "background-color": "#DAA520",
+                                    "border-radius": "5px 5px 5px 5px;"
+                                },
+                                "source":"Enjoy Your Gift",
+                                "linkSource":"[link]",
+                                "type":"button"
+                            }
+                        ]
+                    },
+                    {
+
+                        "style":{
+                            "padding-top":"9px",
+                            "padding-right":"18px",
+                            "padding-bottom":"9px",
+                            "padding-left":"18px",
+                            "border-collapse":"collapse",
+                            "mso-table-lspace":"0pt",
+                            "mso-table-rspace":"0pt",
+                            "color":"#505050",
+                            "font-family":"Helvetica",
+                            "font-size":"14px",
+                            "line-height":"150%",
+                            "text-align":"left",
+                            "height": "100px"
+
+                        },
+                        "source":"deal.order.items",
+                        "fields":[
+
+                            {
+                                "attrs":{},
+                                "style":{
+                                },
+                                "source":"[url]",
+                                "type":"image"
+                            }
+                        ]
+                    },
+                    {
+
+                        "style":{
+                            "padding-top":"9px",
+                            "padding-right":"18px",
+                            "padding-bottom":"9px",
+                            "padding-left":"18px",
+                            "border-collapse":"collapse",
+                            "mso-table-lspace":"0pt",
+                            "mso-table-rspace":"0pt",
+                            "color":"#505050",
+                            "font-family":"Helvetica",
+                            "font-size":"10px",
+                            "line-height":"150%",
+                            "text-align":"left",
+                            "height": "100px"
+
+                        },
+                        "source":"1",
+                        "fields":[
+
+                            {
+                                "attrs":{},
+                                "style":{
+                                },
+                                "source":"Powered by:"
+                            },
+                            {
+                                "attrs":{},
+                                "style":{
+                                },
+                                "source":" Tribzi",
+                                "linkSource":"www.Tribzi.com",
+                                "type":"button"
+                            }
+                        ]
                     }
+
                 ]
             },
-            "type":"file"
+            "type":"template"
         }
     }
 }
