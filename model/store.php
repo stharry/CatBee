@@ -6,4 +6,5 @@ class Store
     public $authCode;
     public $description;
     public $url;
+    public $logoUrl;
 }
