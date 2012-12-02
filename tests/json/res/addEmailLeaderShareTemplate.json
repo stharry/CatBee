@@ -6,7 +6,7 @@
             "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
         },
         "shareContext":{
-            "type":"tribzi"
+            "type":"email"
         },
         "target": {"name":"leader"},
         "templatePage":{

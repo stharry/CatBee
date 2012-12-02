@@ -9,7 +9,7 @@ class JsonShareTargetAdapter implements IModelAdapter
 
     public function fromArray($obj)
     {
-        if (isset($obj))
+        if (isset($obj) && isset($obj[ 'name' ]))
         {
             return new ShareTarget($obj[ 'name' ]);
         }

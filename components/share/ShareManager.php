@@ -79,13 +79,6 @@ class ShareManager implements IShareManager
         $templateBuilder = new TemplateBuilder();
 
         $share->message = $templateBuilder->buildTemplate($share, $template, $templateDecorator);
-
-//        $share->message = str_replace('[message]', $share->message, $shareTemplate->templatePage->context);
-//        $share->message = str_replace('[link]', $share->link, $share->message);
-//        $share->message = str_replace('[reward.value]', $share->reward->value, $share->message);
-//        $share->message = str_replace('[reward.type]', $share->reward->type, $share->message);
-//        $share->message = str_replace('[reward.typeDescription]', $share->reward->typeDescription, $share->message);
-
     }
 
     private function getCompatibleShareProvider($shareContext)
@@ -125,8 +118,8 @@ class ShareManager implements IShareManager
         //todo: put strategy class here
         if (count($shareTemplates) == 0) die ("There is no any share template for given store");
 
-        $share->sendFrom = $this->loadCustomerByEmail($share->sendFrom);
-        $share->sendTo = $this->loadCustomerByEmail($share->sendTo);
+        $this->loadCustomerByEmail($share->sendFrom);
+        $this->loadCustomerByEmail($share->sendTo);
 
         $this->landingRewardDao->fillLandingRewardById($share->reward);
 
@@ -154,11 +147,34 @@ class ShareManager implements IShareManager
 
     public function share($share)
     {
-        $this->fillShareProps($share);
+        try
+        {
+            $shareProvider = $this->getCompatibleShareProvider($share->context);
 
-        $shareProvider = $this->getCompatibleShareProvider($share->context);
+            $shareToFriends = $share->sendTo;
 
-        return $shareProvider->share($share);
+            foreach ($shareToFriends as $friend)
+            {
+                RestLogger::log('ShareManager::sendTo ', $friend);
+                RestLogger::log('ShareManager::sendFrom ', $share->sendFrom);
+
+                $share->sendTo = $friend;
+
+                $this->fillShareProps($share);
+
+                $shareProvider->share($share);
+
+                RestLogger::log('ShareManager::sendTo Ok');
+            }
+            $share->sendTo = $shareToFriends;
+
+            return true;
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log('ERROR: ', $e->getMessage());
+            return false;
+        }
     }
 
     public function setShareTemplate($shareTemplate)
@@ -314,24 +330,12 @@ class ShareManager implements IShareManager
         $this->dealShareDao->updateDealShare($share);
     }
 
-    private function loadCustomerByEmail($email)
+    private function loadCustomerByEmail($customer)
     {
-        $customer = $this->customerDao->loadCustomerByEmail($email);
 
-        if (!$customer)
+        if ($customer->id <= 0)
         {
-            $customer = new Customer();
-            $customer->email = $email;
-
-            $ids = explode(".", substr($email, 0, strpos($email, "@")));
-            $customer->firstName = $ids[0];
-
-            if (count($ids) > 1)
-            {
-                $customer->lastName = $ids[1];
-            }
+            $this->customerDao->loadCustomerByEmail($customer);
         }
-
-        return $customer;
     }
 }

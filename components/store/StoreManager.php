@@ -35,6 +35,7 @@ class StoreManager implements IStoreManager
         foreach ($branches as $branch)
         {
             $branch->redirectUrl = CatBeeExpressions::validateString($branch->redirectUrl);
+            $branch->logoUrl = CatBeeExpressions::validateString($branch->logoUrl);
             $this->branchesDao->AddStoreBranch($store, $branch);
         }
 

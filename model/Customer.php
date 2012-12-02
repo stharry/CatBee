@@ -2,6 +2,11 @@
 
 class Customer
 {
+    function __construct($email = '')
+    {
+        $this->email = $email;
+    }
+
     public $id;
     public $email;
     public $firstName;

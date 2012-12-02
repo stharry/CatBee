@@ -11,9 +11,7 @@ includeTest('recreateDbTest.php');
 includeTest('registerStoreBranches.php');
 includeTest('addFacebookShareApplication.php');
 includeTest('pushCampaign.php');
-includeTest('addStoreEmailShareTemplate.php');
-includeTest('addStoreFacebookShareTemplate.php');
-includeTest('addStoreTribZiShareTemplate.php');
+includeTest('addStoreShareTemplates.php');
 
 includeTest('pushDeal.php');
 includeTest('shareStoreShareTemplate.php');

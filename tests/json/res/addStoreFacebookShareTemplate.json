@@ -10,17 +10,15 @@
         "shareContext":{
             "type": "facebook"
         },
-        "target": "friend",
+        "target": {"name":"friend"},
         "templatePage": {
             "context":{
-                "sections":[
+                "fields":[
                     {
-                        "source":"1",
-                        "fields":[
-                            {
-                                "source":"This is Fun for toys store. Click on link above to join it with reward of [reward.friendReward.value] [reward.friendReward.typeDescription]"
-                            }
-                        ]
+                        "source":"This is Fun for toys store. Click on link above to join it with reward of [reward.friendReward.value] [reward.friendReward.typeDescription]",
+                        "type": "text",
+                        "name": "div",
+                        "loop": "1"
                     }
                 ]
             },

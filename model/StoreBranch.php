@@ -6,4 +6,6 @@ class StoreBranch
     public $shopName;
     public $shopId;
     public $redirectUrl;
+    public $logoUrl;
+    public $email;
 }

@@ -16,13 +16,25 @@ class JsonShareAdapter implements IModelAdapter
 
     }
 
+    private function sentToToArray($sendTo)
+    {
+        $result = '';
+
+        foreach ($sendTo as $customer)
+        {
+            $result .= $customer->email.',';
+
+        }
+        return $result;
+    }
+
     public function toArray($obj)
     {
         return array(
             'id' => $obj->id,
             'status' => $obj->status,
-            'sendFrom' => $obj->sendFrom,
-            'sendTo' => $obj->sendTo,
+            'sendFrom' => $obj->sendFrom->email,
+            'sendTo' => $this->sentToToArray($obj->sendTo),
             'message' => $obj->message,
             'link' => $obj->link,
             'subject' => $obj->subject,
@@ -32,14 +44,27 @@ class JsonShareAdapter implements IModelAdapter
         );
     }
 
+    private function sentToFromArray($sendTo)
+    {
+        $result = array();
+
+        foreach (explode(',', $sendTo) as $email)
+        {
+            $customer = new Customer($email);
+
+            array_push($result, $customer);
+        }
+        return $result;
+    }
+
     public function fromArray($obj)
     {
         $share = new Share();
 
         $share->id = $obj['id'];
         $share->status = $obj['status'];
-        $share->sendFrom = $obj["sendFrom"];
-        $share->sendTo = $obj["sendTo"];
+        $share->sendFrom = new Customer($obj["sendFrom"]);
+        $share->sendTo = $this->sentToFromArray($obj["sendTo"]);
         $share->message = $obj["message"];
         $share->link = $obj["link"];
         $share->subject = $obj["subject"];

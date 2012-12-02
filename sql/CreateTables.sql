@@ -50,6 +50,8 @@ storeId INT NOT NULL ,
 shopId INT NOT NULL ,
 shopName VARCHAR(50) NOT NULL ,
 url VARCHAR(500) NULL ,
+logoUrl VARCHAR(500) NULL ,
+email VARCHAR(50) NOT NULL,
 PRIMARY KEY (id) );
 
 
@@ -154,9 +156,9 @@ CREATE  TABLE IF NOT EXISTS StoreShareTemplate (
 
     targetId INT NOT NULL,
 
-    message VARCHAR(200),
+    message VARCHAR(200) NULL,
 
-	body BLOB NULL ,
+	body TEXT NULL ,
 
 PRIMARY KEY (id) );
 

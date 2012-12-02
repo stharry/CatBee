@@ -7,10 +7,12 @@ class PdoShareDao implements IShareDao
     {
         $rows = DbManager::selectValues("SELECT id, storeId, campaignId, shareType, message, body, targetId
                   FROM StoreShareTemplate
-                    WHERE (storeId = {$shareFilter->store->id} OR storeId =-1)
+                    WHERE
+                    (storeId = {$shareFilter->store->id})
                       AND
-                       (shareType = {$shareFilter->context->id} OR shareType =-1)
-                       AND (target = {$shareFilter->targetId} OR target = 0)");
+                       (shareType = {$shareFilter->context->id})
+                       AND
+                       (targetId = {$shareFilter->targetId})");
 
         $shareTemplates = array();
 
@@ -40,12 +42,18 @@ class PdoShareDao implements IShareDao
 
     public function insertShareTemplate($shareTemplate)
     {
-        $names = array("storeId", "campaignId", "shareType", "message", 'body', 'targetId');
-        $values = array($shareTemplate->store->id, $shareTemplate->campaign->id,
+
+        $names = array('storeId', "campaignId", "shareType", "message",
+                        'body',
+                        'targetId');
+
+        $values = array($shareTemplate->store->id,
+                        $shareTemplate->campaign->id,
                         $shareTemplate->shareContext->id,
                         $shareTemplate->message,
                         $shareTemplate->templatePage->context,
-                        $shareTemplate->target);
+                        $shareTemplate->target->id
+        );
 
         $shareTemplate->id = DbManager::insertAndReturnId("StoreShareTemplate", $names, $values);
     }
@@ -55,7 +63,8 @@ class PdoShareDao implements IShareDao
         $selectClause = " SELECT id FROM StoreShareTemplate
           WHERE storeId = {$shareTemplate->store->id}
             AND campaignId = {$shareTemplate->campaign->id}
-            AND shareType = {$shareTemplate->shareContext->id}";
+            AND shareType = {$shareTemplate->shareContext->id}
+            AND targetId = {$shareTemplate->target->id}";
 
         $rows = DbManager::selectValues($selectClause);
 

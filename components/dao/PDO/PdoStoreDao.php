@@ -19,8 +19,11 @@ class PdoStoreDao implements IStoreDao
     public function insertStore($store)
     {
         $names = array("authCode", "description", "url", "logoUrl");
-        $values = array($store->authCode,$store->description,
-            $store->url, $store->logoUrl);
+        $values = array(
+            $store->authCode,
+            $store->description,
+            $store->url,
+            $store->logoUrl);
 
         $store->id = DbManager::insertAndReturnId("store", $names, $values);
     }

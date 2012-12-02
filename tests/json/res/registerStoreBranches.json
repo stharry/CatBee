@@ -11,7 +11,9 @@
         "branches":[
             {
                 "shopId":"1",
-                "shopName": "Fan Toys store"
+                "shopName": "Fan Toys store",
+                "logoUrl": "{Rest_url}/CatBee/adapters/demo/res/Logo.jpg",
+                "email": "admin@FanForToys.com"
             }
         ]
     }

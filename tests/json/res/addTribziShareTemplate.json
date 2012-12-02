@@ -8,7 +8,7 @@
         "shareContext":{
             "type":"tribzi"
         },
-        "target": "friend",
+        "target": {"name":"friend"},
         "templatePage":{
             "context":{
                 "fields": [

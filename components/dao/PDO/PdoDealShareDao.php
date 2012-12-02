@@ -8,10 +8,12 @@ class PdoDealShareDao implements IDealShareDao
         $names = array("dealId", "shareType", 'value',
             'shareDate', 'status', 'landRewardId');
 
+        $sendTo = $this->unionAllSendTo($share->sendTo);
+
         $values = array(
             $share->deal->id,
             $share->context->id,
-            $share->sendTo,
+            $sendTo,
             date("Y-m-d h:i:s"),
             $share->status,
             $share->reward->id);
@@ -21,12 +23,12 @@ class PdoDealShareDao implements IDealShareDao
 
     public function updateDealShare($share)
     {
-        $update = "UPDATE activeShare SET status:=status, value:=value
-                    WHERE id:=id";
-        $params = array(
-            ':=status' => $share->status,
-            ':=value' => $share->sendTo,
-            ':=id' => $share->id);
+        $value = $this->unionAllSendTo($share->sendTo);
+
+        $update = "UPDATE activeShare
+          SET status={$share->status}, value='{$value}'
+                    WHERE id={$share->id}";
+        $params = array();
 
         DbManager::updateValues($update, $params);
     }
@@ -56,10 +58,33 @@ class PdoDealShareDao implements IDealShareDao
             $share->reward = new LandingReward();
             $share->reward->id = $rows[ 0 ][ 'landRewardId' ];
 
-            $share->sentTo = $rows[ 0 ][ 'value' ];
+            $share->sentTo = $this->value2Customers($rows[ 0 ][ 'value' ]);
         } catch (Exception $e)
         {
             RestLogger::log('Exception', $e->getMessage());
         }
+    }
+
+    private function value2Customers($value)
+    {
+        $customers = array();
+
+        foreach (explode(',', $value) as $email)
+        {
+            $customer = new Customer($email);
+            array_push($customers, $customer);
+        }
+        return $customers;
+    }
+
+    private function unionAllSendTo($sendTo)
+    {
+        $result = '';
+
+        foreach ($sendTo as $customer)
+        {
+            $result .= $customer->email.',';
+        }
+        return $result;
     }
 }

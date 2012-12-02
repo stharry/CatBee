@@ -146,13 +146,13 @@ class DealManager implements IDealManager
         $this->addDealShare($share);
 
         $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_FRIEND);
-        if ($this->shareManager->share($share))
+        if ($this->shareToFriends($share))
         {
             $share->status = Share::$SHARE_STATUS_SHARED;
             $this->updateDealShare($share);
 
             $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_LEADER_ON_SHARE);
-            $this->shareManager->share($share);
+            $this->shareToLeader($share);
 
             return true;
         }
@@ -199,9 +199,36 @@ class DealManager implements IDealManager
         $orderAdapter = new JsonOrderAdapter();
         $deal->order = $orderAdapter->fromArray(json_decode($orderParams, true));
 
+        $this->storeManager->validateBranch($deal->order->store, $deal->order->branch);
+
         RestLogger::log('DealManager::fillShareOrderParams order', $deal->order);
 
         $share->deal = $deal;
+    }
+
+    private function shareToFriends($share)
+    {
+        return $this->shareManager->share($share);
+    }
+
+    private function shareToLeader($share)
+    {
+        RestLogger::log('DealManager::shareToLeader begin');
+        $from = $share->sendFrom;
+        $to = $share->sendTo;
+
+        $share->sendTo = array($share->sendFrom);
+        $share->sendFrom = new Customer($share->deal->order->branch->email);
+
+        RestLogger::log('branch is', $share->deal->order->branch);
+
+        $result = $this->shareManager->share($share);
+
+        $share->sendTo = $to;
+        $share->sendFrom = $from;
+
+        RestLogger::log('DealManager::shareToLeader end', $result);
+        return $result;
     }
 }
 
