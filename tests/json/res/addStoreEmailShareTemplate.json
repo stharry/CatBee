@@ -8,6 +8,7 @@
         "shareContext":{
             "type":"email"
         },
+        "target": "friend",
         "templatePage":{
             "context":{
                 "attrs":{

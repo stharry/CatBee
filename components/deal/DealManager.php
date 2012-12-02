@@ -145,10 +145,15 @@ class DealManager implements IDealManager
 
         $this->addDealShare($share);
 
+        $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_FRIEND);
         if ($this->shareManager->share($share))
         {
             $share->status = Share::$SHARE_STATUS_SHARED;
             $this->updateDealShare($share);
+
+            $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_LEADER_ON_SHARE);
+            $this->shareManager->share($share);
+
             return true;
         }
         else

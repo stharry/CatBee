@@ -118,6 +118,7 @@ class ShareManager implements IShareManager
         $shareFilter->store = $share->store;
         $shareFilter->campaign = $share->campaign;
         $shareFilter->context = $share->context;
+        $shareFilter->targetId = $share->target->id;
 
         $shareTemplates = $this->getShareTemplates($shareFilter);
 

@@ -43,34 +43,24 @@ class HtmlTemplateDecorator implements ITemplateDecorator
 
     public function decorateField($field, $value, $link)
     {
-        switch ($field->type)
-        {
-            case 'image':
-                return "<img".$this->allStyle($field->style)." src=\"".$value."\">";
-
-            case 'button':
-                return "<a".$this->allStyle($field->style)." href=\"".$link."\">".$value."</a>";
-
-            default:
-                return "<span".$this->allStyle($field->style).">".$value."</span>";
-        }
+        return '';
     }
 
     public function decorateSectionHeader($section)
     {
-        return "<tr><td".$this->allStyle($section->style).">";
+        return "<tr><td".$this->allStyle($section->style).">\n";
     }
 
     public function decorateSectionFooter($section)
     {
-        return "</td></tr>";
+        return "</td></tr>\n";
     }
 
     public function decorateTemplateHeader($template)
     {
         $result = "<html><head></head><body>";
         $result .= "<table id=\"template\""
-            .$this->allStyle($template->style).">";
+            .$this->allStyle($template->style).">\n";
 
         return $result;
     }
@@ -78,5 +68,59 @@ class HtmlTemplateDecorator implements ITemplateDecorator
     public function decorateTemplateFooter($template)
     {
         return "</table></body></html>";
+    }
+
+    public function decorateFieldHeader($field, $value, $link)
+    {
+        switch ($field->type)
+        {
+            case 'image':
+                return "<img".$this->allStyle($field->style)." src=\"".$value."\">";
+
+            case 'button':
+                return "<a".$this->allStyle($field->style)." href=\"".$link."\">".$value;
+
+            case 'line':
+                return '<hr>';
+
+            case 'caret':
+                return '<br>';
+
+            case 'text':
+                if (isset($link) && !empty($link))
+                {
+                    return "<".$field->name.$this->allStyle($field->style)." href=\"".$link."\">".$value;
+                }
+                else
+                {
+                    return "<".$field->name.$this->allStyle($field->style).">".$value;
+                }
+
+            default:
+                return '';
+        }
+    }
+
+    public function decorateFieldFooter($field, $value, $link)
+    {
+        switch ($field->type)
+        {
+            case 'image':
+                return "\n";
+
+            case 'button':
+                return "</a>\n";
+
+            case 'text':
+                return "</".$field->name.">\n";
+
+            default:
+                return '';
+        }
+    }
+
+    public function getLineBreak()
+    {
+        return '<br>';
     }
 }

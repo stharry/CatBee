@@ -5,11 +5,12 @@ class PdoShareDao implements IShareDao
 
     public function getShareTemplates($shareFilter)
     {
-        $rows = DbManager::selectValues("SELECT id, storeId, campaignId, shareType, message, body
+        $rows = DbManager::selectValues("SELECT id, storeId, campaignId, shareType, message, body, targetId
                   FROM StoreShareTemplate
                     WHERE (storeId = {$shareFilter->store->id} OR storeId =-1)
                       AND
-                       (shareType = {$shareFilter->context->id} OR shareType =-1)");
+                       (shareType = {$shareFilter->context->id} OR shareType =-1)
+                       AND (target = {$shareFilter->targetId} OR target = 0)");
 
         $shareTemplates = array();
 
@@ -30,6 +31,7 @@ class PdoShareDao implements IShareDao
             $shareTemplate->templatePage = new TemplatePage();
             $shareTemplate->templatePage->context = $row["body"];
 
+            $shareTemplate->target = $row["targetId"];
             array_push($shareTemplates, $shareTemplate);
         }
 
@@ -38,11 +40,12 @@ class PdoShareDao implements IShareDao
 
     public function insertShareTemplate($shareTemplate)
     {
-        $names = array("storeId", "campaignId", "shareType", "message", 'body');
+        $names = array("storeId", "campaignId", "shareType", "message", 'body', 'targetId');
         $values = array($shareTemplate->store->id, $shareTemplate->campaign->id,
                         $shareTemplate->shareContext->id,
                         $shareTemplate->message,
-                        $shareTemplate->templatePage->context);
+                        $shareTemplate->templatePage->context,
+                        $shareTemplate->target);
 
         $shareTemplate->id = DbManager::insertAndReturnId("StoreShareTemplate", $names, $values);
     }

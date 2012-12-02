@@ -11,12 +11,28 @@ class JsonTemplateAdapter implements IModelAdapter
         }
     }
 
+    private function style2Array(&$props, $style)
+    {
+        if (!isset($style)) return;
+
+        if (isset($style->attributes) && (count($style->attributes) > 0))
+        {
+            $props['attrs'] = $this->propsToArray($style->attributes);
+        }
+        if (isset($style->elements) && (count($style->elements) > 0))
+        {
+            $props['style'] = $this->propsToArray($style->elements);
+        }
+    }
+
     public function toArray($obj)
     {
-        return array(
-            "attrs" => $this->propsToArray($obj->style->attributes),
-            "style" => $this->propsToArray($obj->style->elements),
-            "sections" => $this->sectionsToArray($obj->sections));
+        $props = array();
+
+        $this->style2Array($props, $obj->style);
+        $props['fields'] = $this->fieldsToArray($obj->fields);
+
+        return $props;
     }
 
     public function fromArray($obj)
@@ -26,9 +42,9 @@ class JsonTemplateAdapter implements IModelAdapter
         $this->propsFromArray($template->style->elements, $obj["style"]);
         $this->propsFromArray($template->style->attributes, $obj["attrs"]);
 
-        foreach ($obj['sections'] as $section)
+        foreach ($obj['fields'] as $field)
         {
-            $this->sectionFromArray($template->addSection(), $section);
+            $this->fieldFromArray($template->addField(), $field);
         }
 
         return $template;
@@ -52,8 +68,21 @@ class JsonTemplateAdapter implements IModelAdapter
         $this->propsFromArray($field->style->elements, $obj['style']);
         $this->propsFromArray($field->style->attributes, $obj['attrs']);
         $field->source = $obj['source'];
+        $field->loop = $obj['loop'];
         $field->linkSource = $obj['linkSource'];
         $field->type = $obj['type'];
+        $field->name = $obj['name'];
+
+        if (isset($obj['children']))
+        {
+            $field->childFields = array();
+
+            foreach ($obj['children'] as $childField)
+            {
+                array_push($field->childFields,
+                    $this->fieldFromArray($field->addChild(), $childField));
+            }
+        }
 
     }
 
@@ -63,7 +92,7 @@ class JsonTemplateAdapter implements IModelAdapter
 
         foreach ($props as $propName => $propValue)
         {
-            $result[$propName] = $propName;
+            $result[$propName] = $propValue;
         }
         return $result;
     }
@@ -82,13 +111,12 @@ class JsonTemplateAdapter implements IModelAdapter
 
     private function sectionToArray($section)
     {
-        $result = array(
-            "attrs" => $this->propsToArray($section->style->attributes),
-            "style" => $this->propsToArray($section->style->elements),
-            "source" => $section->source,
-            "condition" => $section->condition,
-            "fields" => $this->fieldsToArray($section->fields)
-        );
+        $result = array();
+
+        $this->style2Array($result, $section->style);
+        $result['source'] = $section->source;
+        $result['condition'] = $section->condition;
+        $result['fields'] = $this->fieldsToArray($section->fields);
 
         return $result;
     }
@@ -99,12 +127,22 @@ class JsonTemplateAdapter implements IModelAdapter
 
         foreach ($fields as $field)
         {
-            $fieldProps = array(
-                "attrs" => $this->propsToArray($field->style->attributes),
-                "style" => $this->propsToArray($field->style->elements),
-                "source" => $field->source,
-                "type" => $field->type
-            );
+            $fieldProps = array();
+
+            $this->style2Array($fieldProps, $field->style);
+
+            if (isset($field->source)) $fieldProps['source'] = $field->source;
+            if (isset($field->linkSource)) $fieldProps['linkSource'] = $field->linkSource;
+            if (isset($field->type)) $fieldProps['type'] = $field->type;
+            if (isset($field->name)) $fieldProps['name'] = $field->name;
+            if (isset($field->loop)) $fieldProps['loop'] = $field->loop;
+
+            if (isset($field->childFields) &&
+                (count($field->childFields) > 0))
+            {
+                $fieldProps['children'] =
+                    $this->fieldsToArray($field->childFields);
+            }
 
             array_push($result, $fieldProps);
         }

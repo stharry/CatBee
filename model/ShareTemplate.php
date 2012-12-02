@@ -8,4 +8,5 @@ class ShareTemplate
     public $message;
     public $shareContext;
     public $templatePage;
+    public $target;
 }

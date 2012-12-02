@@ -5,18 +5,19 @@ class Template
     function __construct()
     {
         $this->style = new ElementStyle();
-        $this->sections = array();
+        $this->fields = array();
     }
 
-    public function addSection()
+    public function addField()
     {
-        $result = new TemplateSection();
-        array_push($this->sections, $result);
+        $result = new TemplateField();
+        $result->loop = '1';
+        array_push($this->fields, $result);
 
         return $result;
     }
 
     public $style;
-    public $sections;
+    public $fields;
     public $width;
 }

@@ -22,4 +22,12 @@ class ElementStyle
         $this->attributes[$name] = $value;
         return $this;
     }
+
+    public function deleteAttribute($name)
+    {
+        if (array_key_exists($name, $this->attributes))
+        {
+            unset($this->attributes[$name]);
+        }
+    }
 }

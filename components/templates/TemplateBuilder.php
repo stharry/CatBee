@@ -4,6 +4,7 @@ class TemplateBuilder
 {
     private $currentSource;
     private $masterSource;
+    private $lineBreak;
 
     protected function getCurrentSource()
     {
@@ -26,11 +27,13 @@ class TemplateBuilder
 
         $this->masterSource = $data;
         $this->currentSource = $data;
+        $this->lineBreak = $decorator->getLineBreak();
+
         $result = $decorator->decorateTemplateHeader($template);
 
-        foreach ($template->sections as $section)
+        foreach ($template->fields as $field)
         {
-            $result .= $this->buildTemplateSection($data, $section, $decorator);
+            $result .= $this->buildTemplateFieldLoop($data, $field, $decorator);
         }
 
         $this->currentSource = $data;
@@ -38,6 +41,27 @@ class TemplateBuilder
 
         return $result;
 
+    }
+
+    private function buildTemplateFieldLoop($data, $field, $decorator)
+    {
+        $result = '';
+        $source = $this->getSource($data, $field->loop);
+
+        if (!$source || count($source) == 0)
+        {
+            return $result;
+        }
+
+        $this->currentSource = $data;
+
+        for ($rowNo = 0; $rowNo < count($source); $rowNo++)
+        {
+            $result .= $this->buildTemplateField($source[$rowNo], $field, $decorator);
+        }
+
+
+        return $result;
     }
 
     private function buildTemplateSection($data, $section, $decorator)
@@ -92,7 +116,7 @@ class TemplateBuilder
         return $tags;
     }
 
-    private function buildSectionField($data, $field, $decorator)
+    private function buildTemplateField($data, $field, $decorator)
     {
         $this->currentSource = $data;
 
@@ -114,7 +138,18 @@ class TemplateBuilder
             $linkValue = '';
         }
 
-        $result = $decorator->decorateField($field, $fieldValue, $linkValue);
+        $result = $decorator->decorateFieldHeader($field, $fieldValue, $linkValue);
+
+        $result .= $decorator->decorateField($field, $fieldValue, $linkValue);
+
+        foreach ($field->childFields as $childField)
+        {
+            $result .= $this->buildTemplateField($data, $childField, $decorator);
+        }
+
+
+        $result .= $decorator->decorateFieldFooter($field, $fieldValue, $linkValue);
+
 
         return $result;
     }
@@ -140,7 +175,7 @@ class TemplateBuilder
             $fieldValue = str_replace('[' . $tag . ']', $value, $fieldValue);
 
         }
-        return $fieldValue;
+        return str_replace('{lb}', $this->lineBreak, $fieldValue);
     }
 
     private function getSource($data, $source)
@@ -169,6 +204,7 @@ class TemplateBuilder
             RestLogger::log('--------getSource ploop res', $result);
             if (!$result)
             {
+                RestLogger::log('--------getSource result is NULL');
                 return null;
             }
         }

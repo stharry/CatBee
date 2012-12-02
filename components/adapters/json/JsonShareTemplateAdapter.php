@@ -7,6 +7,8 @@ class JsonShareTemplateAdapter implements IModelAdapter
     private $jsonTemplatePageAdapter;
     private $jsonShareContextAdapter;
     private $jsonTemplateAdapter;
+    private $jsonTargetAdapter;
+
 
     function __construct()
     {
@@ -14,6 +16,7 @@ class JsonShareTemplateAdapter implements IModelAdapter
         $this->jsonTemplatePageAdapter = new JsonTemplatePageAdapter();
         $this->jsonShareContextAdapter = new JsonShareContextAdapter();
         $this->jsonTemplateAdapter = new JsonTemplateAdapter();
+        $this->jsonTargetAdapter = new JsonShareTargetAdapter();
     }
 
     private function singleShareTemplateToArray($shareTemplate)
@@ -23,7 +26,8 @@ class JsonShareTemplateAdapter implements IModelAdapter
                 "message" => $shareTemplate->messge,
                 "store" => $this->jsonStoreAdapter->toArray($shareTemplate->store),
                 "shareContext" => $this->jsonShareContextAdapter->toArray($shareTemplate->shareContext),
-                "templatePage" => $this->jsonTemplatePageAdapter->toArray($shareTemplate->templatePage)
+                "templatePage" => $this->jsonTemplatePageAdapter->toArray($shareTemplate->templatePage),
+                'target' => $this->jsonTargetAdapter->toArray($shareTemplate->target)
             );
 
         return $shareTemplateProps;
@@ -52,7 +56,9 @@ class JsonShareTemplateAdapter implements IModelAdapter
         $shareTemplate->store = $this->jsonStoreAdapter->fromArray($obj["store"]);
         $shareTemplate->shareContext = $this->jsonShareContextAdapter->fromArray($obj["shareContext"]);
         $shareTemplate->templatePage = $this->jsonTemplatePageAdapter->fromArray( $obj["templatePage"]);
+        $shareTemplate->target = $this->jsonTargetAdapter->fromArray($obj['target']);
 
         return $shareTemplate;
     }
+
 }

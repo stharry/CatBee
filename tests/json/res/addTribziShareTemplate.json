@@ -8,285 +8,862 @@
         "shareContext":{
             "type":"tribzi"
         },
+        "target": "friend",
         "templatePage":{
             "context":{
-                "attrs":{
-                    "width":"600"
-                },
-                "style":{
-                    "border-collapse":"collapse",
-                    "mso-table-lspace":"0pt",
-                    "mso-table-rspace":"0pt",
-                    "background-color":"#F4F4F4"
-                },
-
-                "sections":[
+                "fields": [
                     {
-                        "style":{
-                            "padding":"9px",
-                            "border-collapse":"collapse",
-                            "mso-table-lspace":"0pt",
-                            "mso-table-rspace":"0pt"
-                        },
-                        "source":"1",
-                        "fields":[
+                        "type": "text",
+                        "name": "tbody",
+                        "loop": "1",
+                        "children": [
                             {
-                                "attrs":{
-                                    "width":"564",
-                                    "align":"left"
-
-                                },
-                                "style":{
-                                    "max-width":"653px",
-                                    "padding-bottom":"0",
-                                    "display":"inline !important",
-                                    "vertical-align":"bottom",
-                                    "border":"0",
-                                    "height":"auto",
-                                    "line-height":"100%",
-                                    "outline":"none",
-                                    "text-decoration":"none"
-                                },
-                                "source":"[store.logoUrl]",
-                                "type":"image"
-
-
-                            }
-                        ]
-
-                    },
-                    {
-
-                        "style":{
-                            "padding-top":"9px",
-                            "padding-right":"18px",
-                            "padding-bottom":"9px",
-                            "padding-left":"18px",
-                            "border-collapse":"collapse",
-                            "mso-table-lspace":"0pt",
-                            "mso-table-rspace":"0pt",
-                            "color":"#505050",
-                            "font-family":"Helvetica",
-                            "font-size":"14px",
-                            "line-height":"150%",
-                            "text-align":"left"
-
-                        },
-                        "source":"1",
-                        "fields":[
-
-                            {
-                                "attrs":{},
-                                "style":{},
-                                "source":"<br>Hi, [sendTo.firstName] <br><br>",
-                                "type":null
+                                "source": "\r\n ",
+                                "type": "text",
+                                "name": "tr",
+                                "children": [
+                                    {
+                                        "attrs": {
+                                            "align": "center",
+                                            "valign": "top"
+                                        },
+                                        "style": {
+                                            "border-collapse": "collapse",
+                                            "mso-table-lspace": "0pt",
+                                            "mso-table-rspace": "0pt"
+                                        },
+                                        "source": "\r\n \r\n ",
+                                        "type": "text",
+                                        "name": "td",
+                                        "children": [
+                                            {
+                                                "attrs": {
+                                                    "id": "templateHeader",
+                                                    "border": "0",
+                                                    "cellpadding": "0",
+                                                    "cellspacing": "0",
+                                                    "width": "600"
+                                                },
+                                                "style": {
+                                                    "border-collapse": "collapse",
+                                                    "mso-table-lspace": "0pt",
+                                                    "mso-table-rspace": "0pt",
+                                                    "background-color": "#F4F4F4",
+                                                    "border-top": "0",
+                                                    "border-bottom": "0"
+                                                },
+                                                "type": "text",
+                                                "name": "table",
+                                                "children": [
+                                                    {
+                                                        "type": "text",
+                                                        "name": "tbody",
+                                                        "children": [
+                                                            {
+                                                                "source": "\r\n ",
+                                                                "type": "text",
+                                                                "name": "tr",
+                                                                "children": [
+                                                                    {
+                                                                        "attrs": {
+                                                                            "class": "headerContainer",
+                                                                            "valign": "top"
+                                                                        },
+                                                                        "style": {
+                                                                            "border-collapse": "collapse",
+                                                                            "mso-table-lspace": "0pt",
+                                                                            "mso-table-rspace": "0pt"
+                                                                        },
+                                                                        "type": "text",
+                                                                        "name": "td",
+                                                                        "children": [
+                                                                            {
+                                                                                "attrs": {
+                                                                                    "class": "mcnImageBlock",
+                                                                                    "border": "0",
+                                                                                    "cellpadding": "0",
+                                                                                    "cellspacing": "0",
+                                                                                    "width": "100%"
+                                                                                },
+                                                                                "style": {
+                                                                                    "border-collapse": "collapse",
+                                                                                    "mso-table-lspace": "0pt",
+                                                                                    "mso-table-rspace": "0pt"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "table",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "attrs": {
+                                                                                            "class": "mcnImageBlockOuter"
+                                                                                        },
+                                                                                        "type": "text",
+                                                                                        "name": "tbody",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "source": "\r\n ",
+                                                                                                "type": "text",
+                                                                                                "name": "tr",
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "attrs": {
+                                                                                                            "class": "mcnImageBlockInner",
+                                                                                                            "valign": "top"
+                                                                                                        },
+                                                                                                        "style": {
+                                                                                                            "padding": "9px",
+                                                                                                            "border-collapse": "collapse",
+                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                            "mso-table-rspace": "0pt"
+                                                                                                        },
+                                                                                                        "source": "\r\n ",
+                                                                                                        "type": "text",
+                                                                                                        "name": "td",
+                                                                                                        "children": [
+                                                                                                            {
+                                                                                                                "attrs": {
+                                                                                                                    "class": "mcnImageContentContainer",
+                                                                                                                    "align": "left",
+                                                                                                                    "border": "0",
+                                                                                                                    "cellpadding": "0",
+                                                                                                                    "cellspacing": "0",
+                                                                                                                    "width": "100%"
+                                                                                                                },
+                                                                                                                "style": {
+                                                                                                                    "border-collapse": "collapse",
+                                                                                                                    "mso-table-lspace": "0pt",
+                                                                                                                    "mso-table-rspace": "0pt"
+                                                                                                                },
+                                                                                                                "type": "text",
+                                                                                                                "name": "table",
+                                                                                                                "children": [
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "tbody",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "source": "\r\n ",
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "tr",
+                                                                                                                                "children": [
+                                                                                                                                    {
+                                                                                                                                        "attrs": {
+                                                                                                                                            "class": "mcnImageContent",
+                                                                                                                                            "valign": "top"
+                                                                                                                                        },
+                                                                                                                                        "style": {
+                                                                                                                                            "padding-right": "9px",
+                                                                                                                                            "padding-left": "9px",
+                                                                                                                                            "padding-top": "0",
+                                                                                                                                            "padding-bottom": "0",
+                                                                                                                                            "border-collapse": "collapse",
+                                                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                                                            "mso-table-rspace": "0pt"
+                                                                                                                                        },
+                                                                                                                                        "source": "\r\n \r\n \r\n ",
+                                                                                                                                        "type": "text",
+                                                                                                                                        "name": "td",
+                                                                                                                                        "children": [
+                                                                                                                                            {
+                                                                                                                                                "attrs": {
+                                                                                                                                                    "alt": "",
+                                                                                                                                                    "class": "mcnImage",
+                                                                                                                                                    "align": "left",
+                                                                                                                                                    "width": "564"
+                                                                                                                                                },
+                                                                                                                                                "style": {
+                                                                                                                                                    "max-width": "653px",
+                                                                                                                                                    "padding-bottom": "0",
+                                                                                                                                                    "display": "inline !important",
+                                                                                                                                                    "vertical-align": "bottom",
+                                                                                                                                                    "border": "0",
+                                                                                                                                                    "height": "auto",
+                                                                                                                                                    "line-height": "100%",
+                                                                                                                                                    "outline": "none",
+                                                                                                                                                    "text-decoration": "none"
+                                                                                                                                                },
+                                                                                                                                                "source": "[store.logoUrl]",
+                                                                                                                                                "type": "image",
+                                                                                                                                                "name": "img"
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                ]
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
                             },
                             {
-                                "attrs":{},
-                                "style":{},
-                                "source":"I just bought something from [store.description] and they gave me a special friends only gift to share with you. <br>",
-                                "type":null
-                            }
-                        ]
-                    },
-                    {
-                        "attrs":{
-                            "valign": "top"
-                        },
-
-                        "style":{
-                            "background-color": "#D6EAFF",
-                            "border": "1px solid #999999",
-                            "border-collapse": "collapse"
-                        },
-                        "source":"1",
-                        "fields":[
-
-                            {
-                                "attrs":{},
-                                "style":{
-                                    "text-align": "center",
-                                    "display": "block",
-                                    "font-family": "Helvetica",
-                                    "font-size": "14px",
-                                    "font-style": "normal",
-                                    "font-weight": "bold",
-                                    "line-height": "100%",
-                                    "letter-spacing": "normal",
-                                    "margin": "0",
-                                    "color": "#202020 !important"
-
-
-                                },
-                                "source":"<br><br>Use the following discount code at forfortoys.com To Get [reward.friendReward.value] [reward.friendReward.typeDescription]! <br><br>",
-                                "type":null
+                                "source": "\r\n ",
+                                "type": "text",
+                                "name": "tr",
+                                "children": [
+                                    {
+                                        "attrs": {
+                                            "align": "center",
+                                            "valign": "top"
+                                        },
+                                        "style": {
+                                            "border-collapse": "collapse",
+                                            "mso-table-lspace": "0pt",
+                                            "mso-table-rspace": "0pt"
+                                        },
+                                        "source": "\r\n \r\n ",
+                                        "type": "text",
+                                        "name": "td",
+                                        "children": [
+                                            {
+                                                "attrs": {
+                                                    "id": "templateBody",
+                                                    "border": "0",
+                                                    "cellpadding": "0",
+                                                    "cellspacing": "0",
+                                                    "width": "600"
+                                                },
+                                                "style": {
+                                                    "border-collapse": "collapse",
+                                                    "mso-table-lspace": "0pt",
+                                                    "mso-table-rspace": "0pt",
+                                                    "background-color": "#F4F4F4",
+                                                    "border-top": "0",
+                                                    "border-bottom": "0"
+                                                },
+                                                "type": "text",
+                                                "name": "table",
+                                                "children": [
+                                                    {
+                                                        "type": "text",
+                                                        "name": "tbody",
+                                                        "children": [
+                                                            {
+                                                                "source": "\r\n ",
+                                                                "type": "text",
+                                                                "name": "tr",
+                                                                "children": [
+                                                                    {
+                                                                        "attrs": {
+                                                                            "class": "bodyContainer",
+                                                                            "valign": "top"
+                                                                        },
+                                                                        "style": {
+                                                                            "border-collapse": "collapse",
+                                                                            "mso-table-lspace": "0pt",
+                                                                            "mso-table-rspace": "0pt"
+                                                                        },
+                                                                        "type": "text",
+                                                                        "name": "td",
+                                                                        "children": [
+                                                                            {
+                                                                                "attrs": {
+                                                                                    "class": "mcnTextBlock",
+                                                                                    "border": "0",
+                                                                                    "cellpadding": "0",
+                                                                                    "cellspacing": "0",
+                                                                                    "width": "100%"
+                                                                                },
+                                                                                "style": {
+                                                                                    "border-collapse": "collapse",
+                                                                                    "mso-table-lspace": "0pt",
+                                                                                    "mso-table-rspace": "0pt"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "table",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "attrs": {
+                                                                                            "class": "mcnTextBlockOuter"
+                                                                                        },
+                                                                                        "type": "text",
+                                                                                        "name": "tbody",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "source": "\r\n ",
+                                                                                                "type": "text",
+                                                                                                "name": "tr",
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "attrs": {
+                                                                                                            "class": "mcnTextBlockInner",
+                                                                                                            "valign": "top"
+                                                                                                        },
+                                                                                                        "style": {
+                                                                                                            "border-collapse": "collapse",
+                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                            "mso-table-rspace": "0pt"
+                                                                                                        },
+                                                                                                        "source": "\r\n\r\n \r\n ",
+                                                                                                        "type": "text",
+                                                                                                        "name": "td",
+                                                                                                        "children": [
+                                                                                                            {
+                                                                                                                "attrs": {
+                                                                                                                    "class": "mcnTextContentContainer",
+                                                                                                                    "align": "left",
+                                                                                                                    "border": "0",
+                                                                                                                    "cellpadding": "0",
+                                                                                                                    "cellspacing": "0",
+                                                                                                                    "width": "600"
+                                                                                                                },
+                                                                                                                "style": {
+                                                                                                                    "border-collapse": "collapse",
+                                                                                                                    "mso-table-lspace": "0pt",
+                                                                                                                    "mso-table-rspace": "0pt"
+                                                                                                                },
+                                                                                                                "type": "text",
+                                                                                                                "name": "table",
+                                                                                                                "children": [
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "tbody",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "source": "\r\n ",
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "tr",
+                                                                                                                                "children": [
+                                                                                                                                    {
+                                                                                                                                        "attrs": {
+                                                                                                                                            "class": "mcnTextContent",
+                                                                                                                                            "valign": "top"
+                                                                                                                                        },
+                                                                                                                                        "style": {
+                                                                                                                                            "padding-top": "9px",
+                                                                                                                                            "padding-right": "18px",
+                                                                                                                                            "padding-bottom": "9px",
+                                                                                                                                            "padding-left": "18px",
+                                                                                                                                            "border-collapse": "collapse",
+                                                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                                                            "mso-table-rspace": "0pt",
+                                                                                                                                            "color": "#505050",
+                                                                                                                                            "font-family": "Helvetica",
+                                                                                                                                            "font-size": "14px",
+                                                                                                                                            "line-height": "150%",
+                                                                                                                                            "text-align": "left"
+                                                                                                                                        },
+                                                                                                                                        "source": "\r\n \r\n Hi [sendTo.firstName],{lb}{lb}\r\n\r\n\r\n ",
+                                                                                                                                        "type": "text",
+                                                                                                                                        "name": "td",
+                                                                                                                                        "children": [
+                                                                                                                                            {
+                                                                                                                                                "source": "\r\n\tI just bought something from Fun For Toys.{lb}\r\n\tThey gave me a special friends only gift</strong> to share with you.",
+                                                                                                                                                "type": "text",
+                                                                                                                                                "name": "div"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "source": "\r\n\t ",
+                                                                                                                                                "type": "text",
+                                                                                                                                                "name": "div"
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                ]
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "attrs": {
+                                                                                    "class": "mcnBoxedTextBlock",
+                                                                                    "border": "0",
+                                                                                    "cellpadding": "0",
+                                                                                    "cellspacing": "0",
+                                                                                    "width": "100%"
+                                                                                },
+                                                                                "style": {
+                                                                                    "border-collapse": "collapse",
+                                                                                    "mso-table-lspace": "0pt",
+                                                                                    "mso-table-rspace": "0pt"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "table",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "attrs": {
+                                                                                            "class": "mcnBoxedTextBlockOuter"
+                                                                                        },
+                                                                                        "type": "text",
+                                                                                        "name": "tbody",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "source": "\r\n ",
+                                                                                                "type": "text",
+                                                                                                "name": "tr",
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "attrs": {
+                                                                                                            "class": "mcnBoxedTextBlockInner",
+                                                                                                            "valign": "top"
+                                                                                                        },
+                                                                                                        "style": {
+                                                                                                            "border-collapse": "collapse",
+                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                            "mso-table-rspace": "0pt"
+                                                                                                        },
+                                                                                                        "source": "\r\n\r\n \r\n ",
+                                                                                                        "type": "text",
+                                                                                                        "name": "td",
+                                                                                                        "children": [
+                                                                                                            {
+                                                                                                                "attrs": {
+                                                                                                                    "class": "mcnBoxedTextContentContainer",
+                                                                                                                    "align": "left",
+                                                                                                                    "border": "0",
+                                                                                                                    "cellpadding": "0",
+                                                                                                                    "cellspacing": "0",
+                                                                                                                    "width": "600"
+                                                                                                                },
+                                                                                                                "style": {
+                                                                                                                    "border-collapse": "collapse",
+                                                                                                                    "mso-table-lspace": "0pt",
+                                                                                                                    "mso-table-rspace": "0pt"
+                                                                                                                },
+                                                                                                                "type": "text",
+                                                                                                                "name": "table",
+                                                                                                                "children": [
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "tbody",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "source": "\r\n ",
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "tr",
+                                                                                                                                "children": [
+                                                                                                                                    {
+                                                                                                                                        "style": {
+                                                                                                                                            "padding-top": "9px",
+                                                                                                                                            "padding-left": "18px",
+                                                                                                                                            "padding-bottom": "9px",
+                                                                                                                                            "padding-right": "18px",
+                                                                                                                                            "border-collapse": "collapse",
+                                                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                                                            "mso-table-rspace": "0pt"
+                                                                                                                                        },
+                                                                                                                                        "source": "\r\n \r\n ",
+                                                                                                                                        "type": "text",
+                                                                                                                                        "name": "td",
+                                                                                                                                        "children": [
+                                                                                                                                            {
+                                                                                                                                                "attrs": {
+                                                                                                                                                    "class": "mcnTextContentContainer",
+                                                                                                                                                    "border": "0",
+                                                                                                                                                    "cellpadding": "18",
+                                                                                                                                                    "cellspacing": "0",
+                                                                                                                                                    "width": "100%"
+                                                                                                                                                },
+                                                                                                                                                "style": {
+                                                                                                                                                    "border": "1px solid #999999",
+                                                                                                                                                    "background-color": "#FFFFFF",
+                                                                                                                                                    "border-collapse": "collapse",
+                                                                                                                                                    "mso-table-lspace": "0pt",
+                                                                                                                                                    "mso-table-rspace": "0pt"
+                                                                                                                                                },
+                                                                                                                                                "type": "text",
+                                                                                                                                                "name": "table",
+                                                                                                                                                "children": [
+                                                                                                                                                    {
+                                                                                                                                                        "type": "text",
+                                                                                                                                                        "name": "tbody",
+                                                                                                                                                        "children": [
+                                                                                                                                                            {
+                                                                                                                                                                "source": "\r\n ",
+                                                                                                                                                                "type": "text",
+                                                                                                                                                                "name": "tr",
+                                                                                                                                                                "children": [
+                                                                                                                                                                    {
+                                                                                                                                                                        "attrs": {
+                                                                                                                                                                            "class": "mcnTextContent",
+                                                                                                                                                                            "valign": "top"
+                                                                                                                                                                        },
+                                                                                                                                                                        "style": {
+                                                                                                                                                                            "border-collapse": "collapse",
+                                                                                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                                                                                            "mso-table-rspace": "0pt",
+                                                                                                                                                                            "color": "#505050",
+                                                                                                                                                                            "font-family": "Helvetica",
+                                                                                                                                                                            "font-size": "14px",
+                                                                                                                                                                            "line-height": "150%",
+                                                                                                                                                                            "text-align": "left"
+                                                                                                                                                                        },
+                                                                                                                                                                        "source": "\r\n \r\n{lb}{lb}\r\n\r\n ",
+                                                                                                                                                                        "type": "text",
+                                                                                                                                                                        "name": "td",
+                                                                                                                                                                        "children": [
+                                                                                                                                                                            {
+                                                                                                                                                                                "style": {
+                                                                                                                                                                                    "text-align": "center",
+                                                                                                                                                                                    "display": "block",
+                                                                                                                                                                                    "font-family": "Helvetica",
+                                                                                                                                                                                    "font-size": "26px",
+                                                                                                                                                                                    "font-style": "normal",
+                                                                                                                                                                                    "font-weight": "bold",
+                                                                                                                                                                                    "line-height": "100%",
+                                                                                                                                                                                    "letter-spacing": "normal",
+                                                                                                                                                                                    "margin": "0",
+                                                                                                                                                                                    "color": "#202020 !important"
+                                                                                                                                                                                },
+                                                                                                                                                                                "source": "\r\n\t",
+                                                                                                                                                                                "type": "text",
+                                                                                                                                                                                "name": "h1",
+                                                                                                                                                                                "children": [
+                                                                                                                                                                                    {
+                                                                                                                                                                                        "style": {
+                                                                                                                                                                                            "font-size": "14px"
+                                                                                                                                                                                        },
+                                                                                                                                                                                        "source": "Use the following discount code at forfortoys.com To Get [reward.friendReward.value] [reward.friendReward.typeDescription]!",
+                                                                                                                                                                                        "type": "text",
+                                                                                                                                                                                        "name": "span"
+                                                                                                                                                                                    }
+                                                                                                                                                                                ]
+                                                                                                                                                                            },
+                                                                                                                                                                            {
+                                                                                                                                                                                "style": {
+                                                                                                                                                                                    "text-align": "center",
+                                                                                                                                                                                    "display": "block",
+                                                                                                                                                                                    "font-family": "Helvetica",
+                                                                                                                                                                                    "font-size": "26px",
+                                                                                                                                                                                    "font-style": "normal",
+                                                                                                                                                                                    "font-weight": "bold",
+                                                                                                                                                                                    "line-height": "100%",
+                                                                                                                                                                                    "letter-spacing": "normal",
+                                                                                                                                                                                    "margin": "0",
+                                                                                                                                                                                    "color": "#202020 !important"
+                                                                                                                                                                                },
+                                                                                                                                                                                "source": "\r\n\t",
+                                                                                                                                                                                "type": "text",
+                                                                                                                                                                                "name": "h1",
+                                                                                                                                                                                "children": [
+                                                                                                                                                                                    {
+                                                                                                                                                                                        "style": {
+                                                                                                                                                                                            "font-size": "32px"
+                                                                                                                                                                                        },
+                                                                                                                                                                                        "type": "text",
+                                                                                                                                                                                        "name": "span",
+                                                                                                                                                                                        "children": [
+                                                                                                                                                                                            {
+                                                                                                                                                                                                "style": {
+                                                                                                                                                                                                    "color": "#696969"
+                                                                                                                                                                                                },
+                                                                                                                                                                                                "type": "text",
+                                                                                                                                                                                                "name": "span",
+                                                                                                                                                                                                "children": [
+                                                                                                                                                                                                    {
+                                                                                                                                                                                                        "style": {
+                                                                                                                                                                                                            "background-color": "#FFFFE0"
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "source": "[reward.friendReward.code]",
+                                                                                                                                                                                                        "type": "text",
+                                                                                                                                                                                                        "name": "span"
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                ]
+                                                                                                                                                                                            }
+                                                                                                                                                                                        ]
+                                                                                                                                                                                    }
+                                                                                                                                                                                ]
+                                                                                                                                                                            }
+                                                                                                                                                                        ]
+                                                                                                                                                                    }
+                                                                                                                                                                ]
+                                                                                                                                                            }
+                                                                                                                                                        ]
+                                                                                                                                                    }
+                                                                                                                                                ]
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                ]
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "attrs": {
+                                                                                    "class": "mcnButtonBlock",
+                                                                                    "border": "0",
+                                                                                    "cellpadding": "0",
+                                                                                    "cellspacing": "0",
+                                                                                    "width": "100%"
+                                                                                },
+                                                                                "style": {
+                                                                                    "border-collapse": "collapse",
+                                                                                    "mso-table-lspace": "0pt",
+                                                                                    "mso-table-rspace": "0pt"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "table",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "attrs": {
+                                                                                            "class": "mcnButtonBlockOuter"
+                                                                                        },
+                                                                                        "type": "text",
+                                                                                        "name": "tbody",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "source": "\r\n ",
+                                                                                                "type": "text",
+                                                                                                "name": "tr",
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "attrs": {
+                                                                                                            "class": "mcnButtonBlockInner",
+                                                                                                            "align": "center",
+                                                                                                            "valign": "top"
+                                                                                                        },
+                                                                                                        "style": {
+                                                                                                            "padding-top": "0",
+                                                                                                            "padding-right": "18px",
+                                                                                                            "padding-bottom": "18px",
+                                                                                                            "padding-left": "18px",
+                                                                                                            "border-collapse": "collapse",
+                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                            "mso-table-rspace": "0pt"
+                                                                                                        },
+                                                                                                        "source": "\r\n ",
+                                                                                                        "type": "text",
+                                                                                                        "name": "td",
+                                                                                                        "children": [
+                                                                                                            {
+                                                                                                                "attrs": {
+                                                                                                                    "class": "mcnButtonContentContainer",
+                                                                                                                    "border": "0",
+                                                                                                                    "cellpadding": "0",
+                                                                                                                    "cellspacing": "0",
+                                                                                                                    "width": ""
+                                                                                                                },
+                                                                                                                "style": {
+                                                                                                                    "border-top-left-radius": "5px",
+                                                                                                                    "border-top-right-radius": "5px",
+                                                                                                                    "border-bottom-right-radius": "5px",
+                                                                                                                    "border-bottom-left-radius": "5px",
+                                                                                                                    "background-color": "#EE7F53",
+                                                                                                                    "border-collapse": "collapse",
+                                                                                                                    "mso-table-lspace": "0pt",
+                                                                                                                    "mso-table-rspace": "0pt"
+                                                                                                                },
+                                                                                                                "type": "text",
+                                                                                                                "name": "table",
+                                                                                                                "children": [
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "tbody",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "source": "\r\n ",
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "tr",
+                                                                                                                                "children": [
+                                                                                                                                    {
+                                                                                                                                        "attrs": {
+                                                                                                                                            "class": "mcnButtonContent",
+                                                                                                                                            "align": "center",
+                                                                                                                                            "valign": "middle"
+                                                                                                                                        },
+                                                                                                                                        "style": {
+                                                                                                                                            "color": "#FFFFFF",
+                                                                                                                                            "font-family": "Arial",
+                                                                                                                                            "font-size": "16px",
+                                                                                                                                            "padding": "15px",
+                                                                                                                                            "border-collapse": "collapse",
+                                                                                                                                            "mso-table-lspace": "0pt",
+                                                                                                                                            "mso-table-rspace": "0pt"
+                                                                                                                                        },
+                                                                                                                                        "source": "\r\n \r\n ",
+                                                                                                                                        "type": "text",
+                                                                                                                                        "name": "td",
+                                                                                                                                        "children": [
+                                                                                                                                            {
+                                                                                                                                                "attrs": {
+                                                                                                                                                    "class": "mcnButton ",
+                                                                                                                                                    "title": "Enjoy Your Gift",
+                                                                                                                                                    "target": "_blank"
+                                                                                                                                                },
+                                                                                                                                                "style": {
+                                                                                                                                                    "font-weight": "bold",
+                                                                                                                                                    "letter-spacing": "-0.5px",
+                                                                                                                                                    "line-height": "100%",
+                                                                                                                                                    "text-align": "center",
+                                                                                                                                                    "text-decoration": "initial",
+                                                                                                                                                    "color": "#FFFFFF",
+                                                                                                                                                    "font-family": "Arial",
+                                                                                                                                                    "font-size": "16px",
+                                                                                                                                                    "padding": "15px",
+                                                                                                                                                    "word-wrap": "break-word !important"
+                                                                                                                                                },
+                                                                                                                                                "source": "Enjoy Your Gift",
+                                                                                                                                                "linkSource": "[link]",
+                                                                                                                                                "type": "text",
+                                                                                                                                                "name": "a"
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                ]
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
                             },
                             {
-                                "attrs":{},
-                                "style":{
-                                    "text-align": "center",
-                                    "display": "block",
-                                    "font-family": "Helvetica",
-                                    "font-size": "32px",
-                                    "font-style": "normal",
-                                    "font-weight": "bold",
-                                    "line-height": "100%",
-                                    "letter-spacing": "normal",
-                                    "margin": "0px 200px 20px 200px",
-                                    "color": "#696969 !important",
-                                    "background-color": "#FFFFE0"
-                                },
-                                "source":"[reward.friendReward.code]",
-                                "type":null
-                            }
-                        ]
-                    },
-                    {
-
-                        "style":{
-                            "padding-top":"9px",
-                            "padding-right":"18px",
-                            "padding-bottom":"9px",
-                            "padding-left":"18px",
-                            "border-collapse":"collapse",
-                            "mso-table-lspace":"0pt",
-                            "mso-table-rspace":"0pt",
-                            "color":"#505050",
-                            "font-family":"Helvetica",
-                            "font-size":"14px",
-                            "line-height":"150%",
-                            "text-align":"left",
-                            "height": "100px"
-
-                        },
-                        "source":"1",
-                        "fields":[
-
-                            {
-                                "attrs":{},
-                                "style":{
-                                    "font-weight": "bold",
-                                    "letter-spacing": "-0.5px",
-                                    "line-height": "100%",
-                                    "text-align": "center",
-                                    "text-decoration": "initial",
-                                    "color": "#FFFFFF"
-                                }
-                            }
-                        ]
-                    },
-
-                    {
-
-                        "style":{
-                            "padding-top":"9px",
-                            "padding-right":"18px",
-                            "padding-bottom":"9px",
-                            "padding-left":"18px",
-                            "border-collapse":"collapse",
-                            "mso-table-lspace":"0pt",
-                            "mso-table-rspace":"0pt",
-                            "color":"#505050",
-                            "font-family":"Helvetica",
-                            "font-size":"14px",
-                            "line-height":"150%",
-                            "text-align":"left",
-                            "height": "100px"
-
-                        },
-                        "source":"1",
-                        "fields":[
-
-                            {
-                                "attrs":{},
-                                "style":{
-                                    "font-weight": "bold",
-                                    "letter-spacing": "-0.5px",
-                                    "line-height": "100%",
-                                    "text-align": "center",
-                                    "text-decoration":
-                                            "initial","color": "#FFFFFF",
-                                    "font-family": "Arial",
-                                    "font-size": "16px",
-                                    "margin": "0px 200px 50px 200px",
-                                    "padding": "15px","word-wrap": "break-word !important",
-                                    "background-color": "#DAA520",
-                                    "border-radius": "5px 5px 5px 5px;"
-                                },
-                                "source":"Enjoy Your Gift",
-                                "linkSource":"[link]",
-                                "type":"button"
-                            }
-                        ]
-                    },
-                    {
-
-                        "style":{
-                            "padding-top":"9px",
-                            "padding-right":"18px",
-                            "padding-bottom":"9px",
-                            "padding-left":"18px",
-                            "border-collapse":"collapse",
-                            "mso-table-lspace":"0pt",
-                            "mso-table-rspace":"0pt",
-                            "color":"#505050",
-                            "font-family":"Helvetica",
-                            "font-size":"14px",
-                            "line-height":"150%",
-                            "text-align":"left",
-                            "height": "100px"
-
-                        },
-                        "source":"deal.order.items",
-                        "fields":[
-
-                            {
-                                "attrs":{},
-                                "style":{
-                                },
-                                "source":"[url]",
-                                "type":"image"
-                            }
-                        ]
-                    },
-                    {
-
-                        "style":{
-                            "padding-top":"9px",
-                            "padding-right":"18px",
-                            "padding-bottom":"9px",
-                            "padding-left":"18px",
-                            "border-collapse":"collapse",
-                            "mso-table-lspace":"0pt",
-                            "mso-table-rspace":"0pt",
-                            "color":"#505050",
-                            "font-family":"Helvetica",
-                            "font-size":"10px",
-                            "line-height":"150%",
-                            "text-align":"left",
-                            "height": "100px"
-
-                        },
-                        "source":"1",
-                        "fields":[
-
-                            {
-                                "attrs":{},
-                                "style":{
-                                },
-                                "source":"Powered by:"
-                            },
-                            {
-                                "attrs":{},
-                                "style":{
-                                },
-                                "source":" Tribzi",
-                                "linkSource":"www.Tribzi.com",
-                                "type":"button"
+                                "source": "\r\n ",
+                                "type": "text",
+                                "name": "tr",
+                                "children": [
+                                    {
+                                        "attrs": {
+                                            "align": "center",
+                                            "valign": "top"
+                                        },
+                                        "style": {
+                                            "border-collapse": "collapse",
+                                            "mso-table-lspace": "0pt",
+                                            "mso-table-rspace": "0pt"
+                                        },
+                                        "source": "\r\n \r\n ",
+                                        "type": "text",
+                                        "name": "td",
+                                        "children": [
+                                            {
+                                                "attrs": {
+                                                    "id": "templateFooter",
+                                                    "border": "0",
+                                                    "cellpadding": "0",
+                                                    "cellspacing": "0",
+                                                    "width": "600"
+                                                },
+                                                "style": {
+                                                    "border-collapse": "collapse",
+                                                    "mso-table-lspace": "0pt",
+                                                    "mso-table-rspace": "0pt",
+                                                    "background-color": "#F4F4F4",
+                                                    "border-top": "0",
+                                                    "border-bottom": "0"
+                                                },
+                                                "type": "text",
+                                                "name": "table",
+                                                "children": [
+                                                    {
+                                                        "type": "text",
+                                                        "name": "tbody",
+                                                        "children": [
+                                                            {
+                                                                "source": "\r\n ",
+                                                                "type": "text",
+                                                                "name": "tr",
+                                                                "children": [
+                                                                    {
+                                                                        "attrs": {
+                                                                            "class": "footerContent",
+                                                                            "valign": "top"
+                                                                        },
+                                                                        "style": {
+                                                                            "border-collapse": "collapse",
+                                                                            "mso-table-lspace": "0pt",
+                                                                            "mso-table-rspace": "0pt",
+                                                                            "color": "#808080",
+                                                                            "font-family": "Helvetica",
+                                                                            "font-size": "10px",
+                                                                            "line-height": "150%",
+                                                                            "padding-top": "18px",
+                                                                            "padding-right": "18px",
+                                                                            "padding-bottom": "18px",
+                                                                            "padding-left": "18px",
+                                                                            "text-align": "left"
+                                                                        },
+                                                                        "type": "text",
+                                                                        "name": "td",
+                                                                        "loop": "order.items",
+                                                                        "children": [
+                                                                            {
+                                                                                "attrs": {
+                                                                                    "align": "none",
+                                                                                    "height": "66",
+                                                                                    "width": "100"
+                                                                                },
+                                                                                "style": {
+                                                                                    "width": "100px",
+                                                                                    "height": "66px",
+                                                                                    "border": "0",
+                                                                                    "line-height": "100%",
+                                                                                    "outline": "none",
+                                                                                    "text-decoration": "none"
+                                                                                },
+                                                                                "source": "[url]",
+                                                                                "type": "image",
+                                                                                "name": "img"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
-
                 ]
             },
             "type":"template"

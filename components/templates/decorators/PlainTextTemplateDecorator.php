@@ -27,4 +27,19 @@ class PlainTextTemplateDecorator implements ITemplateDecorator
     {
         return '';
     }
+
+    public function decorateFieldHeader($field, $value, $link)
+    {
+        return '';
+    }
+
+    public function decorateFieldFooter($field, $value, $link)
+    {
+        return '';
+    }
+
+    public function getLineBreak()
+    {
+        return '\r\n';
+    }
 }

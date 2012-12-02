@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
-
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
-include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/3dParty/HtmlDom/simple_html_dom.php");
+
+//include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/3dParty/HtmlDom/simple_html_dom.php");
 
 try
 {
@@ -19,7 +19,8 @@ try
 //        var_dump($a);
 //    }
 
-    $html = file_get_contents("res/RichEmailTemplate001.html");
+//    $html = file_get_contents("http://127.0.0.1:8080/bbb.html");
+    $html = file_get_contents("http://127.0.0.1:8080/bbb.html");
 
     $dom = new DOMDocument();
     //if (!$dom->load("C:/Program Files/EasyPHP-12.1/www/CatBee/tests/json/res/RichEmailTemplate001.html"))
@@ -30,6 +31,26 @@ try
     }
     else
     {
+        //printNode($dom->documentElement);
+
+        $adapter = new MailChimpTemplateAdapter();
+
+
+
+        $template = $adapter->convertToTribziTemplate($dom);
+
+        $jsonAdapter = new JsonTemplateAdapter();
+
+
+        $templateProps = $jsonAdapter->toArray($template);
+        echo json_encode($templateProps);
+
+        $decorator = new HtmlTemplateDecorator();
+        $builder = new TemplateBuilder();
+        $output = $builder->buildTemplate($share, $template, $decorator);
+
+        echo $output;
+
 
 //        $imgs = $dom->getElementsByTagName("img");
 //
@@ -59,20 +80,6 @@ try
 //        $replacer = new DomTagReplacer();
 //        $replacer->replaceTagsInDOM($dom);
 
-        $share = new Share();
-        $share->id = 222;
-        $deal = new LeaderDeal();
-        $deal->id = 111;
-        $share->deal = $deal;
-
-
-        $dealTag = 'deal';
-        $idTag = 'id';
-
-        echo 'res '.$share->$idTag.' <p> ';
-        echo 'res '.$share->$dealTag->$idTag.' <p> ';
-
-        var_dump($share->deal);
 
 //        $newHtml = $dom->saveHTML();
 //
@@ -83,3 +90,17 @@ try
     echo $e->getMessage();
 }
 echo 'finished';
+
+function printNode($node, $tab = '')
+{
+    $val = $node->nodeType == XML_TEXT_NODE ? $node->nodeValue : '';
+    echo $tab.'name: '.$node->nodeName.' val: '.$val.'<br>';
+
+    if ($node->hasChildNodes())
+    {
+        foreach ($node->childNodes as $childNode)
+        {
+            printNode($childNode, $tab."___");
+        }
+    }
+}

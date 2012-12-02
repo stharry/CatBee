@@ -152,6 +152,8 @@ CREATE  TABLE IF NOT EXISTS StoreShareTemplate (
 
 	shareType INT NOT NULL ,
 
+    targetId INT NOT NULL,
+
     message VARCHAR(200),
 
 	body BLOB NULL ,
