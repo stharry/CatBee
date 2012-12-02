@@ -9,4 +9,5 @@
 interface ILeadDao
 {
     public function InsertLead($lead);
+
 }
