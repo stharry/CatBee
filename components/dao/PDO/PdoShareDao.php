@@ -10,7 +10,7 @@ class PdoShareDao implements IShareDao
                     WHERE (storeId = {$shareFilter->store->id} OR storeId =-1)
                       AND
                        (shareType = {$shareFilter->context->id} OR shareType =-1)
-                       AND (target = {$shareFilter->targetId} OR target = 0)");
+                       AND (targetId = {$shareFilter->targetId} OR targetId = 0)");
 
         $shareTemplates = array();
 
