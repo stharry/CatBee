@@ -8,7 +8,6 @@ class PdoDealDao implements IDealDao
         $leaderDeal = new LeaderDeal();
 
         $leaderDeal->id = $row[ "id" ];
-        $leaderDeal->code = $row[ "code" ];
         $leaderDeal->landing = $row[ "landing" ];
         $leaderDeal->status = $row[ "status" ];
         $leaderDeal->landingReward = $row[ "landingReward" ];
@@ -21,7 +20,6 @@ class PdoDealDao implements IDealDao
         $leaderDeal->order->id = $row['orderId'];
 
         RestLogger::log("PdoDealDao::getDealByOrder deal restored from db ", $leaderDeal);
-
         return $leaderDeal;
 
     }
@@ -88,6 +86,7 @@ class PdoDealDao implements IDealDao
 
     public function getDealByOrder($order)
     {
+        //Todo - Remove this function  - all Get Functions should be in the same Get
         RestLogger::log("PdoDealDao::getDealByOrder begin");
 
         try
@@ -114,6 +113,40 @@ class PdoDealDao implements IDealDao
             RestLogger::log("Exception: " . $e->getMessage());
             throw new Exception("", 0, $e);
         }
+    }
+    public function getDealsByFilter($dealFilter)
+    {
+        RestLogger::log("PdoDealDao::getDealsByFilter begin");
+        $selectParam = "";
+        try
+        {
+        $selectClause = " SELECT d.id, d.landing, d.status,d.landingReward, d.customerId, d.initDate, d.updateDate
+            FROM deal d";
+            if($dealFilter->customer != null)
+            {
+
+                $selectClause = $selectClause." Inner JOIN customers c on c.Id=d.customerId WHERE c.email = ?";
+                $selectParam = $dealFilter->customer->email;
+            }
+            $rows = DbManager::selectValues($selectClause,
+                array($selectParam => PDO::PARAM_STR));
+
+            $leaderDeals = array();
+
+            foreach ($rows as $row)
+            {
+
+                $leaderDeal = $this->createAndFillDeal($row);
+                array_push($leaderDeals, $leaderDeal);
+            }
+            return $leaderDeals;
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log("Exception: " . $e->getMessage());
+            throw new Exception("", 0, $e);
+        }
+
     }
 
     public function getParentDealByOrderId($id)

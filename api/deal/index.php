@@ -43,7 +43,6 @@ switch (strtolower($action))
 {
 
     case "deal":
-
         RestLogger::log("Deal API before deal");
         $orderAdapter = new JsonOrderAdapter();
         $order = $orderAdapter->fromArray($context);
@@ -85,8 +84,14 @@ switch (strtolower($action))
         $dealManager->addDealShare($share);
         exit;
 
-
+    case "getdeal":
+        $dealFilter = new LeaderDealFilter();
+        //TODO - Change The Adaptor to be the Leader Filter instead of the Customer
+        $customerAdaptor = new JsonCustomerAdapter();
+        $customer = $customerAdaptor->fromArray($context);
+        $dealFilter->customer = $customer;
+        //Currently Hard Coded true
+        $dealFilter->ActiveShareFlag = true;
+        //Currently the Get will echo the result at the End...
+        $dealManager->getDeals($dealFilter);
 }
-
-
-

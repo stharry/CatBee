@@ -330,9 +330,15 @@ class ShareManager implements IShareManager
         $this->dealShareDao->updateDealShare($share);
     }
 
+    public function FillActiveSharesForDeal($shareFilter,$FillLeadData)
+    {
+        //Go to PDODealShareDao and retrive the ActiveShare according to DealID
+        echo "FillActiveSharesForDeal";
+
+    }
     private function loadCustomerByEmail($customer)
     {
-
+        //TODO - what is this method doing at the ShareManager??
         if ($customer->id <= 0)
         {
             $this->customerDao->loadCustomerByEmail($customer);

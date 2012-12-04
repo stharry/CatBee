@@ -6,6 +6,8 @@ interface IDealManager
 
     public function getDealById($dealId);
 
+    public function getDeals($dealFilter);
+
     public function updateDeal($deal);
 
     public function addDealShare($share);

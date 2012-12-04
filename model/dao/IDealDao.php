@@ -8,6 +8,8 @@ interface IDealDao
 
     public function getDealByOrder($order);
 
+    public function getDealsByFilter($dealFilter);
+
     public function insertDeal($deal);
 
     public function updateDealStatus($deal);

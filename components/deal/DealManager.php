@@ -117,7 +117,17 @@ class DealManager implements IDealManager
 
         return $leaderDeal;
     }
-
+    public function getDeals($dealFilter)
+    {
+        //Go to DealDao with the DealFilter and Retrieve all the deals of the Customer
+        $leaderDeals = $this->dealDao->getDealsByFilter($dealFilter);
+        if($dealFilter->ActiveShareFlag == true)
+        {
+            //Fill the ActiveShares Of the Deals - currenlty assuming i have only one deal per customer
+            //Call the shareManager - send him the Deal object, the Second parameter is a flag for getting the leads for each Active share
+            $this->shareManager->FillActiveSharesForDeal($leaderDeals,true);
+        }
+    }
     public function updateDeal($deal)
     {
         RestLogger::log('DealManager::updateDeal begin');

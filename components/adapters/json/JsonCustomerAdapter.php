@@ -35,6 +35,7 @@ class JsonCustomerAdapter implements IModelAdapter
         $customer = new Customer();
 
         $customer->email = $obj["email"];
+
         $customer->firstName = $obj["firstName"];
         $customer->lastName = $obj["lastName"];
         $customer->nickName = $obj["nickName"];
@@ -47,7 +48,6 @@ class JsonCustomerAdapter implements IModelAdapter
         {
             $customer->sharedPhoto = $obj["sharedPhoto"];
         }
-
         return $customer;
     }
 }
