@@ -177,6 +177,7 @@ class DealManager implements IDealManager
     {
         try
         {
+            $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_FRIEND);
             $share->status = Share::$SHARE_STATUS_PENDING;
             $this->addDealShare($share);
             $this->shareManager->fillShare($share);
