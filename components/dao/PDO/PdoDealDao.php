@@ -30,7 +30,7 @@ class PdoDealDao implements IDealDao
 
         try
         {
-            $selectClause = " SELECT id, code, landing, status, orderId,
+            $selectClause = " SELECT id, landing, status, orderId,
             campaignId, landingReward, customerId, initDate, updateDate
             FROM deal WHERE id = {$id} ";
 
@@ -55,11 +55,11 @@ class PdoDealDao implements IDealDao
 
     public function insertDeal($deal)
     {
-        $names = array("code", "landing", 'campaignId', "branchId",
+        $names = array( "landing", 'campaignId', "branchId",
             "orderId", "status",
             "landingReward", "customerId", "initDate", "updateDate");
 
-        $values = array($deal->uniqueCode,
+        $values = array(
             $deal->landing->id,
             $deal->campaign->id,
             $deal->order->branch->id,
@@ -91,7 +91,7 @@ class PdoDealDao implements IDealDao
 
         try
         {
-            $selectClause = " SELECT id, code, landing, status,
+            $selectClause = " SELECT id, landing, status,
             landingReward, customerId, initDate, updateDate
             FROM deal WHERE orderId = {$order->id} AND branchId = {$order->branch->id}";
 
@@ -155,7 +155,7 @@ class PdoDealDao implements IDealDao
 
         try
         {
-            $selectClause = " SELECT id, code, landing, status, orderId,
+            $selectClause = " SELECT id, landing, status, orderId,
             campaignId, landingReward, customerId, initDate, updateDate
             FROM deal WHERE orderId = {$id} AND parentId IS NULL";
 
