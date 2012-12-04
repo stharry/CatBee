@@ -52,7 +52,7 @@ class PdoShareDao implements IShareDao
                         $shareTemplate->shareContext->id,
                         $shareTemplate->message,
                         $shareTemplate->templatePage->context,
-                        $shareTemplate->target);
+                        $shareTemplate->target->id);
 
         $shareTemplate->id = DbManager::insertAndReturnId("StoreShareTemplate", $names, $values);
     }

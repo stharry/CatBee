@@ -16,8 +16,6 @@ class LeaderDeal
     public $status;
     public $selectedLandingReward;
     public $customer;
-    //TODO - What does this Date Stand for?
-    public $date;
     public $friendDeals;
     public $uniqueCode;
     public $sharePoint;
