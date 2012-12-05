@@ -330,9 +330,10 @@ class ShareManager implements IShareManager
         $this->dealShareDao->updateDealShare($share);
     }
 
-    public function FillActiveSharesForDeal($shareFilter,$FillLeadData)
+    public function FillActiveSharesForDeal($deals,$FillLeadData)
     {
         //Go to PDODealShareDao and retrive the ActiveShare according to DealID
+        $this->dealShareDao->GetDealsShares($deals);
         echo "FillActiveSharesForDeal";
 
     }

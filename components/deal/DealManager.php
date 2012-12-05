@@ -89,7 +89,7 @@ class DealManager implements IDealManager
         $this->storeManager->validateBranch($order->store, $order->branch);
 
         //Register Leading Deal If Exist
-        $this->leadManager->saveLead($order,"1");
+        $this->leadManager->saveLead($order);
 
         RestLogger::log("DealManager::pushDeal after store validation ", $order->store);
         $campaign = $this->campaignManager->chooseCampaign($order);
