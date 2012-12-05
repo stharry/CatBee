@@ -28,7 +28,9 @@ function StartFacebookSharing()
     try {
 
         var s = localStorage.getItem('facebookParams');
+
         facebookParams = JSON.parse(s);
+
 
         FB.init({
             appId: facebookParams.context.application.applicationCode,
@@ -38,9 +40,10 @@ function StartFacebookSharing()
         FB.ui({
                 method:'feed',
                 display:'popup',
-                name: facebookParams.message,
+                name: facebookParams.subject,
                 picture: catBeeData.order.items[0].url,
                 redirect_uri: facebookParams.context.application.redirectUrl,
+                caption: ' ',
                 description: facebookParams.message,
                 link: facebookParams.link
             },

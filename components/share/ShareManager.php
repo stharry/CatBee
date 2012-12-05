@@ -79,6 +79,7 @@ class ShareManager implements IShareManager
         $templateBuilder = new TemplateBuilder();
 
         $share->message = $templateBuilder->buildTemplate($share, $template, $templateDecorator);
+        $share->subject = $shareTemplate->message;
     }
 
     private function getCompatibleShareProvider($shareContext)
