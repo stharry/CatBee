@@ -8,26 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="Guide Demo">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/res/images/bees.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/LeadFilter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/LeaderDealFilter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/dao/ILeadDao.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/GetDealsByCustomerTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/GetDealsByCustomer.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/config.ini" afterPath="$PROJECT_DIR$/Config/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/deal/index.php" afterPath="$PROJECT_DIR$/api/deal/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoLeadDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoLeadDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/deal/DealManager.php" afterPath="$PROJECT_DIR$/components/deal/DealManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/share/ShareManager.php" afterPath="$PROJECT_DIR$/components/share/ShareManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/LeaderDeal.php" afterPath="$PROJECT_DIR$/model/LeaderDeal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Share.php" afterPath="$PROJECT_DIR$/model/Share.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/ShareFilter.php" afterPath="$PROJECT_DIR$/model/ShareFilter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/components/IDealManager.php" afterPath="$PROJECT_DIR$/model/components/IDealManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/dao/IDealDao.php" afterPath="$PROJECT_DIR$/model/dao/IDealDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/dao/ILeadDao.php" afterPath="$PROJECT_DIR$/model/dao/ILeadDao.php" />
     </list>
     <list id="7cdf64f8-03e9-4a67-b55a-677c22d69ac1" name="Facebook" comment="Facebook" />
     <ignored path="CatBee.iws" />
@@ -52,7 +33,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/deal/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="27" selection-start="3446" selection-end="3446" vertical-scroll-proportion="-19.615385">
+            <state line="95" column="27" selection-start="3446" selection-end="3446" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -61,45 +42,26 @@
       <file leaf-file-name="DealManager.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="76" selection-start="4355" selection-end="4355" vertical-scroll-proportion="-15.692307">
-              <folding>
-                <element signature="n#__construct#0;n#DealManager#0;n#!!top" expanded="false" />
-                <element signature="n#getCatBeeSharePoint#0;n#DealManager#0;n#!!top" expanded="false" />
-                <element signature="n#showLeaderDeal#0;n#DealManager#0;n#!!top" expanded="false" />
-                <element signature="n#refreshDealProps#0;n#DealManager#0;n#!!top" expanded="false" />
-                <element signature="n#createPendingDeal#0;n#DealManager#0;n#!!top" expanded="false" />
-                <element signature="n#pushDeal#0;n#DealManager#0;n#!!top" expanded="false" />
-              </folding>
+            <state line="127" column="76" selection-start="4351" selection-end="4351" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShareManager.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ShareManager.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="335" column="37" selection-start="9755" selection-end="9755" vertical-scroll-proportion="0.7118644">
-              <folding>
-                <element signature="n#validateCustomer#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#loadShareTemplatePageContext#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#createShareLink#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#createTemplate#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#getCompatibleTemplateDecorator#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#createMessage#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#getCompatibleShareProvider#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#fillShareProps#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#__construct#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#share#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#setShareTemplate#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#getContacts#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#requiresAuthentication#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#getAuthenticationUrl#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#fillShare#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#getCurrentSharedCustomer#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#addShareApplication#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#getCompatibleShareApplication#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#getAvailableShares#0;n#ShareManager#0;n#!!top" expanded="false" />
-                <element signature="n#updateDealShare#0;n#ShareManager#0;n#!!top" expanded="false" />
-              </folding>
+            <state line="335" column="37" selection-start="9749" selection-end="9749" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,13 +69,8 @@
       <file leaf-file-name="PdoShareDao.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoShareDao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding>
-                <element signature="n#getShareTemplates#0;n#PdoShareDao#0;n#!!top" expanded="false" />
-                <element signature="n#insertShareTemplate#0;n#PdoShareDao#0;n#!!top" expanded="false" />
-                <element signature="n#IsShareTemplateExists#0;n#PdoShareDao#0;n#!!top" expanded="false" />
-                <element signature="n#insertOrUpdateShareTemplate#0;n#PdoShareDao#0;n#!!top" expanded="false" />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,10 +78,8 @@
       <file leaf-file-name="PdoDealDao.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="13" selection-start="4394" selection-end="4394" vertical-scroll-proportion="-20.17647">
-              <folding>
-                <element signature="n#insertDeal#0;n#PdoDealDao#0;n#!!top" expanded="false" />
-              </folding>
+            <state line="140" column="13" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -241,20 +196,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -539,13 +480,11 @@
     <frame x="0" y="0" width="1600" height="860" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277635" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44142857" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3153446" sideWeight="0.55857146" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32444733" sideWeight="0.67142856" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -554,6 +493,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44142857" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29434448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -628,77 +569,30 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoLeaderLandingDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#insertLeaderLanding#0;n#PdoLeaderLandingDao#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCustomerDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.047765795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoStoreDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="36" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0778626">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/deal/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="27" selection-start="3446" selection-end="3446" vertical-scroll-proportion="-19.615385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/LeaderDealFilter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="77" selection-start="168" selection-end="168" vertical-scroll-proportion="0.16216215">
-          <folding />
-        </state>
+        <state line="6" column="77" selection-start="168" selection-end="168" vertical-scroll-proportion="0.16216215" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoStoreBranchDao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="8" selection-start="753" selection-end="771" vertical-scroll-proportion="-0.15254237">
-          <folding />
-        </state>
+        <state line="31" column="8" selection-start="753" selection-end="771" vertical-scroll-proportion="-0.15254237" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/LeaderDeal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="13" selection-end="13" vertical-scroll-proportion="0.052388288">
-          <folding />
-        </state>
+        <state line="2" column="6" selection-start="13" selection-end="13" vertical-scroll-proportion="0.052388288" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="13" selection-start="4394" selection-end="4394" vertical-scroll-proportion="-20.17647">
-          <folding>
-            <element signature="n#insertDeal#0;n#PdoDealDao#0;n#!!top" expanded="false" />
-          </folding>
+        <state line="140" column="13" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -711,69 +605,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/ShareFilter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="125" selection-end="134" vertical-scroll-proportion="0.20955315">
-          <folding />
-        </state>
+        <state line="8" column="20" selection-start="125" selection-end="134" vertical-scroll-proportion="0.20955315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Share.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.15716487">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.15716487" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoShareDao.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#getShareTemplates#0;n#PdoShareDao#0;n#!!top" expanded="false" />
-            <element signature="n#insertShareTemplate#0;n#PdoShareDao#0;n#!!top" expanded="false" />
-            <element signature="n#IsShareTemplateExists#0;n#PdoShareDao#0;n#!!top" expanded="false" />
-            <element signature="n#insertOrUpdateShareTemplate#0;n#PdoShareDao#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="76" selection-start="4355" selection-end="4355" vertical-scroll-proportion="-15.692307">
-          <folding>
-            <element signature="n#__construct#0;n#DealManager#0;n#!!top" expanded="false" />
-            <element signature="n#getCatBeeSharePoint#0;n#DealManager#0;n#!!top" expanded="false" />
-            <element signature="n#showLeaderDeal#0;n#DealManager#0;n#!!top" expanded="false" />
-            <element signature="n#refreshDealProps#0;n#DealManager#0;n#!!top" expanded="false" />
-            <element signature="n#createPendingDeal#0;n#DealManager#0;n#!!top" expanded="false" />
-            <element signature="n#pushDeal#0;n#DealManager#0;n#!!top" expanded="false" />
-          </folding>
+        <state line="127" column="76" selection-start="4351" selection-end="4351" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="335" column="37" selection-start="9755" selection-end="9755" vertical-scroll-proportion="0.7118644">
-          <folding>
-            <element signature="n#validateCustomer#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#loadShareTemplatePageContext#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#createShareLink#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#createTemplate#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#getCompatibleTemplateDecorator#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#createMessage#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#getCompatibleShareProvider#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#fillShareProps#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#__construct#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#share#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#setShareTemplate#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#getContacts#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#requiresAuthentication#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#getAuthenticationUrl#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#fillShare#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#getCurrentSharedCustomer#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#addShareApplication#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#getCompatibleShareApplication#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#getAvailableShares#0;n#ShareManager#0;n#!!top" expanded="false" />
-            <element signature="n#updateDealShare#0;n#ShareManager#0;n#!!top" expanded="false" />
-          </folding>
+        <state line="335" column="37" selection-start="9749" selection-end="9749" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="32" selection-start="0" selection-end="326" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.project">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.user.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
