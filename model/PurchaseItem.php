@@ -6,4 +6,6 @@ class PurchaseItem
     public $price;
     public $url;
     public $description;
+    public $discount;
+    public $couponCode;
 }

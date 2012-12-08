@@ -29,12 +29,22 @@ PRIMARY KEY (id) );
 
 
 
-CREATE  TABLE IF NOT EXISTS campaign (
+CREATE  TABLE IF NOT EXISTS Campaign (
 id INT AUTO_INCREMENT ,
 store INT NULL ,
 name VARCHAR(45) NULL ,
 description VARCHAR(45) NULL ,
 PRIMARY KEY (id) );
+
+CREATE TABLE IF NOT EXISTS CampaignRestrictions (
+  id INT AUTO_INCREMENT ,
+  name VARCHAR(45) NULL ,
+  campaignId INT NOT NULL ,
+  description VARCHAR(100) NOT NULL ,
+  code INT NULL ,
+  expression BLOB NULL ,
+  PRIMARY KEY (id) );
+
 
 CREATE  TABLE IF NOT EXISTS Store (
 id INT AUTO_INCREMENT ,

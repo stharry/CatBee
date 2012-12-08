@@ -10,11 +10,13 @@ class CampaignManager implements ICampaignManager
     private $campaignStrategy;
     private $landingStrategy;
     private $friendLandingStrategy;
+    private $restrictionsManager;
 
     function __construct($storeDao, $customerDao, $campaignDao,
                          $friendLandingDao,
                          $campaignStrategy, $landingStrategy,
-                         $friendLandingStrategy)
+                         $friendLandingStrategy,
+                         $restrictionsManager)
     {
         $this->storeDao = $storeDao;
         $this->customerDao = $customerDao;
@@ -24,6 +26,7 @@ class CampaignManager implements ICampaignManager
         $this->campaignStrategy = $campaignStrategy;
         $this->landingStrategy = $landingStrategy;
         $this->friendLandingStrategy = $friendLandingStrategy;
+        $this->restrictionsManager = $restrictionsManager;
     }
 
     private function checkCustomer($customer)
@@ -55,7 +58,8 @@ class CampaignManager implements ICampaignManager
     private function getValidCampaigns($branch)
     {
         $campaignFilter = new CampaignFilter();
-        $campaignFilter->storeID = $branch->id;
+        $campaignFilter->store = new Store();
+        $campaignFilter->store->id = $branch->id;
         return $this->getCampaigns($campaignFilter);
     }
 
@@ -75,7 +79,26 @@ class CampaignManager implements ICampaignManager
 
     public function getCampaigns($campaignFilter)
     {
-        return $this->campaignDao->getCampaigns($campaignFilter);
+        RestLogger::log('CampaignManager::getCampaigns begin');
+
+        if (isset($campaignFilter->store) && isset($campaignFilter->store->authCode))
+        {
+            if (!$this->storeDao->isStoreExists($campaignFilter->store))
+            {
+                return null;
+            }
+        }
+
+        $campaigns = $this->campaignDao->getCampaigns($campaignFilter);
+
+        foreach ($campaigns as $campaign)
+        {
+            $campaign->restrictions = $this->restrictionsManager->getRestrictions($campaign);
+        }
+
+        RestLogger::log('CampaignManager::getCampaigns end');
+
+        return $campaigns;
     }
 
     public function saveCampaign($campaign)
@@ -83,6 +106,7 @@ class CampaignManager implements ICampaignManager
         $this->checkStore($campaign->store);
         $this->campaignDao->insertCampaign($campaign);
         $this->friendLandingDao->insertFriendLandings($campaign);
+        $this->restrictionsManager->saveRestrictions($campaign);
 
     }
 

@@ -12,7 +12,8 @@ class JsonCampaignFilterAdapter implements IModelAdapter
     {
         $campaignFilter = new CampaignFilter();
 
-        $campaignFilter->storeCode = $obj["storeCode"];
+        $campaignFilter->store = new Store();
+        $campaignFilter->store->authCode = $obj["storeCode"];
 
         return $campaignFilter;
     }

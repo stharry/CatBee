@@ -2,7 +2,7 @@
 
 class CampaignFilter
 {
-    public $storeID;
-    public $CampID;
+    public $store;
+    public $campId;
     public $Lazy = false;
 }
