@@ -82,6 +82,18 @@
                 "rewardMessage1":"Here is Your Promotion Code",
                 "rewardMessage2":"Just Apply it on Checkout"
             }
+        ],
+        "restrictions":[
+            {
+                "name":"whiteList",
+                "code":"200",
+                "desc":"Product not in the trains campaign",
+                "expr":
+                {
+                    "codes":"1234567890"
+                }
+
+            }
         ]
 
     }

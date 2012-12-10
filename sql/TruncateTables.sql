@@ -1,6 +1,7 @@
 TRUNCATE TABLE customers;
 TRUNCATE TABLE CampaignLandings;
 TRUNCATE TABLE landing;
+TRUNCATE TABLE CampaignRestrictions;
 TRUNCATE TABLE campaign;
 TRUNCATE TABLE Store;
 TRUNCATE TABLE StoreBranch;

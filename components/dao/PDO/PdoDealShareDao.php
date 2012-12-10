@@ -45,17 +45,18 @@ class PdoDealShareDao implements IDealShareDao
             if ($rows == null)
             {
                 RestLogger::log("PdoDealShareDao::fillDealShareById share not exists ", $share->id);
+
                 return;
             }
 
-            $share->deal = new LeaderDeal();
+            $share->deal     = new LeaderDeal();
             $share->deal->id = $rows[ 0 ][ 'dealId' ];
 
-            $share->context = new ShareContext();
+            $share->context     = new ShareContext();
             $share->context->id = $rows[ 0 ][ 'shareType' ];
 
-            $share->status = $rows[ 0 ][ 'status' ];
-            $share->reward = new LandingReward();
+            $share->status     = $rows[ 0 ][ 'status' ];
+            $share->reward     = new LandingReward();
             $share->reward->id = $rows[ 0 ][ 'landRewardId' ];
 
             $share->sentTo = $this->value2Customers($rows[ 0 ][ 'value' ]);
@@ -79,6 +80,7 @@ class PdoDealShareDao implements IDealShareDao
             $customer = new Customer($email);
             array_push($customers, $customer);
         }
+
         return $customers;
     }
 
@@ -88,8 +90,9 @@ class PdoDealShareDao implements IDealShareDao
 
         foreach ($sendTo as $customer)
         {
-            $result .= $customer->email.',';
+            $result .= $customer->email . ',';
         }
+
         return $result;
     }
 }

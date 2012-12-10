@@ -29,24 +29,27 @@ class PdoCampaignDao implements ICampaignDao
 
     public function getCampaigns($campaignFilter)
     {
+        RestLogger::log('PdoCampaignDao::getCampaigns begin', $campaignFilter);
+
         $selectParam = "";
         //TO DO- This Should be Changed so the Join will be on the What is now the StoreBranch
-        $selectClause = "SELECT c.id, c.name, c.description,c.store  FROM campaign c
+        $selectClause = "SELECT c.id, c.name, c.description,c.store
+              FROM campaign c
                     INNER JOIN storebranch s
-                    ON c.store = ";
-        if($campaignFilter->storeID == null)
+                    ON c.store = s.id ";
+        if($campaignFilter->store == null)
         {
-            $selectClause = $selectClause." s.id WHERE   c.id = ?";
-            $selectParam = $campaignFilter->CampID;
+            $selectClause = $selectClause." WHERE c.id = ?";
+            $selectParam = $campaignFilter->campId;
         }
         else
         {
-            $selectClause = $selectClause." s.id WHERE s.id = ?";
-            $selectParam = $campaignFilter->storeID;
+            $selectClause = $selectClause." WHERE s.id = ?";
+            $selectParam = $campaignFilter->store->id;
 
         }
         $rows = DbManager::selectValues($selectClause,
-           array($selectParam => PDO::PARAM_STR));
+           array($selectParam => PDO::PARAM_INT));
 
 
         $campaigns = array();
@@ -88,7 +91,7 @@ class PdoCampaignDao implements ICampaignDao
 
     public function updateCampaign($campaign)
     {
-        $sql = "UPDATE campaign SET desc=:desc  WHERE store=:store AND name=:name)";
+        $sql = "UPDATE campaign SET desc=:desc  WHERE store=:store AND name=:name";
 
         $params = array(':store' => $campaign->store,
             ':name' => $campaign->name,

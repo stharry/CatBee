@@ -73,7 +73,7 @@ class FriendLandingManager implements IFriendLandingManager
         //Get The Store From The Campaign
         $CampaignFilter = new CampaignFilter();
         $CampaignFilter->Lazy = true;
-        $CampaignFilter->CampID= $parentDeal->campaign->id;
+        $CampaignFilter->campId = $parentDeal->campaign->id;
         $Camp = $this->campaignDao->getCampaigns($CampaignFilter);
         $StoreBranchFilter = new StoreBranchFilter();
         $StoreBranchFilter->ShopID = $Camp[0]->store;

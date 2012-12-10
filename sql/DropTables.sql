@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS CampaignLandings;
 DROP TABLE IF EXISTS landing;
+DROP TABLE IF EXISTS CampaignRestrictions;
 DROP TABLE IF EXISTS campaign;
 DROP TABLE IF EXISTS Store;
 DROP TABLE IF EXISTS StoreBranch;

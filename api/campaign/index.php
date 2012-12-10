@@ -15,7 +15,10 @@ $campaignManager = new CampaignManager(
     new PdoFriendLandingDao(),
     new DefaultCampaignStrategy(),
     new DefaultLeaderLandingStrategy(),
-    new DefaultFriendLandingStrategy()
+    new DefaultFriendLandingStrategy(),
+    new RestrictionsManager(
+        new RestrictionValidatorFactory(),
+        new PdoCampaignRestrictionsDao())
 );
 
 switch ($action)

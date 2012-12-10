@@ -16,7 +16,10 @@ $campaignManager = new CampaignManager(
     new PdoFriendLandingDao(),
     new DefaultCampaignStrategy(),
     new DefaultLeaderLandingStrategy(),
-    new DefaultFriendLandingStrategy());
+    new DefaultFriendLandingStrategy(),
+    new RestrictionsManager(
+        new RestrictionValidatorFactory(),
+        new PdoCampaignRestrictionsDao()));
 
 
 $dealManager = new DealManager($campaignManager,
@@ -26,7 +29,8 @@ $dealManager = new DealManager($campaignManager,
         new PdoDealShareDao(),
         new PdoLeaderLandingRewardDao(),
         new HtmlPageAdapter()),
-    new PdoDealDao(),new LeadManager(new PdoLeadDao()));
+    new PdoDealDao(),
+    new LeadManager(new PdoLeadDao()));
 
 $friendLandingManager = new FriendLandingManager(
     new PdoDealDao(),
@@ -38,6 +42,13 @@ $friendLandingManager = new FriendLandingManager(
         new PdoFriendLandingDao()),
     new PdoDealShareDao(),
     new StoreManager(new PdoStoreDao(),new PdoStoreBranchDao()));
+
+$discountManager = new DiscountManager(
+    new RestrictionsManager(
+        new RestrictionValidatorFactory(),
+        new PdoCampaignRestrictionsDao()),
+    new PdoLeaderLandingRewardDao(),
+    new PdoDealShareDao());
 
 switch (strtolower($action))
 {
@@ -94,4 +105,17 @@ switch (strtolower($action))
         $dealFilter->ActiveShareFlag = true;
         //Currently the Get will echo the result at the End...
         $dealManager->getDeals($dealFilter);
+
+    case "getdiscount":
+        RestLogger::log("Deal API before deal");
+        $orderAdapter = new JsonOrderAdapter();
+        $order = $orderAdapter->fromArray($context);
+        RestLogger::log("Deal API order is ", $order);
+        $discountManager->applyDiscount($order);
+
+        $orderProps = $orderAdapter->toArray($order);
+        RestUtils::sendSuccessResponse($orderProps);
+
+        exit;
+
 }

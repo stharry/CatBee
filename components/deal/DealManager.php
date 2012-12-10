@@ -8,7 +8,9 @@ class DealManager implements IDealManager
     private $dealDao;
     private $leadManager;
 
-    function __construct($campaignManager, $storeManager, $shareManager, $dealDao,$leadManager)
+    function __construct($campaignManager, $storeManager,
+                         $shareManager, $dealDao,
+                         $leadManager)
     {
         $this->campaignManager = $campaignManager;
         $this->dealDao = $dealDao;

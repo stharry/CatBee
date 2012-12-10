@@ -10,4 +10,5 @@ class Campaign
     public $startDate;
     public $endDate;
     public $friendLandings;
+    public $restrictions;
 }
