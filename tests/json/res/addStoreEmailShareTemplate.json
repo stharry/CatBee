@@ -366,7 +366,7 @@
                                                                                                                                         "name": "td",
                                                                                                                                         "children": [
                                                                                                                                             {
-                                                                                                                                                "source": "\r\n\tI just bought something from Fun For Toys.{lb}\r\n\tThey gave me a special friends only gift</strong> to share with you.",
+                                                                                                                                                "source": "[customMessage]",
                                                                                                                                                 "type": "text",
                                                                                                                                                 "name": "div"
                                                                                                                                             },
@@ -540,7 +540,7 @@
                                                                                                                                                                                         "style": {
                                                                                                                                                                                             "font-size": "14px"
                                                                                                                                                                                         },
-                                                                                                                                                                                        "source": "Use the following discount code at forfortoys.com To Get [reward.friendReward.value] [reward.friendReward.typeDescription]!",
+                                                                                                                                                                                        "source": "Use the following discount code at <strong>Fun for Toys</strong> To Get [reward.friendReward.value] [reward.friendReward.typeDescription]!",
                                                                                                                                                                                         "type": "text",
                                                                                                                                                                                         "name": "span"
                                                                                                                                                                                     }
@@ -830,7 +830,7 @@
                                                                         },
                                                                         "type": "text",
                                                                         "name": "td",
-                                                                        "loop": "order.items",
+                                                                        "loop": "deal.order.items",
                                                                         "children": [
                                                                             {
                                                                                 "attrs": {

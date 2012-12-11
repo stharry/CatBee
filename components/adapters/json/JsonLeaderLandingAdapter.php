@@ -7,11 +7,12 @@ class JsonLeaderLandingAdapter implements IModelAdapter
     private function singleLandingToArray($landing)
     {
         return
-            array("firstSloganLine" => $landing->firstSloganLine,
-                "secondSloganLine" => $landing->secondSloganLine,
-                "firstSliderLine" => $landing->firstSliderLine,
-                "secondSliderLine" => $landing->secondSliderLine,
-                "landingRewards" => $this->jsonRewardAdapter->toArray($landing->landingRewards));
+            array("firstSloganLine"  => $landing->firstSloganLine,
+                  "secondSloganLine" => $landing->secondSloganLine,
+                  "firstSliderLine"  => $landing->firstSliderLine,
+                  "secondSliderLine" => $landing->secondSliderLine,
+                  "customMessage"    => $landing->customMessage,
+                  "landingRewards"   => $this->jsonRewardAdapter->toArray($landing->landingRewards));
 
     }
 
@@ -30,8 +31,10 @@ class JsonLeaderLandingAdapter implements IModelAdapter
             {
                 array_push($landingsProps, $this->singleLandingToArray($landing));
             }
+
             return $landingsProps;
         }
+
         return $this->singleLandingToArray($obj);
     }
 
@@ -44,12 +47,13 @@ class JsonLeaderLandingAdapter implements IModelAdapter
         {
             $landing = new LeaderLanding();
 
-            $landing->firstSloganLine = $landingProps["firstSloganLine"];
-            $landing->secondSloganLine = $landingProps["secondSloganLine"];
-            $landing->firstSliderLine = $landingProps["firstSliderLine"];
-            $landing->secondSliderLine = $landingProps["secondSliderLine"];
+            $landing->firstSloganLine  = $landingProps[ "firstSloganLine" ];
+            $landing->secondSloganLine = $landingProps[ "secondSloganLine" ];
+            $landing->firstSliderLine  = $landingProps[ "firstSliderLine" ];
+            $landing->secondSliderLine = $landingProps[ "secondSliderLine" ];
+            $landing->customMessage    = $landingProps[ "customMessage" ];
 
-            $landing->landingRewards = $this->jsonRewardAdapter->fromArray($landingProps["landingRewards"]);
+            $landing->landingRewards = $this->jsonRewardAdapter->fromArray($landingProps[ "landingRewards" ]);
 
             array_push($landings, $landing);
         }

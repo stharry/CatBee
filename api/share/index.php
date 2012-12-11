@@ -13,7 +13,8 @@ RestLogger::log("Share api {$action} request vars: ", $context);
 
 $shareManager = new ShareManager(
     new PdoStoreDao(), new PdoShareDao(),
-    new PdoCustomerDao(), new PdoShareApplicationDao(),
+    new CustomerManager(new PdoCustomerDao()),
+    new PdoShareApplicationDao(),
     new PdoDealShareDao(),
     new PdoLeaderLandingRewardDao(),
     new HtmlPageAdapter());

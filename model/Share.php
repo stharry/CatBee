@@ -23,6 +23,7 @@ class Share
     public $sendTo;
     public $subject;
     public $message;
+    public $customMessage;
     public $store;
     public $campaign;
     public $context;

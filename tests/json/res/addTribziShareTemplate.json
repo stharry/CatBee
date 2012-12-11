@@ -540,7 +540,7 @@
                                                                                                                                                                                         "style": {
                                                                                                                                                                                             "font-size": "14px"
                                                                                                                                                                                         },
-                                                                                                                                                                                        "source": "Use the following discount code at forfortoys.com To Get [reward.friendReward.value] [reward.friendReward.typeDescription]!",
+                                                                                                                                                                                        "source": "Use the following discount code at <strong>Fun for Toys</strong> To Get [reward.friendReward.value] [reward.friendReward.typeDescription]!",
                                                                                                                                                                                         "type": "text",
                                                                                                                                                                                         "name": "span"
                                                                                                                                                                                     }
@@ -830,7 +830,7 @@
                                                                         },
                                                                         "type": "text",
                                                                         "name": "td",
-                                                                        "loop": "order.items",
+                                                                        "loop": "deal.order.items",
                                                                         "children": [
                                                                             {
                                                                                 "attrs": {

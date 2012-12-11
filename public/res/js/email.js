@@ -9,6 +9,10 @@ function CreateAndInitializeEmailForm() {
         return false;
     });
 
+    $("#message").keyup(function () {
+        catBeeData.landing.customMessage = $("#message").val();
+    });
+
     $("#emailSubmit").click(function () {
 
 
@@ -41,9 +45,9 @@ function CreateAndInitializeEmailForm() {
 
             $.fancybox.showLoading();
 
-            proceedCatBeeShareJsonRequest(postData);
+            proceedCatBeeShareJsonRequest(postData, 'emailParams');
 
-            waitCatBeeResultAndRun(7200, handleEmailResponse);
+            handleEmailResponse();
 
 //                 handleEmailResponse();
 //            $.ajax({
@@ -74,8 +78,7 @@ function validateEmail(email) {
     return reg.test(email);
 }
 
-function getCatBeeShareUrl()
-{
+function getCatBeeShareUrl() {
     return catBeeData.sharePoint;
 }
 
@@ -89,8 +92,8 @@ function createCatBeeShareRequest() {
 
             sendFrom:catBeeData.order.customer.email,
             sendTo:$("#mail-input").val(),
-            message:$("#message").val(),
-            subject:$("#message").val(),
+//            message:$("#message").val(),
+            customMessage:$("#message").val(),
             deal:{
                 id:catBeeData.id
             },
@@ -100,20 +103,27 @@ function createCatBeeShareRequest() {
             store:{
                 authCode:catBeeData.order.store.authCode
             },
-            reward:
-            {
-                id: catBeeData.landing.landingRewards[rewardInd].id
+            reward:{
+                id:catBeeData.landing.landingRewards[rewardInd].id
 
             }
         }
     };
 }
 
-function handleEmailResponse()
-{
-    $.fancybox.hideLoading();
+function handleEmailResponse() {
+    if (localStorage.getItem('emailParams') === null)
+    {
+        setTimeout(handleEmailResponse, 500);
+    }
+    else
+    {
+        $.fancybox.hideLoading();
 
-    $.fancybox("Message sent");
+        $.fancybox("Message sent");
 
-    setTimeout("$.fancybox.close()", 1000);
+        setTimeout("$.fancybox.close()", 1000);
+
+        localStorage.removeItem('emailParams');
+    }
 }

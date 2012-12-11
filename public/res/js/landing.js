@@ -77,6 +77,7 @@ $(document).ready(function() {
         if( $('.email-form').css('display') == 'none' ){
             //I know this is not the Way yo Call a relative URL..
             $('.box-wrapper').css({height:'740px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'});
+            $("#message").val(catBeeData.landing.customMessage);
         }else{
             //I know this is not the Way yo Call a relative URL..
             $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
