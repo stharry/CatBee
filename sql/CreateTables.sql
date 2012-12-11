@@ -20,11 +20,12 @@ CREATE  TABLE IF NOT EXISTS campfriendlanding (
 
 
 CREATE  TABLE IF NOT EXISTS landing (
-id INT AUTO_INCREMENT ,
-sloganFirst VARCHAR(60) NULL ,
-sloganSecond VARCHAR(60) NULL ,
-sliderFirst VARCHAR(45) NULL ,
-sliderSecond VARCHAR(45) NULL ,
+  id INT AUTO_INCREMENT ,
+  sloganFirst VARCHAR(60) NULL ,
+  sloganSecond VARCHAR(60) NULL ,
+  sliderFirst VARCHAR(45) NULL ,
+  sliderSecond VARCHAR(45) NULL ,
+  message VARCHAR(200) NULL ,
 PRIMARY KEY (id) );
 
 
@@ -152,19 +153,21 @@ PRIMARY KEY (id)
 
 CREATE  TABLE IF NOT EXISTS StoreShareTemplate (
 
-	id INT auto_increment,
+  id INT auto_increment,
 
-	storeId INT NOT NULL,
+  storeId INT NOT NULL,
 
-	campaignId INT NOT NULL,
+  campaignId INT NOT NULL,
 
-	shareType INT NOT NULL ,
+  shareType INT NOT NULL ,
 
-    targetId INT NOT NULL,
+  targetId INT NOT NULL,
 
-    message VARCHAR(200) NULL,
+  message VARCHAR(200) NULL,
 
-	body TEXT NULL ,
+  customMessage VARCHAR(200) NULL,
+
+  body TEXT NULL ,
 
 PRIMARY KEY (id) );
 

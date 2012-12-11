@@ -4,7 +4,7 @@ class ShareManager implements IShareManager
 {
     private $shareDao;
     private $storeDao;
-    private $customerDao;
+    private $customerManager;
     private $shareAppDao;
     private $pageAdapter;
     private $dealShareDao;
@@ -13,14 +13,7 @@ class ShareManager implements IShareManager
 
     private function validateCustomer($customer)
     {
-        if ($customer->id > 0)
-        {
-            return;
-        }
-        if (!$this->customerDao->isCustomerExists($customer))
-        {
-            $this->customerDao->insertCustomer($customer);
-        }
+        $this->customerManager->validateCustomer($customer);
     }
 
     private function loadShareTemplatePageContext($shareTemplate)
@@ -119,8 +112,8 @@ class ShareManager implements IShareManager
         //todo: put strategy class here
         if (count($shareTemplates) == 0) die ("There is no any share template for given store");
 
-        $this->loadCustomerByEmail($share->sendFrom);
-        $this->loadCustomerByEmail($share->sendTo);
+        $this->validateCustomer($share->sendFrom);
+        $this->validateCustomer($share->sendTo);
 
         $this->landingRewardDao->fillLandingRewardById($share->reward);
 
@@ -129,14 +122,14 @@ class ShareManager implements IShareManager
     }
 
     function __construct(
-        $storeDao, $shareDao, $customerDao,
+        $storeDao, $shareDao, $customerManager,
         $shareAppDao, $dealShareDao,
         $landingRewardDao,
         $pageAdapter)
     {
         $this->storeDao = $storeDao;
         $this->shareDao = $shareDao;
-        $this->customerDao = $customerDao;
+        $this->customerManager = $customerManager;
         $this->shareAppDao = $shareAppDao;
         $this->dealShareDao = $dealShareDao;
         $this->landingRewardDao = $landingRewardDao;
@@ -337,13 +330,5 @@ class ShareManager implements IShareManager
         $this->dealShareDao->GetDealsShares($deals);
         echo "FillActiveSharesForDeal";
 
-    }
-    private function loadCustomerByEmail($customer)
-    {
-        //TODO - what is this method doing at the ShareManager??
-        if ($customer->id <= 0)
-        {
-            $this->customerDao->loadCustomerByEmail($customer);
-        }
     }
 }

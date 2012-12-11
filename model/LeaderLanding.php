@@ -9,4 +9,5 @@ class LeaderLanding
     public $secondSliderLine;
     public $landingRewards;
     public $leaderRewardCondition;
+    public $customMessage;
 }

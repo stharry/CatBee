@@ -46,7 +46,11 @@ class TemplateBuilder
     private function buildTemplateFieldLoop($data, $field, $decorator)
     {
         $result = '';
-        $source = $this->getSource($data, $field->loop);
+
+        RestLogger::log('--Field loop: ', $field->loop);
+
+        $loop = isset($field->loop) ? $field->loop : "1";
+        $source = $this->getSource($data, $loop);
 
         if (!$source || count($source) == 0)
         {
@@ -144,7 +148,7 @@ class TemplateBuilder
 
         foreach ($field->childFields as $childField)
         {
-            $result .= $this->buildTemplateField($data, $childField, $decorator);
+            $result .= $this->buildTemplateFieldLoop($data, $childField, $decorator);
         }
 
 

@@ -40,7 +40,7 @@ function StartFacebookSharing()
         FB.ui({
                 method:'feed',
                 display:'popup',
-                name: facebookParams.subject,
+                name: catBeeData.landing.customMessage,
                 picture: catBeeData.order.items[0].url,
                 redirect_uri: facebookParams.context.application.redirectUrl,
                 caption: ' ',
@@ -66,8 +66,6 @@ function StartFacebookSharing()
 }
 
 function waitAndShare() {
-
-
 
     if (localStorage.getItem('facebookParams') === null)
     {

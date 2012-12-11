@@ -36,6 +36,7 @@ class JsonShareAdapter implements IModelAdapter
             'sendFrom' => $obj->sendFrom->email,
             'sendTo' => $this->sentToToArray($obj->sendTo),
             'message' => $obj->message,
+            'customMessage' => $obj->customMessage,
             'link' => $obj->link,
             'subject' => $obj->subject,
             'context' => $this->jsonShareContextAdapter->toArray($obj->context),
@@ -66,6 +67,7 @@ class JsonShareAdapter implements IModelAdapter
         $share->sendFrom = new Customer($obj["sendFrom"]);
         $share->sendTo = $this->sentToFromArray($obj["sendTo"]);
         $share->message = $obj["message"];
+        $share->customMessage = $obj["customMessage"];
         $share->link = $obj["link"];
         $share->subject = $obj["subject"];
 

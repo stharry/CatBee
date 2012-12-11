@@ -8,6 +8,7 @@ class EmailShareProvider implements IShareProvider
 
     private function validateEmailAddress($address)
     {
+        return $address;
         $addresses = explode(',', $address);
 
         $result = '';
