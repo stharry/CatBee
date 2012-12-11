@@ -40,7 +40,6 @@ class DealManager implements IDealManager
 
     private function refreshDealProps($leaderDeal, $landing, $order)
     {
-        $leaderDeal->selectedLandingReward = $landing->landingRewards[ 0 ]->leaderReward->value;
         $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
         $leaderDeal->landing = $landing;
         $leaderDeal->order = $order;

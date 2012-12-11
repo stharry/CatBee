@@ -14,7 +14,6 @@ class LeaderDeal
     public $landing;
     public $order;
     public $status;
-    public $selectedLandingReward;
     public $customer;
     public $friendDeals;
     public $uniqueCode;
