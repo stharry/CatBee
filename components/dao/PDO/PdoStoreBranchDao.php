@@ -49,6 +49,7 @@ class PdoStoreBranchDao implements IStoreBranchDao
         $storeBranch->redirectUrl = $row[0]["url"];
         $storeBranch->logoUrl = $row[0]["logoUrl"];
         $storeBranch->email = $row[0]["email"];
+        $storeBranch->shopName = $row[0]["ShopName"];
         return $storeBranch;
     }
 }
