@@ -50,9 +50,9 @@ class DbManager
         try
         {
             DbManager:: $connection = new PDO("mysql:host={$dbHost};dbname={$dbName}",
-                $GLOBALS[ "dbusername" ], $GLOBALS[ "dbpassword" ],
-                array(PDO::ATTR_PERSISTENT => true
-                ));
+                $GLOBALS[ "dbusername" ], $GLOBALS[ "dbpassword" ]
+             //   , array(PDO::ATTR_PERSISTENT => true)
+            );
         } catch (Exception $e)
         {
             mysql_close();
@@ -103,8 +103,15 @@ class DbManager
 
             RestLogger::log("DbManager::selectValues row count: " . $stmt->rowCount());
 
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (Exception $e)
+            $values = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $stmt = null;
+
+            RestLogger::log("DbManager::selectValuesvalues are: ", $values);
+
+            return $values;
+        }
+        catch (Exception $e)
         {
             RestLogger::log('DbManager::selectValues exception ', $e->getMessage());
             throw new Exception($e->getMessage(), $e->getCode(), $e);
@@ -116,7 +123,21 @@ class DbManager
         DbManager::setValues($insertExpression, $params);
     }
 
-    public static function insert($table, $fieldNames, $fieldValues)
+    public static function insertOnly($table, $fieldNames, $fieldValues)
+    {
+        try
+        {
+            $conn = DbManager::insert($table, $fieldNames, $fieldValues);
+
+            $conn = null;
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log('ERROR: ', $e->getMessage());
+        }
+    }
+
+    private static function insert($table, $fieldNames, $fieldValues)
     {
         try
         {
@@ -127,7 +148,10 @@ class DbManager
             RestLogger::log("DbManager::insert table: " . $table . " fields: ", $fieldNames);
             RestLogger::log("DbManager::insert table: " . $table . " values: ", $fieldValues);
 
-            return DbManager::setValues($expr, $params);
+            $conn = DbManager::setValues($expr, $params);
+
+            return $conn;
+
         }
         catch (Exception $e)
         {
@@ -144,6 +168,8 @@ class DbManager
             $id = $conn->lastInsertId($idColumnName);
 
             RestLogger::log('DbManager::insertAndReturnId id ', $id);
+
+            $conn = null;
 
             return $id;
 
@@ -166,7 +192,13 @@ class DbManager
         try
         {
             $conn = DbManager::insertValues($insertExpression, $params);
-            return $conn->lastInsertId($idColumnName);
+
+            $id = $conn->lastInsertId($idColumnName);
+
+            $conn = null;
+
+            return $id;
+
         } catch (PDOException $pe)
         {
             echo $pe->getMessage();

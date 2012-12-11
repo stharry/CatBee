@@ -53,7 +53,7 @@ class PdoLeaderLandingDao implements ILeaderLandingDao
         $names  = array("campaignId", "landingId");
         $values = array($campaign->id, $leaderLanding->id);
 
-        DbManager::insert("CampaignLandings", $names, $values);
+        DbManager::insertOnly("CampaignLandings", $names, $values);
 
         $this->leaderLandingRewardDao->insertLeaderLandingRewards($leaderLanding);
     }

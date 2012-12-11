@@ -14,7 +14,7 @@ class PdoFriendLandingDao implements IFriendLandingDao
         $names = array("campaignId", "FriendlandingID");
         $values = array($campaign->id, $FriendsLanding->id);
 
-        DbManager::insert("campfriendlanding", $names, $values);
+        DbManager::insertOnly("campfriendlanding", $names, $values);
     }
     public function GetFriendLanding($campaign)
     {

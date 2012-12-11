@@ -7,7 +7,7 @@ class PdoLeadDao implements ILeadDao
     {
         $names  = array("lead","orderID");
         $values = array ($lead->share->id,$lead->order->id);
-        DbManager::insert("leads", $names, $values);
+        DbManager::insertOnly("leads", $names, $values);
     }
     public function GetLead($leadFilter)
     {

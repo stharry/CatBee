@@ -30,7 +30,7 @@ class PdoAuthorizationDao implements IAuthorizationDao
         $values = array($shareNode->context->id, $shareNode->leader->id,
             $shareAuthorization->userId, $shareAuthorization->accessToken);
 
-        DbManager::insert("customerAuth", $names, $values);
+        DbManager::insertOnly("customerAuth", $names, $values);
 
         RestLogger::log("PdoAuthorizationDao::setAuthorization end");
 
