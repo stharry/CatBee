@@ -74,8 +74,23 @@ function CreateAndInitializeEmailForm() {
 }
 
 function validateEmail(email) {
-    var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return reg.test(email);
+
+    var emails = email.split(",");
+
+    if (emails.length == 0)
+    {
+        return false;
+    }
+
+    for (i = 0; i < emails.length; i++)
+    {
+        var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!reg.test(emails[i]))
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 function getCatBeeShareUrl() {

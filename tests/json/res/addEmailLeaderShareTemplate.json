@@ -97,7 +97,7 @@
                                                                     " padding": "0",
                                                                     "padding": "0px"
                                                                 },
-                                                                "source": "http://gallery.mailchimp.com/f503f7e5aac319051c907e2fb/images/Fun_For_Toys_Logo.1a2988b.1.jpg",
+                                                                "source": "[deal.order.branch.logoUrl]",
                                                                 "type": "image",
                                                                 "name": "img"
                                                             }
@@ -192,7 +192,7 @@
                                                                                         "style": {
                                                                                             "color": "#000000"
                                                                                         },
-                                                                                        "source": "[sendFrom.firstName], thank you for being a great customer and the best friend ever...",
+                                                                                        "source": "[sendTo.firstName], thank you for being a great customer and the best friend ever...",
                                                                                         "type": "text",
                                                                                         "name": "span"
                                                                                     }
@@ -245,7 +245,7 @@
                                                                                                             "font-weight": "normal"
                                                                                                         },
                                                                                                         "source": "funfortoys.com",
-                                                                                                        "linkSource": "http://tribzi.azurewebsites.net/CatBee/adapters/demo/HomeAutoStart.php?sid=181",
+                                                                                                        "linkSource": "[deal.order.branch.url]",
                                                                                                         "type": "text",
                                                                                                         "name": "a"
                                                                                                     }
@@ -311,24 +311,11 @@
                                                                                             "text-decoration": "underline",
                                                                                             "font-weight": "normal"
                                                                                         },
-                                                                                        "linkSource": "http://tribzidemo.azurewebsites.net/CatBee/adapters/demo/Home.php?page=goWelcome.php&sid=32",
+                                                                                        "linkSource": "",
                                                                                         "type": "text",
                                                                                         "name": "a",
                                                                                         "children": [
-                                                                                            {
-                                                                                                "attrs": {
-                                                                                                    "align": "none",
-                                                                                                    "height": "51",
-                                                                                                    "width": "165"
-                                                                                                },
-                                                                                                "style": {
-                                                                                                    "width": "165px",
-                                                                                                    " height": "51px"
-                                                                                                },
-                                                                                                "source": "http://gallery.mailchimp.com/f503f7e5aac319051c907e2fb/images/Redeem_Now.jpg",
-                                                                                                "type": "image",
-                                                                                                "name": "img"
-                                                                                            }
+
                                                                                         ]
                                                                                     }
                                                                                 ]

@@ -12,6 +12,7 @@
             {
                 "shopId":"1",
                 "shopName": "Fan Toys store",
+                "url":"http://fun-for-toys.myshopify.com",
                 "logoUrl": "{Rest_url}/CatBee/adapters/demo/res/Logo.jpg",
                 "email": "admin@FanForToys.com"
             }
