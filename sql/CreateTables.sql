@@ -117,8 +117,6 @@ orderId INT NOT NULL ,
 
 status INT NOT NULL ,
 
-landingReward DOUBLE NULL ,
-
 customerId INT NOT NULL ,
 
 initDate DATETIME NOT NULL ,

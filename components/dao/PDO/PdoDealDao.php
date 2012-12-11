@@ -10,7 +10,6 @@ class PdoDealDao implements IDealDao
         $leaderDeal->id = $row[ "id" ];
         $leaderDeal->landing = $row[ "landing" ];
         $leaderDeal->status = $row[ "status" ];
-        $leaderDeal->landingReward = $row[ "landingReward" ];
         $leaderDeal->customer = $row[ "customerId" ];
         $leaderDeal->initDate = $row[ "initDate" ];
         $leaderDeal->updateDate = $row[ "updateDate" ];
@@ -31,7 +30,7 @@ class PdoDealDao implements IDealDao
         try
         {
             $selectClause = " SELECT id, landing, status, orderId,
-            campaignId, landingReward, customerId, initDate, updateDate
+            campaignId, customerId, initDate, updateDate
             FROM deal WHERE id = {$id} ";
 
             $rows = DbManager::selectValues($selectClause);
@@ -57,7 +56,7 @@ class PdoDealDao implements IDealDao
     {
         $names = array( "landing", 'campaignId', "branchId",
             "orderId", "status",
-            "landingReward", "customerId", "initDate", "updateDate");
+             "customerId", "initDate", "updateDate");
 
         $values = array(
             $deal->landing->id,
@@ -65,7 +64,6 @@ class PdoDealDao implements IDealDao
             $deal->order->branch->id,
             $deal->order->id,
             $deal->status,
-            $deal->selectedLandingReward,
             $deal->customer->id,
             date("Y-m-d h:i:s"),
             date("Y-m-d h:i:s"));
@@ -92,7 +90,7 @@ class PdoDealDao implements IDealDao
         try
         {
             $selectClause = " SELECT id, landing, status,
-            landingReward, customerId, initDate, updateDate
+             customerId, initDate, updateDate
             FROM deal WHERE orderId = {$order->id} AND branchId = {$order->branch->id}";
 
             $rows = DbManager::selectValues($selectClause);
@@ -120,7 +118,7 @@ class PdoDealDao implements IDealDao
         $selectParam = "";
         try
         {
-        $selectClause = " SELECT d.id, d.landing, d.status,d.landingReward, d.customerId, d.initDate, d.updateDate
+        $selectClause = " SELECT d.id, d.landing, d.status, d.customerId, d.initDate, d.updateDate
             FROM deal d";
             if($dealFilter->customer != null)
             {
@@ -156,7 +154,7 @@ class PdoDealDao implements IDealDao
         try
         {
             $selectClause = " SELECT id, landing, status, orderId,
-            campaignId, landingReward, customerId, initDate, updateDate
+            campaignId, customerId, initDate, updateDate
             FROM deal WHERE orderId = {$id} AND parentId IS NULL";
 
             $rows = DbManager::selectValues($selectClause);

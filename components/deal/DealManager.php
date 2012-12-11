@@ -40,7 +40,6 @@ class DealManager implements IDealManager
 
     private function refreshDealProps($leaderDeal, $landing, $order)
     {
-        $leaderDeal->selectedLandingReward = $landing->landingRewards[ 0 ]->leaderReward->value;
         $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
         $leaderDeal->landing = $landing;
         $leaderDeal->order = $order;
@@ -91,7 +90,7 @@ class DealManager implements IDealManager
         $this->storeManager->validateBranch($order->store, $order->branch);
 
         //Register Leading Deal If Exist
-        $this->leadManager->saveLead($order,"1");
+        $this->leadManager->saveLead($order);
 
         RestLogger::log("DealManager::pushDeal after store validation ", $order->store);
         $campaign = $this->campaignManager->chooseCampaign($order);

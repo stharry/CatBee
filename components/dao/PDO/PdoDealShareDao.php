@@ -65,6 +65,11 @@ class PdoDealShareDao implements IDealShareDao
             RestLogger::log('Exception', $e->getMessage());
         }
     }
+    public function GetDealsShares($deals)
+    {
+
+
+    }
 
     private function value2Customers($value)
     {
