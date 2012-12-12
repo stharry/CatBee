@@ -8,5 +8,5 @@ interface IDealShareDao
 
     public function fillDealShareById($share);
 
-    public function GetDealsShares($deals);
+    public function GetDealsShares($deals,$getLeads);
 }

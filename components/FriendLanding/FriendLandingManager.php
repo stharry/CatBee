@@ -60,16 +60,11 @@ class FriendLandingManager implements IFriendLandingManager
         RestLogger::log("FriendLandingManager::startSharedDeal before", $friendDeal);
 
         $this->getShareById($friendDeal);
-
         $parentDeal = $this->dealDao->getDealById($friendDeal->share->deal->id);
         RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
-
         $this->fillLandingReward($friendDeal);
         RestLogger::log("FriendLandingManager::startSharedDeal reward ", $friendDeal->share->reward);
-
         $friendDeal->friend = $this->customerDao->loadCustomerById($parentDeal->customer);
-
-
         //Get The Store From The Campaign
         $CampaignFilter = new CampaignFilter();
         $CampaignFilter->Lazy = true;
@@ -78,11 +73,9 @@ class FriendLandingManager implements IFriendLandingManager
         $StoreBranchFilter = new StoreBranchFilter();
         $StoreBranchFilter->ShopID = $Camp[0]->store;
         $Branch = $this->storeManager->getStoreBranches($StoreBranchFilter);
-        //2. get reward by parent deal
         $this->friendLandingDao->GetFriendLanding($parentDeal->campaign);
         //todo move to strategy
         $friendDeal->landing = $parentDeal->campaign->friendLandings[0];
-
         RestLogger::log("FriendLandingManager::startSharedDeal landing ", $friendDeal->landing);
         $this->showFriendLanding($friendDeal,$Branch);
     }
