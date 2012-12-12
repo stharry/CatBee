@@ -26,6 +26,8 @@ class Share
     public $customMessage;
     public $store;
     public $campaign;
+    //The Context Reperesent data on the share for example the Sharing Method
+    //TODO - Consider change the names
     public $context;
     public $reward;
     public $link;

@@ -106,6 +106,7 @@ switch (strtolower($action))
         $dealFilter->ActiveShareFlag = true;
         //Currently the Get will echo the result at the End...
         $dealManager->getDeals($dealFilter);
+        exit;
 
     case "getdiscount":
         RestLogger::log("Deal API before deal");
