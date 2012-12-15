@@ -18,4 +18,4 @@ $response = $restUtils->SendPostRequest("campaign", "", $campaignFilter);
 
 var_dump($response);
 
-echo "THE END";
+echo "OK";

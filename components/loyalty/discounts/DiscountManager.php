@@ -18,6 +18,7 @@ class DiscountManager implements IDiscountManager
 
         $this->rewardDao->fillLandingRewardById($reward);
 
+        return $reward;
     }
 
     function __construct($restrictionManager, $rewardDao, $dealShareDao)
@@ -29,7 +30,15 @@ class DiscountManager implements IDiscountManager
 
     public function applyDiscount($order)
     {
+        RestLogger::log('DiscountManager::applyDiscount begin');
         $reward = $this->getReward($order);
+
+        if (!isset($reward))
+        {
+            return false;
+            RestLogger::log('DiscountManager::applyDiscount: no reward');
+        }
+        RestLogger::log('DiscountManager::applyDiscount reward is', $reward);
 
         $discountedItems = $this->restrictionManager->getValidOrderItems($order);
 
@@ -42,11 +51,13 @@ class DiscountManager implements IDiscountManager
                 $item->discount = $reward->friendReward->value;
                 $item->couponCode = $reward->friendReward->code;
             }
+            RestLogger::log('DiscountManager::applyDiscount', $discountedItems);
             return true;
 
         }
         else
         {
+            RestLogger::log('DiscountManager::applyDiscount - No items to apply discount');
             return false;
         }
     }

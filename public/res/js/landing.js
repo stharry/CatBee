@@ -6,7 +6,7 @@ $(document).ready(function() {
         animate: true,
         min : 0,
         max : catBeeData.landing.landingRewards.length - 1,
-        value : 1,
+        value : Math.round((catBeeData.landing.landingRewards.length - 1)/2),
         change : function(event, ui) {
             var val = ui.value;
             updateRewards(ui.value);
@@ -26,16 +26,37 @@ $(document).ready(function() {
         }
     });
 
-    $('.cat_icon').click(function(){
+    $('.cat_icon').dblclick(function(){
 
         $("#slider").slider('value', 0);
     });
 
-    $('.bee_icon').click(function(){
+    $('.cat_icon').click(function(){
+
+        var sliderValue = $("#slider").slider('value');
+
+        if (sliderValue > 0)
+        {
+            $("#slider").slider('value', sliderValue - 1);
+        }
+    });
+
+    $('.bee_icon').dblclick(function(){
 
         $("#slider").slider('value', catBeeData.landing.landingRewards.length - 1);
     });
 
+    $('.bee_icon').click(function(){
+
+        var sliderValue = $("#slider").slider('value');
+
+        if (sliderValue < catBeeData.landing.landingRewards.length - 1)
+        {
+            $("#slider").slider('value', sliderValue + 1);
+        }
+    });
+
+    createSliderUnits();
     updateBoxPosition();
     updateRewards(1);
     //Share hover
@@ -144,5 +165,16 @@ function updateRewards(sliderVal) {
     $('#FriendRewardPhrase').text(catBeeData.landing.landingRewards[sliderVal].friendReward.description);
     $('#FriendReward').val(catBeeData.landing.landingRewards[sliderVal].friendReward.value);
     $('#FriendArea').val(catBeeData.landing.landingRewards[sliderVal].friendReward.typeDescription);
+
+}
+
+function createSliderUnits()
+{
+    for (var sliderNo = 1; sliderNo < catBeeData.landing.landingRewards.length - 1; sliderNo++)
+    {
+        var left = Math.round((sliderNo/(catBeeData.landing.landingRewards.length - 1))* 100).toFixed(2) + '%';
+        $("<div class='unit' style='left: " + left + ";'></div>").appendTo("div#sliderUnits");
+
+    }
 
 }

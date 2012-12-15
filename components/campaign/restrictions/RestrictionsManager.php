@@ -17,6 +17,8 @@ class RestrictionsManager implements IRestrictionsManager
         $restrictions =
             $this->restrictionsDao->getCampaignRestrictionsByActiveShareId($order->activeShareId);
 
+        RestLogger::log('RestrictionsManager::getValidOrderItems begin', $restrictions);
+
         $items = $order->items;
 
         foreach ($restrictions as $restriction)
@@ -28,6 +30,8 @@ class RestrictionsManager implements IRestrictionsManager
             {
                 $order->status->code = $restriction->code;
                 $order->status->description = $restriction->description;
+
+                RestLogger::log('RestrictionsManager::getValidOrderItems Order not valid for '.$restriction->name);
                 return false;
             }
 
@@ -46,9 +50,12 @@ class RestrictionsManager implements IRestrictionsManager
             {
                 $order->status->code = $restriction->code;
                 $order->status->description = $restriction->description;
+                RestLogger::log('RestrictionsManager::getValidOrderItems no valid items for '.$restriction->name);
                 return false;
             }
         }
+
+        RestLogger::log('RestrictionsManager::getValidOrderItems end', $items);
 
         return $items;
     }

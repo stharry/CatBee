@@ -10,9 +10,9 @@
                     <div class="bee_icon"></div>
                 </div>
                 <div id="slider"></div>
-                <div class="clearfix">
+                <div id="sliderUnits" class="clearfix">
                     <div class="unit"></div>
-                    <div class="unit pos_center"></div>
+<!--                    <div class="unit pos_center"></div>-->
                     <div class="unit pos_right"></div>
                 </div>
             </div>

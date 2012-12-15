@@ -1,0 +1,28 @@
+{
+    "action":"get discount",
+    "context":{
+        "activeShareId":"1",
+        "amount":"76.00",
+        "id":"123",
+        "items":[
+            {
+                "itemcode":"1234567890",
+                "url":"http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
+                "price":"76.00",
+                "description":"toy"
+            }
+        ],
+        "customer":{
+            "email":"danny.t.leader@gmail.com",
+            "firstName":"Danny",
+            "lastName":"Leader",
+            "nickName":"leader"
+        },
+        "store":{
+            "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+        },
+        "branch":{
+            "shopId":"1"
+        }
+    }
+}
