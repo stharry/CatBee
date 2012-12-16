@@ -12,7 +12,16 @@
                 <div id="slider"></div>
                 <div id="sliderUnits" class="clearfix">
                     <div class="unit"></div>
+                    <?php
+                    for ($divNo = 1; $divNo < count($p->landing->landingRewards) - 1; $divNo++ )
+                    {
+                        $left = round($divNo / (count($p->landing->landingRewards) - 1) * 100);
+                    ?>
+                        <div class="unit" style="left: <?=$left?>%;"></div>
 <!--                    <div class="unit pos_center"></div>-->
+                    <?php
+                    }
+                    ?>
                     <div class="unit pos_right"></div>
                 </div>
             </div>
