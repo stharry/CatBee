@@ -12,6 +12,6 @@ class Customer
     public $firstName;
     public $lastName;
     public $nickName;
-    public $sharedPhoto;
-    public $sharedUserId;
+    public $sharedPhoto;  // link to facebook user profile photo
+    public $sharedUserId; // in common case facebook user unique id
 }

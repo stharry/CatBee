@@ -18,7 +18,7 @@
                         $left = round($divNo / (count($p->landing->landingRewards) - 1) * 100);
                     ?>
                         <div class="unit" style="left: <?=$left?>%;"></div>
-<!--                    <div class="unit pos_center"></div>-->
+
                     <?php
                     }
                     ?>

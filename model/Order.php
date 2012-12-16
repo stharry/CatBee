@@ -5,7 +5,6 @@ class Order
     function __construct()
     {
         $this->items = array();
-        $this->status = new OperationStatus();
     }
 
     public function addItem()
@@ -24,5 +23,4 @@ class Order
     public $branch;
     public $lead;
     public $activeShareId;
-    public $status;
 }
