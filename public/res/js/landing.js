@@ -56,7 +56,6 @@ $(document).ready(function() {
         }
     });
 
-    createSliderUnits();
     updateBoxPosition();
     updateRewards(1);
     //Share hover
@@ -165,16 +164,5 @@ function updateRewards(sliderVal) {
     $('#FriendRewardPhrase').text(catBeeData.landing.landingRewards[sliderVal].friendReward.description);
     $('#FriendReward').val(catBeeData.landing.landingRewards[sliderVal].friendReward.value);
     $('#FriendArea').val(catBeeData.landing.landingRewards[sliderVal].friendReward.typeDescription);
-
-}
-
-function createSliderUnits()
-{
-    for (var sliderNo = 1; sliderNo < catBeeData.landing.landingRewards.length - 1; sliderNo++)
-    {
-        var left = Math.round((sliderNo/(catBeeData.landing.landingRewards.length - 1))* 100).toFixed(2) + '%';
-        $("<div class='unit' style='left: " + left + ";'></div>").appendTo("div#sliderUnits");
-
-    }
 
 }
