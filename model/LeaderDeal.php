@@ -15,9 +15,6 @@ class LeaderDeal
     public $order;
     public $status;
     public $customer;
-    public $friendDeals;
-    public $uniqueCode;
-    public $sharePoint;
-    public $dealPoint;
+    public $sharePoint;  //currently used as a JavaScript client callback url to the TribZi server
     public $shares;
 }

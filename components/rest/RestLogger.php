@@ -11,7 +11,7 @@ class RestLogger
     {
         if (!RestLogger::$logger)
         {
-            $conf = array('mode' => 0600, 'timeFormat' => '%X %x');
+            $conf = array('mode' => 0600, 'timeFormat' => '%H:%M:%S');
             RestLogger::$logger = & Log::singleton('file', $GLOBALS['restLogBaseDir'].'\CatBee.log', 'ident', $conf);
         }
     }

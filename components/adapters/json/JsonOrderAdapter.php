@@ -37,6 +37,7 @@ class JsonOrderAdapter implements IModelAdapter
 
         $order->amount = $obj["amount"];
         $order->id = $obj["id"];
+        $order->activeShareId = $obj["activeShareId"];
 
         $order->customer = $this->customerAdapter->fromArray($obj["customer"]);
         $order->items = $this->itemsAdapter->fromArray($obj["items"]);

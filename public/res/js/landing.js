@@ -6,7 +6,7 @@ $(document).ready(function() {
         animate: true,
         min : 0,
         max : catBeeData.landing.landingRewards.length - 1,
-        value : 1,
+        value : Math.round((catBeeData.landing.landingRewards.length - 1)/2),
         change : function(event, ui) {
             var val = ui.value;
             updateRewards(ui.value);
@@ -26,14 +26,34 @@ $(document).ready(function() {
         }
     });
 
-    $('.cat_icon').click(function(){
+    $('.cat_icon').dblclick(function(){
 
         $("#slider").slider('value', 0);
     });
 
-    $('.bee_icon').click(function(){
+    $('.cat_icon').click(function(){
+
+        var sliderValue = $("#slider").slider('value');
+
+        if (sliderValue > 0)
+        {
+            $("#slider").slider('value', sliderValue - 1);
+        }
+    });
+
+    $('.bee_icon').dblclick(function(){
 
         $("#slider").slider('value', catBeeData.landing.landingRewards.length - 1);
+    });
+
+    $('.bee_icon').click(function(){
+
+        var sliderValue = $("#slider").slider('value');
+
+        if (sliderValue < catBeeData.landing.landingRewards.length - 1)
+        {
+            $("#slider").slider('value', sliderValue + 1);
+        }
     });
 
     updateBoxPosition();

@@ -1,6 +1,7 @@
 {
-    "action":"deal",
+    "action":"get discount",
     "context":{
+        "activeShareId":"1",
         "amount":"76.00",
         "id":"123",
         "items":[
@@ -17,10 +18,11 @@
             "lastName":"Leader",
             "nickName":"leader"
         },
+        "store":{
+            "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+        },
         "branch":{
-            "shopId":"1",
-            "store":{
-                "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
-        }}
+            "shopId":"1"
+        }
     }
 }

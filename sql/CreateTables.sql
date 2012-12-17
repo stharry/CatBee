@@ -125,29 +125,15 @@ updateDate DATETIME NOT NULL ,
 
 PRIMARY KEY (id) );
 
-
-
-
-
-CREATE  TABLE IF NOT EXISTS frienddeal (
-id int(11) AUTO_INCREMENT,
-dealID int(11) DEFAULT NULL,
-customer int(11) DEFAULT NULL,
-status varchar(45) DEFAULT NULL,
-initDate datetime DEFAULT NULL,
-updateDate datetime DEFAULT NULL,
-PRIMARY KEY (id)
-);
-
 CREATE  TABLE IF NOT EXISTS ActiveShare (
-id INT AUTO_INCREMENT,
-dealId INT NOT NULL,
-shareType INT NOT NULL,
-status INT NOT NULL,
-landRewardId INT NOT NULL,
-shareDate DATETIME,
-value blob,
-PRIMARY KEY (id)
+  id INT AUTO_INCREMENT,
+  dealId INT NOT NULL,
+  shareType INT NOT NULL,
+  status INT NOT NULL,
+  landRewardId INT NOT NULL,
+  shareDate DATETIME,
+  value blob,
+  PRIMARY KEY (id)
 );
 
 

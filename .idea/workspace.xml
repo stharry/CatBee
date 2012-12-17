@@ -4,11 +4,35 @@
     <option name="ANALYSIS_IN_BACKGROUND" value="true" />
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/components/campaign/CampaignManager.php" line="5" />
+    <bookmark url="file://$PROJECT_DIR$/components/campaign/CampaignManager.php" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="">
+    <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="Friend Widget Design&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adapters/demo/res/demoDiscount.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/getDiscount.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/getDiscount.json" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee\.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee\model\OperationStatus.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/config.ini" afterPath="$PROJECT_DIR$/Config/config.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" afterPath="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/campaign/restrictions/RestrictionsManager.php" afterPath="$PROJECT_DIR$/components/campaign/restrictions/RestrictionsManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoCampaignRestrictionsDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoCampaignRestrictionsDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/loyalty/discounts/DiscountManager.php" afterPath="$PROJECT_DIR$/components/loyalty/discounts/DiscountManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/rest/RestLogger.php" afterPath="$PROJECT_DIR$/components/rest/RestLogger.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Customer.php" afterPath="$PROJECT_DIR$/model/Customer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/LeaderDeal.php" afterPath="$PROJECT_DIR$/model/LeaderDeal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/LeaderLanding.php" afterPath="$PROJECT_DIR$/model/LeaderLanding.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/OAuthApplication.php" afterPath="$PROJECT_DIR$/model/OAuthApplication.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Order.php" afterPath="$PROJECT_DIR$/model/Order.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/js/landing.js" afterPath="$PROJECT_DIR$/public/res/js/landing.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/comps/landing.php" afterPath="$PROJECT_DIR$/scripts/comps/landing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/CreateTables.sql" afterPath="$PROJECT_DIR$/sql/CreateTables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/getCampaigns.php" afterPath="$PROJECT_DIR$/tests/json/getCampaigns.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/res/GetDealsByCustomer.json" afterPath="$PROJECT_DIR$/tests/json/res/GetDealsByCustomer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/res/pushCampaign.json" afterPath="$PROJECT_DIR$/tests/json/res/pushCampaign.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/res/pushDeal.json" afterPath="$PROJECT_DIR$/tests/json/res/pushDeal.json" />
     </list>
     <list id="7cdf64f8-03e9-4a67-b55a-677c22d69ac1" name="Facebook" comment="Facebook" />
     <ignored path="CatBee.iws" />
@@ -30,19 +54,46 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/deal/index.php">
+      <file leaf-file-name="config.ini" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/config.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="27" selection-start="3446" selection-end="3446" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DealManager.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
+      <file leaf-file-name="PdoAdaptorDao.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoAdaptorDao.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="76" selection-start="4351" selection-end="4351" vertical-scroll-proportion="0.0">
+            <state line="32" column="90" selection-start="920" selection-end="920" vertical-scroll-proportion="-5.230769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PdoCampaignDao.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="29" selection-start="475" selection-end="475" vertical-scroll-proportion="36.03846">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FriendLandingManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/FriendLanding/FriendLandingManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="55" selection-start="3078" selection-end="3078" vertical-scroll-proportion="-10.846154">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="email.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="33" selection-start="2465" selection-end="2489" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -51,14 +102,23 @@
       <file leaf-file-name="ShareManager.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="335" column="37" selection-start="9749" selection-end="9749" vertical-scroll-proportion="0.0">
+            <state line="290" column="20" selection-start="8570" selection-end="8570" vertical-scroll-proportion="-9.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <file leaf-file-name="addEmailLeaderShareTemplate.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/res/addEmailLeaderShareTemplate.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="9" selection-start="0" selection-end="29128" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LandingReward.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/LandingReward.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -66,28 +126,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PdoShareDao.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoShareDao.php">
+      <file leaf-file-name="facebook.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/res/js/facebook.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="0" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shareStoreShareTemplate.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/res/shareStoreShareTemplate.json">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PdoDealDao.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="13" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PdoDealShareDao.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealShareDao.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -114,30 +165,32 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/model/ShareFilter.php" />
-        <option value="$PROJECT_DIR$/model/LeaderDeal.php" />
-        <option value="$PROJECT_DIR$/model/components/IDealManager.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/GetDealByCustomer.json" />
-        <option value="$PROJECT_DIR$/tests/json/res/GetDealsByCustomer.js" />
-        <option value="$PROJECT_DIR$/tests/json/GetDealsByCustomerTest.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/GetDealsByCustomer.json" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonCustomerAdapter.php" />
-        <option value="$PROJECT_DIR$/model/dao/IDealDao.php" />
-        <option value="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
-        <option value="$PROJECT_DIR$/model/LeaderDealFilter.php" />
-        <option value="$PROJECT_DIR$/api/deal/index.php" />
-        <option value="$PROJECT_DIR$/Config/config.ini" />
-        <option value="$PROJECT_DIR$/components/deal/DealManager.php" />
+        <option value="$PROJECT_DIR$/model/StoreBranch.php" />
+        <option value="$PROJECT_DIR$/api/store/index.php" />
+        <option value="$PROJECT_DIR$/components/adapters/json/JsonCampaignFilterAdapter.php" />
+        <option value="$PROJECT_DIR$/tests/json/res/getCampaigns.json" />
+        <option value="$PROJECT_DIR$/components/adapters/json/JsonShareFilterAdapter.php" />
+        <option value="$PROJECT_DIR$/components/adapters/json/JsonShareTemplateAdapter.php" />
+        <option value="$PROJECT_DIR$/components/adapters/json/JsonStoreBranchAdapter.php" />
+        <option value="$PROJECT_DIR$/components/dao/PDO/PdoStoreBranchDao.php" />
         <option value="$PROJECT_DIR$/components/share/ShareManager.php" />
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
+        <option value="$PROJECT_DIR$/tests/json/PrepareForDemo.php" />
+        <option value="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" />
+        <option value="$PROJECT_DIR$/components/dao/PDO/PdoAdaptorDao.php" />
+        <option value="$PROJECT_DIR$/components/deal/DealManager.php" />
+        <option value="$PROJECT_DIR$/public/res/js/email.js" />
+        <option value="$PROJECT_DIR$/public/res/js/facebook.js" />
       </list>
     </option>
   </component>
   <component name="PhpDebugGeneral" break_at_first_line="true" />
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1600" />
-    <option name="height" value="860" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -176,7 +229,7 @@
       <showLibraryContents ProjectPane="true" />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <autoscrollToSource />
+      <autoscrollToSource ProjectPane="true" />
       <autoscrollFromSource />
       <sortByType />
     </navigator>
@@ -199,26 +252,162 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="127" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="127" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="190" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="213" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="172" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="248" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/components/dao/PDO" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="128" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="689" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="822" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="173" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="216" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="764" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="889" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="250" />
     <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="170" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="246" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
@@ -264,6 +453,9 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value="Show Constants,Show Includes,ALPHA_COMPARATOR,Show Fields" />
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -457,7 +649,31 @@
       <created>1354743030057</created>
       <updated>1354743030058</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Fix Bug Store Name was empty at Welcome Friend Widget&#10;">
+      <created>1355216244845</created>
+      <updated>1355216244845</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Friend Widget Design&#10;">
+      <created>1355217272352</created>
+      <updated>1355217272352</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Friend Widget Design&#10;">
+      <created>1355219539604</created>
+      <updated>1355219539604</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Remove column LandingRewardID from Deal">
+      <created>1355220131349</created>
+      <updated>1355220131349</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Leads -Creating a Test for Retrieving the data&#10;">
+      <created>1355327632052</created>
+      <updated>1355327632052</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Refactor and Naming">
+      <created>1355757338036</created>
+      <updated>1355757338036</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -481,24 +697,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1600" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277635" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7234637" sideWeight="0.497426" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32714286" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32444733" sideWeight="0.67142856" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1975547" sideWeight="0.6703911" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34749034" sideWeight="0.48044693" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34749034" sideWeight="0.43715084" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7234637" sideWeight="0.4980695" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21285714" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51955307" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44142857" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29434448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -539,7 +755,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Guide Demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor and Naming" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -566,99 +782,127 @@
     <MESSAGE value="Bug Fix ILeadDao" />
     <MESSAGE value="Store.php" />
     <MESSAGE value="Guide Demo" />
+    <MESSAGE value="Fix Bug Store Name was empty at Welcome Friend Widget&#10;" />
+    <MESSAGE value="Friend Widget Design&#10;" />
+    <MESSAGE value="Remove column LandingRewardID from Deal" />
+    <MESSAGE value="Leads -Creating a Test for Retrieving the data&#10;" />
+    <MESSAGE value="Refactor and Naming" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/LeaderDealFilter.php">
+    <entry file="file://$PROJECT_DIR$/api/share/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="77" selection-start="168" selection-end="168" vertical-scroll-proportion="0.16216215" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoStoreBranchDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="8" selection-start="753" selection-end="771" vertical-scroll-proportion="-0.15254237" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/LeaderDeal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="13" selection-end="13" vertical-scroll-proportion="0.052388288" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="13" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.0">
+        <state line="13" column="20" selection-start="395" selection-end="395" vertical-scroll-proportion="-5.576923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoDealShareDao.php">
+    <entry file="file://$PROJECT_DIR$/api/deal/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="8" selection-start="919" selection-end="919" vertical-scroll-proportion="-5.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/res/pushDeal.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/ShareFilter.php">
+    <entry file="file://$PROJECT_DIR$/components/FriendLanding/FriendLandingManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="125" selection-end="134" vertical-scroll-proportion="0.20955315" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Share.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.15716487" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoShareDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="79" column="55" selection-start="3078" selection-end="3078" vertical-scroll-proportion="-10.846154">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="76" selection-start="4351" selection-end="4351" vertical-scroll-proportion="0.0">
+        <state line="228" column="82" selection-start="7359" selection-end="7359" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="29" selection-start="475" selection-end="475" vertical-scroll-proportion="36.03846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/json/res/shareStoreShareTemplate.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/res/js/facebook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="0" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="33" selection-start="2465" selection-end="2489" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="77" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.627451">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="335" column="37" selection-start="9749" selection-end="9749" vertical-scroll-proportion="0.0">
+        <state line="290" column="20" selection-start="8570" selection-end="8570" vertical-scroll-proportion="-9.5">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/config.ini">
+    <entry file="file://$PROJECT_DIR$/tests/json/PrepareForDemo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="0" selection-end="326" vertical-scroll-proportion="0.0" />
+        <state line="17" column="0" selection-start="593" selection-end="593" vertical-scroll-proportion="-11.115385">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
+    <entry file="file://$PROJECT_DIR$/tests/json/res/addEmailLeaderShareTemplate.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="4" column="9" selection-start="0" selection-end="29128" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.user.ini">
+    <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoDeal.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="19" column="13" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1355757614832" expanded="true" signature="384:522" placeholder="{&quot;email&quot;: &quot;vadim.chebyshev@retalix.com&quot;...}" />
+            <marker date="1355757614832" expanded="true" signature="361:386" placeholder="{&quot;shopId&quot;: &quot;1&quot;...}" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/model/LandingReward.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />

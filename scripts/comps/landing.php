@@ -10,9 +10,18 @@
                     <div class="bee_icon"></div>
                 </div>
                 <div id="slider"></div>
-                <div class="clearfix">
+                <div id="sliderUnits" class="clearfix">
                     <div class="unit"></div>
-                    <div class="unit pos_center"></div>
+                    <?php
+                    for ($divNo = 1; $divNo < count($p->landing->landingRewards) - 1; $divNo++ )
+                    {
+                        $left = round($divNo / (count($p->landing->landingRewards) - 1) * 100);
+                    ?>
+                        <div class="unit" style="left: <?=$left?>%;"></div>
+
+                    <?php
+                    }
+                    ?>
                     <div class="unit pos_right"></div>
                 </div>
             </div>
