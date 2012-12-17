@@ -88,9 +88,9 @@ function createCatBeeFillShareRequest() {
             "context":{
                 "type":"facebook"
             },
-            "store":{
-                "authCode":catBeeData.order.store.authCode
-            },
+           // "store":{
+           //     "authCode":catBeeData.order.store.authCode
+            //},
             "deal":{
                 "id":catBeeData.id
             },

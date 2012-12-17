@@ -1,6 +1,6 @@
 <?php
 
-class Store
+class Adaptor
 {
     public $id;
     public $authCode;

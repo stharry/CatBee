@@ -3,7 +3,7 @@
 class ShareManager implements IShareManager
 {
     private $shareDao;
-    private $storeDao;
+    private $adaptorDao;
     private $customerManager;
     private $shareAppDao;
     private $pageAdapter;
@@ -94,15 +94,7 @@ class ShareManager implements IShareManager
     private function fillShareProps($share)
     {
         RestLogger::log("ShareManager::fillShareProps ", $share);
-
-        if (!$this->storeDao->loadStore($share->store))
-        {
-            RestLogger::log("share template store does not exists ", $share->store);
-            die ("share template store does not exists");
-        }
-
         $shareFilter = new ShareFilter();
-        $shareFilter->store = $share->store;
         $shareFilter->campaign = $share->campaign;
         $shareFilter->context = $share->context;
         $shareFilter->targetId = $share->target->id;
@@ -122,12 +114,12 @@ class ShareManager implements IShareManager
     }
 
     function __construct(
-        $storeDao, $shareDao, $customerManager,
+        $adaptorDao, $shareDao, $customerManager,
         $shareAppDao, $dealShareDao,
         $landingRewardDao,
         $pageAdapter)
     {
-        $this->storeDao = $storeDao;
+        $this->adaptorDao = $adaptorDao;
         $this->shareDao = $shareDao;
         $this->customerManager = $customerManager;
         $this->shareAppDao = $shareAppDao;
@@ -173,10 +165,6 @@ class ShareManager implements IShareManager
 
     public function setShareTemplate($shareTemplate)
     {
-        if (!$this->storeDao->isStoreExists($shareTemplate->store))
-        {
-            die ("share template store does not exists");
-        }
 
         //todo: think about campaign share template
         $shareTemplate->campaign->id = -1;
@@ -188,11 +176,6 @@ class ShareManager implements IShareManager
 
     public function getShareTemplates($shareFilter)
     {
-        if (!$this->storeDao->isStoreExists($shareFilter->store))
-        {
-            die ("share template store does not exists");
-        }
-
         return $this->shareDao->getShareTemplates($shareFilter);
     }
 
@@ -235,7 +218,7 @@ class ShareManager implements IShareManager
     public function fillShare($share)
     {
         RestLogger::log('ShareManager::fillshare begin');
-        if (!$this->storeDao->loadStore($share->store))
+        if (!$this->adaptorDao->loadAdaptor($share->store))
         {
             RestLogger::log('Error: share template store does not exists');
             die ("share template store does not exists");
@@ -289,7 +272,6 @@ class ShareManager implements IShareManager
         {
             $share = new Share();
             $share->campaign = $deal->campaign;
-            $share->store = $deal->order->store;
             $share->deal = $deal;
 
             $context = new ShareContext();

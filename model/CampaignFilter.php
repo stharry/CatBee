@@ -4,5 +4,7 @@ class CampaignFilter
 {
     public $store;
     public $campId;
-    public $Lazy = false;
+    public $LoadLeaderLanding = true;
+    public $LoadFriendLanding = true;
+
 }

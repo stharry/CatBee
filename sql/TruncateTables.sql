@@ -3,7 +3,7 @@ TRUNCATE TABLE CampaignLandings;
 TRUNCATE TABLE landing;
 TRUNCATE TABLE CampaignRestrictions;
 TRUNCATE TABLE campaign;
-TRUNCATE TABLE Store;
+TRUNCATE TABLE Adaptor;
 TRUNCATE TABLE StoreBranch;
 TRUNCATE TABLE reward;
 TRUNCATE TABLE landingReward;

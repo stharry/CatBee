@@ -1,0 +1,18 @@
+{
+    "action":"getDeal",
+    "context":
+    {
+        "startDate":"2012-12-12",
+        "endDate":"2012-12-20",
+        "Customer":{
+            "email":"vadim@tribzi.com"
+        },
+        "LeadFlag":"1",
+        "ActiveShareType":"All",
+        "Campaign":{
+            "id":"1"
+        }
+
+    }
+}
+

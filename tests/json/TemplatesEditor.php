@@ -8,7 +8,7 @@ $orderAction = json_decode(file_get_contents("res/pushDeal.json"), true);
 $orderAdapter = new JsonOrderAdapter();
 $order = $orderAdapter->fromArray($orderAction['context']);
 
-$storeDao = new PdoStoreDao();
+$storeDao = new PdoAdaptorDao();
 $storeDao->loadStore($order->store);
 
 $deal = new LeaderDeal();

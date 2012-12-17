@@ -8,4 +8,5 @@ class StoreBranch
     public $redirectUrl;
     public $logoUrl;
     public $email;
+    public $adaptor;
 }

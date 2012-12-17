@@ -2,15 +2,11 @@
 
 interface IStoreManager
 {
-    public function registerStore($store);
+    public function registerAdaptor($store);
 
-    public function registerBranches($store, $branches);
+    public function registerBranches($branches);
 
-    public function validateBranch($store, $branch);
-
-    public function unregisterStore($store);
-
-    public function unregisterBranches($store, $branches);
+    public function validateBranch($branch);
 
     public function queryStoreAdapter($store, $action);
 }

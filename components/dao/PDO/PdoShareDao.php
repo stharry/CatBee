@@ -5,14 +5,12 @@ class PdoShareDao implements IShareDao
 
     public function getShareTemplates($shareFilter)
     {
-        $rows = DbManager::selectValues("SELECT id, storeId, campaignId, shareType, message, body, targetId
+        $rows = DbManager::selectValues("SELECT id, campaignId, shareType, message, body, targetId
                   FROM StoreShareTemplate
                     WHERE
-                    (storeId = {$shareFilter->store->id})
-                      AND
                        (shareType = {$shareFilter->context->id})
                        AND
-                       (targetId = {$shareFilter->targetId})");
+                       (targetId = {$shareFilter->targetId})",null);
 
         $shareTemplates = array();
 
@@ -20,9 +18,6 @@ class PdoShareDao implements IShareDao
         {
             $shareTemplate = new ShareTemplate();
             $shareTemplate->id = $row["id"];
-
-            $shareTemplate->store = new Store();
-            $shareTemplate->store->id = $row["storeId"];
 
             $shareTemplate->campaign = new Campaign();
             $shareTemplate->campaign->id = $row["campaignId"];
@@ -43,12 +38,11 @@ class PdoShareDao implements IShareDao
     public function insertShareTemplate($shareTemplate)
     {
 
-        $names = array('storeId', "campaignId", "shareType", "message",
+        $names = array("campaignId", "shareType", "message",
                         'body',
                         'targetId');
 
-        $values = array($shareTemplate->store->id,
-                        $shareTemplate->campaign->id,
+        $values = array($shareTemplate->campaign->id,
                         $shareTemplate->shareContext->id,
                         $shareTemplate->message,
                         $shareTemplate->templatePage->context,
@@ -60,12 +54,11 @@ class PdoShareDao implements IShareDao
     public function IsShareTemplateExists($shareTemplate)
     {
         $selectClause = " SELECT id FROM StoreShareTemplate
-          WHERE storeId = {$shareTemplate->store->id}
-            AND campaignId = {$shareTemplate->campaign->id}
+          WHERE campaignId = {$shareTemplate->campaign->id}
             AND shareType = {$shareTemplate->shareContext->id}
             AND targetId = {$shareTemplate->target->id}";
 
-        $rows = DbManager::selectValues($selectClause);
+        $rows = DbManager::selectValues($selectClause,null);
 
         if ($rows == null)
         {

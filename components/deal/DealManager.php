@@ -18,7 +18,25 @@ class DealManager implements IDealManager
         $this->shareManager = $shareManager;
         $this->leadManager = $leadManager;
     }
+    private function shareToLeader($share)
+    {
+        RestLogger::log('DealManager::shareToLeader begin');
+        $from = $share->sendFrom;
+        $to = $share->sendTo;
 
+        $share->sendTo = array($share->sendFrom);
+        $share->sendFrom = new Customer($share->deal->order->branch->email);
+
+        RestLogger::log('branch is', $share->deal->order->branch);
+
+        $result = $this->shareManager->share($share);
+
+        $share->sendTo = $to;
+        $share->sendFrom = $from;
+
+        RestLogger::log('DealManager::shareToLeader end', $result);
+        return $result;
+    }
     private function getCatBeeSharePoint()
     {
         return $GLOBALS[ "restURL" ] . "/CatBee/api/deal/";
@@ -85,14 +103,12 @@ class DealManager implements IDealManager
 
     public function pushDeal($order)
     {
-
-        //TODO - What happens if the Branch Is not Validated?
-        $this->storeManager->validateBranch($order->store, $order->branch);
-
+        $this->storeManager->validateBranch($order->branch);
         //Register Leading Deal If Exist
+        RestLogger::log("DealManager::pushDeal after storeBranch validation ", $order->store);
+
         $this->leadManager->saveLead($order);
 
-        RestLogger::log("DealManager::pushDeal after store validation ", $order->store);
         $campaign = $this->campaignManager->chooseCampaign($order);
 
         RestLogger::log("DealManager::pushDeal after campaign choosing ", $campaign);
@@ -128,6 +144,7 @@ class DealManager implements IDealManager
             //Call the shareManager - send him the Deal object, the Second parameter is a flag for getting the leads for each Active share
             $this->shareManager->FillActiveSharesForDeal($leaderDeals,true);
         }
+        return $leaderDeals;
     }
     public function updateDeal($deal)
     {
@@ -150,10 +167,10 @@ class DealManager implements IDealManager
 
     public function shareDeal($share)
     {
+
         $share->status = Share::$SHARE_STATUS_PENDING;
 
         $this->fillShareOrderParams($share);
-
         $this->addDealShare($share);
 
         $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_FRIEND);
@@ -206,12 +223,13 @@ class DealManager implements IDealManager
     private function fillShareOrderParams($share)
     {
         $deal = $this->getDealById($share->deal->id);
-        $orderParams = $this->storeManager->queryStoreAdapter($share->store, 'orderdetails');
+        $campFilter = new CampaignFilter();
+        $campFilter->campId = $deal->campaign->id;
+        $deal->campaign = $this->campaignManager->getCampaigns($campFilter);
+        $orderParams = $this->storeManager->queryStoreAdapter($deal->campaign[0]->store, 'orderdetails');
 
         $orderAdapter = new JsonOrderAdapter();
         $deal->order = $orderAdapter->fromArray(json_decode($orderParams, true));
-
-        $this->storeManager->validateBranch($deal->order->store, $deal->order->branch);
 
         RestLogger::log('DealManager::fillShareOrderParams order', $deal->order);
 
@@ -223,24 +241,6 @@ class DealManager implements IDealManager
         return $this->shareManager->share($share);
     }
 
-    private function shareToLeader($share)
-    {
-        RestLogger::log('DealManager::shareToLeader begin');
-        $from = $share->sendFrom;
-        $to = $share->sendTo;
 
-        $share->sendTo = array($share->sendFrom);
-        $share->sendFrom = new Customer($share->deal->order->branch->email);
-
-        RestLogger::log('branch is', $share->deal->order->branch);
-
-        $result = $this->shareManager->share($share);
-
-        $share->sendTo = $to;
-        $share->sendFrom = $from;
-
-        RestLogger::log('DealManager::shareToLeader end', $result);
-        return $result;
-    }
 }
 

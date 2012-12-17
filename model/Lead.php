@@ -2,7 +2,7 @@
 
 class Lead
 {
-    public $share;
-    public $order;
+    public $share;// ActiveShareID
+    public $order;//Order Of the Friend
 
 }

@@ -25,7 +25,7 @@ class PdoDealDao implements IDealDao
 
     public function getDealById($id)
     {
-        RestLogger::log("PdoDealDao::getDealByOrder begin");
+        RestLogger::log("PdoDealDao::getDealByID begin");
 
         try
         {
@@ -33,7 +33,7 @@ class PdoDealDao implements IDealDao
             campaignId, customerId, initDate, updateDate
             FROM deal WHERE id = {$id} ";
 
-            $rows = DbManager::selectValues($selectClause);
+            $rows = DbManager::selectValues($selectClause,null);
 
             if ($rows == null)
             {
@@ -93,7 +93,7 @@ class PdoDealDao implements IDealDao
              customerId, initDate, updateDate
             FROM deal WHERE orderId = {$order->id} AND branchId = {$order->branch->id}";
 
-            $rows = DbManager::selectValues($selectClause);
+            $rows = DbManager::selectValues($selectClause,null);
 
             if ($rows == null)
             {
@@ -115,7 +115,9 @@ class PdoDealDao implements IDealDao
     public function getDealsByFilter($dealFilter)
     {
         RestLogger::log("PdoDealDao::getDealsByFilter begin");
-        $selectParam = "";
+        $selectParams = array();
+
+        $flagForWhere=false;
         try
         {
         $selectClause = " SELECT d.id, d.landing, d.status, d.customerId, d.initDate, d.updateDate
@@ -125,9 +127,19 @@ class PdoDealDao implements IDealDao
 
                 $selectClause = $selectClause." Inner JOIN customers c on c.Id=d.customerId WHERE c.email = ?";
                 $selectParam = $dealFilter->customer->email;
+                $flagForWhere=true;
             }
-            $rows = DbManager::selectValues($selectClause,
-                array($selectParam => PDO::PARAM_STR));
+            if($dealFilter->startDate!= null )
+            {
+                if($flagForWhere==true)
+                {
+                    $selectClause = $selectClause. " and d.initDate >= ?";
+               }
+                $selectParam2 = $dealFilter->startDate;
+               // array_push($selectParams,array($selectParam2 => PDO::PARAM_STR));
+
+            }
+            $rows = DbManager::selectValues($selectClause,array($selectParam => PDO::PARAM_STR,$selectParam2=> PDO::PARAM_STR));
 
             $leaderDeals = array();
 

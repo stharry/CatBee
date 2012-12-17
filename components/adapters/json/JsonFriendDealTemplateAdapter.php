@@ -9,7 +9,7 @@ class JsonFriendDealTemplateAdapter implements IModelAdapter
     function __construct()
     {
         $this->customerAdapter = new JsonCustomerAdapter();
-        $this->storeAdapter = new JsonStoreAdapter();
+        $this->storeAdapter = new JsonAdaptorAdapter();
         $this->rewardAdapter = new JsonSingleRewardAdapter();
     }
 

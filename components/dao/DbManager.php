@@ -74,7 +74,8 @@ class DbManager
         return DbManager::$connection;
     }
 
-    public static function selectValues($selectExpression, $params = array())
+   // public static function selectValues($selectExpression, $params = array())
+    public static function selectValues($selectExpression, $params)
     {
 
         RestLogger::log("DbManager::selectValues SQL: " . $selectExpression, $params);

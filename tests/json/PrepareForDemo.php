@@ -12,7 +12,6 @@ includeTest('registerStoreBranches.php');
 includeTest('addFacebookShareApplication.php');
 includeTest('pushCampaign.php');
 includeTest('addStoreShareTemplates.php');
-
 includeTest('pushDeal.php');
 includeTest('shareStoreShareTemplate.php');
 includeTest('friendDeal.php');

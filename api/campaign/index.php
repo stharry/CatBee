@@ -7,7 +7,6 @@ $action = $requestObj->getCatBeeAction();
 $context = $requestObj->getCatBeeContext();
 
 $campaignManager = new CampaignManager(
-    new PdoStoreDao(),
     new PdoCustomerDao(),
     new PdoCampaignDao(
         new PdoLeaderLandingDao(
@@ -18,7 +17,7 @@ $campaignManager = new CampaignManager(
     new DefaultFriendLandingStrategy(),
     new RestrictionsManager(
         new RestrictionValidatorFactory(),
-        new PdoCampaignRestrictionsDao())
+        new PdoCampaignRestrictionsDao()), new PdoStoreBranchDao()
 );
 
 switch ($action)

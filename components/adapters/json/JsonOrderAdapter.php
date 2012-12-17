@@ -5,14 +5,12 @@ class JsonOrderAdapter implements IModelAdapter
 
     private $customerAdapter;
     private $itemsAdapter;
-    private $storeAdapter;
     private $branchAdapter;
 
     function __construct()
     {
         $this->customerAdapter = new JsonCustomerAdapter();
         $this->itemsAdapter = new JsonItemsAdapter();
-        $this->storeAdapter = new JsonStoreAdapter();
         $this->branchAdapter = new JsonStoreBranchAdapter();
 
     }
@@ -24,7 +22,6 @@ class JsonOrderAdapter implements IModelAdapter
             'id' => $obj->id,
             'customer' => $this->customerAdapter->toArray($obj->customer),
             'items' => $this->itemsAdapter->toArray($obj->items),
-            'store' => $this->storeAdapter->toArray($obj->store),
             'branch' => $this->branchAdapter->toArray($obj->branch),
             'lead' => $obj->lead,
 
@@ -44,7 +41,6 @@ class JsonOrderAdapter implements IModelAdapter
 
         $order->customer = $this->customerAdapter->fromArray($obj["customer"]);
         $order->items = $this->itemsAdapter->fromArray($obj["items"]);
-        $order->store = $this->storeAdapter->fromArray($obj["store"]);
         $order->branch = $this->branchAdapter->fromArray($obj["branch"]);
         $order->lead = $obj["lead"];
         return $order;
