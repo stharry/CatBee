@@ -38,7 +38,8 @@ class DbManager
             return $conn;
         } catch (PDOException $pe)
         {
-            RestLogger::log('ERROR ' . $pe->getMessage());
+            RestLogger::log('EXCEPTION ' . $pe->getMessage());
+            RestLogger::log('EXCEPTION STACK ', $pe->getTrace());
         }
     }
 
@@ -115,6 +116,7 @@ class DbManager
         catch (Exception $e)
         {
             RestLogger::log('DbManager::selectValues exception ', $e->getMessage());
+            RestLogger::log('EXCEPTION STACK ', $e->getTrace());
             throw new Exception($e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -134,7 +136,8 @@ class DbManager
         }
         catch (Exception $e)
         {
-            RestLogger::log('ERROR: ', $e->getMessage());
+            RestLogger::log('EXCEPTION: ', $e->getMessage());
+            RestLogger::log('EXCEPTION STACK ', $e->getTrace());
         }
     }
 
@@ -156,7 +159,8 @@ class DbManager
         }
         catch (Exception $e)
         {
-            RestLogger::log('ERROR: ', $e->getMessage());
+            RestLogger::log('EXCEPTION: ', $e->getMessage());
+            RestLogger::log('EXCEPTION STACK ', $e->getTrace());
             return null;
         }
     }
@@ -177,6 +181,7 @@ class DbManager
         } catch (PDOException $pe)
         {
             RestLogger::log('DbManager::insertAndReturnId exception ', $pe->getMessage());
+            RestLogger::log('EXCEPTION STACK ', $pe->getTrace());
         }
 
     }
@@ -202,7 +207,8 @@ class DbManager
 
         } catch (PDOException $pe)
         {
-            echo $pe->getMessage();
+            RestLogger::log('DbManager::insertValuesAndReturnId exception ', $pe->getMessage());
+            RestLogger::log('EXCEPTION STACK ', $pe->getTrace());
         }
     }
 

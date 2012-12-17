@@ -10,7 +10,7 @@ TRUNCATE TABLE landingReward;
 TRUNCATE TABLE deal;
 TRUNCATE TABLE frienddeal;
 TRUNCATE TABLE activeshare;
-TRUNCATE TABLE StoreShareTemplate;
+TRUNCATE TABLE CampaignShareTemplate;
 TRUNCATE TABLE friendlanding;
 TRUNCATE TABLE customerAuth;
 TRUNCATE TABLE friendlanding;

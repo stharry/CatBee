@@ -3,7 +3,7 @@
 class Campaign
 {
     public $id;
-    public $name;
+    public $code;
     public $store;
     public $description;
     public $landings;

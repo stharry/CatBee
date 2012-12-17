@@ -12,11 +12,16 @@ $context = $return_obj->getCatBeeContext();
 RestLogger::log("Share api {$action} request vars: ", $context);
 
 $shareManager = new ShareManager(
-    new PdoAdaptorDao(), new PdoShareDao(),
+    new PdoStoreBranchDao(), new PdoShareDao(),
     new CustomerManager(new PdoCustomerDao()),
     new PdoShareApplicationDao(),
     new PdoDealShareDao(),
     new PdoLeaderLandingRewardDao(),
+    new PdoCampaignDao(
+        new PdoLeaderLandingDao(
+            new PdoLeaderLandingRewardDao()),
+        new PdoFriendLandingDao()
+    ),
     new HtmlPageAdapter());
 
 switch ($action)

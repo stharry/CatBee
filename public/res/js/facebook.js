@@ -31,6 +31,7 @@ function StartFacebookSharing()
 
         facebookParams = JSON.parse(s);
 
+        alert(facebookParams.link);
 
         FB.init({
             appId: facebookParams.context.application.applicationCode,
@@ -88,9 +89,6 @@ function createCatBeeFillShareRequest() {
             "context":{
                 "type":"facebook"
             },
-           // "store":{
-           //     "authCode":catBeeData.order.store.authCode
-            //},
             "deal":{
                 "id":catBeeData.id
             },

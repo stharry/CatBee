@@ -3,12 +3,12 @@
 class StoreManager implements IStoreManager
 {
 
-    private $AdaptorDao;
+    private $adaptorDao;
     private $branchesDao;
 
     function __construct($adaptorDao, $branchesDao)
     {
-        $this->AdaptorDao = $adaptorDao;
+        $this->adaptorDao = $adaptorDao;
         $this->branchesDao = $branchesDao;
     }
 
@@ -16,9 +16,9 @@ class StoreManager implements IStoreManager
     {
         $store->url = CatBeeExpressions::validateString($store->url);
         $store->logoUrl = CatBeeExpressions::validateString($store->logoUrl);
-        if (!$this->AdaptorDao->isAdaptorExists($store))
+        if (!$this->adaptorDao->isAdaptorExists($store))
         {
-            $this->AdaptorDao->insertAdaptor($store);
+            $this->adaptorDao->insertAdaptor($store);
         }
     }
 
@@ -37,12 +37,25 @@ class StoreManager implements IStoreManager
 
     public function validateBranch($branch)
     {
+        if ($branch->id > 0)
+        {
+            return;
+        }
         if (!$this->branchesDao->isStoreBranchExists($branch))
         {
             RestLogger::log(" branch $branch->shopId does not registered in the CatBee");
             throw new Exception("branch $branch->shopId does not registered in the CatBee");
         }
+        if ($branch->adaptor->id)
+        {
+            $this->adaptorDao->loadAdaptorById($branch->adaptor);
+        }
+        else
+        {
+            $this->adaptorDao->loadAdaptor($branch->adaptor);
+        }
     }
+
     public function getStoreBranches($StoreBranchFilter)
     {
         RestLogger::log('StoreManager::getStoreBranches filter: ', $StoreBranchFilter);
@@ -51,6 +64,11 @@ class StoreManager implements IStoreManager
 
     public function queryStoreAdapter($store, $action)
     {
+        if (!$store->url)
+        {
+            $this->adaptorDao->loadAdaptorById($store);
+
+        }
         $context = array('act' => $action);
         $response = RestUtils::SendFreePostRequest($store->url, $context);
 

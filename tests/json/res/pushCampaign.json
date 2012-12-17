@@ -2,8 +2,8 @@
     "action":"push",
     "context":
     {
-        "name":"Cat Bee Demo campaign",
-        "description":"Fan Toys campaign",
+        "code":"398C0080-60FF-48C0-BDF5-E1BA4A9B53ED",
+        "description":"Fan For Toys Demo campaign",
         "branch":{
             "shopId":"1",
             "store":{

@@ -2,22 +2,33 @@
 
 class PdoStoreBranchDao implements IStoreBranchDao
 {
+    private function fillBranch($branch, $row)
+    {
+        $branch->id = $row["id"];
+        $branch->shopId = $row["shopId"];
+        $branch->shopName = $row["shopName"];
+        $branch->logoUrl = $row["logoUrl"];
+        $branch->url = $row["url"];
+        $branch->email = $row["email"];
+
+        $branch->adaptor = new Adaptor();
+        $branch->adaptor->id = $row["storeId"];
+
+    }
 
     public  function isStoreBranchExists($branch)
     {
-        $rows = DbManager::selectValues("SELECT StoreBranch.id,shopName,StoreBranch.url,StoreBranch.logoUrl,email FROM StoreBranch
-          inner join adaptor on StoreBranch.storeid=adaptor.id
-            WHERE authcode = '{$branch->adaptor->authCode}' AND shopId = {$branch->shopId}",
+        $rows = DbManager::selectValues(
+            "SELECT id, shopId, shopName, url,
+                    logoUrl,email, storeId FROM StoreBranch
+            WHERE shopId = {$branch->shopId}",
             array());
 
         if (!isset($rows)) {
             return false;
         }
-        $branch->id = $rows[0]["id"];
-        $branch->shopName = $rows[0]["shopName"];
-        $branch->logoUrl = $rows[0]["logoUrl"];
-        $branch->url = $rows[0]["url"];
-        $branch->email = $rows[0]["email"];
+
+        $this->fillBranch($branch, $rows[0]);
 
         return true;
     }
@@ -53,4 +64,23 @@ class PdoStoreBranchDao implements IStoreBranchDao
         $storeBranch->shopName = $row[0]["ShopName"];
         return $storeBranch;
     }
+
+    public function loadBranchById($branch)
+    {
+        $rows = DbManager::selectValues(
+            "SELECT id, shopId, shopName, url,
+                    logoUrl,email, storeId FROM StoreBranch
+            WHERE id = {$branch->id}",
+            array());
+
+        if (!isset($rows)) {
+            return false;
+        }
+
+        $this->fillBranch($branch, $rows[0]);
+
+        return true;
+    }
+
+
 }

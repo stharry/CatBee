@@ -114,9 +114,6 @@ function createCatBeeShareRequest() {
             context:{
                 type:'email'
             },
-            //store:{
-             //   authCode:catBeeData.order.store.authCode
-            //},
             reward:{
                 id:catBeeData.landing.landingRewards[rewardInd].id
 
