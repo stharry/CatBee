@@ -20,7 +20,6 @@ class Order
     public $amount;
     public $items;
     public $customer;
-    public $store;
     public $branch;
     public $lead;
     public $activeShareId;

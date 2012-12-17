@@ -107,7 +107,6 @@ function createCatBeeShareRequest() {
 
             sendFrom:catBeeData.order.customer.email,
             sendTo:$("#mail-input").val(),
-//            message:$("#message").val(),
             customMessage:$("#message").val(),
             deal:{
                 id:catBeeData.id
@@ -115,9 +114,9 @@ function createCatBeeShareRequest() {
             context:{
                 type:'email'
             },
-            store:{
-                authCode:catBeeData.order.store.authCode
-            },
+            //store:{
+             //   authCode:catBeeData.order.store.authCode
+            //},
             reward:{
                 id:catBeeData.landing.landingRewards[rewardInd].id
 

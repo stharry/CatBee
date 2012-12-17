@@ -2,6 +2,10 @@
 
 class JsonStoreBranchAdapter implements IModelAdapter
 {
+    private $jsonAdaptorAdapter;
+
+
+
     private function singleBranchFromArray($obj)
     {
         $storeBranch = new StoreBranch();
@@ -11,17 +15,23 @@ class JsonStoreBranchAdapter implements IModelAdapter
         $storeBranch->url = $obj['url'];
         $storeBranch->logoUrl = $obj['logoUrl'];
         $storeBranch->email = $obj['email'];
+        $storeBranch->adaptor = $this->jsonAdaptorAdapter->fromArray($obj["store"]);
 
         return $storeBranch;
     }
-
+    function __construct()
+    {
+        $this->jsonAdaptorAdapter         = new JsonAdaptorAdapter();
+    }
     public function toArray($obj)
     {
         return array(
             'shopId' => $obj->shopId,
             'shopName' => $obj->shopName,
             'url' => $obj->url,
-            'email' => $obj->email
+            'email' => $obj->email,
+            'store' => $this->jsonAdaptorAdapter->toArray($obj->adaptor)
+
         );
     }
 

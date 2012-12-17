@@ -8,7 +8,6 @@ $context = $restRequest->getCatBeeContext();
 RestLogger::log("Deal API $action context is ", $context);
 
 $campaignManager = new CampaignManager(
-    new PdoStoreDao(),
     new PdoCustomerDao(),
     new PdoCampaignDao(
         new PdoLeaderLandingDao(
@@ -19,12 +18,12 @@ $campaignManager = new CampaignManager(
     new DefaultFriendLandingStrategy(),
     new RestrictionsManager(
         new RestrictionValidatorFactory(),
-        new PdoCampaignRestrictionsDao()));
+        new PdoCampaignRestrictionsDao()),new PdoStoreBranchDao());
 
 
 $dealManager = new DealManager($campaignManager,
-    new StoreManager(new PdoStoreDao(), new PdoStoreBranchDao()),
-    new ShareManager(new PdoStoreDao(), new PdoShareDao(),
+    new StoreManager(new PdoAdaptorDao(), new PdoStoreBranchDao()),
+    new ShareManager(new PdoAdaptorDao(), new PdoShareDao(),
         new CustomerManager(new PdoCustomerDao()),
         new PdoShareApplicationDao(),
         new PdoDealShareDao(),
@@ -42,7 +41,7 @@ $friendLandingManager = new FriendLandingManager(
         new PdoLeaderLandingRewardDao()),
         new PdoFriendLandingDao()),
     new PdoDealShareDao(),
-    new StoreManager(new PdoStoreDao(),new PdoStoreBranchDao()));
+    new StoreManager(new PdoAdaptorDao(),new PdoStoreBranchDao()));
 
 $discountManager = new DiscountManager(
     new RestrictionsManager(
@@ -97,15 +96,11 @@ switch (strtolower($action))
         exit;
 
     case "getdeal":
-        $dealFilter = new LeaderDealFilter();
-        //TODO - Change The Adaptor to be the Leader Filter instead of the Customer
-        $customerAdaptor = new JsonCustomerAdapter();
-        $customer = $customerAdaptor->fromArray($context);
-        $dealFilter->customer = $customer;
+        $dealFilterAdapter = new JsonLeaderDealFilter();
+        $dealFilter = $dealFilterAdapter->fromArray($context);
         //Currently Hard Coded true
         $dealFilter->ActiveShareFlag = true;
-        //Currently the Get will echo the result at the End...
-        $dealManager->getDeals($dealFilter);
+        $deals = $dealManager->getDeals($dealFilter);
         exit;
 
     case "getdiscount":

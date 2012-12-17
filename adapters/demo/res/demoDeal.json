@@ -12,16 +12,15 @@
             }
         ],
         "customer":{
-            "email":"vadim@tribzi.com",
+            "email":"vadim.chebyshev@retalix.com",
             "firstName":"Vadim",
             "lastName":"Regev",
             "nickName":"spidernah"
         },
-        "store":{
-            "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
-        },
         "branch":{
-            "shopId":"1"
-        }
+            "shopId":"1",
+            "store":{
+                "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+        }}
     }
 }

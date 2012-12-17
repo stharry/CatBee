@@ -24,7 +24,6 @@ class Share
     public $subject;
     public $message;
     public $customMessage;
-    public $store;
     public $campaign;
     //The Context Reperesent data on the share for example the Sharing Method
     //TODO - Consider change the names

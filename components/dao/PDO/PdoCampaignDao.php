@@ -33,7 +33,7 @@ class PdoCampaignDao implements ICampaignDao
 
         $selectParam = "";
         //TO DO- This Should be Changed so the Join will be on the What is now the StoreBranch
-        $selectClause = "SELECT c.id, c.name, c.description,c.store
+        $selectClause = "SELECT c.id, c.name, c.description,c.store,s.shopname,s.url
               FROM campaign c
                     INNER JOIN storebranch s
                     ON c.store = s.id ";
@@ -61,14 +61,22 @@ class PdoCampaignDao implements ICampaignDao
             $campaign->name = $row["name"];
             $campaign->description = $row["description"];
             //TODO - The Store should be a full object here
-            $campaign->store =$row["store"];
-            //TODO - dont think the following 2 calls should be here... can we take them above to the
-            //Todo - yes, you right - need to move it campaign manager
-            If(!$campaignFilter->lazy)
+            $storeBranch = new StoreBranch();
+            $storeBranch->id = $row["store"];
+            $storeBranch->shopName = $row["shopname"];
+            $storeBranch->redirectUrl = $row["url"];
+            $campaign->store = $storeBranch;
+            If($campaignFilter->LoadLeaderLanding==true)
             {
+
                 $this->leaderLandingDao->getLeaderLandings($campaign);
+
+            }
+            If($campaignFilter->LoadFriendLanding)
+            {
                 $this->FriendLandingDao->GetFriendLanding($campaign);
             }
+
             array_push($campaigns, $campaign);
         }
         return $campaigns;
@@ -79,8 +87,7 @@ class PdoCampaignDao implements ICampaignDao
         $names = array("store", "name", "description");
         $values = array($campaign->store->id, $campaign->name,
             $campaign->description);
-
-        $campaign->id = DbManager::insertAndReturnId("campaign", $names, $values);
+       $campaign->id = DbManager::insertAndReturnId("campaign", $names, $values);
         //Tomer - I dont think it is good to Call from Dao To Dao, this part should be part of the Business logic
         foreach ($campaign->landings as $leaderLanding)
         {

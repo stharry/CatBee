@@ -3,10 +3,11 @@
 class PdoStoreBranchDao implements IStoreBranchDao
 {
 
-    public  function isStoreBranchExists($store, $branch)
+    public  function isStoreBranchExists($branch)
     {
-        $rows = DbManager::selectValues("SELECT id,shopName,url,logoUrl,email FROM StoreBranch
-            WHERE storeId = {$store->id} AND shopId = {$branch->shopId}",
+        $rows = DbManager::selectValues("SELECT StoreBranch.id,shopName,StoreBranch.url,StoreBranch.logoUrl,email FROM StoreBranch
+          inner join adaptor on StoreBranch.storeid=adaptor.id
+            WHERE authcode = '{$branch->adaptor->authCode}' AND shopId = {$branch->shopId}",
             array());
 
         if (!isset($rows)) {
@@ -21,13 +22,13 @@ class PdoStoreBranchDao implements IStoreBranchDao
         return true;
     }
 
-    public function addStoreBranch($store, $branch)
+    public function addStoreBranch($branch)
     {
-        if (!$this->isStoreBranchExists($store, $branch))
+        if (!$this->isStoreBranchExists($branch))
         {
             $names = array("storeId", "shopId", "shopName", 'url', 'logoUrl', 'email');
             $values = array(
-                $store->id,
+                $branch->adaptor->id,
                 $branch->shopId,
                 $branch->shopName,
                 $branch->url,

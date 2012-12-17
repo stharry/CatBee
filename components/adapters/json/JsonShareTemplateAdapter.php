@@ -3,7 +3,7 @@
 class JsonShareTemplateAdapter implements IModelAdapter
 {
 
-    private $jsonStoreAdapter;
+    private $jsonAdaptorAdapter;
     private $jsonTemplatePageAdapter;
     private $jsonShareContextAdapter;
     private $jsonTemplateAdapter;
@@ -12,7 +12,7 @@ class JsonShareTemplateAdapter implements IModelAdapter
 
     function __construct()
     {
-        $this->jsonStoreAdapter        = new JsonStoreAdapter();
+        $this->jsonAdaptorAdapter        = new JsonAdaptorAdapter();
         $this->jsonTemplatePageAdapter = new JsonTemplatePageAdapter();
         $this->jsonShareContextAdapter = new JsonShareContextAdapter();
         $this->jsonTemplateAdapter     = new JsonTemplateAdapter();
@@ -25,7 +25,7 @@ class JsonShareTemplateAdapter implements IModelAdapter
             array(
                 "message"       => $shareTemplate->messge,
                 "customMessage" => $shareTemplate->customMessage,
-                "store"         => $this->jsonStoreAdapter->toArray($shareTemplate->store),
+                "store"         => $this->jsonAdaptorAdapter->toArray($shareTemplate->store),
                 "shareContext"  => $this->jsonShareContextAdapter->toArray($shareTemplate->shareContext),
                 "templatePage"  => $this->jsonTemplatePageAdapter->toArray($shareTemplate->templatePage),
                 'target'        => $this->jsonTargetAdapter->toArray($shareTemplate->target)
@@ -57,7 +57,7 @@ class JsonShareTemplateAdapter implements IModelAdapter
         $shareTemplate                = new ShareTemplate();
         $shareTemplate->message       = $obj[ 'message' ];
         $shareTemplate->customMessage = $obj[ 'customMessage' ];
-        $shareTemplate->store         = $this->jsonStoreAdapter->fromArray($obj[ "store" ]);
+        $shareTemplate->store         = $this->jsonAdaptorAdapter->fromArray($obj[ "store" ]);
         $shareTemplate->shareContext  = $this->jsonShareContextAdapter->fromArray($obj[ "shareContext" ]);
         $shareTemplate->templatePage  = $this->jsonTemplatePageAdapter->fromArray($obj[ "templatePage" ]);
         $shareTemplate->target        = $this->jsonTargetAdapter->fromArray($obj[ 'target' ]);

@@ -1,5 +1,5 @@
 {
-    "action":"share deal",
+    "action":"sharedeal",
     "context":{
         "sendFrom":"regev147@013.net",
         "sendTo":"spidernah@gmail.com",
@@ -7,9 +7,6 @@
         "subject":"Test CatBee message",
         "context":{
             "type":"tribzi"
-        },
-        "store":{
-            "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
         },
         "reward":{
 

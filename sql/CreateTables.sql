@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS CampaignRestrictions (
   PRIMARY KEY (id) );
 
 
-CREATE  TABLE IF NOT EXISTS Store (
+CREATE  TABLE IF NOT EXISTS Adaptor (
 id INT AUTO_INCREMENT ,
 description VARCHAR(200) NULL ,
 authCode VARCHAR(50) NULL ,
@@ -154,8 +154,6 @@ PRIMARY KEY (id)
 CREATE  TABLE IF NOT EXISTS StoreShareTemplate (
 
   id INT auto_increment,
-
-  storeId INT NOT NULL,
 
   campaignId INT NOT NULL,
 
