@@ -1,0 +1,20 @@
+{
+    "classes":[
+        {
+            "name":"LeaderDealFilter",
+            "fields":[
+                {
+                    "name":"customer",
+                    "className":"Customer"
+                },
+                {
+                    "name":"ActiveShareFlag"
+                },
+                {
+                    "name":"LeadsFlag"
+                }
+            ]
+
+        }
+    ]
+}

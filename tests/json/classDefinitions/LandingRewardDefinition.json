@@ -1,0 +1,18 @@
+{
+    "classes":[
+        {
+            "name":"LandingReward",
+            "fields":[
+                {
+                    "name":"leaderReward",
+                    "className":"Reward"
+                },
+                {
+                    "name":"friendReward",
+                    "className":"Reward"
+                }
+            ]
+
+        }
+    ]
+}

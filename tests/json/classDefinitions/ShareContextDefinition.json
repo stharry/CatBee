@@ -1,0 +1,27 @@
+{
+    "classes":[
+        {
+            "name":"ShareContext",
+            "fields":[
+                {
+                    "name":"type",
+                    "pair":{
+                        "name":"id",
+                        "pairs":{
+                            "email":"1",
+                            "facebook":"2",
+                            "twitter":"3",
+                            "tribzi":"1024",
+                            "default":"1"
+                        }
+                    }
+                },
+                {
+                    "name":"application",
+                    "className":"ShareApplication"
+                }
+            ]
+
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "classes":[
+        {
+            "name":"Campaign",
+            "fields":[
+                {
+                    "name":"name"
+                },
+                {
+                    "name":"store",
+                    "className":"Store"
+                },
+                {
+                    "name":"description"
+                },
+                {
+                    "name":"landings",
+                    "isArray":"1",
+                    "className":"LeaderLanding"
+                },
+                {
+                    "name":"startDate",
+                    "className":"date"
+                },
+                {
+                    "name":"endDate",
+                    "className":"date"
+                },
+                {
+                    "name":"friendLandings",
+                    "isArray":"1",
+                    "className":"FriendLanding"
+                },
+                {
+                    "name":"restrictions",
+                    "isArray":"1",
+                    "className":"CampaignRestriction"
+                }
+            ]
+
+        }
+    ]
+}

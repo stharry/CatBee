@@ -1,0 +1,25 @@
+{
+    "classes":[
+        {
+            "name":"Reward",
+            "fields":[
+                {
+                    "name":"value"
+                },
+                {
+                    "name":"code"
+                },
+                {
+                    "name":"type"
+                },
+                {
+                    "name":"description"
+                },
+                {
+                    "name":"typeDescription"
+                }
+            ]
+
+        }
+    ]
+}

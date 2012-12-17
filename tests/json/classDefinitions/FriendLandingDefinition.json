@@ -1,0 +1,22 @@
+{
+    "classes":[
+        {
+            "name":"FriendLanding",
+            "fields":[
+                {
+                    "name":"slogan"
+                },
+                {
+                    "name":"friendMessage"
+                },
+                {
+                    "name":"rewardMessage1"
+                },
+                {
+                    "name":"rewardMessage2"
+                }
+            ]
+
+        }
+    ]
+}

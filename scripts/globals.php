@@ -23,14 +23,13 @@ $rootPath = "/CatBee/public/";
 $restURL = $catBeeParams['Rest_url'];
 $restLogBaseDir = $catBeeParams['Rest_Log_Dir'];
 
-$loader = new CatBeeClassLoader($GLOBALS["dirBase"]);
+CatBeeClassLoader::createLoader($GLOBALS["dirBase"]);
 
 spl_autoload_register('catBeeAutoLoader');
 
 function catBeeAutoLoader($class)
 {
-    global $loader;
-    $loader->registerClass($class);
+    CatBeeClassLoader::registerClass($class);
 }
 
 function includeScript($name, &$p) {
@@ -38,9 +37,7 @@ function includeScript($name, &$p) {
 }
 
 function includeModel($name) {
-    global $loader;
-    $loader->registerModel($name);
-	//include_once $GLOBALS["dirBase"] . "/model/" . $name . ".php";
+    CatBeeClassLoader::registerModel($name);
 }
 
 function includeLogger()

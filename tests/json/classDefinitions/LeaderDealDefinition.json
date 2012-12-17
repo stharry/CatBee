@@ -1,0 +1,25 @@
+{
+    "classes":[
+        {
+            "name":"LeaderDeal",
+            "fields":[
+                {
+                    "name":"order",
+                    "className":"Order"
+                },
+                {
+                    "name":"landing",
+                    "className":"LeaderLanding"
+                },
+                {
+                    "name":"sharePoint"
+                },
+                {
+                    "name":"customer",
+                    "className":"Customer"
+                }
+            ]
+
+        }
+    ]
+}
