@@ -10,7 +10,7 @@ function CreateAndInitializeEmailForm() {
     });
 
     $("#message").keyup(function () {
-        catBeeData.landing.customMessage = $("#message").val();
+        TribZi.setCustomMessage($("#message").val());
     });
 
     $("#emailSubmit").click(function () {
@@ -40,37 +40,22 @@ function CreateAndInitializeEmailForm() {
             // first we hide the submit btn so the user doesnt click twice
             //$("#emailSubmit").replaceWith("<em>sending...</em>");
 
-            var postData = createCatBeeShareRequest();
-            var sharePoint = getCatBeeShareUrl();
-
             $.fancybox.showLoading();
 
-            proceedCatBeeShareJsonRequest(postData, 'emailParams');
+            TribZi.setRecipients($("#mail-input").val())
+                .setCustomMessage($("#message").val())
+                .setRewardIndex($("#slider").slider("value"))
+                .shareToEmail(stopProgress);
 
-            handleEmailResponse();
-
-//                 handleEmailResponse();
-//            $.ajax({
-//                type:'POST',
-//                url:sharePoint,
-//                dataType: 'json',
-//                data: postData,
-//
-//                timeout: 7200,
-//
-//                error: function(xhr, textStatus, error){
-//
-//                    handleEmailResponse(xhr.responseText);
-//                },
-//
-//                success:function (data) {
-//
-//                    handleEmailResponse(data);
-//                }
-//
-//            });
         }
     });
+}
+
+function stopProgress(params)
+{
+    $.fancybox.hideLoading();
+    $.fancybox("Message sent");
+    setTimeout("$.fancybox.close()", 1000);
 }
 
 function validateEmail(email) {
@@ -91,50 +76,4 @@ function validateEmail(email) {
         }
     }
     return true;
-}
-
-function getCatBeeShareUrl() {
-    return catBeeData.sharePoint;
-}
-
-function createCatBeeShareRequest() {
-
-    var rewardInd = $("#slider").slider("value");
-
-    return {
-        action:'share deal',
-        context:{
-
-            sendFrom:catBeeData.order.customer.email,
-            sendTo:$("#mail-input").val(),
-            customMessage:$("#message").val(),
-            deal:{
-                id:catBeeData.id
-            },
-            context:{
-                type:'email'
-            },
-            reward:{
-                id:catBeeData.landing.landingRewards[rewardInd].id
-
-            }
-        }
-    };
-}
-
-function handleEmailResponse() {
-    if (localStorage.getItem('emailParams') === null)
-    {
-        setTimeout(handleEmailResponse, 500);
-    }
-    else
-    {
-        $.fancybox.hideLoading();
-
-        $.fancybox("Message sent");
-
-        setTimeout("$.fancybox.close()", 1000);
-
-        localStorage.removeItem('emailParams');
-    }
 }
