@@ -1,5 +1,6 @@
 <?php
 
+
 class Adaptor
 {
     public $id;
