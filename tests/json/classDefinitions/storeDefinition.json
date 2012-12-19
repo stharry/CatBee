@@ -1,0 +1,43 @@
+{
+    "classes":[
+        {
+            "name":"Store",
+            "fields":[
+                {
+                    "name":"authCode"
+                },
+                {
+                    "name":"description"
+                },
+                {
+                    "name":"url"
+                },
+                {
+                    "name":"logoUrl"
+                }
+            ]
+
+        },
+        {
+            "name":"StoreBranch",
+            "fields":[
+                {
+                    "name":"shopName"
+                },
+                {
+                    "name":"shopId"
+                },
+                {
+                    "name":"redirectUrl"
+                },
+                {
+                    "name":"logoUrl"
+                },
+                {
+                    "name":"email"
+                }
+            ]
+
+        }
+    ]
+}

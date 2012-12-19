@@ -23,11 +23,16 @@ $campaignManager = new CampaignManager(
 
 $dealManager = new DealManager($campaignManager,
     new StoreManager(new PdoAdaptorDao(), new PdoStoreBranchDao()),
-    new ShareManager(new PdoAdaptorDao(), new PdoShareDao(),
+    new ShareManager(new PdoStoreBranchDao(), new PdoShareDao(),
         new CustomerManager(new PdoCustomerDao()),
         new PdoShareApplicationDao(),
         new PdoDealShareDao(),
         new PdoLeaderLandingRewardDao(),
+        new PdoCampaignDao(
+            new PdoLeaderLandingDao(
+                new PdoLeaderLandingRewardDao()),
+            new PdoFriendLandingDao()
+        ),
         new HtmlPageAdapter()),
     new PdoDealDao(),
     new SuccessfulReferralManager(new PdoSuccessfulReferralDao()));

@@ -5,12 +5,14 @@ class PdoShareDao implements IShareDao
 
     public function getShareTemplates($shareFilter)
     {
-        $rows = DbManager::selectValues("SELECT id, campaignId, shareType, message, body, targetId
-                  FROM StoreShareTemplate
+        $rows = DbManager::selectValues("SELECT id, shareType, message, body, targetId
+                  FROM CampaignShareTemplate
                     WHERE
                        (shareType = {$shareFilter->context->id})
                        AND
-                       (targetId = {$shareFilter->targetId})",null);
+                       (targetId = {$shareFilter->targetId})
+                       AND
+                       (campaignId = {$shareFilter->campaign->id})", null);
 
         $shareTemplates = array();
 
@@ -48,12 +50,12 @@ class PdoShareDao implements IShareDao
                         $shareTemplate->templatePage->context,
                         $shareTemplate->target->id);
 
-        $shareTemplate->id = DbManager::insertAndReturnId("StoreShareTemplate", $names, $values);
+        $shareTemplate->id = DbManager::insertAndReturnId("CampaignShareTemplate", $names, $values);
     }
 
     public function IsShareTemplateExists($shareTemplate)
     {
-        $selectClause = " SELECT id FROM StoreShareTemplate
+        $selectClause = " SELECT id FROM CampaignShareTemplate
           WHERE campaignId = {$shareTemplate->campaign->id}
             AND shareType = {$shareTemplate->shareContext->id}
             AND targetId = {$shareTemplate->target->id}";
@@ -78,7 +80,7 @@ class PdoShareDao implements IShareDao
         }
         else
         {
-            $sql = "UPDATE StoreShareTemplate
+            $sql = "UPDATE CampaignShareTemplate
                         SET message=:message, body=:body
                         WHERE id=:id";
 

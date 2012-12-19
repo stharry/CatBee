@@ -1,0 +1,30 @@
+{
+    "classes":[
+        {
+            "name":"LeaderLanding",
+            "fields":[
+                {
+                    "name":"firstSloganLine"
+                },
+                {
+                    "name":"secondSloganLine"
+                },
+                {
+                    "name":"firstSliderLine"
+                },
+                {
+                    "name":"secondSliderLine"
+                },
+                {
+                    "name":"landingRewards",
+                    "isArray":"1",
+                    "className":"LandingReward"
+                },
+                {
+                    "name":"customMessage"
+                }
+            ]
+
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "classes":[
+        {
+            "name":"ShareApplication",
+            "fields":[
+                {
+                    "name":"applicationApiKey",
+                    "setOnly":"1"
+                },
+                {
+                    "name":"applicationCode"
+                },
+                {
+                    "name":"applicationSecret",
+                    "setOnly":"1"
+                },
+                {
+                    "name":"authorizationUrl",
+                    "setOnly":"1"
+                },
+                {
+                    "name":"redirectUrl"
+                }
+            ]
+
+        }
+    ]
+}

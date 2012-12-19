@@ -1,0 +1,18 @@
+{
+    "classes":[
+        {
+            "name":"CampaignFilter",
+            "fields":[
+                {
+                    "name":"store",
+                    "className":"Store"
+
+                },
+                {
+                    "name":"lazy"
+                }
+            ]
+
+        }
+    ]
+}

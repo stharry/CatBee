@@ -33,7 +33,7 @@ PRIMARY KEY (id) );
 CREATE  TABLE IF NOT EXISTS Campaign (
 id INT AUTO_INCREMENT ,
 store INT NULL ,
-name VARCHAR(45) NULL ,
+code VARCHAR(45) NOT NULL ,
 description VARCHAR(45) NULL ,
 PRIMARY KEY (id) );
 
@@ -137,7 +137,7 @@ CREATE  TABLE IF NOT EXISTS ActiveShare (
 );
 
 
-CREATE  TABLE IF NOT EXISTS StoreShareTemplate (
+CREATE  TABLE IF NOT EXISTS CampaignShareTemplate (
 
   id INT auto_increment,
 

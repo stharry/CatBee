@@ -105,7 +105,7 @@ class DealManager implements IDealManager
     {
         $this->storeManager->validateBranch($order->branch);
         //Register Leading Deal If Exist
-        RestLogger::log("DealManager::pushDeal after storeBranch validation ", $order->store);
+        RestLogger::log("DealManager::pushDeal after storeBranch validation ", $order->branch);
 
         $this->successfulReferralManager->saveSucessfulReferral($order);
 
@@ -195,6 +195,8 @@ class DealManager implements IDealManager
     {
         try
         {
+            $this->fillShareOrderParams($share);
+
             $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_FRIEND);
             $share->status = Share::$SHARE_STATUS_PENDING;
             $this->addDealShare($share);
@@ -223,13 +225,20 @@ class DealManager implements IDealManager
     private function fillShareOrderParams($share)
     {
         $deal = $this->getDealById($share->deal->id);
+
         $campFilter = new CampaignFilter();
         $campFilter->campId = $deal->campaign->id;
-        $deal->campaign = $this->campaignManager->getCampaigns($campFilter);
-        $orderParams = $this->storeManager->queryStoreAdapter($deal->campaign[0]->store, 'orderdetails');
+
+        //Todo set more elegant campaign choosing
+        $deal->campaign = $this->campaignManager->getCampaigns($campFilter)[0];
+
+        RestLogger::log('DealManager::fillShareOrderParams campaign', $deal->campaign);
+
+        $orderParams = $this->storeManager->queryStoreAdapter($deal->campaign->store->adaptor, 'orderdetails');
 
         $orderAdapter = new JsonOrderAdapter();
         $deal->order = $orderAdapter->fromArray(json_decode($orderParams, true));
+        $deal->order->branch = $deal->campaign->store;
 
         RestLogger::log('DealManager::fillShareOrderParams order', $deal->order);
 

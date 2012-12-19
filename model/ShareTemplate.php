@@ -3,7 +3,7 @@
 class ShareTemplate
 {
     public $id;
-    public $store;
+    public $storeBranch;
     public $campaign;
     public $message;
     public $customMessage;

@@ -5,6 +5,8 @@ class CatBeeClassLoader
     private $modelClasses;
     private $componentClasses;
 
+    private static $loader;
+
     private function loadClasses($dir, &$loadTo)
     {
         $ffs = scandir($dir);
@@ -34,62 +36,41 @@ class CatBeeClassLoader
         return false;
     }
 
-    function __construct($catBeeDirBase)
+    public static function createLoader($catBeeDirBase)
     {
-        $this->modelClasses = array();
-        $this->componentClasses = array();
+        $loader = new CatBeeClassLoader();
+        $loader->modelClasses = array();
+        $loader->componentClasses = array();
 
-        $this->loadClasses($catBeeDirBase.'/model', $this->modelClasses);
-        $this->loadClasses($catBeeDirBase.'/components', $this->componentClasses);
+        $loader->loadClasses($catBeeDirBase.'/model', $loader->modelClasses);
+        $loader->loadClasses($catBeeDirBase.'/components', $loader->componentClasses);
+
+        CatBeeClassLoader::$loader = $loader;
     }
 
 
-    public function registerModel($model)
+    public static function registerModel($model)
     {
-        return $this->register($model, $this->modelClasses);
+        return CatBeeClassLoader::$loader->register($model, CatBeeClassLoader::$loader->modelClasses);
     }
 
-    public function registerComponent($comp)
+    public static function registerComponent($comp)
     {
-        return $this->register($comp, $this->componentClasses);
+        return CatBeeClassLoader::$loader->register($comp, CatBeeClassLoader::$loader->componentClasses);
     }
 
-    public function registerModelHierarchy($hierarchy)
+    public static function registerClass($class)
     {
-        $hierarchyDir = '/'.$hierarchy.'/';
-        foreach ($this->modelClasses as $class => $classPath)
+        if (!CatBeeClassLoader::registerModel($class))
         {
-            if (strpos($classPath, $hierarchyDir))
-            {
-                include_once($classPath);
-            }
-        }
-    }
-
-    public function registerComponentHierarchy($hierarchy)
-    {
-        $hierarchyDir = '/'.$hierarchy.'/';
-        foreach ($this->componentClasses as $class => $classPath)
-        {
-            if (strpos($classPath, $hierarchyDir))
-            {
-                include_once($classPath);
-            }
-        }
-    }
-
-    public function registerClass($class)
-    {
-        if (!$this->registerModel($class))
-        {
-            $this->registerComponent($class);
+            CatBeeClassLoader::registerComponent($class);
         }
 
     }
 
-    public function dump()
+    public static function dump()
     {
-        var_dump($this->modelClasses);
-        var_dump($this->componentClasses);
+        var_dump(CatBeeClassLoader::$loader->modelClasses);
+        var_dump(CatBeeClassLoader::$loader->componentClasses);
     }
 }

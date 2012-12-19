@@ -3,7 +3,8 @@
 class ShareManager implements IShareManager
 {
     private $shareDao;
-    private $adaptorDao;
+    private $campaignDao;
+    private $storeBranchDao;
     private $customerManager;
     private $shareAppDao;
     private $pageAdapter;
@@ -29,7 +30,7 @@ class ShareManager implements IShareManager
     {
         //todo check branch url
         //todo ask store adapter to parameters set
-        $link = $share->store->url . '?ctx=' . $share->context->type
+        $link = $share->deal->order->branch->url . '?ctx=' . $share->context->type
             . '&act=welcome&sid=' . $share->id;
 
         return $link;
@@ -95,7 +96,10 @@ class ShareManager implements IShareManager
     {
         RestLogger::log("ShareManager::fillShareProps ", $share);
         $shareFilter = new ShareFilter();
-        $shareFilter->campaign = $share->campaign;
+
+        RestLogger::log("ShareManager::fillShareProps campaign ", $share->deal->campaign);
+
+        $shareFilter->campaign = $share->deal->campaign;
         $shareFilter->context = $share->context;
         $shareFilter->targetId = $share->target->id;
 
@@ -109,22 +113,29 @@ class ShareManager implements IShareManager
 
         $this->landingRewardDao->fillLandingRewardById($share->reward);
 
+        if (!$this->storeBranchDao->isStoreBranchExists($share->deal->order->branch))
+        {
+            RestLogger::log('fillShareProps ERROR: branch not exist');
+        }
+
         $this->createMessage($share, $shareTemplates[ 0 ]);
 
     }
 
     function __construct(
-        $adaptorDao, $shareDao, $customerManager,
+        $storeBranchDao, $shareDao, $customerManager,
         $shareAppDao, $dealShareDao,
         $landingRewardDao,
+        $campaignDao,
         $pageAdapter)
     {
-        $this->adaptorDao = $adaptorDao;
+        $this->storeBranchDao = $storeBranchDao;
         $this->shareDao = $shareDao;
         $this->customerManager = $customerManager;
         $this->shareAppDao = $shareAppDao;
         $this->dealShareDao = $dealShareDao;
         $this->landingRewardDao = $landingRewardDao;
+        $this->campaignDao = $campaignDao;
         $this->pageAdapter = $pageAdapter;
 
         $this->predefinedContexts =
@@ -165,9 +176,15 @@ class ShareManager implements IShareManager
 
     public function setShareTemplate($shareTemplate)
     {
-
-        //todo: think about campaign share template
-        $shareTemplate->campaign->id = -1;
+        if (!$this->campaignDao->isCampaignExists($shareTemplate->campaign))
+        {
+            RestLogger::log('ERROR: Campaign does not exist ', $shareTemplate->campaign);
+            die('Campaign does not exist');
+        }
+        else
+        {
+            RestLogger::log('Share template campaign ', $shareTemplate->campaign);
+        }
 
         $this->loadShareTemplatePageContext($shareTemplate);
 
@@ -176,12 +193,12 @@ class ShareManager implements IShareManager
 
     public function getShareTemplates($shareFilter)
     {
+        RestLogger::log('get Share Templates', $shareFilter);
         return $this->shareDao->getShareTemplates($shareFilter);
     }
 
     public function getContacts($shareNode)
     {
-
         $this->validateCustomer($shareNode->leader);
 
         $shareProvider = $this->getCompatibleShareProvider($shareNode->context);
@@ -217,11 +234,11 @@ class ShareManager implements IShareManager
 
     public function fillShare($share)
     {
-        RestLogger::log('ShareManager::fillshare begin');
-        if (!$this->adaptorDao->loadAdaptor($share->store))
+        RestLogger::log('ShareManager::fillshare begin', $share->deal->order->branch);
+        if (!$this->storeBranchDao->isStoreBranchExists($share->deal->order->branch))
         {
-            RestLogger::log('Error: share template store does not exists');
-            die ("share template store does not exists");
+            RestLogger::log('Error: share template store branch does not exists');
+            die ("share template store branch does not exists");
         }
 
         $this->fillShareProps($share);

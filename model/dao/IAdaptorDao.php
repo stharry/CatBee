@@ -6,6 +6,8 @@ interface IAdaptorDao
 
     public function loadAdaptor($adaptor);
 
+    public function loadAdaptorById($adaptor);
+
     public function insertAdaptor($adaptor);
 
 }

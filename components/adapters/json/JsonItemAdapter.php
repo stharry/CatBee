@@ -6,7 +6,7 @@ class JsonItemAdapter implements IModelAdapter
     public function toArray($obj)
     {
         return array(
-            'itemCode'    => $obj->itemCode,
+            'itemcode'    => $obj->itemCode,
             'description' => $obj->description,
             'price'       => $obj->price,
             'url'         => $obj->url,
@@ -19,7 +19,7 @@ class JsonItemAdapter implements IModelAdapter
     {
         $item = new PurchaseItem();
 
-        $item->itemCode    = $obj[ "itemCode" ];
+        $item->itemCode    = $obj[ "itemcode" ];
         $item->description = $obj[ "description" ];
         $item->price       = $obj[ "price" ];
         $item->url         = $obj[ "url" ];

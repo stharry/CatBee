@@ -1,0 +1,26 @@
+{
+    "classes":[
+        {
+            "name":"FriendDeal",
+            "fields":[
+                {
+                    "name":"customer",
+                    "className":"Customer"
+                },
+                {
+                    "name":"friend",
+                    "className":"Customer"
+                },
+                {
+                    "name":"order",
+                    "className":"Order"
+                },
+                {
+                    "name":"share",
+                    "className":"Share"
+                }
+            ]
+
+        }
+    ]
+}

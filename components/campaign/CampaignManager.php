@@ -85,6 +85,8 @@ class CampaignManager implements ICampaignManager
         foreach ($campaigns as $campaign)
         {
             $campaign->restrictions = $this->restrictionsManager->getRestrictions($campaign);
+
+            $this->storeBranchDao->loadBranchById($campaign->store);
         }
 
         RestLogger::log('CampaignManager::getCampaigns end');

@@ -1,0 +1,28 @@
+{
+    "classes":[
+        {
+            "name":"Customer",
+            "fields":[
+                {
+                    "name":"email"
+                },
+                {
+                    "name":"firstName"
+                },
+                {
+                    "name":"lastName"
+                },
+                {
+                    "name":"nickName"
+                },
+                {
+                    "name":"sharedPhoto"
+                },
+                {
+                    "name":"sharedUserId"
+                }
+            ]
+
+        }
+    ]
+}

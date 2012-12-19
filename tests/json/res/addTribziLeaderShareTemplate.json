@@ -2,8 +2,8 @@
     "action":"set",
     "context":{
         "message":"Hi, I shared a great deal for you",
-        "store":{
-            "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"
+        "campaign":{
+            "code":"398C0080-60FF-48C0-BDF5-E1BA4A9B53ED"
         },
         "shareContext":{
             "type":"tribzi"
