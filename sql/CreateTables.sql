@@ -185,8 +185,8 @@ CREATE TABLE IF NOT EXISTS oauthApps (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE If NOT EXISTS leads (
-  lead int(11) NOT NULL,
+CREATE TABLE If NOT EXISTS successfulReferral  (
+  ActiveShareID int(11) NOT NULL,
   orderID int(11) NOT NULL,
-  PRIMARY KEY (lead,orderID)
+  PRIMARY KEY (ActiveShareID,orderID)
 );

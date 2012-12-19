@@ -30,7 +30,7 @@ $dealManager = new DealManager($campaignManager,
         new PdoLeaderLandingRewardDao(),
         new HtmlPageAdapter()),
     new PdoDealDao(),
-    new LeadManager(new PdoLeadDao()));
+    new SuccessfulReferralManager(new PdoSuccessfulReferralDao()));
 
 $friendLandingManager = new FriendLandingManager(
     new PdoDealDao(),

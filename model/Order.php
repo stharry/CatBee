@@ -20,6 +20,6 @@ class Order
     public $items;
     public $customer;
     public $branch;
-    public $lead;
+    public $successfulReferral;
     public $activeShareId;
 }
