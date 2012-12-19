@@ -1,6 +1,6 @@
 <?php
 
-class Lead
+class SuccessfulReferral
 {
     public $share;// ActiveShareID
     public $order;//Order Of the Friend

@@ -6,17 +6,17 @@ class DealManager implements IDealManager
     private $storeManager;
     private $shareManager;
     private $dealDao;
-    private $leadManager;
+    private $successfulReferralManager;
 
     function __construct($campaignManager, $storeManager,
                          $shareManager, $dealDao,
-                         $leadManager)
+                         $successfulReferralManager)
     {
         $this->campaignManager = $campaignManager;
         $this->dealDao = $dealDao;
         $this->storeManager = $storeManager;
         $this->shareManager = $shareManager;
-        $this->leadManager = $leadManager;
+        $this->successfulReferralManager = $successfulReferralManager;
     }
     private function shareToLeader($share)
     {
@@ -107,7 +107,7 @@ class DealManager implements IDealManager
         //Register Leading Deal If Exist
         RestLogger::log("DealManager::pushDeal after storeBranch validation ", $order->branch);
 
-        $this->leadManager->saveLead($order);
+        $this->successfulReferralManager->saveSucessfulReferral($order);
 
         $campaign = $this->campaignManager->chooseCampaign($order);
 

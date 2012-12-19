@@ -1,6 +1,6 @@
 <?php
 
-class LeadFilter
+class ReferralFilter
 {
     public $OrderList;
 }
