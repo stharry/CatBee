@@ -57,7 +57,7 @@ $(document).ready(function() {
     });
 
     updateBoxPosition();
-    updateRewards(1);
+    updateRewards(Math.round((catBeeData.landing.landingRewards.length - 1)/2));
     //Share hover
     $('.share-box a').hover(
         function(){
