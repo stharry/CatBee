@@ -6,7 +6,7 @@
         "items":[
             {
                 "itemcode":"1234567890",
-                "url":"http://tribzidemo.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
+                "url":"http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
                 "price":"76.00",
                 "description":"Wooden train"
             }

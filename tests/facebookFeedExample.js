@@ -42,10 +42,10 @@ function sendFacebookMessage(data)
         method: 'feed',
         display: 'popup',
         link: 'http://www.TribZi.com/adapters/demo/api/?act=welcome&pdl=1&shr=facebook',
-        picture: 'http://tribzidemo.azurewebsites.net/CatBee/adapters/demo/res/train.jpg',
+        picture: 'http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/train.jpg',
         name: 'Hi, I shared a great deal for you...:)',
         caption: 'TribZi Deal',
-        redirect_uri: 'http://tribzidemo.azurewebsites.net/CatBee/components/share/facebook/facebookLogin.php',
+        redirect_uri: 'http://tribzi.azurewebsites.net/CatBee/components/share/facebook/facebookLogin.php',
 
         description: 'Press on link below to start shopping'
     };
