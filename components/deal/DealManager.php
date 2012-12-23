@@ -1,6 +1,5 @@
 <?php
-
-class DealManager implements IDealManager
+class DealManager //implements IDealManager
 {
     private $campaignManager;
     private $storeManager;
@@ -12,12 +11,23 @@ class DealManager implements IDealManager
                          $shareManager, $dealDao,
                          $successfulReferralManager)
     {
+        RestLogger::log("Deal manager before created...");
+        try
+        {
         $this->campaignManager = $campaignManager;
         $this->dealDao = $dealDao;
         $this->storeManager = $storeManager;
         $this->shareManager = $shareManager;
         $this->successfulReferralManager = $successfulReferralManager;
+
+        RestLogger::log("Deal manager created...");
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log('EXCEPTION ', $e);
+        }
     }
+
     private function shareToLeader($share)
     {
         RestLogger::log('DealManager::shareToLeader begin');
@@ -225,12 +235,13 @@ class DealManager implements IDealManager
     private function fillShareOrderParams($share)
     {
         $deal = $this->getDealById($share->deal->id);
-
         $campFilter = new CampaignFilter();
         $campFilter->campId = $deal->campaign->id;
 
         //Todo set more elegant campaign choosing
-        $deal->campaign = $this->campaignManager->getCampaigns($campFilter)[0];
+
+        $campaigns = $this->campaignManager->getCampaigns($campFilter);
+        $deal->campaign = $campaigns[0];
 
         RestLogger::log('DealManager::fillShareOrderParams campaign', $deal->campaign);
 
@@ -249,7 +260,4 @@ class DealManager implements IDealManager
     {
         return $this->shareManager->share($share);
     }
-
-
 }
-

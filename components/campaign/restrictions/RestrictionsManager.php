@@ -10,6 +10,8 @@ class RestrictionsManager implements IRestrictionsManager
         $this->validatorsFactory = $validatorsFactory;
         $this->restrictionsDao = $restrictionsDao;
 
+        RestLogger::log("RestrictionsManager created...");
+
     }
 
     public function getValidOrderItems($order)

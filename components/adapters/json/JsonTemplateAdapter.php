@@ -79,8 +79,7 @@ class JsonTemplateAdapter implements IModelAdapter
 
             foreach ($obj['children'] as $childField)
             {
-                array_push($field->childFields,
-                    $this->fieldFromArray($field->addChild(), $childField));
+                $this->fieldFromArray($field->addChild(), $childField);
             }
         }
 

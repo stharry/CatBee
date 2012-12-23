@@ -40,6 +40,8 @@ class CustomerManager implements ICustomerManager
     function __construct($customerDao)
     {
         $this->customerDao = $customerDao;
+
+        RestLogger::log("Customer manager created...");
     }
 
     public function validateCustomer($customer)

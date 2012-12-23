@@ -3,21 +3,24 @@
 class SuccessfulReferralManager
 {
 
-    private $succssefullReferalDao;
+    private $successfulReferralDao;
 
-    function __construct($succssefullReferalDao)
+    function __construct($successfulReferralDao)
     {
-        $this->succssefullReferalDao = $succssefullReferalDao;
+        $this->successfulReferralDao = $successfulReferralDao;
+
+        RestLogger::log("SuccessfulReferral manager created...");
     }
+
     public function saveSucessfulReferral($order)
     {
         if($order->successfulReferral == null) return;
-        $succssefullReferal = new SuccessfulReferral();
-        $succssefullReferal->order = $order;
+        $successfulReferral = new SuccessfulReferral();
+        $successfulReferral->order = $order;
         $share = new Share();
         $share->id = $order->successfulReferral;
-        $succssefullReferal->share = $share;
-        $this->succssefullReferalDao->SaveReferral($succssefullReferal);
+        $successfulReferral->share = $share;
+        $this->successfulReferralDao->SaveReferral($successfulReferral);
     }
 
 }

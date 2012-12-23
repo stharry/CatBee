@@ -140,6 +140,8 @@ class ShareManager implements IShareManager
 
         $this->predefinedContexts =
             array('email' => 1, 'facebook' => 2, 'tribzi' => 1024);
+
+        RestLogger::log("Share manager created...");
     }
 
     public function share($share)

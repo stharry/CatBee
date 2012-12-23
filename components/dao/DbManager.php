@@ -123,7 +123,7 @@ class DbManager
 
     public static function insertValues($insertExpression, $params = array())
     {
-        DbManager::setValues($insertExpression, $params);
+        return DbManager::setValues($insertExpression, $params);
     }
 
     public static function insertOnly($table, $fieldNames, $fieldValues)
@@ -182,6 +182,7 @@ class DbManager
         {
             RestLogger::log('DbManager::insertAndReturnId exception ', $pe->getMessage());
             RestLogger::log('EXCEPTION STACK ', $pe->getTrace());
+            return null;
         }
 
     }

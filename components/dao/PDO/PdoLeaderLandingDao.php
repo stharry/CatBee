@@ -8,6 +8,8 @@ class PdoLeaderLandingDao implements ILeaderLandingDao
     {
         $this->leaderLandingRewardDao = $leaderLandingRewardDao;
 
+        RestLogger::log("PdoLeaderLandingDao created...");
+
     }
 
     public function getLeaderLandings($campaign)

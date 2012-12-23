@@ -102,7 +102,7 @@ else
     $customerDao = new PdoCustomerDao();
     if (!$customerDao->isCustomerExists($shareNode->leader))
     {
-        !$customerDao->insertCustomer($shareNode->leader);
+        $customerDao->insertCustomer($shareNode->leader);
     }
 
     $shareAuthorization = new ShareAuthorization();

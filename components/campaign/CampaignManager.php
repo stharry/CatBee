@@ -28,6 +28,7 @@ class CampaignManager implements ICampaignManager
         $this->restrictionsManager = $restrictionsManager;
         $this->storeBranchDao = $storeBranchDao;
 
+        RestLogger::log("Campaign manager created...");
     }
 
     private function checkCustomer($customer)
