@@ -103,6 +103,6 @@ class PdoCampaignDao implements ICampaignDao
             ':code' => $campaign->code,
             ':desc' => $campaign->description);
 
-        $campaign->id = DbManager::updateValues($sql, $params);
+        DbManager::updateValues($sql, $params);
     }
 }
