@@ -75,19 +75,19 @@ class CatBeeClassLoader
     public static function dump()
     {
         $models = CatBeeClassLoader::$loader->modelClasses;
-        sort($models);
+        //sort($models);
 
         foreach ($models as $name=>$path)
         {
-            echo $name.' => '.$path.'</p>';
+            echo $name.','.$path.'</p>';
         }
 
         $models = CatBeeClassLoader::$loader->componentClasses;
-        sort($models);
+        //sort($models);
 
         foreach ($models as $name=>$path)
         {
-            echo $name.' => '.$path.'</p>';
+            echo $name.','.$path.'</p>';
         }
 
     }
