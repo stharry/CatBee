@@ -7,7 +7,8 @@ class PdoAuthorizationDao implements IAuthorizationDao
     {
 
         $rows = DbManager::selectValues("SELECT userId, accessToken FROM customerAuth
-            WHERE customerId={$shareNode->leader->id} AND contextId={$shareNode->context->id}");
+            WHERE customerId={$shareNode->leader->id}
+            AND contextId={$shareNode->context->id}", array());
 
         if (!$rows)
         {

@@ -2,6 +2,10 @@
 
 class PdoDealDao implements IDealDao
 {
+    function __construct()
+    {
+        RestLogger::log("PdoDealDao created...");
+    }
 
     private function createAndFillDeal($row)
     {
@@ -169,7 +173,7 @@ class PdoDealDao implements IDealDao
             campaignId, customerId, initDate, updateDate
             FROM deal WHERE orderId = {$id} AND parentId IS NULL";
 
-            $rows = DbManager::selectValues($selectClause);
+            $rows = DbManager::selectValues($selectClause, array());
 
             if ($rows == null)
             {

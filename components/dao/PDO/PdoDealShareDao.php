@@ -41,7 +41,7 @@ class PdoDealShareDao implements IDealShareDao
             $select = "SELECT dealId, shareType, status, landRewardId, value
                         FROM activeShare WHERE id = {$share->id}";
 
-            $rows = DbManager::selectValues($select);
+            $rows = DbManager::selectValues($select, array());
 
             if ($rows == null)
             {

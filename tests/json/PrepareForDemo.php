@@ -22,11 +22,13 @@ function includeTest($testName)
 {
     try
     {
+        RestLogger::log('Test '.$testName.' Before');
         echo "<p>".'Before '.$testName."<p>";
 
         include_once($testName);
 
         echo "<p>".$testName.' - OK'."<p>";
+        RestLogger::log('Test '.$testName.' After');
     }
     catch (Exception $e)
     {

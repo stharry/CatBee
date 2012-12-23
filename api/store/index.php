@@ -26,12 +26,14 @@ switch ($action)
 
         $storeManager->registerBranches($branches);
         RestUtils::sendSuccessResponse();
+        break;
     }
 
     case "unregister":
     {
         $storeManager->unregisterBranches($adaptor, $branches);
         RestUtils::sendSuccessResponse();
+        break;
 
     }
 }

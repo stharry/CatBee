@@ -182,6 +182,7 @@ class DbManager
         {
             RestLogger::log('DbManager::insertAndReturnId exception ', $pe->getMessage());
             RestLogger::log('EXCEPTION STACK ', $pe->getTrace());
+            return null;
         }
 
     }

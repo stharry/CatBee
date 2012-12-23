@@ -12,11 +12,21 @@ class DealManager implements IDealManager
                          $shareManager, $dealDao,
                          $successfulReferralManager)
     {
+        RestLogger::log("Deal manager before created...");
+        try
+        {
         $this->campaignManager = $campaignManager;
         $this->dealDao = $dealDao;
         $this->storeManager = $storeManager;
         $this->shareManager = $shareManager;
         $this->successfulReferralManager = $successfulReferralManager;
+
+        RestLogger::log("Deal manager created...");
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log('EXCEPTION ', $e);
+        }
     }
     private function shareToLeader($share)
     {

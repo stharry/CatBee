@@ -8,6 +8,8 @@ class SuccessfulReferralManager
     function __construct($succssefullReferalDao)
     {
         $this->succssefullReferalDao = $succssefullReferalDao;
+
+        RestLogger::log("SuccessfulReferral manager created...");
     }
     public function saveSucessfulReferral($order)
     {

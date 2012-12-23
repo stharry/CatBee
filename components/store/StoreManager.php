@@ -10,6 +10,8 @@ class StoreManager implements IStoreManager
     {
         $this->adaptorDao = $adaptorDao;
         $this->branchesDao = $branchesDao;
+
+        RestLogger::log("Store manager created...");
     }
 
     public function registerAdaptor($store)

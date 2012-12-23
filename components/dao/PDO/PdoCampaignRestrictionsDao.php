@@ -47,7 +47,7 @@ class PdoCampaignRestrictionsDao implements ICampaignRestrictionsDao
         $select = "SELECT id, name, description, code, expression
                     FROM CampaignRestrictions WHERE campaignId = {$id}";
 
-        $rows = DbManager::selectValues($select);
+        $rows = DbManager::selectValues($select, array());
 
         return $this->createRestrictions($rows);
     }
@@ -56,7 +56,7 @@ class PdoCampaignRestrictionsDao implements ICampaignRestrictionsDao
     {
         $delete = "DELETE FROM CampaignRestrictions WHERE campaignId = {$campaign->id}";
 
-        DbManager::selectValues($delete);
+        DbManager::selectValues($delete, array());
     }
 
     public function getCampaignRestrictionsByActiveShareId($id)
@@ -68,7 +68,7 @@ class PdoCampaignRestrictionsDao implements ICampaignRestrictionsDao
                      INNER JOIN ActiveShare a ON a.dealId = d.id
                      WHERE a.id = {$id}";
 
-        $rows = DbManager::selectValues($select);
+        $rows = DbManager::selectValues($select, array());
 
         return $this->createRestrictions($rows);
     }

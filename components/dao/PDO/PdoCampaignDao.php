@@ -11,6 +11,8 @@ class PdoCampaignDao implements ICampaignDao
     {
         $this->leaderLandingDao = $leaderLandingDao;
         $this->FriendLandingDao = $FriendLandingDao;
+
+        RestLogger::log("PdoCampaignDao created...");
     }
 
     public function isCampaignExists($campaign)

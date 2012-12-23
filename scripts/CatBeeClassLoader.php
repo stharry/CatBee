@@ -63,7 +63,11 @@ class CatBeeClassLoader
     {
         if (!CatBeeClassLoader::registerModel($class))
         {
-            CatBeeClassLoader::registerComponent($class);
+            if (!CatBeeClassLoader::registerComponent($class))
+            {
+                echo 'Class '.$class.' not found';
+
+            }
         }
 
     }
