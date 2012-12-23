@@ -4,14 +4,14 @@ class Share
 {
     function __construct()
     {
-        $this->succssefullReferals = array();
+        $this->successfulReferrals = array();
     }
     public function addLead()
     {
-        $succssefullReferal = new SuccssefullReferal();
-        array_push($this->succssefullReferals, $succssefullReferal);
+        $successfulReferral = new SuccssefullReferal();
+        array_push($this->successfulReferrals, $successfulReferral);
 
-        return $succssefullReferal;
+        return $successfulReferral;
     }
 
     public static $SHARE_STATUS_PENDING = 1;
@@ -32,7 +32,7 @@ class Share
     public $link;
     public $deal;
     public $status;
-    public $succssefullReferals;
+    public $successfulReferrals;
 
     public function isShared()
     {
