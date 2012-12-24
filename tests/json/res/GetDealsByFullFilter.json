@@ -2,8 +2,8 @@
     "action":"getDeal",
     "context":
     {
-        "startDate":"2012-12-12",
-        "endDate":"2013-12-20",
+        "initDateBiggerThen":"2012-12-12",
+        "initDateEarlierThen":"2013-12-25",
         "Customer":{
             "email":"danny.t.leader@gmail.com"
         },

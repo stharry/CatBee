@@ -15,13 +15,11 @@ class JsonLeaderDealFilter implements IModelAdapter
     }
     public function fromArray($obj)
     {
-
         $DealFilter = new LeaderDealFilter();
         $DealFilter->customer = $this->customerAdapter->fromArray($obj["Customer"]);
-        $DealFilter->startDate =  $obj["startDate"];
-        $DealFilter->endDate =  $obj["endDate"];
+        $DealFilter->initDateBiggerThen =  $obj["initDateBiggerThen"];
+        $DealFilter->initDateEarlierThen =  $obj["initDateEarlierThen"];
         return $DealFilter;
-
     }
 
 }

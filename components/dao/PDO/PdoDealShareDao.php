@@ -3,6 +3,48 @@
 class PdoDealShareDao implements IDealShareDao
 {
 
+    private function FillActiveShareLeads($row)
+    {
+        $share = new Share();
+        $share->id =$row['id'];
+        $share->context = new ShareContext();
+        $share->context->id = $row['shareType'];
+
+        $share->status = $row['status'];
+        $share->reward = new LandingReward();
+        $share->reward->id = $row['landRewardId'];
+
+        $share->sentTo = $this->value2Customers($row['value']);
+        $SuccessfulReferral = $share->addReferral();
+        $SuccessfulReferral->share = $row['id'];
+        $SuccessfulReferral->order = $row['OrderID'];
+        return $share;
+    }
+
+    private function value2Customers($value)
+    {
+        $customers = array();
+
+        foreach (explode(',', $value) as $email)
+        {
+            $customer = new Customer($email);
+            array_push($customers, $customer);
+        }
+
+        return $customers;
+    }
+
+    private function unionAllSendTo($sendTo)
+    {
+        $result = '';
+
+        foreach ($sendTo as $customer)
+        {
+            $result .= $customer->email . ',';
+        }
+
+        return $result;
+    }
     public function addDealShare($share)
     {
         $names = array("dealId", "shareType", 'value',
@@ -70,7 +112,7 @@ class PdoDealShareDao implements IDealShareDao
     {
         //This Loop over Deal is assuming each Customer wont have a lot of active Deal.
         //TODO - change the above assumption
-
+        $selectParams = array();
         $iterator = 0;
         foreach($deals as $deal)
         {
@@ -88,9 +130,9 @@ class PdoDealShareDao implements IDealShareDao
                 $select = $select." WHERE share.dealid = ? ";
             }
             $select = $select." and share.status=2";
-            $selectParam = $deals[$iterator]->id;
-            $rows = DbManager::selectValues($select,
-                array($selectParam => PDO::PARAM_STR));
+            $selectParam = new DbParameter($deals[$iterator]->id,PDO::PARAM_INT);
+            array_push($selectParams,$selectParam);
+            $rows = DbManager::selectValues($select,$selectParams);
             $shareArray = array();
             foreach ($rows as $row)
             {
@@ -104,46 +146,5 @@ class PdoDealShareDao implements IDealShareDao
 
     }
 
-    private function FillActiveShareLeads($row)
-    {
-        $share = new Share();
-        $share->id =$row['id'];
-        $share->context = new ShareContext();
-        $share->context->id = $row['shareType'];
 
-        $share->status = $row['status'];
-        $share->reward = new LandingReward();
-        $share->reward->id = $row['landRewardId'];
-
-        $share->sentTo = $this->value2Customers($row['value']);
-        $SuccessfulReferral = $share->addReferral();
-        $SuccessfulReferral->share = $row['id'];
-        $SuccessfulReferral->order = $row['OrderID'];
-        return $share;
-    }
-
-    private function value2Customers($value)
-    {
-        $customers = array();
-
-        foreach (explode(',', $value) as $email)
-        {
-            $customer = new Customer($email);
-            array_push($customers, $customer);
-        }
-
-        return $customers;
-    }
-
-    private function unionAllSendTo($sendTo)
-    {
-        $result = '';
-
-        foreach ($sendTo as $customer)
-        {
-            $result .= $customer->email . ',';
-        }
-
-        return $result;
-    }
 }

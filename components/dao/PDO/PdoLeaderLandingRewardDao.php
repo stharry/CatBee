@@ -47,7 +47,7 @@ class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
         $rows = DbManager::selectValues($this->getLandingRewardSelect()
             ." WHERE lr.LandingId = ?
                 ORDER BY lr.RewardIndex ",
-        array($leaderLanding->id => PDO::PARAM_INT));
+            array(new DbParameter($leaderLanding->id,PDO::PARAM_INT)));
 
 
         $landingRewards = array();
@@ -108,7 +108,7 @@ class PdoLeaderLandingRewardDao implements ILeaderLandingRewardDao
     {
         $rows = DbManager::selectValues($this->getLandingRewardSelect()
             ." WHERE lr.id = ? ",
-            array($landingReward->id => PDO::PARAM_INT));
+            array(new DbParameter($landingReward->id,PDO::PARAM_INT)));
 
         if (!$rows)
         {

@@ -6,8 +6,8 @@ class LeaderDealFilter
     public $ActiveShareFlag = false;
     //TODO - I am NOt sure if this is the right location for this property...
     public $ReferralsFlag = false;
-    public $startDate;
-    public $endDate;
+    public $initDateBiggerThen;
+    public $initDateEarlierThen;
     public $ActiveShareType;
     public $Campaign;
 

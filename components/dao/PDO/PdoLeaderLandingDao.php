@@ -18,7 +18,7 @@ class PdoLeaderLandingDao implements ILeaderLandingDao
           l.sliderFirst, l.sliderSecond, l.message FROM landing l
                        INNER JOIN CampaignLandings cl on l.Id = cl.landingId
                        WHERE cl.campaignId=?",
-            array($campaign->id => PDO::PARAM_STR));
+            array(new DbParameter($campaign->id,PDO::PARAM_INT)));
 
         $landings = array();
 

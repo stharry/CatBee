@@ -16,7 +16,7 @@ class PdoAdaptorDao implements IAdaptorDao
     {
         if ($adaptor->id > 0) return true;
         $rows = DbManager::selectValues("SELECT id FROM Adaptor  WHERE authCode=?",
-            array($adaptor->authCode => PDO::PARAM_STR));
+            array(new DbParameter($adaptor->authCode, PDO::PARAM_STR)));
         if (!isset($rows)) {
             return false;
         }
@@ -40,7 +40,7 @@ class PdoAdaptorDao implements IAdaptorDao
     public function loadAdaptor($adaptor)
     {
         $rows = DbManager::selectValues("SELECT id, authCode, description, url, logoUrl FROM adaptor  WHERE authCode=?",
-            array($adaptor->authCode => PDO::PARAM_STR));
+            array(new DbParameter($adaptor->authCode, PDO::PARAM_STR)));
 
         if (!isset($rows)) {
             return false;
@@ -56,7 +56,7 @@ class PdoAdaptorDao implements IAdaptorDao
         $rows = DbManager::selectValues(
             "SELECT id, authCode, description, url, logoUrl FROM adaptor
              WHERE id=?",
-            array($adaptor->id => PDO::PARAM_STR));
+            array(new DbParameter($adaptor->id, PDO::PARAM_INT)));
 
         if (!isset($rows)) {
             return false;
