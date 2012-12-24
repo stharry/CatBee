@@ -5,32 +5,17 @@ $(document).ready(function () {
     $('.facebook-form').hide();
     $('#ContactsArea').hide();
 
-//    TribZi.fillShare('facebook', facebookCallback)
     $("#facebookShare").click(function () {
-try{
-        TribZi.fillShare('facebook', kukuFbc);
-}
-        catch (e)
-        {
-            alert(e);
-        }
-        //getFacebookShare();
 
-        //waitAndShare();
+        getFacebookShare();
+
+        waitAndShare();
 
         //waitCatBeeResultAndRun(7200, waitAndShare);
     });
 
 
 });
-
-function kukuFbc(params)
-{
-    localStorage.setItem('facebookParams', JSON.stringify(params));
-    //alert(JSON.stringify(params));
-
-    setTimeout(StartFacebookSharing, 500);
-}
 
 function getFacebookShare() {
 
@@ -46,8 +31,6 @@ function StartFacebookSharing()
 
         facebookParams = JSON.parse(s);
 
-        var fcbDisplayMode = 'popup';
-
         FB.init({
             appId: facebookParams.context.application.applicationCode,
 
@@ -55,21 +38,19 @@ function StartFacebookSharing()
 
         FB.ui({
                 method:'feed',
-                show_error: true,
-                display:fcbDisplayMode,
+                display:'popup',
                 name: catBeeData.landing.customMessage,
                 picture: catBeeData.order.items[0].url,
                 redirect_uri: facebookParams.context.application.redirectUrl,
                 caption: ' ',
                 description: facebookParams.message,
-                level: 'debug',
                 link: facebookParams.link
             },
             function(response) {
                 if (response && response.post_id) {
-                 //   alert('Post was published.' + response.post_id);
+                    //   alert('Post was published.' + response.post_id);
                 } else {
-                  //  alert('Post was not published.');
+                    //  alert('Post was not published.');
                 }
             }
         );
