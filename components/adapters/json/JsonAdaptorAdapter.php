@@ -6,11 +6,11 @@ class JsonAdaptorAdapter implements IModelAdapter
     public function toArray($obj)
     {
         return
-            array("authCode" => $obj->authCode,
-                "description" => $obj->description,
-                "url" => $obj->url,
-                'logoUrl' => $obj->logoUrl,
-                'email' => $obj->email
+            array("authCode"    => $obj->authCode,
+                  "description" => $obj->description,
+                  "url"         => $obj->url,
+                  'landingUrl'  => $obj->landingUrl,
+                  'email'       => $obj->email
             );
     }
 
@@ -20,11 +20,11 @@ class JsonAdaptorAdapter implements IModelAdapter
 
         if (is_array($obj))
         {
-            $adaptor->authCode = $obj[ "authCode" ];
+            $adaptor->authCode    = $obj[ "authCode" ];
             $adaptor->description = $obj[ "description" ];
-            $adaptor->url = $obj[ "url" ];
-            $adaptor->logoUrl = $obj[ "logoUrl" ];
-            $adaptor->email = $obj["email"];
+            $adaptor->url         = $obj[ "url" ];
+            $adaptor->landingUrl  = $obj[ "landingUrl" ];
+            $adaptor->email       = $obj[ "email" ];
         }
         else
         {

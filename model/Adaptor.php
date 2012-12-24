@@ -7,5 +7,5 @@ class Adaptor
     public $authCode;
     public $description;
     public $url;
-    public $logoUrl;
+    public $landingUrl;
 }

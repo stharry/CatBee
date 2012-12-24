@@ -4,6 +4,7 @@
     {
         "code":"398C0080-60FF-48C0-BDF5-E1BA4A9B53ED",
         "description":"Fan For Toys Demo campaign",
+        "landingUrl":"{Rest_url}/CatBee/adapters/demo/api/",
         "branch":{
             "shopId":"1",
             "store":{

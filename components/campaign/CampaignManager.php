@@ -42,9 +42,9 @@ class CampaignManager implements ICampaignManager
 
     private function checkStoreBranch($store)
     {
-        if(!$this->storeBranchDao->isStoreBranchExists($store))
+        if($store && !$store->id && !$this->storeBranchDao->isStoreBranchExists($store))
         {
-            $this->storeBranchDao->addStoreBranch($store);
+            die('Store does not exists');
 
         }
         return true;
@@ -81,6 +81,8 @@ class CampaignManager implements ICampaignManager
     {
         RestLogger::log('CampaignManager::getCampaigns begin');
 
+        $this->checkStoreBranch($campaignFilter->store);
+
         $campaigns = $this->campaignDao->getCampaigns($campaignFilter);
 
         foreach ($campaigns as $campaign)
@@ -97,7 +99,13 @@ class CampaignManager implements ICampaignManager
 
     public function saveCampaign($campaign)
     {
-        $this ->checkStoreBranch($campaign->store);
+        $this->checkStoreBranch($campaign->store);
+
+        if ($campaign->landingUrl)
+        {
+            $campaign->landingUrl = CatBeeExpressions::validateString($campaign->landingUrl);
+        }
+
         $this->campaignDao->insertCampaign($campaign);
         $this->friendLandingDao->insertFriendLandings($campaign);
         $this->restrictionsManager->saveRestrictions($campaign);

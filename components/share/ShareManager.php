@@ -30,7 +30,12 @@ class ShareManager implements IShareManager
     {
         //todo check branch url
         //todo ask store adapter to parameters set
-        $link = $share->deal->order->branch->url . '?ctx=' . $share->context->type
+
+        $url  = $share->deal->campaign->landingUrl
+            ? $share->deal->campaign->landingUrl
+            : $share->deal->order->branch->adaptor->landingUrl;
+
+        $link = $url . '?ctx=' . $share->context->type
             . '&act=welcome&sid=' . $share->id;
 
         return $link;
@@ -100,7 +105,7 @@ class ShareManager implements IShareManager
         RestLogger::log("ShareManager::fillShareProps campaign ", $share->deal->campaign);
 
         $shareFilter->campaign = $share->deal->campaign;
-        $shareFilter->context = $share->context;
+        $shareFilter->context  = $share->context;
         $shareFilter->targetId = $share->target->id;
 
         $shareTemplates = $this->getShareTemplates($shareFilter);
@@ -128,14 +133,14 @@ class ShareManager implements IShareManager
         $campaignDao,
         $pageAdapter)
     {
-        $this->storeBranchDao = $storeBranchDao;
-        $this->shareDao = $shareDao;
-        $this->customerManager = $customerManager;
-        $this->shareAppDao = $shareAppDao;
-        $this->dealShareDao = $dealShareDao;
+        $this->storeBranchDao   = $storeBranchDao;
+        $this->shareDao         = $shareDao;
+        $this->customerManager  = $customerManager;
+        $this->shareAppDao      = $shareAppDao;
+        $this->dealShareDao     = $dealShareDao;
         $this->landingRewardDao = $landingRewardDao;
-        $this->campaignDao = $campaignDao;
-        $this->pageAdapter = $pageAdapter;
+        $this->campaignDao      = $campaignDao;
+        $this->pageAdapter      = $pageAdapter;
 
         $this->predefinedContexts =
             array('email' => 1, 'facebook' => 2, 'tribzi' => 1024);
@@ -167,10 +172,10 @@ class ShareManager implements IShareManager
             $share->sendTo = $shareToFriends;
 
             return true;
-        }
-        catch (Exception $e)
+        } catch (Exception $e)
         {
             RestLogger::log('ERROR: ', $e->getMessage());
+
             return false;
         }
     }
@@ -195,6 +200,7 @@ class ShareManager implements IShareManager
     public function getShareTemplates($shareFilter)
     {
         RestLogger::log('get Share Templates', $shareFilter);
+
         return $this->shareDao->getShareTemplates($shareFilter);
     }
 
@@ -261,7 +267,7 @@ class ShareManager implements IShareManager
     {
         $context->application->authorizationUrl =
             CatBeeExpressions::validateString($context->application->authorizationUrl);
-        $context->application->redirectUrl =
+        $context->application->redirectUrl      =
             CatBeeExpressions::validateString($context->application->redirectUrl);
 
         $this->shareAppDao->setApplication($context);
@@ -274,9 +280,9 @@ class ShareManager implements IShareManager
 
         if ($share->context->application)
         {
-            $url = $share->context->application->redirectUrl;
+            $url      = $share->context->application->redirectUrl;
             $parDelim = strpos($url, '?') === true ? '&' : '?';
-            $url = $url . $parDelim . 'sid=' . $share->id;
+            $url      = $url . $parDelim . 'sid=' . $share->id;
 
             $share->context->application->redirectUrl = $url;
         }
@@ -288,13 +294,13 @@ class ShareManager implements IShareManager
 
         foreach ($this->predefinedContexts as $type => $id)
         {
-            $share = new Share();
+            $share           = new Share();
             $share->campaign = $deal->campaign;
-            $share->deal = $deal;
+            $share->deal     = $deal;
 
-            $context = new ShareContext();
-            $context->id = $id;
-            $context->type = $type;
+            $context              = new ShareContext();
+            $context->id          = $id;
+            $context->type        = $type;
             $context->application = $this->shareAppDao->getApplication($context);
 
             $share->context = $context;
@@ -306,8 +312,8 @@ class ShareManager implements IShareManager
             array_push($shares, $share);
 
             $share->campaign = null;
-            $share->store = null;
-            $share->deal = null;
+            $share->store    = null;
+            $share->deal     = null;
 
         }
 
@@ -324,10 +330,10 @@ class ShareManager implements IShareManager
         $this->dealShareDao->updateDealShare($share);
     }
 
-    public function FillActiveSharesForDeal($deals,$FillLeadData)
+    public function FillActiveSharesForDeal($deals, $FillLeadData)
     {
         //Go to PDODealShareDao and retrive the ActiveShare according to DealID
-        $this->dealShareDao->GetDealsShares($deals,$FillLeadData);
+        $this->dealShareDao->GetDealsShares($deals, $FillLeadData);
 
     }
 }
