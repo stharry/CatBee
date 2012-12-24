@@ -2,13 +2,15 @@
 
 class Share
 {
+
+
     function __construct()
     {
         $this->successfulReferrals = array();
     }
-    public function addLead()
+    public function addReferral()
     {
-        $successfulReferral = new SuccssefullReferal();
+        $successfulReferral = new SuccessfulReferral();
         array_push($this->successfulReferrals, $successfulReferral);
 
         return $successfulReferral;
@@ -33,6 +35,7 @@ class Share
     public $deal;
     public $status;
     public $successfulReferrals;
+
 
     public function isShared()
     {

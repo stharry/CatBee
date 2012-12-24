@@ -87,7 +87,7 @@ class PdoDealShareDao implements IDealShareDao
                             FROM activeShare share" ;
                 $select = $select." WHERE share.dealid = ? ";
             }
-            $select = $select." and share.shareType<>1024 and share.status=2";
+            $select = $select." and share.status=2";
             $selectParam = $deals[$iterator]->id;
             $rows = DbManager::selectValues($select,
                 array($selectParam => PDO::PARAM_STR));
