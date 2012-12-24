@@ -343,7 +343,14 @@ class RestRequest
     {
         if (isset($this->request_vars["context"]))
         {
-            return $this->request_vars["context"];
+            if (is_array($this->request_vars["context"]))
+            {
+                return $this->request_vars["context"];
+            }
+            else
+            {
+                return json_decode($this->request_vars["context"], true);
+            }
         }
         return "<context not defined>";
     }
