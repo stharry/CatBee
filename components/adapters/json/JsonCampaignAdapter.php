@@ -25,10 +25,12 @@ class JsonCampaignAdapter implements IModelAdapter
                 "id"             => $campaign->id,
                 "code"           => $campaign->code,
                 "description"    => $campaign->description,
+                'landingUrl'     => $campaign->landingUrl,
                 "store"          => $this->jsonStoreBranchAdapter->toArray($campaign->store),
                 "landings"       => $this->jsonLeaderLandingAdapter->toArray($campaign->landings),
                 "friendlandings" => $this->jsonFriendLandingAdapter->toArray($campaign->friendLandings),
-                'restrictions'   => $this->jsonRestrictionsAdapter->toArray($campaign->restrictions)
+                'restrictions'   => $this->jsonRestrictionsAdapter->toArray($campaign->restrictions),
+
             );
 
         return $campaignProps;
@@ -57,6 +59,7 @@ class JsonCampaignAdapter implements IModelAdapter
         $campaign->id             = $obj[ "id" ];
         $campaign->code           = $obj[ "code" ];
         $campaign->description    = $obj[ "description" ];
+        $campaign->landingUrl     = $obj[ 'landingUrl' ];
         $campaign->store          = $this->jsonStoreBranchAdapter->fromArray($obj[ "branch" ]);
         $campaign->landings       = $this->jsonLeaderLandingAdapter->fromArray($obj[ "landings" ]);
         $campaign->friendLandings = $this->jsonFriendLandingAdapter->fromArray($obj[ "friendLandings" ]);

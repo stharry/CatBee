@@ -39,12 +39,19 @@ class PdoCampaignDao implements ICampaignDao
                     INNER JOIN storebranch s
                     ON c.store = s.id ";
 
-        if($campaignFilter->store == null)
+        if ($campaignFilter->campId)
         {
             $selectClause = $selectClause." WHERE c.id = ?";
             $selectParam->paramValue = $campaignFilter->campId;
+
         }
-        else
+        else if ($campaignFilter->code)
+        {
+            $selectClause = $selectClause." WHERE c.code = ?";
+            $selectParam->paramValue = $campaignFilter->code;
+
+        }
+        else if ($campaignFilter->store)
         {
             $selectClause = $selectClause." WHERE s.id = ?";
             $selectParam->paramValue = $campaignFilter->store->id;
