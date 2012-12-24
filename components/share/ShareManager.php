@@ -107,6 +107,7 @@ class ShareManager implements IShareManager
 
         //todo: put strategy class here
         if (count($shareTemplates) == 0) die ("There is no any share template for given store");
+        $this->createMessage($share, $shareTemplates[ 0 ]);
 
         $this->validateCustomer($share->sendFrom);
         $this->validateCustomer($share->sendTo);
@@ -117,8 +118,6 @@ class ShareManager implements IShareManager
         {
             RestLogger::log('fillShareProps ERROR: branch not exist');
         }
-
-        $this->createMessage($share, $shareTemplates[ 0 ]);
 
     }
 

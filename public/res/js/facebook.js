@@ -5,17 +5,32 @@ $(document).ready(function () {
     $('.facebook-form').hide();
     $('#ContactsArea').hide();
 
+//    TribZi.fillShare('facebook', facebookCallback)
     $("#facebookShare").click(function () {
+try{
+        TribZi.fillShare('facebook', kukuFbc);
+}
+        catch (e)
+        {
+            alert(e);
+        }
+        //getFacebookShare();
 
-        getFacebookShare();
-
-        waitAndShare();
+        //waitAndShare();
 
         //waitCatBeeResultAndRun(7200, waitAndShare);
     });
 
 
 });
+
+function kukuFbc(params)
+{
+    localStorage.setItem('facebookParams', JSON.stringify(params));
+    //alert(JSON.stringify(params));
+
+    setTimeout(StartFacebookSharing, 500);
+}
 
 function getFacebookShare() {
 
@@ -31,6 +46,8 @@ function StartFacebookSharing()
 
         facebookParams = JSON.parse(s);
 
+        var fcbDisplayMode = 'popup';
+
         FB.init({
             appId: facebookParams.context.application.applicationCode,
 
@@ -38,12 +55,14 @@ function StartFacebookSharing()
 
         FB.ui({
                 method:'feed',
-                display:'popup',
+                show_error: true,
+                display:fcbDisplayMode,
                 name: catBeeData.landing.customMessage,
                 picture: catBeeData.order.items[0].url,
                 redirect_uri: facebookParams.context.application.redirectUrl,
                 caption: ' ',
                 description: facebookParams.message,
+                level: 'debug',
                 link: facebookParams.link
             },
             function(response) {
