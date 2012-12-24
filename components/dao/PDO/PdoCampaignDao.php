@@ -18,7 +18,7 @@ class PdoCampaignDao implements ICampaignDao
     public function isCampaignExists($campaign)
     {
         $rows = DbManager::selectValues("SELECT id FROM campaign WHERE code=?",
-            array($campaign->code => PDO::PARAM_STR));
+            array(new DbParameter($campaign->code,PDO::PARAM_STR)));
 
         if (!isset($rows)) {
             return false;
@@ -32,7 +32,7 @@ class PdoCampaignDao implements ICampaignDao
     {
         RestLogger::log('PdoCampaignDao::getCampaigns begin', $campaignFilter);
 
-        $selectParam = "";
+        $selectParam  = new DbParameter(null,PDO::PARAM_INT);
         //TO DO- This Should be Changed so the Join will be on the What is now the StoreBranch
         $selectClause = "SELECT c.id, c.code, c.description,c.store
               FROM campaign c
@@ -42,16 +42,16 @@ class PdoCampaignDao implements ICampaignDao
         if($campaignFilter->store == null)
         {
             $selectClause = $selectClause." WHERE c.id = ?";
-            $selectParam = $campaignFilter->campId;
+            $selectParam->paramValue = $campaignFilter->campId;
         }
         else
         {
             $selectClause = $selectClause." WHERE s.id = ?";
-            $selectParam = $campaignFilter->store->id;
+            $selectParam->paramValue = $campaignFilter->store->id;
 
         }
         $rows = DbManager::selectValues($selectClause,
-           array($selectParam => PDO::PARAM_INT));
+           array($selectParam));
 
 
         $campaigns = array();

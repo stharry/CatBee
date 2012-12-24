@@ -6,9 +6,8 @@ class PdoShareApplicationDao implements IShareApplicationDao
     {
         $select = "SELECT id, oauthId, oauthKey, oauthSecret, oauthUrl, redirectUrl
                     FROM oauthApps WHERE contextId =?";
-        $params = array($context->id => PDO::PARAM_INT);
 
-        $rows = DbManager::selectValues($select, $params);
+        $rows = DbManager::selectValues($select, array(new DbParameter($context->id,PDO::PARAM_INT)));
 
         if (!isset($rows)) {
             return false;
@@ -47,9 +46,7 @@ class PdoShareApplicationDao implements IShareApplicationDao
     private function isApplicationExists($context)
     {
         $select = "SELECT id FROM oauthApps WHERE contextId =?";
-        $params = array($context->id => PDO::PARAM_INT);
-
-        $rows = DbManager::selectValues($select, $params);
+        $rows = DbManager::selectValues($select, array(new DbParameter($context->id,PDO::PARAM_INT)));
 
         if (!isset($rows)) {
             return false;

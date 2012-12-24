@@ -2,12 +2,12 @@
     "action":"getDeal",
     "context":
     {
-        "startDate":"2012-12-12",
-        "endDate":"2012-12-20",
+        "initDateBiggerThen":"2012-12-12",
+        "initDateEarlierThen":"2013-12-25",
         "Customer":{
-            "email":"vadim@tribzi.com"
+            "email":"danny.t.leader@gmail.com"
         },
-        "LeadFlag":"1",
+        "ReferralsFlag":"1",
         "ActiveShareType":"All",
         "Campaign":{
             "id":"1"

@@ -7,7 +7,7 @@ class PdoRewardDao implements IRewardDao
         $rows = DbManager::selectValues("SELECT code, rewardDesc, rewardTypeDesc,
                   type, value
             FROM reward WHERE id =?",
-            array($reward->id => PDO::PARAM_INT));
+            array(new DbParameter($reward->id,PDO::PARAM_INT)));
 
         if (!isset($rows)) {
             return false;

@@ -75,8 +75,7 @@ class DbManager
         return DbManager::$connection;
     }
 
-   // public static function selectValues($selectExpression, $params = array())
-    public static function selectValues($selectExpression, $params)
+    public static function selectValues($selectExpression, $params = array())
     {
 
         RestLogger::log("DbManager::selectValues SQL: " . $selectExpression, $params);
@@ -87,9 +86,10 @@ class DbManager
             $stmt = $conn->prepare($selectExpression);
 
             $paramNo = 1;
-            foreach ($params as $key => $value)
+
+            foreach($params as $dbParam)
             {
-                $stmt->bindValue($paramNo, $key, $value);
+                $stmt->bindValue($paramNo,$dbParam->paramValue,$dbParam->paramType);
                 $paramNo++;
             }
 

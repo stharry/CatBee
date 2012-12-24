@@ -23,8 +23,7 @@ class PdoFriendLandingDao implements IFriendLandingDao
           F.rewardMessage1, F.rewardMessage2 FROM friendlanding F
                        INNER JOIN campfriendlanding cf on F.Id = cf.FriendLandingID
                        WHERE cf.campaignId=?",
-            array($campaign->id => PDO::PARAM_STR));
-
+            array(new DbParameter($campaign->id,PDO::PARAM_INT)));
         $Friendlandings = array();
         foreach ($rows as $row)
         {

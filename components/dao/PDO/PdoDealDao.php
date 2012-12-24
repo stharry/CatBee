@@ -120,7 +120,6 @@ class PdoDealDao implements IDealDao
     {
         RestLogger::log("PdoDealDao::getDealsByFilter begin");
         $selectParams = array();
-
         $flagForWhere=false;
         try
         {
@@ -130,21 +129,21 @@ class PdoDealDao implements IDealDao
             {
 
                 $selectClause = $selectClause." Inner JOIN customers c on c.Id=d.customerId WHERE c.email = ?";
-                $selectParam = $dealFilter->customer->email;
+                $selectParam = new DbParameter($dealFilter->customer->email,PDO::PARAM_STR);
+                array_push($selectParams,$selectParam);
                 $flagForWhere=true;
             }
-            if($dealFilter->startDate!= null )
+            if($dealFilter->initDateBiggerThen!= null )
             {
                 if($flagForWhere==true)
                 {
                     $selectClause = $selectClause. " and d.initDate >= ?";
                }
-                $selectParam2 = $dealFilter->startDate;
-               // array_push($selectParams,array($selectParam2 => PDO::PARAM_STR));
+                $selectParam2 = new DbParameter( $dealFilter->initDateBiggerThen, PDO::PARAM_STR);
+                array_push($selectParams,$selectParam2);
 
             }
-            $rows = DbManager::selectValues($selectClause,array($selectParam => PDO::PARAM_STR,$selectParam2=> PDO::PARAM_STR));
-
+            $rows = DbManager::selectValues($selectClause,$selectParams);
             $leaderDeals = array();
 
             foreach ($rows as $row)

@@ -361,7 +361,7 @@ class RestRequest
         {
             return $this->request_vars["app"];
         }
-        return "<Credentials not defined>";
+        return "<[Credentials] not defined>";
     }
 
     public function getCatBeeAction()

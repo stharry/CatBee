@@ -6,7 +6,7 @@ class PdoCustomerDao implements ICustomerDao
     public function isCustomerExists($customer)
     {
         $rows = DbManager::selectValues("SELECT id FROM customers WHERE email=?",
-            array($customer->email => PDO::PARAM_STR));
+            array(new DbParameter($customer->email,PDO::PARAM_STR)));
 
         if (!isset($rows)) {
             return false;
@@ -33,7 +33,7 @@ class PdoCustomerDao implements ICustomerDao
     {
         $rows = DbManager::selectValues("SELECT email, firstName, lastName, nickName
             FROM customers WHERE id =?",
-            array($id => PDO::PARAM_INT));
+            array(new DbParameter($id,PDO::PARAM_INT)));
 
         if (!isset($rows)) {
             return false;
@@ -53,7 +53,7 @@ class PdoCustomerDao implements ICustomerDao
     {
         $rows = DbManager::selectValues("SELECT firstName, lastName, nickName, id
             FROM customers WHERE email =?",
-            array($customer->email => PDO::PARAM_INT));
+            array(new DbParameter($customer->email,PDO::PARAM_INT)));
 
         if (!isset($rows)) {
             return false;

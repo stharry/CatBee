@@ -14,13 +14,13 @@ class DealManager //implements IDealManager
         RestLogger::log("Deal manager before created...");
         try
         {
-        $this->campaignManager = $campaignManager;
-        $this->dealDao = $dealDao;
-        $this->storeManager = $storeManager;
-        $this->shareManager = $shareManager;
-        $this->successfulReferralManager = $successfulReferralManager;
+            $this->campaignManager = $campaignManager;
+            $this->dealDao = $dealDao;
+            $this->storeManager = $storeManager;
+            $this->shareManager = $shareManager;
+            $this->successfulReferralManager = $successfulReferralManager;
 
-        RestLogger::log("Deal manager created...");
+            RestLogger::log("Deal manager created...");
         }
         catch (Exception $e)
         {
