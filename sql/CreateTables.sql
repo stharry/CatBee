@@ -35,6 +35,7 @@ id INT AUTO_INCREMENT ,
 store INT NULL ,
 code VARCHAR(45) NOT NULL ,
 description VARCHAR(45) NULL ,
+landingUrl VARCHAR(250) NULL ,
 PRIMARY KEY (id) );
 
 CREATE TABLE IF NOT EXISTS CampaignRestrictions (
@@ -51,8 +52,8 @@ CREATE  TABLE IF NOT EXISTS Adaptor (
 id INT AUTO_INCREMENT ,
 description VARCHAR(200) NULL ,
 authCode VARCHAR(50) NULL ,
-url VARCHAR(500) NULL ,
-logoUrl VARCHAR(500) NULL ,
+url VARCHAR(250) NULL ,
+landingUrl VARCHAR(250) NULL ,
 PRIMARY KEY (id) );
 
 CREATE  TABLE IF NOT EXISTS StoreBranch (
@@ -60,8 +61,8 @@ id INT AUTO_INCREMENT ,
 storeId INT NOT NULL ,
 shopId INT NOT NULL ,
 shopName VARCHAR(50) NOT NULL ,
-url VARCHAR(500) NULL ,
-logoUrl VARCHAR(500) NULL ,
+url VARCHAR(250) NULL ,
+logoUrl VARCHAR(250) NULL ,
 email VARCHAR(50) NOT NULL,
 PRIMARY KEY (id) );
 
@@ -180,8 +181,8 @@ CREATE TABLE IF NOT EXISTS oauthApps (
   oauthId VARCHAR(100) NOT NULL ,
   oauthKey VARCHAR(100) NOT NULL ,
   oauthSecret VARCHAR(100) NOT NULL ,
-  oauthUrl VARCHAR(500) NOT NULL ,
-  redirectUrl VARCHAR(500) NOT NULL ,
+  oauthUrl VARCHAR(250) NOT NULL ,
+  redirectUrl VARCHAR(250) NOT NULL ,
   PRIMARY KEY (id)
 );
 

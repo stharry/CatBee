@@ -237,26 +237,18 @@ class DealManager //implements IDealManager
 
     private function fillShareOrderParams($share)
     {
-        $deal = $this->getDealById($share->deal->id);
-        $campFilter = new CampaignFilter();
-        $campFilter->campId = $deal->campaign->id;
+        if (!$share->deal->campaign->id)
+        {
+            $campaignFilter = new CampaignFilter();
+            $campaignFilter->code = $share->deal->campaign->code;
 
-        //Todo set more elegant campaign choosing
+            $campaigns = $this->campaignManager->getCampaigns($campaignFilter);
+            $share->deal->campaign = $campaigns[0];
 
-        $campaigns = $this->campaignManager->getCampaigns($campFilter);
-        $deal->campaign = $campaigns[0];
+            RestLogger::log('DealManager::FillParams campaign by code', $share->deal->campaign);
+        }
 
-        RestLogger::log('DealManager::fillShareOrderParams campaign', $deal->campaign);
-
-        $orderParams = $this->storeManager->queryStoreAdapter($deal->campaign->store->adaptor, 'orderdetails');
-
-        $orderAdapter = new JsonOrderAdapter();
-        $deal->order = $orderAdapter->fromArray(json_decode($orderParams, true));
-        $deal->order->branch = $deal->campaign->store;
-
-        RestLogger::log('DealManager::fillShareOrderParams order', $deal->order);
-
-        $share->deal = $deal;
+        $this->storeManager->validateBranch($share->deal->order->branch);
     }
 
     private function shareToFriends($share)

@@ -42,20 +42,22 @@ function CreateAndInitializeEmailForm() {
 
             $.fancybox.showLoading();
 
+            setTimeout(stopProgress, 1000);
+
             TribZi.setRecipients($("#mail-input").val())
                 .setCustomMessage($("#message").val())
                 .setRewardIndex($("#slider").slider("value"))
-                .shareToEmail(stopProgress);
+                .shareToEmail(null);
 
         }
     });
 }
 
-function stopProgress(params)
+function stopProgress()
 {
     $.fancybox.hideLoading();
     $.fancybox("Message sent");
-    setTimeout("$.fancybox.close()", 1000);
+    setTimeout("$.fancybox.close()", 500);
 }
 
 function validateEmail(email) {

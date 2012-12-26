@@ -33,8 +33,8 @@ TribZiEmbd = {
 
         //http://127.0.0.1:8080
         var tribziIfamerUrl =
-            'http://tribzi.azurewebsites.net/CatBee/api/deal/?action=deal&context=' +
-//             'http://127.0.0.1:8080/CatBee/api/deal/?action=deal&context=' +
+//            'http://tribzi.azurewebsites.net/CatBee/api/deal/?action=deal&context=' +
+             'http://127.0.0.1:8080/CatBee/api/deal/?action=deal&context=' +
                 encodeURIComponent(JSON.stringify(jsonOrderData));
 
         var divElement = document.createElement('div');

@@ -6,7 +6,7 @@
             "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703",
             "description":"Fan for Toys. Socialize your experience with CatBee",
             "url":"{Rest_url}/CatBee/adapters/demo/api/",
-            "logoUrl":"{Rest_url}/CatBee/adapters/demo/res/Logo.jpg"
+            "landingUrl":"{Rest_url}/CatBee/adapters/demo/res/Logo.jpg"
         },
         "branches":[
             {

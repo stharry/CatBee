@@ -15,18 +15,22 @@ class JsonCampaignAdapter implements IModelAdapter
         $this->jsonLeaderLandingAdapter = new JsonLeaderLandingAdapter();
         $this->jsonFriendLandingAdapter = new jsonFriendLandingAdapter();
         $this->jsonRestrictionsAdapter  = new JsonRestrictionsAdapter();
-        $this->jsonStoreBranchAdapter =   new JsonStoreBranchAdapter();
+        $this->jsonStoreBranchAdapter   = new JsonStoreBranchAdapter();
     }
 
     private function singleCampaignToArray($campaign)
     {
         $campaignProps =
-            array("code"           => $campaign->code,
-                  "description"    => $campaign->description,
-                  "store"          => $this->jsonStoreBranchAdapter->toArray($campaign->store),
-                  "landings"       => $this->jsonLeaderLandingAdapter->toArray($campaign->landings),
-                  "friendlandings" => $this->jsonFriendLandingAdapter->toArray($campaign->friendLandings),
-                  'restrictions'   => $this->jsonRestrictionsAdapter->toArray($campaign->restrictions)
+            array(
+                "id"             => $campaign->id,
+                "code"           => $campaign->code,
+                "description"    => $campaign->description,
+                'landingUrl'     => $campaign->landingUrl,
+                "store"          => $this->jsonStoreBranchAdapter->toArray($campaign->store),
+                "landings"       => $this->jsonLeaderLandingAdapter->toArray($campaign->landings),
+                "friendlandings" => $this->jsonFriendLandingAdapter->toArray($campaign->friendLandings),
+                'restrictions'   => $this->jsonRestrictionsAdapter->toArray($campaign->restrictions),
+
             );
 
         return $campaignProps;
@@ -52,9 +56,11 @@ class JsonCampaignAdapter implements IModelAdapter
     public function fromArray($obj)
     {
         $campaign                 = new Campaign();
+        $campaign->id             = $obj[ "id" ];
         $campaign->code           = $obj[ "code" ];
         $campaign->description    = $obj[ "description" ];
-        $campaign->store  =        $this->jsonStoreBranchAdapter->fromArray($obj[ "branch" ]);
+        $campaign->landingUrl     = $obj[ 'landingUrl' ];
+        $campaign->store          = $this->jsonStoreBranchAdapter->fromArray($obj[ "branch" ]);
         $campaign->landings       = $this->jsonLeaderLandingAdapter->fromArray($obj[ "landings" ]);
         $campaign->friendLandings = $this->jsonFriendLandingAdapter->fromArray($obj[ "friendLandings" ]);
         $campaign->restrictions   = $this->jsonRestrictionsAdapter->fromArray($obj[ 'restrictions' ]);

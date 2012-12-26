@@ -48,9 +48,9 @@ function StartFacebookSharing()
             },
             function(response) {
                 if (response && response.post_id) {
-                 //   alert('Post was published.' + response.post_id);
+                    //   alert('Post was published.' + response.post_id);
                 } else {
-                  //  alert('Post was not published.');
+                    //  alert('Post was not published.');
                 }
             }
         );

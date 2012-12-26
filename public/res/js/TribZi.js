@@ -76,20 +76,18 @@ TribZi ={
         return this.share('email', callback);
     },
 
-    share:function(shareTo, callback){
+    doShareAction: function(action, context, callback){
 
         var sendData = {
-            action:'share deal',
+            action:action,
             context:{
 
                 sendFrom:this.sessionData.order.customer.email,
                 sendTo:this.recipients,
                 customMessage:this.sessionData.landing.customMessage,
-                deal:{
-                    id:this.sessionData.id
-                },
+                deal:this.sessionData,
                 context:{
-                    type:shareTo
+                    type:context
                 },
                 reward:{
                     id:this.sessionData.landing.landingRewards[this.selectedRewardIndex].id
@@ -104,67 +102,14 @@ TribZi ={
 
     },
 
-    shareToFbc:function(message, rewardInd){
+    share:function(context, callback){
 
-        var data = {
-            action:'fill share',
-            context:{
+        return this.doShareAction('share deal', context, callback);
+    },
 
-                "context":{
-                    "type":"facebook"
-                },
-                "deal":{
-                    "id":this.sessionData.id
-                },
-                "reward":{
-                    "id":this.sessionData.landing.landingRewards[rewardInd].id
-                }
-            }
-        }
+    fillShare:function(context, callback){
 
-        var callback = function(params)
-        {
-
-            try
-            {
-//            alert(params.context.application.redirectUrl);
-//                alert(TribZi.sessionData.order.items[0].url);
-//                alert(params.link);
-
-            FB.init({
-                appId: params.context.application.applicationCode,
-
-                status:true, cookie:true});
-
-            FB.ui({
-                    method:'feed',
-                    display:'popup',
-                    name: TribZi.sessionData.landing.customMessage,
-                    picture: TribZi.sessionData.order.items[0].url,
-                    redirect_uri: params.context.application.redirectUrl,
-                    caption: ' ',
-                    description: params.message,
-                    link: params.link
-                },
-                function(response) {
-                    if (response && response.post_id) {
-                        alert('Post was published.' + response.post_id);
-                    } else {
-                        alert('Post was not published.');
-                    }
-                }
-            );
-            }
-            catch (e)
-            {
-                alert('err' + e);
-            }
-
-        }
-
-        this.requestData(data, false, callback);
-
-        return this
+        return this.doShareAction('fill share', context, callback);
     }
 }
 window.TribZi = TribZi;

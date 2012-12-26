@@ -17,7 +17,7 @@ class StoreManager implements IStoreManager
     public function registerAdaptor($store)
     {
         $store->url = CatBeeExpressions::validateString($store->url);
-        $store->logoUrl = CatBeeExpressions::validateString($store->logoUrl);
+        $store->landingUrl = CatBeeExpressions::validateString($store->landingUrl);
         if (!$this->adaptorDao->isAdaptorExists($store))
         {
             $this->adaptorDao->insertAdaptor($store);

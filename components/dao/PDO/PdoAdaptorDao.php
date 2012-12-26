@@ -4,11 +4,11 @@ class PdoAdaptorDao implements IAdaptorDao
 {
     private function fillAdaptor($adaptor, $row)
     {
-        $adaptor->id = $row["id"];
-        $adaptor->authCode = $row["authCode"];
-        $adaptor->description = $row["description"];
-        $adaptor->url = $row["url"];
-        $adaptor->logoUrl = $row["logoUrl"];
+        $adaptor->id          = $row[ "id" ];
+        $adaptor->authCode    = $row[ "authCode" ];
+        $adaptor->description = $row[ "description" ];
+        $adaptor->url         = $row[ "url" ];
+        $adaptor->landingUrl  = $row[ "landingUrl" ];
 
     }
 
@@ -17,36 +17,38 @@ class PdoAdaptorDao implements IAdaptorDao
         if ($adaptor->id > 0) return true;
         $rows = DbManager::selectValues("SELECT id FROM Adaptor  WHERE authCode=?",
             array(new DbParameter($adaptor->authCode, PDO::PARAM_STR)));
-        if (!isset($rows)) {
+        if (!isset($rows))
+        {
             return false;
         }
-        $adaptor->id = $rows[0]["id"];
+        $adaptor->id = $rows[ 0 ][ "id" ];
 
         return true;
     }
 
     public function insertAdaptor($adaptor)
     {
-        $names = array("authCode", "description", "url", "logoUrl");
+        $names  = array("authCode", "description", "url", "landingUrl");
         $values = array(
             $adaptor->authCode,
             $adaptor->description,
             $adaptor->url,
-            $adaptor->logoUrl);
+            $adaptor->landingUrl);
 
         $adaptor->id = DbManager::insertAndReturnId("adaptor", $names, $values);
     }
 
     public function loadAdaptor($adaptor)
     {
-        $rows = DbManager::selectValues("SELECT id, authCode, description, url, logoUrl FROM adaptor  WHERE authCode=?",
+        $rows = DbManager::selectValues("SELECT id, authCode, description, url, landingUrl FROM adaptor  WHERE authCode=?",
             array(new DbParameter($adaptor->authCode, PDO::PARAM_STR)));
 
-        if (!isset($rows)) {
+        if (!isset($rows))
+        {
             return false;
         }
 
-        $this->fillAdaptor($adaptor, $rows[0]);
+        $this->fillAdaptor($adaptor, $rows[ 0 ]);
 
         return true;
     }
@@ -54,15 +56,16 @@ class PdoAdaptorDao implements IAdaptorDao
     public function loadAdaptorById($adaptor)
     {
         $rows = DbManager::selectValues(
-            "SELECT id, authCode, description, url, logoUrl FROM adaptor
+            "SELECT id, authCode, description, url, landingUrl FROM adaptor
              WHERE id=?",
             array(new DbParameter($adaptor->id, PDO::PARAM_INT)));
 
-        if (!isset($rows)) {
+        if (!isset($rows))
+        {
             return false;
         }
 
-        $this->fillAdaptor($adaptor, $rows[0]);
+        $this->fillAdaptor($adaptor, $rows[ 0 ]);
 
         return true;
     }

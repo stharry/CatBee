@@ -5,8 +5,8 @@ $(document).ready(function() {
     $("#slider").slider({
         animate: true,
         min : 0,
-        max : catBeeData.landing.landingRewards.length - 1,
-        value : Math.round((catBeeData.landing.landingRewards.length - 1)/2),
+        max : TribZi.deal.landing.landingRewards.length - 1,
+        value : Math.round((TribZi.deal.landing.landingRewards.length - 1)/2),
         change : function(event, ui) {
             var val = ui.value;
             updateRewards(ui.value);
@@ -43,21 +43,21 @@ $(document).ready(function() {
 
     $('.bee_icon').dblclick(function(){
 
-        $("#slider").slider('value', catBeeData.landing.landingRewards.length - 1);
+        $("#slider").slider('value', TribZi.deal.landing.landingRewards.length - 1);
     });
 
     $('.bee_icon').click(function(){
 
         var sliderValue = $("#slider").slider('value');
 
-        if (sliderValue < catBeeData.landing.landingRewards.length - 1)
+        if (sliderValue < TribZi.deal.landing.landingRewards.length - 1)
         {
             $("#slider").slider('value', sliderValue + 1);
         }
     });
 
     updateBoxPosition();
-    updateRewards(Math.round((catBeeData.landing.landingRewards.length - 1)/2));
+    updateRewards(Math.round((TribZi.deal.landing.landingRewards.length - 1)/2));
     //Share hover
     $('.share-box a').hover(
         function(){
@@ -97,7 +97,7 @@ $(document).ready(function() {
         if( $('.email-form').css('display') == 'none' ){
             //I know this is not the Way yo Call a relative URL..
             $('.box-wrapper').css({height:'740px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'});
-            $("#message").val(catBeeData.landing.customMessage);
+            $("#message").val(TribZi.deal.landing.customMessage);
         }else{
             //I know this is not the Way yo Call a relative URL..
             $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
@@ -157,12 +157,12 @@ function openWindow(){
 
 function updateRewards(sliderVal) {
 
-    $('#LeaderRewardPhrase').text(catBeeData.landing.landingRewards[sliderVal].leaderReward.description);
-    $('#LeaderReward').val(catBeeData.landing.landingRewards[sliderVal].leaderReward.value);
-    $('#leaderArea').val(catBeeData.landing.landingRewards[sliderVal].leaderReward.typeDescription);
+    $('#LeaderRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.description);
+    $('#LeaderReward').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
+    $('#leaderArea').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
 
-    $('#FriendRewardPhrase').text(catBeeData.landing.landingRewards[sliderVal].friendReward.description);
-    $('#FriendReward').val(catBeeData.landing.landingRewards[sliderVal].friendReward.value);
-    $('#FriendArea').val(catBeeData.landing.landingRewards[sliderVal].friendReward.typeDescription);
+    $('#FriendRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].friendReward.description);
+    $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
+    $('#FriendArea').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
 
 }

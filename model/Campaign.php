@@ -6,6 +6,7 @@ class Campaign
     public $code;
     public $store;
     public $description;
+    public $landingUrl;
     public $landings;
     public $startDate;
     public $endDate;
