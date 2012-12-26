@@ -103,13 +103,13 @@ class DbManager
                 return null;
             }
 
-            RestLogger::log("DbManager::selectValues row count: " . $stmt->rowCount());
+            RestLogger::log("DbManager::select Values row count: " . $stmt->rowCount());
 
             $values = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             $stmt = null;
 
-            RestLogger::log("DbManager::selectValuesvalues are: ", $values);
+            RestLogger::log("DbManager::select Values are: ", $values);
 
             return $values;
         }

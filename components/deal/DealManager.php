@@ -78,7 +78,9 @@ class DealManager //implements IDealManager
         try
         {
             RestLogger::log("DealManager:createPendingDeal begin", $this->dealDao);
-
+            //ToDo - Tomer:I think this is not necessary... what are the chances the deal on that specific order exists already?
+            //Instead of this we can catch and Exception when trying to insert the same Deal Twice and handle it
+            //This is a small issues but can affect performance a little
             $leaderDeal = $this->dealDao->getDealByOrder($order);
 
             if (!$leaderDeal)
@@ -88,7 +90,8 @@ class DealManager //implements IDealManager
                 $leaderDeal = new LeaderDeal();
 
                 $leaderDeal->customer = $order->customer;
-                $leaderDeal->date = time();
+                if($order->date!=null)$leaderDeal->InitDate = $order->date;
+                else $leaderDeal->InitDate = date("Y-m-d h:i:s");
                 $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
 
                 $this->refreshDealProps($leaderDeal, $landing, $order);
@@ -114,7 +117,7 @@ class DealManager //implements IDealManager
     public function pushDeal($order)
     {
         $this->storeManager->validateBranch($order->branch);
-        //Register Leading Deal If Exist
+        //Register SucessfulReferral Deal If Exist
         RestLogger::log("DealManager::pushDeal after storeBranch validation ", $order->branch);
 
         $this->successfulReferralManager->saveSucessfulReferral($order);

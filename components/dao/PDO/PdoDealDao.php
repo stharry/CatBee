@@ -69,7 +69,7 @@ class PdoDealDao implements IDealDao
             $deal->order->id,
             $deal->status,
             $deal->customer->id,
-            date("Y-m-d h:i:s"),
+            $deal->InitDate,
             date("Y-m-d h:i:s"));
 
         $deal->id = DbManager::insertAndReturnId("deal", $names, $values);

@@ -24,8 +24,7 @@ class JsonOrderAdapter implements IModelAdapter
             'items' => $this->itemsAdapter->toArray($obj->items),
             'branch' => $this->branchAdapter->toArray($obj->branch),
             'successfulReferral' => $obj->successfulReferral,
-
-        );
+            'date' => $obj->date);
     }
 
     public function fromArray($obj)
@@ -43,6 +42,7 @@ class JsonOrderAdapter implements IModelAdapter
         $order->items = $this->itemsAdapter->fromArray($obj["items"]);
         $order->branch = $this->branchAdapter->fromArray($obj["branch"]);
         $order->successfulReferral = $obj["successfulReferral"];
+        $order->date = $obj["date"];
         return $order;
     }
 }

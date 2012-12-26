@@ -17,4 +17,5 @@ class LeaderDeal
     public $customer;
     public $sharePoint;  //currently used as a JavaScript client callback url to the TribZi server
     public $shares;
+    public $InitDate;
 }

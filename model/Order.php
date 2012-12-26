@@ -21,5 +21,6 @@ class Order
     public $customer;
     public $branch;
     public $successfulReferral;
+    public $date;
     public $activeShareId;
 }

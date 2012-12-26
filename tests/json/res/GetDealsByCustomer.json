@@ -1,7 +1,0 @@
-{
-    "action":"getDeal",
-    "context":
-    {
-           "email":"vadim@tribzi.com"
-    }
-}
