@@ -114,7 +114,7 @@ campaignId INT NOT NULL ,
 
 branchId INT NOT NULL,
 
-orderId INT NOT NULL ,
+orderId VARCHAR(50) NOT NULL ,
 
 status INT NOT NULL ,
 

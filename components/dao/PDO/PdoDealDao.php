@@ -95,7 +95,7 @@ class PdoDealDao implements IDealDao
         {
             $selectClause = " SELECT id, landing, status,
              customerId, initDate, updateDate
-            FROM deal WHERE orderId = {$order->id} AND branchId = {$order->branch->id}";
+            FROM deal WHERE orderId = '{$order->id}' AND branchId = {$order->branch->id}";
 
             $rows = DbManager::selectValues($selectClause,null);
 
@@ -170,7 +170,7 @@ class PdoDealDao implements IDealDao
         {
             $selectClause = " SELECT id, landing, status, orderId,
             campaignId, customerId, initDate, updateDate
-            FROM deal WHERE orderId = {$id} AND parentId IS NULL";
+            FROM deal WHERE orderId = '{$id}' AND parentId IS NULL";
 
             $rows = DbManager::selectValues($selectClause, array());
 
