@@ -15,7 +15,13 @@ class Share
 
         return $successfulReferral;
     }
+    public function addImpression()
+    {
+        $impression = new Impression();
+        array_push($this->impressions, $impression);
 
+        return $impression;
+    }
     public static $SHARE_STATUS_PENDING = 1;
     public static $SHARE_STATUS_SHARED = 2;
     public static $SHARE_STATUS_CANCELLED = 3;
@@ -34,6 +40,7 @@ class Share
     public $link;
     public $deal;
     public $status;
+    public $impressions;
     public $successfulReferrals;
 
 

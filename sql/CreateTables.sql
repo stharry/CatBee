@@ -191,3 +191,12 @@ CREATE TABLE If NOT EXISTS successfulReferral  (
   orderID int(11) NOT NULL,
   PRIMARY KEY (ActiveShareID,orderID)
 );
+
+CREATE TABLE  If NOT EXISTS impression (
+  ActiveShareID int(11) DEFAULT NULL,
+  IP varchar(45) DEFAULT NULL,
+  TimeStamp varchar(45) DEFAULT NULL,
+  Browser varchar(45) DEFAULT NULL,
+  Customer varchar(45) DEFAULT NULL
+);
+

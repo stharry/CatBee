@@ -16,4 +16,6 @@ TRUNCATE TABLE customerAuth;
 TRUNCATE TABLE friendlanding;
 TRUNCATE TABLE campfriendlanding;
 TRUNCATE TABLE oauthApps;
-TRUNCATE TABLE leads;
+TRUNCATE TABLE successfulReferral;
+TRUNCATE TABLE impression;
+

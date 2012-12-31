@@ -9,6 +9,7 @@ class FriendLandingManager implements IFriendLandingManager
     private $campaignDao;
     private $dealShareDao;
     private $storeManager;
+    private $impressionManager;
 
     private function fillLandingReward($friendDeal)
     {
@@ -26,7 +27,7 @@ class FriendLandingManager implements IFriendLandingManager
 
     function __construct($dealDao, $friendLandingDao,
                          $customerDao, $rewardDao,
-                         $campDao, $dealShareDao, $storeManager)
+                         $campDao, $dealShareDao, $storeManager,$impressionManager)
     {
         $this->friendLandingDao = $friendLandingDao;
         $this->dealDao = $dealDao;
@@ -35,6 +36,7 @@ class FriendLandingManager implements IFriendLandingManager
         $this->campaignDao = $campDao;
         $this->dealShareDao = $dealShareDao;
         $this->storeManager = $storeManager;
+        $this->impressionManager = $impressionManager;
     }
 
     public function SaveFriendLandingManager($campaign)
@@ -58,25 +60,26 @@ class FriendLandingManager implements IFriendLandingManager
     public function startSharedDeal($friendDeal)
     {
         RestLogger::log("FriendLandingManager::startSharedDeal before", $friendDeal);
+        //TODO - combine to 3 below call to one DB call
 
         $this->getShareById($friendDeal);
         $parentDeal = $this->dealDao->getDealById($friendDeal->share->deal->id);
         RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
         $this->fillLandingReward($friendDeal);
+
         RestLogger::log("FriendLandingManager::startSharedDeal reward ", $friendDeal->share->reward);
         $friendDeal->friend = $this->customerDao->loadCustomerById($parentDeal->customer);
-        //Get The Store From The Campaign
 
         $CampaignFilter = new CampaignFilter();
-   //     $CampaignFilter->LoadLeaderLanding = true;
-   //    $CampaignFilter->LoadFriendLanding = true;
-
         $CampaignFilter->campId = $parentDeal->campaign->id;
         $Camp = $this->campaignDao->getCampaigns($CampaignFilter);
+
         $this->friendLandingDao->GetFriendLanding($parentDeal->campaign);
-        //todo move to strategy
         $friendDeal->landing = $parentDeal->campaign->friendLandings[0];
         RestLogger::log("FriendLandingManager::startSharedDeal landing ", $friendDeal->landing);
+        //Save the Impression
+        $this->impressionManager->saveImpression($friendDeal->share);
+
         $this->showFriendLanding($friendDeal,$Camp[0]->store);
     }
 }
