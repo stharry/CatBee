@@ -26,17 +26,16 @@ class ShareManager implements IShareManager
 
     }
 
-    private function createShareLink($share)
+    private function createShareLink($deal, $context)
     {
         //todo check branch url
         //todo ask store adapter to parameters set
 
-        $url  = $share->deal->campaign->landingUrl
-            ? $share->deal->campaign->landingUrl
-            : $share->deal->order->branch->adaptor->landingUrl;
+        $url = $deal->campaign->landingUrl
+            ? $deal->campaign->landingUrl
+            : $deal->order->branch->adaptor->landingUrl;
 
-        $link = $url . '?ctx=' . $share->context->type
-            . '&act=welcome&sid=' . $share->id;
+        $link = $url . '?plugin=TribZi&sid=' . $context->uid;
 
         return $link;
 
@@ -69,16 +68,22 @@ class ShareManager implements IShareManager
 
     private function createMessage($share, $shareTemplate)
     {
-        $share->link = $this->createShareLink($share);
 
-        $template = $this->createTemplate($shareTemplate);
-
-        $templateDecorator = $this->getCompatibleTemplateDecorator($share->context);
-
-        $templateBuilder = new TemplateBuilder();
-
-        $share->message = $templateBuilder->buildTemplate($share, $template, $templateDecorator);
         $share->subject = $shareTemplate->message;
+
+        if (isset($shareTemplate->templatePage->context) &&
+            !empty($shareTemplate->templatePage->context)
+        )
+        {
+            $template = $this->createTemplate($shareTemplate);
+
+            $templateDecorator = $this->getCompatibleTemplateDecorator($share->context);
+
+            $templateBuilder = new TemplateBuilder();
+
+            $share->message = $templateBuilder->buildTemplate($share, $template, $templateDecorator);
+        }
+
     }
 
     private function getCompatibleShareProvider($shareContext)
@@ -102,20 +107,22 @@ class ShareManager implements IShareManager
         RestLogger::log("ShareManager::fillShareProps ", $share);
         $shareFilter = new ShareFilter();
 
-        RestLogger::log("ShareManager::fillShareProps campaign ", $share->deal->campaign);
-
         $shareFilter->campaign = $share->deal->campaign;
         $shareFilter->context  = $share->context;
-        $shareFilter->targetId = $share->target->id;
+        $shareFilter->targetId = $share->currentTarget->id;
 
         $shareTemplates = $this->getShareTemplates($shareFilter);
 
         //todo: put strategy class here
-        if (count($shareTemplates) == 0) die ("There is no any share template for given store");
-        $this->createMessage($share, $shareTemplates[ 0 ]);
+        if (count($shareTemplates) == 0) {
+            die ("There is no any share template for given store");
+        }
+        $this->createMessage($share, $shareTemplates[0]);
 
-        $this->validateCustomer($share->sendFrom);
-        $this->validateCustomer($share->sendTo);
+        $share->context->link = $this->createShareLink($share->deal, $share->context);
+
+        $this->validateCustomer($share->currentTarget->from);
+        $this->validateCustomer($share->currentTarget->to);
 
         $this->landingRewardDao->fillLandingRewardById($share->reward);
 
@@ -152,27 +159,34 @@ class ShareManager implements IShareManager
     {
         try
         {
+            RestLogger::log('ShareManager::share begin for targets', $share->targets);
+
             $shareProvider = $this->getCompatibleShareProvider($share->context);
 
-            $shareToFriends = $share->sendTo;
-
-            foreach ($shareToFriends as $friend)
+            foreach ($share->targets as $target)
             {
-                RestLogger::log('ShareManager::sendTo ', $friend);
-                RestLogger::log('ShareManager::sendFrom ', $share->sendFrom);
+                $shareToFriends = $target->to;
 
-                $share->sendTo = $friend;
+                foreach ($shareToFriends as $friend)
+                {
+                    $share->currentTarget = new ShareTarget($target->name);
+                    $share->currentTarget->from = $target->from;
+                    $share->currentTarget->to = $friend;
 
-                $this->fillShareProps($share);
+                    RestLogger::log('ShareManager::sendTo ', $friend);
+                    RestLogger::log('ShareManager::sendFrom ', $target->from);
 
-                $shareProvider->share($share);
+                    $this->fillShareProps($share);
 
-                RestLogger::log('ShareManager::sendTo Ok');
+                    $shareProvider->share($share);
+
+                    RestLogger::log('ShareManager::sendTo Ok');
+                }
             }
-            $share->sendTo = $shareToFriends;
 
             return true;
-        } catch (Exception $e)
+        }
+        catch (Exception $e)
         {
             RestLogger::log('ERROR: ', $e->getMessage());
 
@@ -273,55 +287,53 @@ class ShareManager implements IShareManager
         $this->shareAppDao->setApplication($context);
     }
 
-    private function getCompatibleShareApplication($share)
+    private function setCompatibleShareApplication($context)
     {
-        $share->context->application =
-            $this->shareAppDao->getApplication($share->context);
+        $context->application =
+            $this->shareAppDao->getApplication($context);
 
-        if ($share->context->application)
-        {
-            $url      = $share->context->application->redirectUrl;
-            $parDelim = strpos($url, '?') === true ? '&' : '?';
-            $url      = $url . $parDelim . 'sid=' . $share->id;
-
-            $share->context->application->redirectUrl = $url;
-        }
     }
 
-    public function getAvailableShares($deal)
+    public function fillShareContext($deal, $context)
     {
-        $shares = array();
+        $this->setCompatibleShareApplication($context);
 
-        foreach ($this->predefinedContexts as $type => $id)
-        {
-            $share           = new Share();
-            $share->campaign = $deal->campaign;
-            $share->deal     = $deal;
+        $shareFilter = new ShareFilter();
 
-            $context              = new ShareContext();
-            $context->id          = $id;
-            $context->type        = $type;
-            $context->application = $this->shareAppDao->getApplication($context);
+        $shareFilter->campaign = $deal->campaign;
+        $shareFilter->context  = $context;
 
-            $share->context = $context;
+        $target                = new ShareTarget('friend');
+        $shareFilter->targetId = $target->id;
 
-            $this->fillShareProps($share);
+        $shareTemplates = $this->getShareTemplates($shareFilter);
 
-            $share->message = htmlentities($share->message);
-
-            array_push($shares, $share);
-
-            $share->campaign = null;
-            $share->store    = null;
-            $share->deal     = null;
-
+        //todo: put strategy class here
+        if (count($shareTemplates) == 0) {
+            die ("There is no any share template for given store");
         }
 
-        return $shares;
+        $shareTemplate          = $shareTemplates[0];
+        $context->message       = $shareTemplate->message;
+        $context->customMessage = $shareTemplate->customMessage;
+        $context->link          = $this->createShareLink($deal, $context);
     }
 
     public function addDealShare($share)
     {
+        $recipients = array();
+
+        foreach ($share->targets as $target)
+        {
+            foreach ($target->to as $to)
+            {
+                array_push($recipients, $to);
+            }
+        }
+
+        $share->currentTarget = new ShareTarget();
+        $share->currentTarget->to = $recipients;
+
         $this->dealShareDao->addDealShare($share);
     }
 

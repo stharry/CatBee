@@ -8,7 +8,7 @@ $shareId = $_GET['sid'];
 
     $friendDeal = array('action'=>'friend Deal',
     'context' => array(
-    'share' => array('id' => $shareId)));
+    'share' => array('context' => array('uid' => $shareId))));
 
 RestLogger::log("goWelcome params ", $friendDeal);
 

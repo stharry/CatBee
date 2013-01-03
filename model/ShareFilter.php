@@ -6,4 +6,5 @@ class ShareFilter
     public $context;
     //What is TargetID?? - friend, leader or leader on friend buy
     public $targetId;
+    public $getMessagesOnly;
 }

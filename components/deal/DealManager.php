@@ -1,5 +1,5 @@
 <?php
-class DealManager //implements IDealManager
+class DealManager implements IDealManager
 {
     private $campaignManager;
     private $storeManager;
@@ -28,25 +28,16 @@ class DealManager //implements IDealManager
         }
     }
 
-    private function shareToLeader($share)
+    private function createShareContexts($deal)
     {
-        RestLogger::log('DealManager::shareToLeader begin');
-        $from = $share->sendFrom;
-        $to = $share->sendTo;
+        $shareContext = new ShareContext('facebook');
+        $shareContext->uid = uniqid("", true);
 
-        $share->sendTo = array($share->sendFrom);
-        $share->sendFrom = new Customer($share->deal->order->branch->email);
+        $this->shareManager->fillShareContext($deal, $shareContext);
 
-        RestLogger::log('branch is', $share->deal->order->branch);
-
-        $result = $this->shareManager->share($share);
-
-        $share->sendTo = $to;
-        $share->sendFrom = $from;
-
-        RestLogger::log('DealManager::shareToLeader end', $result);
-        return $result;
+        $deal->fbcContext = $shareContext;
     }
+
     private function getCatBeeSharePoint()
     {
         return $GLOBALS[ "restURL" ] . "/CatBee/api/deal/";
@@ -61,7 +52,7 @@ class DealManager //implements IDealManager
         catbeeLayoutComp($layout, "share", $leaderDeal);
         catbeeLayoutComp($layout, "mailForm", $leaderDeal);
         catbeeLayoutComp($layout, "facebookForm", $leaderDeal);
-        catbeeLayoutComp($layout, "sliderOptions", $leaderDeal);
+        //catbeeLayoutComp($layout, "sliderOptions", $leaderDeal);
         catbeeLayout($layout, 'landing');
 
     }
@@ -131,6 +122,8 @@ class DealManager //implements IDealManager
 
         $leaderDeal = $this->createPendingDeal($leaderLanding, $order, $campaign);
 
+        $this->createShareContexts($leaderDeal);
+
         RestLogger::log("DealManager::pushDeal after deal creation ", $leaderDeal);
 
         $this->showLeaderDeal($leaderDeal);
@@ -155,7 +148,7 @@ class DealManager //implements IDealManager
         {
             //Fill the ActiveShares Of the Deals - currenlty assuming i have only one deal per customer
             //Call the shareManager - send him the Deal object, the Second parameter is a flag for getting the leads for each Active share
-            $this->shareManager->FillActiveSharesForDeal($leaderDeals,true);
+            $this->shareManager->FillActiveSharesForDeal($leaderDeals, true);
         }
         return $leaderDeals;
     }
@@ -180,26 +173,19 @@ class DealManager //implements IDealManager
 
     public function shareDeal($share)
     {
-
         $share->status = Share::$SHARE_STATUS_PENDING;
 
-        $this->fillShareOrderParams($share);
-        $this->addDealShare($share);
+        $this->fillShareParams($share);
 
-        $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_FRIEND);
-        if ($this->shareToFriends($share))
+        if ($this->shareManager->share($share))
         {
             $share->status = Share::$SHARE_STATUS_SHARED;
-            $this->updateDealShare($share);
-
-            $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_LEADER_ON_SHARE);
-            $this->shareToLeader($share);
+            $this->addDealShare($share);
 
             return true;
         }
         else
         {
-            $share->status = Share::$SHARE_STATUS_PENDING;
             return false;
         }
     }
@@ -208,7 +194,7 @@ class DealManager //implements IDealManager
     {
         try
         {
-            $this->fillShareOrderParams($share);
+            $this->fillShareParams($share);
 
             $share->target = new ShareTarget(ShareTarget::$SHARE_TARGET_FRIEND);
             $share->status = Share::$SHARE_STATUS_PENDING;
@@ -235,7 +221,7 @@ class DealManager //implements IDealManager
         RestLogger::log('DealManager::updateDealShare end');
     }
 
-    private function fillShareOrderParams($share)
+    private function fillShareParams($share)
     {
         if (!$share->deal->campaign->id)
         {
@@ -248,6 +234,10 @@ class DealManager //implements IDealManager
             RestLogger::log('DealManager::FillParams campaign by code', $share->deal->campaign);
         }
 
+        if (!$share->context->uid)
+        {
+            $share->context->uid = uniqid("", true);
+        }
         $this->storeManager->validateBranch($share->deal->order->branch);
     }
 

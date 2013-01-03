@@ -4,21 +4,19 @@ class PdoCampaignRestrictionsDao implements ICampaignRestrictionsDao
 {
     private function createRestrictions($rows)
     {
-        if (!isset($rows) || (count($rows) == 0))
-        {
+        if (!isset($rows) || (count($rows) == 0)) {
             return null;
         }
 
         $restrictions = array();
 
-        foreach ($rows as $row)
-        {
-            $restriction = new CampaignRestriction();
-            $restriction->id = $row['id'];
-            $restriction->name = $row['name'];
+        foreach ($rows as $row) {
+            $restriction              = new CampaignRestriction();
+            $restriction->id          = $row['id'];
+            $restriction->name        = $row['name'];
             $restriction->description = $row['description'];
-            $restriction->code = $row['code'];
-            $restriction->expression = json_decode($row['expression'], true);
+            $restriction->code        = $row['code'];
+            $restriction->expression  = json_decode($row['expression'], true);
 
             array_push($restrictions, $restriction);
         }
@@ -34,11 +32,11 @@ class PdoCampaignRestrictionsDao implements ICampaignRestrictionsDao
         foreach ($campaign->restrictions as $restriction)
         {
             $values = array($restriction->name, $campaign->id,
-                            $restriction->description, $restriction->code,
-                            json_encode($restriction->expression));
+                $restriction->description, $restriction->code,
+                json_encode($restriction->expression));
 
             $restriction->id = DbManager::insertAndReturnId(
-                                    'CampaignRestrictions', $names, $values);
+                'CampaignRestrictions', $names, $values);
         }
     }
 

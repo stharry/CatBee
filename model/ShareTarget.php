@@ -31,4 +31,6 @@ class ShareTarget
 
     public $name;
     public $id;
+    public $from;
+    public $to;
 }

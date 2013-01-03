@@ -128,6 +128,7 @@ PRIMARY KEY (id) );
 
 CREATE  TABLE IF NOT EXISTS ActiveShare (
   id INT AUTO_INCREMENT,
+  uid VARCHAR(36) NOT NULL,
   dealId INT NOT NULL,
   shareType INT NOT NULL,
   status INT NOT NULL,
@@ -148,9 +149,9 @@ CREATE  TABLE IF NOT EXISTS CampaignShareTemplate (
 
   targetId INT NOT NULL,
 
-  message VARCHAR(200) NULL,
+  message VARCHAR(500) NULL,
 
-  customMessage VARCHAR(200) NULL,
+  customMessage VARCHAR(500) NULL,
 
   body TEXT NULL ,
 

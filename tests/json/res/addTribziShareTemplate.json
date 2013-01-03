@@ -361,7 +361,7 @@
                                                                                                                                             "line-height": "150%",
                                                                                                                                             "text-align": "left"
                                                                                                                                         },
-                                                                                                                                        "source": "\r\n \r\n Hi [sendTo.firstName],{lb}{lb}\r\n\r\n\r\n ",
+                                                                                                                                        "source": "\r\n \r\n Hi [currentTarget.to.firstName],{lb}{lb}\r\n\r\n\r\n ",
                                                                                                                                         "type": "text",
                                                                                                                                         "name": "td",
                                                                                                                                         "children": [
@@ -730,7 +730,7 @@
                                                                                                                                                     "word-wrap": "break-word !important"
                                                                                                                                                 },
                                                                                                                                                 "source": "Enjoy Your Gift",
-                                                                                                                                                "linkSource": "[link]",
+                                                                                                                                                "linkSource": "[context.link]",
                                                                                                                                                 "type": "text",
                                                                                                                                                 "name": "a"
                                                                                                                                             }

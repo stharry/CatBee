@@ -2,9 +2,9 @@
 TribZi ={
 
     init:function(text){
-        this.sessionData = text;
+        this.deal = text;
         this.selectedRewardIndex = 0;
-
+        this.targets = [];
         return this;
     },
 
@@ -14,18 +14,30 @@ TribZi ={
     },
 
     setCustomMessage: function(message){
-        this.sessionData.landing.customMessage = message;
+        this.deal.landing.customMessage = message;
         return this;
     },
 
-    setRecipients: function(recipients){
-        this.recipients = recipients;
+    clearTargets: function()
+    {
+        this.targets = [];
+        return this;
+    },
+
+    addTarget: function(sender, recipients, target)
+    {
+        var shareTarget = {
+            name: target,
+            from: sender,
+            to: recipients
+        }
+        this.targets.push(shareTarget);
         return this;
     },
 
     requestData:function(data, callback){
 
-        var sharePoint = this.sessionData.sharePoint;
+        var sharePoint = this.deal.sharePoint;
 
         this.requestResult = null;
 
@@ -70,7 +82,6 @@ TribZi ={
 
     },
 
-
     shareToEmail:function(callback){
 
         return this.share('email', callback);
@@ -82,17 +93,16 @@ TribZi ={
             action:action,
             context:{
 
-                sendFrom:this.sessionData.order.customer.email,
-                sendTo:this.recipients,
-                customMessage:this.sessionData.landing.customMessage,
-                deal:this.sessionData,
+                customMessage:this.deal.landing.customMessage,
+                deal:this.deal,
                 context:{
                     type:context
                 },
                 reward:{
-                    id:this.sessionData.landing.landingRewards[this.selectedRewardIndex].id
+                    id:this.deal.landing.landingRewards[this.selectedRewardIndex].id
 
-                }
+                },
+                targets: this.targets
             }
         }
 
@@ -110,6 +120,24 @@ TribZi ={
     fillShare:function(context, callback){
 
         return this.doShareAction('fill share', context, callback);
+    },
+
+    parseMessage: function(message)
+    {
+        var replacePairs = [
+
+            {key:"[reward.friendReward.code]", val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.code},
+            {key:"[reward.friendReward.value]", val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.value},
+            {key:"[reward.friendReward.typeDescription]", val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.typeDescription}
+        ];
+
+        var result = message;
+
+        for (var i=0;i<replacePairs.length;i++)
+        {
+            result = result.replace(replacePairs[i].key, replacePairs[i].val);
+        }
+        return result;
     }
 }
 window.TribZi = TribZi;

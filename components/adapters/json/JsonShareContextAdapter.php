@@ -24,49 +24,38 @@ class JsonShareContextAdapter implements IModelAdapter
             {
                 array_push($contexts, $this->SingleContextToArray($context));
             }
+
             return $contexts;
 
         }
+
         return $this->SingleContextToArray($obj);
     }
 
     private function SingleContextToArray($obj)
     {
-        //todo: need to data base is
-
-        $contextType = "unknown";
-
-        switch ($obj->id)
-        {
-            case 1:
-                $contextType = "email";
-                break;
-
-            case 2:
-                $contextType = "facebook";
-                break;
-
-            case 3:
-                $contextType = "twitter";
-                break;
-
-            case 1024:
-                $contextType = "tribzi";
-                break;
-        }
-
         return array(
-            'type' => $contextType,
-            'application' => $this->applicationAdapter->toArray($obj->application));
+            'type'          => $obj->type,
+            'link'          => $obj->link,
+            'message'       => $obj->message,
+            'customMessage' => $obj->customMessage,
+            'uid'           => $obj->uid,
+            'application'   => $this->applicationAdapter->toArray($obj->application));
     }
 
     public function fromArray($obj)
     {
-        $shareContext = new ShareContext();
+
 
         if (is_array($obj))
         {
-            $shareContext->type = strtolower($obj["type"]);
+            $shareContext = new ShareContext($obj['type']);
+
+            $shareContext->link          = $obj['link'];
+            $shareContext->message       = $obj['message'];
+            $shareContext->customMessage = $obj['customMessage'];
+            $shareContext->uid           = $obj['uid'];
+
             if (isset($obj['application']))
             {
                 $shareContext->application =
@@ -75,31 +64,7 @@ class JsonShareContextAdapter implements IModelAdapter
         }
         else
         {
-            $shareContext->type = strtolower($obj);
-        }
-
-        //todo: need to data base is
-        switch ($shareContext->type)
-        {
-            case "email":
-                $shareContext->id = 1;
-                break;
-
-            case "facebook":
-                $shareContext->id = 2;
-                break;
-
-            case "twitter":
-                $shareContext->id = 3;
-                break;
-
-            case "tribzi":
-                $shareContext->id = 1024;
-                break;
-
-            default:
-                $shareContext->id = 1;
-                break;
+            $shareContext = new ShareContext($obj);
         }
 
         return $shareContext;

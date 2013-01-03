@@ -5,7 +5,15 @@ class PdoShareDao implements IShareDao
 
     public function getShareTemplates($shareFilter)
     {
-        $rows = DbManager::selectValues("SELECT id, shareType, message, body, targetId
+        if ($shareFilter->getMessagesOnly)
+        {
+            $select = "id, shareType, message, customMessage, targetId";
+        }
+        else
+        {
+            $select = "id, shareType, message, customMessage, body, targetId";
+        }
+        $rows = DbManager::selectValues("SELECT {$select}
                   FROM CampaignShareTemplate
                     WHERE
                        (shareType = {$shareFilter->context->id})
@@ -18,17 +26,21 @@ class PdoShareDao implements IShareDao
 
         foreach ($rows as $row)
         {
-            $shareTemplate = new ShareTemplate();
+            $shareTemplate     = new ShareTemplate();
             $shareTemplate->id = $row["id"];
 
-            $shareTemplate->campaign = new Campaign();
+            $shareTemplate->campaign     = new Campaign();
             $shareTemplate->campaign->id = $row["campaignId"];
 
-            $shareTemplate->shareType = $row["shareType"];
-            $shareTemplate->message = $row["message"];
+            $shareTemplate->shareType     = $row["shareType"];
+            $shareTemplate->message       = $row["message"];
+            $shareTemplate->customMessage = $row["customMessage"];
 
-            $shareTemplate->templatePage = new TemplatePage();
-            $shareTemplate->templatePage->context = $row["body"];
+            if (!$shareFilter->getMessagesOnly)
+            {
+                $shareTemplate->templatePage          = new TemplatePage();
+                $shareTemplate->templatePage->context = $row["body"];
+            }
 
             $shareTemplate->target = $row["targetId"];
             array_push($shareTemplates, $shareTemplate);
@@ -40,15 +52,15 @@ class PdoShareDao implements IShareDao
     public function insertShareTemplate($shareTemplate)
     {
 
-        $names = array("campaignId", "shareType", "message",
-                        'body',
-                        'targetId');
+        $names = array('campaignId', 'shareType', 'message',
+            'customMessage', 'body', 'targetId');
 
         $values = array($shareTemplate->campaign->id,
-                        $shareTemplate->shareContext->id,
-                        $shareTemplate->message,
-                        $shareTemplate->templatePage->context,
-                        $shareTemplate->target->id);
+            $shareTemplate->shareContext->id,
+            $shareTemplate->message,
+            $shareTemplate->customMessage,
+            $shareTemplate->templatePage->context,
+            $shareTemplate->target->id);
 
         $shareTemplate->id = DbManager::insertAndReturnId("CampaignShareTemplate", $names, $values);
     }
@@ -60,15 +72,17 @@ class PdoShareDao implements IShareDao
             AND shareType = {$shareTemplate->shareContext->id}
             AND targetId = {$shareTemplate->target->id}";
 
-        $rows = DbManager::selectValues($selectClause,null);
+        $rows = DbManager::selectValues($selectClause, null);
 
         if ($rows == null)
         {
             RestLogger::log("PdoShareDao::IsShareTemplateExists - not exists");
+
             return false;
         }
 
         $shareTemplate->id = $rows[0]['id'];
+
         return true;
     }
 
@@ -81,13 +95,17 @@ class PdoShareDao implements IShareDao
         else
         {
             $sql = "UPDATE CampaignShareTemplate
-                        SET message=:message, body=:body
+                        SET
+                          message=:message,
+                          body=:body,
+                          customMessage=:customMessage
                         WHERE id=:id";
 
             $params = array(
-                ':message' => $shareTemplate->message,
-                ':body' => $shareTemplate->templatePage->context,
-                ':id' => $shareTemplate->id);
+                ':message'       => $shareTemplate->message,
+                ':body'          => $shareTemplate->templatePage->context,
+                ':customMessage' => $shareTemplate->customMessage,
+                ':id'            => $shareTemplate->id);
 
             DbManager::updateValues($sql, $params);
         }

@@ -37,15 +37,14 @@ try
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/jquery.fancybox.js?reload" type="text/javascript"></script>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
 
-    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/CatBee.js?reload" type="text/javascript"></script>
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
+    <script language="javascript">TribZi.init(<?php echo $dealJson; ?>);</script>
+    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/CatBee.js?reload" type="text/javascript"></script>
+
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/landing.js?reload" type="text/javascript"></script>
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/email.js?reload" type="text/javascript"></script>
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/facebook.js?reload" type="text/javascript"></script>
 
-    <script language="javascript">
-        TribZi.init(<?php echo $dealJson; ?>);
-    </script>
     <!--email scripts
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
 </head>

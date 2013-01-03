@@ -192,7 +192,7 @@
                                                                                         "style": {
                                                                                             "color": "#000000"
                                                                                         },
-                                                                                        "source": "[sendTo.firstName], thank you for being a great customer and the best friend ever...",
+                                                                                        "source": "[currentTarget.to.firstName], thank you for being a great customer and the best friend ever...",
                                                                                         "type": "text",
                                                                                         "name": "span"
                                                                                     }

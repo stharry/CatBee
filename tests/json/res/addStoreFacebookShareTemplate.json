@@ -2,26 +2,15 @@
     "action": "set",
     "context":
     {
-        "message": "I just bought at FunForToys.com and got a special friend-only gift to share with you.",
+        "customMessage": "I just bought at FunForToys.com and got a special friend-only gift to share with you.",
+        "message":"Use the discount code [reward.friendReward.code] to get [reward.friendReward.value] [reward.friendReward.typeDescription] off your purchase!",
         "campaign":{
             "code":"398C0080-60FF-48C0-BDF5-E1BA4A9B53ED"
         },
         "shareContext":{
             "type": "facebook"
         },
-        "target": {"name":"friend"},
-        "templatePage": {
-            "context":{
-                "fields":[
-                    {
-                        "source":"Use the discount code [reward.friendReward.code] to get [reward.friendReward.value] [reward.friendReward.typeDescription] off your purchase!",
-                        "type": "text",
-                        "name": "div",
-                        "loop": "1"
-                    }
-                ]
-            },
-            "type": "file"
-        }
+        "target": {"name":"friend"}
+
     }
 }

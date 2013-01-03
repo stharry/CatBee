@@ -47,15 +47,16 @@ class PdoDealShareDao implements IDealShareDao
     }
     public function addDealShare($share)
     {
-        $names = array("dealId", "shareType", 'value',
+        $names = array("dealId", "shareType", 'value', 'uid',
             'shareDate', 'status', 'landRewardId');
 
-        $sendTo = $this->unionAllSendTo($share->sendTo);
+        $sendTo = $this->unionAllSendTo($share->currentTarget->to);
 
         $values = array(
             $share->deal->id,
             $share->context->id,
             $sendTo,
+            $share->context->uid,
             date("Y-m-d h:i:s"),
             $share->status,
             $share->reward->id);
@@ -65,11 +66,11 @@ class PdoDealShareDao implements IDealShareDao
 
     public function updateDealShare($share)
     {
-        $value = $this->unionAllSendTo($share->sendTo);
+        $value = $this->unionAllSendTo($share->currentTarget->to);
 
         $update = "UPDATE activeShare
           SET status={$share->status}, value='{$value}'
-                    WHERE id={$share->id}";
+                    WHERE uid={$share->context->uid}";
         $params = array();
 
         DbManager::updateValues($update, $params);
@@ -81,7 +82,7 @@ class PdoDealShareDao implements IDealShareDao
         try
         {
             $select = "SELECT dealId, shareType, status, landRewardId, value
-                        FROM activeShare WHERE id = {$share->id}";
+                        FROM activeShare WHERE uid = {$share->context->uid}";
 
             $rows = DbManager::selectValues($select, array());
 

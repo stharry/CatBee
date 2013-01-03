@@ -27,18 +27,17 @@ class Share
     public static $SHARE_STATUS_CANCELLED = 3;
 
     public $id;
-    public $sendFrom;
-    public $sendTo;
     public $subject;
     public $message;
     public $customMessage;
     public $campaign;
-    //The Context Reperesent data on the share for example the Sharing Method
+    //The Context Represent data on the share for example the Sharing Method
     //TODO - Consider change the names
     public $context;
     public $reward;
-    public $link;
     public $deal;
+    public $targets;
+    public $currentTarget;
     public $status;
     public $impressions;
     public $successfulReferrals;
