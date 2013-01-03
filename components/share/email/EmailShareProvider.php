@@ -30,8 +30,8 @@ class EmailShareProvider implements IShareProvider
 
 //        $body = $share->message;
 
-        $headers = array('From' => $this->validateEmailAddress($share->sendFrom->email),
-            'To' => $this->validateEmailAddress($share->sendTo->email),
+        $headers = array('From' => $this->validateEmailAddress($share->currentTarget->from->email),
+            'To' => $this->validateEmailAddress($share->currentTarget->to->email),
             'Subject' => $share->subject);
 
 
@@ -53,7 +53,7 @@ class EmailShareProvider implements IShareProvider
 
         try
         {
-            $mail = $smtp->send($share->sendTo->email, $headers, $body);
+            $mail = $smtp->send($share->currentTarget->to->email, $headers, $body);
 
             RestLogger::log("Email after", $mail);
 

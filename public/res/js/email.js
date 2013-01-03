@@ -44,7 +44,9 @@ function CreateAndInitializeEmailForm() {
 
             setTimeout(stopProgress, 1000);
 
-            TribZi.setRecipients($("#mail-input").val())
+            TribZi.clearTargets()
+                .addTarget(TribZi.deal.order.customer.email, $("#mail-input").val(), 'friend')
+                .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader')
                 .setCustomMessage($("#message").val())
                 .setRewardIndex($("#slider").slider("value"))
                 .shareToEmail(null);

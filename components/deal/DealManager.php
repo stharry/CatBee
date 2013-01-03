@@ -247,6 +247,11 @@ class DealManager //implements IDealManager
 
             RestLogger::log('DealManager::FillParams campaign by code', $share->deal->campaign);
         }
+
+        if (!$share->context->uid)
+        {
+            $share->context->uid = uniqid("", true);
+        }
     }
 
     private function shareToFriends($share)

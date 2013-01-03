@@ -1,11 +1,4 @@
 var catBeeResult = null;
-var catBeeData = null;
-
-$(document).ready(function () {
-
-    FillCatBeeStorage();
-
-});
 
 function waitCatBeeResultAndRun(timeoutMs, callback) {
     try {
@@ -24,10 +17,6 @@ function waitCatBeeResultAndRun(timeoutMs, callback) {
     catch (e) {
         alert(e);
     }
-}
-
-function FillCatBeeStorage() {
-    catBeeData = JSON.parse($('#catBeeData').text());
 }
 
 function proceedCatBeeShareJsonRequest(data, resultName) {
@@ -112,5 +101,5 @@ function proceedCatBeeShareJsonRequest(data, resultName) {
 }
 
 function getCatBeeShareApiUrl() {
-    return catBeeData.sharePoint;
+    return TribZi.deal.sharePoint;
 }

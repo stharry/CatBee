@@ -24,5 +24,5 @@ interface IShareManager
 
     public function addShareApplication($context);
 
-    public function getAvailableShares($deal);
+    public function fillShareContext($deal, $context);
 }

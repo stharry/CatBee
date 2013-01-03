@@ -5,54 +5,29 @@ class JsonShareAdapter implements IModelAdapter
     private $jsonShareContextAdapter;
     private $jsonRewardAdapter;
     private $jsonDealAdapter;
+    private $targetAdapter;
 
     function __construct()
     {
         $this->jsonShareContextAdapter = new JsonShareContextAdapter();
         $this->jsonRewardAdapter = new JsonLandingRewardAdapter();
         $this->jsonDealAdapter = new JsonLeaderDealAdapter();
+        $this->targetAdapter = new JsonShareTargetAdapter();
 
-    }
-
-    private function sentToToArray($sendTo)
-    {
-        $result = '';
-
-        foreach ($sendTo as $customer)
-        {
-            $result .= $customer->email.',';
-
-        }
-        return $result;
     }
 
     public function toArray($obj)
     {
+        //todo add targets
         return array(
             'id' => $obj->id,
             'status' => $obj->status,
-            'sendFrom' => $obj->sendFrom->email,
-            'sendTo' => $this->sentToToArray($obj->sendTo),
             'message' => $obj->message,
             'customMessage' => $obj->customMessage,
-            'link' => $obj->link,
             'subject' => $obj->subject,
             'context' => $this->jsonShareContextAdapter->toArray($obj->context),
             'reward' => $this->jsonRewardAdapter->toArray($obj->reward),
         );
-    }
-
-    private function sentToFromArray($sendTo)
-    {
-        $result = array();
-
-        foreach (explode(',', $sendTo) as $email)
-        {
-            $customer = new Customer($email);
-
-            array_push($result, $customer);
-        }
-        return $result;
     }
 
     public function fromArray($obj)
@@ -61,16 +36,18 @@ class JsonShareAdapter implements IModelAdapter
 
         $share->id = $obj['id'];
         $share->status = $obj['status'];
-        $share->sendFrom = new Customer($obj["sendFrom"]);
-        $share->sendTo = $this->sentToFromArray($obj["sendTo"]);
         $share->message = $obj["message"];
         $share->customMessage = $obj["customMessage"];
-        $share->link = $obj["link"];
         $share->subject = $obj["subject"];
         $share->context = $this->jsonShareContextAdapter->fromArray($obj["context"]);
         $share->reward = $this->jsonRewardAdapter->fromArray($obj["reward"]);
         $share->deal = $this->jsonDealAdapter->fromArray($obj['deal']);
 
+        $share->targets = array();
+        foreach ($obj['targets'] as $target)
+        {
+            array_push($share->targets, $this->targetAdapter->fromArray($target));
+        }
         return $share;
     }
 }

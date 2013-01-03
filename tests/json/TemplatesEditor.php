@@ -25,7 +25,7 @@ $share->sendTo = new Customer();
 $share->sendTo->email = 'Friend@tribzi.com';
 $share->sendTo->firstName = 'Friend';
 
-$share->link = 'http://www.Tribzi.com';
+$share->context->link = 'http://www.Tribzi.com';
 $share->store = $order->store;
 
 $campaignAction = json_decode(file_get_contents("res/pushCampaign.json"), true);
