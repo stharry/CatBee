@@ -8,23 +8,12 @@ RestLogger::log("Demo adapter api call started");
 $return_obj = RestUtils::processRequest() or die ("Cannot parse post data in share request");
 $shareProps = $return_obj->getRequestVars() or die("Unknown share format");
 
-if (!isset($shareProps['act'])) die("Undefined adapter action");
+//todo
+//if (!isset($shareProps['act'])) die("Undefined adapter action");
 
 switch (strtolower($shareProps['act']))
 {
-    case 'welcome':
-    {
 
-        $url = $GLOBALS['Rest_url'].'/CatBee/adapters/demo/Home.php?'
-            .http_build_query(array(
-                'page'=>'goWelcome.php',
-                'sid' => $shareProps['sid']));
-
-        RestLogger::log("demo adapter api url: ", $url);
-
-        echo("<script> top.location.href='" . $url . "'</script>");
-        exit;
-    }
     case "orderdetails":
     {
         RestLogger::log('Demo adapter orderdetails api call started');
@@ -41,6 +30,19 @@ switch (strtolower($shareProps['act']))
 
         //echo json_encode($orderProps);
         RestUtils::sendSuccessResponse($orderProps);
+        exit;
+    }
+    default:
+    {
+
+        $url = $GLOBALS['Rest_url'].'/CatBee/adapters/demo/Home.php?'
+            .http_build_query(array(
+                                  'page'=>'goWelcome.php',
+                                  'sid' => $shareProps['sid']));
+
+        RestLogger::log("demo adapter api url: ", $url);
+
+        echo("<script> top.location.href='" . $url . "'</script>");
         exit;
     }
 }

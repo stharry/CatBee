@@ -5,19 +5,20 @@ class PdoDealShareDao implements IDealShareDao
 
     private function FillActiveShareLeads($row)
     {
-        $share = new Share();
-        $share->id =$row['id'];
-        $share->context = new ShareContext();
+        $share              = new Share();
+        $share->id          = $row['id'];
+        $share->context     = new ShareContext();
         $share->context->id = $row['shareType'];
 
-        $share->status = $row['status'];
-        $share->reward = new LandingReward();
+        $share->status     = $row['status'];
+        $share->reward     = new LandingReward();
         $share->reward->id = $row['landRewardId'];
 
-        $share->sentTo = $this->value2Customers($row['value']);
-        $SuccessfulReferral = $share->addReferral();
+        $share->sentTo             = $this->value2Customers($row['value']);
+        $SuccessfulReferral        = $share->addReferral();
         $SuccessfulReferral->share = $row['id'];
         $SuccessfulReferral->order = $row['OrderID'];
+
         return $share;
     }
 
@@ -45,6 +46,7 @@ class PdoDealShareDao implements IDealShareDao
 
         return $result;
     }
+
     public function addDealShare($share)
     {
         $names = array("dealId", "shareType", 'value', 'uid',
@@ -82,9 +84,10 @@ class PdoDealShareDao implements IDealShareDao
         try
         {
             $select = "SELECT dealId, shareType, status, landRewardId, value
-                        FROM activeShare WHERE uid = {$share->context->uid}";
+                        FROM activeShare WHERE uid=?";
 
-            $rows = DbManager::selectValues($select, array());
+            $rows = DbManager::selectValues($select,
+                                            array(new DbParameter($share->context->uid, PDO::PARAM_STR)));
 
             if ($rows == null)
             {
@@ -94,46 +97,48 @@ class PdoDealShareDao implements IDealShareDao
             }
 
             $share->deal     = new LeaderDeal();
-            $share->deal->id = $rows[ 0 ][ 'dealId' ];
+            $share->deal->id = $rows[0]['dealId'];
 
             $share->context     = new ShareContext();
-            $share->context->id = $rows[ 0 ][ 'shareType' ];
+            $share->context->id = $rows[0]['shareType'];
 
-            $share->status     = $rows[ 0 ][ 'status' ];
+            $share->status     = $rows[0]['status'];
             $share->reward     = new LandingReward();
-            $share->reward->id = $rows[ 0 ][ 'landRewardId' ];
+            $share->reward->id = $rows[0]['landRewardId'];
 
-            $share->sentTo = $this->value2Customers($rows[ 0 ][ 'value' ]);
-        } catch (Exception $e)
+            $share->sentTo = $this->value2Customers($rows[0]['value']);
+        }
+        catch (Exception $e)
         {
             RestLogger::log('Exception', $e->getMessage());
         }
     }
-    public function GetDealsShares($deals,$getLeads)
+
+    public function GetDealsShares($deals, $getLeads)
     {
         //This Loop over Deal is assuming each Customer wont have a lot of active Deal.
         //TODO - change the above assumption
         $selectParams = array();
-        $iterator = 0;
-        foreach($deals as $deal)
+        $iterator     = 0;
+        foreach ($deals as $deal)
         {
-            if($getLeads)
+            if ($getLeads)
             {
                 $select = "SELECT share.id,share.dealId, share.shareType, share.landRewardId, share.value,
-                           L.OrderID FROM activeShare share" ;
-                 $select = $select." LEFT JOIN successfulReferral L on Share.id = L.ActiveShareID";
-                $select = $select." WHERE share.dealid = ? ";
+                           L.OrderID FROM activeShare share";
+                $select = $select . " LEFT JOIN successfulReferral L on Share.id = L.ActiveShareID";
+                $select = $select . " WHERE share.dealid = ? ";
             }
             else
             {
                 $select = "SELECT share.dealId, share.shareType, share.status, share.landRewardId, share.value
-                            FROM activeShare share" ;
-                $select = $select." WHERE share.dealid = ? ";
+                            FROM activeShare share";
+                $select = $select . " WHERE share.dealid = ? ";
             }
-            $select = $select." and share.status=2";
-            $selectParam = new DbParameter($deals[$iterator]->id,PDO::PARAM_INT);
-            array_push($selectParams,$selectParam);
-            $rows = DbManager::selectValues($select,$selectParams);
+            $select      = $select . " and share.status=2";
+            $selectParam = new DbParameter($deals[$iterator]->id, PDO::PARAM_INT);
+            array_push($selectParams, $selectParam);
+            $rows       = DbManager::selectValues($select, $selectParams);
             $shareArray = array();
             foreach ($rows as $row)
             {
