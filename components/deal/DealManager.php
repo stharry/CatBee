@@ -247,8 +247,6 @@ class DealManager //implements IDealManager
 
             RestLogger::log('DealManager::FillParams campaign by code', $share->deal->campaign);
         }
-
-        $this->storeManager->validateBranch($share->deal->order->branch);
     }
 
     private function shareToFriends($share)

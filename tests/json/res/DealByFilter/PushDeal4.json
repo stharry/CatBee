@@ -1,0 +1,27 @@
+{
+    "action":"deal",
+    "context":{
+        "amount":"76",
+        "id":"FutureDate",
+        "items":[
+            {
+                "itemcode":"1234567890",
+                "url":"http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
+                "price":"76.00",
+                "description":"Wooden train"
+            }
+        ],
+        "customer":{
+            "email":"tomer@tribzi.com",
+            "firstName":"Tomer",
+            "lastName":"Harry",
+            "nickName":"leader"
+        },
+        "branch":{
+            "shopId":"1",
+            "store":{
+                "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"}
+        },
+        "date":"2015-01-01"
+    }
+}
