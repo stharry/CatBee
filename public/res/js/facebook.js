@@ -153,7 +153,7 @@ $.initFacebook = function (options) {
 
 
 }
-
+//Tomer
 function createShareObj() {
 
     var rewardInd = $("#slider").slider("value");
