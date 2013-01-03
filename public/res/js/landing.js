@@ -165,4 +165,5 @@ function updateRewards(sliderVal) {
     $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
     $('#FriendArea').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
 
+    TribZi.setRewardIndex(sliderVal);
 }

@@ -27,7 +27,7 @@ elseif (isset($params["success"]))
     RestLogger::log("FacebookLogin: success stub response - sent OK");
     exit();
 }
-elseif (isset($params['post_id']))
+elseif (isset($params['context']))
 {
     $isShared = isset($params['post_id']);
 
@@ -41,9 +41,9 @@ elseif (isset($params['post_id']))
     $updateParams = array('action'  => 'add share',
                           'context' => array(
                               'targets' => array(
-                                array('to' => $isShared ? $params['post_id'] : '')
+                                  array('to' => $isShared ? $params['post_id'] : '')
                               ),
-                              'deal' => array('id' => $share->deal->id),
+                              'deal'    => array('id' => $share->deal->id),
 
                               'status'  => $isShared
                                   ? Share::$SHARE_STATUS_CANCELLED
@@ -56,9 +56,11 @@ elseif (isset($params['post_id']))
     RestUtils::SendPostRequest('deal', null, $updateParams);
 
     //2. share via email to leader
-    $shareDealParams = array('action' => 'share deal', 'context' => $context);
-    RestUtils::SendPostRequest('deal', null, $shareDealParams);
-
+    if ($isShared)
+    {
+        $shareDealParams = array('action' => 'share deal', 'context' => $context);
+        RestUtils::SendPostRequest('deal', null, $shareDealParams);
+    }
 
 
     RestLogger::log("FacebookLogin: success stub response on post_id - sent OK");

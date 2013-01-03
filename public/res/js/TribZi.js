@@ -9,6 +9,7 @@ TribZi ={
     },
 
     setRewardIndex: function(index){
+
         this.selectedRewardIndex = index;
         return this;
     },
