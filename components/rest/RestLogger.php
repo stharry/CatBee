@@ -6,7 +6,7 @@ require_once 'Log.php';
 class RestLogger
 {
     private static $logger;
-
+    //test
     private static function setLogger()
     {
         if (!RestLogger::$logger)
