@@ -1,0 +1,33 @@
+{
+    "action":"deal",
+    "context":{
+        "amount":"100",
+        "id":"referringTo3",
+        "items":[
+            {
+                "itemcode":"666666",
+                "url":"http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
+                "price":"176.00",
+                "description":"Wooden train1"
+            },
+            {
+                "itemcode":"444",
+                "url":"http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
+                "price":"24.00",
+                "description":"Wooden train2"
+            }
+        ],
+        "customer":{
+            "email":"rony.malits@gmail.com",
+            "firstName":"rony",
+            "lastName":"malits",
+            "nickName":"XXX"
+        },
+        "branch":{
+            "shopId":"1",
+            "store":{
+                "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"}
+        },
+        "successfulReferral":"3"
+    }
+}
