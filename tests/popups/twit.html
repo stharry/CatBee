@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <title>Anywhere Sample</title>
+
+    <script src="http://platform.twitter.com/anywhere.js?id=A5Wbqu5NcorUHAxQ0O2IZA&v=1" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<!--<script type="text/javascript">-->
+
+    <!--twttr.anywhere(function (T) {-->
+        <!--T.hovercards();-->
+
+    <!--});-->
+
+<!--</script>-->
+
+
+<!--<span id="follow-placeholder"></span>-->
+
+<!--<script type="text/javascript-*+9/8">-->
+
+    <!--twttr.anywhere(function (T) {-->
+        <!--T("#follow-placeholder").followButton('anywhere');-->
+    <!--});-->
+
+<!--</script>-->
+<div id="tbox"></div>
+
+<script type="text/javascript">
+
+
+
+    twttr.anywhere(function (T) {
+
+
+
+        T("#tbox").tweetBox({
+
+            height: 100,
+
+            width: 400,
+
+
+            defaultContent: "<YOUR DEFAULT TWEETBOX CONTENT HERE>",
+
+            onTweet:function(plainTwitt, htmlTwitt)
+            {
+                alert(htmlTwitt);
+            }
+
+        });
+
+
+
+    });
+
+
+
+</script>
+</body>
+
+</html>

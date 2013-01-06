@@ -9,7 +9,7 @@ include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 
 includeTest('recreateDbTest.php');
 includeTest('registerStoreBranches.php');
-includeTest('addFacebookShareApplication.php');
+includeTest('addStoreShareApplication.php');
 includeTest('pushCampaign.php');
 includeTest('addStoreShareTemplates.php');
 includeTest('pushDeal.php');

@@ -2,6 +2,12 @@
 
 class JsonShareTargetAdapter implements IModelAdapter
 {
+    private $contextAdapter;
+
+    function __construct()
+    {
+        $this->contextAdapter = new JsonShareContextAdapter();
+    }
     private function sentToFromArray($sendTo)
     {
         $result = array();
@@ -47,6 +53,7 @@ class JsonShareTargetAdapter implements IModelAdapter
         }
         $target->from = new Customer($obj['from']);
         $target->to = $this->sentToFromArray($obj['to']);
+        $target->context = $this->contextAdapter->fromArray($obj['context']);
 
         return $target;
     }

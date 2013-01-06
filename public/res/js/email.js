@@ -45,11 +45,22 @@ function CreateAndInitializeEmailForm() {
             setTimeout(stopProgress, 1000);
 
             TribZi.clearTargets()
-                .addTarget(TribZi.deal.order.customer.email, $("#mail-input").val(), 'friend')
-                .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader')
+                .setUid(null)
+                .addTarget(
+                    TribZi.deal.order.customer.email,
+                    $("#mail-input").val(), 'friend', 'email')
+
                 .setCustomMessage($("#message").val())
-                .setRewardIndex($("#slider").slider("value"))
-                .shareToEmail(null);
+                .setRewardIndex($("#slider").slider("value"));
+
+            if (TribZi.sharedTimes == 0)
+            {
+                TribZi.addTarget(
+                    TribZi.deal.order.branch.email,
+                    TribZi.deal.order.customer.email,
+                    'leader', 'email');
+            }
+            TribZi.share(null);
 
         }
     });

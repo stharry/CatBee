@@ -1,0 +1,15 @@
+{
+    "action": "set application",
+    "context":
+    {
+        "type": "twitter",
+        "application":
+        {
+            "applicationApiKey":"",
+            "applicationCode":"A5Wbqu5NcorUHAxQ0O2IZA",
+            "applicationSecret":"FmF2aGw205YJ7vPpHFuuWMbtWs4jgondhafpnbAE4",
+            "authorizationUrl":"https://api.twitter.com/oauth/authorize",
+            "redirectUrl":"<undefined - todo>"
+        }
+    }
+}

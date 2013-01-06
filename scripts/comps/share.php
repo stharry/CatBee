@@ -1,6 +1,6 @@
 <div class="share-box clearfix">
     <div>Share via:</div>
-    <a href="#" rel="twitter"><img src="<?= $GLOBALS["rootPath"] ?>/res/images/twitter.png" alt="" /></a>
+    <a href="#twittForm" rel="twitter" id="twitterShare"><img src="<?= $GLOBALS["rootPath"] ?>/res/images/twitter.png" alt="" /></a>
     <a href="#facebookForm" rel="facebook" id="facebookShare"><img src="<?= $GLOBALS["rootPath"] ?>/res/images/facebook.png" alt="" /></a>
     <a href="#emailForm" rel="email" id="emailShare"><img src="<?= $GLOBALS["rootPath"] ?>/res/images/email.png" alt="" /></a>
     <!--<a href="#">more</a>-->

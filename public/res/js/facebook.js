@@ -1,66 +1,70 @@
-var facebookParams = null;
 
 $(document).ready(function () {
 
-    $.initFacebook({appId:TribZi.deal.fbcContext.application.applicationCode});
     $('.facebook-form').hide();
     $('#ContactsArea').hide();
+
+    FB.init({appId: "194177057387274", status: true, cookie: true});
 
     $("#facebookShare").click(function () {
 
         StartFacebookSharing();
-//        getFacebookShare();
-//
-//        waitAndShare();
-
-        //waitCatBeeResultAndRun(7200, waitAndShare);
     });
 
 
 });
 
-function getFacebookShare() {
-
-    var request = createCatBeeFillShareRequest();
-    proceedCatBeeShareJsonRequest(request, 'facebookParams');
-}
-
 function StartFacebookSharing() {
     try {
 
         var message = TribZi.parseMessage(TribZi.deal.fbcContext.message);
-        //todo
-        //var customMessage = TribZi.parseMessage(TribZi.deal.fbcContext.customMessage);
 
-//        alert(message);
-//
-//        return;
-//        var s = localStorage.getItem('facebookParams');
-//
-//        facebookParams = JSON.parse(s);
-//
-        //todo check ? or &
-        var redirectUrl = TribZi.deal.fbcContext.application.redirectUrl +
-            '?context=' + encodeURIComponent(JSON.stringify(createShareObj()));
-//        FB.init({
-//            appId: TribZi.deal.fbcContext.application.applicationCode,
-//
-//            status:true, cookie:true});
+        var obj = {
+            method: 'feed',
 
-        FB.ui({
-                method:'feed',
-                display:'popup',
-                name:TribZi.deal.landing.customMessage,
-                picture:TribZi.deal.order.items[0].url,
-                redirect_uri:redirectUrl,
-                caption:' ',
-                description:message,
-                link:TribZi.deal.fbcContext.link
-            },
-            fbcResponse
-        );
+            name:TribZi.deal.landing.customMessage,
+            picture:TribZi.deal.order.items[0].url,
+            caption:' ',
+            description:message,
+            link:TribZi.deal.fbcContext.link
 
-//        localStorage.removeItem('facebookParams');
+//            link: 'https://developers.facebook.com/docs/reference/dialogs/',
+//            picture: 'http://fbrell.com/f8.jpg',
+//            name: 'Facebook Dialogs',
+//            caption: 'Reference Documentation',
+//            description: 'Using Dialogs to interact with users.'
+        };
+
+        function callback(response) {
+            if (response === null)
+            {
+                //alert('pizdetc');
+            }
+            else
+            {
+                TribZi.clearTargets()
+                    .setUid(TribZi.deal.fbcContext.uid)
+                    .addTarget(
+                        TribZi.deal.order.customer.email,
+                        response['post_id'], 'friend', 'facebook')
+
+                    .setCustomMessage($("#message").val())
+                    .setRewardIndex($("#slider").slider("value"))
+
+                if (TribZi.sharedTimes == 0)
+                {
+                    TribZi.addTarget(
+                        TribZi.deal.order.branch.email,
+                        TribZi.deal.order.customer.email,
+                        'leader', 'email');
+                };
+
+                TribZi.share();
+
+            }
+        }
+
+        FB.ui(obj, callback);
     }
     catch (e) {
         alert(e);
@@ -74,37 +78,6 @@ function fbcResponse(response) {
     } else {
         alert('Post was not published.');
     }
-}
-
-function waitAndShare() {
-
-    if (localStorage.getItem('facebookParams') === null) {
-        setTimeout(waitAndShare, 500);
-    }
-    else {
-        StartFacebookSharing();
-    }
-}
-
-function createCatBeeFillShareRequest() {
-
-    var rewardInd = $("#slider").slider("value");
-
-    return {
-        action:'fillshare',
-        context:{
-
-            "context":{
-                "type":"facebook"
-            },
-            "deal":{
-                "id":TribZi.deal.id
-            },
-            "reward":{
-                "id":TribZi.deal.landing.landingRewards[rewardInd].id
-            }
-        }
-    };
 }
 
 $.initFacebook = function (options) {
