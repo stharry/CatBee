@@ -22,7 +22,7 @@ class PdoDealDao implements IDealDao
         $leaderDeal->order = new Order();
         $leaderDeal->order->id = $row['orderId'];
 
-        RestLogger::log("PdoDealDao::getDealByOrder deal restored from db ", $leaderDeal);
+        RestLogger::log("PdoDealDao:: deal restored from db ", $leaderDeal);
         return $leaderDeal;
 
     }

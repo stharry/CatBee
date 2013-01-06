@@ -6,33 +6,48 @@ $restUtils = new RestUtils();
 
 ////Push Deal 1  Customer Tomer@tribzi.com ,Date Y
 //
-//$order1 = json_decode(file_get_contents("res/DealByFilter/pushDeal1.json"));
-//$restUtils->SendPostRequest("deal", "", $order1);
+$order1 = json_decode(file_get_contents("res/DealByFilter/pushDeal1.json"));
+$restUtils->SendPostRequest("deal", "", $order1);
 //
 ////Push Deal 2  Customer X ,Date z
 //
-//$order2 = json_decode(file_get_contents("res/DealByFilter/pushDeal2.json"));
-//$restUtils->SendPostRequest("deal", "", $order2);
+$order2 = json_decode(file_get_contents("res/DealByFilter/pushDeal2.json"));
+$restUtils->SendPostRequest("deal", "", $order2);
 //
 ////Push Deal 3  Customer X Date Historical (one year Back)
 //
-//$order3 = json_decode(file_get_contents("res/DealByFilter/pushDeal3.json"));
-//$restUtils->SendPostRequest("deal", "", $order3);
+$order3 = json_decode(file_get_contents("res/DealByFilter/pushDeal3.json"));
+$restUtils->SendPostRequest("deal", "", $order3);
 //
 ////Push Deal 4 Customer X Future Date
-//$order4 = json_decode(file_get_contents("res/DealByFilter/pushDeal4.json"));
-//$restUtils->SendPostRequest("deal", "", $order4);
+$order4 = json_decode(file_get_contents("res/DealByFilter/pushDeal4.json"));
+$restUtils->SendPostRequest("deal", "", $order4);
 
 
 //Share Deal 1 Via FB
 $share = json_decode(file_get_contents("res/DealByFilter/shareStoreShareFacebook.json"));
 
 $response = $restUtils->SendPostRequest("deal", "", $share);
-//Share Deal Via Mail
+
+//Share Deal 1 Via Mail
+
+$shareEmail = json_decode(file_get_contents("res/DealByFilter/ShareStoreShareEmail.json"));
+
+$response = $restUtils->SendPostRequest("deal", "", $shareEmail);
+
+//Open ActiveShareID 2 to record an Impression
+
+$friendDealTemplate = json_decode(file_get_contents("res/DealByFilter/friendDeal6.json"));
+$restUtils->SendPostRequest("deal", "", $friendDealTemplate);
 
 //Push Deal 5 referring deal 1 for customer Z
-//Open Deal 2 to record the Impression
+$order5 = json_decode(file_get_contents("res/DealByFilter/pushDeal5.json"));
+$restUtils->SendPostRequest("deal", "", $order5);
+
 
 //Get Deals By the Filter: Dates,FB
+
+
+
 //Check Results including Impressions
 

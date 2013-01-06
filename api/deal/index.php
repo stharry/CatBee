@@ -119,7 +119,8 @@ try
             $dealFilter        = $dealFilterAdapter->fromArray($context);
             //Currently Hard Coded true
             $dealFilter->ActiveShareFlag = true;
-            $deals= $dealManager->getDeals($dealFilter);
+            $deals = $dealManager->getDeals($dealFilter);
+            echo json_encode($deals);
             exit;
 
         case "getdiscount":
