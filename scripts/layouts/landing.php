@@ -24,6 +24,8 @@ try
 
     <link rel="stylesheet" type="text/css" media="all"
           href="<?= $GLOBALS[ "rootPath" ] ?>/res/css/emailForm.css?reload">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="<?= $GLOBALS[ "rootPath" ] ?>/res/css/tweetForm.css?reload">
 
 
     <link rel="stylesheet" type="text/css" media="all"
@@ -33,6 +35,9 @@ try
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/dev/chain-dev.js?v=1" type="text/javascript"></script>
+    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/dev/load-dev.js?v=1" type="text/javascript"></script>
 
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/jquery.fancybox.js?reload" type="text/javascript"></script>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
@@ -44,6 +49,7 @@ try
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/landing.js?reload" type="text/javascript"></script>
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/email.js?reload" type="text/javascript"></script>
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/facebook.js?reload" type="text/javascript"></script>
+    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/twitter.js?reload" type="text/javascript"></script>
 
     <!--email scripts
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->

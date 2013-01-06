@@ -16,4 +16,4 @@ $restUtils = new RestUtils();
 $restUtils->SendPostRequest("deal", "", $order);
 
 $timer->stop();
-$timer->display();
+//$timer->display();

@@ -24,13 +24,14 @@ class JsonLeaderDealAdapter implements IModelAdapter
     public function toArray($obj)
     {
         return array(
-            'id'         => $obj->id,
-            'order'      => $this->orderAdapter->toArray($obj->order),
-            'landing'    => $this->landingPageAdapter->toArray($obj->landing),
-            'customer'   => $this->customerAdapter->toArray($obj->customer),
-            'sharePoint' => $obj->sharePoint,
-            'campaign'   => $this->campaignAdapter->toArray($obj->campaign),
-            'fbcContext' => $this->contextAdapter->toArray($obj->fbcContext)
+            'id'          => $obj->id,
+            'order'       => $this->orderAdapter->toArray($obj->order),
+            'landing'     => $this->landingPageAdapter->toArray($obj->landing),
+            'customer'    => $this->customerAdapter->toArray($obj->customer),
+            'sharePoint'  => $obj->sharePoint,
+            'campaign'    => $this->campaignAdapter->toArray($obj->campaign),
+            'fbcContext'  => $this->contextAdapter->toArray($obj->fbcContext),
+            'twitContext' => $this->contextAdapter->toArray($obj->twitContext)
             //'shares' => $this->sharesAdapter->toArray($obj->shares)
         );
     }
@@ -38,13 +39,14 @@ class JsonLeaderDealAdapter implements IModelAdapter
     public function fromArray($obj)
     {
         $deal     = new LeaderDeal();
-        $deal->id = is_array($obj) ? $obj['id'] : $obj;
+        $deal->id = is_array($obj) ? $obj[ 'id' ] : $obj;
 
-        $deal->order      = $this->orderAdapter->fromArray($obj['order']);
-        $deal->landing    = $this->landingPageAdapter->fromArray($obj['landing']);
-        $deal->customer   = $this->customerAdapter->fromArray($obj['customer']);
-        $deal->campaign   = $this->campaignAdapter->fromArray($obj['campaign']);
-        $deal->fbcContext = $this->contextAdapter->fromArray($obj['fbcContext']);
+        $deal->order       = $this->orderAdapter->fromArray($obj[ 'order' ]);
+        $deal->landing     = $this->landingPageAdapter->fromArray($obj[ 'landing' ]);
+        $deal->customer    = $this->customerAdapter->fromArray($obj[ 'customer' ]);
+        $deal->campaign    = $this->campaignAdapter->fromArray($obj[ 'campaign' ]);
+        $deal->fbcContext  = $this->contextAdapter->fromArray($obj[ 'fbcContext' ]);
+        $deal->twitContext = $this->contextAdapter->fromArray($obj[ 'twitContext' ]);
 
         return $deal;
     }

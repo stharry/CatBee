@@ -7,22 +7,22 @@ class DealManager implements IDealManager
     private $dealDao;
     private $successfulReferralManager;
 
-    function __construct($campaignManager, $storeManager,
+    function __construct(
+        $campaignManager, $storeManager,
         $shareManager, $dealDao,
         $successfulReferralManager)
     {
         RestLogger::log("Deal manager before created...");
         try
         {
-            $this->campaignManager = $campaignManager;
-            $this->dealDao = $dealDao;
-            $this->storeManager = $storeManager;
-            $this->shareManager = $shareManager;
+            $this->campaignManager           = $campaignManager;
+            $this->dealDao                   = $dealDao;
+            $this->storeManager              = $storeManager;
+            $this->shareManager              = $shareManager;
             $this->successfulReferralManager = $successfulReferralManager;
 
             RestLogger::log("Deal manager created...");
-        }
-        catch (Exception $e)
+        } catch (Exception $e)
         {
             RestLogger::log('EXCEPTION ', $e);
         }
@@ -30,12 +30,18 @@ class DealManager implements IDealManager
 
     private function createShareContexts($deal)
     {
-        $shareContext = new ShareContext('facebook');
-        $shareContext->uid = uniqid("", true);
+        $clientContexts = array('facebook' => 'fbcContext',
+                                'twitter'  => 'twitContext');
 
-        $this->shareManager->fillShareContext($deal, $shareContext);
+        foreach ($clientContexts as $ctxKey => $ctxProp)
+        {
+            $shareContext      = new ShareContext($ctxKey);
+            $shareContext->uid = uniqid("", true);
 
-        $deal->fbcContext = $shareContext;
+            $this->shareManager->fillShareContext($deal, $shareContext);
+
+            $deal->$ctxProp = $shareContext;
+        }
     }
 
     private function getCatBeeSharePoint()
@@ -52,6 +58,7 @@ class DealManager implements IDealManager
         catbeeLayoutComp($layout, "share", $leaderDeal);
         catbeeLayoutComp($layout, "mailForm", $leaderDeal);
         catbeeLayoutComp($layout, "facebookForm", $leaderDeal);
+        catbeeLayoutComp($layout, "twittForm", $leaderDeal);
         //catbeeLayoutComp($layout, "sliderOptions", $leaderDeal);
         catbeeLayout($layout, 'landing');
 
@@ -60,8 +67,8 @@ class DealManager implements IDealManager
     private function refreshDealProps($leaderDeal, $landing, $order)
     {
         $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
-        $leaderDeal->landing = $landing;
-        $leaderDeal->order = $order;
+        $leaderDeal->landing    = $landing;
+        $leaderDeal->order      = $order;
     }
 
     private function createPendingDeal($landing, $order, $campaign)
@@ -81,7 +88,7 @@ class DealManager implements IDealManager
                 $leaderDeal = new LeaderDeal();
 
                 $leaderDeal->customer = $order->customer;
-                if($order->date!=null)$leaderDeal->InitDate = $order->date;
+                if ($order->date != null) $leaderDeal->InitDate = $order->date;
                 else $leaderDeal->InitDate = date("Y-m-d h:i:s");
                 $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
 
@@ -140,18 +147,21 @@ class DealManager implements IDealManager
 
         return $leaderDeal;
     }
+
     public function getDeals($dealFilter)
     {
         //Go to DealDao with the DealFilter and Retrieve all the deals of the Customer
         $leaderDeals = $this->dealDao->getDealsByFilter($dealFilter);
-        if($dealFilter->ActiveShareFlag == true)
+        if ($dealFilter->ActiveShareFlag == true)
         {
             //Fill the ActiveShares Of the Deals - currenlty assuming i have only one deal per customer
             //Call the shareManager - send him the Deal object, the Second parameter is a flag for getting the leads for each Active share
             $this->shareManager->FillActiveSharesForDeal($leaderDeals, true);
         }
+
         return $leaderDeals;
     }
+
     public function updateDeal($deal)
     {
         RestLogger::log('DealManager::updateDeal begin');
@@ -225,11 +235,11 @@ class DealManager implements IDealManager
     {
         if (!$share->deal->campaign->id)
         {
-            $campaignFilter = new CampaignFilter();
+            $campaignFilter       = new CampaignFilter();
             $campaignFilter->code = $share->deal->campaign->code;
 
-            $campaigns = $this->campaignManager->getCampaigns($campaignFilter);
-            $share->deal->campaign = $campaigns[0];
+            $campaigns             = $this->campaignManager->getCampaigns($campaignFilter);
+            $share->deal->campaign = $campaigns[ 0 ];
 
             RestLogger::log('DealManager::FillParams campaign by code', $share->deal->campaign);
         }

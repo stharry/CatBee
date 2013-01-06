@@ -46,10 +46,14 @@ function CreateAndInitializeEmailForm() {
 
             TribZi.clearTargets()
                 .addTarget(TribZi.deal.order.customer.email, $("#mail-input").val(), 'friend')
-                .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader')
                 .setCustomMessage($("#message").val())
-                .setRewardIndex($("#slider").slider("value"))
-                .shareToEmail(null);
+                .setRewardIndex($("#slider").slider("value"));
+
+            if (TribZi.sharedTimes == 0)
+            {
+                TribZi.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader');
+            }
+            TribZi.shareToEmail(null);
 
         }
     });

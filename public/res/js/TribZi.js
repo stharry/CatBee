@@ -5,6 +5,7 @@ TribZi ={
         this.deal = text;
         this.selectedRewardIndex = 0;
         this.targets = [];
+        this.sharedTimes = 0;
         return this;
     },
 
@@ -115,6 +116,7 @@ TribZi ={
 
     share:function(context, callback){
 
+        this.sharedTimes++;
         return this.doShareAction('share deal', context, callback);
     },
 
