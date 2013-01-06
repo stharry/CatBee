@@ -31,7 +31,7 @@ try
     }
     else
     {
-        //printNode($dom->documentElement);
+        ////printNode($dom->documentElement);
 
         $adapter = new MailChimpTemplateAdapter();
 
