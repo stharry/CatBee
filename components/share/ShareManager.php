@@ -37,6 +37,8 @@ class ShareManager implements IShareManager
 
         $link = $url . '?plugin=TribZi&sid=' . $context->uid;
 
+        RestLogger::log('ShareManager create link', $link);
+
         return $link;
 
     }
@@ -119,12 +121,12 @@ class ShareManager implements IShareManager
             RestLogger::log('ERROR', "There is no any share template for given store");
             die ("There is no any share template for given store");
         }
-        $this->createMessage($share, $shareTemplates[0]);
-
         $share->context->link = $this->createShareLink($share->deal, $share->context);
 
         $this->validateCustomer($share->currentTarget->from);
         $this->validateCustomer($share->currentTarget->to);
+
+        $this->createMessage($share, $shareTemplates[0]);
 
         $this->landingRewardDao->fillLandingRewardById($share->reward);
 
@@ -173,9 +175,6 @@ class ShareManager implements IShareManager
                     $share->currentTarget->from = $target->from;
                     $share->currentTarget->to = $friend;
                     $share->currentTarget->context = $target->context;
-
-                    RestLogger::log('ShareManager::sendTo ', $friend);
-                    RestLogger::log('ShareManager::sendFrom ', $target->from);
 
                     $this->fillShareProps($share);
 

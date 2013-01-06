@@ -104,10 +104,7 @@ TribZi ={
                 context:{
                     type: this.targets[0].context.type
                 },
-                reward:{
-                    id:this.deal.landing.landingRewards[this.selectedRewardIndex].id
-
-                },
+                reward:this.deal.landing.landingRewards[this.selectedRewardIndex],
                 targets: this.targets
             }
         };
