@@ -38,11 +38,29 @@ function StartFacebookSharing() {
         function callback(response) {
             if (response === null)
             {
-                alert('pizdetc');
+                //alert('pizdetc');
             }
             else
             {
-                alert("Post ID: " + response['post_id']);
+                TribZi.clearTargets()
+                    .setUid(TribZi.deal.fbcContext.uid)
+                    .addTarget(
+                        TribZi.deal.order.customer.email,
+                        response['post_id'], 'friend', 'facebook')
+
+                    .setCustomMessage($("#message").val())
+                    .setRewardIndex($("#slider").slider("value"))
+
+                if (TribZi.sharedTimes == 0)
+                {
+                    TribZi.addTarget(
+                        TribZi.deal.order.branch.email,
+                        TribZi.deal.order.customer.email,
+                        'leader', 'email');
+                };
+
+                TribZi.share();
+
             }
         }
 

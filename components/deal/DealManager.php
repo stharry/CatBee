@@ -183,6 +183,8 @@ class DealManager implements IDealManager
 
     public function shareDeal($share)
     {
+        RestLogger::log('DealManager::shareDeal begin');
+
         $share->status = Share::$SHARE_STATUS_PENDING;
 
         $this->fillShareParams($share);
@@ -233,6 +235,8 @@ class DealManager implements IDealManager
 
     private function fillShareParams($share)
     {
+        RestLogger::log('DealManager::fillShareParams begin');
+
         if (!$share->deal->campaign->id)
         {
             $campaignFilter       = new CampaignFilter();
@@ -244,15 +248,13 @@ class DealManager implements IDealManager
             RestLogger::log('DealManager::FillParams campaign by code', $share->deal->campaign);
         }
 
-        if (!$share->context->uid)
+        if (!isset($share->context->uid) || !$share->context->uid)
         {
             $share->context->uid = uniqid("", true);
+            RestLogger::log('DealManager::fillShareParams new uid generated', $share->context->uid);
         }
         $this->storeManager->validateBranch($share->deal->order->branch);
-    }
 
-    private function shareToFriends($share)
-    {
-        return $this->shareManager->share($share);
+        RestLogger::log('DealManager::fillShareParams end');
     }
 }

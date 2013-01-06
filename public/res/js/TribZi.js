@@ -9,6 +9,11 @@ TribZi ={
         return this;
     },
 
+    setUid: function(uid){
+      this.uid = uid;
+        return this;
+    },
+
     setRewardIndex: function(index){
 
         this.selectedRewardIndex = index;
@@ -26,13 +31,17 @@ TribZi ={
         return this;
     },
 
-    addTarget: function(sender, recipients, target)
+    addTarget: function(sender, recipients, shareTarget, shareContext)
     {
         var shareTarget = {
-            name: target,
+            name: shareTarget,
             from: sender,
-            to: recipients
+            to: recipients,
+            context:{
+                type:shareContext
+            }
         }
+
         this.targets.push(shareTarget);
         return this;
     },
@@ -84,12 +93,7 @@ TribZi ={
 
     },
 
-    shareToEmail:function(callback){
-
-        return this.share('email', callback);
-    },
-
-    doShareAction: function(action, context, callback){
+    doShareAction: function(action, callback){
 
         var sendData = {
             action:action,
@@ -98,7 +102,7 @@ TribZi ={
                 customMessage:this.deal.landing.customMessage,
                 deal:this.deal,
                 context:{
-                    type:context
+                    type: this.targets[0].context.type
                 },
                 reward:{
                     id:this.deal.landing.landingRewards[this.selectedRewardIndex].id
@@ -106,6 +110,11 @@ TribZi ={
                 },
                 targets: this.targets
             }
+        };
+
+        if (this.uid)
+        {
+            sendData.context.context.uid = this.uid;
         }
 
         this.requestData(sendData, callback);
@@ -114,15 +123,15 @@ TribZi ={
 
     },
 
-    share:function(context, callback){
+    share:function(callback){
 
         this.sharedTimes++;
-        return this.doShareAction('share deal', context, callback);
+        return this.doShareAction('share deal', callback);
     },
 
     fillShare:function(context, callback){
 
-        return this.doShareAction('fill share', context, callback);
+        return this.doShareAction('fill share', callback);
     },
 
     parseMessage: function(message)

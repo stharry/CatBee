@@ -88,6 +88,7 @@ class ShareManager implements IShareManager
 
     private function getCompatibleShareProvider($shareContext)
     {
+        RestLogger::log("ShareManager::getCompatibleShareProvider ", $shareContext->type);
         //todo: make something more solid (like a factory or something else...)
         switch ($shareContext->id)
         {
@@ -108,13 +109,14 @@ class ShareManager implements IShareManager
         $shareFilter = new ShareFilter();
 
         $shareFilter->campaign = $share->deal->campaign;
-        $shareFilter->context  = $share->context;
+        $shareFilter->context  = $share->currentTarget->context;
         $shareFilter->targetId = $share->currentTarget->id;
 
         $shareTemplates = $this->getShareTemplates($shareFilter);
 
         //todo: put strategy class here
         if (count($shareTemplates) == 0) {
+            RestLogger::log('ERROR', "There is no any share template for given store");
             die ("There is no any share template for given store");
         }
         $this->createMessage($share, $shareTemplates[0]);
@@ -161,8 +163,6 @@ class ShareManager implements IShareManager
         {
             RestLogger::log('ShareManager::share begin for targets', $share->targets);
 
-            $shareProvider = $this->getCompatibleShareProvider($share->context);
-
             foreach ($share->targets as $target)
             {
                 $shareToFriends = $target->to;
@@ -172,11 +172,14 @@ class ShareManager implements IShareManager
                     $share->currentTarget = new ShareTarget($target->name);
                     $share->currentTarget->from = $target->from;
                     $share->currentTarget->to = $friend;
+                    $share->currentTarget->context = $target->context;
 
                     RestLogger::log('ShareManager::sendTo ', $friend);
                     RestLogger::log('ShareManager::sendFrom ', $target->from);
 
                     $this->fillShareProps($share);
+
+                    $shareProvider = $this->getCompatibleShareProvider($target->context);
 
                     $shareProvider->share($share);
 
