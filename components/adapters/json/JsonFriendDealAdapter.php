@@ -13,7 +13,10 @@ class JsonFriendDealAdapter implements IModelAdapter
     }
     public function toArray($obj)
     {
-        // TODO: Implement toArray() method.
+        return array(
+            'share' => $this->shareAdapter->toArray($obj->share),
+            'order' => $this->orderAdapter->toArray($obj->order)
+        );
     }
 
     public function fromArray($obj)

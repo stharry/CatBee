@@ -99,7 +99,6 @@ class PdoDealShareDao implements IDealShareDao
             $share->deal     = new LeaderDeal();
             $share->deal->id = $rows[0]['dealId'];
 
-            $share->context     = new ShareContext();
             $share->context->id = $rows[0]['shareType'];
 
             $share->status     = $rows[0]['status'];

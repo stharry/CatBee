@@ -11,6 +11,13 @@ class FriendLandingManager implements IFriendLandingManager
     private $storeManager;
     private $impressionManager;
 
+    private function serializeFriendDeal($friendDeal)
+    {
+        $friendDealAdapter = new JsonFriendDealAdapter();
+
+        return json_encode($friendDealAdapter->toArray($friendDeal));
+    }
+
     private function fillLandingReward($friendDeal)
     {
         $this->rewardDao->fillLandingRewardById($friendDeal->share->reward);
@@ -52,7 +59,9 @@ class FriendLandingManager implements IFriendLandingManager
         RestLogger::log('FriendLandingManager::showFriendLanding deal: ', $friendDeal);
         RestLogger::log('FriendLandingManager::showFriendLanding store: ', $Store);
 
-        catbeeLayoutComp($layout, "friendLanding", array($friendDeal,$Store));
+        $friendDealStr = $this->serializeFriendDeal($friendDeal);
+
+        catbeeLayoutComp($layout, "friendLanding", array($friendDeal, $Store, $friendDealStr));
         //catbeeLayoutComp($layout, "friendLanding", $friendDeal);
         catbeeLayout($layout, 'friendLanding');
     }
@@ -82,4 +91,5 @@ class FriendLandingManager implements IFriendLandingManager
 
         $this->showFriendLanding($friendDeal,$Camp[0]->store);
     }
+
 }

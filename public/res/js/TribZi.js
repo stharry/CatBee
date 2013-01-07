@@ -9,6 +9,14 @@ TribZi ={
         return this;
     },
 
+    initFriendDeal:function(text){
+        this.friendDeal = text;
+        this.selectedRewardIndex = 0;
+        this.targets = [];
+        this.sharedTimes = 0;
+        return this;
+    },
+
     setUid: function(uid){
       this.uid = uid;
         return this;
@@ -147,6 +155,37 @@ TribZi ={
             result = result.replace(replacePairs[i].key, replacePairs[i].val);
         }
         return result;
+    },
+
+    saveCoupon: function()
+    {
+        var tag = this.friendDeal.share.context.uid;
+
+        $.cookie('CatBeeCpnCod', this.friendDeal.share.reward.friendReward.code);
+        $.cookie('CatBeeCpnVal', this.friendDeal.share.reward.friendReward.value);
+        $.cookie('CatBeeRefId', this.friendDeal.share.context.uid);
+        return this;
+    },
+
+    getReferral: function()
+    {
+        return $.cookie('CatBeeRefId');
+    },
+
+    getCouponCode: function()
+    {
+        return $.cookie('CatBeeCpnCod');
+    },
+
+    getCouponValue: function()
+    {
+        return $.cookie('CatBeeCpnVal');
+    },
+
+    injectCoupon: function(elem)
+    {
+        $('#' + elem).value($.cookie('CatBeeCpnCod'));
     }
+
 }
 window.TribZi = TribZi;

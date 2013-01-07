@@ -5,6 +5,16 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <title><?php echo $GLOBALS["page_title"] ?></title>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/jcookie.js?reload" type="text/javascript"></script>
+
+    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
+    <script language="javascript">TribZi.initFriendDeal(<?php echo $p[0]['params'][2]; ?>);</script>
+
+    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/friendLanding.js?reload" type="text/javascript"></script>
+
     <!--Landing common rendering-->
     <link href="<?= $GLOBALS["rootPath"] ?>/res/css/friendLanding.css?reload" rel="stylesheet" type="text/css"/>
 

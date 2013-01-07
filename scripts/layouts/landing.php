@@ -42,6 +42,7 @@ try
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/jquery.fancybox.js?reload" type="text/javascript"></script>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
 
+    <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/jcookie.js?reload" type="text/javascript"></script>
     <script src="<?= $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
     <script language="javascript">TribZi.init(<?php echo $dealJson; ?>);</script>
 <!--    <script src="--><?//= $GLOBALS[ "rootPath" ] ?><!--/res/js/CatBee.js?reload" type="text/javascript"></script>-->

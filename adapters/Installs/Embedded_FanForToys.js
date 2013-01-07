@@ -28,15 +28,25 @@ TribZiEmbd = {
 
     },
 
-    attachIFrame:function () {
+    buildUri: function (){
         var jsonOrderData = this.getOrderJson();
 
         //http://127.0.0.1:8080
-        var tribziIfamerUrl =
+        var tribziIfameUrl =
 //            'http://tribzi.azurewebsites.net/CatBee/api/deal/?action=deal&context=' +
-             'http://127.0.0.1:8080/CatBee/api/deal/?action=deal&context=' +
+            'http://127.0.0.1:8080/CatBee/api/deal/?action=deal&context=' +
                 encodeURIComponent(JSON.stringify(jsonOrderData));
 
+        return tribziIfameUrl;
+
+    },
+
+    attachIFrame:function (iFrameTag) {
+        //http://127.0.0.1:8080
+        var tribziIfamerUrl = this.buildUri();
+
+        if (iFrameTag)
+        {
         var divElement = document.createElement('div');
         divElement.id = 'myDiv';
         divElement.style.postion = '';
@@ -47,14 +57,27 @@ TribZiEmbd = {
         iframeElement.frameBorder = 0;
         divElement.appendChild(iframeElement)
         document.body.appendChild(divElement);
-    }
+        }
+        else
+        {
+            var iframe = document.getElementsByTagName(iFrameTag);
+            iframe.src = tribziIfamerUrl;
+        }
+    },
 
+    resizeCatBee:function(){
+        $('.ui-dialog').css({with : 700});
+    }
 
 }
 window.TribZiEmbd = TribZiEmbd;
 
-window.onload=function(){
-    TribZiEmbd.attachIFrame();
-    document.getElementById('iframe').height = document.body.offsetHeight;
-}
+$(document).ready(function() {
+
+});
+
+//window.onload=function(){
+//    TribZiEmbd.attachIFrame();
+//    document.getElementById('iframe').height = document.body.offsetHeight;
+//}
 

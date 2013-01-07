@@ -17,7 +17,7 @@ class LeaderDeal
     public $customer;
     public $sharePoint;  //currently used as a JavaScript client callback url to the TribZi server
     public $shares;
-    public $fbcContext;
-    public $twitContext;
+    public $fbcContext;//social application details for facebook. Used in the facebook.js only
+    public $twitContext;//same for twitter
     public $InitDate;
 }
