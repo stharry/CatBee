@@ -9,6 +9,11 @@ $(document).ready(function () {
         alert(e);
     }
 
+    TribZi.shortenLink(TribZi.deal.twitContext.link,
+        function(shortLink){
+
+            TribZi.deal.twitContext.link = shortLink;
+        });
 
     $("#twitterShare").click(function () {
 
@@ -19,7 +24,10 @@ $(document).ready(function () {
 
         if ($('#tbox').css('display') == 'none') {
 
-            var message = TribZi.parseMessage(TribZi.deal.fbcContext.message);
+
+            var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
+                .parseMessage(TribZi.deal.twitContext.message);
+
 
             twttr.anywhere(function (T) {
 
@@ -32,17 +40,19 @@ $(document).ready(function () {
 
                     onTweet:function (plainTweet, htmlTweet) {
 
-                        if (TribZi.sharedTimes == 0) {
-                            TribZi.clearTargets()
-                                .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader')
-                                .setCustomMessage(plainTweet)
-                                .setRewardIndex($("#slider").slider("value"));
+                        TribZi.clearTargets()
+                            .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'friend', 'twitter')
+                            .setCustomMessage(plainTweet)
+                            .setRewardIndex($("#slider").slider("value"))
+                            .setUid(TribZi.deal.twitContext.uid);
 
-                            setTimeout(function () {
-                                TribZi.shareToEmail(null);
-                            }, 500)
+                        if (TribZi.sharedTimes == 0) {
+                            TribZi.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email');
+
                         }
 
+                        alert(1);
+                        TribZi.share(null);
                     }
 
                 });

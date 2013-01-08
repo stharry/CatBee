@@ -41,7 +41,11 @@ class JsonShareAdapter implements IModelAdapter
         $share->subject = $obj["subject"];
         $share->context = $this->jsonShareContextAdapter->fromArray($obj["context"]);
         $share->reward = $this->jsonRewardAdapter->fromArray($obj["reward"]);
-        $share->deal = $this->jsonDealAdapter->fromArray($obj['deal']);
+
+        if (isset($obj['deal']))
+        {
+            $share->deal = $this->jsonDealAdapter->fromArray($obj['deal']);
+        }
 
         $share->targets = array();
         foreach ($obj['targets'] as $target)

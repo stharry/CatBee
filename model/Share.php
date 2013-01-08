@@ -26,6 +26,18 @@ class Share
     public static $SHARE_STATUS_SHARED = 2;
     public static $SHARE_STATUS_CANCELLED = 3;
 
+    public function addTarget($to)
+    {
+        if (!$this->targets)
+        {
+            $this->targets = array();
+        }
+        $target = new ShareTarget('friend');
+        $target->to = $to;
+
+        return $target;
+    }
+
     public $id;
     public $subject;
     public $message;

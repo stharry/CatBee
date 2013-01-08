@@ -30,6 +30,18 @@ class ShareContext
         $this->type = $type;
     }
 
+    public static function id2Type($id)
+    {
+        $idTypePairs = array(1 => 'email', '2' => 'facebook', 3 => 'twitter',
+            '1024' => 'tribzi');
+
+        if (!array_key_exists($id, $idTypePairs))
+        {
+            return $idTypePairs[1];
+        }
+        return $idTypePairs[$id];
+    }
+
     public $type;
     public $id;
     public $message;

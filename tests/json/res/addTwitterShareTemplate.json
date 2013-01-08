@@ -3,7 +3,7 @@
     "context":
     {
         "customMessage": "I just bought at FunForToys.com and got a special friend-only gift to share with you.",
-        "message":"Use the discount code [reward.friendReward.code] to get [reward.friendReward.value] [reward.friendReward.typeDescription] off your purchase!",
+        "message":"Use the discount code [reward.friendReward.code] to get [reward.friendReward.value] [reward.friendReward.typeDescription] off your purchase! Click on [context.link]",
         "campaign":{
             "code":"398C0080-60FF-48C0-BDF5-E1BA4A9B53ED"
         },

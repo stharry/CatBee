@@ -20,4 +20,5 @@ class LeaderDeal
     public $fbcContext;//social application details for facebook. Used in the facebook.js only
     public $twitContext;//same for twitter
     public $InitDate;
+    public $leads;
 }

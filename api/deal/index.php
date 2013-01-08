@@ -97,6 +97,7 @@ try
             $shareAdapter = new JsonShareAdapter();
             $share        = $shareAdapter->fromArray($context);
             $dealManager->addDealShare($share);
+            RestUtils::sendSuccessResponse();
             exit;
 
         case "fillshare":
@@ -112,15 +113,18 @@ try
             $shareAdapter = new JsonShareAdapter();
             $share        = $shareAdapter->fromArray($context);
             $dealManager->addDealShare($share);
+            RestUtils::sendSuccessResponse();
             exit;
 
         case "getdeal":
-            $dealFilterAdapter = new JsonLeaderDealFilter();
+            $dealFilterAdapter = new JsonLeaderDealFilterAdapter();
             $dealFilter        = $dealFilterAdapter->fromArray($context);
             //Currently Hard Coded true
             $dealFilter->ActiveShareFlag = true;
             $deals = $dealManager->getDeals($dealFilter);
-            echo json_encode($deals);
+
+            $dealsAdapter = new JsonLeaderDealsAdapter();
+            RestUtils::sendSuccessResponse($dealsAdapter->toArray($deals));
             exit;
 
         case "getdiscount":

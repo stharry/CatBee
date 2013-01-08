@@ -100,7 +100,32 @@ class RestUtils
 
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-        curl_setopt($url, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
+
+        $response = curl_exec($ch);
+
+        curl_close($ch);
+
+        return $response;
+    }
+
+    public static function SendPostRequestAndReturnResult($api, $id, $obj)
+    {
+        $url = $GLOBALS["restURL"]."/CatBee/api/{$api}/";
+
+        if (isset($id)) {
+            $url .= $id;
+        }
+
+        RestLogger::log("RestUtils::SendPostRequest Before send post: ".$url);
+
+        $postData = http_build_query($obj);
+
+        $ch = curl_init($url);
+
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $response = curl_exec($ch);
 

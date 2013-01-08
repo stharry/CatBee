@@ -1,7 +1,6 @@
+TribZi = {
 
-TribZi ={
-
-    init:function(text){
+    init:function (text) {
         this.deal = text;
         this.selectedRewardIndex = 0;
         this.targets = [];
@@ -9,7 +8,7 @@ TribZi ={
         return this;
     },
 
-    initFriendDeal:function(text){
+    initFriendDeal:function (text) {
         this.friendDeal = text;
         this.selectedRewardIndex = 0;
         this.targets = [];
@@ -17,34 +16,38 @@ TribZi ={
         return this;
     },
 
-    setUid: function(uid){
-      this.uid = uid;
+    setUid:function (uid) {
+        this.uid = uid;
         return this;
     },
 
-    setRewardIndex: function(index){
+    setShareLink: function(link)
+    {
+        this.shareLink = link;
+        return this;
+    },
+
+    setRewardIndex:function (index) {
 
         this.selectedRewardIndex = index;
         return this;
     },
 
-    setCustomMessage: function(message){
+    setCustomMessage:function (message) {
         this.deal.landing.customMessage = message;
         return this;
     },
 
-    clearTargets: function()
-    {
+    clearTargets:function () {
         this.targets = [];
         return this;
     },
 
-    addTarget: function(sender, recipients, shareTarget, shareContext)
-    {
+    addTarget:function (sender, recipients, shareTarget, shareContext) {
         var shareTarget = {
-            name: shareTarget,
-            from: sender,
-            to: recipients,
+            name:shareTarget,
+            from:sender,
+            to:recipients,
             context:{
                 type:shareContext
             }
@@ -54,9 +57,28 @@ TribZi ={
         return this;
     },
 
-    requestData:function(data, callback){
+    shortenLink:function (link, callback) {
 
-        var sharePoint = this.deal.sharePoint;
+
+        var uri = 'https://api-ssl.bitly.com/v3/shorten?' +
+            'access_token=57973b2f6a137f2c5f0f4d1b852032c2d3993bcd&longUrl=' +
+            encodeURIComponent(link);
+
+        this.requestAnyData(uri, null,
+            function (response) {
+
+                callback(response.data.url);
+            });
+    },
+
+    requestData:function (data, callback) {
+
+        return this.requestAnyData(this.deal.sharePoint, data, callback);
+    },
+
+    requestAnyData:function (url, data, callback) {
+
+        var sharePoint = url;
 
         this.requestResult = null;
 
@@ -69,31 +91,38 @@ TribZi ={
         xmlhttp.onreadystatechange = function () {
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200 &&
-                this.requestResult == null)
-            {
-                try
-                {
+                this.requestResult == null) {
+                try {
                     this.requestResult = JSON.parse(xmlhttp.responseText);
 
-                    if (callback !== null)
-                    {
+                    if (callback !== null) {
                         callback(this.requestResult);
                     }
                 }
-                catch (e)
-                {
+                catch (e) {
                     //alert(e);
                 }
             }
         }
 
         try {
-            var data2Send = jQuery.param(data);
 
-            xmlhttp.open("POST", sharePoint, true);
-            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xmlhttp.setRequestHeader("Content-Length", data2Send.length);
-            xmlhttp.send(data2Send);
+
+            if (data) {
+                var data2Send = jQuery.param(data);
+                xmlhttp.open("POST", sharePoint, true);
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xmlhttp.setRequestHeader("Content-Length", data2Send.length);
+                xmlhttp.send(data2Send);
+            }
+            else
+            {
+                xmlhttp.open("GET", sharePoint, true);
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xmlhttp.send();
+            }
         }
         catch (e) {
 //            alert(e);
@@ -101,7 +130,7 @@ TribZi ={
 
     },
 
-    doShareAction: function(action, callback){
+    doShareAction:function (action, callback) {
 
         var sendData = {
             action:action,
@@ -110,15 +139,14 @@ TribZi ={
                 customMessage:this.deal.landing.customMessage,
                 deal:this.deal,
                 context:{
-                    type: this.targets[0].context.type
+                    type:this.targets[0].context.type
                 },
                 reward:this.deal.landing.landingRewards[this.selectedRewardIndex],
-                targets: this.targets
+                targets:this.targets
             }
         };
 
-        if (this.uid)
-        {
+        if (this.uid) {
             sendData.context.context.uid = this.uid;
         }
 
@@ -128,37 +156,35 @@ TribZi ={
 
     },
 
-    share:function(callback){
+    share:function (callback) {
 
         this.sharedTimes++;
         return this.doShareAction('share deal', callback);
     },
 
-    fillShare:function(context, callback){
+    fillShare:function (context, callback) {
 
         return this.doShareAction('fill share', callback);
     },
 
-    parseMessage: function(message)
-    {
+    parseMessage:function (message) {
         var replacePairs = [
 
             {key:"[reward.friendReward.code]", val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.code},
             {key:"[reward.friendReward.value]", val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.value},
-            {key:"[reward.friendReward.typeDescription]", val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.typeDescription}
+            {key:"[reward.friendReward.typeDescription]", val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.typeDescription},
+            {key:"[context.link]", val:this.shareLink}
         ];
 
         var result = message;
 
-        for (var i=0;i<replacePairs.length;i++)
-        {
+        for (var i = 0; i < replacePairs.length; i++) {
             result = result.replace(replacePairs[i].key, replacePairs[i].val);
         }
         return result;
     },
 
-    saveCoupon: function()
-    {
+    saveCoupon:function () {
         var tag = this.friendDeal.share.context.uid;
 
         $.cookie('CatBeeCpnCod', this.friendDeal.share.reward.friendReward.code);
@@ -167,23 +193,19 @@ TribZi ={
         return this;
     },
 
-    getReferral: function()
-    {
+    getReferral:function () {
         return $.cookie('CatBeeRefId');
     },
 
-    getCouponCode: function()
-    {
+    getCouponCode:function () {
         return $.cookie('CatBeeCpnCod');
     },
 
-    getCouponValue: function()
-    {
+    getCouponValue:function () {
         return $.cookie('CatBeeCpnVal');
     },
 
-    injectCoupon: function(elem)
-    {
+    injectCoupon:function (elem) {
         $('#' + elem).value($.cookie('CatBeeCpnCod'));
     }
 

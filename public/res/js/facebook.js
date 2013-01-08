@@ -17,7 +17,8 @@ $(document).ready(function () {
 function StartFacebookSharing() {
     try {
 
-        var message = TribZi.parseMessage(TribZi.deal.fbcContext.message);
+        var message = TribZi.setShareLink(TribZi.deal.fbcContext.link)
+            .parseMessage(TribZi.deal.fbcContext.message);
 
         var obj = {
             method: 'feed',

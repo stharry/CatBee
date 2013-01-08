@@ -2,7 +2,7 @@
 
 interface ISuccessfulReferralDao
 {
-    public function SaveReferral($SuccessfulReferral);
+    public function SaveReferral($order);
     public function GetReferrals($LeadFilter);
 
 }

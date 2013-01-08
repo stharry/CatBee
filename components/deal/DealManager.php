@@ -118,7 +118,7 @@ class DealManager implements IDealManager
         //Register SucessfulReferral Deal If Exist
         RestLogger::log("DealManager::pushDeal after storeBranch validation ", $order->branch);
 
-        $this->successfulReferralManager->saveSucessfulReferral($order);
+        $this->successfulReferralManager->saveSuccessfulReferral($order);
 
         $campaign = $this->campaignManager->chooseCampaign($order);
 
@@ -159,6 +159,11 @@ class DealManager implements IDealManager
             $this->shareManager->FillActiveSharesForDeal($leaderDeals, true);
         }
 
+        if ($dealFilter->bringReferrals)
+        {
+
+        }
+        RestLogger::log('DelManager::getDeals ', $leaderDeals);
         return $leaderDeals;
     }
 

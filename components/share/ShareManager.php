@@ -98,9 +98,12 @@ class ShareManager implements IShareManager
                 return new EmailShareProvider();
             case 2:
                 return new FacebookShareProvider(new PdoAuthorizationDao());
+            case 3:
+                return new TwitterShareProvider();
             case 1024:
                 return new TribziShareProvider();
             default:
+                RestLogger::log("ERROR: Cannot find compatible share provider", $shareContext->id);
                 die("Cannot find compatible share provider");
         }
     }
