@@ -20,12 +20,32 @@ $smtppass = $catBeeParams["catbee_email_hostpass"];
 
 $rootPath = "/CatBee/public/";
 
-$restURL = $catBeeParams['Rest_url'];
-$restLogBaseDir = $catBeeParams['Rest_Log_Dir'];
+$restURL = isset($catBeeParams['Rest_url'])
+    ? $catBeeParams['Rest_url']
+    : getCatBeeHostName();
+
+$restLogBaseDir = isset($catBeeParams['Rest_Log_Dir'])
+    ? $catBeeParams['Rest_Log_Dir']
+    : $_SERVER["CONTEXT_DOCUMENT_ROOT"].'/Log';
 
 CatBeeClassLoader::createLoader($GLOBALS["dirBase"]);
 
 spl_autoload_register('catBeeAutoLoader');
+
+function getCatBeeHostName()
+{
+    if(strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https') {
+        $strOut = sprintf('https://%s:%d',
+            $_SERVER['SERVER_ADDR'],
+            $_SERVER['SERVER_PORT']);
+    } else {
+        $strOut = sprintf('http://%s:%d',
+            $_SERVER['SERVER_ADDR'],
+            $_SERVER['SERVER_PORT']);
+    }
+
+    return $strOut;
+}
 
 function catBeeAutoLoader($class)
 {
