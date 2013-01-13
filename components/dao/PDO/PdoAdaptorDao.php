@@ -35,12 +35,12 @@ class PdoAdaptorDao implements IAdaptorDao
             $adaptor->url,
             $adaptor->landingUrl);
 
-        $adaptor->id = DbManager::insertAndReturnId("adaptor", $names, $values);
+        $adaptor->id = DbManager::insertAndReturnId("Adaptor", $names, $values);
     }
 
     public function loadAdaptor($adaptor)
     {
-        $rows = DbManager::selectValues("SELECT id, authCode, description, url, landingUrl FROM adaptor  WHERE authCode=?",
+        $rows = DbManager::selectValues("SELECT id, authCode, description, url, landingUrl FROM Adaptor  WHERE authCode=?",
             array(new DbParameter($adaptor->authCode, PDO::PARAM_STR)));
 
         if (!isset($rows))
@@ -56,7 +56,7 @@ class PdoAdaptorDao implements IAdaptorDao
     public function loadAdaptorById($adaptor)
     {
         $rows = DbManager::selectValues(
-            "SELECT id, authCode, description, url, landingUrl FROM adaptor
+            "SELECT id, authCode, description, url, landingUrl FROM Adaptor
              WHERE id=?",
             array(new DbParameter($adaptor->id, PDO::PARAM_INT)));
 

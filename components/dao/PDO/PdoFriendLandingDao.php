@@ -9,7 +9,7 @@ class PdoFriendLandingDao implements IFriendLandingDao
     {
         $names = array("slogan", "friendMessage", "rewardMessage1", "rewardMessage2");
         $values = array($FriendsLanding->slogan,$FriendsLanding->friendMessage,$FriendsLanding->rewardMessage1,$FriendsLanding->rewardMessage2);
-        $FriendsLanding->id = DbManager::insertAndReturnId("Friendlanding", $names, $values);
+        $FriendsLanding->id = DbManager::insertAndReturnId("friendlanding", $names, $values);
         //Tomer - TODO - need to seperate this function to a different function/Interface
         $names = array("campaignId", "FriendlandingID");
         $values = array($campaign->id, $FriendsLanding->id);

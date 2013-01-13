@@ -17,7 +17,7 @@ class PdoCampaignDao implements ICampaignDao
 
     public function isCampaignExists($campaign)
     {
-        $rows = DbManager::selectValues("SELECT id FROM campaign WHERE code=?",
+        $rows = DbManager::selectValues("SELECT id FROM Campaign WHERE code=?",
             array(new DbParameter($campaign->code, PDO::PARAM_STR)));
 
         if (!isset($rows))
@@ -36,8 +36,8 @@ class PdoCampaignDao implements ICampaignDao
         $selectParam = new DbParameter(null, PDO::PARAM_INT);
         //TO DO- This Should be Changed so the Join will be on the What is now the StoreBranch
         $selectClause = "SELECT c.id, c.code, c.description,c.store, c.landingUrl
-              FROM campaign c
-                    INNER JOIN storebranch s
+              FROM Campaign c
+                    INNER JOIN StoreBranch s
                     ON c.store = s.id ";
 
         if ($campaignFilter->campId)
@@ -99,7 +99,7 @@ class PdoCampaignDao implements ICampaignDao
         $values = array($campaign->store->id, $campaign->code,
             $campaign->description, $campaign->landingUrl);
 
-        $campaign->id = DbManager::insertAndReturnId("campaign", $names, $values);
+        $campaign->id = DbManager::insertAndReturnId("Campaign", $names, $values);
 
         //Tomer - I dont think it is good to Call from Dao To Dao, this part should be part of the Business logic
         foreach ($campaign->landings as $leaderLanding)
@@ -111,7 +111,7 @@ class PdoCampaignDao implements ICampaignDao
 
     public function updateCampaign($campaign)
     {
-        $sql = "UPDATE campaign SET desc=:desc, landingUrl=:landingUrl  WHERE store=:store AND code=:code";
+        $sql = "UPDATE Campaign SET desc=:desc, landingUrl=:landingUrl  WHERE store=:store AND code=:code";
 
         $params = array(':store'      => $campaign->store,
                         ':code'       => $campaign->code,
