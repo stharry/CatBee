@@ -4,7 +4,13 @@ $(document).ready(function () {
     $('.facebook-form').hide();
     $('#ContactsArea').hide();
 
-    FB.init({appId: "194177057387274", status: true, cookie: true});
+    TribZi.shortenLink(TribZi.deal.fbcContext.link,
+        function(shortLink){
+
+            TribZi.deal.fbcContext.link = shortLink;
+        });
+
+    FB.init({appId: TribZi.deal.fbcContext.application.applicationCode, status: true, cookie: true});
 
     $("#facebookShare").click(function () {
 
