@@ -80,8 +80,6 @@ TribZi = {
 
         var sharePoint = url;
 
-        this.requestResult = null;
-
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         }
@@ -90,13 +88,13 @@ TribZi = {
         }
         xmlhttp.onreadystatechange = function () {
 
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200 &&
-                this.requestResult == null) {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            {
                 try {
-                    this.requestResult = JSON.parse(xmlhttp.responseText);
+                    var requestResult = JSON.parse(xmlhttp.responseText);
 
                     if (callback !== null) {
-                        callback(this.requestResult);
+                        callback(requestResult);
                     }
                 }
                 catch (e) {

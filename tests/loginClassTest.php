@@ -1,5 +1,5 @@
 <?php
-echo gethostname().'</p>';
+
 echo json_encode($_SERVER);
 exit;
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");

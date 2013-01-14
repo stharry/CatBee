@@ -58,7 +58,7 @@ class PdoDealShareDao implements IDealShareDao
             $share->status,
             $share->reward->id);
 
-        $share->id = DbManager::insertAndReturnId("activeShare", $names, $values);
+        $share->id = DbManager::insertAndReturnId("ActiveShare", $names, $values);
     }
 
     public function updateDealShare($share)

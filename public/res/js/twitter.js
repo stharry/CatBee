@@ -2,8 +2,13 @@ $(document).ready(function () {
 
     var host = TribZi.deal.sharePoint.toString().replace(/^(.*\/\/[^\/?#]*).*$/, "$1");
 
-    try {
-            load(host + '/public/res/js/min/anywhere.js?id=' + TribZi.deal.twitContext.application.applicationCode + '&v=1');
+    try
+    {
+        if (host.toLowerCase().indexOf('/CatBee') == -1)
+        {
+            host = host + '/CatBee';
+        }
+        load(host + '/public/res/js/min/anywhere.js?id=' + TribZi.deal.twitContext.application.applicationCode + '&v=1');
     }
     catch (e) {
         alert(e);

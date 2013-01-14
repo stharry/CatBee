@@ -10,7 +10,9 @@ $(document).ready(function () {
             TribZi.deal.fbcContext.link = shortLink;
         });
 
-    FB.init({appId: TribZi.deal.fbcContext.application.applicationCode, status: true, cookie: true});
+    FB.init({appId: '345229122250809',//TribZi.deal.fbcContext.application.applicationCode,
+                status: true,
+                cookie: true});
 
     $("#facebookShare").click(function () {
 

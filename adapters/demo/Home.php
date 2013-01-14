@@ -31,7 +31,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
 
 <a
         id="autostart"
-        href="/CatBee/adapters/demo/demoActions/<?= $GLOBALS["page"] ?>"
+        href="/CatBee/adapters/demo/demoActions/<?php echo  $GLOBALS["page"] ?>"
 
         ></a>
 <div id="Homefake" style="position:absolute;left:900px;top:200px;"> </div>
@@ -42,7 +42,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
         buttons: [
             {
                 name: "Next",
-                onclick: function(){window.location="/CatBee/adapters/demo/HomeAutoStart.php?sid=<?= $_GET['sid'] ?>";}
+                onclick: function(){window.location="/CatBee/adapters/demo/HomeAutoStart.php?sid=<?php echo  $_GET['sid'] ?>";}
             }
         ],
         description: "The referred friend will be instructed how to Redeem the Reward",

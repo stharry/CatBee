@@ -6,7 +6,12 @@ require_once('CatBeeClassLoader.php');
 
 $dirBase = $_SERVER['DOCUMENT_ROOT']."/CatBee";
 
-$catBeeParams = parse_ini_file($dirBase."/config/config.ini");
+$catBeeParams = parse_ini_file($dirBase."/Config/config.ini");
+
+if (!$catBeeParams)
+{
+    die('dir '.$catBeeParams.'Ini reading failed');
+}
 
 $dbhost = $catBeeParams["catbee_db_host"];
 $dbusername = $catBeeParams["catbee_db_user"];

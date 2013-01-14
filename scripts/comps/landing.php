@@ -1,8 +1,8 @@
 <div class="box-content rounded-bottom box-shadow">
     <div class="inner-box-content-wrapper rounded-bottom">
         <div class="inner-box-content rounded-bottom">
-            <div class="slider-desc"><?=$p->landing->firstSliderLine?></div>
-            <div class="slider-desc"><?=$p->landing->secondSliderLine?></div>
+            <div class="slider-desc"><?php echo $p->landing->firstSliderLine?></div>
+            <div class="slider-desc"><?php echo $p->landing->secondSliderLine?></div>
 
             <div class="slider-wrapper">
                 <div class="icons_wrapper clearfix">
@@ -17,7 +17,7 @@
                     {
                         $left = round($divNo / (count($p->landing->landingRewards) - 1) * 100);
                     ?>
-                        <div class="unit" style="left: <?=$left?>%;"></div>
+                        <div class="unit" style="left: <?php echo $left?>%;"></div>
 
                     <?php
                     }
@@ -28,15 +28,15 @@
 
             <div class="gifts">
                 <div id="leaderArea"><label id="LeaderRewardPhrase"
-                            for="LeaderReward"><?=$p->landing->landingRewards[0]->leaderReward->description?></label>
+                            for="LeaderReward"><?php echo $p->landing->landingRewards[0]->leaderReward->description?></label>
                     <input id="LeaderReward" readonly="readonly"/>
-                  <?=$p->landing->landingRewards[0]->leaderReward->typeDescription?>
+                  <?php echo $p->landing->landingRewards[0]->leaderReward->typeDescription?>
                 </div>
 
                 <div id="friendArea"><label id="FriendRewardPhrase"
-                            for="FriendReward"><?=$p->landing->landingRewards[0]->friendReward->description?></label>
+                            for="FriendReward"><?php echo $p->landing->landingRewards[0]->friendReward->description?></label>
                     <input id="FriendReward" readonly="readonly"/>
-                    <?=$p->landing->landingRewards[0]->friendReward->typeDescription?>
+                    <?php echo $p->landing->landingRewards[0]->friendReward->typeDescription?>
                 </div>
 
             </div>

@@ -5,5 +5,5 @@
 ?>
 
 <div id="sliderOptions" height=0 width=0 style="display: none;">
-    <div id="catBeeData"><?=$catBeeData?></div>
+    <div id="catBeeData"><?php echo $catBeeData?></div>
 </div>

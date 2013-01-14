@@ -31,7 +31,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
 
 <a
         id="autostart"
-        href="/CatBee/adapters/demo/demoActions/goWelcome.php?sid=<?= $_GET['sid'] ?>"
+        href="/CatBee/adapters/demo/demoActions/goWelcome.php?sid=<?php echo  $_GET['sid'] ?>"
 
         ></a>
 
