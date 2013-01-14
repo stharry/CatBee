@@ -62,7 +62,7 @@ class PdoCampaignRestrictionsDao implements ICampaignRestrictionsDao
         $select = "SELECT r.id, r.name, r.description, r.code, r.expression
                     FROM CampaignRestrictions r
                     INNER JOIN Campaign c ON r.campaignId = c.id
-                     INNER JOIN Deal d ON c.id = d.campaignId
+                     INNER JOIN deal d ON c.id = d.campaignId
                      INNER JOIN ActiveShare a ON a.dealId = d.id
                      WHERE a.id = {$id}";
 

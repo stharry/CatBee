@@ -65,7 +65,7 @@ class PdoDealShareDao implements IDealShareDao
     {
         $value = $this->unionAllSendTo($share->currentTarget->to);
 
-        $update = "UPDATE activeShare
+        $update = "UPDATE ActiveShare
           SET status={$share->status}, value='{$value}'
                     WHERE uid={$share->context->uid}";
         $params = array();
@@ -79,7 +79,7 @@ class PdoDealShareDao implements IDealShareDao
         try
         {
             $select = "SELECT dealId, shareType, status, landRewardId, value
-                        FROM activeShare WHERE uid=?";
+                        FROM ActiveShare WHERE uid=?";
 
             $rows = DbManager::selectValues($select,
                                             array(new DbParameter($share->context->uid, PDO::PARAM_STR)));
@@ -118,7 +118,7 @@ class PdoDealShareDao implements IDealShareDao
             if ($getLeads)
             {
                 $select = "SELECT share.id,share.dealId, share.shareType, share.landRewardId, share.value,
-                           share.uid, L.OrderID FROM activeShare share";
+                           share.uid, L.OrderID FROM ActiveShare share";
                 $select = $select . " LEFT JOIN successfulReferral L on Share.id = L.ActiveShareID";
                 $select = $select . " WHERE share.dealid = ? ";
             }
@@ -126,7 +126,7 @@ class PdoDealShareDao implements IDealShareDao
             {
                 $select = "SELECT share.dealId, share.shareType, share.status, share.landRewardId,
                                   share.value, share.uid
-                            FROM activeShare share";
+                            FROM ActiveShare share";
                 $select = $select . " WHERE share.dealid = ? ";
             }
             $select     = $select . " and share.status=2";

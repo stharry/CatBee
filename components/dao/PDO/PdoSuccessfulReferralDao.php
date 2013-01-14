@@ -5,7 +5,7 @@ class PdoSuccessfulReferralDao implements ISuccessfulReferralDao
 
     public function SaveReferral($order)
     {
-        $rows = DbManager::selectValues("SELECT id from activeShare WHERE uid =? ",
+        $rows = DbManager::selectValues("SELECT id from ActiveShare WHERE uid =? ",
                                         array(new DbParameter($order->successfulReferral, PDO::PARAM_INT)));
 
         $names = array("ActiveShareID", "orderID");
