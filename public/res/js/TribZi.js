@@ -1,18 +1,20 @@
 TribZi = {
 
-    init:function (text) {
-        this.deal = text;
+    init:function (params) {
+        this.deal = params.deal;
         this.selectedRewardIndex = 0;
         this.targets = [];
         this.sharedTimes = 0;
+        this.sharePoint = params.sharePoint;
         return this;
     },
 
-    initFriendDeal:function (text) {
-        this.friendDeal = text;
+    initFriendDeal:function (params) {
+        this.friendDeal = params.friendDeal;
         this.selectedRewardIndex = 0;
         this.targets = [];
         this.sharedTimes = 0;
+        this.sharePoint = params.sharePoint;
         return this;
     },
 
@@ -73,7 +75,7 @@ TribZi = {
 
     requestData:function (data, callback) {
 
-        return this.requestAnyData(this.deal.sharePoint, data, callback);
+        return this.requestAnyData(this.sharePoint, data, callback);
     },
 
     requestAnyData:function (url, data, callback) {
@@ -205,6 +207,16 @@ TribZi = {
 
     injectCoupon:function (elem) {
         $('#' + elem).value($.cookie('CatBeeCpnCod'));
+    },
+
+    getRoot: function()
+    {
+        url = this.sharePoint.toString().replace(/^(.*\/\/[^\/?#]*).*$/, "$1");
+        if (url.toLowerCase().indexOf('/CatBee') == -1)
+        {
+            url = url + '/CatBee';
+        }
+        return url;
     }
 
 }

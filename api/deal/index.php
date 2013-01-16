@@ -58,11 +58,10 @@ try
         new PdoFriendLandingDao(),
         new PdoCustomerDao(),
         new PdoLeaderLandingRewardDao(),
-        new PdoCampaignDao(new PdoLeaderLandingDao(
-                new PdoLeaderLandingRewardDao()),
-            new PdoFriendLandingDao()),
+        $campaignManager,
         new PdoDealShareDao(),
-        new StoreManager(new PdoAdaptorDao(), new PdoStoreBranchDao()),new ImpressionManager(new PdoImpression()));
+        $storeManager,
+        new ImpressionManager(new PdoImpression()));
 
     $discountManager = new DiscountManager(
         $restrictionManager,

@@ -27,7 +27,6 @@ class JsonLeaderDealAdapter implements IModelAdapter
             'order'       => $this->orderAdapter->toArray($obj->order),
             'landing'     => $this->landingPageAdapter->toArray($obj->landing),
             'customer'    => $this->customerAdapter->toArray($obj->customer),
-            'sharePoint'  => $obj->sharePoint,
             'campaign'    => $this->campaignAdapter->toArray($obj->campaign),
             'fbcContext'  => $this->contextAdapter->toArray($obj->fbcContext),
             'twitContext' => $this->contextAdapter->toArray($obj->twitContext)

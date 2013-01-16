@@ -22,7 +22,8 @@ class DealManager implements IDealManager
             $this->successfulReferralManager = $successfulReferralManager;
 
             RestLogger::log("Deal manager created...");
-        } catch (Exception $e)
+        }
+        catch (Exception $e)
         {
             RestLogger::log('EXCEPTION ', $e);
         }
@@ -46,29 +47,40 @@ class DealManager implements IDealManager
 
     private function getCatBeeSharePoint()
     {
-        return $GLOBALS[ "restURL" ] . "/CatBee/api/deal/";
+        return $GLOBALS["restURL"] . "/CatBee/api/deal/";
 
     }
 
     private function showLeaderDeal($leaderDeal)
     {
-        $GLOBALS[ "leaderDeal" ] = $leaderDeal;
+        $GLOBALS["leaderDeal"] = $leaderDeal;
 
-        catbeeLayoutComp($layout, "landing", $leaderDeal);
-        catbeeLayoutComp($layout, "share", $leaderDeal);
-        catbeeLayoutComp($layout, "mailForm", $leaderDeal);
-        catbeeLayoutComp($layout, "facebookForm", $leaderDeal);
-        catbeeLayoutComp($layout, "twittForm", $leaderDeal);
+        $sharePoint = $this->getCatBeeSharePoint();
+
+        $dealAdapter = new JsonLeaderDealAdapter();
+        $dealProps   = $dealAdapter->toArray($leaderDeal);
+
+        $tribziParams = json_encode(
+            array("deal"       => $dealProps,
+                  "sharePoint" => $sharePoint));
+
+        $layoutParams = array($leaderDeal, $tribziParams);
+
+        catbeeLayoutComp($layout, "landing", $layoutParams);
+        catbeeLayoutComp($layout, "share", $layoutParams);
+        catbeeLayoutComp($layout, "mailForm", $layoutParams);
+        catbeeLayoutComp($layout, "facebookForm", $layoutParams);
+        catbeeLayoutComp($layout, "twittForm", $layoutParams);
         //catbeeLayoutComp($layout, "sliderOptions", $leaderDeal);
-        catbeeLayout($layout, 'landing');
 
+
+        catbeeLayout($layout, 'landing');
     }
 
     private function refreshDealProps($leaderDeal, $landing, $order)
     {
-        $leaderDeal->sharePoint = $this->getCatBeeSharePoint();
-        $leaderDeal->landing    = $landing;
-        $leaderDeal->order      = $order;
+        $leaderDeal->landing = $landing;
+        $leaderDeal->order   = $order;
     }
 
     private function createPendingDeal($landing, $order, $campaign)
@@ -88,8 +100,12 @@ class DealManager implements IDealManager
                 $leaderDeal = new LeaderDeal();
 
                 $leaderDeal->customer = $order->customer;
-                if ($order->date != null) $leaderDeal->InitDate = $order->date;
-                else $leaderDeal->InitDate = date("Y-m-d h:i:s");
+                if ($order->date != null) {
+                    $leaderDeal->InitDate = $order->date;
+                }
+                else {
+                    $leaderDeal->InitDate = date("Y-m-d h:i:s");
+                }
                 $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
 
                 $this->refreshDealProps($leaderDeal, $landing, $order);
@@ -104,7 +120,8 @@ class DealManager implements IDealManager
             }
 
             return $leaderDeal;
-        } catch (Exception $e)
+        }
+        catch (Exception $e)
         {
             RestLogger::log("Exception: " . $e->getMessage());
             throw new Exception("", 0, $e);
@@ -164,6 +181,7 @@ class DealManager implements IDealManager
 
         }
         RestLogger::log('DelManager::getDeals ', $leaderDeals);
+
         return $leaderDeals;
     }
 
@@ -219,7 +237,8 @@ class DealManager implements IDealManager
             $this->shareManager->fillShare($share);
 
             RestLogger::log('DealManager::fillDealShare after', $share);
-        } catch (Exception $e)
+        }
+        catch (Exception $e)
         {
             RestLogger::log($e->getMessage());
         }
@@ -248,7 +267,7 @@ class DealManager implements IDealManager
             $campaignFilter->code = $share->deal->campaign->code;
 
             $campaigns             = $this->campaignManager->getCampaigns($campaignFilter);
-            $share->deal->campaign = $campaigns[ 0 ];
+            $share->deal->campaign = $campaigns[0];
 
             RestLogger::log('DealManager::FillParams campaign by code', $share->deal->campaign);
         }

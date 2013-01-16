@@ -6,16 +6,25 @@ class FriendLandingManager implements IFriendLandingManager
     private $dealDao;
     private $customerDao;
     private $rewardDao;
-    private $campaignDao;
+    private $campaignManager;
     private $dealShareDao;
     private $storeManager;
     private $impressionManager;
+
+    //todo do this common, may be in globals
+    private function getCatBeeSharePoint()
+    {
+        return $GLOBALS["restURL"] . "/CatBee/api/deal/";
+
+    }
 
     private function serializeFriendDeal($friendDeal)
     {
         $friendDealAdapter = new JsonFriendDealAdapter();
 
-        return json_encode($friendDealAdapter->toArray($friendDeal));
+        return json_encode(
+            array("friendDeal" => $friendDealAdapter->toArray($friendDeal),
+                  "sharePoint" => $this->getCatBeeSharePoint()));
     }
 
     private function fillLandingReward($friendDeal)
@@ -33,16 +42,16 @@ class FriendLandingManager implements IFriendLandingManager
     }
 
     function __construct($dealDao, $friendLandingDao,
-                         $customerDao, $rewardDao,
-                         $campDao, $dealShareDao, $storeManager,$impressionManager)
+        $customerDao, $rewardDao,
+        $campaignManager, $dealShareDao, $storeManager, $impressionManager)
     {
-        $this->friendLandingDao = $friendLandingDao;
-        $this->dealDao = $dealDao;
-        $this->customerDao = $customerDao;
-        $this->rewardDao = $rewardDao;
-        $this->campaignDao = $campDao;
-        $this->dealShareDao = $dealShareDao;
-        $this->storeManager = $storeManager;
+        $this->friendLandingDao  = $friendLandingDao;
+        $this->dealDao           = $dealDao;
+        $this->customerDao       = $customerDao;
+        $this->rewardDao         = $rewardDao;
+        $this->campaignManager   = $campaignManager;
+        $this->dealShareDao      = $dealShareDao;
+        $this->storeManager      = $storeManager;
         $this->impressionManager = $impressionManager;
     }
 
@@ -50,18 +59,19 @@ class FriendLandingManager implements IFriendLandingManager
     {
         foreach ($campaign->friendLandings as $friend)
         {
-             $this->friendLandingDao->insertFriendLanding($campaign, $friend);
+            $this->friendLandingDao->insertFriendLanding($campaign, $friend);
         }
 
     }
-    public function showFriendLanding($friendDeal,$Store)
+
+    public function showFriendLanding($friendDeal)
     {
         RestLogger::log('FriendLandingManager::showFriendLanding deal: ', $friendDeal);
-        RestLogger::log('FriendLandingManager::showFriendLanding store: ', $Store);
+        RestLogger::log('FriendLandingManager::showFriendLanding store: ', $friendDeal->order->branch);
 
-        $friendDealStr = $this->serializeFriendDeal($friendDeal);
+        $tribziParams = $this->serializeFriendDeal($friendDeal);
 
-        catbeeLayoutComp($layout, "friendLanding", array($friendDeal, $Store, $friendDealStr));
+        catbeeLayoutComp($layout, "friendLanding", array($friendDeal, $friendDeal->order->branch, $tribziParams));
         //catbeeLayoutComp($layout, "friendLanding", $friendDeal);
         catbeeLayout($layout, 'friendLanding');
     }
@@ -79,17 +89,20 @@ class FriendLandingManager implements IFriendLandingManager
         RestLogger::log("FriendLandingManager::startSharedDeal reward ", $friendDeal->share->reward);
         $friendDeal->friend = $this->customerDao->loadCustomerById($parentDeal->customer);
 
-        $CampaignFilter = new CampaignFilter();
+        $CampaignFilter         = new CampaignFilter();
         $CampaignFilter->campId = $parentDeal->campaign->id;
-        $Camp = $this->campaignDao->getCampaigns($CampaignFilter);
+        $Camp                   = $this->campaignManager->getCampaigns($CampaignFilter);
 
         $this->friendLandingDao->GetFriendLanding($parentDeal->campaign);
         $friendDeal->landing = $parentDeal->campaign->friendLandings[0];
         RestLogger::log("FriendLandingManager::startSharedDeal landing ", $friendDeal->landing);
+
         //Save the Impression
         $this->impressionManager->saveImpression($friendDeal->share);
 
-        $this->showFriendLanding($friendDeal,$Camp[0]->store);
+        $friendDeal->order->branch = $Camp[0]->store;
+        $this->storeManager->validateBranch($friendDeal->order->branch);
+        $this->showFriendLanding($friendDeal);
     }
 
 }

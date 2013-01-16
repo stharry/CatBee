@@ -1,15 +1,3 @@
-<?php
-try
-{
-    $dealAdapter = new JsonLeaderDealAdapter();
-    $dealProps   = $dealAdapter->toArray($GLOBALS[ "leaderDeal" ]);
-    $dealJson    = json_encode($dealProps);
-} catch (Exception $e)
-{
-    RestLogger::log("EXCEPTION", $e);
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +32,7 @@ try
 
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/jcookie.js?reload" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
-    <script language="javascript">TribZi.init(<?php echo $dealJson; ?>);</script>
+    <script language="javascript">TribZi.init(<?php echo $p[0]['params'][1]; ?>);</script>
 <!--    <script src="--><?//= $GLOBALS[ "rootPath" ] ?><!--/res/js/CatBee.js?reload" type="text/javascript"></script>-->
 
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/landing.js?reload" type="text/javascript"></script>

@@ -13,7 +13,7 @@
     <script src="<?php echo  $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
     <script language="javascript">TribZi.initFriendDeal(<?php echo $p[0]['params'][2]; ?>);</script>
 
-    <script src="<?php echo  $GLOBALS[ "rootPath" ] ?>/res/js/friendLanding.js?reload" type="text/javascript"></script>
+    <script src="<?php echo  $GLOBALS[ "catBeePath" ].'adapters/installs/shops/'.$p[0]['params'][1]->shopId.'/js/' ?>friendLanding.js?reload" type="text/javascript"></script>
 
     <!--Landing common rendering-->
     <link href="<?php echo  $GLOBALS["rootPath"] ?>/res/css/friendLanding.css?reload" rel="stylesheet" type="text/css"/>
@@ -24,7 +24,7 @@
     <div class="box box-shadow rounded-corners friend-landing" >
         <div  class="separator">
             <div class="inner-box-content-2 rounded-corners clearfix">
-                <div class="product-pic"><img class="rounded-corners" src="<?php echo  $GLOBALS["rootPath"] ?>/res/images/dummy_pic.png" alt="" /></div>
+                <div class="product-pic"><img class="rounded-corners" id="productImage" alt="" /></div>
                 <?php
                 catbeeRender($p);
                 ?>

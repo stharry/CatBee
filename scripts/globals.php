@@ -23,7 +23,8 @@ $smtpport = $catBeeParams["catbee_email_hostport"];
 $smtpuser = $catBeeParams["catbee_email_hostuser"];
 $smtppass = $catBeeParams["catbee_email_hostpass"];
 
-$rootPath = "/CatBee/public/";
+$catBeePath = "/CatBee/";
+$rootPath = $catBeePath."public/";
 
 $restURL = isset($catBeeParams['Rest_url'])
     ? $catBeeParams['Rest_url']
