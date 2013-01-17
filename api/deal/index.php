@@ -121,7 +121,6 @@ try
             //Currently Hard Coded true
             $dealFilter->ActiveShareFlag = true;
             $deals = $dealManager->getDeals($dealFilter);
-
             $dealsAdapter = new JsonLeaderDealsAdapter();
             RestUtils::sendSuccessResponse($dealsAdapter->toArray($deals));
             exit;

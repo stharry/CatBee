@@ -78,7 +78,7 @@ class PdoDealShareDao implements IDealShareDao
         //TODO - Merge this Function with the function GetDealsShares
         try
         {
-            $select = "SELECT dealId, shareType, status, landRewardId, value
+            $select = "SELECT id,dealId, shareType, status, landRewardId, value
                         FROM ActiveShare WHERE uid=?";
 
             $rows = DbManager::selectValues($select,
@@ -90,7 +90,7 @@ class PdoDealShareDao implements IDealShareDao
 
                 return;
             }
-
+            $share->id  =  $rows[0]['id'];
             $share->deal     = new LeaderDeal();
             $share->deal->id = $rows[0]['dealId'];
 

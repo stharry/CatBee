@@ -9,9 +9,13 @@ $friendDealTemplate = json_decode(file_get_contents("res/friendDeal.json"));
 
 $restUtils = new RestUtils();
 
-$temp = $restUtils->SendPostRequest("deal", "", $friendDealTemplate);
+$temp = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $friendDealTemplate), true);
 
-if($temp !=null)
-    echo "5";
+$friendDeal = array('action'=>'friend Deal',
+    'context' => array(
+        'share' => array('context' => array('uid' =>  $temp[0]['leads'][0]['uid']))));
+
+$restUtils->SendPostRequest("deal", "", $friendDeal);
+
 
 
