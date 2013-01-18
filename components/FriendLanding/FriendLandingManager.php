@@ -80,7 +80,6 @@ class FriendLandingManager implements IFriendLandingManager
     {
         RestLogger::log("FriendLandingManager::startSharedDeal before", $friendDeal);
         //TODO - combine to 3 below call to one DB call
-
         $this->getShareById($friendDeal);
         $parentDeal = $this->dealDao->getDealById($friendDeal->share->deal->id);
         RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
