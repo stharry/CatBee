@@ -217,7 +217,26 @@ TribZi = {
             url = url + '/CatBee';
         }
         return url;
+    },
+
+    addToWindowName: function(str)
+    {
+        var index = window.name.indexOf('#');
+
+        if (index > 0)
+        {
+            var currName = window.name.substr(0, index);
+            window.name = currName + '#' + str;
+        }
+        else
+        {
+            window.name =  window.name + '#' + str;
+
+        }
+        return this;
+
     }
 
-}
+
+};
 window.TribZi = TribZi;

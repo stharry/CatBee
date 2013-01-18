@@ -23,12 +23,48 @@ $(document).ready(function() {
                     $(this).slider("value", ui.value-1)
                 }
             }
+			if(ui.value == 0)
+			{
+				//Cat needs to be yellow.
+				$('.cat_icon').css({
+					'background-position' : '-154px 0px'
+				});
+				
+				$('.bee_icon').css({
+					'background-position' : '-283px 0px'
+				});
+			}
+			else if(ui.value == $(this).data("slider").options.max)
+			{
+				$('.cat_icon').css({
+					'background-position' : '-77px 0px'
+				});
+				$('.bee_icon').css({
+					'background-position' : '-335px 0px'
+				});
+			}
+			else
+			{
+				$('.cat_icon').css({
+					'background-position' : '0px 0px'
+				});
+				$('.bee_icon').css({
+					'background-position' : '-232px 0px'
+				});
+			}
         }
     });
 
     $('.cat_icon').dblclick(function(){
 
         $("#slider").slider('value', 0);
+		$('.cat_icon').css({
+			'background-position' : '-154px 0px'
+		});
+		
+		$('.bee_icon').css({
+			'background-position' : '-283px 0px'
+		});
     });
 
     $('.cat_icon').click(function(){
@@ -44,6 +80,12 @@ $(document).ready(function() {
     $('.bee_icon').dblclick(function(){
 
         $("#slider").slider('value', TribZi.deal.landing.landingRewards.length - 1);
+		$('.cat_icon').css({
+			'background-position' : '-77px 0px'
+		});
+		$('.bee_icon').css({
+			'background-position' : '-335px 0px'
+		});
     });
 
     $('.bee_icon').click(function(){
@@ -94,13 +136,21 @@ $(document).ready(function() {
     $('.share-box a[rel="email"]').click(function(){
 
         var target = $(this);
-        if( $('.email-form').css('display') == 'none' ){
+        if( $('.email-form').css('display') == 'none' )
+		{
+			$('#tbox').css('display', 'none');
+			$('#tbox_bottom').css('display', 'none');
+			$('#share_list').find('li').removeClass('active');
+			$(this).parent().addClass('active');
             //I know this is not the Way yo Call a relative URL..
-            $('.box-wrapper').css({height:'740px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'});
+            /* $('.box-wrapper').css({height:'740px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'}); */
             $("#message").val(TribZi.deal.landing.customMessage);
-        }else{
+        }
+		else
+		{
             //I know this is not the Way yo Call a relative URL..
-            $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
+            /* $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'}); */
+			$(this).parent().removeClass('active');
         }
         $('.email-form').slideToggle("fast", function(){
             if( $('.email-form').css('display') == 'none' ){
@@ -113,7 +163,7 @@ $(document).ready(function() {
             goToByScroll('email-form');
         });
 
-        $.fancybox.reshow();
+        //$.fancybox.reshow();
 
     });
 
@@ -158,12 +208,16 @@ function openWindow(){
 function updateRewards(sliderVal) {
 
     $('#LeaderRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.description);
-    $('#LeaderReward').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
+    $('#LeaderReward').val('$'+TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
     $('#leaderArea').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
+	
+	$('#info_you').html('$'+TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
 
     $('#FriendRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].friendReward.description);
-    $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
+    $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value+'%');
     $('#FriendArea').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
 
+	$('#percent_friends').html(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value+'%');
+	
     TribZi.setRewardIndex(sliderVal);
 }

@@ -10,6 +10,23 @@
     <link href="<?php echo $GLOBALS[ "rootPath" ] ?>/res/css/style.css?reload" rel="stylesheet" type="text/css"/>
     <!--email rendering-->
 
+	<!--[if IE 7]>
+		<style type="text/css">
+			#slider{ margin-top: 10px;}
+		</style>
+	<![endif]-->
+	<!--[if IE]>
+		<style type="text/css">
+			#slider-blue-content{
+				left: 0px;
+			}
+			#share_list li a{
+				width: 131px;
+				height: 37px;
+			}
+		</style>
+	<![endif]-->
+	
     <link rel="stylesheet" type="text/css" media="all"
           href="<?php echo $GLOBALS[ "rootPath" ] ?>/res/css/emailForm.css?reload">
     <link rel="stylesheet" type="text/css" media="all"
@@ -23,6 +40,14 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	
+	<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		var csPageOptions = {
+			domain_key:"YEU5HPFC64DXS6XPBRDF", 
+			textarea_id:"message"
+		};
+	</script>
 
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/dev/chain-dev.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/dev/load-dev.js?v=1" type="text/javascript"></script>
@@ -34,7 +59,6 @@
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
     <script language="javascript">TribZi.init(<?php echo $p[0]['params'][1]; ?>);</script>
 <!--    <script src="--><?//= $GLOBALS[ "rootPath" ] ?><!--/res/js/CatBee.js?reload" type="text/javascript"></script>-->
-
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/landing.js?reload" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/email.js?reload" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/facebook.js?reload" type="text/javascript"></script>
@@ -45,18 +69,39 @@
 </head>
 <body>
 <div class="box-wrapper">
-    <div class="box box-shadow rounded-corners">
-        <div class="box-title rounded-top">
-            <div class="inner-box rounded-top">
-                <div class="box-header rounded-top">
-                    <h2 class="title"><?php echo $GLOBALS[ "leaderDeal" ]->landing->firstSloganLine ?></h2>
+	<!--
+		Remove rounded corners
+	-->
+    <div class="box"><!-- box-shadow -->
+        <div class="box-title">
+            <div class="inner-box">
+                <div class="box-header">
+                    <?php
+					/*
+					<h2 class="title"><?php echo $GLOBALS[ "leaderDeal" ]->landing->firstSloganLine ?></h2>
                     <h4 class="title"><?php echo $GLOBALS[ "leaderDeal" ]->landing->secondSloganLine ?></h4>
+					*/
+					?>
+					<ul>
+						<li class="slogan-text">
+							<h3>Play</h3>
+							<p>the slider</p>
+						</li>
+						<li class="plus"><span>+</span></li>
+						<li class="slogan-text">
+							<h3>Share</h3>
+							<p>with your Tribe</p>
+						</li>
+						<li class="plus"><span>+</span></li>
+						<li class="slogan-text">
+							<h3>Enjoy</h3>
+							<p>great rewards</p>
+						</li>
+					</ul>
                 </div>
             </div>
         </div>
-        <?php
-        catbeeRender($p);
-        ?>
+        <?php catbeeRender($p); ?>
     </div>
 </div>
 </body>
