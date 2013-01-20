@@ -161,7 +161,10 @@ $(document).ready(function() {
                 $('.share-hover .'+target.attr('rel')).addClass('active');
             }
             goToByScroll('email-form');
+
+            TribZi.addToWindowName('h=' + $('.box').css('height'));
         });
+
 
         //$.fancybox.reshow();
 

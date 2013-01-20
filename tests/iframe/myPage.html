@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css"/>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#clickToClose').click(
+                    function() {
+                        window.parent.$("#modalDiv").dialog('close');
+                        return false;
+                    });
+            // uncomment and use the below line close when document is ready (no click action by user needed)
+            // the same call could be put elsewhere depending on desired functionality (after successful form submit, etc.)
+            // window.parent.$("#modalDiv").dialog('close');
+        });
+    </script>
+</head>
+<body>
+<a id="clickToClose" href="#">Click to close.</a>
+</body>
+</html>

@@ -103,7 +103,10 @@ $(document).ready(function () {
 			$('#tbox_bottom').hide();
 
             $('.box-wrapper').css({height:boxHeight + 'px', background:'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
-        }
+        };
+
+        TribZi.addToWindowName('h=' + $('.box').css('height'));
+
 //        $('#tbox').slideToggle("fast", function(){
 //            if( $('#tbox').css('display') == 'none' ){
 //                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
