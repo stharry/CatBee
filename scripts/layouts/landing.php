@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,7 @@
 			}
 		</style>
 	<![endif]-->
-	
+
     <link rel="stylesheet" type="text/css" media="all"
           href="<?php echo $GLOBALS[ "rootPath" ] ?>/res/css/emailForm.css?reload">
     <link rel="stylesheet" type="text/css" media="all"
@@ -40,11 +41,11 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-	
+
 	<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		var csPageOptions = {
-			domain_key:"YEU5HPFC64DXS6XPBRDF", 
+			domain_key:"YEU5HPFC64DXS6XPBRDF",
 			textarea_id:"message"
 		};
 	</script>

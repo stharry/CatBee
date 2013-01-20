@@ -2,74 +2,14 @@
 <head>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/adapters/installs/Embedded_FanForToys.js?reload"></script>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css"/>
+    <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/adapters/installs/Embedded_Magento.js?reload&id=101&ot=120&cn=danny&ce=danny.t.leader@gmail.com"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-
-            $("#modalDiv").dialog({
-                modal: true,
-                autoOpen: false,
-                position:'center',
-                height: '340',
-                //height: 'auto',
-                //width: 'auto',
-                width: '430',
-                draggable: false,
-                resizable: false,
-                dialogClass: 'tribziDialog',
-                //resizeable: false,
-                title: 'IFrame Modal Dialog'
-            });
-
-            $('.tribziDialog div.ui-dialog-titlebar').hide();
-            $('#modalDiv').css('overflow', 'hidden');
-
-            url = TribZiEmbd.buildUri();//'myPage.html';
-            $("#modalDiv").dialog("open");
-            $("#catbeeFrame").attr('src',url);
-
-            setTimeout(checkIFrame, 200);
-
-
-        });
-
-        function checkIFrame()
-        {
-            var command = document.getElementById('catbeeFrame').contentWindow.name
-            if (command.indexOf('#') >= 0)
-            {
-                command = command.substr(command.indexOf('#') + 1);
-
-                pairs = command.split(';');
-                params = [];
-
-                for (var i = 0; i < pairs.length; i++)
-                {
-                    pair = pairs[i].split('=');
-                    params[pair[0]] = pair[1];
-                }
-
-                if ((params['act']) && (params['act'] == 'resize'))
-                {
-                    var sizes = {
-                        height : params['h'],
-                        width : params['w']
-                    };
-                    $('.ui-dialog').css(sizes);
-                    $('#modalDiv').css(sizes);
-                }
-                document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
-            }
-            setTimeout(checkIFrame, 200);
-        };
-    </script>
-</head>
+ </head>
 <body>
+
+
 <a id="goToMyPage" href="#">Go to My Page</a>
-<div id="modalDiv" style="padding: 0; width: 430; height: 340; top: 300"><iframe id="catbeeFrame" width="100%" height="100%" marginWidth="0" marginHeight="0" frameBorder="0" scrolling="auto" title="Dialog Title"></iframe></div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <a href="http://www.w3schools.com" style="left: 200; top: 800">Visit                                                               W3Schools.com!</a>

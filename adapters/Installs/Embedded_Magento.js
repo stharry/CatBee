@@ -1,21 +1,39 @@
 TribZiEmbd = {
+
+    getScriptParams: function(){
+
+        var all_script_tags = document.getElementsByTagName('script');
+        var script_tag = all_script_tags[all_script_tags.length - 1];
+
+        var query = script_tag.src.replace(/^[^\?]+\??/,'');
+
+        var vars = query.split("&");
+        var args = {};
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            args[pair[0]] = decodeURI(pair[1]).replace(/\+/g, ' ');  // decodeURI doesn't expand "+" to a space
+        }
+        return args;
+    },
+
     getOrderJson:function () {
+
+        var args = this.getScriptParams();
         return {
-            amount:'76.00',
-            id:'123',
-            items:[
-                {
-                    itemcode:'1234567890',
-                    url:'http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg',
-                    price:'76.00',
-                    description:'toy'
-                }
-            ],
+            amount:args['ot'],
+            id:args['id'],
+            //todo
+//            items:[
+//                {
+//                    itemcode:'1234567890',
+//                    url:'http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg',
+//                    price:'76.00',
+//                    description:'toy'
+//                }
+//            ],
             customer:{
-                email:'danny.t.leader@gmail.com',
-                firstName:'Danny',
-                lastName:'Leader',
-                nickName:'leader'
+                email:args['ce'],
+                firstName:args['cn']
             },
             branch:{
                 shopId:'1',

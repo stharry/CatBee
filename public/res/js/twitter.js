@@ -122,4 +122,5 @@ $(document).ready(function () {
 
     });
 
+    TribZi.resizeFrame(3, 3);
 });

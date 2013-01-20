@@ -152,18 +152,27 @@ $(document).ready(function() {
             /* $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'}); */
 			$(this).parent().removeClass('active');
         }
-        $('.email-form').slideToggle("fast", function(){
-            if( $('.email-form').css('display') == 'none' ){
-                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
-                $('.share-hover .'+target.attr('rel')).removeClass('active');
-            }else{
-                $('.share-hover .'+target.attr('rel')).css('visibility', 'visible');
-                $('.share-hover .'+target.attr('rel')).addClass('active');
-            }
-            goToByScroll('email-form');
-
-            TribZi.resizeFrame();
-        });
+//        $('.email-form').slideToggle("fast", function(){
+//            if( $('.email-form').css('display') == 'none' ){
+//                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
+//                $('.share-hover .'+target.attr('rel')).removeClass('active');
+//            }else{
+//                $('.share-hover .'+target.attr('rel')).css('visibility', 'visible');
+//                $('.share-hover .'+target.attr('rel')).addClass('active');
+//            }
+//            goToByScroll('email-form');
+//
+//
+//            TribZi.resizeFrame();
+//        });
+        if( $('.email-form').css('display') == 'none' ){
+            $('.email-form').show();
+        }
+        else
+        {
+            $('.email-form').hide();
+        }
+        TribZi.resizeFrame(2, 2);
 
 
         //$.fancybox.reshow();
@@ -190,6 +199,7 @@ $(document).ready(function() {
             }
         });
     });
+
 
 });
 function updateBoxPosition(){
