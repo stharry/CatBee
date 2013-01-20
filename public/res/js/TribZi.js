@@ -235,6 +235,39 @@ TribZi = {
         }
         return this;
 
+    },
+
+    resizeFrame: function(widthOffset, heightOffset)
+    {
+        var newWidth = parseInt($('.box').css('width').replace('px', ''));
+        var newHeight = parseInt($('.box').css('height').replace('px', ''));
+
+        if (widthOffset)
+        {
+            newWidth += widthOffset;
+        }
+
+        if (heightOffset)
+        {
+            newHeight += heightOffset;
+        }
+
+        var str = "act=resize;w=" + newWidth + "px;h=" + newHeight + "px";
+
+        var index = window.name.indexOf('#');
+
+        if (index > 0)
+        {
+            var currName = window.name.substr(0, index);
+            window.name = currName + '#' + str;
+        }
+        else
+        {
+            window.name =  window.name + '#' + str;
+
+        }
+        return this;
+
     }
 
 

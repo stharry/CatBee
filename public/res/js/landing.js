@@ -162,7 +162,7 @@ $(document).ready(function() {
             }
             goToByScroll('email-form');
 
-            TribZi.addToWindowName('h=' + $('.box').css('height'));
+            TribZi.resizeFrame();
         });
 
 

@@ -25,6 +25,7 @@
             });
 
             $('.tribziDialog div.ui-dialog-titlebar').hide();
+            $('#modalDiv').css('overflow', 'hidden');
 
             url = TribZiEmbd.buildUri();//'myPage.html';
             $("#modalDiv").dialog("open");
@@ -38,7 +39,7 @@
         function checkIFrame()
         {
             var command = document.getElementById('catbeeFrame').contentWindow.name
-            if (command.indexOf('#') > 0)
+            if (command.indexOf('#') >= 0)
             {
                 command = command.substr(command.indexOf('#') + 1);
 
@@ -51,14 +52,14 @@
                     params[pair[0]] = pair[1];
                 }
 
-                if (params['h'])
+                if ((params['act']) && (params['act'] == 'resize'))
                 {
-                    $('.ui-dialog').css({
-                        height : params['h']
-                    });
-                    $('#modalDiv').css({
-                        height : params['h']
-                    });
+                    var sizes = {
+                        height : params['h'],
+                        width : params['w']
+                    };
+                    $('.ui-dialog').css(sizes);
+                    $('#modalDiv').css(sizes);
                 }
                 document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
             }

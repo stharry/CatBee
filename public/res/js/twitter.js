@@ -56,7 +56,7 @@ $(document).ready(function () {
 
                         }
 
-                        alert(1);
+
                         TribZi.share(null);
                     },
 					complete : function (tweetBox) {
@@ -73,6 +73,8 @@ $(document).ready(function () {
 						$('#share_list').find('li').removeClass('active');
 						$('#twitterShare').parent().addClass('active');
 						$('#tbox_bottom').css('display', 'block');
+
+                        TribZi.resizeFrame(null, 2);
 					}
 
                 });
@@ -104,8 +106,7 @@ $(document).ready(function () {
 
             $('.box-wrapper').css({height:boxHeight + 'px', background:'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
         };
-
-        TribZi.addToWindowName('h=' + $('.box').css('height'));
+        TribZi.resizeFrame(null, 2);
 
 //        $('#tbox').slideToggle("fast", function(){
 //            if( $('#tbox').css('display') == 'none' ){
