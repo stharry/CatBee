@@ -20,13 +20,19 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
     <script src="res/demoAdapter.js?reload"></script>
     <link rel="stylesheet" type="text/css" media="all" href="res/index.css?reload">
 
+    <?php if ($page == 'goDeal.php'){?>
+    <script src='/CatBee/adapters/Installs/Embedded_FanForToys.js?reload'></script>
+    <?php }; ?>
+
 </head>
 <body onload="">
 
 <a id="autostart" href="/CatBee/adapters/demo/demoActions/<?php echo  $GLOBALS["page"] ?>" ></a>
 
+<?php if ($page != 'goDeal.php'){?>
 <script type="text/javascript">jQuery(document).ready(function() {
     $("#autostart").trigger('click');
 });</script>
+    <?php }; ?>
 </body>
 </html>
