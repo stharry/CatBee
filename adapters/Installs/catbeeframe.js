@@ -1,6 +1,25 @@
 cbf = {
 
-    parseUri:function (str) {
+    setCookie:function (c_name, value, exdays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+        document.cookie = c_name + "=" + c_value;
+    },
+
+    getCookie:function (c_name) {
+        var i, x, y, ARRcookies = document.cookie.split(";");
+        for (i = 0; i < ARRcookies.length; i++) {
+            x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+            y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+            x = x.replace(/^\s+|\s+$/g, "");
+            if (x == c_name) {
+                return unescape(y);
+            }
+        }
+    },
+
+    parseUri :function (str) {
 
         var opts = {
             strictMode:false,
@@ -29,20 +48,32 @@ cbf = {
         return uri;
     },
 
-    getScriptParams:function () {
+    getScriptParams:function (scriptName) {
 
         var all_script_tags = document.getElementsByTagName('script');
-        var script_tag = all_script_tags[all_script_tags.length - 1];
+        var script_tag = null;
 
-        var query = script_tag.src.replace(/^[^\?]+\??/, '');
-
-        var vars = query.split("&");
-        var args = {};
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            args[pair[0]] = decodeURI(pair[1]).replace(/\+/g, ' ');  // decodeURI doesn't expand "+" to a space
+        for (var i = 0; i < all_script_tags.length; i++) {
+            if (all_script_tags[i].src.toString().indexOf(scriptName) > 0) {
+                script_tag = all_script_tags[i];
+                break;
+            }
         }
-        return args;
+        if (script_tag) {
+            var query = script_tag.src.replace(/^[^\?]+\??/, '');
+
+            var vars = query.split("&");
+            var args = {};
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                args[pair[0]] = decodeURI(pair[1]).replace(/\+/g, ' ');  // decodeURI doesn't expand "+" to a space
+            }
+            return args;
+        }
+        else {
+            return [];
+
+        }
     },
 
     buildUrl:function (params) {
@@ -71,9 +102,10 @@ cbf = {
         jQuery("#closebtn").button({ icons:{ primary:"ui-icon-close" } });
         jQuery('.tribziDialog div.ui-dialog-titlebar').hide();
         jQuery('#modalDiv').css('overflow', 'hidden');
-        jQuery('.tribziDialog').css('overflow', 'hidden');
+        //jQuery('.tribziDialog').css('overflow', 'hidden');
 
         url = this.buildUrl(params);
+
         jQuery("#modalDiv").dialog("open");
         jQuery("#catbeeFrame").attr('src', url);
 
@@ -131,6 +163,13 @@ function checkIFrame() {
                     }
                     case 'close':
                     {
+                        jQuery("#modalDiv").dialog('close');
+                        break;
+                    }
+                    case "cookie":
+                    {
+                        cbf.setCookie(params['n'], params['v'], 1);
+                        //todo set actions as array
                         jQuery("#modalDiv").dialog('close');
                         break;
                     }

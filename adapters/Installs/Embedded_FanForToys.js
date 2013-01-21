@@ -41,12 +41,12 @@ TribZiEmbd = {
 
 window.TribZiEmbd = TribZiEmbd;
 
-$(document).ready(function() {
+jQuery(document).ready(function() {
     var insert = "<div id='modalDiv' style='padding: 0; width: 430; height: 340; top: 300'><iframe id='catbeeFrame' width='100%' height='100%' marginWidth='0' marginHeight='0' frameBorder='0' scrolling='auto' title='Dialog Title'></iframe></div>";
 
-    $('body').append(insert);
+    jQuery('body').append(insert);
 
-    $("#modalDiv").dialog({
+    jQuery("#modalDiv").dialog({
         modal: true,
         autoOpen: false,
         position:'center',
@@ -57,13 +57,13 @@ $(document).ready(function() {
         dialogClass: 'tribziDialog'
     });
 
-    $("#closebtn").button({ icons: { primary: "ui-icon-close" } });
-    $('.tribziDialog div.ui-dialog-titlebar').hide();
-    $('#modalDiv').css('overflow', 'hidden');
+    jQuery("#closebtn").button({ icons: { primary: "ui-icon-close" } });
+    jQuery('.tribziDialog div.ui-dialog-titlebar').hide();
+    jQuery('#modalDiv').css('overflow', 'hidden');
 
     url = TribZiEmbd.buildUri();//'myPage.html';
-    $("#modalDiv").dialog("open");
-    $("#catbeeFrame").attr('src',url);
+    jQuery("#modalDiv").dialog("open");
+    jQuery("#catbeeFrame").attr('src',url);
 
     var cssObj = {
         'position': 'absolute',
@@ -75,10 +75,10 @@ $(document).ready(function() {
         'z-index': '8040',
         'background': 'url(\'http://127.0.0.1:8080/CatBee/public/res/images/fancybox_sprite.png\')'};
 
-    $('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
-    $('.dialog-close-button').css(cssObj)
+    jQuery('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
+    jQuery('.dialog-close-button').css(cssObj)
         .click(function(){
-            $("#modalDiv").dialog('close');});
+            jQuery("#modalDiv").dialog('close');});
 
     setTimeout(checkIFrame, 200);
 
@@ -106,8 +106,8 @@ function checkIFrame()
                     height:params['h'],
                     width:params['w']
                 };
-                $('.ui-dialog').css(sizes);
-                $('#modalDiv').css(sizes);
+                jQuery('.ui-dialog').css(sizes);
+                jQuery('#modalDiv').css(sizes);
             }
             document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
         }

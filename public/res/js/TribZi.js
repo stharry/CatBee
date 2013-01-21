@@ -190,6 +190,8 @@ TribZi = {
         $.cookie('CatBeeCpnCod', this.friendDeal.share.reward.friendReward.code);
         $.cookie('CatBeeCpnVal', this.friendDeal.share.reward.friendReward.value);
         $.cookie('CatBeeRefId', this.friendDeal.share.context.uid);
+
+        this.sendToFrame('act=cookie;n=CatBeeCpnCod;v=' + this.friendDeal.share.reward.friendReward.code);
         return this;
     },
 
