@@ -142,10 +142,10 @@ $(document).ready(function () {
 			$('#tbox_bottom').hide();
 			$('#shadow_div').addClass('inv');
 
-            $('.box-wrapper').css({
-				height:boxHeight + 'px'
-				//background:'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'
-			});
+//            $('.box-wrapper').css({
+//				height:boxHeight + 'px'
+//				//background:'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'
+//			});
         }
         TribZi.resizeFrame(4, 4);
     });

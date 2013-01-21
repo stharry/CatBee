@@ -28,7 +28,7 @@ function getOrderJson() {
 
 }
 
-JQuery(document).ready(function () {
+jQuery(document).ready(function () {
 
     var jsonOrderData = getOrderJson();
     cbf.setupFrame(

@@ -11,7 +11,7 @@ cbf = {
             },
             parser    :{
                 strict:/^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
-                loose :/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|JQuery)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+                loose :/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|jQuery)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
             }
         };
         var o = opts,
@@ -22,8 +22,8 @@ cbf = {
         while (i--) uri[o.key[i]] = m[i] || "";
 
         uri[o.q.name] = {};
-        uri[o.key[12]].replace(o.q.parser, function (JQuery0, JQuery1, JQuery2) {
-            if (JQuery1) uri[o.q.name][JQuery1] = JQuery2;
+        uri[o.key[12]].replace(o.q.parser, function (jQuery0, jQuery1, jQuery2) {
+            if (jQuery1) uri[o.q.name][jQuery1] = jQuery2;
         });
 
         return uri;
@@ -55,9 +55,9 @@ cbf = {
 
         var insert = "<div id='modalDiv' style='padding: 0; width: 430; height: 340; top: 300'><iframe id='catbeeFrame' width='100%' height='100%' marginWidth='0' marginHeight='0' frameBorder='0' scrolling='auto' title='Dialog Title'></iframe></div>";
 
-        JQuery('body').append(insert);
+        jQuery('body').append(insert);
 
-        JQuery("#modalDiv").dialog({
+        jQuery("#modalDiv").dialog({
             modal      :true,
             autoOpen   :false,
             position   :'center',
@@ -68,13 +68,14 @@ cbf = {
             dialogClass:'tribziDialog'
         });
 
-        JQuery("#closebtn").button({ icons:{ primary:"ui-icon-close" } });
-        JQuery('.tribziDialog div.ui-dialog-titlebar').hide();
-        JQuery('#modalDiv').css('overflow', 'hidden');
+        jQuery("#closebtn").button({ icons:{ primary:"ui-icon-close" } });
+        jQuery('.tribziDialog div.ui-dialog-titlebar').hide();
+        jQuery('#modalDiv').css('overflow', 'hidden');
+        jQuery('.tribziDialog').css('overflow', 'hidden');
 
         url = this.buildUrl(params);
-        JQuery("#modalDiv").dialog("open");
-        JQuery("#catbeeFrame").attr('src', url);
+        jQuery("#modalDiv").dialog("open");
+        jQuery("#catbeeFrame").attr('src', url);
 
         var cssObj = {
             'position'  :'absolute',
@@ -87,10 +88,10 @@ cbf = {
             'background':'url(\'http://127.0.0.1:8080/CatBee/public/res/images/fancybox_sprite.png\')'};
 
         if (params.closeButton) {
-            JQuery('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
-            JQuery('.dialog-close-button').css(cssObj)
+            jQuery('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
+            jQuery('.dialog-close-button').css(cssObj)
                 .click(function () {
-                    JQuery("#modalDiv").dialog('close');
+                    jQuery("#modalDiv").dialog('close');
                 });
         }
         setTimeout(checkIFrame, 200);
@@ -124,13 +125,13 @@ function checkIFrame() {
                             height:params['h'],
                             width :params['w']
                         };
-                        JQuery('.ui-dialog').css(sizes);
-                        JQuery('#modalDiv').css(sizes);
+                        jQuery('.ui-dialog').css(sizes);
+                        jQuery('#modalDiv').css(sizes);
                         break;
                     }
                     case 'close':
                     {
-                        JQuery("#modalDiv").dialog('close');
+                        jQuery("#modalDiv").dialog('close');
                         break;
                     }
                 }
