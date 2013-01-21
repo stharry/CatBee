@@ -6,4 +6,11 @@ $(document).ready(function () {
 
     $("#productImage").attr("src", imageSrc);
 
+    TribZi.resizeFrame(3, 3);
+
+    $('.go-btn').click(function(){
+        TribZi.closeFrame();
+    });
+
+
 });
