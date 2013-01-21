@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +13,28 @@
 	<!--[if IE 7]>
 		<style type="text/css">
 			#slider{ margin-top: 10px;}
+			#friendArea{
+				top : 62px;
+				right: 3px;
+			}
+			#leaderArea{
+				top: 62px;
+				left: 22px;
+			}
+		</style>
+	<![endif]-->
+	<!--[if IE 8]>
+		<style type="text/css">
+			.ui-slider-horizontal .ui-slider-handle{
+				margin-left: -15px;
+			}
+		</style>
+	<![endif]-->
+	<!--[if IE 9]>
+		<style type="text/css">
+			.ui-slider-horizontal .ui-slider-handle{
+				
+			}
 		</style>
 	<![endif]-->
 	<!--[if IE]>
@@ -25,9 +46,10 @@
 				width: 131px;
 				height: 37px;
 			}
+			
 		</style>
 	<![endif]-->
-
+	
     <link rel="stylesheet" type="text/css" media="all"
           href="<?php echo $GLOBALS[ "rootPath" ] ?>/res/css/emailForm.css?reload">
     <link rel="stylesheet" type="text/css" media="all"
@@ -41,11 +63,11 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-
+	
 	<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		var csPageOptions = {
-			domain_key:"YEU5HPFC64DXS6XPBRDF",
+			domain_key:"YEU5HPFC64DXS6XPBRDF", 
 			textarea_id:"message"
 		};
 	</script>

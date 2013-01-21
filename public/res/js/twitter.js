@@ -28,6 +28,16 @@ $(document).ready(function () {
 			{
 				$('#emailForm').css('display', 'none');
 			}
+			$('#slider').slider('disable');
+			$('.cat_icon').addClass('dontclick');
+			$('#cat_icon_opacity').addClass('dontclick');
+			$('.bee_icon').addClass('dontclick');
+			$('#bee_icon_opacity').addClass('dontclick');
+			
+			if(typeof TribZi.deal.twitContext.link == 'undefined' || TribZi.deal.twitContext.link == '')
+			{
+				TribZi.deal.twitContext.link = $('#twitter_link').val();
+			}
 			
             var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
 					.parseMessage(TribZi.deal.twitContext.message);
@@ -58,6 +68,24 @@ $(document).ready(function () {
 
 
                         TribZi.share(null);
+						
+						if(TribZi.sharedTimes == 1)
+						{
+							//This is first share, we need to move to email
+							$('#emailShare').click();
+						}
+						else if(TribZi.sharedTimes == 2)
+						{
+							//This is second share, we need to show up the slider and close everything else.
+							$('#slider').slider('enable');
+							var maxValue = parseInt($('#slider').slider('option', 'max'));
+							var halfValue = maxValue/2;
+							$('#slider').slider('value', halfValue);
+							_calculateColor(halfValue);
+							showSuccess();
+							$('#twitterShare').click();
+							TribZi.sharedTimes = 0;
+						}
                     },
 					complete : function (tweetBox) {
 						var cssUrl = window.location.protocol+'//'+window.location.host;
@@ -72,17 +100,28 @@ $(document).ready(function () {
 						
 						$('#share_list').find('li').removeClass('active');
 						$('#twitterShare').parent().addClass('active');
+						
 						$('#tbox_bottom').css('display', 'block');
+						$('#shadow_div').removeClass('inv');
 
-                        TribZi.resizeFrame(null, 2);
+                        TribZi.resizeFrame(4, 4);
 					}
 
                 });
             });
+
         }
 		else
 		{
 			$(this).parent().removeClass('active');
+			$('.cat_icon').removeClass('dontclick');
+			$('#cat_icon_opacity').removeClass('dontclick');
+			$('.bee_icon').removeClass('dontclick');
+			$('#bee_icon_opacity').removeClass('dontclick');
+			/* $('#slider-blue-content').find('.slider-description').removeClass('inv');
+			$('#slider-blue-content').find('.slider-wrapper').removeClass('inv');
+			$('#slider_inactive').addClass('inv'); */
+			$('#slider').slider('enable');
 		}
 
         var target = $(this);
@@ -92,35 +131,32 @@ $(document).ready(function () {
 		{
 
             var boxHeight = $('.box-wrapper').height() + 150;
-            //$('.box-wrapper').css({height:boxHeight + 'px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'});
-
-            //$('#tbox').css({marginTop:5, marginLeft:20});
             $('#tbox').show();
 			$('#tbox_bottom').show();
+			$('#shadow_div').removeClass('inv');
 
         } else {
             var boxHeight = $('.box-wrapper').height() - 150;
 
             $('#tbox').hide();
 			$('#tbox_bottom').hide();
+			$('#shadow_div').addClass('inv');
 
-            $('.box-wrapper').css({height:boxHeight + 'px', background:'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'});
-        };
-        TribZi.resizeFrame(null, 2);
-
-//        $('#tbox').slideToggle("fast", function(){
-//            if( $('#tbox').css('display') == 'none' ){
-//                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
-//                $('.share-hover .'+target.attr('rel')).removeClass('active');
-//            }else{
-//                $('.share-hover .'+target.attr('rel')).css('visibility', 'visible');
-//                $('.share-hover .'+target.attr('rel')).addClass('active');
-//            }
-//            //goToByScroll('email-form');
-//        });
-
-
+            $('.box-wrapper').css({
+				height:boxHeight + 'px'
+				//background:'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'
+			});
+        }
+        TribZi.resizeFrame(4, 4);
     });
+    
+    TribZi.resizeFrame(4, 4);
 
-    TribZi.resizeFrame(3, 3);
+});
+
+$("#twit_it").live('click', function()
+{
+	//tweeting-button button needs to be clicked.
+	$('#tbox').find('iframe').contents().find('#tweeting-button').click();
+	return false;
 });

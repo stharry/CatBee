@@ -28,65 +28,13 @@ TribZiEmbd = {
 
     },
 
-    buildUri: function (){
+    buildUri:function () {
         var jsonOrderData = this.getOrderJson();
 
         //http://127.0.0.1:8080
-        return 'http://127.0.0.1:8080/CatBee/api/deal/?action=deal&context=' +
+        return '/CatBee/api/deal/?action=deal&context=' +
             encodeURIComponent(JSON.stringify(jsonOrderData));
 
-    },
-
-    attachIFrame:function (iFrameTag) {
-        //http://127.0.0.1:8080
-        var tribziIfamerUrl = this.buildUri();
-
-        var iframe = document.getElementById(iFrameTag);
-        if (!iframe) {
-            var divElement = document.createElement('div');
-            divElement.id = 'myDiv';
-            divElement.style.postion = '';
-//            divElement.width = 700;
-//            divElement.height = 500;
-
-            var iframe = document.createElement('iframe');
-
-            iframe.height = '100%';
-            iframe.width = '100%';
-            iframe.frameBorder = 0;
-            iframe.setAttribute('id', iFrameTag);
-            divElement.appendChild(iframe);
-            document.body.appendChild(divElement);
-
-            $("#myDiv").dialog({
-                modal: true,
-                autoOpen: false,
-                height: '500',
-                //height: '180',
-                //width: 'auto',
-                width: '700',
-                draggable: true,
-                resizeable: true,
-                //resizeable: false,
-                title: 'IFrame Modal Dialog'
-            });
-
-            $("#myDiv").dialog("open");
-
-            iframe.src = tribziIfamerUrl;
-
-            setTimeout(checkIFrame, 200);
-        }
-        else {
-
-            iframe.src = uri;
-        }
-    },
-
-
-
-    resizeCatBee:function(){
-        $('.ui-dialog').css({with : 700});
     }
 
 };
@@ -103,16 +51,13 @@ $(document).ready(function() {
         autoOpen: false,
         position:'center',
         height: '340',
-        //height: 'auto',
-        //width: 'auto',
         width: '430',
         draggable: false,
         resizable: false,
-        dialogClass: 'tribziDialog',
-        //resizeable: false,
-        title: 'IFrame Modal Dialog'
+        dialogClass: 'tribziDialog'
     });
 
+    $("#closebtn").button({ icons: { primary: "ui-icon-close" } });
     $('.tribziDialog div.ui-dialog-titlebar').hide();
     $('#modalDiv').css('overflow', 'hidden');
 
@@ -120,36 +65,52 @@ $(document).ready(function() {
     $("#modalDiv").dialog("open");
     $("#catbeeFrame").attr('src',url);
 
+    var cssObj = {
+        'position': 'absolute',
+        'top': '-18px',
+        'right': '-18px',
+        'width': '36px',
+        'height': '36px',
+        'cursor': 'pointer',
+        'z-index': '8040',
+        'background': 'url(\'http://127.0.0.1:8080/CatBee/public/res/images/fancybox_sprite.png\')'};
+
+    $('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
+    $('.dialog-close-button').css(cssObj)
+        .click(function(){
+            $("#modalDiv").dialog('close');});
+
     setTimeout(checkIFrame, 200);
 
 });
 
 function checkIFrame()
 {
-    var command = document.getElementById('catbeeFrame').contentWindow.name;
-    if (command.indexOf('#') >= 0)
-    {
-        command = command.substr(command.indexOf('#') + 1);
+    var frameElement = document.getElementById('catbeeFrame');
 
-        pairs = command.split(';');
-        params = [];
+    if (frameElement && (frameElement.contentWindow)) {
+        var command = frameElement.contentWindow.name;
+        if ((command) && (command.toString().indexOf('#') >= 0)) {
+            command = command.substr(command.indexOf('#') + 1);
 
-        for (var i = 0; i < pairs.length; i++)
-        {
-            pair = pairs[i].split('=');
-            params[pair[0]] = pair[1];
+            pairs = command.split(';');
+            params = [];
+
+            for (var i = 0; i < pairs.length; i++) {
+                pair = pairs[i].split('=');
+                params[pair[0]] = pair[1];
+            }
+
+            if ((params['act']) && (params['act'] == 'resize')) {
+                var sizes = {
+                    height:params['h'],
+                    width:params['w']
+                };
+                $('.ui-dialog').css(sizes);
+                $('#modalDiv').css(sizes);
+            }
+            document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
         }
-
-        if ((params['act']) && (params['act'] == 'resize'))
-        {
-            var sizes = {
-                height : params['h'],
-                width : params['w']
-            };
-            $('.ui-dialog').css(sizes);
-            $('#modalDiv').css(sizes);
-        }
-        document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
     }
     setTimeout(checkIFrame, 200);
 }

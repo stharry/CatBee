@@ -15,7 +15,15 @@ $(document).ready(function () {
                 cookie: true});
 
     $("#facebookShare").click(function () {
-
+		$('#share_list').find('li').removeClass('active');
+		$(this).parent().addClass('active');
+		if($('#emailForm').css('display') != 'none')
+		{
+			$('#emailForm').css('display', 'none');
+		}
+		$('#tbox').css('display', 'none');
+		$('#tbox_bottom').css('display', 'none');
+		$('#shadow_div').addClass('inv');
         StartFacebookSharing();
     });
 

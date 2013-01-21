@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
-   TribZi.saveCoupon();
+    TribZi.saveCoupon();
+
+    $('.go-btn').click(function(){
+        TribZi.resizeFrame()
+    });
 
 });

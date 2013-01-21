@@ -13,14 +13,13 @@ function CreateAndInitializeEmailForm() {
         TribZi.setCustomMessage($("#message").val());
     });
 
-    $("#emailSubmit").click(function () {
-
-
+    $("#emailSubmit").click(function ()
+	{
         var emailval = $("#mail-input").val();
         var msgval = $("#message").val();
         var msglen = msgval.length;
         var mailvalid = validateEmail(emailval);
-
+		
         if (mailvalid == false) {
             $("#mail-input").addClass("error");
         }
@@ -34,15 +33,14 @@ function CreateAndInitializeEmailForm() {
         else if (msglen >= 4) {
             $("#message").removeClass("error");
         }
-
         if (mailvalid == true && msglen >= 4) {
             // if both validate we attempt to send the e-mail
             // first we hide the submit btn so the user doesnt click twice
             //$("#emailSubmit").replaceWith("<em>sending...</em>");
 
-            $.fancybox.showLoading();
+            //$.fancybox.showLoading();
 
-            setTimeout(stopProgress, 1000);
+            //setTimeout(stopProgress, 1000);
 
             TribZi.clearTargets()
                 .setUid(null)
@@ -60,18 +58,46 @@ function CreateAndInitializeEmailForm() {
                     TribZi.deal.order.customer.email,
                     'leader', 'email');
             }
-            TribZi.share(null);
-
+            TribZi.share(null); //Increment the number of shares
+			if(TribZi.sharedTimes == 1)
+			{
+				//We need to show the success message and then open up the twitter
+				//showSuccess();
+				//console.log('First was email');
+				stopProgress(true);
+			}
+			else if(TribZi.sharedTimes == 2)//This was second share, we need to show the slider.
+			{
+				stopProgress(false);
+				$('#slider').slider('enable');
+				var maxValue = parseInt($('#slider').slider('option', 'max'));
+				var halfValue = maxValue/2;
+				$('#slider').slider('value', halfValue);
+				_calculateColor(halfValue);
+				showSuccess();
+				TribZi.sharedTimes = 0;
+			}
         }
     });
 }
 
-function stopProgress()
+function stopProgress(clickTwitter)
 {
-    $.fancybox.hideLoading();
-    $.fancybox("Message sent");
-    setTimeout("$.fancybox.close()", 500);
+    //$.fancybox.hideLoading();
+   // $.fancybox("Message sent");
+    setTimeout(function(){
+	//	$.fancybox.close();
+		$('#mail-input').val('Enter your friends e-mail');
+		$('#emailShare').click();
+		if(clickTwitter)
+		{
+			$('#twitterShare').click();
+			//
+			$('#tbox').find('iframe').contents().find('#tweet-box').focus();
+		}
+	}, 500);
 }
+
 
 function validateEmail(email) {
 

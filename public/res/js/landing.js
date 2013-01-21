@@ -1,7 +1,113 @@
-$(document).ready(function() {
+/* Zoran Functions START */
+function showSuccess()
+{
+	/* $('#shareResponse').html('Thank you for sharing');
+	$('#shareResponse').css('display', 'block');
+	setTimeout(function(){
+		$('#shareResponse').fadeOut('slow');
+	}, 5000); */
+	$('#slider-blue-content').find('.slider-description').addClass('inv');
+	$('#slider-blue-content').find('.slider-wrapper').addClass('inv');
+	$('#slider_inactive').removeClass('inv');
+}
 
+function _makeCatYellow()
+{
+	$('.cat_icon').css({
+		'background-position' : '-154px 0px'
+	});
+	
+	$('.bee_icon').css({
+		'background-position' : '-283px 0px'
+	});
+	
+	$('#bee_icon_opacity').css({
+		'opacity' : 1,
+		'background-position' : '-283px 0px'
+	});
+	$('#cat_icon_opacity').css({
+		'background-position' : '-154px 0px',
+		'opacity' : 1
+	});
+	
+}
+
+function _makeBeesYellow()
+{
+	$('.cat_icon').css({
+		'background-position' : '-77px 0px'
+	});
+	$('.bee_icon').css({
+		'background-position' : '-335px 0px'
+	});
+	$('#cat_icon_opacity').css({
+		'background-position' : '-77px 0px',
+		'opacity' : 1
+	});
+	$('#bee_icon_opacity').css({
+		'background-position' : '-335px 0px',
+		'opacity' : 1
+	});
+}
+
+function _calculateColor(sliderValue) //1,2,3.
+{
+	var maxValue = parseInt($('#slider').slider('option', 'max')); //6
+	var halfValue = maxValue/2; //3
+	var minValue = parseInt($('#slider').slider('option', 'min')); //0
+	
+	//var sliderValue = $('#slider').slider('value');
+	if(sliderValue < halfValue)
+	{
+		var catOpacity = 1 - (sliderValue/halfValue);
+		
+		$('#cat_icon_opacity').css({
+			'opacity' : catOpacity,
+			'background-position' : '-154px 0px'
+		});
+		$('.cat_icon').css({
+			'background-position' : '0px 0px'
+		});
+		$('#bee_icon_opacity').css({
+			'background-position' : '-283px 0px',
+			'opacity' : catOpacity
+		});
+	}
+	else if(sliderValue > halfValue)
+	{
+		//Set the cat
+		var beeOpacity = (sliderValue - halfValue)/halfValue;
+		$('#cat_icon_opacity').css({
+			'background-position' : '-77px 0px',
+			'opacity' : beeOpacity
+		});
+		$('.cat_icon').css({
+			'background-position' : '0px 0px'
+		});
+		$('.bee_icon').css({
+			'background-position' : '-283px 0px'
+		});
+		$('#bee_icon_opacity').css({
+			'background-position' : '-335px 0px',
+			'opacity' : beeOpacity
+		});
+	}
+	else
+	{
+		$('#cat_icon_opacity').css('opacity', 0.01);
+		$('#bee_icon_opacity').css('opacity', 0.01);
+		$('.cat_icon').css({
+			'background-position' : '0px 0px'
+		});
+		$('.bee_icon').css({
+			'background-position' : '-232px 0px'
+		});
+	}
+}
+/* Zoran Functions END */
+$(document).ready(function() 
+{
     $('.email-form').hide();
-
     $("#slider").slider({
         animate: true,
         min : 0,
@@ -16,86 +122,95 @@ $(document).ready(function() {
             ui.handle.rel = ui.value;
         },
         stop: function(event, ui){
-            if(ui.handle.rel == ui.value){
+            /* if(ui.handle.rel == ui.value){
                 if(event.layerX > $(ui.handle).position().left){
                     $(this).slider("value", ui.value+1)
                 }else{
                     $(this).slider("value", ui.value-1)
                 }
-            }
-			if(ui.value == 0)
+            } */
+			//alert('UI VALUE ON STOP: '+ui.value);
+			if(ui.value == 0) //The  slider has value of 0
 			{
-				//Cat needs to be yellow.
-				$('.cat_icon').css({
-					'background-position' : '-154px 0px'
-				});
-				
-				$('.bee_icon').css({
-					'background-position' : '-283px 0px'
-				});
+				_makeCatYellow();
 			}
-			else if(ui.value == $(this).data("slider").options.max)
+			else if(ui.value == $(this).data("slider").options.max) //The slider has maximum values
 			{
-				$('.cat_icon').css({
-					'background-position' : '-77px 0px'
-				});
-				$('.bee_icon').css({
-					'background-position' : '-335px 0px'
-				});
+				_makeBeesYellow();
 			}
-			else
+			else //Anywhere else. We need to calculate the color here depending where the slider is.
 			{
-				$('.cat_icon').css({
-					'background-position' : '0px 0px'
-				});
-				$('.bee_icon').css({
-					'background-position' : '-232px 0px'
-				});
+				_calculateColor(ui.value);
 			}
         }
     });
 
-    $('.cat_icon').dblclick(function(){
-
-        $("#slider").slider('value', 0);
-		$('.cat_icon').css({
-			'background-position' : '-154px 0px'
-		});
-		
-		$('.bee_icon').css({
-			'background-position' : '-283px 0px'
-		});
+    $('.cat_icon, #cat_icon_opacity').dblclick(function()
+	{
+		if($(this).hasClass('dontclick'))
+		{
+			return false;
+		}
+        $("#slider").slider('value', $('#slider').data('slider').options.min);
+		_makeCatYellow();
     });
 
-    $('.cat_icon').click(function(){
-
+    $('.cat_icon, #cat_icon_opacity').click(function()
+	{
+		if($(this).hasClass('dontclick'))
+		{
+			return false;
+		}
         var sliderValue = $("#slider").slider('value');
-
+		var maxValue = parseInt($('#slider').slider('option', 'max')); //6
+		var halfValue = maxValue/2; //3
+		var minValue = parseInt($('#slider').slider('option', 'min')); //0
+		
         if (sliderValue > 0)
         {
             $("#slider").slider('value', sliderValue - 1);
         }
+		if($("#slider").slider('value') == 0)
+		{
+			_makeCatYellow();
+		}
+		else
+		{
+			_calculateColor($("#slider").slider('value'));
+		}
     });
 
-    $('.bee_icon').dblclick(function(){
-
-        $("#slider").slider('value', TribZi.deal.landing.landingRewards.length - 1);
-		$('.cat_icon').css({
-			'background-position' : '-77px 0px'
-		});
-		$('.bee_icon').css({
-			'background-position' : '-335px 0px'
-		});
+    $('.bee_icon, #bee_icon_opacity').dblclick(function()
+	{
+		if($(this).hasClass('dontclick'))
+		{
+			return false;
+		}
+        $("#slider").slider('value', $('#slider').data('slider').options.max);
+		_makeBeesYellow();
     });
 
-    $('.bee_icon').click(function(){
-
+    $('.bee_icon, #bee_icon_opacity').click(function()
+	{
+		if($(this).hasClass('dontclick'))
+		{
+			return false;
+		}
         var sliderValue = $("#slider").slider('value');
 
         if (sliderValue < TribZi.deal.landing.landingRewards.length - 1)
         {
             $("#slider").slider('value', sliderValue + 1);
         }
+		
+		if($("#slider").slider('value') == $('#slider').data('slider').options.max)
+		{
+			_makeBeesYellow();
+		}
+		else
+		{
+			_calculateColor($('#slider').slider('value'));
+		}
     });
 
     updateBoxPosition();
@@ -136,10 +251,24 @@ $(document).ready(function() {
     $('.share-box a[rel="email"]').click(function(){
 
         var target = $(this);
-        if( $('.email-form').css('display') == 'none' )
+		$('#message').css('color', '#4F432D');
+        if($('.email-form').css('display') == 'none' )
 		{
+			$('#slider').slider('disable');
+			$('.cat_icon').addClass('dontclick');
+			$('#cat_icon_opacity').addClass('dontclick');
+			$('.bee_icon').addClass('dontclick');
+			$('#bee_icon_opacity').addClass('dontclick');
+			
+			
+			//Hide the slider. Show the text and the buttons
+			/* $('#slider-blue-content').find('.slider-description').addClass('inv');
+			$('#slider-blue-content').find('.slider-wrapper').addClass('inv');
+			$('#slider_inactive').removeClass('inv'); */
+			
 			$('#tbox').css('display', 'none');
 			$('#tbox_bottom').css('display', 'none');
+			$('#shadow_div').addClass('inv');
 			$('#share_list').find('li').removeClass('active');
 			$(this).parent().addClass('active');
             //I know this is not the Way yo Call a relative URL..
@@ -148,33 +277,31 @@ $(document).ready(function() {
         }
 		else
 		{
+			$('#slider').slider('enable');
+			$('.cat_icon').removeClass('dontclick');
+			$('#cat_icon_opacity').removeClass('dontclick');
+			$('.bee_icon').removeClass('dontclick');
+			$('#bee_icon_opacity').removeClass('dontclick');
             //I know this is not the Way yo Call a relative URL..
             /* $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'}); */
 			$(this).parent().removeClass('active');
+			
+			/* $('#slider-blue-content').find('.slider-description').removeClass('inv');
+			$('#slider-blue-content').find('.slider-wrapper').removeClass('inv');
+			$('#slider_inactive').addClass('inv'); */
         }
-//        $('.email-form').slideToggle("fast", function(){
-//            if( $('.email-form').css('display') == 'none' ){
-//                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
-//                $('.share-hover .'+target.attr('rel')).removeClass('active');
-//            }else{
-//                $('.share-hover .'+target.attr('rel')).css('visibility', 'visible');
-//                $('.share-hover .'+target.attr('rel')).addClass('active');
-//            }
-//            goToByScroll('email-form');
-//
-//
-//            TribZi.resizeFrame();
-//        });
-        if( $('.email-form').css('display') == 'none' ){
-            $('.email-form').show();
-        }
-        else
-        {
-            $('.email-form').hide();
-        }
+        $('.email-form').slideToggle("fast", function(){
+            if( $('.email-form').css('display') == 'none' ){
+                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
+                $('.share-hover .'+target.attr('rel')).removeClass('active');
+            }else{
+                $('.share-hover .'+target.attr('rel')).css('visibility', 'visible');
+                $('.share-hover .'+target.attr('rel')).addClass('active');
+            }
+            goToByScroll('email-form');
+        });
+
         TribZi.resizeFrame(2, 2);
-
-
         //$.fancybox.reshow();
 
     });
@@ -200,7 +327,6 @@ $(document).ready(function() {
         });
     });
 
-
 });
 function updateBoxPosition(){
     //Get the window height and width
@@ -212,6 +338,7 @@ function updateBoxPosition(){
 }
 function goToByScroll(selector){
     $('html,body').animate({scrollTop: $("."+selector).offset().top},'slow');
+    TribZi.resizeFrame(2, 2);
 }
 function openWindow(){
     $('.box-wrapper').fadeIn();

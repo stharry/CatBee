@@ -1,5 +1,6 @@
 <div class="share-box clearfix">
-    <p>. Share and Get Your Rewards .</p>
+    <?php /* <p>. Share and Get Your Rewards .</p> */ ?>
+	<p><img src="/CatBee/public/res/images/shareImage.png" alt="Share" /></p>
 	<div class="centered-share-menu">
 		<ul id="share_list">
 			<li>

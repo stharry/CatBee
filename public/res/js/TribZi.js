@@ -237,23 +237,8 @@ TribZi = {
 
     },
 
-    resizeFrame: function(widthOffset, heightOffset)
+    sendToFrame: function(str)
     {
-        var newWidth = parseInt($('.box').css('width').replace('px', ''));
-        var newHeight = parseInt($('.box').css('height').replace('px', ''));
-
-        if (widthOffset)
-        {
-            newWidth += widthOffset;
-        }
-
-        if (heightOffset)
-        {
-            newHeight += heightOffset;
-        }
-
-        var str = "act=resize;w=" + newWidth + "px;h=" + newHeight + "px";
-
         var index = window.name.indexOf('#');
 
         if (index > 0)
@@ -267,7 +252,35 @@ TribZi = {
 
         }
         return this;
+    },
 
+    closeFrame: function()
+    {
+        return this.sendToFrame('act=close');
+    },
+
+    resizeFrame: function(widthOffset, heightOffset)
+    {
+        var newWidth = Math.round(parseFloat($('.box').css('width').replace('px', ''))) +
+            Math.round(parseFloat($('.box').css('border-left').replace('px', ''))) +
+                Math.round(parseFloat($('.box').css('border-right').replace('px', '')));
+        var newHeight = parseInt($('.box').css('height').replace('px', '')) +
+            Math.round(parseFloat($('.box').css('border-top').replace('px', ''))) +
+            Math.round(parseFloat($('.box').css('border-bottom').replace('px', '')));
+
+        if (widthOffset)
+        {
+            newWidth += widthOffset;
+        }
+
+        if (heightOffset)
+        {
+            newHeight += heightOffset;
+        }
+
+        var str = "act=resize;w=" + newWidth + "px;h=" + newHeight + "px";
+
+        return this.sendToFrame(str);
     }
 
 
