@@ -1,0 +1,24 @@
+{
+    "action":"deal",
+    "context":{
+        "amount":"76",
+        "id":"GMFirstDeal",
+        "items":[
+            {
+                "itemcode":"12",
+                "url":"http://www.glassesmarket.com/skin/frontend/glassesmarket2/default/images/logo.png"
+            }
+        ],
+        "customer":{
+            "email":"danny.t.leader@gmail.com",
+            "firstName":"Danny",
+            "lastName":"Leader",
+            "nickName":"leader"
+        },
+        "branch":{
+            "shopId":"2",
+            "store":{
+                "authCode":"54c5e6c3-6349-11e2-a702-0008cae720a7"}
+        }
+    }
+}
