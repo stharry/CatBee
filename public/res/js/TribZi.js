@@ -266,7 +266,7 @@ TribZi = {
         var newWidth = Math.round(parseFloat($('.box').css('width').replace('px', ''))) +
             Math.round(parseFloat($('.box').css('border-left').replace('px', ''))) +
                 Math.round(parseFloat($('.box').css('border-right').replace('px', '')));
-        var newHeight = parseInt($('.box').css('height').replace('px', '')) +
+        var newHeight =  Math.round(parseFloat($('.box').css('height').replace('px', ''))) +
             Math.round(parseFloat($('.box').css('border-top').replace('px', ''))) +
             Math.round(parseFloat($('.box').css('border-bottom').replace('px', '')));
 

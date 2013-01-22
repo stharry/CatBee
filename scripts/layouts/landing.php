@@ -55,10 +55,6 @@
     <link rel="stylesheet" type="text/css" media="all"
           href="<?php echo $GLOBALS[ "rootPath" ] ?>/res/css/tweetForm.css?reload">
 
-
-    <link rel="stylesheet" type="text/css" media="all"
-          href="<?php echo $GLOBALS[ "rootPath" ] ?>/res/css/jquery.fancybox.css?reload">
-
     <!--Landing common scripts-->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
@@ -74,8 +70,9 @@
 
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/dev/chain-dev.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/dev/load-dev.js?v=1" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/mutate.events.js?v=1" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/mutate.min.js?v=1" type="text/javascript"></script>
 
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/jquery.fancybox.js?reload" type="text/javascript"></script>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
 
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/jcookie.js?reload" type="text/javascript"></script>

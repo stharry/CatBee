@@ -1,11 +1,54 @@
-body{
-    font-family: 'Calibri';
+@font-face {
+    font-family: 'allerregular';
+    src: url('../fonts/aller_rg-webfont.eot');
+    src: url('../fonts/aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_rg-webfont.woff') format('woff'),
+         url('../fonts/aller_rg-webfont.ttf') format('truetype'),
+         url('../fonts/aller_rg-webfont.svg#allerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
+@font-face {
+    font-family: 'allerbold';
+    src: url('../fonts/aller_bd-webfont.eot');
+    src: url('../fonts/aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_bd-webfont.woff') format('woff'),
+         url('../fonts/aller_bd-webfont.ttf') format('truetype'),
+         url('../fonts/aller_bd-webfont.svg#allerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body {
+    font-family: 'allerregular';
+}
+/* body{
+    font-family: 'Calibri';
+} */
+.zContainer{
+	position: relative;
+	overflow: hidden;
+}
+.zContainer:after{
+	clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+.fl{float: left;}
 .box-wrapper{
-    width: 568px;
+    /* width: 568px;
     height: 216px;
     background: url(../images/friend_page_blue_bg.jpg);
-    padding: 0px;
+    padding: 0px; */
+	background: #97e7f8 url(../images/friendDeal/bodyBg.jpg) repeat-x;
+	width: 570px;
+	min-height: 450px;
+	padding: 15px;
 }
 .box {
     background: #fff;
@@ -38,8 +81,10 @@ img {
     overflow:hidden;
 }
 .friend-landing{
-    color: #3a350a;
-    background: url(../images/friend_page_inner_bg.jpg);
+    /* color: #3a350a;
+    background: url(../images/friend_page_inner_bg.jpg); */
+	background: #fff;
+	padding: 15px;
 }
 .inner-box-content-2 {
     border: 2px solid #c1be9b;
@@ -72,4 +117,136 @@ img {
     padding: 6px 66px 8px 66px;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+/* Z.L. New styles */
+#header-section{
+	margin-bottom: 5px;
+}
+#product-photo-coupon{
+	padding-bottom: 3px;
+	margin-bottom: 25px;
+}
+#product-photo{
+	width: 170px;
+	border: 1px solid #bbbbbb;
+	text-align: center;
+	margin-right: 20px;
+	-webkit-box-shadow: 2px 2px 3px rgba(88, 149, 163, 0.75);
+	-moz-box-shadow:    2px 2px 3px rgba(88, 149, 163, 0.75);
+	box-shadow:         2px 2px 3px rgba(88, 149, 163, 0.75);
+}
+#coupon-text{
+	width: 346px;
+}
+#reward-info{
+	font-family: 'allerregular';
+	font-size: 14px;
+	color: #4f7881;
+	margin: 0px 0px 33px 0px;
+	line-height: 14px;
+	font-weight: normal;
+}
+#reward-info span{
+	font-family: 'allerbold';
+	font-weight: bold;
+}
+h4#reward-content{
+	margin: 0px;
+	color: #4f7881;
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 30px;
+	margin-bottom: 6px;
+}
+h4#reward-content span{
+	font-size: 35px;
+}
+#coupon-content{
+	background: url(../images/friendDeal/couponContent.jpg) no-repeat;
+	text-align: center;
+	width: 294px;
+	height: 27px;
+	padding-top: 3px;
+}
+#coupon-content span{
+	font-size: 20px;
+	font-family: Courier New;
+	color: #4f7881;
+}
+#date-expires{
+	margin-bottom: 15px;
+}
+#date-expires p{
+	text-align: center;
+	font-size: 14px;
+	font-family: 'allerregular';
+	color: #b6b7b6;
+	font-weight: normal;
+	margin: 0;
+}
+#date-expires p span{
+	color: #4f7881;
+}
+
+#start-shopping{
+	margin-bottom: 22px;
+}
+
+#start-shopping a{
+	line-height: 44px;
+	font-family: 'allerregular';
+	font-weight: normal;
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+	display: block;
+}
+#start-shopping a span{
+	font-weight: bold;
+}
+
+#blueLinkLeft{
+	background: url(../images/friendDeal/blueLinkLeft.jpg) no-repeat;
+	width: 22px;
+	height: 44px;
+}
+#blueLinkMiddle{
+	background: url(../images/friendDeal/blueLinkMiddle.jpg) repeat-x;
+	height: 44px;
+	width: 496px;
+	text-align: center;
+}
+#blueLinkRight{
+	background: url(../images/friendDeal/blueLinkRight.jpg) no-repeat;
+	width: 22px;
+	height: 44px;
+}
+
+.footer-box{
+	width: 250px;
+}
+#footer-left{
+	margin-right: 40px;
+}
+.footer-box h5, .footer-box p{
+	margin: 0px;
+}
+
+.footer-box h5{
+	font-family: 'allerregular';
+	font-weight: bold;
+	color: #4f7881;
+	size: 15px;
+	margin-bottom: 6px;
+}
+
+.footer-box p{
+	font-family: 'allerregular';
+	font-weight: normal;
+	color: #4f7881;
+	font-size: 13px;
+}
+#footer-section{
+	margin-bottom: 15px;
 }
