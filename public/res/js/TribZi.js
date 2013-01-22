@@ -261,14 +261,16 @@ TribZi = {
         return this.sendToFrame('act=close');
     },
 
-    resizeFrame: function(widthOffset, heightOffset)
+    resizeFrame: function(widthOffset, heightOffset, frameElem)
     {
-        var newWidth = Math.round(parseFloat($('.box').css('width').replace('px', ''))) +
-            Math.round(parseFloat($('.box').css('border-left').replace('px', ''))) +
-                Math.round(parseFloat($('.box').css('border-right').replace('px', '')));
-        var newHeight = parseInt($('.box').css('height').replace('px', '')) +
-            Math.round(parseFloat($('.box').css('border-top').replace('px', ''))) +
-            Math.round(parseFloat($('.box').css('border-bottom').replace('px', '')));
+        var elem = frameElem ? frameElem: '.box';
+
+        var newWidth = Math.round(parseFloat($(elem).css('width').replace('px', ''))) +
+            Math.round(parseFloat($(elem).css('border-left').replace('px', ''))) +
+                Math.round(parseFloat($(elem).css('border-right').replace('px', '')));
+        var newHeight =  Math.round(parseFloat($(elem).css('height').replace('px', ''))) +
+            Math.round(parseFloat($(elem).css('border-top').replace('px', ''))) +
+            Math.round(parseFloat($(elem).css('border-bottom').replace('px', '')));
 
         if (widthOffset)
         {

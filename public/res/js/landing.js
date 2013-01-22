@@ -107,7 +107,11 @@ function _calculateColor(sliderValue) //1,2,3.
 /* Zoran Functions END */
 $(document).ready(function() 
 {
-    $('.email-form').hide();
+    $('.box').mutate('height width',function (element,info){
+        TribZi.resizeFrame(2, 2);
+    });
+
+        $('.email-form').hide();
     $("#slider").slider({
         animate: true,
         min : 0,
@@ -226,46 +230,19 @@ $(document).ready(function()
         }
     )
 
-//    try
-//    {
-//    $("#emailShare").fancybox({
-//
-//        width : 490,
-//        height : 500,
-//        autoScale : false,
-//        scrolling   : 'no',
-//        overlay : {
-//            css : {
-//                'background' : 'rgba(238,238,238,0.85)'
-//            }
-//        }
-//    });
-//    }
-//    catch (e)
-//    {
-//        alert(e)
-//    }
-
-
-
     $('.share-box a[rel="email"]').click(function(){
 
         var target = $(this);
 		$('#message').css('color', '#4F432D');
         if($('.email-form').css('display') == 'none' )
 		{
-			$('#slider').slider('disable');
-			$('.cat_icon').addClass('dontclick');
-			$('#cat_icon_opacity').addClass('dontclick');
-			$('.bee_icon').addClass('dontclick');
-			$('#bee_icon_opacity').addClass('dontclick');
-			
-			
-			//Hide the slider. Show the text and the buttons
-			/* $('#slider-blue-content').find('.slider-description').addClass('inv');
-			$('#slider-blue-content').find('.slider-wrapper').addClass('inv');
-			$('#slider_inactive').removeClass('inv'); */
-			
+//			$('#slider').slider('disable');
+//			$('.cat_icon').addClass('dontclick');
+//			$('#cat_icon_opacity').addClass('dontclick');
+//			$('.bee_icon').addClass('dontclick');
+//			$('#bee_icon_opacity').addClass('dontclick');
+//
+
 			$('#tbox').css('display', 'none');
 			$('#tbox_bottom').css('display', 'none');
 			$('#shadow_div').addClass('inv');
@@ -277,11 +254,12 @@ $(document).ready(function()
         }
 		else
 		{
-			$('#slider').slider('enable');
-			$('.cat_icon').removeClass('dontclick');
-			$('#cat_icon_opacity').removeClass('dontclick');
-			$('.bee_icon').removeClass('dontclick');
-			$('#bee_icon_opacity').removeClass('dontclick');
+//			$('#slider').slider('enable');
+//			$('.cat_icon').removeClass('dontclick');
+//			$('#cat_icon_opacity').removeClass('dontclick');
+//			$('.bee_icon').removeClass('dontclick');
+//			$('#bee_icon_opacity').removeClass('dontclick');
+
             //I know this is not the Way yo Call a relative URL..
             /* $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'}); */
 			$(this).parent().removeClass('active');
@@ -300,9 +278,6 @@ $(document).ready(function()
             }
             goToByScroll('email-form');
         });
-
-        TribZi.resizeFrame(2, 2);
-        //$.fancybox.reshow();
 
     });
 
@@ -327,6 +302,7 @@ $(document).ready(function()
         });
     });
 
+
 });
 function updateBoxPosition(){
     //Get the window height and width
@@ -338,8 +314,8 @@ function updateBoxPosition(){
 }
 function goToByScroll(selector){
     $('html,body').animate({scrollTop: $("."+selector).offset().top},'slow');
-    TribZi.resizeFrame(2, 2);
 }
+
 function openWindow(){
     $('.box-wrapper').fadeIn();
     return false;

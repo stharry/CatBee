@@ -96,7 +96,8 @@ cbf = {
             width      :params.initWidth,
             draggable  :false,
             resizable  :false,
-            dialogClass:'tribziDialog'
+            dialogClass:'tribziDialog',
+            position: { my: 'left', at: 'right', of: jQuery(this) }
         });
 
         jQuery("#closebtn").button({ icons:{ primary:"ui-icon-close" } });

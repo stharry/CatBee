@@ -155,7 +155,7 @@ img {
     width: 48px;
     height: 42px;
     float: right;
-    margin-right: -20px;
+    margin-right: -15px;
 }
 
 .slider-wrapper{
@@ -448,7 +448,7 @@ img {
 	background-position: -232px 0px;
 	width: 51px;
 	height: 57px;
-	margin: 0px 20px 0px 0px;
+	margin: 0px 15px 0px 0px;
 }
 #slider{
 	background: url("../images/sliderBg.jpg") no-repeat;
@@ -510,7 +510,7 @@ img {
 	font-weight: bold;
 	color: #4f7881;
 	font-size: 12px;
-	margin: 3px 0px 10px 0px;
+	margin: 13px 0 8px;
 }
 
 #share_list, #share_list li{ list-style: none; margin:0; padding: 0;}
@@ -626,7 +626,7 @@ li.active #facebookShare{
 	background-position: -232px 0px;
 	width: 51px;
 	height: 57px;
-	right: 20px;
+	right: 15px;
 	opacity: 0.01;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.1)";
 	filter: alpha(opacity=0.1);

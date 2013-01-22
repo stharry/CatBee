@@ -34,8 +34,8 @@ jQuery(document).ready(function () {
     var jsonOrderData = getOrderJson();
     cbf.setupFrame(
         {
-            initWidth   :430,
-            initHeight  :340,
+            initWidth   :424,
+            initHeight  :369,
             catbeeAction:'deal',
             urlParams   :jsonOrderData,
             closeButton :true
