@@ -22,7 +22,7 @@
 <div id="start-shopping" class="zContainer">
 	<div id="blueLinkLeft" class="fl"></div>
 	<div id="blueLinkMiddle" class="fl">
-		<a href="#">Start Shopping - <span>Enjoy Your Reward &gt;&gt;</span></a>
+		<a href="#" id="go-btn">Start Shopping - <span>Enjoy Your Reward &gt;&gt;</span></a>
 	</div>
 	<div id="blueLinkRight" class="fl"></div>
 </div>

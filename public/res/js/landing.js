@@ -302,7 +302,7 @@ $(document).ready(function()
         });
     });
 
-    TribZi.resizeFrame(2, 2);
+
 });
 function updateBoxPosition(){
     //Get the window height and width

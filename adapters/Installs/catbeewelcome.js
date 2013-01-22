@@ -18,8 +18,8 @@ jQuery(document).ready(function () {
 
         cbf.setupFrame(
             {
-                initWidth :580,
-                initHeight:280,
+                initWidth :570,
+                initHeight:450,
                 catbeeAction: 'frienddeal',
                 urlParams :params
             });

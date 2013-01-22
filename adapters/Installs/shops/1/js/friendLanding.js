@@ -1,12 +1,14 @@
 $(document).ready(function () {
 
+    $('.box').mutate('height width',function (element,info){
+        TribZi.resizeFrame(30, 30, '.box-wrapper');
+    });
+
     var imageSrc = TribZi.getRoot() + '/adapters/installs/shops/1/res/train.jpg';
 
     $("#productImage").attr("src", imageSrc);
 
-    TribZi.resizeFrame(3, 3);
-
-    $('.go-btn').click(function(){
+    $('#go-btn').click(function(){
 
         TribZi.saveCoupon();
     });
