@@ -1,6 +1,7 @@
 function getOrderJson() {
 
-    var args = cbf.getScriptParams();
+    var args = cbf.getScriptParams('Embedded_Magento');
+
     return {
         amount  :args['ot'],
         id      :args['id'],
@@ -33,10 +34,11 @@ jQuery(document).ready(function () {
     var jsonOrderData = getOrderJson();
     cbf.setupFrame(
         {
-            initWidth :430,
-            initHeight:340,
-            catbeeAction: 'deal',
-            urlParams :jsonOrderData
+            initWidth   :430,
+            initHeight  :340,
+            catbeeAction:'deal',
+            urlParams   :jsonOrderData,
+            closeButton :true
         });
 
 });
