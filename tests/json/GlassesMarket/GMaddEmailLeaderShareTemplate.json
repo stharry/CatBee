@@ -1,7 +1,7 @@
 {
     "action":"set",
     "context":{
-        "message":"Hi, I shared a great deal for you",
+        "message":"Congratulation for being a great friend",
         "campaign":{
             "code":"15ede00f-634a-11e2-a702-0008cae720a7"
         },
@@ -231,7 +231,7 @@
                                                                                                 "style": {
                                                                                                     "font-family": "'comic sans ms', cursive"
                                                                                                 },
-                                                                                                "source": " To redeem your coupon click now on:  ",
+                                                                                                "source": "Click ",
                                                                                                 "type": "text",
                                                                                                 "name": "span",
                                                                                                 "children": [
@@ -244,7 +244,7 @@
                                                                                                             "text-decoration": "underline",
                                                                                                             "font-weight": "normal"
                                                                                                         },
-                                                                                                        "source": "Glassesmarket.com",
+                                                                                                        "source": "here ",
                                                                                                         "linkSource": "[deal.order.branch.url]",
                                                                                                         "type": "text",
                                                                                                         "name": "a"
@@ -281,7 +281,7 @@
                                                                                                 "style": {
                                                                                                     "font-family": "'comic sans ms', cursive"
                                                                                                 },
-                                                                                                "source": "Claim Code: [reward.leaderReward.code]",
+                                                                                                "source": "to claim your coupon Code: [reward.leaderReward.code]",
                                                                                                 "type": "text",
                                                                                                 "name": "span"
                                                                                             }

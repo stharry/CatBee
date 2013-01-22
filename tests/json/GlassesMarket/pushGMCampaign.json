@@ -34,7 +34,7 @@
                             "value":"15",
                             "type":"coupon",
                             "code":"GMTBZY85",
-                            "typeDescription": "amount coupon"
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -51,7 +51,7 @@
                             "value":"13",
                             "type":"coupon",
                             "code":"GMTBZY83",
-                            "typeDescription": "amount coupon"
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -68,7 +68,7 @@
                             "value":"11",
                             "type":"coupon",
                             "code":"GMTBZY81",
-                            "typeDescription": "amount coupon"
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -85,7 +85,7 @@
                             "value":"10",
                             "type":"coupon",
                             "code":"GMTBZY80",
-                            "typeDescription": "amount coupon"
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -102,7 +102,7 @@
                             "value":"9",
                             "type":"coupon",
                             "code":"GMTBZY79",
-                            "typeDescription": "amount coupon"
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -119,7 +119,7 @@
                             "value":"7",
                             "type":"coupon",
                             "code":"GMTBZY77",
-                            "typeDescription": "amount coupon"
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -136,7 +136,7 @@
                             "value":"5",
                             "type":"coupon",
                             "code":"GMTBZY75",
-                            "typeDescription": "amount coupon"
+                            "typeDescription": "$ coupon"
 
                         }
                     }
