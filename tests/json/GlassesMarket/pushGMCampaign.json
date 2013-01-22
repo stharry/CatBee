@@ -1,0 +1,159 @@
+{
+    "action":"push",
+    "context":
+    {
+        "code":"15ede00f-634a-11e2-a702-0008cae720a7",
+        "description":"Glasses Market Campaign",
+        "landingUrl":"http://www.glassesmarket.com/",
+        "branch":{
+            "shopId":"2",
+            "store":{
+                "authCode":"54c5e6c3-6349-11e2-a702-0008cae720a7"
+            }
+        },
+
+        "landings":[
+            {
+                "firstSloganLine":"You got the power!!!",
+                "secondSloganLine":"Create an awesome deal",
+                "firstSliderLine":"Move the slider",
+                "secondSliderLine":"to create the reward for you and your friends",
+                "customMessage": "I just bought at FunForToys.com and got a special friend-only gift to share with you.",
+
+                "landingRewards":[
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"5",
+                            "type":"coupon",
+                            "code":"GMTBZF95",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"15",
+                            "type":"coupon",
+                            "code":"GMTBZY85",
+                            "typeDescription": "amount coupon"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"7",
+                            "type":"coupon",
+                            "code":"GMTBZF97",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"13",
+                            "type":"coupon",
+                            "code":"GMTBZY83",
+                            "typeDescription": "amount coupon"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"9",
+                            "type":"coupon",
+                            "code":"GMTBZF99",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"11",
+                            "type":"coupon",
+                            "code":"GMTBZY81",
+                            "typeDescription": "amount coupon"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"10",
+                            "type":"coupon",
+                            "code":"GMTBZF100",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"10",
+                            "type":"coupon",
+                            "code":"GMTBZY80",
+                            "typeDescription": "amount coupon"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"11",
+                            "type":"coupon",
+                            "code":"GMTBZF101",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"9",
+                            "type":"coupon",
+                            "code":"GMTBZY79",
+                            "typeDescription": "amount coupon"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"13",
+                            "type":"coupon",
+                            "code":"GMTBZF103",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"7",
+                            "type":"coupon",
+                            "code":"GMTBZY77",
+                            "typeDescription": "amount coupon"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"15",
+                            "type":"coupon",
+                            "code":"GMTBZF105",
+                            "typeDescription": "% coupon"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"5",
+                            "type":"coupon",
+                            "code":"GMTBZY75",
+                            "typeDescription": "amount coupon"
+
+                        }
+                    }
+                ]
+
+            }
+
+        ],
+        "friendLandings":[
+            {
+                "slogan":" off any purchase at",
+                "friendMessage":"Crafted You a Great Deal",
+                "rewardMessage1":"Here is Your Promotion Code: ",
+                "rewardMessage2":"Just Apply it on Checkout"
+            }
+        ]
+
+
+    }
+}
