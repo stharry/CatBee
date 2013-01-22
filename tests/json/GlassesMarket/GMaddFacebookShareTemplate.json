@@ -1,0 +1,16 @@
+{
+    "action": "set",
+    "context":
+    {
+        "customMessage": "I just bought at glassesMarket.com and got a special friend-only gift to share with you.",
+        "message":"Use the discount code [reward.friendReward.code] to get [reward.friendReward.value] [reward.friendReward.typeDescription] off your purchase!",
+        "campaign":{
+            "code":"15ede00f-634a-11e2-a702-0008cae720a7"
+        },
+        "shareContext":{
+            "type": "facebook"
+        },
+        "target": {"name":"friend"}
+
+    }
+}
