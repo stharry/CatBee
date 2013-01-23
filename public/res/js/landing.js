@@ -119,35 +119,25 @@ $(document).ready(function()
         min : 0,
         max : TribZi.deal.landing.landingRewards.length - 1,
         value : Math.round((TribZi.deal.landing.landingRewards.length - 1)/2),
-        change : function(event, ui) {
+        slide : function(event, ui) {
             var val = ui.value;
             updateRewards(ui.value);
+            if(ui.value == 0) //The  slider has value of 0
+            {
+                _makeCatYellow();
+            }
+            else if(ui.value == $(this).data("slider").options.max) //The slider has maximum values
+            {
+                _makeBeesYellow();
+            }
+            else //Anywhere else. We need to calculate the color here depending where the slider is.
+            {
+                _calculateColor(ui.value);
+            }
 
         },
         start: function(event, ui){
             ui.handle.rel = ui.value;
-        },
-        stop: function(event, ui){
-            /* if(ui.handle.rel == ui.value){
-                if(event.layerX > $(ui.handle).position().left){
-                    $(this).slider("value", ui.value+1)
-                }else{
-                    $(this).slider("value", ui.value-1)
-                }
-            } */
-			//alert('UI VALUE ON STOP: '+ui.value);
-			if(ui.value == 0) //The  slider has value of 0
-			{
-				_makeCatYellow();
-			}
-			else if(ui.value == $(this).data("slider").options.max) //The slider has maximum values
-			{
-				_makeBeesYellow();
-			}
-			else //Anywhere else. We need to calculate the color here depending where the slider is.
-			{
-				_calculateColor(ui.value);
-			}
         }
     });
 
@@ -219,8 +209,6 @@ $(document).ready(function()
 		}
     });
 
-    updateBoxPosition();
-    updateRewards(Math.round((TribZi.deal.landing.landingRewards.length - 1)/2));
     //Share hover
     $('.share-box a').hover(
         function(){
@@ -287,14 +275,6 @@ $(document).ready(function()
 
 
 });
-function updateBoxPosition(){
-    //Get the window height and width
-    var winH = $(window).height();
-    var winW = $(window).width();
-    //Set the popup window to center
-    $('.box-wrapper').css('top',  winH/2-$('.box-wrapper').height()/2);
-    $('.box-wrapper').css('left', winW/2-$('.box-wrapper').width()/2);
-}
 function goToByScroll(selector){
 //    $('html,body').animate({scrollTop: $("."+selector).offset().top},'slow');
 }
