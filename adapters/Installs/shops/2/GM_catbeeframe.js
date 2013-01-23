@@ -83,7 +83,7 @@ cbf = {
 
     buildUrl:function (params) {
         return this.getCatBeeUrl() + 'api/deal/?action=' + params.catbeeAction + '&context=' +
-            encodeURIComponent(jQuery.param(params.urlParams));
+            encodeURIComponent(JSON.stringify(params.urlParams));
 
     },
 
