@@ -145,6 +145,7 @@ function checkIFrame() {
     if (frameElement && (frameElement.contentWindow)) {
         var command = frameElement.contentWindow.name;
         if ((command) && (command.toString().indexOf('#') >= 0)) {
+
             command = command.substr(command.indexOf('#') + 1);
 
             pairs = command.split(';');
