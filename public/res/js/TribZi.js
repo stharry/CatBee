@@ -275,12 +275,20 @@ TribZi = {
             return 0;
         }
 
+        function toString(prop){
+            if (typeof prop == 'undefined' || prop == null)
+            {
+                return '0';
+            }
+            return prop.replace('px', '');
+        }
+
         var elem = frameElem ? frameElem: '.box';
 
-        var lb = $(elem).css('border-left').replace('px', '');
-        var rb = $(elem).css('border-right').replace('px', '');
-        var tb = $(elem).css('border-top').replace('px', '');
-        var bb = $(elem).css('border-bottom').replace('px', '');
+        var lb = toString($(elem).css('border-left'));
+        var rb = toString($(elem).css('border-right'));
+        var tb = toString($(elem).css('border-top'));
+        var bb = toString($(elem).css('border-bottom'));
 
         var newWidth = Math.round(parseFloat($(elem).width())) +
             Math.round(toNumber(lb)) + Math.round(toNumber(rb));

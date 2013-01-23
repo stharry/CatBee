@@ -1,7 +1,7 @@
 cbf = {
     getCatBeeUrl: function()
     {
-        return "http://api.tribzi.com/CatBee/";
+        return "http://127.0.0.1:8080/CatBee/";
     },
 
     setCookie:function (c_name, value, exdays) {
@@ -82,7 +82,7 @@ cbf = {
 
     buildUrl:function (params) {
         return this.getCatBeeUrl() + 'api/deal/?action=' + params.catbeeAction + '&context=' +
-            encodeURIComponent(jQuery.param(params.urlParams));
+            encodeURIComponent(JSON.stringify(params.urlParams));
 
     },
 

@@ -1,6 +1,6 @@
 TribZiEmbd = {
     getOrderJson:function () {
-        return {
+        var order = {
             amount:'76.00',
             id:'123',
             items:[
@@ -14,8 +14,7 @@ TribZiEmbd = {
             customer:{
                 email:'danny.t.leader@gmail.com',
                 firstName:'Danny',
-                lastName:'Leader',
-                nickName:'leader'
+                lastName:'Leader'
             },
             branch:{
                 shopId:'1',
