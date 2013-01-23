@@ -5,6 +5,8 @@ $(document).ready(function () {
 
 function CreateAndInitializeEmailForm() {
 
+    $("#message").val(TribZi.deal.landing.customMessage);
+
     $("#contact").submit(function () {
         return false;
     });
@@ -54,9 +56,8 @@ function CreateAndInitializeEmailForm() {
             }
             TribZi.share(null); //Increment the number of shares
 
-            if (TribZi.sharedTimes == 1) {
-                showSuccess();
-            }
+            showSuccess('Your Message has been sent! Your Coupon for next purchase is on the way! Keep on sharing');
+
             switchToTwitter();
          }
     });

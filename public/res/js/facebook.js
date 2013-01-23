@@ -78,6 +78,9 @@ function StartFacebookSharing() {
 
                 TribZi.share();
 
+                showSuccess('Thanks! Keep spreading the love with your friends');
+
+                $('#emailShare').click();
             }
         }
 

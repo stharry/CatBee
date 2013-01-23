@@ -9,7 +9,7 @@
 				</div>
 				
 				<div id="slider_inactive" class="inv">
-					<p>Thank you for sharing</p>
+					<p class="thank-you">Thank you for sharing</p>
 				</div>
 				
 				<div class="slider-description">

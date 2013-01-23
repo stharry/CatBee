@@ -1,6 +1,8 @@
 /* Zoran Functions START */
-function showSuccess()
+function showSuccess(message)
 {
+    $('.thank-you').text(message ? message : 'Thank you for sharing');
+
 	/* $('#shareResponse').html('Thank you for sharing');
 	$('#shareResponse').css('display', 'block');
 	setTimeout(function(){
@@ -236,37 +238,18 @@ $(document).ready(function()
 		$('#message').css('color', '#4F432D');
         if($('.email-form').css('display') == 'none' )
 		{
-//			$('#slider').slider('disable');
-//			$('.cat_icon').addClass('dontclick');
-//			$('#cat_icon_opacity').addClass('dontclick');
-//			$('.bee_icon').addClass('dontclick');
-//			$('#bee_icon_opacity').addClass('dontclick');
-//
 
 			$('#tbox').css('display', 'none');
 			$('#tbox_bottom').css('display', 'none');
 			$('#shadow_div').addClass('inv');
 			$('#share_list').find('li').removeClass('active');
-			$(this).parent().addClass('active');
-            //I know this is not the Way yo Call a relative URL..
-            /* $('.box-wrapper').css({height:'740px', background:'url(../../public/res/images/catbee_blue_bg.jpg) repeat-x'}); */
-            $("#message").val(TribZi.deal.landing.customMessage);
+			//$(this).parent().addClass('active');
+
         }
 		else
 		{
-//			$('#slider').slider('enable');
-//			$('.cat_icon').removeClass('dontclick');
-//			$('#cat_icon_opacity').removeClass('dontclick');
-//			$('.bee_icon').removeClass('dontclick');
-//			$('#bee_icon_opacity').removeClass('dontclick');
-
-            //I know this is not the Way yo Call a relative URL..
-            /* $('.box-wrapper').css({height:'418px', background: 'url(../../public/res/images/catbee_blue_bg_h500.jpg) repeat-x'}); */
-			$(this).parent().removeClass('active');
+			//$(this).parent().removeClass('active');
 			
-			/* $('#slider-blue-content').find('.slider-description').removeClass('inv');
-			$('#slider-blue-content').find('.slider-wrapper').removeClass('inv');
-			$('#slider_inactive').addClass('inv'); */
         }
         $('.email-form').slideToggle("fast", function(){
             if( $('.email-form').css('display') == 'none' ){
@@ -313,7 +296,7 @@ function updateBoxPosition(){
     $('.box-wrapper').css('left', winW/2-$('.box-wrapper').width()/2);
 }
 function goToByScroll(selector){
-    $('html,body').animate({scrollTop: $("."+selector).offset().top},'slow');
+//    $('html,body').animate({scrollTop: $("."+selector).offset().top},'slow');
 }
 
 function openWindow(){
