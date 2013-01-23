@@ -1,11 +1,23 @@
 TribZi = {
 
+    openSocket: function()
+    {
+//        this. socket = new easyXDM.Socket({
+//            onMessage:function(message, origin) {
+//                //do something with message
+//            }
+//        });
+
+    },
+
     init:function (params) {
         this.deal = params.deal;
         this.selectedRewardIndex = 0;
         this.targets = [];
         this.sharedTimes = 0;
         this.sharePoint = params.sharePoint;
+        this.openSocket();
+
         return this;
     },
 
@@ -15,6 +27,8 @@ TribZi = {
         this.targets = [];
         this.sharedTimes = 0;
         this.sharePoint = params.sharePoint;
+        this.openSocket();
+
         return this;
     },
 
@@ -221,27 +235,17 @@ TribZi = {
         return url;
     },
 
-    addToWindowName: function(str)
-    {
-        var index = window.name.indexOf('#');
-
-        if (index > 0)
-        {
-            var currName = window.name.substr(0, index);
-            window.name = currName + '#' + str;
-        }
-        else
-        {
-            window.name =  window.name + '#' + str;
-
-        }
-        return this;
-
-    },
-
     sendToFrame: function(str)
     {
-        var index = window.name.indexOf('#');
+//        sessionStorage.setItem('a', '1');
+//        var params = {
+//            act:'set',
+//            shop:1,
+//            a:str
+//        }
+//        this.requestAnyData('/CatBee/components/actions/shopActions.php', params);
+
+        var index = window.location.hash.indexOf('#');
 
         if (index > 0)
         {

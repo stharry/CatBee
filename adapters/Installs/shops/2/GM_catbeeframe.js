@@ -1,7 +1,8 @@
 cbf = {
+
     getCatBeeUrl: function()
     {
-        return "http://api.tribzi.com/CatBee/";
+        return "http://www.api.tribzi.com/CatBee/";
     },
 
     setCookie:function (c_name, value, exdays) {
@@ -34,7 +35,7 @@ cbf = {
             },
             parser    :{
                 strict:/^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
-                loose :/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|jQuery)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+                loose :/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|jquery_fiveconnect)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
             }
         };
         var o = opts,
@@ -45,8 +46,8 @@ cbf = {
         while (i--) uri[o.key[i]] = m[i] || "";
 
         uri[o.q.name] = {};
-        uri[o.key[12]].replace(o.q.parser, function (jQuery0, jQuery1, jQuery2) {
-            if (jQuery1) uri[o.q.name][jQuery1] = jQuery2;
+        uri[o.key[12]].replace(o.q.parser, function (jquery_fiveconnect0, jquery_fiveconnect1, jquery_fiveconnect2) {
+            if (jquery_fiveconnect1) uri[o.q.name][jquery_fiveconnect1] = jquery_fiveconnect2;
         });
 
         return uri;
@@ -90,9 +91,9 @@ cbf = {
 
         var insert = "<div id='modalDiv' style='padding: 0; width: 430; height: 340; top: 300'><iframe id='catbeeFrame' width='100%' height='100%' marginWidth='0' marginHeight='0' frameBorder='0' scrolling='auto' title='Dialog Title'></iframe></div>";
 
-        jQuery('body').append(insert);
+        jquery_fiveconnect('body').append(insert);
 
-        jQuery("#modalDiv").dialog({
+        jquery_fiveconnect("#modalDiv").dialog({
             modal      :true,
             autoOpen   :false,
             position   :'center',
@@ -101,23 +102,23 @@ cbf = {
             draggable  :false,
             resizable  :false,
             dialogClass:'tribziDialog',
-            //position: { my: 'top', at: 'top+10%', of: jQuery(this) }
+            //position: { my: 'top', at: 'top+10%', of: jquery_fiveconnect(this) }
             open: function(event, ui) {
-                jQuery(event.target).parent().css('position', 'fixed');
-                jQuery(event.target).parent().css('top', '5%');
-                //jQuery(event.target).parent().css('left', '10px');
+                jquery_fiveconnect(event.target).parent().css('position', 'fixed');
+                jquery_fiveconnect(event.target).parent().css('top', '5%');
+                //jquery_fiveconnect(event.target).parent().css('left', '10px');
             }
         });
 
-        jQuery("#closebtn").button({ icons:{ primary:"ui-icon-close" } });
-        jQuery('.tribziDialog div.ui-dialog-titlebar').hide();
-        jQuery('#modalDiv').css('overflow', 'hidden');
-        //jQuery('.tribziDialog').css('overflow', 'hidden');
+        jquery_fiveconnect("#closebtn").button({ icons:{ primary:"ui-icon-close" } });
+        jquery_fiveconnect('.tribziDialog div.ui-dialog-titlebar').hide();
+        jquery_fiveconnect('#modalDiv').css('overflow', 'hidden');
+        //jquery_fiveconnect('.tribziDialog').css('overflow', 'hidden');
 
         url = this.buildUrl(params);
 
-        jQuery("#modalDiv").dialog("open");
-        jQuery("#catbeeFrame").attr('src', url);
+        jquery_fiveconnect("#modalDiv").dialog("open");
+        jquery_fiveconnect("#catbeeFrame").attr('src', url);
 
         var cssObj = {
             'position'  :'absolute',
@@ -130,12 +131,13 @@ cbf = {
             'background':'url(\'' + this.getCatBeeUrl() + 'public/res/images/fancybox_sprite.png\')'};
 
         if (params.closeButton) {
-            jQuery('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
-            jQuery('.dialog-close-button').css(cssObj)
+            jquery_fiveconnect('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
+            jquery_fiveconnect('.dialog-close-button').css(cssObj)
                 .click(function () {
-                    jQuery("#modalDiv").dialog('close');
+                    jquery_fiveconnect("#modalDiv").dialog('close');
                 });
         }
+
         setTimeout(checkIFrame, 200);
 
     }
@@ -168,20 +170,20 @@ function checkIFrame() {
                             height:params['h'],
                             width :params['w']
                         };
-                        jQuery('.ui-dialog').css(sizes);
-                        jQuery('#modalDiv').css(sizes);
+                        jquery_fiveconnect('.ui-dialog').css(sizes);
+                        jquery_fiveconnect('#modalDiv').css(sizes);
                         break;
                     }
                     case 'close':
                     {
-                        jQuery("#modalDiv").dialog('close');
+                        jquery_fiveconnect("#modalDiv").dialog('close');
                         break;
                     }
                     case "cookie":
                     {
                         cbf.setCookie(params['n'], params['v'], 1);
                         //todo set actions as array
-                        jQuery("#modalDiv").dialog('close');
+                        jquery_fiveconnect("#modalDiv").dialog('close');
                         break;
                     }
                 }

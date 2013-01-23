@@ -6,22 +6,20 @@ function getOrderJson() {
         amount  :args['ot'],
         id      :args['id'],
         //todo
-//            items:[
-//                {
-//                    itemcode:'1234567890',
-//                    url:'http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg',
-//                    price:'76.00',
-//                    description:'toy'
-//                }
-//            ],
+        "items":[
+            {
+                "itemcode":"1234567890",
+                "url":"http://www.glassesmarket.com/skin/frontend/glassesmarket2/default/images/logo.png"
+            }
+        ],
         customer:{
             email    :args['ce'],
             firstName:args['cn']
         },
         branch  :{
-            shopId:'1',
+            shopId:'2',
             store :{
-                'authCode':'19FB6C0C-3943-44D0-A40F-3DC401CB3703'
+                'authCode':'54c5e6c3-6349-11e2-a702-0008cae720a7'
             }
         }
 
@@ -29,7 +27,7 @@ function getOrderJson() {
 
 }
 
-jQuery(document).ready(function () {
+jquery_fiveconnect(document).ready(function () {
 
     var jsonOrderData = getOrderJson();
     cbf.setupFrame(
