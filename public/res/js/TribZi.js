@@ -263,14 +263,26 @@ TribZi = {
 
     resizeFrame: function(widthOffset, heightOffset, frameElem)
     {
+        function toNumber(n) {
+            if (!isNaN(parseFloat(n)) && isFinite(n))
+            {
+                return parseFloat(n);
+            }
+            return 0;
+        }
+
         var elem = frameElem ? frameElem: '.box';
 
-        var newWidth = Math.round(parseFloat($(elem).css('width').replace('px', ''))) +
-            Math.round(parseFloat($(elem).css('border-left').replace('px', ''))) +
-                Math.round(parseFloat($(elem).css('border-right').replace('px', '')));
-        var newHeight =  Math.round(parseFloat($(elem).css('height').replace('px', ''))) +
-            Math.round(parseFloat($(elem).css('border-top').replace('px', ''))) +
-            Math.round(parseFloat($(elem).css('border-bottom').replace('px', '')));
+        var lb = $(elem).css('border-left').replace('px', '');
+        var rb = $(elem).css('border-right').replace('px', '');
+        var tb = $(elem).css('border-top').replace('px', '');
+        var bb = $(elem).css('border-bottom').replace('px', '');
+
+        var newWidth = Math.round(parseFloat($(elem).width())) +
+            Math.round(toNumber(lb)) + Math.round(toNumber(rb));
+
+        var newHeight =  Math.round(parseFloat($(elem).height())) +
+            Math.round(toNumber(tb)) + Math.round(toNumber(bb));
 
         if (widthOffset)
         {
