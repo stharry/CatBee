@@ -208,7 +208,8 @@ $(document).ready(function()
 			_calculateColor($('#slider').slider('value'));
 		}
     });
-
+    updateBoxPosition();
+    updateRewards(Math.round((TribZi.deal.landing.landingRewards.length - 1)/2));
     //Share hover
     $('.share-box a').hover(
         function(){
@@ -299,4 +300,12 @@ function updateRewards(sliderVal) {
 	$('#percent_friends').html(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value+'%');
 	
     TribZi.setRewardIndex(sliderVal);
+}
+function updateBoxPosition(){
+    //Get the window height and width
+    var winH = $(window).height();
+    var winW = $(window).width();
+    //Set the popup window to center
+    $('.box-wrapper').css('top',  winH/2-$('.box-wrapper').height()/2);
+    $('.box-wrapper').css('left', winW/2-$('.box-wrapper').width()/2);
 }
