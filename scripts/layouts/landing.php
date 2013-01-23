@@ -64,7 +64,7 @@
 	<script type="text/javascript" charset="utf-8">
 		var csPageOptions = {
 			domain_key:"RFULLDSNJ8E62YBDLS7S",
-			textarea_id:"message"
+			textarea_id:"mail-input"
 		};
 	</script>
 
