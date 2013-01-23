@@ -12,7 +12,7 @@ class PdoDealShareDao implements IDealShareDao
         $lead->status          = $row['status'];
         $lead->landingRewardId = $row['landRewardId'];
         $lead->to              = $row['value'];
-        $lead->order           = $row['OrderID'];
+        $lead->orderId        = $row['OrderID'];
 
         return $lead;
     }
@@ -119,7 +119,7 @@ class PdoDealShareDao implements IDealShareDao
             {
                 $select = "SELECT share.id,share.dealId, share.shareType, share.landRewardId, share.value,
                            share.uid, L.OrderID FROM ActiveShare share";
-                $select = $select . " LEFT JOIN successfulReferral L on Share.id = L.ActiveShareID";
+                $select = $select . " LEFT JOIN successfulReferral L on share.id = L.ActiveShareID";
                 $select = $select . " WHERE share.dealid = ? ";
             }
             else

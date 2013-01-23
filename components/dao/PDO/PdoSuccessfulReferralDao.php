@@ -12,7 +12,7 @@ class PdoSuccessfulReferralDao implements ISuccessfulReferralDao
 
         $values = array($rows[0]['id'], $order->id);
 
-        DbManager::insertOnly("successfulreferral", $names, $values);
+        DbManager::insertOnly("successfulReferral", $names, $values);
     }
 
     public function GetReferrals($leadFilter)
