@@ -38,6 +38,7 @@ jQuery(document).ready(function () {
             initHeight  :369,
             catbeeAction:'deal',
             urlParams   :jsonOrderData,
+            id          :'catbeeFrame',
             closeButton :true
         });
 

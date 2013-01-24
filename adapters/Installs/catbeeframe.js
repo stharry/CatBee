@@ -1,6 +1,6 @@
 cbf = {
-    getCatBeeUrl: function()
-    {
+    getCatBeeUrl:function () {
+        //return "http://api.tribzi.com/CatBee/";
         return "http://127.0.0.1:8080/CatBee/";
     },
 
@@ -23,7 +23,7 @@ cbf = {
         }
     },
 
-    parseUri :function (str) {
+    parseUri:function (str) {
 
         var opts = {
             strictMode:false,
@@ -86,7 +86,71 @@ cbf = {
 
     },
 
+    handleCommand:function (command) {
+        pairs = command.split(';');
+        params = [];
+
+        for (var i = 0; i < pairs.length; i++) {
+            pair = pairs[i].split('=');
+            params[pair[0]] = pair[1];
+        }
+
+        if (params['act']) {
+            switch (params['act'].toLowerCase()) {
+                case 'resize':
+                {
+                    var sizes = {
+                        height:params['h'],
+                        width :params['w']
+                    };
+                    jQuery('.ui-dialog').height(params['h']).width(params['w']);
+                    jQuery('#modalDiv').height(params['h']).width(params['w']);
+                    break;
+                }
+                case 'close':
+                {
+                    jQuery("#modalDiv").dialog('close');
+                    break;
+                }
+                case "cookie":
+                {
+                    cbf.setCookie(params['n'], params['v'], 1);
+                    //todo set actions as array
+                    jQuery("#modalDiv").dialog('close');
+                    break;
+                }
+            }
+        }
+    },
+
+    setupSocket:function () {
+        if (typeof this.socket == 'undefined' || this.socket == null) {
+
+            //2. Create socket
+            this.socket = new easyXDM.Socket({
+                remote: "http://127.0.0.1:8080/", // the path to the provider
+                onMessage:function (message, origin) {
+                    cbf.handleCommand(message);
+                },
+                onReady  :function () {
+
+                }
+            });
+
+
+        }
+
+    },
+
     setupFrame:function (params) {
+
+        var cbFrame = document.getElementById(params.id ? params.id : 'catbeeFrame');
+
+        if (cbFrame !== null) {
+            return;
+        }
+
+        this.setupSocket();
 
         var insert = "<div id='modalDiv' style='padding: 0; width: 430; height: 340; top: 300'><iframe id='catbeeFrame' width='100%' height='100%' marginWidth='0' marginHeight='0' frameBorder='0' scrolling='auto' title='Dialog Title'></iframe></div>";
 
@@ -102,7 +166,7 @@ cbf = {
             resizable  :false,
             dialogClass:'tribziDialog',
             //position: { my: 'top', at: 'top+10%', of: jQuery(this) }
-            open: function(event, ui) {
+            open       :function (event, ui) {
                 jQuery(event.target).parent().css('position', 'fixed');
                 jQuery(event.target).parent().css('top', '5%');
                 //jQuery(event.target).parent().css('left', '10px');
@@ -136,59 +200,64 @@ cbf = {
                     jQuery("#modalDiv").dialog('close');
                 });
         }
-        setTimeout(checkIFrame, 200);
+        //setTimeout(checkIFrame, 200);
 
     }
 };
 
 window.cbf = cbf;
 
-function checkIFrame() {
-    var frameElement = document.getElementById('catbeeFrame');
 
-    if (frameElement && (frameElement.contentWindow)) {
-        var command = frameElement.contentWindow.name;
-        if ((command) && (command.toString().indexOf('#') >= 0)) {
+//function checkIFrame() {
+//    var frameElement = document.getElementById('catbeeFrame');
+//
+//    if (frameElement && (frameElement.contentWindow)) {
+//        var command = frameElement.contentWindow.name;
+//        if ((command) && (command.toString().indexOf('#') >= 0)) {
+//
+//            command = command.substr(command.indexOf('#') + 1);
+//
+//            pairs = command.split(';');
+//            params = [];
+//
+//            for (var i = 0; i < pairs.length; i++) {
+//                pair = pairs[i].split('=');
+//                params[pair[0]] = pair[1];
+//            }
+//
+//            if (params['act']) {
+//                switch (params['act'].toLowerCase()) {
+//                    case 'resize':
+//                    {
+//                        var sizes = {
+//                            height:params['h'],
+//                            width :params['w']
+//                        };
+//                        jQuery('.ui-dialog').css(sizes);
+//                        jQuery('#modalDiv').css(sizes);
+//                        break;
+//                    }
+//                    case 'close':
+//                    {
+//                        jQuery("#modalDiv").dialog('close');
+//                        break;
+//                    }
+//                    case "cookie":
+//                    {
+//                        cbf.setCookie(params['n'], params['v'], 1);
+//                        //todo set actions as array
+//                        jQuery("#modalDiv").dialog('close');
+//                        break;
+//                    }
+//                }
+//            }
+//            document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
+//        }
+//    }
+//    setTimeout(checkIFrame, 200);
+//}
 
-            command = command.substr(command.indexOf('#') + 1);
-
-            pairs = command.split(';');
-            params = [];
-
-            for (var i = 0; i < pairs.length; i++) {
-                pair = pairs[i].split('=');
-                params[pair[0]] = pair[1];
-            }
-
-            if (params['act']) {
-                switch (params['act'].toLowerCase()) {
-                    case 'resize':
-                    {
-                        var sizes = {
-                            height:params['h'],
-                            width :params['w']
-                        };
-                        jQuery('.ui-dialog').css(sizes);
-                        jQuery('#modalDiv').css(sizes);
-                        break;
-                    }
-                    case 'close':
-                    {
-                        jQuery("#modalDiv").dialog('close');
-                        break;
-                    }
-                    case "cookie":
-                    {
-                        cbf.setCookie(params['n'], params['v'], 1);
-                        //todo set actions as array
-                        jQuery("#modalDiv").dialog('close');
-                        break;
-                    }
-                }
-            }
-            document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
-        }
-    }
-    setTimeout(checkIFrame, 200);
-}
-
+//jQuery(function () {
+//    var jsSrc = "http://api.tribzi.com/CatBee/public/res/js/min/easyXDM.js";
+//    jQuery.getScript(jsSrc);
+//});

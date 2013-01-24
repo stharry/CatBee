@@ -2,11 +2,12 @@ TribZi = {
 
     openSocket: function()
     {
-//        this. socket = new easyXDM.Socket({
-//            onMessage:function(message, origin) {
-//                //do something with message
-//            }
-//        });
+        this.socket = new easyXDM.Socket({
+            remote: document.referrer,
+            onMessage: function(message, origin){
+                // parent shop page listening
+            }
+        });
 
     },
 
@@ -237,26 +238,26 @@ TribZi = {
 
     sendToFrame: function(str)
     {
-//        sessionStorage.setItem('a', '1');
-//        var params = {
-//            act:'set',
-//            shop:1,
-//            a:str
+        if (typeof this.lastCommand !== 'undefined' && this.lastCommand == str)
+        {
+            return;
+        }
+        this.lastCommand = str;
+        this.socket.postMessage(str);
+
+
+//        var index = window.location.hash.indexOf('#');
+//
+//        if (index > 0)
+//        {
+//            var currName = window.name.substr(0, index);
+//            window.name = currName + '#' + str;
 //        }
-//        this.requestAnyData('/CatBee/components/actions/shopActions.php', params);
-
-        var index = window.location.hash.indexOf('#');
-
-        if (index > 0)
-        {
-            var currName = window.name.substr(0, index);
-            window.name = currName + '#' + str;
-        }
-        else
-        {
-            window.name =  window.name + '#' + str;
-
-        }
+//        else
+//        {
+//            window.name =  window.name + '#' + str;
+//
+//        }
         return this;
     },
 
