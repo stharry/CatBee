@@ -2,6 +2,10 @@
 
 class ShareLead
 {
+    function __construct()
+    {
+        $this->referralOrders = array();
+    }
     public $to;
     public $landingRewardId;
     public $id;

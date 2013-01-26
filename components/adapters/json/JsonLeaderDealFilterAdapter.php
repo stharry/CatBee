@@ -22,6 +22,8 @@ class JsonLeaderDealFilterAdapter implements IModelAdapter
         $DealFilter->initDateBiggerThen  = $obj["initDateBiggerThen"];
         $DealFilter->initDateEarlierThen = $obj["initDateEarlierThen"];
         $DealFilter->bringReferrals      = $obj["bringReferrals"];
+        $DealFilter->ActiveShareFlag     = $obj["ActiveShareFlag"];
+        $DealFilter->ActiveShareType     = $obj["ActiveShareType"];
 
         return $DealFilter;
     }

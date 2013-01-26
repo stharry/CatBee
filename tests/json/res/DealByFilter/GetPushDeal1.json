@@ -2,13 +2,16 @@
     "action":"getDeal",
     "context":
     {
+
         "Customer":{
-            "email":"Tomer@tribzi.com"
+            "email":"tomer@tribzi.com"
         },
-        "ActiveShareType":"facebook",
+        "ActiveShareType":"email",
+        "ActiveShareFlag":"true",
         "Campaign":{
             "id":"1"
         }
 
     }
 }
+

@@ -7,7 +7,7 @@
         "Customer":{
             "email":"danny.t.leader@gmail.com"
         },
-        "ReferralsFlag":"1",
+        "bringReferrals":"true",
         "ActiveShareType":"All",
         "Campaign":{
             "id":"1"

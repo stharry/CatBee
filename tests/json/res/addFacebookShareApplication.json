@@ -6,10 +6,10 @@
         "application":
         {
             "applicationApiKey":"",
-            "applicationCode":"369374193139831",
-            "applicationSecret":"894b434b7da7bca8c5549e6e5584581f",
-            "authorizationUrl":"http://tribzi.azurewebsites.net/CatBee/components/share/facebook/facebookLogin.php",
-            "redirectUrl":"http://tribzi.azurewebsites.net/CatBee/components/share/facebook/facebookLogin.php"
+            "applicationCode":"194177057387274",
+            "applicationSecret":"fc544c6792173f19f3d704f1738ce3eb",
+            "authorizationUrl":"http://127.0.0.1:8080/CatBee/components/share/facebook/facebookLogin.php",
+            "redirectUrl":"http://127.0.0.1:8080/CatBee/components/share/facebook/facebookLogin.php"
         }
     }
 }

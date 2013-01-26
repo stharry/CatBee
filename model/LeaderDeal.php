@@ -9,6 +9,11 @@ class LeaderDeal
     public static $STATUS_CLOSED = 4;
     public static $STATUS_CANCELLED = 5;
 
+    function __construct()
+    {
+        $this->leads = array();
+    }
+
     public $id;
     public $campaign;
     public $landing;

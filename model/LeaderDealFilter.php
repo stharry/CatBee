@@ -3,8 +3,8 @@
 class LeaderDealFilter
 {
     public $customer;
-    public $ActiveShareFlag;
-    public $bringReferrals;
+    public $ActiveShareFlag= false;
+    public $bringReferrals =false;
     public $initDateBiggerThen;
     public $initDateEarlierThen;
     public $ActiveShareType;

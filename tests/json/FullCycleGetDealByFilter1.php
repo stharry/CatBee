@@ -5,7 +5,7 @@ IncludeComponent('rest', 'RestUtils');
 $restUtils = new RestUtils();
 
 ////Push Deal 1  Customer Tomer@tribzi.com ,Date Y
-//
+
 $order1 = json_decode(file_get_contents("res/DealByFilter/pushDeal1.json"));
 $restUtils->SendPostRequest("deal", "", $order1);
 //
@@ -35,13 +35,24 @@ $shareEmail = json_decode(file_get_contents("res/DealByFilter/ShareStoreShareEma
 
 $response = $restUtils->SendPostRequest("deal", "", $shareEmail);
 
-//Open ActiveShareID 2 to record an Impression
+//Open Friend Deal For ShareVia FB of Deal 1
+
 
 $friendDealTemplate = json_decode(file_get_contents("res/DealByFilter/friendDeal6.json"));
-$restUtils->SendPostRequest("deal", "", $friendDealTemplate);
+$temp = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $friendDealTemplate), true);
 
-//Push Deal 5 referring deal 1 for customer Z
-$order5 = json_decode(file_get_contents("res/DealByFilter/pushDeal5.json"));
+$friendDeal = array('action'=>'friend Deal',
+    'context' => array(
+        'share' => array('context' => array('uid' =>  $temp[0]['leads'][0]['uid']))));
+$restUtils->SendPostRequest("deal", "", $friendDeal);
+
+//Push Deal 5 referring deal 1 for customer Z share Via Email
+
+$filter = json_decode(file_get_contents("res/DealByFilter/GetPushDeal1.json"));
+
+$deals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $filter), true);
+$order5 = json_decode(file_get_contents("res/DealByFilter/pushDeal5.json"),true);
+$order5['context']['successfulReferral'] = $deals[0]['leads'][0]['uid'];
 $restUtils->SendPostRequest("deal", "", $order5);
 
 
