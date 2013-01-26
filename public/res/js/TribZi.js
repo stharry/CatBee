@@ -1,11 +1,24 @@
 TribZi = {
 
+    openSocket: function()
+    {
+        this.socket = new easyXDM.Socket({
+            remote: document.referrer,
+            onMessage: function(message, origin){
+                // parent shop page listening
+            }
+        });
+
+    },
+
     init:function (params) {
         this.deal = params.deal;
         this.selectedRewardIndex = 0;
         this.targets = [];
         this.sharedTimes = 0;
         this.sharePoint = params.sharePoint;
+        this.openSocket();
+
         return this;
     },
 
@@ -15,6 +28,8 @@ TribZi = {
         this.targets = [];
         this.sharedTimes = 0;
         this.sharePoint = params.sharePoint;
+        this.openSocket();
+
         return this;
     },
 
@@ -221,38 +236,28 @@ TribZi = {
         return url;
     },
 
-    addToWindowName: function(str)
-    {
-        var index = window.name.indexOf('#');
-
-        if (index > 0)
-        {
-            var currName = window.name.substr(0, index);
-            window.name = currName + '#' + str;
-        }
-        else
-        {
-            window.name =  window.name + '#' + str;
-
-        }
-        return this;
-
-    },
-
     sendToFrame: function(str)
     {
-        var index = window.name.indexOf('#');
-
-        if (index > 0)
+        if (typeof this.lastCommand !== 'undefined' && this.lastCommand == str)
         {
-            var currName = window.name.substr(0, index);
-            window.name = currName + '#' + str;
+            return;
         }
-        else
-        {
-            window.name =  window.name + '#' + str;
+        this.lastCommand = str;
+        this.socket.postMessage(str);
 
-        }
+
+//        var index = window.location.hash.indexOf('#');
+//
+//        if (index > 0)
+//        {
+//            var currName = window.name.substr(0, index);
+//            window.name = currName + '#' + str;
+//        }
+//        else
+//        {
+//            window.name =  window.name + '#' + str;
+//
+//        }
         return this;
     },
 
@@ -271,12 +276,20 @@ TribZi = {
             return 0;
         }
 
+        function toString(prop){
+            if (typeof prop == 'undefined' || prop == null)
+            {
+                return '0';
+            }
+            return prop.replace('px', '');
+        }
+
         var elem = frameElem ? frameElem: '.box';
 
-        var lb = $(elem).css('border-left').replace('px', '');
-        var rb = $(elem).css('border-right').replace('px', '');
-        var tb = $(elem).css('border-top').replace('px', '');
-        var bb = $(elem).css('border-bottom').replace('px', '');
+        var lb = toString($(elem).css('border-left'));
+        var rb = toString($(elem).css('border-right'));
+        var tb = toString($(elem).css('border-top'));
+        var bb = toString($(elem).css('border-bottom'));
 
         var newWidth = Math.round(parseFloat($(elem).width())) +
             Math.round(toNumber(lb)) + Math.round(toNumber(rb));

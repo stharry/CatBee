@@ -1,5 +1,11 @@
 <?php
 
+$a = "amount=15.0000&id=18&customer%5Bemail%5D=spidernah%40gmail.com&customer%5BfirstName%5D=spider+nah&branch%5BshopId%5D=1&branch%5Bstore%5D%5BauthCode%5D=19FB6C0C-3943-44D0-A40F-3DC401CB3703";
+echo urldecode($a);
+
+$b = json_decode(urldecode($a), true);
+var_dump($b);
+exit;
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 require_once "Mail.php";
 require_once "Mail/mime.php";

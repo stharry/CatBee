@@ -72,6 +72,10 @@
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/dev/load-dev.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/mutate.events.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/mutate.min.js?v=1" type="text/javascript"></script>
+<!--
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js?v=1" type="text/javascript"></script>
+-->
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.js?v=1" type="text/javascript"></script>
 
     <script src="http://connect.facebook.net/en_US/all.js"></script>
 

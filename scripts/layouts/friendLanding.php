@@ -15,7 +15,7 @@
     <script src="<?php echo  $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
     <script language="javascript">TribZi.initFriendDeal(<?php echo $p[0]['params'][2]; ?>);</script>
 
-    <script src="<?php echo  $GLOBALS[ "catBeePath" ].'adapters/installs/shops/'.$p[0]['params'][1]->shopId.'/js/' ?>friendLanding.js?reload" type="text/javascript"></script>
+    <script src="<?php echo  $GLOBALS[ "catBeePath" ].'adapters/Installs/shops/'.$p[0]['params'][1]->shopId.'/js/' ?>friendLanding.js?reload" type="text/javascript"></script>
 
     <!--Landing common rendering-->
     <link href="<?php echo  $GLOBALS["rootPath"] ?>/res/css/friendLanding.css?reload" rel="stylesheet" type="text/css"/>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+    <script type="text/javascript" src="easyXDM.js"></script>
+
+
+</head>
+<body>
+<p id="nav"><a>Click on me</a></p>
+
+<script type="text/javascript" language="javascript">
+
+    $(document).ready(function () {
+
+
+        var socket = new easyXDM.Socket({
+            remote: 'http://api.tribzi.com/CatBee/',//document.referrer.toString().replace(/^(.*\/\/[^\/?#]*).*$/, "$1"),
+            onMessage: function(message, origin){
+               // alert("Received '" + message + "' from '" + origin + "'");
+              //  socket.postMessage("Indeed it does!");
+            }
+        });
+
+
+
+
+        $('a').click(function(){
+            socket.postMessage('Pizdets');
+        });
+    });
+</script>
+
+</body>
+</html>

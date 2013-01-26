@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+<script type="text/javascript" src="easyXDM.js"></script>
+
+<body>
+
+<iframe src="http://127.0.0.1:8080/CatBee/tests/vad2/iframe.html" id="iframe"></iframe>
+
+<script type="text/javascript" language="javascript">
+
+    $(document).ready(function () {
+
+        var socket = new easyXDM.Socket({
+            //remote: "http://127.0.0.1:8080/CatBee/", // the path to the provider
+            onMessage: function(message, origin){
+                alert("Received '" + message + "' from  iframe'" + origin + "'");
+            },
+            onReady: function() {
+               // socket.postMessage("Yay, it works!");
+            }
+        });
+
+
+
+    });
+</script>
+
+</body>
+</html>
