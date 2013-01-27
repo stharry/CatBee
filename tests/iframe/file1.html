@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css"/>
 
     <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/public/res/js/min/easyXDM.js"></script>
-    <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/adapters/installs/catbeeframe.js?reload"></script>
-    <script type="text/javascript"
-            src="http://127.0.0.1:8080/CatBee/adapters/installs/Embedded_FanForToys.js?reload"></script>
+    <script type="text/javascript" src="/CatBee/adapters/Installs/catbeeframe.js?reload"></script>
+    <script type="text/javascript" src="/CatBee/adapters/Installs/Embedded_FanForToys.js?reload"></script>
 
 
     <!--CATBEE BEGIN-->
@@ -19,7 +18,54 @@
         jQuery(document).ready(function () {
 
 
-            jQuery('<div id="cbfOverlay"><div id="cbfContainer"></div></div>').appendTo('body');
+            jQuery('<div id="cbfOverlay"></div><div id="cbfContainer"></div>').appendTo('body');
+
+            var cssOverlay = {
+                display  :'block',
+                position :'fixed',
+                top      :'0px',
+                left     :'0px',
+                width    :'100%',
+                height   :'100%',
+                'z-index':'1002',
+                opacity  :0.8
+            };
+
+            jQuery('#cbfOverlay').css(cssOverlay);
+
+            var cssDialog = {
+                display  :'block',
+                position :'fixed',
+                top      :'10%',
+                left     :'40%',
+                width    :'424px',
+                height   :'370px',
+                'z-index':'1003'
+            };
+
+            jQuery('#cbfContainer').css(cssDialog);
+
+            var cssButton = {
+                'position'  :'absolute',
+                'top'       :'-18px',
+                'right'     :'-18px',
+                'width'     :'36px',
+                'height'    :'36px',
+                'cursor'    :'pointer',
+                'z-index'   :'8040',
+                'background':'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/fancybox_sprite.png\')'};
+
+            //todo if (params.closeButton)
+            {
+                jQuery('#cbfContainer').append("<div title='Close' id='cbfCloseBtn'></div>");
+                jQuery('#cbfCloseBtn').css(cssButton)
+                        .click(function () {
+                            jQuery('#cbfContainer').css('display', 'none');
+                            jQuery('#cbfOverlay').css('display', 'none');
+
+                        });
+            }
+
             var url = cbf.buildUrl({
                 catbeeAction:'deal',
                 urlParams   :getOrderJson()
@@ -34,11 +80,11 @@
                         container:document.getElementById("cbfContainer"),
                         props    :{
                             style:{
-                                border :"0px 0px 0px 0px",
-                                padding:"0px 0px 0px 0px",
-                                overflow: "hidden",
-                                width  :"100%",
-                                height :"100%"
+                                border  :"0px 0px 0px 0px",
+                                padding :"0px 0px 0px 0px",
+                                overflow:"hidden",
+                                width   :"100%",
+                                height  :"100%"
                             }
                         }
                     },
@@ -50,7 +96,7 @@
                                     width :newWidth + 'px'
                                 };
 
-                                jQuery('#AAA').css(sizes);
+                                jQuery('#cbfContainer').css(sizes);
                                 //jQuery('#AAA iframe').css(sizes);
                             }},
                         remote:{ }
@@ -58,14 +104,6 @@
         });
 
     </script>
-
-    <!--
-       <script type="text/javascript"
-               src="http://127.0.0.1:8080/CatBee/adapters/installs/Embedded_Magento.js?reload&id=18&ot=15.0000&cn=spider nah&ce=spidernah@gmail.com"></script>
-
-           <script src='/CatBee/adapters/Installs/Embedded_FanForToys.js?reload'></script>
-           -->
-    <!--CATBEE END-->
 
 </head>
 <body>
@@ -83,6 +121,6 @@
 <br>
 <a href="http://www.w3schools.com" style="left: 200px; top: 500px">Visit W3Schools.com!</a>
 
-<div id="AAA" style="position: absolute; top: 100px; left: 100px; z-index: 1000"></div>
+
 </body>
 </html>

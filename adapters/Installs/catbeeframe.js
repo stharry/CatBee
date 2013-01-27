@@ -167,8 +167,8 @@ cbf = {
             dialogClass:'tribziDialog',
             //position: { my: 'top', at: 'top+10%', of: jQuery(this) }
             open       :function (event, ui) {
-                jQuery(event.target).parent().css('position', 'fixed');
-                jQuery(event.target).parent().css('top', '5%');
+                //jQuery(event.target).parent().css('position', 'fixed');
+                //jQuery(event.target).parent().css('top', '5%');
                 //jQuery(event.target).parent().css('left', '10px');
             }
         });

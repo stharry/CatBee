@@ -39,5 +39,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
     $("#autostart").trigger('click');
 });</script>
     <?php }; ?>
+
+<a href="http://www.w3schools.com" style="left: 200px; top: 500px">Visit W3Schools.com!</a>
 </body>
 </html>
