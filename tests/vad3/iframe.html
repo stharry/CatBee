@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+    <script type="text/javascript" src="easyXDM.js"></script>
+
+
+</head>
+<body>
+<p id="nav"><a>Click on me</a></p>
+
+<script type="text/javascript" language="javascript">
+
+    $(document).ready(function () {
+
+        var remote = new easyXDM.Rpc(/** The channel configuration*/{
+//        local: "../name.html",
+//        swf: "../easyxdm.swf"
+            },
+            {
+                remote:{alertMessage:{}}
+//        ,
+//        local: {
+//            addNumbers: function(a, b){
+//                return a + b;
+//            },
+//            multiplyNumbers: function(a, b, fn){
+//                window.setTimeout(function(){
+//                    fn(a * b);
+//                }, 5000);
+//            },
+//            noOp: function(){
+//                alert("Method not returning any data");
+//            }
+//        }
+            });
+
+
+    $('a').click(function () {
+        remote.alertMessage('Pizdets', 'nah');
+    });
+    });
+</script>
+
+</body>
+</html>

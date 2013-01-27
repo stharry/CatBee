@@ -1,13 +1,11 @@
 TribZi = {
 
-    openSocket: function()
-    {
-        this.socket = new easyXDM.Socket({
-            remote: document.referrer,
-            onMessage: function(message, origin){
-                // parent shop page listening
-            }
-        });
+    openSocket:function () {
+        this.rpc = new easyXDM.Rpc(
+            {},
+            {
+                remote:{resizeFrame:{}}
+            });
 
     },
 
@@ -38,8 +36,7 @@ TribZi = {
         return this;
     },
 
-    setShareLink: function(link)
-    {
+    setShareLink:function (link) {
         this.shareLink = link;
         return this;
     },
@@ -62,9 +59,9 @@ TribZi = {
 
     addTarget:function (sender, recipients, shareTarget, shareContext) {
         var shareTarget = {
-            name:shareTarget,
-            from:sender,
-            to:recipients,
+            name   :shareTarget,
+            from   :sender,
+            to     :recipients,
             context:{
                 type:shareContext
             }
@@ -105,8 +102,7 @@ TribZi = {
         }
         xmlhttp.onreadystatechange = function () {
 
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 try {
                     var requestResult = JSON.parse(xmlhttp.responseText);
 
@@ -131,8 +127,7 @@ TribZi = {
                 xmlhttp.setRequestHeader("Content-Length", data2Send.length);
                 xmlhttp.send(data2Send);
             }
-            else
-            {
+            else {
                 xmlhttp.open("GET", sharePoint, true);
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -148,16 +143,16 @@ TribZi = {
     doShareAction:function (action, callback) {
 
         var sendData = {
-            action:action,
+            action :action,
             context:{
 
                 customMessage:this.deal.landing.customMessage,
-                deal:this.deal,
-                context:{
+                deal         :this.deal,
+                context      :{
                     type:this.targets[0].context.type
                 },
-                reward:this.deal.landing.landingRewards[this.selectedRewardIndex],
-                targets:this.targets
+                reward       :this.deal.landing.landingRewards[this.selectedRewardIndex],
+                targets      :this.targets
             }
         };
 
@@ -226,20 +221,16 @@ TribZi = {
         $('#' + elem).value($.cookie('CatBeeCpnCod'));
     },
 
-    getRoot: function()
-    {
+    getRoot:function () {
         url = this.sharePoint.toString().replace(/^(.*\/\/[^\/?#]*).*$/, "$1");
-        if (url.toLowerCase().indexOf('/CatBee') == -1)
-        {
+        if (url.toLowerCase().indexOf('/CatBee') == -1) {
             url = url + '/CatBee';
         }
         return url;
     },
 
-    sendToFrame: function(str)
-    {
-        if (typeof this.lastCommand !== 'undefined' && this.lastCommand == str)
-        {
+    sendToFrame:function (str) {
+        if (typeof this.lastCommand !== 'undefined' && this.lastCommand == str) {
             return;
         }
         this.lastCommand = str;
@@ -261,30 +252,26 @@ TribZi = {
         return this;
     },
 
-    closeFrame: function()
-    {
+    closeFrame:function () {
         return this.sendToFrame('act=close');
     },
 
-    resizeFrame: function(widthOffset, heightOffset, frameElem)
-    {
+    resizeFrame:function (widthOffset, heightOffset, frameElem) {
         function toNumber(n) {
-            if (!isNaN(parseFloat(n)) && isFinite(n))
-            {
+            if (!isNaN(parseFloat(n)) && isFinite(n)) {
                 return parseFloat(n);
             }
             return 0;
         }
 
-        function toString(prop){
-            if (typeof prop == 'undefined' || prop == null)
-            {
+        function toString(prop) {
+            if (typeof prop == 'undefined' || prop == null) {
                 return '0';
             }
             return prop.replace('px', '');
         }
 
-        var elem = frameElem ? frameElem: '.box';
+        var elem = frameElem ? frameElem : '.box';
 
         var lb = toString($(elem).css('border-left'));
         var rb = toString($(elem).css('border-right'));
@@ -294,22 +281,21 @@ TribZi = {
         var newWidth = Math.round(parseFloat($(elem).width())) +
             Math.round(toNumber(lb)) + Math.round(toNumber(rb));
 
-        var newHeight =  Math.round(parseFloat($(elem).height())) +
+        var newHeight = Math.round(parseFloat($(elem).height())) +
             Math.round(toNumber(tb)) + Math.round(toNumber(bb));
 
-        if (widthOffset)
-        {
+        if (widthOffset) {
             newWidth += widthOffset;
         }
 
-        if (heightOffset)
-        {
+        if (heightOffset) {
             newHeight += heightOffset;
         }
 
-        var str = "act=resize;w=" + newWidth + "px;h=" + newHeight + "px";
-
-        return this.sendToFrame(str);
+        this.rpc.resizeFrame(newWidth, newHeight);
+//        var str = "act=resize;w=" + newWidth + "px;h=" + newHeight + "px";
+//
+//        return this.sendToFrame(str);
     }
 
 

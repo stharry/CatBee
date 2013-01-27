@@ -26,19 +26,19 @@ function getOrderJson() {
     }
 
 }
-
-jQuery(document).ready(function () {
-
-    var jsonOrderData = getOrderJson();
-    cbf.setupFrame(
-        {
-            initWidth   :424,
-            initHeight  :369,
-            catbeeAction:'deal',
-            urlParams   :jsonOrderData,
-            id          :'catbeeFrame',
-            closeButton :true
-        });
-
-});
+//
+//jQuery(document).ready(function () {
+//
+//    var jsonOrderData = getOrderJson();
+//    cbf.setupFrame(
+//        {
+//            initWidth   :424,
+//            initHeight  :369,
+//            catbeeAction:'deal',
+//            urlParams   :jsonOrderData,
+//            id          :'catbeeFrame',
+//            closeButton :true
+//        });
+//
+//});
 

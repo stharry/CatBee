@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="easyXDM.js"></script>
+
+    <script type="text/javascript" language="javascript">
+
+        $(document).ready(function () {
+
+            var rpc = new easyXDM.Rpc(
+                    {
+                        remote   :"http://127.0.0.1:8080/CatBee/tests/vad3/iframe.html",
+                        onReady  :function () {
+
+                        },
+                        container:document.getElementById("AAA"),
+                        props    :{
+                            style:{
+                                border:"1px solid red",
+                                width :"500px",
+                                height:"500px"
+                            }
+                        }
+                    },
+                    {
+                        local :{
+                            alertMessage: function(a, b){alert('gogo power rangers local a:' + a + ' b: ' + b)},
+                            abc: function(){alert('parent local abc')} },
+                        remote:{
+                            alertMessage: function(){alert('gogo power rangers remote')},
+                            abc: function(){alert('parent remote abc')}}
+                    });
+
+        });
+    </script>
+</head>
+
+
+
+
+
+<body>
+
+<div id="AAA"></div>
+
+
+</body>
+</html>

@@ -5,15 +5,15 @@ function getOrderJson() {
     return {
         amount  :args['ot'],
         id      :args['id'],
-        //todo
-//            items:[
-//                {
-//                    itemcode:'1234567890',
-//                    url:'http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg',
-//                    price:'76.00',
-//                    description:'toy'
-//                }
-//            ],
+
+            items:[
+                {
+                    itemcode:'1234567890',
+                    url:'http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg',
+                    price:'76.00',
+                    description:'toy'
+                }
+            ],
         customer:{
             email    :args['ce'],
             firstName:args['cn']
