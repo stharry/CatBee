@@ -86,121 +86,132 @@ cbf = {
 
     },
 
-    handleCommand:function (command) {
-        pairs = command.split(';');
-        params = [];
+    setupRpc:function (params) {
 
-        for (var i = 0; i < pairs.length; i++) {
-            pair = pairs[i].split('=');
-            params[pair[0]] = pair[1];
-        }
+        //todo: need to implement muli sockets
+        url = this.buildUrl(params);
 
-        if (params['act']) {
-            switch (params['act'].toLowerCase()) {
-                case 'resize':
-                {
-                    var sizes = {
-                        height:params['h'],
-                        width :params['w']
-                    };
-                    jQuery('.ui-dialog').height(params['h']).width(params['w']);
-                    jQuery('#modalDiv').height(params['h']).width(params['w']);
-                    break;
-                }
-                case 'close':
-                {
-                    jQuery("#modalDiv").dialog('close');
-                    break;
-                }
-                case "cookie":
-                {
-                    cbf.setCookie(params['n'], params['v'], 1);
-                    //todo set actions as array
-                    jQuery("#modalDiv").dialog('close');
-                    break;
-                }
-            }
-        }
-    },
-
-    setupSocket:function () {
-        if (typeof this.socket == 'undefined' || this.socket == null) {
-
-            //2. Create socket
-            this.socket = new easyXDM.Socket({
-                remote: "http://127.0.0.1:8080/", // the path to the provider
-                onMessage:function (message, origin) {
-                    cbf.handleCommand(message);
-                },
+        var rpc = new easyXDM.Rpc(
+            {
+                remote   :url,
                 onReady  :function () {
 
+                },
+                container:document.getElementById("cbfContainer"),
+                props    :{
+                    style:{
+                        border  :"0px 0px 0px 0px",
+                        padding :"0px 0px 0px 0px",
+                        overflow:"hidden",
+                        width   :"100%",
+                        height  :"100%"
+                    }
                 }
+            },
+            {
+                local :{
+                    resizeFrame      :function (newWidth, newHeight) {
+                        var sizes = {
+                            height:newHeight + 'px',
+                            width :newWidth + 'px'
+                        };
+
+                        jQuery('#cbfContainer').css(sizes);
+                    },
+                    closeFrame       :function () {
+                        cbf.closeFrame();
+                    },
+                    sendCouponToFrame:function (couponCode, couponValue) {
+                        cbf.setCookie('CatBeeCpnCod', couponCode, 1)
+                            .setCookie('CatBeeCpnVal', couponValue, 1);
+                    }},
+                remote:{ }
             });
 
+        return this;
+    },
 
+    buildFrame:function () {
+        var params = this.frameParams;
+        jQuery('<div id="cbfOverlay"></div>').appendTo('body');
+
+        var cssOverlay = {
+            display  :'block',
+            position :'fixed',
+            top      :'0px',
+            left     :'0px',
+            width    :'100%',
+            height   :'100%',
+            'z-index':'1002',
+            opacity  :0.8
+        };
+        jQuery('#cbfOverlay').css(cssOverlay);
+
+        jQuery('<div id="cbfFrame"><div id="cbfContainer"></div></div>').appendTo('body');
+        var cssFrame = {
+            display  :'block',
+            position :'fixed',
+            top      :'10%',
+            left     :'40%',
+            width    :'424px',
+            height   :'370px',
+            'z-index':'1003'
+        };
+        jQuery('#cbfFrame').css(cssFrame);
+
+        var cssDialog = {
+            width:'100%', height:'100%'
+        };
+        jQuery('#cbfContainer').css(cssDialog);
+
+        if (params.closeButton) {
+            jQuery('<div title="Close" id="cbfCloseBtn"></div>').appendTo('#cbfFrame');
+            var cssButton = {
+                'position'        :'absolute',
+                'top'             :'-18px',
+                'right'           :'-18px',
+                'width'           :'36px',
+                'height'          :'36px',
+                'cursor'          :'pointer',
+                'z-index'         :'8040',
+                'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',
+                'background-color':'transparent'
+            };
+
+            jQuery('#cbfCloseBtn').css(cssButton)
+                .click(function () {
+                    cbf.closeFrame();
+                });
         }
+
+        this.setupRpc(params);
+
+    },
+
+    closeFrame:function () {
+        jQuery('#cbfFrame').css('display', 'none');
+        jQuery('#cbfOverlay').css('display', 'none');
 
     },
 
     setupFrame:function (params) {
 
-        var cbFrame = document.getElementById(params.id ? params.id : 'catbeeFrame');
+        this.frameParams = params;
+        if (typeof esyXDM == 'undefined') {
+            if (typeof JSON == 'undefined') {
+                var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/json2.min.js";
+                jQuery.getScript(jsSrc);
 
-        if (cbFrame !== null) {
-            return;
-        }
-
-        this.setupSocket();
-
-        var insert = "<div id='modalDiv' style='padding: 0; width: 430; height: 340; top: 300'><iframe id='catbeeFrame' width='100%' height='100%' marginWidth='0' marginHeight='0' frameBorder='0' scrolling='auto' title='Dialog Title'></iframe></div>";
-
-        jQuery('body').append(insert);
-
-        jQuery("#modalDiv").dialog({
-            modal      :true,
-            autoOpen   :false,
-            position   :'center',
-            height     :params.initHeight,
-            width      :params.initWidth,
-            draggable  :false,
-            resizable  :false,
-            dialogClass:'tribziDialog',
-            //position: { my: 'top', at: 'top+10%', of: jQuery(this) }
-            open       :function (event, ui) {
-                //jQuery(event.target).parent().css('position', 'fixed');
-                //jQuery(event.target).parent().css('top', '5%');
-                //jQuery(event.target).parent().css('left', '10px');
             }
-        });
+            var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.min.js";
+            jQuery.getScript(jsSrc, function (data, textStatus, jqxhr) {
+                cbf.buildFrame();
+            });
 
-        jQuery("#closebtn").button({ icons:{ primary:"ui-icon-close" } });
-        jQuery('.tribziDialog div.ui-dialog-titlebar').hide();
-        jQuery('#modalDiv').css('overflow', 'hidden');
-        //jQuery('.tribziDialog').css('overflow', 'hidden');
-
-        url = this.buildUrl(params);
-
-        jQuery("#modalDiv").dialog("open");
-        jQuery("#catbeeFrame").attr('src', url);
-
-        var cssObj = {
-            'position'  :'absolute',
-            'top'       :'-18px',
-            'right'     :'-18px',
-            'width'     :'36px',
-            'height'    :'36px',
-            'cursor'    :'pointer',
-            'z-index'   :'8040',
-            'background':'url(\'' + this.getCatBeeUrl() + 'public/res/images/fancybox_sprite.png\')'};
-
-        if (params.closeButton) {
-            jQuery('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
-            jQuery('.dialog-close-button').css(cssObj)
-                .click(function () {
-                    jQuery("#modalDiv").dialog('close');
-                });
         }
-        //setTimeout(checkIFrame, 200);
+        else {
+            cbf.buildFrame();
+        }
 
     }
 };
@@ -208,56 +219,5 @@ cbf = {
 window.cbf = cbf;
 
 
-//function checkIFrame() {
-//    var frameElement = document.getElementById('catbeeFrame');
-//
-//    if (frameElement && (frameElement.contentWindow)) {
-//        var command = frameElement.contentWindow.name;
-//        if ((command) && (command.toString().indexOf('#') >= 0)) {
-//
-//            command = command.substr(command.indexOf('#') + 1);
-//
-//            pairs = command.split(';');
-//            params = [];
-//
-//            for (var i = 0; i < pairs.length; i++) {
-//                pair = pairs[i].split('=');
-//                params[pair[0]] = pair[1];
-//            }
-//
-//            if (params['act']) {
-//                switch (params['act'].toLowerCase()) {
-//                    case 'resize':
-//                    {
-//                        var sizes = {
-//                            height:params['h'],
-//                            width :params['w']
-//                        };
-//                        jQuery('.ui-dialog').css(sizes);
-//                        jQuery('#modalDiv').css(sizes);
-//                        break;
-//                    }
-//                    case 'close':
-//                    {
-//                        jQuery("#modalDiv").dialog('close');
-//                        break;
-//                    }
-//                    case "cookie":
-//                    {
-//                        cbf.setCookie(params['n'], params['v'], 1);
-//                        //todo set actions as array
-//                        jQuery("#modalDiv").dialog('close');
-//                        break;
-//                    }
-//                }
-//            }
-//            document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
-//        }
-//    }
-//    setTimeout(checkIFrame, 200);
-//}
-
-//jQuery(function () {
-//    var jsSrc = "http://api.tribzi.com/CatBee/public/res/js/min/easyXDM.js";
-//    jQuery.getScript(jsSrc);
-//});
+jQuery(function () {
+});

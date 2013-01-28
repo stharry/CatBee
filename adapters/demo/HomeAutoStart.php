@@ -19,12 +19,14 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
     <link rel="stylesheet" type="text/css" media="all" href="/CatBee/public/res/css/jquery.fancybox.css?reload">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js?reload"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js?reload"></script>
+
     <script src="res/guiders-1.2.8.js"> </script>
-    <script src="/CatBee/public/res/js/jquery.fancybox.js?reload"></script>
-    <script src="res/demoHomeAdapter.js?reload"></script>
+
     <link rel="stylesheet" type="text/css" media="all" href="res/guiders-1.2.8.css?reload">
     <link rel="stylesheet" type="text/css" media="all" href="res/home.css?reload">
+
+    <script type="text/javascript" src="/CatBee/adapters/installs/catbeeframe.js"></script>
+    <script type="text/javascript" src="/CatBee/adapters/installs/catbeewelcome.js?reload"></script>
 
 </head>
 <body

@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     $('#go-btn').click(function(){
 
-        TribZi.saveCoupon();
+        TribZi.saveCoupon().closeFrame();
     });
 
 

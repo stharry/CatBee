@@ -201,7 +201,7 @@ TribZi = {
         $.cookie('CatBeeCpnVal', this.friendDeal.share.reward.friendReward.value);
         $.cookie('CatBeeRefId', this.friendDeal.share.context.uid);
 
-        this.sendToFrame('act=cookie;n=CatBeeCpnCod;v=' + this.friendDeal.share.reward.friendReward.code);
+        this.rpc.sendCouponToFrame('CatBeeCpnCod', this.friendDeal.share.reward.friendReward.code);
         return this;
     },
 
@@ -229,31 +229,9 @@ TribZi = {
         return url;
     },
 
-    sendToFrame:function (str) {
-        if (typeof this.lastCommand !== 'undefined' && this.lastCommand == str) {
-            return;
-        }
-        this.lastCommand = str;
-        this.socket.postMessage(str);
-
-
-//        var index = window.location.hash.indexOf('#');
-//
-//        if (index > 0)
-//        {
-//            var currName = window.name.substr(0, index);
-//            window.name = currName + '#' + str;
-//        }
-//        else
-//        {
-//            window.name =  window.name + '#' + str;
-//
-//        }
-        return this;
-    },
-
     closeFrame:function () {
-        return this.sendToFrame('act=close');
+        this.rpc.closeFrame();
+        return this;
     },
 
     resizeFrame:function (widthOffset, heightOffset, frameElem) {
@@ -293,6 +271,8 @@ TribZi = {
         }
 
         this.rpc.resizeFrame(newWidth, newHeight);
+        return this;
+
 //        var str = "act=resize;w=" + newWidth + "px;h=" + newHeight + "px";
 //
 //        return this.sendToFrame(str);

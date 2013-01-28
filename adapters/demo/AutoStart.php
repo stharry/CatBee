@@ -15,18 +15,22 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
     <link rel="stylesheet" type="text/css" media="all" href="/CatBee/public/res/css/jquery.fancybox.css?reload">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js?reload"></script>
+
+    <!--
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js?reload"></script>
 
     <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/public/res/js/min/easyXDM.js"></script>
 
 
     <script src="/CatBee/public/res/js/jquery.fancybox.js?reload"></script>
-    <script src="res/demoAdapter.js?reload"></script>
+        <script src="res/demoAdapter.js?reload"></script>
+    -->
+
     <link rel="stylesheet" type="text/css" media="all" href="res/index.css?reload">
     <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/adapters/installs/catbeeframe.js"></script>
 
     <?php if ($page == 'goDeal.php'){?>
-    <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/adapters/installs/Embedded_Magento.js?reload&id=18&ot=15.0000&cn=spider nah&ce=spidernah@gmail.com"></script>
+    <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/adapters/installs/Embedded_FanForToys.js?reload"></script>
     <?php }; ?>
 
 </head>
