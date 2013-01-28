@@ -4,7 +4,10 @@ TribZi = {
         this.rpc = new easyXDM.Rpc(
             {},
             {
-                remote:{resizeFrame:{}}
+                remote:{
+                    resizeFrame      :{},
+                    closeFrame       :{},
+                    sendCouponToFrame:{}}
             });
 
     },

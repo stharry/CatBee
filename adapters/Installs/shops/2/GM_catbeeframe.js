@@ -1,8 +1,32 @@
 cbf = {
 
-    getCatBeeUrl: function()
-    {
-        return "http://www.api.tribzi.com/CatBee/";
+    isMobileClient:function () {
+        var isMobile = {
+            Android   :function () {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry:function () {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS       :function () {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera     :function () {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows   :function () {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any       :function () {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }}
+
+        return isMobile.any();
+    },
+
+    getCatBeeUrl:function () {
+        return "http://api.tribzi.com/CatBee/";
+        //return "http://127.0.0.1:8080/CatBee/";
     },
 
     setCookie:function (c_name, value, exdays) {
@@ -24,7 +48,7 @@ cbf = {
         }
     },
 
-    parseUri :function (str) {
+    parseUri:function (str) {
 
         var opts = {
             strictMode:false,
@@ -87,110 +111,134 @@ cbf = {
 
     },
 
-    setupFrame:function (params) {
+    setupRpc:function (params) {
 
-        var insert = "<div id='modalDiv' style='padding: 0; width: 430; height: 340; top: 300'><iframe id='catbeeFrame' width='100%' height='100%' marginWidth='0' marginHeight='0' frameBorder='0' scrolling='auto' title='Dialog Title'></iframe></div>";
-
-        jquery_fiveconnect('body').append(insert);
-
-        jquery_fiveconnect("#modalDiv").dialog({
-            modal      :true,
-            autoOpen   :false,
-            position   :'center',
-            height     :params.initHeight,
-            width      :params.initWidth,
-            draggable  :false,
-            resizable  :false,
-            dialogClass:'tribziDialog',
-            //position: { my: 'top', at: 'top+10%', of: jquery_fiveconnect(this) }
-            open: function(event, ui) {
-                jquery_fiveconnect(event.target).parent().css('position', 'fixed');
-                jquery_fiveconnect(event.target).parent().css('top', '5%');
-                //jquery_fiveconnect(event.target).parent().css('left', '10px');
-            }
-        });
-
-        jquery_fiveconnect("#closebtn").button({ icons:{ primary:"ui-icon-close" } });
-        jquery_fiveconnect('.tribziDialog div.ui-dialog-titlebar').hide();
-        jquery_fiveconnect('#modalDiv').css('overflow', 'hidden');
-        //jquery_fiveconnect('.tribziDialog').css('overflow', 'hidden');
-
+        //todo: need to implement muli sockets
         url = this.buildUrl(params);
 
-        jquery_fiveconnect("#modalDiv").dialog("open");
-        jquery_fiveconnect("#catbeeFrame").attr('src', url);
+        var rpc = new easyXDM.Rpc(
+            {
+                remote   :url,
+                onReady  :function () {
 
-        var cssObj = {
-            'position'  :'absolute',
-            'top'       :'-18px',
-            'right'     :'-18px',
-            'width'     :'36px',
-            'height'    :'36px',
-            'cursor'    :'pointer',
-            'z-index'   :'8040',
-            'background':'url(\'' + this.getCatBeeUrl() + 'public/res/images/fancybox_sprite.png\')'};
+                },
+                container:document.getElementById("cbfContainer"),
+                props    :{
+                    style:{
+                        border  :"0px 0px 0px 0px",
+                        padding :"0px 0px 0px 0px",
+                        overflow:"hidden",
+                        width   :"100%",
+                        height  :"100%"
+                    }
+                }
+            },
+            {
+                local :{
+                    resizeFrame      :function (newWidth, newHeight) {
+                        var sizes = {
+                            height:newHeight + 'px',
+                            width :newWidth + 'px'
+                        };
+
+                        jquery_fiveconnect('#cbfContainer').css(sizes);
+                    },
+                    closeFrame       :function () {
+                        cbf.closeFrame();
+                    },
+                    sendCouponToFrame:function (couponCode, couponValue) {
+                        cbf.setCookie('CatBeeCpnCod', couponCode, 1)
+                            .setCookie('CatBeeCpnVal', couponValue, 1);
+                    }},
+                remote:{ }
+            });
+
+        return this;
+    },
+
+    buildFrame:function () {
+        var params = this.frameParams;
+        jquery_fiveconnect('<div id="cbfOverlay"></div>').appendTo('body');
+
+        var cssOverlay = {
+            display  :'block',
+            position :'fixed',
+            top      :'0px',
+            left     :'0px',
+            width    :'100%',
+            height   :'100%',
+            'z-index':'1002',
+            opacity  :0.8
+        };
+        jquery_fiveconnect('#cbfOverlay').css(cssOverlay);
+
+        jquery_fiveconnect('<div id="cbfFrame"><div id="cbfContainer"></div></div>').appendTo('body');
+        var cssFrame = {
+            display  :'block',
+            position :'fixed',
+            top      :'10%',
+            left     :'40%',
+            width    :params.initWidth + 'px',
+            height   :params.initHeight + 'px',
+            'z-index':'1003'
+        };
+        jquery_fiveconnect('#cbfFrame').css(cssFrame);
+
+        var cssDialog = {
+            width:'100%', height:'100%'
+        };
+        jquery_fiveconnect('#cbfContainer').css(cssDialog);
 
         if (params.closeButton) {
-            jquery_fiveconnect('.tribziDialog').append("<div title='Close' class='dialog-close-button'></div>");
-            jquery_fiveconnect('.dialog-close-button').css(cssObj)
+            jquery_fiveconnect('<div title="Close" id="cbfCloseBtn"></div>').appendTo('#cbfFrame');
+            var cssButton = {
+                'position'        :'absolute',
+                'top'             :'-18px',
+                'right'           :'-18px',
+                'width'           :'36px',
+                'height'          :'36px',
+                'cursor'          :'pointer',
+                'z-index'         :'8040',
+                'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',
+                'background-color':'transparent'
+            };
+
+            jquery_fiveconnect('#cbfCloseBtn').css(cssButton)
                 .click(function () {
-                    jquery_fiveconnect("#modalDiv").dialog('close');
+                    cbf.closeFrame();
                 });
         }
 
-        setTimeout(checkIFrame, 200);
+        this.setupRpc(params);
+
+    },
+
+    closeFrame:function () {
+        jquery_fiveconnect('#cbfFrame').css('display', 'none');
+        jquery_fiveconnect('#cbfOverlay').css('display', 'none');
+
+    },
+
+    setupFrame:function (params) {
+
+        this.frameParams = params;
+        if (typeof esyXDM == 'undefined') {
+            if (typeof JSON == 'undefined') {
+                var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/json2.min.js";
+                jquery_fiveconnect.getScript(jsSrc);
+
+            }
+            var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.min.js";
+            jquery_fiveconnect.getScript(jsSrc, function (data, textStatus, jqxhr) {
+                cbf.buildFrame();
+            });
+
+        }
+        else {
+            cbf.buildFrame();
+        }
 
     }
 };
 
 window.cbf = cbf;
-
-function checkIFrame() {
-    var frameElement = document.getElementById('catbeeFrame');
-
-    if (frameElement && (frameElement.contentWindow)) {
-        var command = frameElement.contentWindow.name;
-        if ((command) && (command.toString().indexOf('#') >= 0)) {
-
-            command = command.substr(command.indexOf('#') + 1);
-
-            pairs = command.split(';');
-            params = [];
-
-            for (var i = 0; i < pairs.length; i++) {
-                pair = pairs[i].split('=');
-                params[pair[0]] = pair[1];
-            }
-
-            if (params['act']) {
-                switch (params['act'].toLowerCase()) {
-                    case 'resize':
-                    {
-                        var sizes = {
-                            height:params['h'],
-                            width :params['w']
-                        };
-                        jquery_fiveconnect('.ui-dialog').css(sizes);
-                        jquery_fiveconnect('#modalDiv').css(sizes);
-                        break;
-                    }
-                    case 'close':
-                    {
-                        jquery_fiveconnect("#modalDiv").dialog('close');
-                        break;
-                    }
-                    case "cookie":
-                    {
-                        cbf.setCookie(params['n'], params['v'], 1);
-                        //todo set actions as array
-                        jquery_fiveconnect("#modalDiv").dialog('close');
-                        break;
-                    }
-                }
-            }
-            document.getElementById('catbeeFrame').contentWindow.name = 'catbeeFrame';
-        }
-    }
-    setTimeout(checkIFrame, 200);
-}
-

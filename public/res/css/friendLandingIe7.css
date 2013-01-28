@@ -1,0 +1,20 @@
+#footer-section{
+	margin-bottom: 25px;
+}
+#product-photo{
+	background: url(../images/friendDeal/ieBg.png) no-repeat left center;
+	border: none;
+	width: 173px;
+	height: 171px;
+	padding-top: 2px;
+}
+#reward-info{
+	margin-bottom: 40px;
+}
+#reward-content{
+	margin-bottom: 12px !important;
+}
+
+body{
+    margin: 0px 0px 0px 0px
+}

@@ -1,6 +1,6 @@
 function getOrderJson() {
 
-    var args = cbf.getScriptParams('Embedded_Magento');
+    var args = cbf.getScriptParams('GM_CatBee');
 
     return {
         amount  :args['ot'],
