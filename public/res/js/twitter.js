@@ -18,14 +18,6 @@ $(document).ready(function () {
 
     $("#twitterShare").click(function () {
 
-        TribZi.shortenLink(TribZi.deal.twitContext.link,
-            function (shortLink) {
-
-                TribZi.deal.twitContext.link = shortLink;
-
-
-            });
-
         if ($('#tbox').css('display') == 'none') {
 
             var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
