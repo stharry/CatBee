@@ -1,7 +1,32 @@
 cbf = {
+
+    isMobileClient:function () {
+        var isMobile = {
+            Android   :function () {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry:function () {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS       :function () {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera     :function () {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows   :function () {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any       :function () {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }}
+
+        return isMobile.any();
+    },
+
     getCatBeeUrl:function () {
-        //return "http://api.tribzi.com/CatBee/";
-        return "http://127.0.0.1:8080/CatBee/";
+        return "http://api.tribzi.com/CatBee/";
+        //return "http://127.0.0.1:8080/CatBee/";
     },
 
     setCookie:function (c_name, value, exdays) {
@@ -153,8 +178,8 @@ cbf = {
             position :'fixed',
             top      :'10%',
             left     :'40%',
-            width    :'424px',
-            height   :'370px',
+            width    :params.initWidth + 'px',
+            height   :params.initHeight + 'px',
             'z-index':'1003'
         };
         jQuery('#cbfFrame').css(cssFrame);
@@ -217,7 +242,3 @@ cbf = {
 };
 
 window.cbf = cbf;
-
-
-jQuery(function () {
-});

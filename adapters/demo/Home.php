@@ -21,7 +21,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
 
     <script src="res/guiders-1.2.8.js"> </script>
 
-    <script src="res/demoHomeAdapter.js?reload"></script>
+
     <link rel="stylesheet" type="text/css" media="all" href="res/guiders-1.2.8.css?reload">
     <link rel="stylesheet" type="text/css" media="all" href="res/home.css?reload">
 
@@ -41,7 +41,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
         buttons: [
             {
                 name: "Next",
-                onclick: function(){window.location="/CatBee/adapters/demo/HomeAutoStart.php?sid=<?php echo  $_GET['sid'] ?>";}
+                onclick: function(){window.location="/CatBee/adapters/demo/HomeAutoStart.php?plugin=TribZi&sid=<?php echo  $_GET['sid'] ?>";}
             }
         ],
         description: "The referred friend will be instructed how to Redeem the Reward",

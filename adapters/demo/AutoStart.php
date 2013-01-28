@@ -16,15 +16,6 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js?reload"></script>
 
-    <!--
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js?reload"></script>
-
-    <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/public/res/js/min/easyXDM.js"></script>
-
-
-    <script src="/CatBee/public/res/js/jquery.fancybox.js?reload"></script>
-        <script src="res/demoAdapter.js?reload"></script>
-    -->
 
     <link rel="stylesheet" type="text/css" media="all" href="res/index.css?reload">
     <script type="text/javascript" src="http://127.0.0.1:8080/CatBee/adapters/installs/catbeeframe.js"></script>
@@ -44,6 +35,5 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 'goDeal.php';
 });</script>
     <?php }; ?>
 
-<a href="http://www.w3schools.com" style="left: 200px; top: 500px">Visit W3Schools.com!</a>
 </body>
 </html>
