@@ -200,9 +200,3 @@ CREATE TABLE  If NOT EXISTS impression (
   Browser varchar(45) DEFAULT NULL,
   Customer varchar(45) DEFAULT NULL
 );
-
-CREATE TABLE If NOT EXISTS ShopActions (
-  shopId INT NOT NULL,
-  action VARCHAR(1000),
-  PRIMARY KEY shopId
-);
