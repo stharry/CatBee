@@ -17,8 +17,7 @@
     <script>
         jQuery(document).ready(function () {
 
-
-            jQuery('<div id="cbfOverlay"></div><div id="cbfContainer"></div>').appendTo('body');
+            jQuery('<div id="cbfOverlay"></div>').appendTo('body');
 
             var cssOverlay = {
                 display  :'block',
@@ -30,10 +29,10 @@
                 'z-index':'1002',
                 opacity  :0.8
             };
-
             jQuery('#cbfOverlay').css(cssOverlay);
 
-            var cssDialog = {
+            jQuery('<div id="cbfFrame"><div id="cbfContainer"></div><div title="Close" id="cbfCloseBtn"></div></div>').appendTo('body');
+            var cssFrame = {
                 display  :'block',
                 position :'fixed',
                 top      :'10%',
@@ -42,25 +41,31 @@
                 height   :'370px',
                 'z-index':'1003'
             };
+            jQuery('#cbfFrame').css(cssFrame);
 
+            var cssDialog = {
+                width: '100%', height : '100%'
+            };
             jQuery('#cbfContainer').css(cssDialog);
 
             var cssButton = {
-                'position'  :'absolute',
-                'top'       :'-18px',
-                'right'     :'-18px',
-                'width'     :'36px',
-                'height'    :'36px',
-                'cursor'    :'pointer',
-                'z-index'   :'8040',
-                'background':'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/fancybox_sprite.png\')'};
+                'position'        :'absolute',
+                'top'             :'-18px',
+                'right'           :'-18px',
+                'width'           :'36px',
+                'height'          :'36px',
+                'cursor'          :'pointer',
+                'z-index'         :'8040',
+                'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',
+                'background-color':'transparent'
+            };
 
             //todo if (params.closeButton)
             {
-                jQuery('#cbfContainer').append("<div title='Close' id='cbfCloseBtn'></div>");
+                //jQuery('#cbfContainer').append("<div title='Close' id='cbfCloseBtn'></div>");
                 jQuery('#cbfCloseBtn').css(cssButton)
                         .click(function () {
-                            jQuery('#cbfContainer').css('display', 'none');
+                            jQuery('#cbfFrame').css('display', 'none');
                             jQuery('#cbfOverlay').css('display', 'none');
 
                         });
