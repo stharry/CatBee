@@ -2,14 +2,14 @@ function getOrderJson() {
 
     var args = cbf.getScriptParams('GM_CatBee');
 
-    return {
+    orderParams = {
         amount  :args['ot'],
         id      :args['id'],
         //todo
-        "items":[
+        "items" :[
             {
                 "itemcode":"1234567890",
-                "url":"http://www.glassesmarket.com/skin/frontend/glassesmarket2/default/images/logo.png"
+                "url"     :"http://www.glassesmarket.com/skin/frontend/glassesmarket2/default/images/logo.png"
             }
         ],
         customer:{
@@ -22,8 +22,14 @@ function getOrderJson() {
                 'authCode':'54c5e6c3-6349-11e2-a702-0008cae720a7'
             }
         }
-
     }
+
+    var referralUid = cbf.getCookie('CatBeeRefId');
+
+    if (referralUid) {
+        orderParams.successfulReferral = referralUid;
+    }
+    return orderParams;
 
 }
 

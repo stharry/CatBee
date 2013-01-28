@@ -146,9 +146,8 @@ cbf = {
                     closeFrame       :function () {
                         cbf.closeFrame();
                     },
-                    sendCouponToFrame:function (couponCode, couponValue) {
-                        cbf.setCookie('CatBeeCpnCod', couponCode, 1)
-                            .setCookie('CatBeeCpnVal', couponValue, 1);
+                    sendCookieToFrame:function (code, value) {
+                        cbf.setCookie(code, value, 1);
                     }},
                 remote:{ }
             });

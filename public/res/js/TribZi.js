@@ -7,7 +7,7 @@ TribZi = {
                 remote:{
                     resizeFrame      :{},
                     closeFrame       :{},
-                    sendCouponToFrame:{}}
+                    sendCookieToFrame:{}}
             });
 
     },
@@ -204,7 +204,11 @@ TribZi = {
         $.cookie('CatBeeCpnVal', this.friendDeal.share.reward.friendReward.value);
         $.cookie('CatBeeRefId', this.friendDeal.share.context.uid);
 
-        this.rpc.sendCouponToFrame('CatBeeCpnCod', this.friendDeal.share.reward.friendReward.code);
+        this.rpc.sendCookieToFrame('CatBeeCpnCod', this.friendDeal.share.reward.friendReward.code);
+        this.rpc.sendCookieToFrame('CatBeeCpnVal', this.friendDeal.share.reward.friendReward.value);
+        this.rpc.sendCookieToFrame('CatBeeRefId', this.friendDeal.share.context.uid);
+
+
         return this;
     },
 
