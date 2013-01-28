@@ -6,9 +6,8 @@
     <title><?php echo $GLOBALS["page_title"] ?></title>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <!--
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-    -->
+
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/mutate.events.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/mutate.min.js?v=1" type="text/javascript"></script>
 

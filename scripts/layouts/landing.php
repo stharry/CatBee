@@ -6,9 +6,7 @@
     <title><?php echo $GLOBALS[ "page_title" ] ?></title>
 
     <!--Landing common rendering-->
-    <!--
     <link href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/jquery-ui.css?reload" rel="stylesheet" type="text/css"/>
-    -->
     <link href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/style.css?reload" rel="stylesheet" type="text/css"/>
     <!--email rendering-->
 
@@ -60,9 +58,8 @@
     <!--Landing common scripts-->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <!--
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-	-->
+
 	<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		var csPageOptions = {

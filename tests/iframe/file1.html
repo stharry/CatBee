@@ -13,102 +13,102 @@
     <script type="text/javascript" src="/CatBee/adapters/Installs/Embedded_FanForToys.js?reload"></script>
 
 
-    <!--CATBEE BEGIN-->
-    <script>
-        jQuery(document).ready(function () {
+    <!--&lt;!&ndash;CATBEE BEGIN&ndash;&gt;-->
+    <!--<script>-->
+        <!--jQuery(document).ready(function () {-->
 
-            jQuery('<div id="cbfOverlay"></div>').appendTo('body');
+            <!--jQuery('<div id="cbfOverlay"></div>').appendTo('body');-->
 
-            var cssOverlay = {
-                display  :'block',
-                position :'fixed',
-                top      :'0px',
-                left     :'0px',
-                width    :'100%',
-                height   :'100%',
-                'z-index':'1002',
-                opacity  :0.8
-            };
-            jQuery('#cbfOverlay').css(cssOverlay);
+            <!--var cssOverlay = {-->
+                <!--display  :'block',-->
+                <!--position :'fixed',-->
+                <!--top      :'0px',-->
+                <!--left     :'0px',-->
+                <!--width    :'100%',-->
+                <!--height   :'100%',-->
+                <!--'z-index':'1002',-->
+                <!--opacity  :0.8-->
+            <!--};-->
+            <!--jQuery('#cbfOverlay').css(cssOverlay);-->
 
-            jQuery('<div id="cbfFrame"><div id="cbfContainer"></div><div title="Close" id="cbfCloseBtn"></div></div>').appendTo('body');
-            var cssFrame = {
-                display  :'block',
-                position :'fixed',
-                top      :'10%',
-                left     :'40%',
-                width    :'424px',
-                height   :'370px',
-                'z-index':'1003'
-            };
-            jQuery('#cbfFrame').css(cssFrame);
+            <!--jQuery('<div id="cbfFrame"><div id="cbfContainer"></div><div title="Close" id="cbfCloseBtn"></div></div>').appendTo('body');-->
+            <!--var cssFrame = {-->
+                <!--display  :'block',-->
+                <!--position :'fixed',-->
+                <!--top      :'10%',-->
+                <!--left     :'40%',-->
+                <!--width    :'424px',-->
+                <!--height   :'370px',-->
+                <!--'z-index':'1003'-->
+            <!--};-->
+            <!--jQuery('#cbfFrame').css(cssFrame);-->
 
-            var cssDialog = {
-                width: '100%', height : '100%'
-            };
-            jQuery('#cbfContainer').css(cssDialog);
+            <!--var cssDialog = {-->
+                <!--width: '100%', height : '100%'-->
+            <!--};-->
+            <!--jQuery('#cbfContainer').css(cssDialog);-->
 
-            var cssButton = {
-                'position'        :'absolute',
-                'top'             :'-18px',
-                'right'           :'-18px',
-                'width'           :'36px',
-                'height'          :'36px',
-                'cursor'          :'pointer',
-                'z-index'         :'8040',
-                'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',
-                'background-color':'transparent'
-            };
+            <!--var cssButton = {-->
+                <!--'position'        :'absolute',-->
+                <!--'top'             :'-18px',-->
+                <!--'right'           :'-18px',-->
+                <!--'width'           :'36px',-->
+                <!--'height'          :'36px',-->
+                <!--'cursor'          :'pointer',-->
+                <!--'z-index'         :'8040',-->
+                <!--'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',-->
+                <!--'background-color':'transparent'-->
+            <!--};-->
 
-            //todo if (params.closeButton)
-            {
-                //jQuery('#cbfContainer').append("<div title='Close' id='cbfCloseBtn'></div>");
-                jQuery('#cbfCloseBtn').css(cssButton)
-                        .click(function () {
-                            jQuery('#cbfFrame').css('display', 'none');
-                            jQuery('#cbfOverlay').css('display', 'none');
+            <!--//todo if (params.closeButton)-->
+            <!--{-->
+                <!--//jQuery('#cbfContainer').append("<div title='Close' id='cbfCloseBtn'></div>");-->
+                <!--jQuery('#cbfCloseBtn').css(cssButton)-->
+                        <!--.click(function () {-->
+                            <!--jQuery('#cbfFrame').css('display', 'none');-->
+                            <!--jQuery('#cbfOverlay').css('display', 'none');-->
 
-                        });
-            }
+                        <!--});-->
+            <!--}-->
 
-            var url = cbf.buildUrl({
-                catbeeAction:'deal',
-                urlParams   :getOrderJson()
-            });
+            <!--var url = cbf.buildUrl({-->
+                <!--catbeeAction:'deal',-->
+                <!--urlParams   :getOrderJson()-->
+            <!--});-->
 
-            var rpc = new easyXDM.Rpc(
-                    {
-                        remote   :url,
-                        onReady  :function () {
+            <!--var rpc = new easyXDM.Rpc(-->
+                    <!--{-->
+                        <!--remote   :url,-->
+                        <!--onReady  :function () {-->
 
-                        },
-                        container:document.getElementById("cbfContainer"),
-                        props    :{
-                            style:{
-                                border  :"0px 0px 0px 0px",
-                                padding :"0px 0px 0px 0px",
-                                overflow:"hidden",
-                                width   :"100%",
-                                height  :"100%"
-                            }
-                        }
-                    },
-                    {
-                        local :{
-                            resizeFrame:function (newWidth, newHeight) {
-                                var sizes = {
-                                    height:newHeight + 'px',
-                                    width :newWidth + 'px'
-                                };
+                        <!--},-->
+                        <!--container:document.getElementById("cbfContainer"),-->
+                        <!--props    :{-->
+                            <!--style:{-->
+                                <!--border  :"0px 0px 0px 0px",-->
+                                <!--padding :"0px 0px 0px 0px",-->
+                                <!--overflow:"hidden",-->
+                                <!--width   :"100%",-->
+                                <!--height  :"100%"-->
+                            <!--}-->
+                        <!--}-->
+                    <!--},-->
+                    <!--{-->
+                        <!--local :{-->
+                            <!--resizeFrame:function (newWidth, newHeight) {-->
+                                <!--var sizes = {-->
+                                    <!--height:newHeight + 'px',-->
+                                    <!--width :newWidth + 'px'-->
+                                <!--};-->
 
-                                jQuery('#cbfContainer').css(sizes);
-                                //jQuery('#AAA iframe').css(sizes);
-                            }},
-                        remote:{ }
-                    });
-        });
+                                <!--jQuery('#cbfContainer').css(sizes);-->
+                                <!--//jQuery('#AAA iframe').css(sizes);-->
+                            <!--}},-->
+                        <!--remote:{ }-->
+                    <!--});-->
+        <!--});-->
 
-    </script>
+    <!--</script>-->
 
 </head>
 <body>
