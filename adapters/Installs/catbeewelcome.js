@@ -1,5 +1,5 @@
 
-jQuery(document).ready(function () {
+cbf.addLoadEvt(function () {
 
     var uriParams = cbf.parseUrl(location.href);
 

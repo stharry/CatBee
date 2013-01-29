@@ -66,6 +66,24 @@ cbf = {
         }
     },
 
+    addLoadEvt: function(loadEvent)
+    {
+        if(window.attachEvent) {
+            window.attachEvent('onload', loadEvent);
+        } else {
+            if(window.onload) {
+                var curronload = window.onload;
+                var newonload = function() {
+                    curronload();
+                    loadEvent();
+                };
+                window.onload = newonload;
+            } else {
+                window.onload = loadEvent;
+            }
+        }
+    },
+
     isMobileClient:function () {
         var isMobile = {
             Android   :function () {
