@@ -1,0 +1,34 @@
+<config>
+    <modules>
+        <Tribzi_Catbee>
+            <version>0.1.0</version>
+        </Tribzi_Catbee>
+    </modules>
+  <frontend>
+    <events>
+      <checkout_onepage_controller_success_action>
+        <observers>
+          <tribzi_catbee_popup>
+            <type>singleton</type>
+            <class>Tribzi_Catbee_Model_Cart_Observer</class>
+            <method>addCatbee</method>
+          </tribzi_catbee_popup>
+        </observers>
+      </checkout_onepage_controller_success_action>
+    </events>
+    <layout>
+      <updates>
+        <Tribzi_Catbee>
+          <file>tribzi.xml</file>
+        </Tribzi_Catbee>
+      </updates>
+    </layout>
+  </frontend>
+  <global>
+    <blocks>
+      <Tribzi_Catbee>
+        <class>Tribzi_Catbee_Block</class>
+      </Tribzi_Catbee>
+    </blocks>
+  </global>
+</config>

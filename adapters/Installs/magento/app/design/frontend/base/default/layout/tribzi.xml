@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <default>
+    <reference name="head">
+      <block type="core/text" name="google.jquery">
+        <action method="setText">
+          <text><![CDATA[<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>]]></text>
+        </action>
+      </block>
+      <block type="core/text" name="google.jquery.noconflict" after="google.jquery">
+        <action method="setText">
+          <text><![CDATA[<script type="text/javascript">var $j = jQuery.noConflict(); </script>]]></text>
+        </action>
+      </block>
+    </reference>
+    <reference name="footer">
+      <block type="Tribzi_Catbee_Block_footerscripts" after="-" template="tribzi/footer.phtml"/>
+    </reference>
+  </default>
+  <checkout_onepage_success>
+    <reference name="footer">
+      <block type="Tribzi_Catbee_Block_popup" after="-" template="tribzi/popup.phtml"/>
+    </reference>
+  </checkout_onepage_success>
+</layout>
