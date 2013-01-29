@@ -16,7 +16,7 @@
 </div>
 
 <div id="date-expires" class="zContainer">
-	<p>Deal expires in <span>9 Days, 12 hours, 52 minutes, 49 seconds</span></p>
+	<p><span></span></p>
 </div>
 
 <div id="start-shopping" class="zContainer">

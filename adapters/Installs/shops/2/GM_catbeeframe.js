@@ -175,7 +175,7 @@ cbf = {
         var cssFrame = {
             display  :'block',
             position :'fixed',
-            top      :'10%',
+            top      :'5%',
             left     :'40%',
             width    :params.initWidth + 'px',
             height   :params.initHeight + 'px',
@@ -219,6 +219,11 @@ cbf = {
     },
 
     setupFrame:function (params) {
+
+        if (cbf.isMobileClient())
+        {
+            return;
+        }
 
         this.frameParams = params;
         if (typeof esyXDM == 'undefined') {

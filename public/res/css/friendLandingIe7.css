@@ -15,6 +15,11 @@
 	margin-bottom: 12px !important;
 }
 
+#date-expires{
+    width: 540px;
+    height: 17px;
+}
+
 body{
     margin: 0px 0px 0px 0px
 }

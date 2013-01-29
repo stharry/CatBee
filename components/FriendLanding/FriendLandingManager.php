@@ -78,30 +78,40 @@ class FriendLandingManager implements IFriendLandingManager
 
     public function startSharedDeal($friendDeal)
     {
-        RestLogger::log("FriendLandingManager::startSharedDeal before", $friendDeal);
-        //TODO - combine to 3 below call to one DB call
-        $this->getShareById($friendDeal);
-        $parentDeal = $this->dealDao->getDealById($friendDeal->share->deal->id);
-        RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
-        $this->fillLandingReward($friendDeal);
+        try
+        {
+            RestLogger::log("FriendLandingManager::startSharedDeal before", $friendDeal);
+            //TODO - combine to 3 below call to one DB call
+            $this->getShareById($friendDeal);
+            $parentDeal = $this->dealDao->getDealById($friendDeal->share->deal->id);
+            RestLogger::log("FriendLandingManager::startSharedDeal parent deal ", $parentDeal);
+            $this->fillLandingReward($friendDeal);
 
-        RestLogger::log("FriendLandingManager::startSharedDeal reward ", $friendDeal->share->reward);
-        $friendDeal->friend = $this->customerDao->loadCustomerById($parentDeal->customer);
+            RestLogger::log("FriendLandingManager::startSharedDeal reward ", $friendDeal->share->reward);
+            $friendDeal->friend = $this->customerDao->loadCustomerById($parentDeal->customer);
 
-        $CampaignFilter         = new CampaignFilter();
-        $CampaignFilter->campId = $parentDeal->campaign->id;
-        $Camp                   = $this->campaignManager->getCampaigns($CampaignFilter);
+            $CampaignFilter         = new CampaignFilter();
+            $CampaignFilter->campId = $parentDeal->campaign->id;
+            $Camp                   = $this->campaignManager->getCampaigns($CampaignFilter);
 
-        $this->friendLandingDao->GetFriendLanding($parentDeal->campaign);
-        $friendDeal->landing = $parentDeal->campaign->friendLandings[0];
-        RestLogger::log("FriendLandingManager::startSharedDeal landing ", $friendDeal->landing);
+            $this->friendLandingDao->GetFriendLanding($parentDeal->campaign);
+            $friendDeal->landing = $parentDeal->campaign->friendLandings[0];
+            RestLogger::log("FriendLandingManager::startSharedDeal landing ", $friendDeal->landing);
 
-        //Save the Impression
-        $this->impressionManager->saveImpression($friendDeal->share);
+            //Save the Impression
+            $this->impressionManager->saveImpression($friendDeal->share);
 
-        $friendDeal->order->branch = $Camp[0]->store;
-        $this->storeManager->validateBranch($friendDeal->order->branch);
-        $this->showFriendLanding($friendDeal);
+            $friendDeal->order->branch = $Camp[0]->store;
+            $this->storeManager->validateBranch($friendDeal->order->branch);
+            $this->showFriendLanding($friendDeal);
+
+            return $friendDeal;
+        }
+        catch (Exception $e)
+        {
+            catbeeLayout(array(), 'exceptionLanding');
+            return null;
+        }
     }
 
 }

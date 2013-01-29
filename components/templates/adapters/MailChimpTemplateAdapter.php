@@ -39,12 +39,14 @@ class MailChimpTemplateAdapter
     {
         if ($node->hasChildNodes())
         {
+            $fld = $this->currentField;
             foreach ($node->childNodes as $childNode)
             {
-                $fld = $this->currentField;
+
                 $this->parseNode($childNode);
-                $this->currentField = $fld;
+
             }
+            $this->currentField = $fld;
         }
 
     }
@@ -167,7 +169,7 @@ class MailChimpTemplateAdapter
 
     private function isCaretField($fieldName)
     {
-        return $fieldName == 'br';
+        return false;//$fieldName == 'br';
     }
 
     private function isImageField($fieldName)
@@ -187,7 +189,7 @@ class MailChimpTemplateAdapter
 
     private function removeSpecCharacters($string)
     {
-        return str_replace('\u00a0', "", $string);
+        return str_replace("\\u00a0", "", $string);
     }
 
 }

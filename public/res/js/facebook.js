@@ -4,11 +4,11 @@ $(document).ready(function () {
     $('.facebook-form').hide();
     $('#ContactsArea').hide();
 
-    TribZi.shortenLink(TribZi.deal.fbcContext.link,
-        function(shortLink){
-
-            TribZi.deal.fbcContext.link = shortLink;
-        });
+//    TribZi.shortenLink(TribZi.deal.fbcContext.link,
+//        function(shortLink){
+//
+//            TribZi.deal.fbcContext.link = shortLink;
+//        });
 
     FB.init({appId: TribZi.deal.fbcContext.application.applicationCode, //'345229122250809'
                 status: true,

@@ -18,8 +18,8 @@ jquery_fiveconnect(document).ready(function () {
 
         cbf.setupFrame(
             {
-                initWidth :570,
-                initHeight:450,
+                initWidth :600,
+                initHeight:480,
                 catbeeAction: 'frienddeal',
                 urlParams :params
             });

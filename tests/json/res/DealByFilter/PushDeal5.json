@@ -6,13 +6,13 @@
         "items":[
             {
                 "itemcode":"666666",
-                "url":"http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
+                "url":"http://api.tribzi.com/CatBee/adapters/demo/res/Train.jpg",
                 "price":"176.00",
                 "description":"Wooden train1"
             },
             {
                 "itemcode":"444",
-                "url":"http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg",
+                "url":"http://api.tribzi.com/CatBee/adapters/demo/res/Train.jpg",
                 "price":"24.00",
                 "description":"Wooden train2"
             }

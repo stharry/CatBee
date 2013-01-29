@@ -32,7 +32,9 @@ for ($i = 0; $i < 2; $i++)
     echo $curlError;
 
     curl_close($ch);
-    echo $content;
+
+    $responseParams = json_decode($content, true);
+    echo $responseParams['data']['url'];
 }
 $timer->stop();
 $timer->display();

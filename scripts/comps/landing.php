@@ -5,7 +5,7 @@
             <div class="slider-desc"><?php echo $p[0]->landing->secondSliderLine?></div> */ ?>
 			<div id="slider-blue-content">
 				<div id="slider-info-text">
-					<p>You get  <span id="info_you">$20</span> gift card and your friends get <span id="percent_friends">05%</span> off coupon</p>
+					<p>You get  <span id="info_you">$20</span> <span id="info_you_desc">gift card</span> and your friends get <span id="percent_friends">05%</span> <span id="info_friend_desc"> off coupon</span></p>
 				</div>
 				
 				<div id="slider_inactive" class="inv">

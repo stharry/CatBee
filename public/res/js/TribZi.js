@@ -10,6 +10,8 @@ TribZi = {
                     sendCookieToFrame:{}}
             });
 
+        return this;
+
     },
 
     init:function (params) {

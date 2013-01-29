@@ -100,10 +100,12 @@ class DealManager implements IDealManager
                 $leaderDeal = new LeaderDeal();
 
                 $leaderDeal->customer = $order->customer;
-                if ($order->date != null) {
+                if ($order->date != null)
+                {
                     $leaderDeal->InitDate = $order->date;
                 }
-                else {
+                else
+                {
                     $leaderDeal->InitDate = date("Y-m-d h:i:s");
                 }
                 $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
@@ -131,29 +133,37 @@ class DealManager implements IDealManager
 
     public function pushDeal($order)
     {
-        $this->storeManager->validateBranch($order->branch);
-        //Register SucessfulReferral Deal If Exist
-        RestLogger::log("DealManager::pushDeal after storeBranch validation ", $order->branch);
+        try
+        {
+            $this->storeManager->validateBranch($order->branch);
+            //Register SucessfulReferral Deal If Exist
+            RestLogger::log("DealManager::pushDeal after storeBranch validation ", $order->branch);
 
-        $this->successfulReferralManager->saveSuccessfulReferral($order);
+            $this->successfulReferralManager->saveSuccessfulReferral($order);
 
-        $campaign = $this->campaignManager->chooseCampaign($order);
+            $campaign = $this->campaignManager->chooseCampaign($order);
 
-        RestLogger::log("DealManager::pushDeal after campaign choosing ", $campaign);
+            RestLogger::log("DealManager::pushDeal after campaign choosing ", $campaign);
 
-        $leaderLanding = $this->campaignManager->chooseLeaderLanding($campaign, $order);
-        RestLogger::log("DealManager::pushDeal after landing choosing ", $leaderLanding);
+            $leaderLanding = $this->campaignManager->chooseLeaderLanding($campaign, $order);
+            RestLogger::log("DealManager::pushDeal after landing choosing ", $leaderLanding);
 
-        $leaderDeal = $this->createPendingDeal($leaderLanding, $order, $campaign);
+            $leaderDeal = $this->createPendingDeal($leaderLanding, $order, $campaign);
 
-        $this->createShareContexts($leaderDeal);
+            $this->createShareContexts($leaderDeal);
 
-        RestLogger::log("DealManager::pushDeal after deal creation ", $leaderDeal);
+            RestLogger::log("DealManager::pushDeal after deal creation ", $leaderDeal);
 
-        $this->showLeaderDeal($leaderDeal);
-        RestLogger::log("DealManager::pushDeal after rendering");
+            $this->showLeaderDeal($leaderDeal);
+            RestLogger::log("DealManager::pushDeal after rendering");
 
-        return $leaderDeal;
+            return $leaderDeal;
+        }
+        catch (Exception $e)
+        {
+            catbeeLayout(array(), 'exceptionLanding');
+            return null;
+        }
     }
 
     public function getDealById($dealId)
@@ -169,6 +179,7 @@ class DealManager implements IDealManager
     {
         //Go to DealDao with the DealFilter and Retrieve all the deals of the Customer
         $leaderDeals = $this->dealDao->getDealsByFilter($dealFilter);
+
 //        if ($dealFilter->ActiveShareFlag == true)
 //        {
 //            //Fill the ActiveShares Of the Deals - currenlty assuming i have only one deal per customer

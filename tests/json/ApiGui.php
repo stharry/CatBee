@@ -4,6 +4,7 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 
+
 //include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/3dParty/HtmlDom/simple_html_dom.php");
 
 try
@@ -42,8 +43,10 @@ try
         $jsonAdapter = new JsonTemplateAdapter();
 
 
-        $templateProps = $jsonAdapter->toArray($template);
-        echo json_encode($templateProps);
+        $templateProps = str_replace('\u00a0', '', json_encode($jsonAdapter->toArray($template)));
+        echo $templateProps;
+
+        $template = $jsonAdapter->fromArray(json_decode($templateProps, true));
 
         $decorator = new HtmlTemplateDecorator();
         $builder = new TemplateBuilder();

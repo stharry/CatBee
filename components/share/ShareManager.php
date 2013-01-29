@@ -26,6 +26,25 @@ class ShareManager implements IShareManager
 
     }
 
+    private function shortenLink($link)
+    {
+        $url = 'https://api-ssl.bitly.com/v3/shorten?' .
+            'access_token=57973b2f6a137f2c5f0f4d1b852032c2d3993bcd&longUrl=' .
+            urlencode($link);
+
+        $response = RestUtils::SendAnyGetRequest($url);
+
+        if ($response)
+        {
+            $responseParams = json_decode($response, true);
+            if (isset($responseParams['data']['url']))
+            {
+                return $responseParams['data']['url'];
+            }
+        }
+        return $link;
+    }
+
     private function createShareLink($deal, $context)
     {
         //todo check branch url
@@ -35,7 +54,7 @@ class ShareManager implements IShareManager
             ? $deal->campaign->landingUrl
             : $deal->order->branch->adaptor->landingUrl;
 
-        $link = $url . '?plugin=TribZi&sid=' . $context->uid;
+        $link = $this->shortenLink($url . '?plugin=TribZi&sid=' . $context->uid);
 
         RestLogger::log('ShareManager create link', $link);
 

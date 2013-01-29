@@ -27,14 +27,14 @@
                             "value":"5",
                             "type":"coupon",
                             "code":"ABCD1234_05",
-                            "typeDescription": "% coupon"
+                            "typeDescription": " % coupon "
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"15",
                             "type":"coupon",
                             "code":"ABCD1234_15",
-                            "typeDescription": "% coupon"
+                            "typeDescription": " % coupon "
 
                         }
                     },

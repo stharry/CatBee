@@ -148,6 +148,7 @@ $(document).ready(function()
 			return false;
 		}
         $("#slider").slider('value', $('#slider').data('slider').options.min);
+        updateRewards( $("#slider").slider('value'));
 		_makeCatYellow();
     });
 
@@ -174,6 +175,7 @@ $(document).ready(function()
 		{
 			_calculateColor($("#slider").slider('value'));
 		}
+        updateRewards( $("#slider").slider('value'));
     });
 
     $('.bee_icon, #bee_icon_opacity').dblclick(function()
@@ -184,6 +186,7 @@ $(document).ready(function()
 		}
         $("#slider").slider('value', $('#slider').data('slider').options.max);
 		_makeBeesYellow();
+        updateRewards( $("#slider").slider('value'));
     });
 
     $('.bee_icon, #bee_icon_opacity').click(function()
@@ -207,7 +210,9 @@ $(document).ready(function()
 		{
 			_calculateColor($('#slider').slider('value'));
 		}
+        updateRewards( $("#slider").slider('value'));
     });
+
     updateBoxPosition();
     updateRewards(Math.round((TribZi.deal.landing.landingRewards.length - 1)/2));
     //Share hover
@@ -289,15 +294,15 @@ function updateRewards(sliderVal) {
 
     $('#LeaderRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.description);
     $('#LeaderReward').val('$'+TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
-    $('#leaderArea').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
+    $('#info_you_desc').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
 	
 	$('#info_you').html('$'+TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
 
     $('#FriendRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].friendReward.description);
-    $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value+'%');
-    $('#FriendArea').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
+    $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
+    $('#info_friend_desc').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
 
-	$('#percent_friends').html(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value+'%');
+	$('#percent_friends').html(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
 	
     TribZi.setRewardIndex(sliderVal);
 }

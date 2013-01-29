@@ -8,13 +8,13 @@ $(document).ready(function () {
         alert(e);
     }
 
-    TribZi.shortenLink(TribZi.deal.twitContext.link,
-        function (shortLink) {
-
-            TribZi.deal.twitContext.link = shortLink;
-
-
-        });
+//    TribZi.shortenLink(TribZi.deal.twitContext.link,
+//        function (shortLink) {
+//
+//            TribZi.deal.twitContext.link = shortLink;
+//
+//
+//        });
 
     $("#twitterShare").click(function () {
 

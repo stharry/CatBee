@@ -9,7 +9,7 @@ function getOrderJson() {
             items:[
                 {
                     itemcode:'1234567890',
-                    url:'http://tribzi.azurewebsites.net/CatBee/adapters/demo/res/Train.jpg',
+                    url:'http://api.tribzi.com/CatBee/adapters/demo/res/Train.jpg',
                     price:'76.00',
                     description:'toy'
                 }
