@@ -1,18 +1,17 @@
 
 jQuery(document).ready(function () {
 
-    var uriParams = cbf.parseUri(location.href);
+    var uriParams = cbf.parseUrl(location.href);
 
-    if (uriParams['queryKey'] &&
-        uriParams['queryKey']['plugin'] &&
-        (uriParams['queryKey']['plugin'].toLowerCase() == 'tribzi') &&
-        uriParams['queryKey']['sid']) {
+    if (uriParams.plugin &&
+        (uriParams.plugin.toLowerCase() == 'tribzi') &&
+        uriParams.sid) {
 
         var params =
         {
             share:{
                 context:{
-                    uid:uriParams['queryKey']['sid']
+                    uid:uriParams.sid
                 }}
         };
 

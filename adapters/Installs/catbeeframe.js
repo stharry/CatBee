@@ -114,33 +114,27 @@ cbf = {
         }
     },
 
-    parseUri:function (str) {
+    parseUrl:function(str){
 
-        var opts = {
-            strictMode:false,
-            key       :["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"],
-            q         :{
-                name  :"queryKey",
-                parser:/(?:^|&)([^&=]*)=?([^&]*)/g
-            },
-            parser    :{
-                strict:/^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
-                loose :/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|jQuery)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+      var pars = str.split('?')[1];
+        if (!pars || typeof pars == 'undefined') return {};
+
+        var pairs = pars.split('&');
+        var result = {};
+
+        for (var i = 0; i < pairs.length; i++)
+        {
+            var singlePair =  pairs[i].split('=');
+            if (singlePair.length > 1)
+            {
+                result[singlePair[0]] = singlePair[1];
             }
-        };
-        var o = opts,
-            m = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
-            uri = {},
-            i = 14;
-
-        while (i--) uri[o.key[i]] = m[i] || "";
-
-        uri[o.q.name] = {};
-        uri[o.key[12]].replace(o.q.parser, function (jQuery0, jQuery1, jQuery2) {
-            if (jQuery1) uri[o.q.name][jQuery1] = jQuery2;
-        });
-
-        return uri;
+            else
+            {
+                result[singlePair[0]] = null;
+            }
+        }
+        return result;
     },
 
     getScriptParams:function (scriptName) {
