@@ -1,5 +1,43 @@
 cbf = {
 
+    loadScript:function (url, loaded) {
+        var scr = document.createElement('script');
+        scr.type = 'text/javascript';
+        scr.src = url;
+        if (navigator.userAgent.indexOf('MSIE') > -1) {
+            scr.onload = scr.onreadystatechange = function () {
+                if (this.readyState == "loaded" || this.readyState == "complete") {
+                    if (loaded) { loaded(); }
+                }
+                scr.onload = scr.onreadystatechange = null;
+            };
+        } else {
+            scr.onload = loaded;
+        }
+        document.getElementsByTagName('head')[0].appendChild(scr);
+    },
+
+    byId: function(str)
+    {
+        return document.getElementById(str);
+    },
+
+    addDiv: function(id, to)
+    {
+        var div = document.createElement('div');
+        div.id = id;
+        if (to === null)
+        {
+            document.body.appendChild(div);
+        }
+        else
+        {
+            cbf.byId(to).appendChild(div);
+        }
+        return this;
+
+    },
+
     isMobileClient:function () {
         var isMobile = {
             Android   :function () {
@@ -141,7 +179,7 @@ cbf = {
                             width :newWidth + 'px'
                         };
 
-                        jquery_fiveconnect('#cbfContainer').css(sizes);
+                        cbf.byId('cbfContainer').css(sizes);
                     },
                     closeFrame       :function () {
                         cbf.closeFrame();
@@ -157,7 +195,9 @@ cbf = {
 
     buildFrame:function () {
         var params = this.frameParams;
-        jquery_fiveconnect('<div id="cbfOverlay"></div>').appendTo('body');
+
+        cbf.addDiv('cbfOverlay');
+        //jquery_fiveconnect('<div id="cbfOverlay"></div>').appendTo('body');
 
         var cssOverlay = {
             display  :'block',
@@ -169,9 +209,12 @@ cbf = {
             'z-index':'1002',
             opacity  :0.8
         };
-        jquery_fiveconnect('#cbfOverlay').css(cssOverlay);
+        cbf.byId('cbfOverlay').css(cssOverlay);
 
-        jquery_fiveconnect('<div id="cbfFrame"><div id="cbfContainer"></div></div>').appendTo('body');
+        //document.createElement('div').id = 'cbfFrame';
+
+        cbf.addDiv('cbfFrame').addDiv('cbfContainer', 'cbfFrame');
+        //jquery_fiveconnect('<div id="cbfFrame"><div id="cbfContainer"></div></div>').appendTo('body');
         var cssFrame = {
             display  :'block',
             position :'fixed',
@@ -181,12 +224,12 @@ cbf = {
             height   :params.initHeight + 'px',
             'z-index':'1003'
         };
-        jquery_fiveconnect('#cbfFrame').css(cssFrame);
+        cbf.byId('cbfFrame').css(cssFrame);
 
         var cssDialog = {
             width:'100%', height:'100%'
         };
-        jquery_fiveconnect('#cbfContainer').css(cssDialog);
+        cbf.byId('cbfContainer').css(cssDialog);
 
         if (params.closeButton) {
             jquery_fiveconnect('<div title="Close" id="cbfCloseBtn"></div>').appendTo('#cbfFrame');
@@ -202,7 +245,7 @@ cbf = {
                 'background-color':'transparent'
             };
 
-            jquery_fiveconnect('#cbfCloseBtn').css(cssButton)
+            cbf.byId('cbfCloseBtn').css(cssButton)
                 .click(function () {
                     cbf.closeFrame();
                 });
@@ -213,8 +256,8 @@ cbf = {
     },
 
     closeFrame:function () {
-        jquery_fiveconnect('#cbfFrame').css('display', 'none');
-        jquery_fiveconnect('#cbfOverlay').css('display', 'none');
+        cbf.byId('cbfFrame').css('display', 'none');
+        cbf.byId('cbfOverlay').css('display', 'none');
 
     },
 
@@ -229,11 +272,11 @@ cbf = {
         if (typeof esyXDM == 'undefined') {
             if (typeof JSON == 'undefined') {
                 var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/json2.min.js";
-                jquery_fiveconnect.getScript(jsSrc);
+                cbf.loadScript(jsSrc);
 
             }
             var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.min.js";
-            jquery_fiveconnect.getScript(jsSrc, function (data, textStatus, jqxhr) {
+            cbf.loadScript(jsSrc, function () {
                 cbf.buildFrame();
             });
 

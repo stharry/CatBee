@@ -1,5 +1,71 @@
 cbf = {
 
+    loadScript:function (url, loaded) {
+        var scr = document.createElement('script');
+        scr.type = 'text/javascript';
+        scr.src = url;
+        if (navigator.userAgent.indexOf('MSIE') > -1) {
+            scr.onload = scr.onreadystatechange = function () {
+                if (this.readyState == "loaded" || this.readyState == "complete") {
+                    if (loaded) { loaded(); }
+                }
+                scr.onload = scr.onreadystatechange = null;
+            };
+        } else {
+            scr.onload = loaded;
+        }
+        document.getElementsByTagName('head')[0].appendChild(scr);
+    },
+
+    byId: function(str)
+    {
+        return document.getElementById(str);
+    },
+
+    addDiv: function(id, to)
+    {
+        var div = document.createElement('div');
+        div.id = id;
+        if (to === null || typeof to == 'undefined')
+        {
+            document.body.appendChild(div);
+        }
+        else
+        {
+            cbf.byId(to).appendChild(div);
+        }
+        return this;
+
+    },
+
+    css: function(to, css)
+    {
+        var elem = cbf.byId(to);
+
+        if (typeof elem != 'undefined')
+        {
+            for (key in css)
+            {
+                elem.style[key] = css[key];
+            }
+        }
+        return this;
+    },
+
+    addEvt: function(to, eventName, handler)
+    {
+        var element = cbf.byId(to);
+        if (element.addEventListener) {
+            element.addEventListener(eventName, handler, false);
+        }
+        else if (element.attachEvent) {
+            element.attachEvent('on' + eventName, handler);
+        }
+        else {
+            element['on' + eventName] = handler;
+        }
+    },
+
     isMobileClient:function () {
         var isMobile = {
             Android   :function () {
@@ -141,7 +207,7 @@ cbf = {
                             width :newWidth + 'px'
                         };
 
-                        jQuery('#cbfContainer').css(sizes);
+                        cbf.css('cbfContainer', sizes);
                     },
                     closeFrame       :function () {
                         cbf.closeFrame();
@@ -157,7 +223,8 @@ cbf = {
 
     buildFrame:function () {
         var params = this.frameParams;
-        jQuery('<div id="cbfOverlay"></div>').appendTo('body');
+
+        cbf.addDiv('cbfOverlay');
 
         var cssOverlay = {
             display  :'block',
@@ -169,27 +236,28 @@ cbf = {
             'z-index':'1002',
             opacity  :0.8
         };
-        jQuery('#cbfOverlay').css(cssOverlay);
+        cbf.css('cbfOverlay', cssOverlay);
 
-        jQuery('<div id="cbfFrame"><div id="cbfContainer"></div></div>').appendTo('body');
+        cbf.addDiv('cbfFrame').addDiv('cbfContainer', 'cbfFrame');
         var cssFrame = {
             display  :'block',
             position :'fixed',
-            top      :'10%',
+            top      :'5%',
             left     :'40%',
             width    :params.initWidth + 'px',
             height   :params.initHeight + 'px',
             'z-index':'1003'
         };
-        jQuery('#cbfFrame').css(cssFrame);
+        cbf.css('cbfFrame', cssFrame);
 
         var cssDialog = {
             width:'100%', height:'100%'
         };
-        jQuery('#cbfContainer').css(cssDialog);
+        cbf.css('cbfContainer', cssDialog);
 
         if (params.closeButton) {
-            jQuery('<div title="Close" id="cbfCloseBtn"></div>').appendTo('#cbfFrame');
+            cbf.addDiv('cbfCloseBtn', 'cbfFrame');
+            cbf.byId('cbfCloseBtn').title="Close"
             var cssButton = {
                 'position'        :'absolute',
                 'top'             :'-18px',
@@ -202,8 +270,8 @@ cbf = {
                 'background-color':'transparent'
             };
 
-            jQuery('#cbfCloseBtn').css(cssButton)
-                .click(function () {
+            cbf.css('cbfCloseBtn', cssButton)
+                .addEvt('cbfCloseBtn', 'click', function () {
                     cbf.closeFrame();
                 });
         }
@@ -213,8 +281,8 @@ cbf = {
     },
 
     closeFrame:function () {
-        jQuery('#cbfFrame').css('display', 'none');
-        jQuery('#cbfOverlay').css('display', 'none');
+        cbf.css('cbfFrame', {'display' : 'none'});
+        cbf.css('cbfOverlay', {'display' : 'none'});
 
     },
 
@@ -224,11 +292,11 @@ cbf = {
         if (typeof esyXDM == 'undefined') {
             if (typeof JSON == 'undefined') {
                 var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/json2.min.js";
-                jQuery.getScript(jsSrc);
+                cbf.loadScript(jsSrc);
 
             }
             var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.min.js";
-            jQuery.getScript(jsSrc, function (data, textStatus, jqxhr) {
+            cbf.loadScript(jsSrc, function () {
                 cbf.buildFrame();
             });
 

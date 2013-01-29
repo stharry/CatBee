@@ -305,6 +305,16 @@ function updateRewards(sliderVal) {
 	$('#percent_friends').html(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
 	
     TribZi.setRewardIndex(sliderVal);
+
+    //todo: ugly need to code tribzi custom events binding system
+    var twitFrame = document.getElementsByClassName('twitter-anywhere-tweet-box')[0];
+    if (twitFrame)
+    {
+        var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
+            .parseMessage(TribZi.deal.twitContext.message);
+
+        twitFrame.contentDocument.getElementById('tweet-box').value = message;
+    }
 }
 function updateBoxPosition(){
     //Get the window height and width

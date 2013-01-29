@@ -20,9 +20,6 @@ $(document).ready(function () {
 
         if ($('#tbox').css('display') == 'none') {
 
-            var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
-                .parseMessage(TribZi.deal.twitContext.message);
-
             createTwitterBox();
 
             //$('#tweet-box').text(message);
