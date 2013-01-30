@@ -258,7 +258,6 @@ img {
 
 }
 .email-form textarea {
-    font-family: 'Calibri';
     width: 97%;
     resize: none;
     -webkit-box-shadow: inset 0px 0px 5px 1px #a8a7a7;
@@ -643,4 +642,9 @@ li.active #facebookShare{
 
 body{
     margin: 0px 0px 0px 0px
+}
+
+textarea{
+    font-family: 'allerregular';
+    font-size: 15px;
 }
