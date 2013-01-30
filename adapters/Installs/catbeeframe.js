@@ -108,8 +108,14 @@ cbf = {
         return isMobile.any();
     },
 
+    valOrDefault: function(val1, def1)
+    {
+        return (val1 === null) || (typeof val1 == 'undefined') ? def1 : val1;
+
+    },
+
     getCatBeeUrl:function () {
-        return "http://api.tribzi.com/CatBee/";
+        return "http://www.apid.tribzi.com/CatBee/";
         //return "http://127.0.0.1:8080/CatBee/";
     },
 
@@ -300,6 +306,12 @@ cbf = {
 
     setupFrame:function (params) {
 
+        if (cbf.hasFrame)
+        {
+            return;
+        }
+
+        cbf.hasFrame = true;
         this.frameParams = params;
         if (typeof esyXDM == 'undefined') {
             if (typeof JSON == 'undefined') {
@@ -321,3 +333,4 @@ cbf = {
 };
 
 window.cbf = cbf;
+cbf.hasFrame = false;
