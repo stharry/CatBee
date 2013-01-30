@@ -66,6 +66,24 @@ cbf = {
         }
     },
 
+    addLoadEvt: function(loadEvent)
+    {
+        if(window.attachEvent) {
+            window.attachEvent('onload', loadEvent);
+        } else {
+            if(window.onload) {
+                var curronload = window.onload;
+                var newonload = function() {
+                    curronload();
+                    loadEvent();
+                };
+                window.onload = newonload;
+            } else {
+                window.onload = loadEvent;
+            }
+        }
+    },
+
     isMobileClient:function () {
         var isMobile = {
             Android   :function () {
@@ -90,8 +108,14 @@ cbf = {
         return isMobile.any();
     },
 
+    valOrDefault: function(val1, def1)
+    {
+        return (val1 === null) || (typeof val1 == 'undefined') ? def1 : val1;
+
+    },
+
     getCatBeeUrl:function () {
-        return "http://api.tribzi.com/CatBee/";
+        return "http://www.apid.tribzi.com/CatBee/";
         //return "http://127.0.0.1:8080/CatBee/";
     },
 
@@ -114,33 +138,27 @@ cbf = {
         }
     },
 
-    parseUri:function (str) {
+    parseUrl:function(str){
 
-        var opts = {
-            strictMode:false,
-            key       :["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"],
-            q         :{
-                name  :"queryKey",
-                parser:/(?:^|&)([^&=]*)=?([^&]*)/g
-            },
-            parser    :{
-                strict:/^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
-                loose :/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|jQuery)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+      var pars = str.split('?')[1];
+        if (!pars || typeof pars == 'undefined') return {};
+
+        var pairs = pars.split('&');
+        var result = {};
+
+        for (var i = 0; i < pairs.length; i++)
+        {
+            var singlePair =  pairs[i].split('=');
+            if (singlePair.length > 1)
+            {
+                result[singlePair[0]] = singlePair[1];
             }
-        };
-        var o = opts,
-            m = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
-            uri = {},
-            i = 14;
-
-        while (i--) uri[o.key[i]] = m[i] || "";
-
-        uri[o.q.name] = {};
-        uri[o.key[12]].replace(o.q.parser, function (jQuery0, jQuery1, jQuery2) {
-            if (jQuery1) uri[o.q.name][jQuery1] = jQuery2;
-        });
-
-        return uri;
+            else
+            {
+                result[singlePair[0]] = null;
+            }
+        }
+        return result;
     },
 
     getScriptParams:function (scriptName) {
@@ -289,6 +307,12 @@ cbf = {
 
     setupFrame:function (params) {
 
+        if (cbf.hasFrame)
+        {
+            return;
+        }
+
+        cbf.hasFrame = true;
         this.frameParams = params;
         if (typeof esyXDM == 'undefined') {
             if (typeof JSON == 'undefined') {
@@ -310,3 +334,4 @@ cbf = {
 };
 
 window.cbf = cbf;
+cbf.hasFrame = false;

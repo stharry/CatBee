@@ -17,11 +17,25 @@ cbf.addLoadEvt(function () {
 
         cbf.setupFrame(
             {
-                initWidth :570,
-                initHeight:450,
+                initWidth :600,
+                initHeight:480,
                 catbeeAction: 'frienddeal',
                 urlParams :params
             });
+    }
+    else
+    {
+        var couponCode = cbf.getCookie('CatBeeCpnCod');
+
+        if (couponCode) {
+            var args = cbf.getScriptParams('catbeecart');
+
+            var couponFldId = cbf.valOrDefault(args['cfid'], 'coupon_code');
+            var couponBox = cbf.byId(couponFldId);
+            if (couponBox) {
+                couponBox.value = couponCode;
+            }
+        }
     }
 
 });

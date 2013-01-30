@@ -26,7 +26,7 @@ cbf = {
     {
         var div = document.createElement('div');
         div.id = id;
-        if (to === null)
+        if (to === null || typeof to == 'undefined')
         {
             document.body.appendChild(div);
         }
@@ -36,6 +36,52 @@ cbf = {
         }
         return this;
 
+    },
+
+    css: function(to, css)
+    {
+        var elem = cbf.byId(to);
+
+        if (typeof elem != 'undefined')
+        {
+            for (key in css)
+            {
+                elem.style[key] = css[key];
+            }
+        }
+        return this;
+    },
+
+    addEvt: function(to, eventName, handler)
+    {
+        var element = cbf.byId(to);
+        if (element.addEventListener) {
+            element.addEventListener(eventName, handler, false);
+        }
+        else if (element.attachEvent) {
+            element.attachEvent('on' + eventName, handler);
+        }
+        else {
+            element['on' + eventName] = handler;
+        }
+    },
+
+    addLoadEvt: function(loadEvent)
+    {
+        if(window.attachEvent) {
+            window.attachEvent('onload', loadEvent);
+        } else {
+            if(window.onload) {
+                var curronload = window.onload;
+                var newonload = function() {
+                    curronload();
+                    loadEvent();
+                };
+                window.onload = newonload;
+            } else {
+                window.onload = loadEvent;
+            }
+        }
     },
 
     isMobileClient:function () {
@@ -86,33 +132,27 @@ cbf = {
         }
     },
 
-    parseUri:function (str) {
+    parseUrl:function(str){
 
-        var opts = {
-            strictMode:false,
-            key       :["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"],
-            q         :{
-                name  :"queryKey",
-                parser:/(?:^|&)([^&=]*)=?([^&]*)/g
-            },
-            parser    :{
-                strict:/^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
-                loose :/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|jquery_fiveconnect)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+        var pars = str.split('?')[1];
+        if (!pars || typeof pars == 'undefined') return {};
+
+        var pairs = pars.split('&');
+        var result = {};
+
+        for (var i = 0; i < pairs.length; i++)
+        {
+            var singlePair =  pairs[i].split('=');
+            if (singlePair.length > 1)
+            {
+                result[singlePair[0]] = singlePair[1];
             }
-        };
-        var o = opts,
-            m = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
-            uri = {},
-            i = 14;
-
-        while (i--) uri[o.key[i]] = m[i] || "";
-
-        uri[o.q.name] = {};
-        uri[o.key[12]].replace(o.q.parser, function (jquery_fiveconnect0, jquery_fiveconnect1, jquery_fiveconnect2) {
-            if (jquery_fiveconnect1) uri[o.q.name][jquery_fiveconnect1] = jquery_fiveconnect2;
-        });
-
-        return uri;
+            else
+            {
+                result[singlePair[0]] = null;
+            }
+        }
+        return result;
     },
 
     getScriptParams:function (scriptName) {
@@ -179,7 +219,7 @@ cbf = {
                             width :newWidth + 'px'
                         };
 
-                        cbf.byId('cbfContainer').css(sizes);
+                        cbf.css('cbfContainer', sizes);
                     },
                     closeFrame       :function () {
                         cbf.closeFrame();
@@ -197,7 +237,6 @@ cbf = {
         var params = this.frameParams;
 
         cbf.addDiv('cbfOverlay');
-        //jquery_fiveconnect('<div id="cbfOverlay"></div>').appendTo('body');
 
         var cssOverlay = {
             display  :'block',
@@ -209,12 +248,9 @@ cbf = {
             'z-index':'1002',
             opacity  :0.8
         };
-        cbf.byId('cbfOverlay').css(cssOverlay);
-
-        //document.createElement('div').id = 'cbfFrame';
+        cbf.css('cbfOverlay', cssOverlay);
 
         cbf.addDiv('cbfFrame').addDiv('cbfContainer', 'cbfFrame');
-        //jquery_fiveconnect('<div id="cbfFrame"><div id="cbfContainer"></div></div>').appendTo('body');
         var cssFrame = {
             display  :'block',
             position :'fixed',
@@ -224,15 +260,16 @@ cbf = {
             height   :params.initHeight + 'px',
             'z-index':'1003'
         };
-        cbf.byId('cbfFrame').css(cssFrame);
+        cbf.css('cbfFrame', cssFrame);
 
         var cssDialog = {
             width:'100%', height:'100%'
         };
-        cbf.byId('cbfContainer').css(cssDialog);
+        cbf.css('cbfContainer', cssDialog);
 
         if (params.closeButton) {
-            jquery_fiveconnect('<div title="Close" id="cbfCloseBtn"></div>').appendTo('#cbfFrame');
+            cbf.addDiv('cbfCloseBtn', 'cbfFrame');
+            cbf.byId('cbfCloseBtn').title="Close"
             var cssButton = {
                 'position'        :'absolute',
                 'top'             :'-18px',
@@ -245,8 +282,8 @@ cbf = {
                 'background-color':'transparent'
             };
 
-            cbf.byId('cbfCloseBtn').css(cssButton)
-                .click(function () {
+            cbf.css('cbfCloseBtn', cssButton)
+                .addEvt('cbfCloseBtn', 'click', function () {
                     cbf.closeFrame();
                 });
         }
@@ -256,17 +293,12 @@ cbf = {
     },
 
     closeFrame:function () {
-        cbf.byId('cbfFrame').css('display', 'none');
-        cbf.byId('cbfOverlay').css('display', 'none');
+        cbf.css('cbfFrame', {'display' : 'none'});
+        cbf.css('cbfOverlay', {'display' : 'none'});
 
     },
 
     setupFrame:function (params) {
-
-        if (cbf.isMobileClient())
-        {
-            return;
-        }
 
         this.frameParams = params;
         if (typeof esyXDM == 'undefined') {
