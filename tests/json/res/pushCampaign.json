@@ -18,7 +18,7 @@
                 "secondSloganLine":"Create an awesome deal",
                 "firstSliderLine":"Move the slider",
                 "secondSliderLine":"to create the reward for you and your friends",
-                "customMessage": "I just bought at FunForToys.com and got a special friend-only gift to share with you.",
+                "customMessage": "I just bought at GlassesMarket.com and got a special friend-only gift to share with you.",
 
                 "landingRewards":[
                     {
@@ -26,15 +26,15 @@
                             "description":"Your friends get",
                             "value":"5",
                             "type":"coupon",
-                            "code":"ABCD1234_05",
-                            "typeDescription": " % coupon "
+                            "code":"GMTBZF95",
+                            "typeDescription": "% coupon"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"15",
                             "type":"coupon",
-                            "code":"ABCD1234_15",
-                            "typeDescription": " % coupon "
+                            "code":"GMTBZY85",
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -43,15 +43,15 @@
                             "description":"Your friends get",
                             "value":"7",
                             "type":"coupon",
-                            "code":"ABCD1234_07",
+                            "code":"GMTBZF97",
                             "typeDescription": "% coupon"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"13",
                             "type":"coupon",
-                            "code":"ABCD1234_13",
-                            "typeDescription": "% coupon"
+                            "code":"GMTBZY83",
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -60,15 +60,15 @@
                             "description":"Your friends get",
                             "value":"9",
                             "type":"coupon",
-                            "code":"ABCD1234_09",
+                            "code":"GMTBZF99",
                             "typeDescription": "% coupon"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"11",
                             "type":"coupon",
-                            "code":"ABCD1234_11",
-                            "typeDescription": "% coupon"
+                            "code":"GMTBZY81",
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -77,15 +77,15 @@
                             "description":"Your friends get",
                             "value":"10",
                             "type":"coupon",
-                            "code":"ABCD1234_10",
+                            "code":"GMTBZF100",
                             "typeDescription": "% coupon"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"10",
                             "type":"coupon",
-                            "code":"ABCD1234_10",
-                            "typeDescription": "% coupon"
+                            "code":"GMTBZY80",
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -94,15 +94,15 @@
                             "description":"Your friends get",
                             "value":"11",
                             "type":"coupon",
-                            "code":"ABCD1234_11",
+                            "code":"GMTBZF101",
                             "typeDescription": "% coupon"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"9",
                             "type":"coupon",
-                            "code":"ABCD1234_9",
-                            "typeDescription": "% coupon"
+                            "code":"GMTBZY79",
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -111,15 +111,15 @@
                             "description":"Your friends get",
                             "value":"13",
                             "type":"coupon",
-                            "code":"ABCD1234_13",
+                            "code":"GMTBZF103",
                             "typeDescription": "% coupon"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"7",
                             "type":"coupon",
-                            "code":"ABCD1234_7",
-                            "typeDescription": "% coupon"
+                            "code":"GMTBZY77",
+                            "typeDescription": "$ coupon"
 
                         }
                     },
@@ -128,15 +128,15 @@
                             "description":"Your friends get",
                             "value":"15",
                             "type":"coupon",
-                            "code":"ABCD1234_15",
+                            "code":"GMTBZF105",
                             "typeDescription": "% coupon"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"5",
                             "type":"coupon",
-                            "code":"ABCD1234_05",
-                            "typeDescription": "% coupon"
+                            "code":"GMTBZY75",
+                            "typeDescription": "$ coupon"
 
                         }
                     }
