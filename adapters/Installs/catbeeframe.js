@@ -252,7 +252,8 @@ cbf = {
             width    :'100%',
             height   :'100%',
             'z-index':'1002',
-            opacity  :0.8
+            opacity  :0.8,
+            'background-color': 'rgba(0, 0, 0, 0.5)'
         };
         cbf.css('cbfOverlay', cssOverlay);
 
