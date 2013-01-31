@@ -290,14 +290,24 @@ function openWindow(){
     return false;
 }
 
+function UpdateRewardTypes(sliderVal) {
+    if (TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription == '$') {
+        $('#info_you').text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription +
+            TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
+    }
+    else {
+        $('#info_you').text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value +
+            TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
+    }
+}
 function updateRewards(sliderVal) {
 
     $('#LeaderRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.description);
     $('#LeaderReward').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription +
         TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
 
-    $('#info_you').text(''+TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value +
-        TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
+    UpdateRewardTypes(sliderVal);
+
     $('#info_you_desc').text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.type);
 	
 
