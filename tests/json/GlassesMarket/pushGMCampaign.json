@@ -27,14 +27,14 @@
                             "value":"5",
                             "type":"coupon",
                             "code":"GMTBZF95",
-                            "typeDescription": "% coupon"
+                            "typeDescription": "%"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"15",
                             "type":"coupon",
                             "code":"GMTBZY85",
-                            "typeDescription": "$ coupon"
+                            "typeDescription": "$"
 
                         }
                     },
@@ -44,14 +44,14 @@
                             "value":"7",
                             "type":"coupon",
                             "code":"GMTBZF97",
-                            "typeDescription": "% coupon"
+                            "typeDescription": "%"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"13",
                             "type":"coupon",
                             "code":"GMTBZY83",
-                            "typeDescription": "$ coupon"
+                            "typeDescription": "$"
 
                         }
                     },
@@ -61,14 +61,14 @@
                             "value":"9",
                             "type":"coupon",
                             "code":"GMTBZF99",
-                            "typeDescription": "% coupon"
+                            "typeDescription": "%"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"11",
                             "type":"coupon",
                             "code":"GMTBZY81",
-                            "typeDescription": "$ coupon"
+                            "typeDescription": "$"
 
                         }
                     },
@@ -78,14 +78,14 @@
                             "value":"10",
                             "type":"coupon",
                             "code":"GMTBZF100",
-                            "typeDescription": "% coupon"
+                            "typeDescription": "%"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"10",
                             "type":"coupon",
                             "code":"GMTBZY80",
-                            "typeDescription": "$ coupon"
+                            "typeDescription": "$"
 
                         }
                     },
@@ -95,14 +95,14 @@
                             "value":"11",
                             "type":"coupon",
                             "code":"GMTBZF101",
-                            "typeDescription": "% coupon"
+                            "typeDescription": "%"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"9",
                             "type":"coupon",
                             "code":"GMTBZY79",
-                            "typeDescription": "$ coupon"
+                            "typeDescription": "$"
 
                         }
                     },
@@ -112,14 +112,14 @@
                             "value":"13",
                             "type":"coupon",
                             "code":"GMTBZF103",
-                            "typeDescription": "% coupon"
+                            "typeDescription": "%"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"7",
                             "type":"coupon",
                             "code":"GMTBZY77",
-                            "typeDescription": "$ coupon"
+                            "typeDescription": "$"
 
                         }
                     },
@@ -129,14 +129,14 @@
                             "value":"15",
                             "type":"coupon",
                             "code":"GMTBZF105",
-                            "typeDescription": "% coupon"
+                            "typeDescription": "%"
                         },
                         "leaderReward":{
                             "description":"You get",
                             "value":"5",
                             "type":"coupon",
                             "code":"GMTBZY75",
-                            "typeDescription": "$ coupon"
+                            "typeDescription": "$"
 
                         }
                     }

@@ -17,9 +17,9 @@ function getOrderJson() {
             lastName:'Leader'
         },
         branch:{
-            shopId:'1',
+            shopId:'2',//'1',
             store:{
-                'authCode':'19FB6C0C-3943-44D0-A40F-3DC401CB3703'
+                'authCode':'54c5e6c3-6349-11e2-a702-0008cae720a7'//'19FB6C0C-3943-44D0-A40F-3DC401CB3703'
             }
         }
 
@@ -27,7 +27,7 @@ function getOrderJson() {
 
 }
 
-jQuery(document).ready(function () {
+cbf.addLoadEvt(function () {
 
     var jsonOrderData = getOrderJson();
     cbf.setupFrame(

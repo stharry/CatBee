@@ -293,17 +293,24 @@ function openWindow(){
 function updateRewards(sliderVal) {
 
     $('#LeaderRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.description);
-    $('#LeaderReward').val('$'+TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
-    $('#info_you_desc').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
+    $('#LeaderReward').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription +
+        TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
+
+    $('#info_you').text(''+TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value +
+        TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
+    $('#info_you_desc').text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.type);
 	
-	$('#info_you').html('$'+TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
 
     $('#FriendRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].friendReward.description);
-    $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
-    $('#info_friend_desc').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
+    $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value +
+        TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
 
-	$('#percent_friends').html(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
-	
+    $('#percent_friends').text('' + TribZi.deal.landing.landingRewards[sliderVal].friendReward.value +
+        TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
+
+    $('#info_friend_desc').text('' + TribZi.deal.landing.landingRewards[sliderVal].friendReward.type);
+
+
     TribZi.setRewardIndex(sliderVal);
 
     //todo: ugly need to code tribzi custom events binding system

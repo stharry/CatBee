@@ -143,7 +143,7 @@
                                                                                         "style": {
                                                                                             "font-family": "comic sans ms,cursive"
                                                                                         },
-                                                                                        "source": "10% off",
+                                                                                        "source": "[reward.friendReward.value] [reward.friendReward.typeDescription] off",
                                                                                         "type": "text",
                                                                                         "name": "span"
                                                                                     },
@@ -313,7 +313,7 @@
                                                                                                                 "style": {
                                                                                                                     "font-family": "comic sans ms,cursive"
                                                                                                                 },
-                                                                                                                "source": "Use the following discuount code at",
+                                                                                                                "source": "Use the following discuount code at ",
                                                                                                                 "type": "text",
                                                                                                                 "name": "span",
                                                                                                                 "children": [
@@ -326,10 +326,23 @@
                                                                                                                             "text-decoration": "underline",
                                                                                                                             "font-weight": "normal"
                                                                                                                         },
-                                                                                                                        "source": "www.glassesmarket.com to get [reward.friendReward.value] [reward.friendReward.typeDescription]!",
+                                                                                                                        "source": "www.glassesmarket.com",
                                                                                                                         "linkSource": "[context.link]",
                                                                                                                         "type": "text",
                                                                                                                         "name": "a"
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "attrs": {
+                                                                                                                            "target": "_blank"
+                                                                                                                        },
+                                                                                                                        "style": {
+                                                                                                                            "color": "rgb(38, 171, 226)",
+                                                                                                                            "font-weight": "normal"
+                                                                                                                        },
+                                                                                                                        "source": " to get [reward.friendReward.value] [reward.friendReward.typeDescription]!",
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "a"
+
                                                                                                                     }
                                                                                                                 ]
                                                                                                             },
@@ -377,7 +390,7 @@
                                                                                                                                                         "style": {
                                                                                                                                                             "font-size": "24px"
                                                                                                                                                         },
-                                                                                                                                                        "source": "10share",
+                                                                                                                                                        "source": "[reward.friendReward.code]",
                                                                                                                                                         "type": "text",
                                                                                                                                                         "name": "span"
                                                                                                                                                     }
@@ -478,7 +491,7 @@
                                                                                     "font-family": "Georgia",
                                                                                     "text-align": "center"
                                                                                 },
-                                                                                "source": "\r\n*|Powered By: \r\n\t\t\t\t",
+                                                                                "source": "\r\n Powered By: \r\n\t\t\t\t",
                                                                                 "type": "text",
                                                                                 "name": "td",
                                                                                 "children": [
@@ -491,17 +504,10 @@
                                                                                             "text-decoration": "underline",
                                                                                             "font-weight": "normal"
                                                                                         },
-                                                                                        "source": "Tribzi*\r\n",
+                                                                                        "source": "Tribzi \r\n",
                                                                                         "linkSource": "http://www.tribzi.com",
                                                                                         "type": "text",
-                                                                                        "name": "a",
-                                                                                        "children": [
-                                                                                            {
-                                                                                                "source": "\r\n\tCopyright (C) 2013 CTT All rights reserved.\r\n",
-                                                                                                "type": "text",
-                                                                                                "name": "p"
-                                                                                            }
-                                                                                        ]
+                                                                                        "name": "a"
                                                                                     }
                                                                                 ]
                                                                             }

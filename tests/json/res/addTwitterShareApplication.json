@@ -6,8 +6,8 @@
         "application":
         {
             "applicationApiKey":"",
-            "applicationCode":"A5Wbqu5NcorUHAxQ0O2IZA",
-            "applicationSecret":"FmF2aGw205YJ7vPpHFuuWMbtWs4jgondhafpnbAE4",
+            "applicationCode":"FvpsMksyBpOYbOhzkYQ",
+            "applicationSecret":"6QjIa5oyR5SGsLuKLnou9wYzcMHVJtulhFx2fpfqasA",
             "authorizationUrl":"https://api.twitter.com/oauth/authorize",
             "redirectUrl":"<undefined - todo>"
         }

@@ -1,5 +1,27 @@
 cbf = {
 
+    init: function()
+    {
+        var host = cbf.valOrDefault(cbf.getScriptParams('catbeeframe').host, "http://api.tribzi.com/CatBee/");
+
+//todo        if (host === '')
+//        {
+//            host
+//        }
+        cbf.catBeeHost = host;
+    },
+
+    viewPort: function()
+    {
+        var e = window, a = 'inner';
+        if ( !( 'innerWidth' in window ) )
+        {
+            a = 'client';
+            e = document.documentElement || document.body;
+        }
+        return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
+    },
+
     loadScript:function (url, loaded) {
         var scr = document.createElement('script');
         scr.type = 'text/javascript';
@@ -115,8 +137,7 @@ cbf = {
     },
 
     getCatBeeUrl:function () {
-        return "http://www.apid.tribzi.com/CatBee/";
-        //return "http://127.0.0.1:8080/CatBee/";
+        return cbf.catBeeHost;
     },
 
     setCookie:function (c_name, value, exdays) {
@@ -181,10 +202,11 @@ cbf = {
                 var pair = vars[i].split("=");
                 args[pair[0]] = decodeURI(pair[1]).replace(/\+/g, ' ');  // decodeURI doesn't expand "+" to a space
             }
+            args.scriptSource = script_tag.src;
             return args;
         }
         else {
-            return [];
+            return {scriptSource: script_tag.src};
 
         }
     },
@@ -258,11 +280,12 @@ cbf = {
         cbf.css('cbfOverlay', cssOverlay);
 
         cbf.addDiv('cbfFrame').addDiv('cbfContainer', 'cbfFrame');
+        var left = Math.round(cbf.viewPort().width / 2 - params.initWidth / 2);
         var cssFrame = {
             display  :'block',
             position :'fixed',
             top      :'5%',
-            left     :'40%',
+            left     :left +'px',
             width    :params.initWidth + 'px',
             height   :params.initHeight + 'px',
             'z-index':'1003'
@@ -335,3 +358,7 @@ cbf = {
 
 window.cbf = cbf;
 cbf.hasFrame = false;
+
+cbf.addLoadEvt(function(){
+    cbf.init();
+});

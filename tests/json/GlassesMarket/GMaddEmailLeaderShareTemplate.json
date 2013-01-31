@@ -126,7 +126,7 @@
                                                                                         "style": {
                                                                                             "font-family": "comic sans ms,cursive"
                                                                                         },
-                                                                                        "source": "[reward.leaderReward.value] [reward.leaderReward.typeDescription]",
+                                                                                        "source": "[reward.leaderReward.typeDescription] [reward.leaderReward.value] [reward.leaderReward.type]",
                                                                                         "type": "text",
                                                                                         "name": "span"
                                                                                     },

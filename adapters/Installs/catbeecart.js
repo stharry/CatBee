@@ -3,15 +3,14 @@ cbf.addLoadEvt(function () {
 
     var uriParams = cbf.parseUrl(location.href);
 
-    if (uriParams.plugin &&
-        (uriParams.plugin.toLowerCase() == 'tribzi') &&
-        uriParams.sid) {
+    var tribzisid = cbf.valOrDefault(uriParams.tribzisid, null);
+    if (tribzisid) {
 
         var params =
         {
             share:{
                 context:{
-                    uid:uriParams.sid
+                    uid:tribzisid
                 }}
         };
 

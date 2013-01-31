@@ -26,7 +26,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
     <link rel="stylesheet" type="text/css" media="all" href="res/home.css?reload">
 
     <script type="text/javascript" src="/CatBee/adapters/Installs/catbeeframe.js"></script>
-    <script type="text/javascript" src="/CatBee/adapters/Installs/catbeewelcome.js?reload"></script>
+    <script type="text/javascript" src="/CatBee/adapters/Installs/catbeecart.js?reload"></script>
 
 </head>
 <body

@@ -54,7 +54,7 @@ class ShareManager implements IShareManager
             ? $deal->campaign->landingUrl
             : $deal->order->branch->adaptor->landingUrl;
 
-        $link = $this->shortenLink($url . '?plugin=TribZi&sid=' . $context->uid);
+        $link = $this->shortenLink($url . '?tribzisid=' . $context->uid);
 
         RestLogger::log('ShareManager create link', $link);
 

@@ -41,7 +41,7 @@ RestLogger::log("demo adapter home.php redirected to the ", $page);
         buttons: [
             {
                 name: "Next",
-                onclick: function(){window.location="/CatBee/adapters/demo/HomeAutoStart.php?plugin=TribZi&sid=<?php echo  $_GET['sid'] ?>";}
+                onclick: function(){window.location="/CatBee/adapters/demo/HomeAutoStart.php?tribzisid=<?php echo  $_GET['sid'] ?>";}
             }
         ],
         description: "The referred friend will be instructed how to Redeem the Reward",
