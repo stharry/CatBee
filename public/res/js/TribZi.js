@@ -258,18 +258,24 @@ TribZi = {
             return prop.replace('px', '');
         }
 
+        function sumBorders(elem, borders)
+        {
+            var sum = 0;
+
+            for (var i = 0; i < borders.length; i++)
+            {
+                var bstr = toString($(elem).css(borders[i]));
+                sum += Math.round(toNumber(bstr));
+            }
+            return sum;
+        }
         var elem = frameElem ? frameElem : '.box';
 
-        var lb = toString($(elem).css('border-left'));
-        var rb = toString($(elem).css('border-right'));
-        var tb = toString($(elem).css('border-top'));
-        var bb = toString($(elem).css('border-bottom'));
-
         var newWidth = Math.round(parseFloat($(elem).width())) +
-            Math.round(toNumber(lb)) + Math.round(toNumber(rb));
+            sumBorders(elem, ['border-left', 'padding-left', 'border-right', 'padding-right']);
 
         var newHeight = Math.round(parseFloat($(elem).height())) +
-            Math.round(toNumber(tb)) + Math.round(toNumber(bb));
+            sumBorders(elem, ['border-top', 'padding-top', 'border-bottom', 'padding-bottom']);
 
         if (widthOffset) {
             newWidth += widthOffset;

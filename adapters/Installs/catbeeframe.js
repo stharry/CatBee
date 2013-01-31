@@ -248,6 +248,7 @@ cbf = {
                         };
 
                         cbf.css('cbfContainer', sizes);
+                        cbf.css('cbfFrame', sizes);
                     },
                     closeFrame       :function () {
                         cbf.closeFrame();
@@ -288,7 +289,15 @@ cbf = {
             left     :left +'px',
             width    :params.initWidth + 'px',
             height   :params.initHeight + 'px',
-            'z-index':'1003'
+            'z-index':'1003',
+
+            //Round border
+           'border-radius': '10px',
+            '-moz-border-radius': '10px',
+            '-webkit-border-radius': '10px',
+            background: '#FFF',
+            border: '5px solid rgba(12, 80, 182, 0.2)'
+
         };
         cbf.css('cbfFrame', cssFrame);
 
