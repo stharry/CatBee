@@ -295,6 +295,7 @@ cbf = {
            'border-radius': '10px',
             '-moz-border-radius': '10px',
             '-webkit-border-radius': '10px',
+            ' -khtml-border-radius': '10px',
             background: '#FFF',
             border: '5px solid rgba(12, 80, 182, 0.2)'
 
