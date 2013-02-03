@@ -34,7 +34,7 @@
 	</div>
 	<div id="footer-right" class="fl footer-box last">
 		<h5>Have a Question?</h5>
-		<p>We're here to help, contact with any question that you may have: support@glassesmakers.com</p>
+		<p>We're here to help, contact with any question that you may have: <a class="support-email" href="mailto:<?php echo $p[0]->order->branch->email?>"><?php echo $p[0]->order->branch->email?><a></p>
 	</div>
 </div>
 <?php /* <div class="deal-text">

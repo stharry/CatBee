@@ -8,20 +8,16 @@ RestLogger::log("facebookLogin:Started");
 
 include3rdParty('facebook', 'facebook');
 
-$facebook = new Facebook(array(
-                             'appId'  => '369374193139831',
-                             'secret' => '894b434b7da7bca8c5549e6e5584581f',
-                             'cookie' => true
-                         ));
-
 $restRequest = RestUtils::processRequest();
 $params      = $restRequest->getRequestVars();
 RestLogger::log("facebookLogin:before get user. Get params:", $params);
 
 if (!isset($params) || (count($params) == 0))
 {
-    RestLogger::log("FacebookLogin: no parameters - return stub success");
-    include('facebookClose.php');
+    RestLogger::log("FacebookLogin: no parameters - redirect to tribzi.com");
+
+    header('Location: http://www.tribzi.com/');
+    //include('facebookClose.php');
     //RestUtils::sendSuccessResponse();
     exit();
 }
@@ -70,6 +66,12 @@ elseif (isset($params['context']))
     include('facebookClose.php');
     exit();
 }
+
+$facebook = new Facebook(array(
+                             'appId'  => '369374193139831',
+                             'secret' => '894b434b7da7bca8c5549e6e5584581f',
+                             'cookie' => true
+                         ));
 
 $code = $params["code"];
 

@@ -1,8 +1,14 @@
+
 $(document).ready(function () {
 
     try {
         var host = TribZi.getRoot();
-        load(host + '/public/res/js/min/anywhere.js?id=' + TribZi.deal.twitContext.application.applicationCode + '&v=1');
+        load(host + '/public/res/js/min/anywhere.js?id=' +
+            TribZi.deal.twitContext.application.applicationCode + '&v=1')
+            .thenRun(function () {
+                createTwitterBox();
+                hideTwitterBox();
+            });
     }
     catch (e) {
         alert(e);
@@ -20,21 +26,14 @@ $(document).ready(function () {
 
         if ($('#tbox').css('display') == 'none') {
 
-            createTwitterBox();
+            //createTwitterBox();
 
             //$('#tweet-box').text(message);
-
-            $('#tbox').show();
-            $('#tbox_bottom').show();
-            $('#shadow_div').removeClass('inv');
-
+            showTwitterBox();
         }
         else {
 
-            $('#tbox').hide();
-            $('#tbox_bottom').hide();
-            $('#shadow_div').addClass('inv');
-
+            hideTwitterBox();
         }
     });
 
@@ -46,8 +45,27 @@ $("#twit_it").live('click', function () {
     return false;
 });
 
-function createTwitterBox()
+function hideTwitterBox()
 {
+    $('#tbox').hide();
+    $('#tbox_bottom').hide();
+    $('#shadow_div').addClass('inv');
+}
+
+function showTwitterBox() {
+    $('#tbox').show();
+    $('#tbox_bottom').show();
+    $('#shadow_div').removeClass('inv');
+
+    $('#share_list').find('li').removeClass('active');
+    $('#twitterShare').parent().addClass('active');
+
+    $('#tbox_bottom').css('display', 'block');
+    $('#shadow_div').removeClass('inv');
+
+}
+
+function createTwitterBox() {
 //    if ((typeof twttr == 'undefined') || !twttr)
 //    {
 //        setTimeout(createTwitterBox, 500);
@@ -58,8 +76,7 @@ function createTwitterBox()
         tbox.removeChild(tbox.firstChild);
     }
 
-    if ($('#tbox').css('display') == 'none')
-    {
+    if ($('#tbox').css('display') == 'none') {
 
         if ($('#emailForm').css('display') != 'none') {
             $('#emailForm').css('display', 'none');
@@ -114,12 +131,6 @@ function createTwitterBox()
                     cssStyle += '#tweeting-controls span{padding: 0px;background: none; border: none;}';
                     cssStyle += '</style>';
                     $('#tbox').find('iframe').contents().find('head').append(cssStyle);
-
-                    $('#share_list').find('li').removeClass('active');
-                    $('#twitterShare').parent().addClass('active');
-
-                    $('#tbox_bottom').css('display', 'block');
-                    $('#shadow_div').removeClass('inv');
 
                 }
 
