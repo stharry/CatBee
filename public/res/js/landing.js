@@ -106,8 +106,35 @@ function _calculateColor(sliderValue) //1,2,3.
 		});
 	}
 }
-/* Zoran Functions END */
-$(document).ready(function() 
+
+function switchEmailBox() {
+
+
+        if ($('.email-form').css('display') == 'none') {
+            $('.email-form').show();
+            $('#emailShare').parent().addClass('active');
+
+        }
+        else
+        {
+            $('.email-form').hide();
+            $('#emailShare').parent().removeClass('active');
+
+        }
+
+//    $('.email-form').slideToggle("fast", function () {
+//        if ($('.email-form').css('display') == 'none') {
+//            $('.share-hover .' + $(this).attr('rel')).css('visibility', 'hidden');
+//            $('.share-hover .' + $(this).attr('rel')).removeClass('active');
+//        }
+//        else {
+//            $('.share-hover .' + $(this).attr('rel')).css('visibility', 'hidden');
+//            $('.share-hover .' + $(this).attr('rel')).removeClass('active');
+//        }
+//        goToByScroll('email-form');
+//    });
+}
+$(document).ready(function()
 {
     $('.box').mutate('height width',function (element,info){
         TribZi.resizeFrame(2, 2);
@@ -228,14 +255,11 @@ $(document).ready(function()
 
     $('.share-box a[rel="email"]').click(function(){
 
-        var target = $(this);
 		$('#message').css('color', '#4F432D');
         if($('.email-form').css('display') == 'none' )
 		{
 
-			$('#tbox').css('display', 'none');
-			$('#tbox_bottom').css('display', 'none');
-			$('#shadow_div').addClass('inv');
+			hideTwitterBox();
 			$('#share_list').find('li').removeClass('active');
 			//$(this).parent().addClass('active');
 
@@ -245,17 +269,7 @@ $(document).ready(function()
 			//$(this).parent().removeClass('active');
 			
         }
-        $('.email-form').slideToggle("fast", function(){
-            if( $('.email-form').css('display') == 'none' ){
-                $('.share-hover .'+target.attr('rel')).css('visibility', 'hidden');
-                $('.share-hover .'+target.attr('rel')).removeClass('active');
-            }else{
-                $('.share-hover .'+target.attr('rel')).css('visibility', 'visible');
-                $('.share-hover .'+target.attr('rel')).addClass('active');
-            }
-            goToByScroll('email-form');
-        });
-
+        switchEmailBox();
     });
 
     //infield label
@@ -323,15 +337,7 @@ function updateRewards(sliderVal) {
 
     TribZi.setRewardIndex(sliderVal);
 
-    //todo: ugly need to code tribzi custom events binding system
-    var twitFrame = document.getElementsByClassName('twitter-anywhere-tweet-box')[0];
-    if (twitFrame)
-    {
-        var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
-            .parseMessage(TribZi.deal.twitContext.message);
-
-        twitFrame.contentDocument.getElementById('tweet-box').value = message;
-    }
+    setTwitterMessage();
 }
 function updateBoxPosition(){
     //Get the window height and width

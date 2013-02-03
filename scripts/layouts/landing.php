@@ -60,13 +60,13 @@
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery.min.js"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery-ui.min.js"></script>
 
-	<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>
-	<script type="text/javascript" charset="utf-8">
-		var csPageOptions = {
-			domain_key:"RFULLDSNJ8E62YBDLS7S",
-			textarea_id:"mail-input"
-		};
-	</script>
+<!--	<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>-->
+<!--	<script type="text/javascript" charset="utf-8">-->
+<!--		var csPageOptions = {-->
+<!--			domain_key:"RFULLDSNJ8E62YBDLS7S",-->
+<!--			textarea_id:"mail-input"-->
+<!--		};-->
+<!--	</script>-->
 
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/dev/chain-dev.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/dev/load-dev.js?v=1" type="text/javascript"></script>
@@ -75,7 +75,7 @@
 <!--
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js?v=1" type="text/javascript"></script>
 -->
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.min.js" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.js?reload" type="text/javascript"></script>
 
     <script src="http://connect.facebook.net/en_US/all.js"></script>
 

@@ -1,7 +1,6 @@
 cbf = {
 
-    init: function()
-    {
+    init:function () {
         var host = cbf.valOrDefault(cbf.getScriptParams('catbeeframe').host, "http://api.tribzi.com/CatBee/");
 
 //todo        if (host === '')
@@ -11,15 +10,13 @@ cbf = {
         cbf.catBeeHost = host;
     },
 
-    viewPort: function()
-    {
+    viewPort:function () {
         var e = window, a = 'inner';
-        if ( !( 'innerWidth' in window ) )
-        {
+        if (!( 'innerWidth' in window )) {
             a = 'client';
             e = document.documentElement || document.body;
         }
-        return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
+        return { width:e[ a + 'Width' ], height:e[ a + 'Height' ] }
     },
 
     loadScript:function (url, loaded) {
@@ -29,53 +26,48 @@ cbf = {
         if (navigator.userAgent.indexOf('MSIE') > -1) {
             scr.onload = scr.onreadystatechange = function () {
                 if (this.readyState == "loaded" || this.readyState == "complete") {
-                    if (loaded) { loaded(); }
+                    if (loaded) {
+                        loaded();
+                    }
                 }
                 scr.onload = scr.onreadystatechange = null;
             };
-        } else {
+        }
+        else {
             scr.onload = loaded;
         }
         document.getElementsByTagName('head')[0].appendChild(scr);
     },
 
-    byId: function(str)
-    {
+    byId:function (str) {
         return document.getElementById(str);
     },
 
-    addDiv: function(id, to)
-    {
+    addDiv:function (id, to) {
         var div = document.createElement('div');
         div.id = id;
-        if (to === null || typeof to == 'undefined')
-        {
+        if (to === null || typeof to == 'undefined') {
             document.body.appendChild(div);
         }
-        else
-        {
+        else {
             cbf.byId(to).appendChild(div);
         }
         return this;
 
     },
 
-    css: function(to, css)
-    {
+    css:function (to, css) {
         var elem = cbf.byId(to);
 
-        if (typeof elem != 'undefined')
-        {
-            for (key in css)
-            {
+        if (typeof elem != 'undefined') {
+            for (key in css) {
                 elem.style[key] = css[key];
             }
         }
         return this;
     },
 
-    addEvt: function(to, eventName, handler)
-    {
+    addEvt:function (to, eventName, handler) {
         var element = cbf.byId(to);
         if (element.addEventListener) {
             element.addEventListener(eventName, handler, false);
@@ -88,19 +80,20 @@ cbf = {
         }
     },
 
-    addLoadEvt: function(loadEvent)
-    {
-        if(window.attachEvent) {
+    addLoadEvt:function (loadEvent) {
+        if (window.attachEvent) {
             window.attachEvent('onload', loadEvent);
-        } else {
-            if(window.onload) {
+        }
+        else {
+            if (window.onload) {
                 var curronload = window.onload;
-                var newonload = function() {
+                var newonload = function () {
                     curronload();
                     loadEvent();
                 };
                 window.onload = newonload;
-            } else {
+            }
+            else {
                 window.onload = loadEvent;
             }
         }
@@ -130,8 +123,7 @@ cbf = {
         return isMobile.any();
     },
 
-    valOrDefault: function(val1, def1)
-    {
+    valOrDefault:function (val1, def1) {
         return (val1 === null) || (typeof val1 == 'undefined') ? def1 : val1;
 
     },
@@ -159,23 +151,20 @@ cbf = {
         }
     },
 
-    parseUrl:function(str){
+    parseUrl:function (str) {
 
-      var pars = str.split('?')[1];
+        var pars = str.split('?')[1];
         if (!pars || typeof pars == 'undefined') return {};
 
         var pairs = pars.split('&');
         var result = {};
 
-        for (var i = 0; i < pairs.length; i++)
-        {
-            var singlePair =  pairs[i].split('=');
-            if (singlePair.length > 1)
-            {
+        for (var i = 0; i < pairs.length; i++) {
+            var singlePair = pairs[i].split('=');
+            if (singlePair.length > 1) {
                 result[singlePair[0]] = singlePair[1];
             }
-            else
-            {
+            else {
                 result[singlePair[0]] = null;
             }
         }
@@ -206,7 +195,7 @@ cbf = {
             return args;
         }
         else {
-            return {scriptSource: script_tag.src};
+            return {scriptSource:script_tag.src};
 
         }
     },
@@ -221,6 +210,8 @@ cbf = {
 
         //todo: need to implement muli sockets
         url = this.buildUrl(params);
+
+        //var catbeeXDM = { easyXDM: easyXDM.noConflict("catbee") };
 
         var rpc = new easyXDM.Rpc(
             {
@@ -255,6 +246,11 @@ cbf = {
                     },
                     sendCookieToFrame:function (code, value) {
                         cbf.setCookie(code, value, 1);
+                    },
+                    showAddressBook  :function () {
+
+                        cloudsponge.launch();
+
                     }},
                 remote:{ }
             });
@@ -268,36 +264,36 @@ cbf = {
         cbf.addDiv('cbfOverlay');
 
         var cssOverlay = {
-            display  :'block',
-            position :'fixed',
-            top      :'0px',
-            left     :'0px',
-            width    :'100%',
-            height   :'100%',
-            'z-index':'1002',
-            opacity  :0.8,
-            'background-color': 'rgba(0, 0, 0, 0.5)'
+            display           :'block',
+            position          :'fixed',
+            top               :'0px',
+            left              :'0px',
+            width             :'100%',
+            height            :'100%',
+            'z-index'         :'1002',
+            opacity           :0.8,
+            'background-color':'rgba(0, 0, 0, 0.5)'
         };
         cbf.css('cbfOverlay', cssOverlay);
 
         cbf.addDiv('cbfFrame').addDiv('cbfContainer', 'cbfFrame');
         var left = Math.round(cbf.viewPort().width / 2 - params.initWidth / 2);
         var cssFrame = {
-            display  :'block',
-            position :'fixed',
-            top      :'5%',
-            left     :left +'px',
-            width    :params.initWidth + 'px',
-            height   :params.initHeight + 'px',
-            'z-index':'1003',
+            display                :'block',
+            position               :'fixed',
+            top                    :'5%',
+            left                   :left + 'px',
+            width                  :params.initWidth + 'px',
+            height                 :params.initHeight + 'px',
+            'z-index'              :'1003',
 
             //Round border
-           'border-radius': '10px',
-            '-moz-border-radius': '10px',
-            '-webkit-border-radius': '10px',
-            ' -khtml-border-radius': '10px',
-            background: '#FFF',
-            border: '5px solid rgba(12, 80, 182, 0.2)'
+            'border-radius'        :'10px',
+            '-moz-border-radius'   :'10px',
+            '-webkit-border-radius':'10px',
+            ' -khtml-border-radius':'10px',
+            background             :'#FFF',
+            border                 :'5px solid rgba(12, 80, 182, 0.2)'
 
         };
         cbf.css('cbfFrame', cssFrame);
@@ -309,7 +305,7 @@ cbf = {
 
         if (params.closeButton) {
             cbf.addDiv('cbfCloseBtn', 'cbfFrame');
-            cbf.byId('cbfCloseBtn').title="Close"
+            cbf.byId('cbfCloseBtn').title = "Close"
             var cssButton = {
                 'position'        :'absolute',
                 'top'             :'-18px',
@@ -333,30 +329,43 @@ cbf = {
     },
 
     closeFrame:function () {
-        cbf.css('cbfFrame', {'display' : 'none'});
-        cbf.css('cbfOverlay', {'display' : 'none'});
+        cbf.css('cbfFrame', {'display':'none'});
+        cbf.css('cbfOverlay', {'display':'none'});
 
     },
 
     setupFrame:function (params) {
 
-        if (cbf.hasFrame)
-        {
+        if (cbf.hasFrame) {
             return;
         }
 
         cbf.hasFrame = true;
         this.frameParams = params;
         if (typeof esyXDM == 'undefined') {
+
             if (typeof JSON == 'undefined') {
                 var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/json2.min.js";
                 cbf.loadScript(jsSrc);
 
             }
-            var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.min.js";
+            var jsSrc = "https://api.cloudsponge.com/address_books.js";
             cbf.loadScript(jsSrc, function () {
-                cbf.buildFrame();
+
+                cloudsponge.init({
+                    domain_key         :"RFULLDSNJ8E62YBDLS7S",
+                    afterSubmitContacts:function (array_of_contacts) {
+                        alert(1);
+                    }
+                })
+                var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.js?reload";
+                cbf.loadScript(jsSrc, function () {
+                    cbf.buildFrame();
+                });
+
+
             });
+
 
         }
         else {
@@ -369,6 +378,6 @@ cbf = {
 window.cbf = cbf;
 cbf.hasFrame = false;
 
-cbf.addLoadEvt(function(){
+cbf.addLoadEvt(function () {
     cbf.init();
 });

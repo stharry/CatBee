@@ -28,7 +28,12 @@ $(document).ready(function () {
 
             //createTwitterBox();
 
-            //$('#tweet-box').text(message);
+            setTwitterMessage();
+
+            if ($('.email-form').css('display') !== 'none')
+            {
+                switchEmailBox();
+            }
             showTwitterBox();
         }
         else {
@@ -50,18 +55,19 @@ function hideTwitterBox()
     $('#tbox').hide();
     $('#tbox_bottom').hide();
     $('#shadow_div').addClass('inv');
+    $('#twitterShare').parent().removeClass('active');
 }
 
 function showTwitterBox() {
     $('#tbox').show();
     $('#tbox_bottom').show();
-    $('#shadow_div').removeClass('inv');
 
     $('#share_list').find('li').removeClass('active');
     $('#twitterShare').parent().addClass('active');
 
     $('#tbox_bottom').css('display', 'block');
     $('#shadow_div').removeClass('inv');
+    $('#twitterShare').parent().addClass('active');
 
 }
 
@@ -91,7 +97,14 @@ function createTwitterBox() {
 
         //var message = TribZi.setShareLink($('#twitter_link').val()).parseMessage(TribZi.deal.twitContext.message);
 
+        //twttr.anywhere.config({ callbackURL: "http://api.tribzi.com/CatBee/components/share/facebook/facebookLogin.php" });
+
         twttr.anywhere(function (T) {
+
+            T.bind("authComplete", function (e, user) {
+                //todo implement user access token grabbing and sending to server here
+
+            });
 
             T("#tbox").tweetBox({
 
@@ -137,5 +150,18 @@ function createTwitterBox() {
             });
         });
 
+    }
+}
+
+function setTwitterMessage()
+{
+    //todo: ugly need to code tribzi custom events binding system
+    var twitFrame = document.getElementsByClassName('twitter-anywhere-tweet-box')[0];
+    if (twitFrame)
+    {
+        var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
+            .parseMessage(TribZi.deal.twitContext.message);
+
+        twitFrame.contentDocument.getElementById('tweet-box').value = message;
     }
 }

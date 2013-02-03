@@ -5,6 +5,11 @@ $(document).ready(function () {
 
 function CreateAndInitializeEmailForm() {
 
+    $('.import-contacts').click(function(){
+
+        TribZi.rpc.showAddressBook();
+    });
+
     $("#message").val(TribZi.deal.landing.customMessage);
 
     $("#contact").submit(function () {
