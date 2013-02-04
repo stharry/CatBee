@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <default>
+    <reference name="footer">
+      <block type="Tribzi_Catbee_Block_footerscripts" after="-" template="tribzi/footer.phtml"/>
+    </reference>
+  </default>
+  <checkout_onepage_success>
+    <reference name="footer">
+      <block type="Tribzi_Catbee_Block_popup" after="-" template="tribzi/popup.phtml"/>
+    </reference>
+  </checkout_onepage_success>
+</layout>

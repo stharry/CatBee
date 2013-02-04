@@ -33,7 +33,7 @@ cbf.addLoadEvt(function () {
     cbf.setupFrame(
         {
             initWidth   :424,
-            initHeight  :369,
+            initHeight  :372,
             catbeeAction:'deal',
             urlParams   :jsonOrderData,
             id          :'catbeeFrame',

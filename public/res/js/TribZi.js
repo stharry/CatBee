@@ -1,13 +1,15 @@
 TribZi = {
 
     openSocket:function () {
+        //var catbeeXDM = { easyXDM: easyXDM.noConflict("catbee") };
         this.rpc = new easyXDM.Rpc(
             {},
             {
                 remote:{
                     resizeFrame      :{},
                     closeFrame       :{},
-                    sendCookieToFrame:{}}
+                    sendCookieToFrame:{},
+                    showAddressBook  :{}}
             });
 
         return this;
@@ -258,17 +260,16 @@ TribZi = {
             return prop.replace('px', '');
         }
 
-        function sumBorders(elem, borders)
-        {
+        function sumBorders(elem, borders) {
             var sum = 0;
 
-            for (var i = 0; i < borders.length; i++)
-            {
+            for (var i = 0; i < borders.length; i++) {
                 var bstr = toString($(elem).css(borders[i]));
                 sum += Math.round(toNumber(bstr));
             }
             return sum;
         }
+
         var elem = frameElem ? frameElem : '.box';
 
         var newWidth = Math.round(parseFloat($(elem).width())) +

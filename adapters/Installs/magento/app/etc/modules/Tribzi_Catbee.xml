@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Tribzi_Catbee>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Tribzi_Catbee>
+    </modules>
+</config>

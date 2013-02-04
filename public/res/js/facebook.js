@@ -21,9 +21,7 @@ $(document).ready(function () {
 		{
 			$('#emailForm').css('display', 'none');
 		}
-		$('#tbox').css('display', 'none');
-		$('#tbox_bottom').css('display', 'none');
-		$('#shadow_div').addClass('inv');
+		hideTwitterBox();
         StartFacebookSharing();
     });
 
