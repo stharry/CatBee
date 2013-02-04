@@ -30,5 +30,31 @@
         <class>Tribzi_Catbee_Block</class>
       </Tribzi_Catbee>
     </blocks>
+    <helpers>
+      <Tribzi_Catbee>
+        <class>Tribzi_Catbee_Helper</class>
+      </Tribzi_Catbee>
+    </helpers>
   </global>
+  <adminhtml>
+    <acl>
+      <resources>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <tribzi>
+                      <title>Tribzi global configuration</title>
+                    </tribzi>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+  </adminhtml>
 </config>
