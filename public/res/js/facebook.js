@@ -78,7 +78,7 @@ function StartFacebookSharing() {
 
                 TribZi.share();
 
-                showSuccess('Thanks! Keep spreading the love with your friends');
+                showSuccess('Thanks For Sharing! Your Coupon for next purchase is on the way - Keep on sharing');
 
                 $('#emailShare').click();
             }
