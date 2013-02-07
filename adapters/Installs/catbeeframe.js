@@ -1,14 +1,10 @@
 cbf = {
 
-    init:function () {
-        var host = cbf.valOrDefault(cbf.getScriptParams('catbeeframe').host, "http://api.tribzi.com/CatBee/");
-
-//todo        if (host === '')
-//        {
-//            host
-//        }
-        cbf.catBeeHost = host;
-    },
+    catBeeHost: function()
+    {
+        return cbf.valOrDefault(cbf.getScriptParams('catbeeframe').host, "http://api.tribzi.com/CatBee/");
+    }
+    ,
 
     viewPort:function () {
         var e = window, a = 'inner';
@@ -30,7 +26,10 @@ cbf = {
                         loaded();
                     }
                 }
-                scr.onload = scr.onreadystatechange = null;
+                if (this.readyState != "loading")
+                {
+                    scr.onload = scr.onreadystatechange = null;
+                }
             };
         }
         else {
@@ -61,7 +60,7 @@ cbf = {
 
         if (typeof elem != 'undefined') {
             for (key in css) {
-                elem.style[key] = css[key];
+                try {elem.style[key] = css[key];}catch(e){}
             }
         }
         return this;
@@ -129,7 +128,7 @@ cbf = {
     },
 
     getCatBeeUrl:function () {
-        return cbf.catBeeHost;
+        return cbf.catBeeHost();
     },
 
     setCookie:function (c_name, value, exdays) {
@@ -222,7 +221,7 @@ cbf = {
                 container:document.getElementById("cbfContainer"),
                 props    :{
                     style:{
-                        border  :"0px 0px 0px 0px",
+                        //border  :"0px 0px 0px 0px",
                         padding :"0px 0px 0px 0px",
                         overflow:"hidden",
                         width   :"100%",
@@ -258,7 +257,48 @@ cbf = {
         return this;
     },
 
+    highZIndex: function()
+    {
+        function highZ(pa, limit){
+            limit= limit || Infinity;
+            pa= pa || document.body;
+            var who, tem, mx= 1, A= [], i= 0, L;
+            pa= pa.childNodes, L= pa.length;
+            while(i<L){
+                who= pa[i++]
+                if(who.nodeType== 1){
+                    tem= parseInt(deepCss(who,"z-index")) || 0;
+                    if(tem> mx && tem<=limit) mx= tem;
+                }
+            }
+            return mx;
+        }
+
+        function deepCss(who, css){
+            var sty, val, dv= document.defaultView || window;
+            if(who.nodeType== 1){
+                sty= css.replace(/\-([a-z])/g, function(a, b){
+                    return b.toUpperCase();
+                });
+                val= who.style[sty];
+                if(!val){
+                    if(who.currentStyle) val= who.currentStyle[sty];
+                    else if(dv.getComputedStyle){
+                        val= dv.getComputedStyle(who,"").getPropertyValue(css);
+                    }
+                }
+            }
+            return val || "";
+        }
+
+        return highZ();
+    },
+
     buildFrame:function () {
+
+
+        var maxZIndex = cbf.highZIndex();
+
         var params = this.frameParams;
 
         cbf.addDiv('cbfOverlay');
@@ -270,11 +310,13 @@ cbf = {
             left              :'0px',
             width             :'100%',
             height            :'100%',
-            'z-index'         :'1002',
+            'z-index'         :maxZIndex + 100002,
             opacity           :0.8,
             'background-color':'rgba(0, 0, 0, 0.5)'
         };
         cbf.css('cbfOverlay', cssOverlay);
+        cbf.byId('cbfOverlay').zIndex = maxZIndex + 100002;
+        cbf.byId('cbfOverlay').style.zIndex = maxZIndex + 100002;
 
         cbf.addDiv('cbfFrame').addDiv('cbfContainer', 'cbfFrame');
         var left = Math.round(cbf.viewPort().width / 2 - params.initWidth / 2);
@@ -285,7 +327,7 @@ cbf = {
             left                   :left + 'px',
             width                  :params.initWidth + 'px',
             height                 :params.initHeight + 'px',
-            'z-index'              :'1003',
+            'z-index'              :maxZIndex + 100003,
 
             //Round border
             'border-radius'        :'10px',
@@ -297,6 +339,8 @@ cbf = {
 
         };
         cbf.css('cbfFrame', cssFrame);
+        cbf.byId('cbfFrame').zIndex = maxZIndex + 100003;
+        cbf.byId('cbfFrame').style.zIndex = maxZIndex + 100003;
 
         var cssDialog = {
             width:'100%', height:'100%'
@@ -313,7 +357,7 @@ cbf = {
                 'width'           :'36px',
                 'height'          :'36px',
                 'cursor'          :'pointer',
-                'z-index'         :'8040',
+                'z-index'         :maxZIndex + 800040,
                 'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',
                 'background-color':'transparent'
             };
@@ -322,9 +366,12 @@ cbf = {
                 .addEvt('cbfCloseBtn', 'click', function () {
                     cbf.closeFrame();
                 });
+            cbf.byId('cbfCloseBtn').zIndex = maxZIndex + 800040;
+            cbf.byId('cbfCloseBtn').style.zIndex = maxZIndex + 800040;
         }
 
-        this.setupRpc(params);
+        cbf.setupRpc(params);
+        cbf.byId('cbfContainer').focus();
 
     },
 
@@ -378,6 +425,3 @@ cbf = {
 window.cbf = cbf;
 cbf.hasFrame = false;
 
-cbf.addLoadEvt(function () {
-    cbf.init();
-});
