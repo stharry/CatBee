@@ -75,7 +75,6 @@ try
             RestLogger::log("Deal API before deal");
             $orderAdapter = new JsonOrderAdapter();
             $order        = $orderAdapter->fromArray($context);
-            RestLogger::log("Deal API order is ", $order);
             $deal = $dealManager->pushDeal($order);
             exit;
 
@@ -118,8 +117,8 @@ try
         case "getdeal":
             $dealFilterAdapter = new JsonLeaderDealFilterAdapter();
             $dealFilter        = $dealFilterAdapter->fromArray($context);
+            RestLogger::log('deal api dealFilter is ', $dealFilter);
             //Currently Hard Coded true
-            $dealFilter->ActiveShareFlag = true;
             $deals = $dealManager->getDeals($dealFilter);
             $dealsAdapter = new JsonLeaderDealsAdapter();
             RestUtils::sendSuccessResponse($dealsAdapter->toArray($deals));

@@ -4,7 +4,7 @@ include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 IncludeComponent('rest', 'RestUtils');
 $restUtils = new RestUtils();
 
-////Push Deal 1  Customer Tomer@tribzi.com ,Date Y
+//Push Deal 1  Customer Tomer@tribzi.com ,Date Y
 
 $order1 = json_decode(file_get_contents("res/DealByFilter/pushDeal1.json"));
 $restUtils->SendPostRequest("deal", "", $order1);
@@ -46,7 +46,11 @@ $friendDeal = array('action'=>'friend Deal',
         'share' => array('context' => array('uid' =>  $temp[0]['leads'][0]['uid']))));
 $restUtils->SendPostRequest("deal", "", $friendDeal);
 
-//Push Deal 5 referring deal 1 for customer Z share Via Email
+//log another Impression
+$restUtils->SendPostRequest("deal", "", $friendDeal);
+
+
+//Push Deal 5 referring deal 1 for customer Z share Via facebook
 
 $filter = json_decode(file_get_contents("res/DealByFilter/GetPushDeal1.json"));
 
@@ -54,11 +58,15 @@ $deals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $fil
 $order5 = json_decode(file_get_contents("res/DealByFilter/pushDeal5.json"),true);
 $order5['context']['successfulReferral'] = $deals[0]['leads'][0]['uid'];
 $restUtils->SendPostRequest("deal", "", $order5);
-
+//
 
 //Get Deals By the Filter: Dates,FB
 
 
+$ResultsFilter = json_decode(file_get_contents("res/DealByFilter/GetCycleResults.json"));
 
+$ResultsDeals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $ResultsFilter), true);
+
+var_dump ($ResultsDeals);
 //Check Results including Impressions
 

@@ -7,7 +7,7 @@ class PdoDealDao implements IDealDao
         RestLogger::log("PdoDealDao created...");
     }
 
-    private function FillActiveShareLeads($row)
+    private function FillActiveShareLeads($row,$dealId,&$indexOfReferralsRows,$referralRows)
     {
         $lead                  = new ShareLead();
         $lead->id              = $row['activeShareID'];
@@ -16,11 +16,36 @@ class PdoDealDao implements IDealDao
         $lead->status          = $row['status'];
         $lead->landingRewardId = $row['landRewardId'];
         $lead->to              = $row['value'];
-        if ($row['OrderID'])
+        if ($row['ImpTime'])
         {
-            array_push($lead->referralOrders,$row['OrderID']);
+            array_push($lead->impressions,$row['ImpTime']);
         }
+        $this->FillReferralForAnActiveShare($lead,$dealId,$indexOfReferralsRows,$referralRows);
         return $lead;
+    }
+
+    private function FillReferralForAnActiveShare($lead,$dealId,&$indexOfReferralsRows,$referralRows)
+    {
+        RestLogger::log("FillReferralForAnActiveShare index is".$indexOfReferralsRows);
+         while($indexOfReferralsRows<count($referralRows))
+        {
+            if($referralRows[$indexOfReferralsRows]["id"]> $dealId || $referralRows[$indexOfReferralsRows]["activeShareID"]>$lead->id)
+            {
+                RestLogger::log("break".$indexOfReferralsRows);
+                break;
+            }
+            if($lead->id==$referralRows[$indexOfReferralsRows]["activeShareID"] && $dealId == $referralRows[$indexOfReferralsRows]["id"])
+            {
+                array_push($lead->referralOrders,$referralRows[$indexOfReferralsRows]["OrderID"]);
+                $indexOfReferralsRows = $indexOfReferralsRows+1;
+            }
+            else
+            {
+                RestLogger::log("Now What?");
+                break;
+            }
+        }
+
     }
 
     private function createAndFillDealHeader($row)
@@ -104,7 +129,6 @@ class PdoDealDao implements IDealDao
 
     public function getDealByOrder($order)
     {
-        //Todo - Remove this function  - all Get Functions should be in the same Get
         RestLogger::log("PdoDealDao::getDealByOrder begin");
 
         try
@@ -132,6 +156,63 @@ class PdoDealDao implements IDealDao
             throw new Exception("", 0, $e);
         }
     }
+    private function AddReferralsToShares($dealFilter)
+    {
+        RestLogger::log("PdoDealDao::AddReferralsToShares begin");
+        $selectParams = array();
+        $flagForWhere=false;
+
+        try
+        {
+            $selectClause = " SELECT d.id,s.id as activeShareID,sr.OrderID";
+            $selectClause = $selectClause." FROM deal d";
+            if($dealFilter->customer != null)
+            {
+                $selectClause = $selectClause." INNER JOIN customers c on c.Id=d.customerId";
+            }
+            $selectClause = $selectClause." INNER JOIN  ActiveShare s on s.dealId=d.id";
+            $selectClause = $selectClause." INNER JOIN successfulReferral sr on s.id = sr.ActiveShareID";
+            if($dealFilter->customer != null)
+            {
+
+                $selectClause = $selectClause." WHERE c.email = ?";
+                $selectParam = new DbParameter($dealFilter->customer->email,PDO::PARAM_STR);
+                array_push($selectParams,$selectParam);
+                $flagForWhere=true;
+            }
+            if($dealFilter->initDateBiggerThen!= null )
+            {
+                if($flagForWhere==true)
+                {
+                    $selectClause = $selectClause. " and d.initDate >= ?";
+                }
+                else
+                {
+                    $selectClause = $selectClause. " where d.initDate >= ?";
+                    $flagForWhere=true;
+                }
+                $selectParam2 = new DbParameter( $dealFilter->initDateBiggerThen, PDO::PARAM_STR);
+                array_push($selectParams,$selectParam2);
+            }
+            if($flagForWhere==true)$selectClause = $selectClause . " and s.shareType = ?";
+            else
+            {
+                $selectClause = $selectClause . " where s.shareType =? ";$flagForWhere=true;
+            }
+            $selectClause = $selectClause . " and s.status=2";
+            $selectParam3 = new DbParameter( $dealFilter->ActiveShareType[0]->type, PDO::PARAM_INT);
+            array_push($selectParams,$selectParam3);
+            $selectClause = $selectClause ." Order by d.id,activeShareID";
+            $rows = DbManager::selectValues($selectClause,$selectParams);
+            return $rows;
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log("Exception: " . $e->getMessage());
+            throw new Exception("", 0, $e);
+        }
+
+    }
     public function getDealsByFilter($dealFilter)
     {
         RestLogger::log("PdoDealDao::getDealsByFilter begin");
@@ -140,26 +221,27 @@ class PdoDealDao implements IDealDao
         try
         {
         $selectClause = " SELECT d.id, d.landing, d.status, d.customerId, d.initDate,d.updateDate";
-            if ($dealFilter->ActiveShareFlag == true)
+            if (count($dealFilter->ActiveShareType) != 0)
             {
                 $selectClause =$selectClause.",s.id as activeShareID,s.shareType,s.landRewardId,s.value,s.uid";
+                if($dealFilter->ImpressionFlag == true)
+                {
+                    $selectClause =$selectClause.", I.TimeStamp as ImpTime";
+                }
             }
-            if($dealFilter->bringReferrals == true)
-            {
-                $selectClause =$selectClause.", sr.OrderID";
-            }
+
             $selectClause = $selectClause." FROM deal d";
             if($dealFilter->customer != null)
             {
                 $selectClause = $selectClause." INNER JOIN customers c on c.Id=d.customerId";
             }
-            if ($dealFilter->ActiveShareFlag == true)
+            if (count($dealFilter->ActiveShareType) != 0)
             {
-                $selectClause = $selectClause." INNER JOIN ActiveShare s on s.dealId=d.id";
-                if($dealFilter->bringReferrals == true)
+                $selectClause = $selectClause." LEFT JOIN ActiveShare s on s.dealId=d.id";
+                if($dealFilter->ImpressionFlag == true)
                 {
-                    $selectClause = $selectClause." LEFT JOIN successfulReferral sr on s.id = sr.ActiveShareID";
 
+                    $selectClause = $selectClause." Left JOIN impression I on s.id = I.ActiveShareID";
                 }
             }
             if($dealFilter->customer != null)
@@ -182,52 +264,66 @@ class PdoDealDao implements IDealDao
                     $flagForWhere=true;
                 }
                 $selectParam2 = new DbParameter( $dealFilter->initDateBiggerThen, PDO::PARAM_STR);
-
-            }
-            if($dealFilter->initDateBiggerThen!= null )
-            {
-
-                $selectParam2 = new DbParameter( $dealFilter->initDateBiggerThen, PDO::PARAM_STR);
                 array_push($selectParams,$selectParam2);
-
             }
-            if ($dealFilter->ActiveShareFlag == true)
+            if (count($dealFilter->ActiveShareType) != 0)
             {
-                if($flagForWhere==true) $selectClause = $selectClause . " and s.status=2";
-                else  {$selectClause = $selectClause . " where s.status = 2";$flagForWhere=true;}
+               // Add here handling more than one Type and what happens if it is For all Types (All)
+                if($flagForWhere==true)$selectClause = $selectClause . " and s.shareType = ?";
+                else
+                {
+                    $selectClause = $selectClause . " where s.shareType =? ";$flagForWhere=true;
+                }
+                $selectClause = $selectClause . " and s.status=2";
+                $selectParam3 = new DbParameter( $dealFilter->ActiveShareType[0]->type, PDO::PARAM_INT);
+                array_push($selectParams,$selectParam3);
             }
+
+
             $selectClause = $selectClause ." Order by d.id";
-            if($dealFilter->ActiveShareFlag == true) $selectClause = $selectClause .",activeShareID";
+            if(count($dealFilter->ActiveShareType) != 0) $selectClause = $selectClause .",activeShareID";
 
             $rows = DbManager::selectValues($selectClause,$selectParams);
+            //adding the Referrals list
+            if($dealFilter->ReferralsFlag == true && count($dealFilter->ActiveShareType) != 0)
+            {
+                $referRows = $this->AddReferralsToShares($dealFilter);
+            }
+
             $leaderDeals = array();
+            $indexOfReferralsRows=0;
             $currentDeal =  new LeaderDeal();
             $currentShare = new ShareLead();
             foreach ($rows as $row)
             {
 
-                if($row[ "id" ]==$currentDeal->id)
+                if($row[ "id" ]==$currentDeal->id)//Same deal
                 {
                     if($row[ "activeShareID"] == $currentShare->id)
                     {
-                        if ($row['OrderID'])
+                        if($row['ImpTime'])
                         {
-                            array_push($currentShare->referralOrders,$row['OrderID']);
+                            array_push($currentShare->impressions,$row['ImpTime']) ;
+
                         }
                     }
-                    else
+                    else//different Share ID
                     {
-                        $lead = $this->FillActiveShareLeads($row);
+
+                        $lead = $this->FillActiveShareLeads($row,$currentDeal->id,$indexOfReferralsRows,$referRows);
                         array_push($currentDeal->leads, $lead);
+                        $currentShare = $lead;
                     }
                 }
                 else//this means it is a New Deal
                 {
                     $leaderDeal = $this->createAndFillDealHeader($row);
-                    $lead = $this->FillActiveShareLeads($row);
+                    $lead = $this->FillActiveShareLeads($row,$leaderDeal->id,$indexOfReferralsRows,$referRows);
                     array_push($leaderDeal->leads, $lead);
+                    $currentShare = $lead;
                     $currentDeal = $leaderDeal;
                     array_push($leaderDeals, $leaderDeal);
+
                 }
 
             }
@@ -240,6 +336,8 @@ class PdoDealDao implements IDealDao
         }
 
     }
+
+
 
     public function getParentDealByOrderId($id)
     {

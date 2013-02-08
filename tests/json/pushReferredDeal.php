@@ -16,6 +16,8 @@ if (!$order['context']['successfulReferral'])
 
 $restUtils->SendPostRequest("deal", "", $order);
 
+RestLogger::log("GetDealsByFullFilter Start");
+
 $filter = json_decode(file_get_contents("res/GetDealsByFullFilter.json"));
 $restUtils = new RestUtils();
 $deals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $filter), true);

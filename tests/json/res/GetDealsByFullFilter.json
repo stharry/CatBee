@@ -7,8 +7,8 @@
         "Customer":{
             "email":"danny.t.leader@gmail.com"
         },
-        "bringReferrals":"true",
-        "ActiveShareType":"All",
+        "ReferralsFlag":"true",
+        "ActiveShareType":"tribzi",
         "Campaign":{
             "id":"1"
         }

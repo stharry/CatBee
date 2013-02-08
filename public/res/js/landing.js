@@ -2,12 +2,6 @@
 function showSuccess(message)
 {
     $('.thank-you').text(message ? message : 'Thank you for sharing');
-
-	/* $('#shareResponse').html('Thank you for sharing');
-	$('#shareResponse').css('display', 'block');
-	setTimeout(function(){
-		$('#shareResponse').fadeOut('slow');
-	}, 5000); */
 	$('#slider-blue-content').find('.slider-description').addClass('inv');
 	$('#slider-blue-content').find('.slider-wrapper').addClass('inv');
 	$('#slider_inactive').removeClass('inv');
@@ -304,34 +298,50 @@ function openWindow(){
     return false;
 }
 
-function UpdateRewardTypes(sliderVal) {
+function UpdateleaderRewardTypes(sliderVal,RewardType) {
     if (TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription == '$') {
-        $('#info_you').text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription +
+        $(RewardType).text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription +
             TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
     }
     else {
-        $('#info_you').text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value +
+        $(RewardType).text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value +
             TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription);
+    }
+}
+function UpdateFriendRewardTypes(sliderVal,RewardType) {
+    if (TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription == '$') {
+        $(RewardType).text('' + TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription +
+            TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
+    }
+    else {
+        $(RewardType).text('' + TribZi.deal.landing.landingRewards[sliderVal].friendReward.value +
+            TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
+    }
+}
+function UpdateFriendRewardTypesVal(sliderVal,RewardType) {
+    if (TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription == '$') {
+        $(RewardType).val('' + TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription +
+            TribZi.deal.landing.landingRewards[sliderVal].friendReward.value);
+    }
+    else {
+        $(RewardType).val('' + TribZi.deal.landing.landingRewards[sliderVal].friendReward.value +
+            TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
     }
 }
 function updateRewards(sliderVal) {
 
     $('#LeaderRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.description);
     $('#LeaderReward').val(TribZi.deal.landing.landingRewards[sliderVal].leaderReward.typeDescription +
-        TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
+       TribZi.deal.landing.landingRewards[sliderVal].leaderReward.value);
 
-    UpdateRewardTypes(sliderVal);
-
+    //UpdateRewardTypes(sliderVal);
+    UpdateleaderRewardTypes(sliderVal,'#info_you');
     $('#info_you_desc').text('' + TribZi.deal.landing.landingRewards[sliderVal].leaderReward.type);
 	
 
     $('#FriendRewardPhrase').text(TribZi.deal.landing.landingRewards[sliderVal].friendReward.description);
-    $('#FriendReward').val(TribZi.deal.landing.landingRewards[sliderVal].friendReward.value +
-        TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
-
-    $('#percent_friends').text('' + TribZi.deal.landing.landingRewards[sliderVal].friendReward.value +
-        TribZi.deal.landing.landingRewards[sliderVal].friendReward.typeDescription);
-
+    UpdateFriendRewardTypes(sliderVal,'#percent_friends');
+    UpdateFriendRewardTypesVal(sliderVal,'#FriendReward');
     $('#info_friend_desc').text('' + TribZi.deal.landing.landingRewards[sliderVal].friendReward.type);
 
 
