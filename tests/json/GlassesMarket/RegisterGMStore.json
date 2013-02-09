@@ -5,8 +5,8 @@
         "store":{
             "authCode":"54c5e6c3-6349-11e2-a702-0008cae720a7",
             "description":"GlassesMarket",
-            "url":"{Rest_url}/CatBee/adapters/demo/api/",
-            "landingUrl":"{Rest_url}/CatBee/adapters/demo/res/Logo.jpg"
+            "url":"http://www.glassesmarket.com/",
+            "landingUrl":"http://www.glassesmarket.com/"
         },
         "branches":[
             {
