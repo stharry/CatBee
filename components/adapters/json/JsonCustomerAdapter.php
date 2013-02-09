@@ -35,7 +35,8 @@ class JsonCustomerAdapter implements IModelAdapter
         $customer = new Customer();
 
         $customer->email = $obj["email"];
-
+        //To do  - This need to be generic to all the parameters at The Rest API and not specific here
+        $customer->email = urldecode($customer->email);
         $customer->firstName = $obj["firstName"];
         $customer->lastName = $obj["lastName"];
         $customer->nickName = $obj["nickName"];

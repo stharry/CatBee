@@ -17,7 +17,6 @@ includeTest('shareStoreShareTemplate.php');
 includeTest('friendDeal.php');
 includeTest('pushReferredDeal.php');
 
-
 function includeTest($testName)
 {
     try

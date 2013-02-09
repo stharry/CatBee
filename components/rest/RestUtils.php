@@ -105,6 +105,7 @@ class RestUtils
 
     public static function SendPostRequest($api, $id, $obj)
     {
+        set_time_limit(0);
         $url = $GLOBALS["restURL"]."/CatBee/api/{$api}/";
 
         if (isset($id)) {

@@ -12,7 +12,7 @@
             }
         ],
         "customer":{
-            "email":"danny.t.leader@gmail.com",
+            "email":"danny.t.leader%40gmail.com",
             "firstName":"Danny",
             "lastName":"Leader",
             "nickName":"leader"

@@ -2,12 +2,26 @@
 
 class LeaderDealFilter
 {
+    public function FillAllActiveShareTypes()
+    {
+        $ShareTypeMail = new ShareType("email");
+        $this->AddToShareTypeArray($ShareTypeMail);
+        $ShareTypeFB = new ShareType("facebook");
+        $this->AddToShareTypeArray($ShareTypeFB);
+        $ShareTypeTwt = new ShareType("twitter");
+        $this->AddToShareTypeArray($ShareTypeTwt);
+
+    }
+    public function AddToShareTypeArray($shareType)
+    {
+        array_push($this->ActiveShareType, $shareType);
+    }
     public $customer;
-    public $ActiveShareFlag= false;
-    public $bringReferrals =false;
+    public $ReferralsFlag =false;
+    public $ImpressionFlag = false;
     public $initDateBiggerThen;
     public $initDateEarlierThen;
-    public $ActiveShareType;
+    public $ActiveShareType = array();
     public $Campaign;
 
 }
