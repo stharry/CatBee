@@ -3,7 +3,7 @@
     "context":
     {
         "customMessage": "I just bought at GlassesMarket.com and got a special friend-only gift to share with you.",
-        "message":"Just bought at Glassesmarket.com. use friend-only coupon code :[reward.friendReward.code] to get [reward.friendReward.value]% off your purchase, click here: [context.link]",
+        "message":"Just bought at Glassesmarket. use friend-only coupon code :[reward.friendReward.code] to get [reward.friendReward.value]% off your purchase, click here: [context.link]",
         "campaign":{
             "code":"15ede00f-634a-11e2-a702-0008cae720a7"
         },
