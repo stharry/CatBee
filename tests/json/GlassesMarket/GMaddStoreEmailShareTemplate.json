@@ -260,7 +260,12 @@
                                                                                                                                                         "name": "span",
                                                                                                                                                         "children": [
                                                                                                                                                             {
-                                                                                                                                                                "source": "\r\n\t\tThey gave me a special friend-only gift to share with you.",
+                                                                                                                                                                "source": "\r\n\t\tThey gave me a special friend-only gift to share with you.\r",
+                                                                                                                                                                "type": "text",
+                                                                                                                                                                "name": "br"
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                "source": "\r\n\t\t",
                                                                                                                                                                 "type": "text",
                                                                                                                                                                 "name": "br"
                                                                                                                                                             }
