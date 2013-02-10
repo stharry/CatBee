@@ -218,7 +218,7 @@
                                                                                                                                                     "text-decoration": "underline",
                                                                                                                                                     "font-weight": "normal"
                                                                                                                                                 },
-                                                                                                                                                "source": "glassesmarket.com Gift Certificate",
+                                                                                                                                                "source": "glassesmarket.com",
                                                                                                                                                 "linkSource": "[context.link]",
                                                                                                                                                 "type": "text",
                                                                                                                                                 "name": "a"
@@ -379,49 +379,10 @@
                                                                                 "name": "p",
                                                                                 "children": [
                                                                                     {
-                                                                                        "style": {
-                                                                                            "color": "#ff8e6b",
-                                                                                            "text-decoration": "underline",
-                                                                                            "font-weight": "normal"
-                                                                                        },
-                                                                                        "source": "Unsubscribe <> | ",
-                                                                                        "linkSource": "http://charmstotreasure.us6.list-manage.com/unsubscribe?u=f503f7e5aac319051c907e2fb&id=61dd390325&e=[UNIQID]&c=9aad7dae04",
-                                                                                        "type": "text",
-                                                                                        "name": "a",
-                                                                                        "children": [
-                                                                                            {
-                                                                                                "style": {
-                                                                                                    "color": "#ff8e6b",
-                                                                                                    "text-decoration": "underline",
-                                                                                                    "font-weight": "normal"
-                                                                                                },
-                                                                                                "source": "Forward to a friend",
-                                                                                                "linkSource": "http://us6.forward-to-friend.com/forward?u=f503f7e5aac319051c907e2fb&id=9aad7dae04&e=[UNIQID]",
-                                                                                                "type": "text",
-                                                                                                "name": "a"
-                                                                                            }
-                                                                                        ]
-                                                                                    },
-                                                                                    {
-                                                                                        "attrs": {
-                                                                                            "target": "_blank"
-                                                                                        },
-                                                                                        "style": {
-                                                                                            "color": "#ff8e6b",
-                                                                                            "text-decoration": "underline",
-                                                                                            "font-weight": "normal"
-                                                                                        },
-                                                                                        "source": "Tribzi*\r\n",
+                                                                                        "source": "Tribzi\r\n",
                                                                                         "linkSource": "http://www.tribzi.com",
                                                                                         "type": "text",
-                                                                                        "name": "a",
-                                                                                        "children": [
-                                                                                            {
-                                                                                                "source": "\r\n\tCopyright (C) 2013 CTT All rights reserved.\r\n",
-                                                                                                "type": "text",
-                                                                                                "name": "p"
-                                                                                            }
-                                                                                        ]
+                                                                                        "name": "a"
                                                                                     }
                                                                                 ]
                                                                             }

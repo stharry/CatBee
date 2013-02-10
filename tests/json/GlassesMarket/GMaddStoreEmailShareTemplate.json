@@ -143,7 +143,7 @@
                                                                                         "style": {
                                                                                             "font-family": "comic sans ms,cursive"
                                                                                         },
-                                                                                        "source": "[reward.friendReward.value] [reward.friendReward.typeDescription] off",
+                                                                                        "source": "[reward.friendReward.typeDescription] [reward.friendReward.value]  off",
                                                                                         "type": "text",
                                                                                         "name": "span"
                                                                                     },
@@ -217,7 +217,7 @@
                                                                                                                                                             "font-size": "14px",
                                                                                                                                                             " line-height": "14px"
                                                                                                                                                         },
-                                                                                                                                                        "source": "bought a glasses",
+                                                                                                                                                        "source": "bought ",
                                                                                                                                                         "type": "text",
                                                                                                                                                         "name": "span"
                                                                                                                                                     },
@@ -260,7 +260,12 @@
                                                                                                                                                         "name": "span",
                                                                                                                                                         "children": [
                                                                                                                                                             {
-                                                                                                                                                                "source": "\r\n\t\tThey gave me a special friend-only gift to share with you.",
+                                                                                                                                                                "source": "\r\n\t\tThey gave me a special friend-only gift to share with you.\r",
+                                                                                                                                                                "type": "text",
+                                                                                                                                                                "name": "br"
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                "source": "\r\n\t\t",
                                                                                                                                                                 "type": "text",
                                                                                                                                                                 "name": "br"
                                                                                                                                                             }
