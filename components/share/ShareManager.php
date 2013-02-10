@@ -14,7 +14,16 @@ class ShareManager implements IShareManager
 
     private function validateCustomer($customer)
     {
-        $this->customerManager->validateCustomer($customer);
+        try
+        {
+            RestLogger::log('Validate customer', $customer);
+            $this->customerManager->validateCustomer($customer);
+            RestLogger::log('Validate customer end');
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log('ERROR on customer validation', $e);
+        }
     }
 
     private function loadShareTemplatePageContext($shareTemplate)
@@ -42,6 +51,7 @@ class ShareManager implements IShareManager
                 return $responseParams['data']['url'];
             }
         }
+
         return $link;
     }
 
@@ -66,6 +76,7 @@ class ShareManager implements IShareManager
     {
         $templateAdapter = new JsonTemplateAdapter();
 
+        RestLogger::log('Create template from page ', $shareTemplate->templatePage->context);
         return $templateAdapter->fromArray(
             json_decode($shareTemplate->templatePage->context, true));
     }
@@ -90,19 +101,35 @@ class ShareManager implements IShareManager
     private function createMessage($share, $shareTemplate)
     {
 
-        $share->subject = $shareTemplate->message;
-
-        if (isset($shareTemplate->templatePage->context) &&
-            !empty($shareTemplate->templatePage->context)
-        )
+        try
         {
-            $template = $this->createTemplate($shareTemplate);
+            RestLogger::log('Create message begin');
+            $share->subject = $shareTemplate->message;
 
-            $templateDecorator = $this->getCompatibleTemplateDecorator($share->context);
+            if (isset($shareTemplate) &&
+                isset($shareTemplate->templatePage->context) &&
+                !empty($shareTemplate->templatePage->context)
+            )
+            {
+                RestLogger::log('Create message 1', $share->context);
+                $template = $this->createTemplate($shareTemplate);
 
-            $templateBuilder = new TemplateBuilder();
+                $templateDecorator = $this->getCompatibleTemplateDecorator($share->context);
 
-            $share->message = $templateBuilder->buildTemplate($share, $template, $templateDecorator);
+                $templateBuilder = new TemplateBuilder();
+
+                RestLogger::log('Create message 2');
+                $share->message = $templateBuilder->buildTemplate($share, $template, $templateDecorator);
+
+                RestLogger::log('Create message end');
+            }
+            else{
+                RestLogger::log('ERROR NO available template for message');
+            }
+        }
+        catch (Exception $e)
+        {
+            RestLogger::log('ERROR ON message creation', $e);
         }
 
     }
@@ -139,7 +166,8 @@ class ShareManager implements IShareManager
         $shareTemplates = $this->getShareTemplates($shareFilter);
 
         //todo: put strategy class here
-        if (count($shareTemplates) == 0) {
+        if (count($shareTemplates) == 0)
+        {
             RestLogger::log('ERROR', "There is no any share template for given store");
             die ("There is no any share template for given store");
         }
@@ -190,12 +218,15 @@ class ShareManager implements IShareManager
             foreach ($share->targets as $target)
             {
                 $shareToFriends = $target->to;
+                RestLogger::log('ShareManager::share begin for single target', $target);
 
                 foreach ($shareToFriends as $friend)
                 {
-                    $share->currentTarget = new ShareTarget($target->name);
-                    $share->currentTarget->from = $target->from;
-                    $share->currentTarget->to = $friend;
+                    RestLogger::log('ShareManager::share for single friend', $friend);
+
+                    $share->currentTarget          = new ShareTarget($target->name);
+                    $share->currentTarget->from    = $target->from;
+                    $share->currentTarget->to      = $friend;
                     $share->currentTarget->context = $target->context;
 
                     $this->fillShareProps($share);
@@ -333,7 +364,8 @@ class ShareManager implements IShareManager
         $shareTemplates = $this->getShareTemplates($shareFilter);
 
         //todo: put strategy class here
-        if (count($shareTemplates) == 0) {
+        if (count($shareTemplates) == 0)
+        {
             die ("There is no any share template for given store");
         }
 
@@ -355,7 +387,7 @@ class ShareManager implements IShareManager
             }
         }
 
-        $share->currentTarget = new ShareTarget();
+        $share->currentTarget     = new ShareTarget();
         $share->currentTarget->to = $recipients;
 
         $this->dealShareDao->addDealShare($share);
