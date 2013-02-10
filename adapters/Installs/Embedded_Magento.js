@@ -19,9 +19,9 @@ function getOrderJson() {
             firstName:args['cn']
         },
         branch  :{
-            shopId:'1',
+            shopId:'2',
             store :{
-                'authCode':'19FB6C0C-3943-44D0-A40F-3DC401CB3703'
+                'authCode':'54c5e6c3-6349-11e2-a702-0008cae720a7'
             }
         }
 

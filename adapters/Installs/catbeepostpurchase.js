@@ -32,8 +32,8 @@ function getOrderJson() {
     else {
         for (var i = 0; i < itemsCount; i++) {
             orderParams.items.push({
-                itemcode:cbf.valOrDefault(args['i' + (i + 1) + 'upc'], defaultUpc),
-                url     :cbf.valOrDefault(args['i' + (i + 1) + 'url'], defaultUrl)
+                itemcode:cbf.valOrDefault(args['i' + i.toString() + 'upc'], defaultUpc),
+                url     :cbf.valOrDefault(args['i' + i.toString() + 'url'], defaultUrl)
             })
 
 

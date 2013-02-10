@@ -13,7 +13,8 @@ class JsonLeadsAdapter implements IModelAdapter
             'shareType' => $obj->shareType,
             'orderId'   => $obj->orderId,
             'status'    => $obj->status,
-            'orders'    => $obj->referralOrders
+            'orders'    => $obj->referralOrders,
+            'impressions' => $obj->impressions
         );
 
     }
@@ -30,6 +31,7 @@ class JsonLeadsAdapter implements IModelAdapter
         $lead->orderId         = $obj['orderId'];
         $lead->status          = $obj['status'];
         $lead->referralOrders  = $obj['orders'];
+        $lead->impressions = $obj['impressions'];
 
         return $lead;
     }

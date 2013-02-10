@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $('.facebook-form').hide();
@@ -10,18 +9,17 @@ $(document).ready(function () {
 //            TribZi.deal.fbcContext.link = shortLink;
 //        });
 
-    FB.init({appId: TribZi.deal.fbcContext.application.applicationCode, //'345229122250809'
-                status: true,
-                cookie: true});
+    FB.init({appId:TribZi.deal.fbcContext.application.applicationCode, //'345229122250809'
+        status    :true,
+        cookie    :true});
 
     $("#facebookShare").click(function () {
-		$('#share_list').find('li').removeClass('active');
-		$(this).parent().addClass('active');
-		if($('#emailForm').css('display') != 'none')
-		{
-			$('#emailForm').css('display', 'none');
-		}
-		hideTwitterBox();
+        $('#share_list').find('li').removeClass('active');
+        $(this).parent().addClass('active');
+        if ($('#emailForm').css('display') != 'none') {
+            $('#emailForm').css('display', 'none');
+        }
+        hideTwitterBox();
         StartFacebookSharing();
     });
 
@@ -35,13 +33,13 @@ function StartFacebookSharing() {
             .parseMessage(TribZi.deal.fbcContext.message);
 
         var obj = {
-            method: 'feed',
+            method:'feed',
 
-            name:TribZi.deal.landing.customMessage,
-            picture:TribZi.deal.order.items[0].url,
-            caption:' ',
+            name       :TribZi.deal.landing.customMessage,
+            picture    :decodeURIComponent(TribZi.deal.order.items[0].url),
+            caption    :' ',
             description:message,
-            link:TribZi.deal.fbcContext.link
+            link       :TribZi.deal.fbcContext.link
 
 //            link: 'https://developers.facebook.com/docs/reference/dialogs/',
 //            picture: 'http://fbrell.com/f8.jpg',
@@ -51,28 +49,26 @@ function StartFacebookSharing() {
         };
 
         function callback(response) {
-            if (response === null)
-            {
+            if (response === null) {
                 //alert('pizdetc');
             }
-            else
-            {
+            else {
                 TribZi.clearTargets()
                     .setUid(TribZi.deal.fbcContext.uid)
                     .addTarget(
-                        TribZi.deal.order.customer.email,
-                        response['post_id'], 'friend', 'facebook')
+                    TribZi.deal.order.customer.email,
+                    response['post_id'], 'friend', 'facebook')
 
                     .setCustomMessage($("#message").val())
                     .setRewardIndex($("#slider").slider("value"))
 
-                if (TribZi.sharedTimes == 0)
-                {
+                if (TribZi.sharedTimes == 0) {
                     TribZi.addTarget(
                         TribZi.deal.order.branch.email,
                         TribZi.deal.order.customer.email,
                         'leader', 'email');
-                };
+                }
+                ;
 
                 TribZi.share();
 
@@ -93,7 +89,8 @@ function StartFacebookSharing() {
 function fbcResponse(response) {
     if (response && response.post_id) {
         alert('Post was published.' + response.post_id);
-    } else {
+    }
+    else {
         alert('Post was not published.');
     }
 }
@@ -106,12 +103,12 @@ $.initFacebook = function (options) {
 
     var settings = {
 
-        'appId':null,
-        'callback':null,
+        'appId'     :null,
+        'callback'  :null,
         'channelUrl':null,
-        'status':true,
-        'cookie':true,
-        'xfbml':true
+        'status'    :true,
+        'cookie'    :true,
+        'xfbml'     :true
 
     };
 
@@ -129,7 +126,8 @@ $.initFacebook = function (options) {
 
             FB.init({appId:settings.appId, status:settings.status, cookie:settings.cookie, xfbml:settings.xfbml, oauth:true, authResponse:true });
 
-        } else {
+        }
+        else {
 
             settings.channelUrl = location.protocol + '//' + settings.channelUrl;
 
@@ -152,23 +150,23 @@ function createShareObj() {
 
         customMessage:TribZi.deal.fbcContext.customMessage,
 
-        deal:{
-            id:TribZi.deal.id,
-            order:TribZi.deal.order,
+        deal   :{
+            id      :TribZi.deal.id,
+            order   :TribZi.deal.order,
             campaign:{
                 id:TribZi.deal.campaign.id
             }
         },
-        reward:TribZi.deal.landing.landingRewards[rewardInd],
+        reward :TribZi.deal.landing.landingRewards[rewardInd],
         context:{
             type:'email',
-            uid:TribZi.deal.fbcContext.uid
+            uid :TribZi.deal.fbcContext.uid
         },
         targets:[
             {
                 name:'leader',
                 from:TribZi.deal.order.branch.email,
-                to:TribZi.deal.order.customer.email
+                to  :TribZi.deal.order.customer.email
 
             }
         ]

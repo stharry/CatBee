@@ -3,7 +3,8 @@ $(document).ready(function () {
 
     try {
         var host = TribZi.getRoot();
-        load(host + '/public/res/js/min/anywhere.js?id=' +
+        //load(host + '/public/res/js/min/anywhere.js?id=' +
+        load('http://platform.twitter.com/anywhere.js?id=' +
             TribZi.deal.twitContext.application.applicationCode + '&v=1')
             .thenRun(function () {
                 createTwitterBox();
@@ -27,6 +28,7 @@ $(document).ready(function () {
         if ($('#tbox').css('display') == 'none') {
 
             //createTwitterBox();
+
 
             setTwitterMessage();
 
@@ -69,6 +71,14 @@ function showTwitterBox() {
     $('#shadow_div').removeClass('inv');
     $('#twitterShare').parent().addClass('active');
 
+    var twittFrame = $('#tbox').find('iframe');
+    if (twittFrame.height() == 0)
+    {
+        twittFrame.height('217px');
+        twittFrame.width('380px');
+        $('#tbox').find('iframe').contents().find('#tweet-box').width('368px')
+    }
+
 }
 
 function createTwitterBox() {
@@ -97,13 +107,14 @@ function createTwitterBox() {
 
         //var message = TribZi.setShareLink($('#twitter_link').val()).parseMessage(TribZi.deal.twitContext.message);
 
-        //twttr.anywhere.config({ callbackURL: "http://api.tribzi.com/CatBee/components/share/facebook/facebookLogin.php" });
+        twttr.anywhere.config({ callbackURL: "http://api.tribzi.com/CatBee/components/share/twitter/twitterCallback.php" });
+
+        //twttr.anywhere.config({ callbackURL: "" });
 
         twttr.anywhere(function (T) {
 
             T.bind("authComplete", function (e, user) {
                 //todo implement user access token grabbing and sending to server here
-
             });
 
             T("#tbox").tweetBox({
@@ -116,7 +127,7 @@ function createTwitterBox() {
                 onTweet :function (plainTweet, htmlTweet) {
 
                     TribZi.clearTargets()
-                        .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'friend', 'twitter')
+                        .addTarget(TribZi.deal.order.customer.email, TribZi.deal.order.customer.email, 'friend', 'twitter')
                         .setCustomMessage(plainTweet)
                         .setRewardIndex($("#slider").slider("value"))
                         .setUid(TribZi.deal.twitContext.uid);
