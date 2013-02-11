@@ -414,7 +414,7 @@ cbf = {
     },
 
     closeFrame:function () {
-        cbf.css('cbfFrame', {'display':'none'});
+        cbf.css('cbfScreen', {'display':'none'});
         cbf.css('cbfOverlay', {'display':'none'});
 
     },
