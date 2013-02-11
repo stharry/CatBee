@@ -75,7 +75,10 @@
 <!--
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js?v=1" type="text/javascript"></script>
 -->
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.js?reload" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.js?v=1" type="text/javascript"></script>
+    <script type="text/javascript">
+        easyXDM.DomHelper.requiresJSON("<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js");
+    </script>
 
     <script src="http://connect.facebook.net/en_US/all.js"></script>
 

@@ -17,6 +17,9 @@
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js?v=1" type="text/javascript"></script>
 -->
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.js?v=1" type="text/javascript"></script>
+    <script type="text/javascript">
+        easyXDM.DomHelper.requiresJSON("<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js");
+    </script>
 
     <script src="<?php echo  $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
     <script language="javascript">TribZi.initFriendDeal(<?php echo $p[0]['params'][2]; ?>);</script>

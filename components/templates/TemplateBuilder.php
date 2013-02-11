@@ -23,7 +23,7 @@ class TemplateBuilder
 
     public function buildTemplate($data, $template, $decorator)
     {
-        RestLogger::log("TemplateBuilder::buildTemplate data: ", $data);
+        //todo RestLogger::log("TemplateBuilder::buildTemplate data: ", $data);
 
         $this->masterSource = $data;
         $this->currentSource = $data;
@@ -47,7 +47,7 @@ class TemplateBuilder
     {
         $result = '';
 
-        RestLogger::log('--Field loop: ', $field->loop);
+        //todo RestLogger::log('--Field loop: ', $field->loop);
 
         $loop = isset($field->loop) ? $field->loop : "1";
         $source = $this->getSource($data, $loop);
@@ -163,7 +163,7 @@ class TemplateBuilder
         $fieldValue = $source;
         $tags = $this->extractTags($fieldValue);
 
-        RestLogger::log('------parse Expression: ', $source);
+        //todo RestLogger::log('------parse Expression: ', $source);
 
         foreach ($tags as $tag)
         {
@@ -197,23 +197,23 @@ class TemplateBuilder
 
         $props = explode(".", $source);
 
-        RestLogger::log('----getSource props', $props);
-        RestLogger::log('------getSource data', $data);
+        //todo RestLogger::log('----getSource props', $props);
+        //todo RestLogger::log('------getSource data', $data);
 
         $result = $data;
         foreach ($props as $prop)
         {
-            RestLogger::log('--------getSource ploop', $prop);
+            //todo RestLogger::log('--------getSource ploop', $prop);
             $result = $result->$prop;
-            RestLogger::log('--------getSource ploop res', $result);
+            //todo RestLogger::log('--------getSource ploop res', $result);
             if (!$result)
             {
-                RestLogger::log('--------getSource result is NULL');
+                //todo RestLogger::log('--------getSource result is NULL');
                 return null;
             }
         }
 
-        RestLogger::log('--------getSource result', $result);
+        //todo RestLogger::log('--------getSource result', $result);
         return $result;
 
     }

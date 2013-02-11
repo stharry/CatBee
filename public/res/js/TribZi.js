@@ -1,6 +1,18 @@
 TribZi = {
 
+    setupTribZi: function()
+    {
+        if(typeof String.prototype.trim !== 'function') {
+            String.prototype.trim = function() {
+                return this.replace(/^\s+|\s+$/g, '');
+            }
+        }
+
+        return this;
+    },
+
     openSocket:function () {
+
         //var catbeeXDM = { easyXDM: easyXDM.noConflict("catbee") };
         this.rpc = new easyXDM.Rpc(
             {},
@@ -22,6 +34,8 @@ TribZi = {
         this.targets = [];
         this.sharedTimes = 0;
         this.sharePoint = params.sharePoint;
+
+        this.setupTribZi();
         this.openSocket();
 
         return this;
@@ -33,6 +47,8 @@ TribZi = {
         this.targets = [];
         this.sharedTimes = 0;
         this.sharePoint = params.sharePoint;
+
+        this.setupTribZi();
         this.openSocket();
 
         return this;

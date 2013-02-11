@@ -1,10 +1,8 @@
 cbf = {
 
-    catBeeHost: function()
-    {
+    catBeeHost:function () {
         return cbf.valOrDefault(cbf.getScriptParams('catbeeframe').host, "http://api.tribzi.com/CatBee/");
-    }
-    ,
+    },
 
     viewPort:function () {
         var e = window, a = 'inner';
@@ -26,8 +24,7 @@ cbf = {
                         loaded();
                     }
                 }
-                if (this.readyState != "loading")
-                {
+                if (this.readyState != "loading") {
                     scr.onload = scr.onreadystatechange = null;
                 }
             };
@@ -60,7 +57,10 @@ cbf = {
 
         if (typeof elem != 'undefined') {
             for (key in css) {
-                try {elem.style[key] = css[key];}catch(e){}
+                try {
+                    elem.style[key] = css[key];
+                } catch (e) {
+                }
             }
         }
         return this;
@@ -257,34 +257,33 @@ cbf = {
         return this;
     },
 
-    highZIndex: function()
-    {
-        function highZ(pa, limit){
-            limit= limit || Infinity;
-            pa= pa || document.body;
-            var who, tem, mx= 1, A= [], i= 0, L;
-            pa= pa.childNodes, L= pa.length;
-            while(i<L){
-                who= pa[i++]
-                if(who.nodeType== 1){
-                    tem= parseInt(deepCss(who,"z-index")) || 0;
-                    if(tem> mx && tem<=limit) mx= tem;
+    highZIndex:function () {
+        function highZ(pa, limit) {
+            limit = limit || Infinity;
+            pa = pa || document.body;
+            var who, tem, mx = 1, A = [], i = 0, L;
+            pa = pa.childNodes, L = pa.length;
+            while (i < L) {
+                who = pa[i++]
+                if (who.nodeType == 1) {
+                    tem = parseInt(deepCss(who, "z-index")) || 0;
+                    if (tem > mx && tem <= limit) mx = tem;
                 }
             }
             return mx;
         }
 
-        function deepCss(who, css){
-            var sty, val, dv= document.defaultView || window;
-            if(who.nodeType== 1){
-                sty= css.replace(/\-([a-z])/g, function(a, b){
+        function deepCss(who, css) {
+            var sty, val, dv = document.defaultView || window;
+            if (who.nodeType == 1) {
+                sty = css.replace(/\-([a-z])/g, function (a, b) {
                     return b.toUpperCase();
                 });
-                val= who.style[sty];
-                if(!val){
-                    if(who.currentStyle) val= who.currentStyle[sty];
-                    else if(dv.getComputedStyle){
-                        val= dv.getComputedStyle(who,"").getPropertyValue(css);
+                val = who.style[sty];
+                if (!val) {
+                    if (who.currentStyle) val = who.currentStyle[sty];
+                    else if (dv.getComputedStyle) {
+                        val = dv.getComputedStyle(who, "").getPropertyValue(css);
                     }
                 }
             }
@@ -335,6 +334,7 @@ cbf = {
             '-webkit-border-radius':'10px',
             ' -khtml-border-radius':'10px',
             background             :'#FFF',
+            color                  :'#FFF',
             border                 :'5px solid rgba(12, 80, 182, 0.2)'
 
         };

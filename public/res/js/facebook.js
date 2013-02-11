@@ -35,17 +35,12 @@ function StartFacebookSharing() {
         var obj = {
             method:'feed',
 
-            name       :TribZi.deal.landing.customMessage,
+            name       :TribZi.deal.fbcContext.customMessage,
             picture    :decodeURIComponent(TribZi.deal.order.items[0].url),
             caption    :' ',
             description:message,
             link       :TribZi.deal.fbcContext.link
 
-//            link: 'https://developers.facebook.com/docs/reference/dialogs/',
-//            picture: 'http://fbrell.com/f8.jpg',
-//            name: 'Facebook Dialogs',
-//            caption: 'Reference Documentation',
-//            description: 'Using Dialogs to interact with users.'
         };
 
         function callback(response) {

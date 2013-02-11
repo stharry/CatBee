@@ -76,9 +76,10 @@ class ShareManager implements IShareManager
     {
         $templateAdapter = new JsonTemplateAdapter();
 
-        RestLogger::log('Create template from page ', $shareTemplate->templatePage->context);
-        return $templateAdapter->fromArray(
+        $templateProps = $templateAdapter->fromArray(
             json_decode($shareTemplate->templatePage->context, true));
+
+        return $templateProps;
     }
 
     private function getCompatibleTemplateDecorator($shareContext)
@@ -90,15 +91,18 @@ class ShareManager implements IShareManager
                 return new HtmlTemplateDecorator();
             case 2:
                 return new PlainTextTemplateDecorator();
+            case 3:
+                return new PlainTextTemplateDecorator();
             case 1024:
                 return new HtmlTemplateDecorator();
             default:
+                RestLogger::log('ERROR Cannot find compatible template decorator for ', $shareContext->id);
                 die("Cannot find compatible share provider");
         }
 
     }
 
-    private function createMessage($share, $shareTemplate)
+    private function createMessage($share, $context, $shareTemplate)
     {
 
         try
@@ -111,14 +115,12 @@ class ShareManager implements IShareManager
                 !empty($shareTemplate->templatePage->context)
             )
             {
-                RestLogger::log('Create message 1', $share->context);
                 $template = $this->createTemplate($shareTemplate);
 
-                $templateDecorator = $this->getCompatibleTemplateDecorator($share->context);
+                $templateDecorator = $this->getCompatibleTemplateDecorator($context);
 
                 $templateBuilder = new TemplateBuilder();
 
-                RestLogger::log('Create message 2');
                 $share->message = $templateBuilder->buildTemplate($share, $template, $templateDecorator);
 
                 RestLogger::log('Create message end');
@@ -176,7 +178,7 @@ class ShareManager implements IShareManager
         $this->validateCustomer($share->currentTarget->from);
         $this->validateCustomer($share->currentTarget->to);
 
-        $this->createMessage($share, $shareTemplates[0]);
+        $this->createMessage($share, $share->currentTarget->context, $shareTemplates[0]);
 
         $this->landingRewardDao->fillLandingRewardById($share->reward);
 

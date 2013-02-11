@@ -105,11 +105,8 @@ function createTwitterBox() {
         var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
             .parseMessage(TribZi.deal.twitContext.message);
 
-        //var message = TribZi.setShareLink($('#twitter_link').val()).parseMessage(TribZi.deal.twitContext.message);
-
+        //todo get from application callback
         twttr.anywhere.config({ callbackURL: "http://api.tribzi.com/CatBee/components/share/twitter/twitterCallback.php" });
-
-        //twttr.anywhere.config({ callbackURL: "" });
 
         twttr.anywhere(function (T) {
 
@@ -166,13 +163,15 @@ function createTwitterBox() {
 
 function setTwitterMessage()
 {
-    //todo: ugly need to code tribzi custom events binding system
-    var twitFrame = document.getElementsByClassName('twitter-anywhere-tweet-box')[0];
+    //todo: ugly, need to code tribzi custom events binding system
+
+
+    var twitFrame = $('#tbox').find('iframe');
     if (twitFrame)
     {
         var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
             .parseMessage(TribZi.deal.twitContext.message);
 
-        twitFrame.contentDocument.getElementById('tweet-box').value = message;
+        $('#tbox').find('iframe').contents().find('#tweet-box').val(message);
     }
 }
