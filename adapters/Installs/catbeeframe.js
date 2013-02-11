@@ -35,6 +35,15 @@ cbf = {
         document.getElementsByTagName('head')[0].appendChild(scr);
     },
 
+    loadCss: function(url)
+    {
+        var css=document.createElement("link");
+        css.setAttribute("rel", "stylesheet");
+        css.setAttribute("type", "text/css");
+        css.setAttribute("href", url);
+        document.getElementsByTagName('body')[0].appendChild(css);
+    },
+
     byId:function (str) {
         return document.getElementById(str);
     },
@@ -66,6 +75,13 @@ cbf = {
             }
         }
         return this;
+    },
+
+    setZIndex:function (to, val) {
+        cbf.css(to, {'z-index':val});
+        cbf.byId(to).zIndex = val;
+        cbf.byId(to).style.zIndex = val;
+
     },
 
     addEvt:function (to, eventName, handler) {
@@ -305,29 +321,29 @@ cbf = {
         cbf.addDiv('cbfOverlay');
 
         var cssOverlay = {
-            display  :'block',
-            position :'fixed',
-            top      :'0px',
-            left     :'0px',
-            width    :'100%',
-            height   :'100%',
-            'z-index':maxZIndex + 100002,
+                display  :'block',
+                position :'fixed',
+                top      :'0px',
+                left     :'0px',
+                width    :'100%',
+                height   :'100%',
 
-            'background-color':'#000000',
-            '-ms-filter'      :"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)",
-            'filter'          :'alpha(opacity=50)',
-            '-moz-opacity'    :'0.5',
-            '-khtml-opacity'  :'0.5',
-            'opacity'         :'0.5'
+                'background-color':'#000000',
+                '-ms-filter'      :"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)",
+                'filter'          :'alpha(opacity=50)',
+                '-moz-opacity'    :'0.5',
+                '-khtml-opacity'  :'0.5',
+                'opacity'         :'0.5'
 
         };
         cbf.css('cbfOverlay', cssOverlay);
-        cbf.byId('cbfOverlay').zIndex = maxZIndex + 100002;
-        cbf.byId('cbfOverlay').style.zIndex = maxZIndex + 100002;
+        cbf.setZIndex('cbfOverlay', maxZIndex + 100002);
+        cbf.byId('cbfOverlay').backgroundColor = '#000000';
+        cbf.byId('cbfOverlay').style.backgroundColor = '#000000';
+        cbf.byId('cbfOverlay').style.opacity = 0.5;
 
         cbf.addDiv('cbfScreen');
         cssScreen = {
-            'z-index'   :maxZIndex + 100003,
             display     :'block',
             position    :'fixed',
             top         :'0px',
@@ -337,8 +353,8 @@ cbf = {
             'overflow-y':'auto'
         }
         cbf.css('cbfScreen', cssScreen);
-        cbf.byId('cbfScreen').zIndex = maxZIndex + 100003;
-        cbf.byId('cbfScreen').style.zIndex = maxZIndex + 100003;
+        cbf.byId('cbfScreen').style.overflowY = 'auto';
+        cbf.setZIndex('cbfScreen', maxZIndex + 100003);
 
         cbf.addDiv('cbfFrame', 'cbfScreen').addDiv('cbfContainer', 'cbfFrame');
         var scrW = cbf.viewPort().width;
@@ -350,7 +366,6 @@ cbf = {
             left                   :left + '%',
             width                  :params.initWidth + 'px',
             height                 :params.initHeight + 'px',
-            'z-index'              :maxZIndex + 100004,
 
             //Round border
             'border-radius'        :'10px',
@@ -363,8 +378,7 @@ cbf = {
 
         };
         cbf.css('cbfFrame', cssFrame);
-        cbf.byId('cbfFrame').zIndex = maxZIndex + 100004;
-        cbf.byId('cbfFrame').style.zIndex = maxZIndex + 100004;
+        cbf.setZIndex('cbfFrame', maxZIndex + 100004);
 
         var cssDialog = {
             width:'100%', height:'100%'
@@ -381,7 +395,7 @@ cbf = {
                 'width'           :'36px',
                 'height'          :'36px',
                 'cursor'          :'pointer',
-                'z-index'         :maxZIndex + 800040,
+
                 'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',
                 'background-color':'transparent'
             };
@@ -390,8 +404,8 @@ cbf = {
                 .addEvt('cbfCloseBtn', 'click', function () {
                     cbf.closeFrame();
                 });
-            cbf.byId('cbfCloseBtn').zIndex = maxZIndex + 800040;
-            cbf.byId('cbfCloseBtn').style.zIndex = maxZIndex + 800040;
+
+            cbf.setZIndex('cbfCloseBtn', maxZIndex + 800040);
         }
 
         cbf.setupRpc(params);
@@ -431,6 +445,7 @@ cbf = {
                 })
                 var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.js?reload";
                 cbf.loadScript(jsSrc, function () {
+                    //cbf.loadCss(cbf.getCatBeeUrl() + "adapters/Installs/style/catbeeframe.css");
                     cbf.buildFrame();
                 });
 

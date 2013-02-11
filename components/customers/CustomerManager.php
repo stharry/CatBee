@@ -48,6 +48,16 @@ class CustomerManager implements ICustomerManager
     {
         if ($customer->id <= 0)
         {
+            $this->customerDao->loadCustomerByEmail($customer);
+        }
+
+        $this->validateCustomerNames($customer);
+    }
+
+    public function validateAndSaveCustomer($customer)
+    {
+        if ($customer->id <= 0)
+        {
             if (!$this->customerDao->isCustomerExists($customer))
             {
                 $this->customerDao->insertCustomer($customer);

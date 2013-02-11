@@ -6,11 +6,13 @@ class DealManager implements IDealManager
     private $shareManager;
     private $dealDao;
     private $successfulReferralManager;
+    private $customerManager;
 
     function __construct(
         $campaignManager, $storeManager,
         $shareManager, $dealDao,
-        $successfulReferralManager)
+        $successfulReferralManager,
+        $customerManager)
     {
         RestLogger::log("Deal manager before created...");
         try
@@ -20,6 +22,8 @@ class DealManager implements IDealManager
             $this->storeManager              = $storeManager;
             $this->shareManager              = $shareManager;
             $this->successfulReferralManager = $successfulReferralManager;
+            $this->customerManager           = $customerManager;
+
 
             RestLogger::log("Deal manager created...");
         }
@@ -99,6 +103,7 @@ class DealManager implements IDealManager
 
                 $leaderDeal = new LeaderDeal();
 
+                $this->customerManager->validateAndSaveCustomer($order->customer);
                 $leaderDeal->customer = $order->customer;
                 if ($order->date != null)
                 {
@@ -162,6 +167,7 @@ class DealManager implements IDealManager
         catch (Exception $e)
         {
             catbeeLayout(array(), 'exceptionLanding');
+
             return null;
         }
     }

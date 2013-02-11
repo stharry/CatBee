@@ -51,7 +51,8 @@ try
         $storeManager,
         $shareManager,
         $dealDao,
-        $referralManager);
+        $referralManager,
+        $customerManager);
 
     $friendLandingManager = new FriendLandingManager(
         new PdoDealDao(),

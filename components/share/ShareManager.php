@@ -16,9 +16,7 @@ class ShareManager implements IShareManager
     {
         try
         {
-            RestLogger::log('Validate customer', $customer);
             $this->customerManager->validateCustomer($customer);
-            RestLogger::log('Validate customer end');
         }
         catch (Exception $e)
         {
@@ -102,7 +100,7 @@ class ShareManager implements IShareManager
 
     }
 
-    private function createMessage($share, $context, $shareTemplate)
+    private function createMessage($share, $shareTemplate)
     {
 
         try
@@ -117,7 +115,7 @@ class ShareManager implements IShareManager
             {
                 $template = $this->createTemplate($shareTemplate);
 
-                $templateDecorator = $this->getCompatibleTemplateDecorator($context);
+                $templateDecorator = $this->getCompatibleTemplateDecorator($share->currentTarget->context);
 
                 $templateBuilder = new TemplateBuilder();
 
@@ -178,7 +176,7 @@ class ShareManager implements IShareManager
         $this->validateCustomer($share->currentTarget->from);
         $this->validateCustomer($share->currentTarget->to);
 
-        $this->createMessage($share, $share->currentTarget->context, $shareTemplates[0]);
+        $this->createMessage($share, $shareTemplates[0]);
 
         $this->landingRewardDao->fillLandingRewardById($share->reward);
 
