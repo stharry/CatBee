@@ -129,12 +129,19 @@ img {
 }
 #product-photo{
 	width: 170px;
+    height: 171px;
+    overflow: hidden;
 	border: 1px solid #bbbbbb;
 	text-align: center;
 	margin-right: 20px;
 	-webkit-box-shadow: 2px 2px 3px rgba(88, 149, 163, 0.75);
 	-moz-box-shadow:    2px 2px 3px rgba(88, 149, 163, 0.75);
 	box-shadow:         2px 2px 3px rgba(88, 149, 163, 0.75);
+}
+#product-img{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
 }
 #coupon-text{
 	width: 346px;

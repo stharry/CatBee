@@ -4,9 +4,9 @@ $(document).ready(function () {
         TribZi.resizeFrame(0, 0, '.box-wrapper');
     });
 
-//todo    var imageSrc = TribZi.getRoot() + '/adapters/installs/shops/1/res/train.jpg';
-//
-//    $("#productImage").attr("src", imageSrc);
+    var imageSrc = "http://media-cache-lt0.pinterest.com/550/b9/eb/78/b9eb786ad849a05497051c97d0defeab.jpg";
+
+    $("#product-img").attr("src", imageSrc);
 
     $('#go-btn').click(function(){
 

@@ -58,7 +58,9 @@ cbf = {
         if (typeof elem != 'undefined') {
             for (key in css) {
                 try {
-                    elem.style[key] = css[key];
+                    if (typeof elem.style[key] == "string") {
+                        elem.style[key] = css[key];
+                    }
                 } catch (e) {
                 }
             }
@@ -303,30 +305,52 @@ cbf = {
         cbf.addDiv('cbfOverlay');
 
         var cssOverlay = {
-            display           :'block',
-            position          :'fixed',
-            top               :'0px',
-            left              :'0px',
-            width             :'100%',
-            height            :'100%',
-            'z-index'         :maxZIndex + 100002,
-            opacity           :0.8,
-            'background-color':'rgba(0, 0, 0, 0.5)'
+            display  :'block',
+            position :'fixed',
+            top      :'0px',
+            left     :'0px',
+            width    :'100%',
+            height   :'100%',
+            'z-index':maxZIndex + 100002,
+
+            'background-color':'#000000',
+            '-ms-filter'      :"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)",
+            'filter'          :'alpha(opacity=50)',
+            '-moz-opacity'    :'0.5',
+            '-khtml-opacity'  :'0.5',
+            'opacity'         :'0.5'
+
         };
         cbf.css('cbfOverlay', cssOverlay);
         cbf.byId('cbfOverlay').zIndex = maxZIndex + 100002;
         cbf.byId('cbfOverlay').style.zIndex = maxZIndex + 100002;
 
-        cbf.addDiv('cbfFrame').addDiv('cbfContainer', 'cbfFrame');
-        var left = Math.round(cbf.viewPort().width / 2 - params.initWidth / 2);
+        cbf.addDiv('cbfScreen');
+        cssScreen = {
+            'z-index'   :maxZIndex + 100003,
+            display     :'block',
+            position    :'fixed',
+            top         :'0px',
+            left        :'0px',
+            width       :'100%',
+            height      :'100%',
+            'overflow-y':'auto'
+        }
+        cbf.css('cbfScreen', cssScreen);
+        cbf.byId('cbfScreen').zIndex = maxZIndex + 100003;
+        cbf.byId('cbfScreen').style.zIndex = maxZIndex + 100003;
+
+        cbf.addDiv('cbfFrame', 'cbfScreen').addDiv('cbfContainer', 'cbfFrame');
+        var scrW = cbf.viewPort().width;
+        var left = Math.round((scrW / 2 - params.initWidth / 2) / scrW * 100);
         var cssFrame = {
             display                :'block',
-            position               :'fixed',
+            position               :'absolute',
             top                    :'5%',
-            left                   :left + 'px',
+            left                   :left + '%',
             width                  :params.initWidth + 'px',
             height                 :params.initHeight + 'px',
-            'z-index'              :maxZIndex + 100003,
+            'z-index'              :maxZIndex + 100004,
 
             //Round border
             'border-radius'        :'10px',
@@ -339,8 +363,8 @@ cbf = {
 
         };
         cbf.css('cbfFrame', cssFrame);
-        cbf.byId('cbfFrame').zIndex = maxZIndex + 100003;
-        cbf.byId('cbfFrame').style.zIndex = maxZIndex + 100003;
+        cbf.byId('cbfFrame').zIndex = maxZIndex + 100004;
+        cbf.byId('cbfFrame').style.zIndex = maxZIndex + 100004;
 
         var cssDialog = {
             width:'100%', height:'100%'

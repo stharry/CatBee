@@ -4,7 +4,7 @@
 
 <div id="product-photo-coupon" class="zContainer">
 	<div id="product-photo" class="fl">
-		<img src="/CatBee/public/res/images/friendDeal/product-glasses.jpg" alt="Product glasses" />
+		<img id="product-img" src="" alt="Product glasses" />
 	</div>
 	<div id="coupon-text" class="fl">
 		<p id="reward-info">Here is your special friend-only gift,<br/> created by <span><?php echo $p[0]->friend->firstName?> <?php echo $p[0]->friend->lastName?></span></p>
@@ -30,7 +30,8 @@
 <div id="footer-section" class="zContainer">
 	<div id="footer-left" class="fl footer-box">
 		<h5>How Does This Deal Work?</h5>
-		<p>Copy the coupon code <?php echo $p[0]->share->reward->friendReward->code?> and place it on the shopping cart page for your instant discount</p>
+		<!--<p>Copy the coupon code <?php echo $p[0]->share->reward->friendReward->code?> and place it on the shopping cart page for your instant discount</p>-->
+        <p>Just click the "start shopping" button and the discount code will display on checkout</p>
 	</div>
 	<div id="footer-right" class="fl footer-box last">
 		<h5>Have a Question?</h5>
