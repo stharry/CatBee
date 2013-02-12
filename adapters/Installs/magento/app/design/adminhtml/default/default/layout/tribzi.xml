@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <adminhtml_catbeeadmin_index>
+    <update handle="editor"/>
+    <reference name="content">
+      <block type="Tribzi_Catbee/adminhtml_form_edit" name="catbee" />
+    </reference>
+  </adminhtml_catbeeadmin_index>
+</layout>
