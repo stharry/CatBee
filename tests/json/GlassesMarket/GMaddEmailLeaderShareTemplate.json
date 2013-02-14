@@ -219,7 +219,7 @@
                                                                                                                                                     "font-weight": "normal"
                                                                                                                                                 },
                                                                                                                                                 "source": "glassesmarket.com",
-                                                                                                                                                "linkSource": "[context.link]",
+                                                                                                                                                "linkSource": "[deal.order.branch.url]",
                                                                                                                                                 "type": "text",
                                                                                                                                                 "name": "a"
                                                                                                                                             }
@@ -285,7 +285,7 @@
                                                                                                                                                             "text-decoration": "underline",
                                                                                                                                                             "font-weight": "normal"
                                                                                                                                                         },
-                                                                                                                                                        "linkSource": "[context.link]",
+                                                                                                                                                        "linkSource": "[deal.order.branch.url]",
                                                                                                                                                         "type": "text",
                                                                                                                                                         "name": "a",
                                                                                                                                                         "children": [
