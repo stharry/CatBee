@@ -4,7 +4,7 @@
 
 <div id="product-photo-coupon" class="zContainer">
 	<div id="product-photo" class="fl">
-		<img id="product-img" src="" alt="Product glasses" />
+		<img id="product-img" src="" />
 	</div>
 	<div id="coupon-text" class="fl">
 		<p id="reward-info">Here is your special friend-only gift,<br/> created by <span><?php echo $p[0]->friend->firstName?> <?php echo $p[0]->friend->lastName?></span></p>
