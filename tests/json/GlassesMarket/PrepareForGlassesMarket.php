@@ -10,7 +10,7 @@ $restUtils = new RestUtils();
 $restUtils->SendPostRequest("store", "", $Store);
 
 
-$campaign = json_decode(file_get_contents("pushGMCampaign.json"));
+$campaign = json_decode(file_get_contents("PushGMProdCamp.json"));
 $restUtils->SendPostRequest("campaign", "", $campaign);
 
 $dir = $GLOBALS[ "dirBase" ] . '/tests/json/GlassesMarket/GMadd*ShareTemplate.json';
