@@ -11,4 +11,6 @@ interface ICampaignManager
     public function saveCampaign($campaign);
 
     public function getCampaignFriendLanding($campaign);
+
+    public function getDiscounts($campaignFilter);
 }

@@ -337,7 +337,7 @@ cbf = {
 
         };
         cbf.css('cbfOverlay', cssOverlay);
-        cbf.setZIndex('cbfOverlay', maxZIndex + 100002);
+        cbf.setZIndex('cbfOverlay', maxZIndex + 10002);
         cbf.byId('cbfOverlay').backgroundColor = '#000000';
         cbf.byId('cbfOverlay').style.backgroundColor = '#000000';
         cbf.byId('cbfOverlay').style.opacity = 0.5;
@@ -354,7 +354,7 @@ cbf = {
         }
         cbf.css('cbfScreen', cssScreen);
         cbf.byId('cbfScreen').style.overflowY = 'auto';
-        cbf.setZIndex('cbfScreen', maxZIndex + 100003);
+        cbf.setZIndex('cbfScreen', maxZIndex + 10003);
 
         cbf.addDiv('cbfFrame', 'cbfScreen').addDiv('cbfContainer', 'cbfFrame');
         var scrW = cbf.viewPort().width;
@@ -378,7 +378,7 @@ cbf = {
 
         };
         cbf.css('cbfFrame', cssFrame);
-        cbf.setZIndex('cbfFrame', maxZIndex + 100004);
+        cbf.setZIndex('cbfFrame', maxZIndex + 10004);
 
         var cssDialog = {
             width:'100%', height:'100%'
@@ -405,7 +405,7 @@ cbf = {
                     cbf.closeFrame();
                 });
 
-            cbf.setZIndex('cbfCloseBtn', maxZIndex + 800040);
+            cbf.setZIndex('cbfCloseBtn', maxZIndex + 10010);
         }
 
         cbf.setupRpc(params);
@@ -461,6 +461,34 @@ cbf = {
     }
 };
 
+cbWidgets = {
+
+    postPurchaseWidget: function(orderParams)
+    {
+        var referralUid = cbf.getCookie('CatBeeRefId');
+
+        if (referralUid) {
+            orderParams.successfulReferral = referralUid;
+        }
+
+        cbf.setupFrame(
+            {
+                initWidth   :424,
+                initHeight  :372,
+                catbeeAction:'deal',
+                urlParams   :orderParams,
+                closeButton :true
+            });
+    },
+
+    welcomeWidget: function()
+    {
+
+    }
+};
+
 window.cbf = cbf;
 cbf.hasFrame = false;
+
+window.cbWidgets = cbWidgets;
 

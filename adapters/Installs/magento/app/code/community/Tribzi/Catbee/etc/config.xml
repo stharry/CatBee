@@ -36,17 +36,46 @@
       </Tribzi_Catbee>
     </helpers>
   </global>
+  <admin>
+    <routers>
+      <adminhtml>
+        <use>admin</use>
+        <args>
+          <modules>
+            <Tribzi_Catbee after="Mage_Adminhtml">Tribzi_Catbee_Adminhtml</Tribzi_Catbee>
+          </modules>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
   <adminhtml>
+    <menu>
+      <tribzi module="Tribzi_Catbee">
+        <title>Tribzi</title>
+        <sort_order>80</sort_order>
+        <children>
+          <items module="Tribzi_Catbee">
+            <title>Manage Campains</title>
+            <sort_order>1</sort_order>
+            <action>adminhtml/catbeeadmin</action>
+          </items>
+        </children>
+      </tribzi>
+    </menu>
     <acl>
       <resources>
         <admin>
           <children>
+            <Tribzi_Catbee>
+              <title>Tribzi</title>
+              <sort_order>10</sort_order>
+            </Tribzi_Catbee>
             <system>
               <children>
                 <config>
                   <children>
                     <tribzi>
-                      <title>Tribzi global configuration</title>
+                      <title>Tribzi global configuration2</title>
                     </tribzi>
                   </children>
                 </config>
@@ -56,5 +85,12 @@
         </admin>
       </resources>
     </acl>
+    <layout>
+      <updates>
+        <tribzi>
+          <file>tribzi.xml</file>
+        </tribzi>
+      </updates>
+    </layout>
   </adminhtml>
 </config>

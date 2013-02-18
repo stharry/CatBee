@@ -20,7 +20,7 @@ $campaignManager = new CampaignManager(
         new PdoCampaignRestrictionsDao()), new PdoStoreBranchDao()
 );
 
-switch ($action)
+switch (strtolower($action))
 {
     case "get":
         $campaignFilterAdapter = new JsonCampaignFilterAdapter();
@@ -42,5 +42,20 @@ switch ($action)
 
         RestUtils::sendResponse(0, "OK");
         break;
+
+    case 'getcoupons':
+    {
+        $campaignFilterAdapter = new JsonCampaignFilterAdapter();
+        $campaignFilter = $campaignFilterAdapter->fromArray($context);
+
+        $discounts = $campaignManager->getDiscounts($campaignFilter);
+        $discountsAdapter = new JsonCampaignDiscountAdapter();
+
+        $discountsProps = $discountsAdapter->toArray($discounts);
+
+        RestUtils::sendResponse(200, $discountsProps);
+
+        break;
+    }
 
 }
