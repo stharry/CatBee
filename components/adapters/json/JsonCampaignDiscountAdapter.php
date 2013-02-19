@@ -11,7 +11,7 @@ class JsonCampaignDiscountAdapter implements IModelAdapter
             $discountProps = array(
                 'code' => $discount->code,
                 'val'  => $discount->value,
-                'abs'  => !$discount->isAbsolute,
+                'abs'  => $discount->isAbsolute,
                 'due'  => $discount->expirationDate,
                 'cnt'  => $discount->useCount);
 

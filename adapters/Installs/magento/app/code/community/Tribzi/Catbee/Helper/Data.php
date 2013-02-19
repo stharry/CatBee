@@ -7,8 +7,21 @@ require_once('CatBeeClient.php');
 
 class Tribzi_Catbee_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    const XML_PATH_SETTINGS       = 'tribzi/settings/';
-    const TRIBZI_BACKEND_BASE_URL = 'http://tribzi.local/';
+    const XML_PATH_SETTINGS = 'tribzi/settings/';
+
+    private function getCatBeeClient()
+    {
+        $apiServer = $this->getApiServer();
+
+        $catBeeClient = new CatBeeClient();
+        $catBeeClient->setServer($apiServer);
+
+        $catBeeClient->setShop(
+            $this->getStoreConfig('Store_Id'),
+            $this->getStoreConfig('Adpter_Id'));
+
+        return $catBeeClient;
+    }
 
     public function _getCouponString()
     {
@@ -17,14 +30,8 @@ class Tribzi_Catbee_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getCampaigns()
     {
-        $catBeeClient = new CatBeeClient();
-        $catBeeClient->setServer('http://www.apid.tribzi.com');
 
-        $catBeeClient->setShop(
-            $this->getStoreConfig('Store_Id'),
-            $this->getStoreConfig('Adpter_Id'));
-
-        $campaigns = $catBeeClient->getCampaigns();
+        $campaigns = $this->getCatBeeClient()->getCampaigns();
 
         if ($campaigns)
         {
@@ -34,10 +41,11 @@ class Tribzi_Catbee_Helper_Data extends Mage_Core_Helper_Abstract
                 $mageArray[] = array('value' => $campaign['code'],
                                      'label' => $campaign['description']);
             }
+
+            return $mageArray;
         }
 
-        return $mageArray;
-
+        return null;
     }
 
     public function setStoreConfig($key, $value)
@@ -55,14 +63,32 @@ class Tribzi_Catbee_Helper_Data extends Mage_Core_Helper_Abstract
         return Mage::getStoreConfig($path, $storeId);
     }
 
+    public function getApiServer()
+    {
+        $configApiPath = $this->getStoreConfig('api_Server');
+
+        Mage::log('tribzi configured api server' . $configApiPath);
+
+        if (!empty($configApiPath))
+        {
+            return $configApiPath;
+        }
+
+        $apiServer =
+            !empty($_SERVER['HTTPS'])
+                ? 'https://api.tribzi.com'
+                : 'http://api.tribzi.com';
+
+        return $apiServer;
+    }
 
     public function getCampaign($id)
     {
-        $client = new Varien_Http_Client(self::TRIBZI_BACKEND_BASE_URL . $id . '.json');
-        $res    = $client->request();
-        if ($res->getStatus() == 200)
+        $campaignCoupons = $this->getCatBeeClient()->getDiscounts($id);
+
+        if ($campaignCoupons)
         {
-            $arr = Mage::helper('core')->jsonDecode($res->getBody());
+            $arr = Mage::helper('core')->jsonDecode($campaignCoupons);
         }
 
         return $arr;
