@@ -9,7 +9,7 @@ class Tribzi_Catbee_Block_Footerscripts extends Mage_Core_Block_Template
     {
         $uriPrefix = Mage::helper('Tribzi_Catbee')->getApiServer();
 
-        $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/catbeeframe.js';
+        $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/catbeeframe.js?host='.$uriPrefix.'/CatBee/';
         $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/catbeecart.js?cfid=coupon_code';
         $this->setScripts($srcs);
     }
