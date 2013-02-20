@@ -126,4 +126,47 @@ class CampaignManager implements ICampaignManager
     {
         return $this->friendLandingDao->GetFriendLanding($campaign);
     }
+
+    private function addDiscount(&$discounts, $reward)
+    {
+        if (!array_key_exists($reward->code, $discounts))
+        {
+            $discount = new CampaignDiscount();
+            $discount->code = $reward->code;
+            $discount->value = $reward->value;
+            $discount->isAbsolute = $reward->typeDescription != '%' ? '1' : '0';
+            $discount->useCount = 999999;
+
+            $discounts[$reward->code] = $discount;
+        }
+    }
+
+    public function getDiscounts($campaignFilter)
+    {
+        $campaigns = $this->getCampaigns($campaignFilter);
+
+        $discounts = array();
+
+        foreach ($campaigns as $campaign)
+        {
+            foreach ($campaign->landings as $landing)
+            {
+                foreach ($landing->landingRewards as $landingReward)
+                {
+                    $this->addDiscount($discounts, $landingReward->leaderReward);
+                    $this->addDiscount($discounts, $landingReward->friendReward);
+                }
+            }
+        }
+
+        $result = array();
+
+        foreach ($discounts as $code => $discount)
+        {
+            array_push($result, $discount);
+        }
+
+        RestLogger::log('getDiscounts', $result);
+        return $result;
+    }
 }

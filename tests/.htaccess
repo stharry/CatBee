@@ -1,0 +1,6 @@
+Order deny,allow
+Allow from all
+#AuthName "Username and password required"
+#AuthUserFile /var/www/html/CatBee/Config/.htpasswds
+#AuthType Basic
+#Require valid-user
