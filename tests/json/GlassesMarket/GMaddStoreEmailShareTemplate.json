@@ -344,7 +344,7 @@
                                                                                                                             "color": "rgb(38, 171, 226)",
                                                                                                                             "font-weight": "normal"
                                                                                                                         },
-                                                                                                                        "source": " to get [reward.friendReward.value] [reward.friendReward.typeDescription]!",
+                                                                                                                        "source": " to get [reward.friendReward.typeDescription] [reward.friendReward.value] !",
                                                                                                                         "type": "text",
                                                                                                                         "name": "a"
 
