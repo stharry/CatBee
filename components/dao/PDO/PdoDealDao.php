@@ -166,13 +166,13 @@ class PdoDealDao implements IDealDao
         {
             $selectClause = " SELECT d.id,s.id as activeShareID,sr.OrderID";
             $selectClause = $selectClause." FROM deal d";
-            if($dealFilter->customer != null)
+            if($dealFilter->customer->email != "")
             {
                 $selectClause = $selectClause." INNER JOIN customers c on c.Id=d.customerId";
             }
             $selectClause = $selectClause." INNER JOIN  ActiveShare s on s.dealId=d.id";
             $selectClause = $selectClause." INNER JOIN successfulReferral sr on s.id = sr.ActiveShareID";
-            if($dealFilter->customer != null)
+            if($dealFilter->customer->email != "")
             {
 
                 $selectClause = $selectClause." WHERE c.email = ?";
@@ -182,26 +182,21 @@ class PdoDealDao implements IDealDao
             }
             if($dealFilter->initDateBiggerThen!= null )
             {
-                if($flagForWhere==true)
-                {
-                    $selectClause = $selectClause. " and d.initDate >= ?";
-                }
-                else
-                {
-                    $selectClause = $selectClause. " where d.initDate >= ?";
-                    $flagForWhere=true;
-                }
+                $selectClause = $this->AddWhereStatment($flagForWhere, $selectClause);
+                $selectClause= $selectClause. "  d.initDate >= ?";
                 $selectParam2 = new DbParameter( $dealFilter->initDateBiggerThen, PDO::PARAM_STR);
                 array_push($selectParams,$selectParam2);
             }
-            if($flagForWhere==true)$selectClause = $selectClause . " and s.shareType = ?";
-            else
+
+            $selectClause = $this->AddWhereStatment($flagForWhere, $selectClause);
+            $selectClause = $selectClause . " s.shareType in (";
+            foreach($dealFilter->ActiveShareType as $val)
             {
-                $selectClause = $selectClause . " where s.shareType =? ";$flagForWhere=true;
+                $selectClause = $selectClause . $val->type.",";
             }
-            $selectClause = $selectClause . " and s.status=2";
-            $selectParam3 = new DbParameter( $dealFilter->ActiveShareType[0]->type, PDO::PARAM_INT);
-            array_push($selectParams,$selectParam3);
+            $selectClause =    substr_replace($selectClause ,"",-1);
+            $selectClause = $selectClause . ") and s.status=2 ";
+
             $selectClause = $selectClause ." Order by d.id,activeShareID";
             $rows = DbManager::selectValues($selectClause,$selectParams);
             return $rows;
@@ -231,20 +226,20 @@ class PdoDealDao implements IDealDao
             }
 
             $selectClause = $selectClause." FROM deal d";
-            if($dealFilter->customer != null)
+            if($dealFilter->customer->email != "")
             {
                 $selectClause = $selectClause." INNER JOIN customers c on c.Id=d.customerId";
             }
             if (count($dealFilter->ActiveShareType) != 0)
             {
                 $selectClause = $selectClause." LEFT JOIN ActiveShare s on s.dealId=d.id";
+
                 if($dealFilter->ImpressionFlag == true)
                 {
-
                     $selectClause = $selectClause." Left JOIN impression I on s.id = I.ActiveShareID";
                 }
             }
-            if($dealFilter->customer != null)
+            if($dealFilter->customer->email != "")
             {
 
                 $selectClause = $selectClause." WHERE c.email = ?";
@@ -254,29 +249,28 @@ class PdoDealDao implements IDealDao
              }
             if($dealFilter->initDateBiggerThen!= null )
             {
-                if($flagForWhere==true)
-                {
-                    $selectClause = $selectClause. " and d.initDate >= ?";
-                }
-                else
-                {
-                    $selectClause = $selectClause. " where d.initDate >= ?";
-                    $flagForWhere=true;
-                }
+                $selectClause = $this->AddWhereStatment($flagForWhere, $selectClause);
+                $selectClause = $selectClause. "  d.initDate >= ?";
                 $selectParam2 = new DbParameter( $dealFilter->initDateBiggerThen, PDO::PARAM_STR);
                 array_push($selectParams,$selectParam2);
             }
+            if($dealFilter->Campaign !=null)
+            {
+                $selectClause = $this->AddWhereStatment($flagForWhere, $selectClause);
+                $selectClause = $selectClause. "  d.campaignID = ?";
+                $selectParam4 = new DbParameter( $dealFilter->Campaign, PDO::PARAM_STR);
+                array_push($selectParams,$selectParam4);
+            }
             if (count($dealFilter->ActiveShareType) != 0)
             {
-               // Add here handling more than one Type and what happens if it is For all Types (All)
-                if($flagForWhere==true)$selectClause = $selectClause . " and s.shareType = ?";
-                else
+                $selectClause = $this->AddWhereStatment($flagForWhere, $selectClause);
+                $selectClause = $selectClause . " s.shareType in (";
+                foreach($dealFilter->ActiveShareType as $val)
                 {
-                    $selectClause = $selectClause . " where s.shareType =? ";$flagForWhere=true;
+                    $selectClause = $selectClause . $val->type.",";
                 }
-                $selectClause = $selectClause . " and s.status=2";
-                $selectParam3 = new DbParameter( $dealFilter->ActiveShareType[0]->type, PDO::PARAM_INT);
-                array_push($selectParams,$selectParam3);
+                $selectClause =    substr_replace($selectClause ,"",-1);
+                $selectClause = $selectClause . ") and s.status=2 ";
             }
 
 
@@ -337,6 +331,17 @@ class PdoDealDao implements IDealDao
 
     }
 
+    private function AddWhereStatment(&$flagForWhere, $selectClause)
+    {
+        if ($flagForWhere == true) {
+            $selectClause = $selectClause . " and ";
+            return $selectClause;
+        } else {
+            $selectClause = $selectClause . " where ";
+            $flagForWhere = true;
+            return $selectClause;
+        }
+    }
 
 
     public function getParentDealByOrderId($id)

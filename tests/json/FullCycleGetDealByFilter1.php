@@ -29,6 +29,11 @@ $share = json_decode(file_get_contents("res/DealByFilter/shareStoreShareFacebook
 
 $response = $restUtils->SendPostRequest("deal", "", $share);
 
+//Share Deal 2 Via FB
+//$share2 = json_decode(file_get_contents("res/DealByFilter/shareStoreShareFacebookDeal2.json"));
+
+//$response2 = $restUtils->SendPostRequest("deal", "", $share2);
+
 //Share Deal 1 Via Mail
 
 $shareEmail = json_decode(file_get_contents("res/DealByFilter/ShareStoreShareEmail.json"));
@@ -61,6 +66,7 @@ $restUtils->SendPostRequest("deal", "", $order5);
 //
 
 //Get Deals By the Filter: Dates,FB
+//It is suppose to bring back
 
 
 $ResultsFilter = json_decode(file_get_contents("res/DealByFilter/GetCycleResults.json"));

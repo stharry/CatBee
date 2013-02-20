@@ -20,7 +20,9 @@ class JsonLeaderDealFilterAdapter implements IModelAdapter
 
         $DealFilter                      = new LeaderDealFilter();
         $DealFilter->customer            = $this->customerAdapter->fromArray($obj["Customer"]);
+
         $DealFilter->initDateBiggerThen  = $obj["initDateBiggerThen"];
+        $DealFilter->Campaign = $obj["Campaign"];
         $DealFilter->initDateEarlierThen = $obj["initDateEarlierThen"];
         $DealFilter->ReferralsFlag      = $obj["ReferralsFlag"];
         $DealFilter->ImpressionFlag      = $obj["ImpressionFlag"];

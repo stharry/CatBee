@@ -2,14 +2,10 @@
     "action":"getDeal",
     "context":
     {
-        "Customer":{
-            "email":"tomer@tribzi.com"
-        },
-        "ActiveShareType":"facebook",
+        "ActiveShareType":"all",
         "ReferralsFlag":"true",
         "ImpressionFlag":"true",
-        "Campaign":{
-            "id":"1"
-        }
+        "initDateBiggerThen":"2012-12-12",
+        "Campaign":"1"
     }
 }

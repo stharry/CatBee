@@ -9,10 +9,7 @@
         },
         "ReferralsFlag":"true",
         "ActiveShareType":"tribzi",
-        "Campaign":{
-            "id":"1"
-        }
-
+        "Campaign":"1"
     }
 }
 

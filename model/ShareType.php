@@ -2,7 +2,7 @@
 
 class ShareType
 {
-    function __construct($type = "tribzi")
+    function __construct($type)
     {
         switch (strtolower($type))
         {
@@ -20,11 +20,6 @@ class ShareType
             case  "tribzi":
                 $this->type = 1024;
                 break;
-
-            default:
-                $this->type = 1;
-                break;
-
         }
     }
     public $type;

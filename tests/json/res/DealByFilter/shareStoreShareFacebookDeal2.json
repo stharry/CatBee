@@ -1,0 +1,47 @@
+{
+    "action":"sharedeal",
+    "context":{
+        "sendFrom":"regev147@013.net",
+        "sendTo":"spidernah@gmail.com",
+        "message":"Just a campaign test email, relax bro",
+        "subject":"Test CatBee message",
+        "context":{
+            "type":"facebook"
+        },
+        "reward":{
+
+            "id":"5"
+        },
+        "deal":{
+            "id":"4",
+            "campaign":
+            {
+                "code":"398C0080-60FF-48C0-BDF5-E1BA4A9B53ED"
+            },
+            "order":{
+                "amount":"76",
+                "id":"777",
+                "items":[
+                    {
+                        "itemcode":"1234567890",
+                        "url":"http://api.tribzi.com/CatBee/adapters/demo/res/Train.jpg",
+                        "price":"76.00",
+                        "description":"Wooden train"
+                    }
+                ],
+                "customer":{
+                    "email":"tomer@tribzi.com",
+                    "firstName":"Tomer",
+                    "lastName":"Harry",
+                    "nickName":"leader"
+                },
+                "branch":{
+                    "shopId":"1",
+                    "store":{
+                        "authCode":"19FB6C0C-3943-44D0-A40F-3DC401CB3703"}
+                }
+            }
+        }
+
+    }
+}
