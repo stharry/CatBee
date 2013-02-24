@@ -599,22 +599,26 @@ img {
 #share_list a {
     display: block;
     text-indent: -9999px;
-    width: 132px;
+    width: 99px;
     height: 38px;
-    background: url(../images/shareSprite.jpg) no-repeat;
+    background: url(../images/shareSprite2.png) no-repeat;
 }
 
+#pinterestShare {
+    margin-right: 7px;
+}
 #facebookShare {
     margin-right: 7px;
+    background-position: -99px 0px !important;
 }
 
 #twitterShare {
-    background-position: -132px 0px !important;
+    background-position: -198px 0px !important;
     margin-right: 7px;
 }
 
 #emailShare {
-    background-position: -264px 0px !important;
+    background-position: -297px 0px !important;
 }
 
 .centered-share-menu {

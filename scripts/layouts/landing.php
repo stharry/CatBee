@@ -87,6 +87,7 @@
     <script language="javascript">TribZi.init(<?php echo $p[0]['params'][1]; ?>);</script>
 <!--    <script src="--><?//= $GLOBALS[ "rootPath" ] ?><!--/res/js/CatBee.js?reload" type="text/javascript"></script>-->
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/landing.js?reload" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/pinterest.js?reload" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/email.js?reload" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/facebook.js?reload" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/twitter.js?reload" type="text/javascript"></script>

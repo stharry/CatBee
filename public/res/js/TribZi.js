@@ -310,6 +310,5 @@ TribZi = {
 //        return this.sendToFrame(str);
     }
 
-
 };
 window.TribZi = TribZi;
