@@ -1,4 +1,4 @@
 Order Allow,Deny 
 Allow From All
 # Disable directory viewing.
-#Options -All
+Options -All

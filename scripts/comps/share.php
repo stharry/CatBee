@@ -3,9 +3,12 @@
 	<p><img src="/CatBee/public/res/images/shareImage.png" alt="Share" /></p>
 	<div class="centered-share-menu">
 		<ul id="share_list">
-			<li>
-				<a href="#facebookForm" rel="facebook" id="facebookShare">Facebook</a>
-			</li>
+            <li>
+                <a href="#pinterestForm" rel="pinterest" id="pinterestShare">Pinterest</a>
+            </li>
+            <li>
+                <a href="#facebookForm" rel="facebook" id="facebookShare">Facebook</a>
+            </li>
 			<li>
 				<a href="#twittForm" rel="twitter" id="twitterShare">Twitter</a>
 			</li>

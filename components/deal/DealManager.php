@@ -74,6 +74,7 @@ class DealManager implements IDealManager
         catbeeLayoutComp($layout, "share", $layoutParams);
         catbeeLayoutComp($layout, "mailForm", $layoutParams);
         catbeeLayoutComp($layout, "facebookForm", $layoutParams);
+        catbeeLayoutComp($layout, "pinterestForm", $layoutParams);
         catbeeLayoutComp($layout, "twittForm", $layoutParams);
         //catbeeLayoutComp($layout, "sliderOptions", $leaderDeal);
 
