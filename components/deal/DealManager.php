@@ -108,11 +108,11 @@ class DealManager implements IDealManager
                 $leaderDeal->customer = $order->customer;
                 if ($order->date != null)
                 {
-                    $leaderDeal->InitDate = $order->date;
+                    $leaderDeal->initDate = $order->date;
                 }
                 else
                 {
-                    $leaderDeal->InitDate = date("Y-m-d h:i:s");
+                    $leaderDeal->initDate = date("Y-m-d h:i:s");
                 }
                 $leaderDeal->status = LeaderDeal::$STATUS_PENDING;
 
@@ -184,17 +184,7 @@ class DealManager implements IDealManager
 
     public function getDeals($dealFilter)
     {
-        //Go to DealDao with the DealFilter and Retrieve all the deals of the Customer
         $leaderDeals = $this->dealDao->getDealsByFilter($dealFilter);
-
-//        if ($dealFilter->ActiveShareFlag == true)
-//        {
-//            //Fill the ActiveShares Of the Deals - currenlty assuming i have only one deal per customer
-//            //Call the shareManager - send him the Deal object, the Second parameter is a flag for getting the leads for each Active share
-//            $this->shareManager->FillActiveSharesForDeal($leaderDeals, true);
-//        }
-//        RestLogger::log('DelManager::getDeals ', $leaderDeals);
-
         return $leaderDeals;
     }
 
