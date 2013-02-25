@@ -1,0 +1,159 @@
+{
+    "action":"push",
+    "context":
+    {
+        "code":"32765786-7f1d-11e2-8e12-123139247fee",
+        "description":"CharmsToTreasure",
+        "landingUrl":"http://www.charmstotreasure.com",
+        "branch":{
+            "shopId":"3",
+            "store":{
+                "authCode":"15f5b861-7f1b-11e2-bdcd-0008cae720a7"
+            }
+        },
+
+        "landings":[
+            {
+                "firstSloganLine":"You got the power!!!",
+                "secondSloganLine":"Create an awesome deal",
+                "firstSliderLine":"Move the slider",
+                "secondSliderLine":"to create the reward for you and your friends",
+                "customMessage": "I just bought at GlassesMarket.com and got a special friend-only gift to share with you.",
+
+                "landingRewards":[
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"4",
+                            "type":"coupon",
+                            "code":"specialfriend4",
+                            "typeDescription": "%"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"10",
+                            "type":"Gift Card",
+                            "code":"",
+                            "typeDescription": "$"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"5",
+                            "type":"coupon",
+                            "code":"specialfriend5",
+                            "typeDescription": "%"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"9",
+                            "type":"Gift Card",
+                            "code":"",
+                            "typeDescription": "$"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"6",
+                            "type":"coupon",
+                            "code":"specialfriend6",
+                            "typeDescription": "%"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"8",
+                            "type":"Gift Card",
+                            "code":"",
+                            "typeDescription": "$"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"7",
+                            "type":"coupon",
+                            "code":"specialfriend7",
+                            "typeDescription": "%"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"7",
+                            "type":"Gift Card",
+                            "code":"",
+                            "typeDescription": "$"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"8",
+                            "type":"coupon",
+                            "code":"specialfriend8",
+                            "typeDescription": "%"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"6",
+                            "type":"Gift Card",
+                            "code":"",
+                            "typeDescription": "$"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"9",
+                            "type":"coupon",
+                            "code":"specialfriend9",
+                            "typeDescription": "%"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"5",
+                            "type":"Gift Card",
+                            "code":"",
+                            "typeDescription": "$"
+
+                        }
+                    },
+                    {
+                        "friendReward":{
+                            "description":"Your friends get",
+                            "value":"10",
+                            "type":"coupon",
+                            "code":"specialfriend10",
+                            "typeDescription": "%"
+                        },
+                        "leaderReward":{
+                            "description":"You get",
+                            "value":"4",
+                            "type":"coupon",
+                            "code":"",
+                            "typeDescription": "$"
+
+                        }
+                    }
+                ]
+
+            }
+
+        ],
+        "friendLandings":[
+            {
+                "slogan":" off any purchase at",
+                "friendMessage":"Crafted You a Great Deal",
+                "rewardMessage1":"Here is Your Promotion Code: ",
+                "rewardMessage2":"Just Apply it on Checkout"
+            }
+        ]
+
+
+    }
+}
