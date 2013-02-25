@@ -23,8 +23,15 @@ $smtpport = $catBeeParams["catbee_email_hostport"];
 $smtpuser = $catBeeParams["catbee_email_hostuser"];
 $smtppass = $catBeeParams["catbee_email_hostpass"];
 
+$catBeeVersion = $catBeeParams["catbee_version"];
+$catBeeUnderDebug = ($catBeeParams["catbee_debug"] == '1') || empty($catBeeVersion);
+
+$catBeeJsFolder = $catBeeUnderDebug ? "res/js/" : "res/js/min/";
+$catBeeJsVersion = $catBeeUnderDebug ? "?reload" : "?v=".$catBeeVersion;
+
 $catBeePath = "/CatBee/";
 $rootPath = $catBeePath."public/";
+$rootJsPath = $rootPath.$catBeeJsFolder;
 
 $restURL = isset($catBeeParams['Rest_url'])
     ? $catBeeParams['Rest_url']

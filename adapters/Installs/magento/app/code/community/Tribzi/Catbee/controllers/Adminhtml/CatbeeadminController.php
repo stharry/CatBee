@@ -20,9 +20,11 @@ class Tribzi_Catbee_Adminhtml_CatbeeadminController extends Mage_Adminhtml_Contr
         }
 
 
-        $campaign = Mage::helper('Tribzi_Catbee')->getCampaign($post['campaign']);
-        $this->create_coupon($campaign);
-        //$this->_redirectReferer();
+        if (!empty($post['campaign']))
+        {
+            $campaign = Mage::helper('Tribzi_Catbee')->getCampaign($post['campaign']);
+            $this->create_coupon($campaign);
+        }
     }
 
 
