@@ -13,7 +13,28 @@
                     "closeButton": "true",
                     "appendTo": "col-main",
                     "setBefore": "buttons-set"
-                }
+                },
+                "sites":[
+                    {
+                        "url":"http://www.glassesmarket.com/test/",
+                        "mobile":{
+                               "disabled":"1"
+                        },
+                        "desktop":{
+                               "disabled":"1"
+                        }
+                    },
+                    {
+                        "url":"http://www.glassesmarket.com/",
+                        "mobile":{
+                               "disabled":"1"
+                        },
+                        "desktop":{
+                               "disabled":"1"
+                        }
+                    }
+                ]
+
             }
         ]
 
