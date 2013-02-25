@@ -18,6 +18,10 @@ class ShareContext
                 $this->id = 3;
                 break;
 
+            case  "pinterest":
+                $this->id = 4;
+                break;
+
             case  "tribzi":
                 $this->id = 1024;
                 break;
@@ -26,19 +30,21 @@ class ShareContext
                 $this->id = 1;
                 break;
 
-         }
+        }
         $this->type = $type;
     }
 
     public static function id2Type($id)
     {
-        $idTypePairs = array(1 => 'email', '2' => 'facebook', 3 => 'twitter',
-            '1024' => 'tribzi');
+        $idTypePairs = array(1    => 'email', 2 => 'facebook',
+                             3    => 'twitter', 4 => 'pinterest',
+                             1024 => 'tribzi');
 
         if (!array_key_exists($id, $idTypePairs))
         {
             return $idTypePairs[1];
         }
+
         return $idTypePairs[$id];
     }
 

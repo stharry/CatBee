@@ -29,7 +29,8 @@ class JsonLeaderDealAdapter implements IModelAdapter
             'customer'    => $this->customerAdapter->toArray($obj->customer),
             'campaign'    => $this->campaignAdapter->toArray($obj->campaign),
             'fbcContext'  => $this->contextAdapter->toArray($obj->fbcContext),
-            'twitContext' => $this->contextAdapter->toArray($obj->twitContext)
+            'twitContext' => $this->contextAdapter->toArray($obj->twitContext),
+            'pintContext' => $this->contextAdapter->toArray($obj->pintContext)
         );
 
         if ($obj->leads)
@@ -57,6 +58,7 @@ class JsonLeaderDealAdapter implements IModelAdapter
         $deal->campaign    = $this->campaignAdapter->fromArray($obj['campaign']);
         $deal->fbcContext  = $this->contextAdapter->fromArray($obj['fbcContext']);
         $deal->twitContext = $this->contextAdapter->fromArray($obj['twitContext']);
+        $deal->pintContext = $this->contextAdapter->fromArray($obj['pintContext']);
 
         if (isset($obj['leads']))
         {

@@ -35,8 +35,10 @@ class DealManager implements IDealManager
 
     private function createShareContexts($deal)
     {
-        $clientContexts = array('facebook' => 'fbcContext',
-                                'twitter'  => 'twitContext');
+        $clientContexts = array('facebook'  => 'fbcContext',
+                                'twitter'   => 'twitContext',
+                                'pinterest' => 'pintContext'
+        );
 
         foreach ($clientContexts as $ctxKey => $ctxProp)
         {
@@ -185,6 +187,7 @@ class DealManager implements IDealManager
     public function getDeals($dealFilter)
     {
         $leaderDeals = $this->dealDao->getDealsByFilter($dealFilter);
+
         return $leaderDeals;
     }
 

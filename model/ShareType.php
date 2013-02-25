@@ -17,6 +17,10 @@ class ShareType
                 $this->type = 3;
                 break;
 
+            case  "pinterest":
+                $this->type = 4;
+                break;
+
             case  "tribzi":
                 $this->type = 1024;
                 break;
