@@ -18,15 +18,15 @@ class JsonLeaderDealFilterAdapter implements IModelAdapter
     public function fromArray($obj)
     {
 
-        $DealFilter                      = new LeaderDealFilter();
-        $DealFilter->customer            = $this->customerAdapter->fromArray($obj["Customer"]);
+        $DealFilter           = new LeaderDealFilter();
+        $DealFilter->customer = $this->customerAdapter->fromArray($obj["Customer"]);
 
         $DealFilter->initDateBiggerThen  = $obj["initDateBiggerThen"];
-        $DealFilter->Campaign = $obj["Campaign"];
+        $DealFilter->Campaign            = $obj["Campaign"];
         $DealFilter->initDateEarlierThen = $obj["initDateEarlierThen"];
-        $DealFilter->ReferralsFlag      = $obj["ReferralsFlag"];
+        $DealFilter->ReferralsFlag       = $obj["ReferralsFlag"];
         $DealFilter->ImpressionFlag      = $obj["ImpressionFlag"];
-        if($obj["ActiveShareType"]=="all")
+        if ($obj["ActiveShareType"] == "all")
         {
             $DealFilter->FillAllActiveShareTypes();
         }
@@ -36,6 +36,7 @@ class JsonLeaderDealFilterAdapter implements IModelAdapter
             $DealFilter->AddToShareTypeArray($ShareType);
 
         }
+
         return $DealFilter;
     }
 

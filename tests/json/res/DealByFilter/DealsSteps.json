@@ -1,0 +1,37 @@
+[
+    {
+        "action"  :"deal",
+        "template":"PushDeal1.json",
+
+        "tests":[
+            {
+                "context.id"    :"777",
+                "customer.email":"tomer@tribzi.com"
+            },
+            {
+                "context.id"    :"778",
+                "customer.email":"vadim@tribzi.com"
+            },
+            {
+                "context.id"    :"779",
+                "customer.email":"shiran@tribzi.com"
+            },
+            {
+                "context.id"    :"780",
+                "customer.email":"tomer@tribzi.com"
+            },
+            {
+                "context.id"    :"781",
+                "customer.email":"vadim@tribzi.com"
+            }
+        ]
+    },
+    {
+        "action"  :"share deal",
+        "template":"shareStoreShareFacebook.json",
+
+        "tests":[
+
+        ]
+    }
+]

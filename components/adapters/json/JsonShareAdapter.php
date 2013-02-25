@@ -34,6 +34,7 @@ class JsonShareAdapter implements IModelAdapter
     {
         $share = new Share();
 
+        RestLogger::log("1");
         $share->id = $obj['id'];
         $share->status = $obj['status'];
         $share->message = $obj["message"];
@@ -42,10 +43,12 @@ class JsonShareAdapter implements IModelAdapter
         $share->context = $this->jsonShareContextAdapter->fromArray($obj["context"]);
         $share->reward = $this->jsonRewardAdapter->fromArray($obj["reward"]);
 
+        RestLogger::log("2");
         if (isset($obj['deal']))
         {
             $share->deal = $this->jsonDealAdapter->fromArray($obj['deal']);
         }
+        RestLogger::log("3");
 
         $share->targets = array();
         foreach ($obj['targets'] as $target)

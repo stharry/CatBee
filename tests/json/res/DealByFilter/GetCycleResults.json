@@ -5,7 +5,7 @@
         "ActiveShareType":"all",
         "ReferralsFlag":"true",
         "ImpressionFlag":"true",
-        "initDateBiggerThen":"2012-12-12",
+        "initDateBiggerThen":"2011-12-31",
         "initDateEarlierThen":"2015-01-01",
         "Campaign":"1"
     }

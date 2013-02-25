@@ -9,14 +9,63 @@ class JsonLeaderDealsAdapter implements IModelAdapter
     {
         $this->dealAdapter = new JsonLeaderDealAdapter();
     }
+
     public function toArray($obj)
     {
         $deals = array();
 
         foreach ($obj as $deal)
         {
-            array_push($deals, $this->dealAdapter->toArray($deal));
+            $dealProps = array(
+                'id'       => $deal->id,
+                'date'     => $deal->updateDate,
+                'customer' => array(
+                    'email'     => $deal->customer->email,
+                    'firstName' => $deal->customer->firstName,
+                    'lastName'  => $deal->customer->lastName,
+                    'nickName'  => $deal->customer->nickName
+                ),
+                "leads"    => array()
+            );
+
+            foreach ($deal->leads as $lead)
+            {
+                $leadProps = array(
+                    "id"         => $lead->id,
+                    "status"     => $lead->status,
+                    "orderId"    => $deal->order->id,
+                    "shareType"  => ShareContext::id2Type($lead->shareType),
+                    "referrals"  => array(),
+                    "impression" => array()
+
+                );
+
+                foreach ($lead->impressions as $impression)
+                {
+                    $impressionProps = array(
+                        "share" => $lead->id,
+                        "ImpressionDate" => $impression
+
+                    );
+
+                    $leadProps["impression"][] = $impressionProps;
+                }
+
+                foreach ($lead->referralOrders as $refOrder)
+                {
+                    $refOrderProps = array(
+                        "referalOrder" => $refOrder
+                    );
+
+                    $leadProps["referrals"][] = $refOrderProps;
+                }
+                $dealProps["leads"][] = $leadProps;
+            }
+
+            $deals[] = $dealProps;
+
         }
+
         return $deals;
     }
 

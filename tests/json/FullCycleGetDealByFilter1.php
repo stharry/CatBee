@@ -6,21 +6,21 @@ $restUtils = new RestUtils();
 
 //Push Deal 1  Customer Tomer@tribzi.com ,Date Y
 
-$order1 = json_decode(file_get_contents("res/DealByFilter/pushDeal1.json"));
+$order1 = json_decode(file_get_contents("res/DealByFilter/PushDeal1.json"));
 $restUtils->SendPostRequest("deal", "", $order1);
 //
 ////Push Deal 2  Customer X ,Date z
 //
-$order2 = json_decode(file_get_contents("res/DealByFilter/pushDeal2.json"));
+$order2 = json_decode(file_get_contents("res/DealByFilter/PushDeal2.json"));
 $restUtils->SendPostRequest("deal", "", $order2);
 //
 ////Push Deal 3  Customer X Date Historical (one year Back)
 //
-$order3 = json_decode(file_get_contents("res/DealByFilter/pushDeal3.json"));
+$order3 = json_decode(file_get_contents("res/DealByFilter/PushDeal3.json"));
 $restUtils->SendPostRequest("deal", "", $order3);
 //
 ////Push Deal 4 Customer X Future Date
-$order4 = json_decode(file_get_contents("res/DealByFilter/pushDeal4.json"));
+$order4 = json_decode(file_get_contents("res/DealByFilter/PushDeal4.json"));
 $restUtils->SendPostRequest("deal", "", $order4);
 
 
@@ -43,8 +43,10 @@ $response = $restUtils->SendPostRequest("deal", "", $shareEmail);
 //Open Friend Deal For ShareVia FB of Deal 1
 
 
-$friendDealTemplate = json_decode(file_get_contents("res/DealByFilter/friendDeal6.json"));
+$friendDealTemplate = json_decode(file_get_contents("res/DealByFilter/FriendDeal6.json"));
 $temp = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $friendDealTemplate), true);
+
+echo "uid ".$temp[0]['leads'][0]['uid'];
 
 $friendDeal = array('action'=>'friend Deal',
     'context' => array(
@@ -60,7 +62,7 @@ $restUtils->SendPostRequest("deal", "", $friendDeal);
 $filter = json_decode(file_get_contents("res/DealByFilter/GetPushDeal1.json"));
 
 $deals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $filter), true);
-$order5 = json_decode(file_get_contents("res/DealByFilter/pushDeal5.json"),true);
+$order5 = json_decode(file_get_contents("res/DealByFilter/PushDeal5.json"),true);
 $order5['context']['successfulReferral'] = $deals[0]['leads'][0]['uid'];
 $restUtils->SendPostRequest("deal", "", $order5);
 //
@@ -73,6 +75,7 @@ $ResultsFilter = json_decode(file_get_contents("res/DealByFilter/GetCycleResults
 
 $ResultsDeals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $ResultsFilter), true);
 
+echo "Result deals </p>";
 var_dump ($ResultsDeals);
 //Check Results including Impressions
 

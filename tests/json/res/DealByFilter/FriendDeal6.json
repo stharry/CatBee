@@ -5,10 +5,7 @@
         "Customer":{
             "email":"Tomer@tribzi.com"
         },
-        "ActiveShareType":"facebook",
-        "Campaign":{
-            "id":"1"
-        }
+        "ActiveShareType":"facebook"
 
     }
 }
