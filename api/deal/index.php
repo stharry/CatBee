@@ -7,6 +7,14 @@ $context = $restRequest->getCatBeeContext();
 
 RestLogger::log("Deal API $action context is ", $context);
 
+function GetDeals($context, $dealManager)
+{
+    $dealFilterAdapter = new JsonLeaderDealFilterAdapter();
+    $dealFilter = $dealFilterAdapter->fromArray($context);
+    $deals = $dealManager->getDeals($dealFilter);
+    return $deals;
+}
+
 try
 {
 
@@ -116,15 +124,10 @@ try
             exit;
 
         case "getdeal":
-            $dealFilterAdapter = new JsonLeaderDealFilterAdapter();
-            $dealFilter        = $dealFilterAdapter->fromArray($context);
-            RestLogger::log('deal api dealFilter is ', $dealFilter);
-            //Currently Hard Coded true
-            $deals = $dealManager->getDeals($dealFilter);
+            $deals = GetDeals($context, $dealManager);
             $dealsAdapter = new JsonLeaderDealsAdapter();
             RestUtils::sendSuccessResponse($dealsAdapter->toArray($deals));
             exit;
-
         case "getdiscount":
             RestLogger::log("Deal API before deal");
             $orderAdapter = new JsonOrderAdapter();
@@ -138,7 +141,7 @@ try
             exit;
 
         default:
-            RestLogger::log('ERROR: action does not registered');
+            RestLogger::log('ERROR: action  not registered');
             exit;
 
     }

@@ -110,7 +110,7 @@ class PdoDealDao implements IDealDao
             $deal->order->id,
             $deal->status,
             $deal->customer->id,
-            $deal->InitDate,
+            $deal->initDate,
             date("Y-m-d h:i:s"));
 
         $deal->id = DbManager::insertAndReturnId("deal", $names, $values);
@@ -158,6 +158,7 @@ class PdoDealDao implements IDealDao
     }
     private function AddReferralsToShares($dealFilter)
     {
+        //TODO - Refactor this Code to make it a lot more clean... currenlty it is long and dirty
         RestLogger::log("PdoDealDao::AddReferralsToShares begin");
         $selectParams = array();
         $flagForWhere=false;
@@ -187,7 +188,13 @@ class PdoDealDao implements IDealDao
                 $selectParam2 = new DbParameter( $dealFilter->initDateBiggerThen, PDO::PARAM_STR);
                 array_push($selectParams,$selectParam2);
             }
-
+            if($dealFilter->initDateEarlierThen!= null )
+            {
+                $selectClause = $this->AddWhereStatment($flagForWhere, $selectClause);
+                $selectClause = $selectClause. "  d.initDate <= ?";
+                $selectParam5 = new DbParameter( $dealFilter->initDateEarlierThen, PDO::PARAM_STR);
+                array_push($selectParams,$selectParam5);
+            }
             $selectClause = $this->AddWhereStatment($flagForWhere, $selectClause);
             $selectClause = $selectClause . " s.shareType in (";
             foreach($dealFilter->ActiveShareType as $val)
@@ -253,6 +260,13 @@ class PdoDealDao implements IDealDao
                 $selectClause = $selectClause. "  d.initDate >= ?";
                 $selectParam2 = new DbParameter( $dealFilter->initDateBiggerThen, PDO::PARAM_STR);
                 array_push($selectParams,$selectParam2);
+            }
+            if($dealFilter->initDateEarlierThen!= null )
+            {
+                $selectClause = $this->AddWhereStatment($flagForWhere, $selectClause);
+                $selectClause = $selectClause. "  d.initDate <= ?";
+                $selectParam5 = new DbParameter( $dealFilter->initDateEarlierThen, PDO::PARAM_STR);
+                array_push($selectParams,$selectParam5);
             }
             if($dealFilter->Campaign !=null)
             {
