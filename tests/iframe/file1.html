@@ -22,6 +22,10 @@
                             url:'http%3A%2F%2Fwww.glassesmarket.com%2Ftest%2Fmedia%2Fcatalog%2Fproduct%2Fi%2Fm%2Fimg_1625_web_version__1.jpg'
                         }
                     ]
+                },
+                {
+                    appendTo: "col-main",
+                    setBefore: "buttons-set"
                 }
         );
     </script>
@@ -29,7 +33,9 @@
 
 </head>
 <body>
-
-<a></a>
+<div class="col-main">
+<a>Append after it</a>
+    <a class="buttons-set">Add before this node</a>
+</div>
 </body>
 </html>

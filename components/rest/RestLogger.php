@@ -22,13 +22,15 @@ class RestLogger
         try
         {
             RestLogger::setLogger();
+            $x = microtime(true);
+            $milliseconds = round(($x - intval($x)) * 1000);
             if (!$params)
             {
-                RestLogger::$logger->log($message);
+                RestLogger::$logger->log($milliseconds.' '.$message);
             }
             else
             {
-                RestLogger::$logger->log($message . ":" . json_encode($params));
+                RestLogger::$logger->log($milliseconds.' '.$message . ":" . json_encode($params));
             }
         }
         catch (Exception $e)

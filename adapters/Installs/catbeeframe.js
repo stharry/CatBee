@@ -35,9 +35,8 @@ cbf = {
         document.getElementsByTagName('head')[0].appendChild(scr);
     },
 
-    loadCss: function(url)
-    {
-        var css=document.createElement("link");
+    loadCss:function (url) {
+        var css = document.createElement("link");
         css.setAttribute("rel", "stylesheet");
         css.setAttribute("type", "text/css");
         css.setAttribute("href", url);
@@ -48,14 +47,46 @@ cbf = {
         return document.getElementById(str);
     },
 
-    addDiv:function (id, to) {
+    byClass:function (str, parent) {
+        if (parent == null || typeof parent == 'undefined') {
+            var descendants = document.getElementsByTagName('*');
+        }
+        else {
+            var descendants = cbf.byId(parent).getElementsByTagName('*');
+        }
+        var i = -1, e, result = [];
+        while (e = descendants[++i]) {
+            ((' ' + cbf.valOrDefault(e['class'], e.className) + ' ').indexOf(' ' + str + ' ') > -1) && result.push(e);
+        }
+        return result.length > 0 ? result[0] : null;
+
+    },
+
+    getDiv: function(str)
+    {
+        if (!cbf.valOrDefault(str,null)) return null;
+        return cbf.valOrDefault(cbf.byId(str), cbf.byClass(str));
+    },
+    addDiv:function (id, to, before) {
         var div = document.createElement('div');
         div.id = id;
         if (to === null || typeof to == 'undefined') {
             document.body.appendChild(div);
         }
         else {
-            cbf.byId(to).appendChild(div);
+
+            var parentElem = cbf.getDiv(to);
+
+            var insertBeforeElem = cbf.getDiv(before);
+
+            if (!insertBeforeElem)
+            {
+                parentElem.appendChild(div);
+            }
+            else
+            {
+                parentElem.insertBefore(div, insertBeforeElem);
+            }
         }
         return this;
 
@@ -319,15 +350,17 @@ cbf = {
 
         var params = this.frameParams;
 
-        cbf.addDiv('cbfOverlay');
+        var appendToElem = params.appendTo ? cbf.getDiv(params.appendTo) : null;
+        if (!appendToElem) {
+            cbf.addDiv('cbfOverlay');
 
-        var cssOverlay = {
-                display  :'block',
-                position :'fixed',
-                top      :'0px',
-                left     :'0px',
-                width    :'100%',
-                height   :'100%',
+            var cssOverlay = {
+                display :'block',
+                position:'fixed',
+                top     :'0px',
+                left    :'0px',
+                width   :'100%',
+                height  :'100%',
 
                 'background-color':'#000000',
                 '-ms-filter'      :"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)",
@@ -336,49 +369,98 @@ cbf = {
                 '-khtml-opacity'  :'0.5',
                 'opacity'         :'0.5'
 
-        };
-        cbf.css('cbfOverlay', cssOverlay);
-        cbf.setZIndex('cbfOverlay', maxZIndex + 10002);
-        cbf.byId('cbfOverlay').backgroundColor = '#000000';
-        cbf.byId('cbfOverlay').style.backgroundColor = '#000000';
-        cbf.byId('cbfOverlay').style.opacity = 0.5;
+            };
+            cbf.css('cbfOverlay', cssOverlay);
+            cbf.setZIndex('cbfOverlay', maxZIndex + 10002);
+            cbf.byId('cbfOverlay').backgroundColor = '#000000';
+            cbf.byId('cbfOverlay').style.backgroundColor = '#000000';
+            cbf.byId('cbfOverlay').style.opacity = 0.5;
 
-        cbf.addDiv('cbfScreen');
-        cssScreen = {
-            display     :'block',
-            position    :'fixed',
-            top         :'0px',
-            left        :'0px',
-            width       :'100%',
-            height      :'100%',
-            'overflow-y':'auto'
+            cbf.addDiv('cbfScreen');
+            cssScreen = {
+                display     :'block',
+                position    :'fixed',
+                top         :'0px',
+                left        :'0px',
+                width       :'100%',
+                height      :'100%',
+                'overflow-y':'auto'
+            }
+            cbf.css('cbfScreen', cssScreen);
+            cbf.byId('cbfScreen').style.overflowY = 'auto';
+            cbf.setZIndex('cbfScreen', maxZIndex + 10003);
+
+            cbf.addDiv('cbfFrame', 'cbfScreen').addDiv('cbfContainer', 'cbfFrame');
+
+            if (params.closeButton) {
+                cbf.addDiv('cbfCloseBtn', 'cbfFrame');
+                cbf.byId('cbfCloseBtn').title = "Close"
+                var cssButton = {
+                    'position':'absolute',
+                    'top'     :'-18px',
+                    'right'   :'-18px',
+                    'width'   :'36px',
+                    'height'  :'36px',
+                    'cursor'  :'pointer',
+
+                    'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',
+                    'background-color':'transparent'
+                };
+
+                cbf.css('cbfCloseBtn', cssButton)
+                    .addEvt('cbfCloseBtn', 'click', function () {
+                        cbf.closeFrame();
+                    });
+
+                cbf.setZIndex('cbfCloseBtn', maxZIndex + 10010);
+            }
         }
-        cbf.css('cbfScreen', cssScreen);
-        cbf.byId('cbfScreen').style.overflowY = 'auto';
-        cbf.setZIndex('cbfScreen', maxZIndex + 10003);
-
-        cbf.addDiv('cbfFrame', 'cbfScreen').addDiv('cbfContainer', 'cbfFrame');
-        var scrW = cbf.viewPort().width;
-        var left = Math.round((scrW / 2 - params.initWidth / 2) / scrW * 100);
+        else {
+            cbf.addDiv('cbfFrame', params.appendTo, params.setBefore).addDiv('cbfContainer', 'cbfFrame');
+        }
         var cssFrame = {
-            display                :'block',
-            position               :'absolute',
-            top                    :'5%',
-            left                   :left + '%',
+
             width                  :params.initWidth + 'px',
-            height                 :params.initHeight + 'px',
-
-            //Round border
-            'border-radius'        :'10px',
-            '-moz-border-radius'   :'10px',
-            '-webkit-border-radius':'10px',
-            ' -khtml-border-radius':'10px',
-            background             :'#FFF',
-            color                  :'#FFF',
-            border                 :'5px solid rgba(12, 80, 182, 0.2)'
-
+            height                 :params.initHeight + 'px'
         };
         cbf.css('cbfFrame', cssFrame);
+
+        if (!appendToElem)
+        {
+            var scrW = cbf.viewPort().width;
+            var left = Math.round((scrW / 2 - params.initWidth / 2) / scrW * 100);
+
+            var cssFrame = {
+                display                :'block',
+                position               :'absolute',
+                top                    :'5%',
+                left                   :left + '%',
+
+                //Round border
+                'border-radius'        :'10px',
+                '-moz-border-radius'   :'10px',
+                '-webkit-border-radius':'10px',
+                ' -khtml-border-radius':'10px',
+                background             :'#FFF',
+                color                  :'#FFF',
+                border                 :'5px solid rgba(12, 80, 182, 0.2)'
+
+            }
+            cbf.css('cbfFrame', cssFrame);
+        }
+        else
+        {
+
+            var scrW = appendToElem.offsetWidth;
+            var left = Math.round((scrW / 2 - params.initWidth / 2) / scrW * 100);
+
+            var cssFrame = {
+                position               :'relative',
+                left                   :left + '%'
+            }
+            cbf.css('cbfFrame', cssFrame);
+        }
+
         cbf.setZIndex('cbfFrame', maxZIndex + 10004);
 
         var cssDialog = {
@@ -386,28 +468,6 @@ cbf = {
         };
         cbf.css('cbfContainer', cssDialog);
 
-        if (params.closeButton) {
-            cbf.addDiv('cbfCloseBtn', 'cbfFrame');
-            cbf.byId('cbfCloseBtn').title = "Close"
-            var cssButton = {
-                'position'        :'absolute',
-                'top'             :'-18px',
-                'right'           :'-18px',
-                'width'           :'36px',
-                'height'          :'36px',
-                'cursor'          :'pointer',
-
-                'background'      :'url(\'' + cbf.getCatBeeUrl() + 'public/res/images/Navigation.png\')',
-                'background-color':'transparent'
-            };
-
-            cbf.css('cbfCloseBtn', cssButton)
-                .addEvt('cbfCloseBtn', 'click', function () {
-                    cbf.closeFrame();
-                });
-
-            cbf.setZIndex('cbfCloseBtn', maxZIndex + 10010);
-        }
 
         cbf.setupRpc(params);
         cbf.byId('cbfContainer').focus();
@@ -415,8 +475,15 @@ cbf = {
     },
 
     closeFrame:function () {
-        cbf.css('cbfScreen', {'display':'none'});
-        cbf.css('cbfOverlay', {'display':'none'});
+        if (cbf.valOrDefault(cbf.byId('cbfOverlay'), null) == null)
+        {
+            cbf.css('cbfFrame', {'display':'none'});
+        }
+        else
+        {
+            cbf.css('cbfScreen', {'display':'none'});
+            cbf.css('cbfOverlay', {'display':'none'});
+        }
 
     },
 
@@ -464,26 +531,27 @@ cbf = {
 
 cbWidgets = {
 
-    postPurchaseWidget: function(orderParams)
-    {
+    postPurchaseWidget:function (orderParams, guiParams) {
         var referralUid = cbf.getCookie('CatBeeRefId');
 
         if (referralUid) {
             orderParams.successfulReferral = referralUid;
         }
 
+        guiParams = cbf.valOrDefault(guiParams, {closeButton : true, appendTo: null, setBefore: null})
         cbf.setupFrame(
             {
                 initWidth   :424,
                 initHeight  :372,
                 catbeeAction:'deal',
                 urlParams   :orderParams,
-                closeButton :true
+                closeButton :guiParams.closeButton,
+                appendTo    :guiParams.appendTo,
+                setBefore   :guiParams.setBefore
             });
     },
 
-    welcomeWidget: function()
-    {
+    welcomeWidget:function () {
 
     }
 };

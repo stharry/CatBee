@@ -36,6 +36,10 @@ class Tribzi_Catbee_Helper_Data extends Mage_Core_Helper_Abstract
         if ($campaigns)
         {
             $arr = Mage::helper('core')->jsonDecode($campaigns);
+
+            $mageArray[] = array('value' => '',
+                                 'label' => '<none>');
+
             foreach ($arr as $campaign)
             {
                 $mageArray[] = array('value' => $campaign['code'],

@@ -1,5 +1,8 @@
 <?php
 
+echo floor(microtime(true)) * 1000;
+ exit;
+echo md5('tribzi2014'); exit;
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 
 $url = 'https://api-ssl.bitly.com/v3/shorten?' .
