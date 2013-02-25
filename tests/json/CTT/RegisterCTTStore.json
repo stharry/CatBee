@@ -1,0 +1,21 @@
+{
+    "action":"register",
+    "context":
+    {
+        "store":{
+            "authCode":"15f5b861-7f1b-11e2-bdcd-0008cae720a7",
+            "description":"CharmsToTreasure",
+            "url":"http://www.charmstotreasure.com/",
+            "landingUrl":"http://www.charmstotreasure.com/"
+        },
+        "branches":[
+            {
+                "shopId":"3",
+                "shopName": "CharmsToTreasure ",
+                "url":"http://www.charmstotreasure.com",
+                "logoUrl": "http://www.glassesmarket.com/skin/frontend/glassesmarket2/default/images/logo.png",
+                "email": "support@charmstotreasure.com"
+            }
+        ]
+    }
+}

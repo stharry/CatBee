@@ -1,0 +1,24 @@
+{
+    "action":"deal",
+    "context":{
+        "amount":"111",
+        "id":"CTTFirstDeal",
+        "items":[
+            {
+                "itemcode":"12",
+                "url":"http://www.charmstotreasure.com/images/eblast/template/charmstotreasure_eBlast_Logo_HEART.gif"
+            }
+        ],
+        "customer":{
+            "email":"danny.t.leader@gmail.com",
+            "firstName":"Danny",
+            "lastName":"Leader",
+            "nickName":"leader"
+        },
+        "branch":{
+            "shopId":"3",
+            "store":{
+                "authCode":"15f5b861-7f1b-11e2-bdcd-0008cae720a7"}
+        }
+    }
+}

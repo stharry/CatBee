@@ -1,0 +1,16 @@
+{
+    "action": "set",
+    "context":
+    {
+        "customMessage": "I just bought at CharmsToTreasure.com and got a special friend-only gift to share with you.",
+        "message":"Use the discount code [reward.friendReward.code] to get [reward.friendReward.value] [reward.friendReward.typeDescription] off any purchase",
+        "campaign":{
+            "code":"32765786-7f1d-11e2-8e12-123139247fee"
+        },
+        "shareContext":{
+            "type": "facebook"
+        },
+        "target": {"name":"friend"}
+
+    }
+}
