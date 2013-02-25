@@ -5,18 +5,20 @@ class StoreManager implements IStoreManager
 
     private $adaptorDao;
     private $branchesDao;
+    private $branchConfigDao;
 
-    function __construct($adaptorDao, $branchesDao)
+    function __construct($adaptorDao, $branchesDao, $branchConfigDao)
     {
-        $this->adaptorDao = $adaptorDao;
-        $this->branchesDao = $branchesDao;
+        $this->adaptorDao      = $adaptorDao;
+        $this->branchesDao     = $branchesDao;
+        $this->branchConfigDao = $branchConfigDao;
 
         RestLogger::log("Store manager created...");
     }
 
     public function registerAdaptor($store)
     {
-        $store->url = CatBeeExpressions::validateString($store->url);
+        $store->url        = CatBeeExpressions::validateString($store->url);
         $store->landingUrl = CatBeeExpressions::validateString($store->landingUrl);
         if (!$this->adaptorDao->isAdaptorExists($store))
         {
@@ -29,7 +31,7 @@ class StoreManager implements IStoreManager
         foreach ($branches as $branch)
         {
             $branch->redirectUrl = CatBeeExpressions::validateString($branch->redirectUrl);
-            $branch->logoUrl = CatBeeExpressions::validateString($branch->logoUrl);
+            $branch->logoUrl     = CatBeeExpressions::validateString($branch->logoUrl);
 
             $this->branchesDao->AddStoreBranch($branch);
         }
@@ -61,6 +63,7 @@ class StoreManager implements IStoreManager
     public function getStoreBranches($StoreBranchFilter)
     {
         RestLogger::log('StoreManager::getStoreBranches filter: ', $StoreBranchFilter);
+
         return $this->branchesDao->getStoreBranches($StoreBranchFilter);
     }
 
@@ -71,11 +74,25 @@ class StoreManager implements IStoreManager
             $this->adaptorDao->loadAdaptorById($store);
 
         }
-        $context = array('act' => $action);
+        $context  = array('act' => $action);
         $response = RestUtils::SendFreePostRequest($store->url, $context);
 
         RestLogger::log('StoreManager:queryStoreAdapter after', $response);
 
         return $response;
+    }
+
+    public function setBranchConfig($branchConfig)
+    {
+        $this->validateBranch($branchConfig->branch);
+
+        $this->branchConfigDao->setBranchConfig($branchConfig);
+
+        RestLogger::log('StoreManager:setBranchConfig after');
+    }
+
+    public function getBranchConfig($branchConfigFilter)
+    {
+        return $this->branchConfigDao->getBranchConfig($branchConfigFilter);
     }
 }

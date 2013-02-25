@@ -17,4 +17,5 @@ DROP Table IF EXISTS campfriendlanding;
 DROP Table IF EXISTS oauthApps;
 DROP Table IF EXISTS successfulReferral;
 DROP Table If EXISTS impression;
+DROP Table If EXISTS shopWidgets;
 

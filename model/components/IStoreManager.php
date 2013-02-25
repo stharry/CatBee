@@ -9,4 +9,8 @@ interface IStoreManager
     public function validateBranch($branch);
 
     public function queryStoreAdapter($store, $action);
+
+    public function setBranchConfig($branchConfig);
+
+    public function getBranchConfig($branchConfigFilter);
 }

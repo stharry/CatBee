@@ -38,7 +38,7 @@ try
         new PdoStoreBranchDao());
 
     $storeManager    = new StoreManager(
-        new PdoAdaptorDao(), new PdoStoreBranchDao());
+        new PdoAdaptorDao(), new PdoStoreBranchDao(), new PdoStoreBranchConfigDao());
     $customerManager = new CustomerManager(new PdoCustomerDao());
 
     $shareManager = new ShareManager(new PdoStoreBranchDao(), new PdoShareDao(),

@@ -4,8 +4,8 @@
 
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery.min.js"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.js?v=1" type="text/javascript"></script>
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/TribZi.js?reload" type="text/javascript"></script>
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/widgetException.js?reload" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>TribZi.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>widgetException.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
 
 </head>
 </html>

@@ -9,6 +9,11 @@ $Store = json_decode(file_get_contents("RegisterGMStore.json"));
 $restUtils = new RestUtils();
 $restUtils->SendPostRequest("store", "", $Store);
 
+$StoreConfig = json_decode(file_get_contents("GMSetStoreBranchConfig.json"));
+
+$restUtils = new RestUtils();
+$restUtils->SendPostRequest("store", "", $StoreConfig);
+
 
 $campaign = json_decode(file_get_contents("PushGMProdCamp.json"));
 $restUtils->SendPostRequest("campaign", "", $campaign);

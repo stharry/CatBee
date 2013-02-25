@@ -47,21 +47,6 @@ class Tribzi_Catbee_Block_Adminhtml_Form_Edit_Form extends Mage_Adminhtml_Block_
             'label' => $helper->__('api url'),
         ));
 
-        $fieldset2 = $form->addFieldset('display2', array(
-            'legend' => $helper->__('Post purchase widget position'),
-            'class'  => 'fieldset-wide'
-        ));
-
-        $fieldset2->addField('appendTo', 'text', array(
-            'name'  => 'append To',
-            'label' => $helper->__('append to'),
-        ));
-
-        $fieldset2->addField('setBefore', 'text', array(
-            'name'  => 'set Before',
-            'label' => $helper->__('add before'),
-        ));
-
         $fieldset3 = $form->addFieldset('display3', array(
             'legend' => $helper->__('Campaign coupons'),
             'class'  => 'fieldset-wide'
@@ -77,9 +62,7 @@ class Tribzi_Catbee_Block_Adminhtml_Form_Edit_Form extends Mage_Adminhtml_Block_
         $form->setValues(array(
                              'storeId' => $helper->getStoreConfig('Store_Id'),
                              'adpterId' => $helper->getStoreConfig('Adpter_Id'),
-                             'apiServer' => $helper->getStoreConfig('api_Server'),
-                             'appendTo' => $helper->getStoreConfig('append_To'),
-                             'setBefore' => $helper->getStoreConfig('set_Before')
+                             'apiServer' => $helper->getStoreConfig('api_Server')
                          ));
 
         return parent::_prepareForm();

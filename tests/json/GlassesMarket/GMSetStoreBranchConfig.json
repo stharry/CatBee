@@ -1,0 +1,22 @@
+{
+    "action": "set config",
+    "context":{
+        "branch":
+        {
+            "shopId" : "2"
+
+        },
+        "widgets":[
+            {
+                "id" : "1",
+                "gui":{
+                    "closeButton": "true",
+                    "appendTo": "col-main",
+                    "setBefore": "buttons-set"
+                }
+            }
+        ]
+
+    }
+
+}

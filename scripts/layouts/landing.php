@@ -6,8 +6,8 @@
     <title><?php echo $GLOBALS[ "page_title" ] ?></title>
 
     <!--Landing common rendering-->
-    <link href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/jquery-ui.css?reload" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/style.css?reload" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/jquery-ui.css<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/style.css<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" rel="stylesheet" type="text/css"/>
     <!--email rendering-->
 
 	<!--[if IE 7]>
@@ -51,9 +51,9 @@
 	<![endif]-->
 	
     <link rel="stylesheet" type="text/css" media="all"
-          href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/emailForm.css?reload">
+          href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/emailForm.css<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>">
     <link rel="stylesheet" type="text/css" media="all"
-          href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/tweetForm.css?reload">
+          href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/tweetForm.css<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>">
 
     <!--Landing common scripts-->
 
@@ -85,7 +85,7 @@
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>jcookie.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>TribZi.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script language="javascript">TribZi.init(<?php echo $p[0]['params'][1]; ?>);</script>
-<!--    <script src="--><?//= $GLOBALS[ "rootPath" ] ?><!--/res/js/CatBee.js?reload" type="text/javascript"></script>-->
+
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>landing.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>pinterest.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>email.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>

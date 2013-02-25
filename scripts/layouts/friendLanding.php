@@ -11,7 +11,7 @@
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/mutate.events.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/mutate.min.js?v=1" type="text/javascript"></script>
 
-    <script src="<?php echo  $GLOBALS[ "rootPath" ] ?>/res/js/jcookie.js?reload" type="text/javascript"></script>
+    <script src="<?php echo  $GLOBALS[ "rootPath" ] ?>/res/js/jcookie.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
 
     <!--
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js?v=1" type="text/javascript"></script>
@@ -21,15 +21,15 @@
         easyXDM.DomHelper.requiresJSON("<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js");
     </script>
 
-    <script src="<?php echo  $GLOBALS[ "rootPath" ] ?>/res/js/TribZi.js?reload" type="text/javascript"></script>
+    <script src="<?php echo  $GLOBALS[ "rootJsPath" ] ?>TribZi.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script language="javascript">TribZi.initFriendDeal(<?php echo $p[0]['params'][2]; ?>);</script>
 
     <script src="<?php echo  $GLOBALS[ "catBeePath" ].'adapters/Installs/shops/'.$p[0]['params'][1]->shopId.'/' ?>friendLanding.js?reload" type="text/javascript"></script>
 
     <!--Landing common rendering-->
-    <link href="<?php echo  $GLOBALS["rootPath"] ?>/res/css/friendLanding.css?reload" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo  $GLOBALS["rootPath"] ?>/res/css/friendLanding.css<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" rel="stylesheet" type="text/css"/>
 	<!--[if IE 7]>
-	<link href="<?php echo $GLOBALS['rootPath']; ?>/res/css/friendLandingIe7.css?reload" rel="stylesheet" type="text/css" />
+	<link href="<?php echo $GLOBALS['rootPath'] ?>/res/css/friendLandingIe7.css?reload" rel="stylesheet" type="text/css" />
 	<![endif]-->
 	<!--[if IE 8]>
 	<link href="<?php echo $GLOBALS['rootPath']; ?>/res/css/friendLandingIe8.css?reload" rel="stylesheet" type="text/css" />

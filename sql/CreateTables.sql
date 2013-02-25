@@ -200,3 +200,9 @@ CREATE TABLE  If NOT EXISTS impression (
   Browser varchar(45) DEFAULT NULL,
   Customer varchar(45) DEFAULT NULL
 );
+
+CREATE TABLE  If NOT EXISTS shopWidgets (
+  branchId INT NOT NULL,
+  widgetId INT NOT NULL,
+  widgetParams TEXT NULL
+);

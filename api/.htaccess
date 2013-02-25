@@ -2,3 +2,6 @@ Order Allow,Deny
 Allow From All
 # Disable directory viewing.
 #Options -All
+<ifModule mod_headers.c>
+    Header set Access-Control-Allow-Origin: *
+</ifModule>

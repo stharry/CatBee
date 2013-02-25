@@ -62,9 +62,8 @@ cbf = {
 
     },
 
-    getDiv: function(str)
-    {
-        if (!cbf.valOrDefault(str,null)) return null;
+    getDiv:function (str) {
+        if (!cbf.valOrDefault(str, null)) return null;
         return cbf.valOrDefault(cbf.byId(str), cbf.byClass(str));
     },
     addDiv:function (id, to, before) {
@@ -79,12 +78,10 @@ cbf = {
 
             var insertBeforeElem = cbf.getDiv(before);
 
-            if (!insertBeforeElem)
-            {
+            if (!insertBeforeElem) {
                 parentElem.appendChild(div);
             }
-            else
-            {
+            else {
                 parentElem.insertBefore(div, insertBeforeElem);
             }
         }
@@ -420,13 +417,12 @@ cbf = {
         }
         var cssFrame = {
 
-            width                  :params.initWidth + 'px',
-            height                 :params.initHeight + 'px'
+            width :params.initWidth + 'px',
+            height:params.initHeight + 'px'
         };
         cbf.css('cbfFrame', cssFrame);
 
-        if (!appendToElem)
-        {
+        if (!appendToElem) {
             var scrW = cbf.viewPort().width;
             var left = Math.round((scrW / 2 - params.initWidth / 2) / scrW * 100);
 
@@ -448,15 +444,14 @@ cbf = {
             }
             cbf.css('cbfFrame', cssFrame);
         }
-        else
-        {
+        else {
 
             var scrW = appendToElem.offsetWidth;
             var left = Math.round((scrW / 2 - params.initWidth / 2) / scrW * 100);
 
             var cssFrame = {
-                position               :'relative',
-                left                   :left + '%'
+                position:'relative',
+                left    :left + '%'
             }
             cbf.css('cbfFrame', cssFrame);
         }
@@ -475,12 +470,10 @@ cbf = {
     },
 
     closeFrame:function () {
-        if (cbf.valOrDefault(cbf.byId('cbfOverlay'), null) == null)
-        {
+        if (cbf.valOrDefault(cbf.byId('cbfOverlay'), null) == null) {
             cbf.css('cbfFrame', {'display':'none'});
         }
-        else
-        {
+        else {
             cbf.css('cbfScreen', {'display':'none'});
             cbf.css('cbfOverlay', {'display':'none'});
         }
@@ -526,29 +519,86 @@ cbf = {
             cbf.buildFrame();
         }
 
+    },
+
+    askApi:function (api, data, callback) {
+        var sharePoint = cbf.getCatBeeUrl() + 'api/' + api + '/';
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                try {
+                    var requestResult = JSON.parse(xmlhttp.responseText);
+
+                    if (callback !== null) {
+                        callback(requestResult);
+                    }
+                }
+                catch (e) {
+                    //alert(e);
+                }
+            }
+        }
+
+        try {
+
+
+            if (data) {
+                var data2Send = data; //todo
+                xmlhttp.open("POST", sharePoint, true);
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xmlhttp.setRequestHeader("Content-Length", data2Send.length);
+                xmlhttp.send(data2Send);
+            }
+            else {
+                xmlhttp.open("GET", sharePoint, true);
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xmlhttp.send();
+            }
+        }
+        catch (e) {
+//            alert(e);
+        }
+
     }
 };
 
 cbWidgets = {
 
-    postPurchaseWidget:function (orderParams, guiParams) {
-        var referralUid = cbf.getCookie('CatBeeRefId');
 
-        if (referralUid) {
-            orderParams.successfulReferral = referralUid;
-        }
+    postPurchaseWidget:function (orderParams) {
 
-        guiParams = cbf.valOrDefault(guiParams, {closeButton : true, appendTo: null, setBefore: null})
-        cbf.setupFrame(
-            {
-                initWidth   :424,
-                initHeight  :372,
-                catbeeAction:'deal',
-                urlParams   :orderParams,
-                closeButton :guiParams.closeButton,
-                appendTo    :guiParams.appendTo,
-                setBefore   :guiParams.setBefore
-            });
+        var askParams = "action=get+config&context%5BshopId%5D=" + orderParams.branch.shopId + "&context%5BwidgetId%5D=1"
+
+        cbf.askApi('store', askParams, function (response) {
+
+            var referralUid = cbf.getCookie('CatBeeRefId');
+            if (referralUid) {
+                orderParams.successfulReferral = referralUid;
+            }
+
+            guiParams = response.length > 0 && cbf.valOrDefault(response[0].gui, null) ? response[0].gui : {closeButton: true, appendTo: null};
+            cbf.setupFrame(
+                {
+                    initWidth   :424,
+                    initHeight  :372,
+                    catbeeAction:'deal',
+                    urlParams   :orderParams,
+                    closeButton :guiParams.closeButton,
+                    appendTo    :guiParams.appendTo,
+                    setBefore   :guiParams.setBefore
+                });
+        });
+
+
     },
 
     welcomeWidget:function () {
