@@ -143,7 +143,7 @@
                                                                                         "style": {
                                                                                             "font-family": "comic sans ms,cursive"
                                                                                         },
-                                                                                        "source": "[reward.friendReward.typeDescription] [reward.friendReward.value]  off",
+                                                                                        "source": " [reward.friendReward.value][reward.friendReward.typeDescription] off",
                                                                                         "type": "text",
                                                                                         "name": "span"
                                                                                     },
@@ -344,7 +344,7 @@
                                                                                                                             "color": "rgb(38, 171, 226)",
                                                                                                                             "font-weight": "normal"
                                                                                                                         },
-                                                                                                                        "source": " to get [reward.friendReward.typeDescription][reward.friendReward.value]!",
+                                                                                                                        "source": " to get [reward.friendReward.value][reward.friendReward.typeDescription]!",
                                                                                                                         "type": "text",
                                                                                                                         "name": "a"
 
