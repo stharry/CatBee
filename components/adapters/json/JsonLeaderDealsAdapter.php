@@ -19,6 +19,7 @@ class JsonLeaderDealsAdapter implements IModelAdapter
             $dealProps = array(
                 'id'       => $deal->id,
                 'date'     => $deal->updateDate,
+                "orderId"  => $deal->order->id,
                 'customer' => array(
                     'email'     => $deal->customer->email,
                     'firstName' => $deal->customer->firstName,
@@ -32,8 +33,8 @@ class JsonLeaderDealsAdapter implements IModelAdapter
             {
                 $leadProps = array(
                     "id"         => $lead->id,
+                    "uid"        => $lead->uid,
                     "status"     => $lead->status,
-                    "orderId"    => $deal->order->id,
                     "shareType"  => ShareContext::id2Type($lead->shareType),
                     "referrals"  => array(),
                     "impression" => array()
@@ -43,7 +44,7 @@ class JsonLeaderDealsAdapter implements IModelAdapter
                 foreach ($lead->impressions as $impression)
                 {
                     $impressionProps = array(
-                        "share" => $lead->id,
+                        "share"          => $lead->id,
                         "ImpressionDate" => $impression
 
                     );
