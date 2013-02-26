@@ -37,6 +37,7 @@ $(document).ready(function () {
                 switchEmailBox();
             }
             showTwitterBox();
+            hidePinterestBox();
         }
         else {
 
@@ -140,7 +141,6 @@ function createTwitterBox() {
 
                     $('#twitterShare').click();
                     $('#emailShare').click();
-                    $('#pinterestShare').click();
 
                 },
                 complete:function (tweetBox) {

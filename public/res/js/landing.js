@@ -252,7 +252,7 @@ $(document).ready(function()
 		$('#message').css('color', '#4F432D');
         if($('.email-form').css('display') == 'none' )
 		{
-
+            hidePinterestBox();
 			hideTwitterBox();
 			$('#share_list').find('li').removeClass('active');
 			//$(this).parent().addClass('active');
