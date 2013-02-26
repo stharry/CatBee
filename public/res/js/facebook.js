@@ -19,6 +19,7 @@ $(document).ready(function () {
         if ($('#emailForm').css('display') != 'none') {
             $('#emailForm').css('display', 'none');
         }
+        hidePinterestBox();
         hideTwitterBox();
         StartFacebookSharing();
     });

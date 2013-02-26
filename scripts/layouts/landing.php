@@ -83,6 +83,9 @@
     <script src="http://connect.facebook.net/en_US/all.js"></script>
 
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>jcookie.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>jquery.jcarousel-core.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>jquery.jcarousel-autoscroll.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
+
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>TribZi.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script language="javascript">TribZi.init(<?php echo $p[0]['params'][1]; ?>);</script>
 
