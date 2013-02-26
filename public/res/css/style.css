@@ -313,6 +313,14 @@ img {
     height: 130px;
 }
 
+.pinterest-form {
+    position: relative;
+    z-index: 0;
+    padding: 20px 40px;
+    margin-top: -7px;
+}
+
+
 .import-contacts {
     font-family: 'Calibri';
     font-size: 11px;
@@ -611,6 +619,7 @@ img {
 
 #pinterestShare {
     margin-right: 7px;
+    background-position: 0px 0px !important;
 }
 #facebookShare {
     margin-right: 7px;
@@ -649,6 +658,13 @@ img {
     overflow: hidden;
 }
 
+#pinterestBox {
+    margin-top: 0;
+    padding: 0px;
+    overflow: hidden;
+}
+
+
 .email-form-fields {
     padding: 20px 40px;
 }
@@ -669,6 +685,10 @@ li.active #twitterShare {
 
 li.active #facebookShare {
     border-bottom: 5px solid #3b5997;
+}
+
+li.active #pinterestShare {
+    border-bottom: 5px solid #cb2028;
 }
 
 #tbox {
