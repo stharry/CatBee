@@ -309,7 +309,7 @@ img {
     height: 50px;
 }
 
-#message, #pinterest-message {
+#message {
     height: 130px;
 }
 
@@ -659,6 +659,7 @@ img {
 }
 
 #pinterestForm {
+    background: url("../images/shadowBg.png") repeat-x scroll 0 0px #F8F7F7;
     margin-top: 0;
     padding: 0px;
     overflow: hidden;
@@ -764,4 +765,74 @@ body {
 textarea {
     font-family: 'allerregular';
     font-size: 15px;
+}
+
+
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+    /* You need at least a height, adjust this to your needs */
+    height: 245px;
+
+}
+
+.jcarousel-container {
+    background: none repeat scroll 0 0 #F0F6F9;
+    border: 1px solid #346F97;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.jcarousel-prev-vertical {
+    background: url("../images/prev-vertical.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 32px;
+    left: 43px;
+    position: absolute;
+    top: 5px;
+    width: 32px;
+}
+
+.jcarousel-prev-disabled-vertical, .jcarousel-prev-disabled-vertical:hover, .jcarousel-prev-disabled-vertical:focus, .jcarousel-prev-disabled-vertical:active {
+    background-position: 0 -96px;
+    cursor: default;
+}
+
+.jcarousel-next-vertical {
+    background: url("../images/next-vertical.png") no-repeat scroll 0 0 transparent;
+    bottom: 5px;
+    cursor: pointer;
+    height: 32px;
+    left: 43px;
+    position: absolute;
+    width: 32px;
+}
+
+.jcarousel ul {
+    width: 80px;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel li {
+    padding:1px;
+    background-color:transparent;
+}
+
+.selected-image {
+    border: 2px solid #021a40;
+}
+
+.unselected-image {
+    border: 2px solid transparent;
+}
+
+#pinterest-message {
+    width: 310px;
+    height: 150px;
+    position: absolute;
+    top: 0px;
+    left:90px;
+    resize: none;
 }

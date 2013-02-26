@@ -72,7 +72,6 @@ function switchToTwitter() {
     setTimeout(function () {
         $('#emailShare').click();
         $('#twitterShare').click();
-        $('#pinterestShare').click();
         $('#tbox').find('iframe').contents().find('#tweet-box').focus();
     }, 500);
 }
