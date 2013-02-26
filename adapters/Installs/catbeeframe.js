@@ -1,7 +1,9 @@
 cbf = {
 
     catBeeHost:function () {
-        return cbf.valOrDefault(cbf.getScriptParams('catbeeframe').host, "http://api.tribzi.com/CatBee/");
+
+        return cbf.valOrDefault(cbfSettings.redirectTo,
+            cbf.valOrDefault(cbf.getScriptParams('catbeeframe').host, "http://api.tribzi.com/CatBee/"));
     },
 
     viewPort:function () {
@@ -47,7 +49,8 @@ cbf = {
         return document.getElementById(str);
     },
 
-    byClass:function (str, parent) {
+    byClassList: function(str, parent)
+    {
         if (parent == null || typeof parent == 'undefined') {
             var descendants = document.getElementsByTagName('*');
         }
@@ -58,6 +61,13 @@ cbf = {
         while (e = descendants[++i]) {
             ((' ' + cbf.valOrDefault(e['class'], e.className) + ' ').indexOf(' ' + str + ' ') > -1) && result.push(e);
         }
+        return result;
+
+    },
+
+    byClass:function (str, parent) {
+
+        var result = cbf.byClassList(str, parent);
         return result.length > 0 ? result[0] : null;
 
     },
@@ -240,7 +250,7 @@ cbf = {
             return args;
         }
         else {
-            return {scriptSource:script_tag.src};
+            return {scriptSource:''};
 
         }
     },
@@ -607,6 +617,8 @@ cbWidgets = {
 };
 
 window.cbf = cbf;
+cbfSettings = {};
+window.cbfSettings = cbfSettings;
 cbf.hasFrame = false;
 
 window.cbWidgets = cbWidgets;
