@@ -62,8 +62,11 @@ $restUtils->SendPostRequest("deal", "", $friendDeal);
 $filter = json_decode(file_get_contents("res/DealByFilter/GetPushDeal1.json"));
 
 $deals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $filter), true);
+
 $order5 = json_decode(file_get_contents("res/DealByFilter/PushDeal5.json"),true);
 $order5['context']['successfulReferral'] = $deals[0]['leads'][0]['uid'];
+
+
 $restUtils->SendPostRequest("deal", "", $order5);
 //
 
@@ -75,7 +78,5 @@ $ResultsFilter = json_decode(file_get_contents("res/DealByFilter/GetCycleResults
 
 $ResultsDeals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $ResultsFilter), true);
 
-echo "Result deals </p>";
-var_dump ($ResultsDeals);
 //Check Results including Impressions
 
