@@ -22,7 +22,7 @@ $filter = json_decode(file_get_contents("res/GetDealsByFullFilter.json"));
 $restUtils = new RestUtils();
 $deals = json_decode($restUtils->SendPostRequestAndReturnResult("deal", "", $filter), true);
 
-if (!$deals[0]['leads'][0]['orders'][0])
+if (!$deals[0]['leads'][0]['referrals'][0])
 {
     throw new Exception('Cannot get successful referrals');
 }
