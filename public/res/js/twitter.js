@@ -140,6 +140,7 @@ function createTwitterBox() {
 
                     $('#twitterShare').click();
                     $('#emailShare').click();
+                    $('#pinterestShare').click();
 
                 },
                 complete:function (tweetBox) {

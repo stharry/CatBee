@@ -309,7 +309,7 @@ img {
     height: 50px;
 }
 
-#message {
+#message, #pinterest-message {
     height: 130px;
 }
 
@@ -349,6 +349,11 @@ img {
     font-weight: bold;
 }
 
+.pinterest-submit-btn {
+    background-image: url(../images/pin_it_submit.png);
+
+}
+/* background-repeat: no-repeat;  ;;;; no-repeat  */
 /* Zoran L */
 .box-wrapper {
     border-top: 1px solid #d8d8d8;
