@@ -1,86 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Closure Compiler Service</title>
-<link rel="stylesheet" href="stylesheets/giffy_css.css" type="text/css">
-
-<script type="text/javascript" src="https://plusone.google.com/js/plusone.js">
-      {lang: 'en-US', parsetags: 'explicit'}
-    </script>
-<script type="text/javascript" src="giffy.js"></script>
-</head>
-<body onload="giffy.main()"><div id="gbar"><span style="white-space:nowrap;vertical-align:middle"><img id="logo" src="images/header.png" align="top" width="16px" height="16px" alt="Closure Compiler logo">
-Closure Compiler</span></div>
-<div id="guser"><div id="plusone-div" style="position:relative; top:3px;"></div>
-<script type="text/javascript">
-         gapi.plusone.render('plusone-div', {size: 'small', count: 'true',
-            href: 'http://closure-compiler.appspot.com/'});
-      </script>
-<a href="http://code.google.com/closure/compiler/docs/gettingstarted_api.html" target="_blank">REST API</a> |
-<a href="http://code.google.com/closure/compiler/docs/gettingstarted_ui.html" target="_blank">Help</a></div>
-<div id="content"><div id="splitpane-container" class="goog-splitpane"><div id="input-pane" class="goog-splitpane-first-container"><form id="compileForm" name="input-options" action="."><table id="input-controls"><tr><th class="input-header">Add a URL:</th>
-<td><div id="library-list" class="use-arrow goog-inline-block"></div>
-<div id="add-url" class="goog-custom-button"><span>Add</span></div>
-<br>
-<span class="example">Example: http://www.example.com/bigfile.js</span></td></tr>
-<tr><th class="input-header">Optimization:</th>
-<td><input id="whitespace_only" value="WHITESPACE_ONLY" name="optimization" type="RADIO">
-<label for="whitespace_only">Whitespace only</label>
-&nbsp;&nbsp;
-<input id="simple_optimizations" value="SIMPLE_OPTIMIZATIONS" name="optimization" type="RADIO" checked>
-<label for="simple_optimizations">Simple</label>
-&nbsp;&nbsp;
-<input id="advanced_optimizations" value="ADVANCED_OPTIMIZATIONS" name="optimization" type="RADIO">
-<label for="advanced_optimizations">Advanced</label></td></tr>
-<tr><th class="input-header"></th>
-<td>&nbsp;&nbsp;
-<a href="http://code.google.com/closure/compiler/docs/compilation_levels.html" target="_blank">Which optimization is right for my code?</a></td></tr>
-<tr><th class="input-header">Formatting:</th>
-<td><input id="pretty_print" type="CHECKBOX">
-<label for="pretty_print">Pretty print</label>
-&nbsp;&nbsp;
-<input id="print_input_delimiter" type="CHECKBOX">
-<label for="print_input_delimiter">Print input delimiter</label></td></tr>
-<tr><th class="input-header">&nbsp;</th>
-<td><div id="compile" class="goog-custom-button"><span class="compile-label">Compile</span></div>
-<span id="reset" class="link">Reset</span></td></tr></table></form>
-<textarea id="source-code" cols="70" rows="15" spellcheck="false">
-// ==ClosureCompiler==
-// @compilation_level SIMPLE_OPTIMIZATIONS
-// @output_file_name default.js
-// ==/ClosureCompiler==
-
-// ADD YOUR CODE HERE
-function hello(name) {
-  alert(&#39;Hello, &#39; + name);
-}
-hello(&#39;New user&#39;);
-
-</textarea></div>
-<div id="output-pane" class="goog-splitpane-second-container"><table><tr><td>&nbsp;</td>
-<td><span id="compile-status-message">&nbsp;</span></td></tr>
-<tr><th>Original Size:</th>
-<td><span id="original-size">&nbsp;</span></td></tr>
-<tr><th class="compiled-size-header">Compiled Size:</th>
-<td><span id="compiled-size">&nbsp;</span></td></tr>
-<tr><th></th>
-<td><span id="compression">&nbsp;</span></td></tr>
-<tr><th></th>
-<td><span id="output-file-link">&nbsp;</span></td></tr></table>
-<br>
-<div id="tabs" class="goog-tab-bar goog-tab-bar-top"><div id="compiled-code" class="goog-tab goog-tab-selected">Compiled Code</div>
-<div id="warnings" class="goog-tab">Warnings</div>
-<div id="errors" class="goog-tab">Errors</div>
-<div id="post-data" class="goog-tab">POST data</div></div>
-<div class="goog-tab-bar-clear"></div>
-<div id="tabs-content" class="goog-tab-content"><div id="output-heading"></div>
-<code id="output-html" class="goog-inline-block">&nbsp;</code></div></div>
-<div class="goog-splitpane-handle" title="Drag to resize"></div></div></div>
-<div id="footer" class="footer">&copy;2009 Google -
-<a href="http://code.google.com/closure/compiler/docs/terms_ui.html">Terms of Service</a> -
-<a href="http://www.google.com/intl/en/privacy.html">Privacy Policy</a> -
-<a href="http://www.google.com">Google Home</a></div>
-<script type="text/javascript" src="//www.google-analytics.com/ga.js"></script>
-<script type="text/javascript">
-    try {
-       _gat._getTracker("UA-7240325-4")._trackPageview();
-    } catch(e) {}
-    </script></body></html>
+TribZi={setupTribZi:function(){"function"!==typeof String.prototype.trim&&(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")});return this},openSocket:function(){this.rpc=new easyXDM.Rpc({},{remote:{resizeFrame:{},closeFrame:{},sendCookieToFrame:{},showAddressBook:{}}});return this},init:function(a){this.deal=a.deal;this.selectedRewardIndex=0;this.targets=[];this.sharedTimes=0;this.sharePoint=a.sharePoint;this.setupTribZi();this.openSocket();return this},initFriendDeal:function(a){this.friendDeal=
+a.friendDeal;this.selectedRewardIndex=0;this.targets=[];this.sharedTimes=0;this.sharePoint=a.sharePoint;this.setupTribZi();this.openSocket();return this},setUid:function(a){this.uid=a;return this},setShareLink:function(a){this.shareLink=a;return this},setRewardIndex:function(a){this.selectedRewardIndex=a;return this},setCustomMessage:function(a){this.deal.landing.customMessage=a;return this},clearTargets:function(){this.targets=[];return this},addTarget:function(a,c,b,f){b={name:b,from:a,to:c,context:{type:f}};
+this.targets.push(b);return this},shortenLink:function(a,c){var b="https://api-ssl.bitly.com/v3/shorten?access_token=57973b2f6a137f2c5f0f4d1b852032c2d3993bcd&longUrl="+encodeURIComponent(a);this.requestAnyData(b,null,function(a){c(a.data.url)})},requestData:function(a,c){return this.requestAnyData(this.sharePoint,a,c)},requestAnyData:function(a,c,b){xmlhttp=window.XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP");xmlhttp.onreadystatechange=function(){if(4==xmlhttp.readyState&&
+200==xmlhttp.status)try{var a=JSON.parse(xmlhttp.responseText);null!==b&&b(a)}catch(c){}};try{if(c){var f=jQuery.param(c);xmlhttp.open("POST",a,!0);xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");xmlhttp.setRequestHeader("Content-Length",f.length);xmlhttp.send(f)}else xmlhttp.open("GET",a,!0),xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),xmlhttp.send()}catch(d){}},doShareAction:function(a,c){var b={action:a,context:{customMessage:this.deal.landing.customMessage,
+deal:this.deal,context:{type:this.targets[0].context.type},reward:this.deal.landing.landingRewards[this.selectedRewardIndex],targets:this.targets}};this.uid&&(b.context.context.uid=this.uid);this.requestData(b,c);return this},share:function(a){this.sharedTimes++;return this.doShareAction("share deal",a)},fillShare:function(a,c){return this.doShareAction("fill share",c)},parseMessage:function(a){for(var c=[{key:"[reward.friendReward.code]",val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.code},
+{key:"[reward.friendReward.value]",val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.value},{key:"[reward.friendReward.typeDescription]",val:this.deal.landing.landingRewards[this.selectedRewardIndex].friendReward.typeDescription},{key:"[context.link]",val:this.shareLink}],b=0;b<c.length;b++)a=a.replace(c[b].key,c[b].val);return a},saveCoupon:function(){$.cookie("CatBeeCpnCod",this.friendDeal.share.reward.friendReward.code);$.cookie("CatBeeCpnVal",this.friendDeal.share.reward.friendReward.value);
+$.cookie("CatBeeRefId",this.friendDeal.share.context.uid);this.rpc.sendCookieToFrame("CatBeeCpnCod",this.friendDeal.share.reward.friendReward.code);this.rpc.sendCookieToFrame("CatBeeCpnVal",this.friendDeal.share.reward.friendReward.value);this.rpc.sendCookieToFrame("CatBeeRefId",this.friendDeal.share.context.uid);return this},getReferral:function(){return $.cookie("CatBeeRefId")},getCouponCode:function(){return $.cookie("CatBeeCpnCod")},getCouponValue:function(){return $.cookie("CatBeeCpnVal")},injectCoupon:function(a){$("#"+
+a).value($.cookie("CatBeeCpnCod"))},getRoot:function(){url=this.sharePoint.toString().replace(/^(.*\/\/[^\/?#]*).*$/,"$1");-1==url.toLowerCase().indexOf("/CatBee")&&(url+="/CatBee");return url},closeFrame:function(){this.rpc.closeFrame();return this},resizeFrame:function(a,c,b){function f(a,b){for(var c=0,d=0;d<b.length;d++){var e;e=$(a).css(b[d]);e="undefined"==typeof e||null==e?"0":e.replace("px","");c+=Math.round(!isNaN(parseFloat(e))&&isFinite(e)?parseFloat(e):0)}return c}var d=b?b:".box";b=Math.round(parseFloat($(d).width()))+
+f(d,["border-left","padding-left","border-right","padding-right"]);d=Math.round(parseFloat($(d).height()))+f(d,["border-top","padding-top","border-bottom","padding-bottom"]);a&&(b+=a);c&&(d+=c);this.rpc.resizeFrame(b,d);return this}};window.TribZi=TribZi;
