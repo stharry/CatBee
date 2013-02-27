@@ -33,6 +33,8 @@ $catBeePath = "/CatBee/";
 $rootPath = $catBeePath."public/";
 $rootJsPath = $rootPath.$catBeeJsFolder;
 
+$hostBase = !empty($_SERVER['HTTPS']) ? 'HTTPS' : 'HTTP';
+
 $restURL = isset($catBeeParams['Rest_url'])
     ? $catBeeParams['Rest_url']
     : getCatBeeHostName();

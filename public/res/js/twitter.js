@@ -1,27 +1,13 @@
-
 $(document).ready(function () {
 
     try {
-        var host = TribZi.getRoot();
-        //load(host + '/public/res/js/min/anywhere.js?id=' +
-        load('http://platform.twitter.com/anywhere.js?id=' +
-            TribZi.deal.twitContext.application.applicationCode + '&v=1')
-            .thenRun(function () {
-                createTwitterBox();
-                hideTwitterBox();
-            });
+        createTwitterBox();
+        hideTwitterBox();
     }
     catch (e) {
         alert(e);
     }
 
-//    TribZi.shortenLink(TribZi.deal.twitContext.link,
-//        function (shortLink) {
-//
-//            TribZi.deal.twitContext.link = shortLink;
-//
-//
-//        });
 
     $("#twitterShare").click(function () {
 
@@ -32,8 +18,7 @@ $(document).ready(function () {
 
             setTwitterMessage();
 
-            if ($('.email-form').css('display') !== 'none')
-            {
+            if ($('.email-form').css('display') !== 'none') {
                 switchEmailBox();
             }
             showTwitterBox();
@@ -53,8 +38,7 @@ $("#twit_it").live('click', function () {
     return false;
 });
 
-function hideTwitterBox()
-{
+function hideTwitterBox() {
     $('#tbox').hide();
     $('#tbox_bottom').hide();
     $('#shadow_div').addClass('inv');
@@ -73,8 +57,7 @@ function showTwitterBox() {
     $('#twitterShare').parent().addClass('active');
 
     var twittFrame = $('#tbox').find('iframe');
-    if (twittFrame.height() == 0)
-    {
+    if (twittFrame.height() == 0) {
         twittFrame.height('217px');
         twittFrame.width('380px');
         $('#tbox').find('iframe').contents().find('#tweet-box').width('368px')
@@ -107,7 +90,7 @@ function createTwitterBox() {
             .parseMessage(TribZi.deal.twitContext.message);
 
         //todo get from application callback
-        twttr.anywhere.config({ callbackURL: "http://api.tribzi.com/CatBee/components/share/twitter/twitterCallback.php" });
+        twttr.anywhere.config({ callbackURL:"http://api.tribzi.com/CatBee/components/share/twitter/twitterCallback.php" });
 
         twttr.anywhere(function (T) {
 
@@ -162,14 +145,12 @@ function createTwitterBox() {
     }
 }
 
-function setTwitterMessage()
-{
+function setTwitterMessage() {
     //todo: ugly, need to code tribzi custom events binding system
 
 
     var twitFrame = $('#tbox').find('iframe');
-    if (twitFrame)
-    {
+    if (twitFrame) {
         var message = TribZi.setShareLink(TribZi.deal.twitContext.link)
             .parseMessage(TribZi.deal.twitContext.message);
 

@@ -62,7 +62,14 @@ class ShareManager implements IShareManager
             ? $deal->campaign->landingUrl
             : $deal->order->branch->adaptor->landingUrl;
 
-        $link = $this->shortenLink($url . '?tribzisid=' . $context->uid);
+        if ($context->application)
+        {
+            $link = $this->shortenLink($url . '?tribzisid=' . $context->uid);
+        }
+        else
+        {
+            $link = $url . '?tribzisid=' . $context->uid;
+        }
 
         RestLogger::log('ShareManager create link', $link);
 
@@ -123,7 +130,8 @@ class ShareManager implements IShareManager
 
                 RestLogger::log('Create message end');
             }
-            else{
+            else
+            {
                 RestLogger::log('ERROR NO available template for message');
             }
         }

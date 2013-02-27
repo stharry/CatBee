@@ -61,10 +61,10 @@ $(document).ready(function () {
             //location of URL parameter
             var loc = val.indexOf('url=');
 
-            var newUrl = encodeURIComponent(TribZi.deal.campaign.landingUrl)
-            var newImg = encodeURIComponent($('.selected-image').children().attr('src'))
-            var newDescrip = encodeURIComponent($('#pinterest-message').val())
-            console.log("returning " + val.substr(0,loc) + newUrl + '&media=' + newImg + '&description' + newDescrip )
+            var newUrl = encodeURIComponent(TribZi.deal.pintContext.link);
+            var newImg = encodeURIComponent($('.selected-image').children().attr('src'));
+            var newDescrip = encodeURIComponent($('#pinterest-message').val());
+            console.log("returning " + val.substr(0,loc) + newUrl + '&media=' + newImg + '&description=' + newDescrip )
             return (val.substr(0,loc + 4) + newUrl + '&media=' + newImg + '&description=' + newDescrip);
         });
 
