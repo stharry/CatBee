@@ -45,7 +45,7 @@ function StartFacebookSharing() {
         };
 
         function callback(response) {
-            if (response === null) {
+            if (response === null || typeof response == 'undefined') {
                 //alert('pizdetc');
             }
             else {

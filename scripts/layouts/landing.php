@@ -80,7 +80,8 @@
         easyXDM.DomHelper.requiresJSON("<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js");
     </script>
 
-    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script src="<?php echo $GLOBALS[ "hostBase" ] ?>://connect.facebook.net/en_US/all.js"></script>
+    <script src="<?php echo $GLOBALS[ "hostBase" ] ?>://platform.twitter.com/anywhere.js?v=1&id=<?php echo $p[0]['params'][0]->twitContext->application->applicationCode; ?>"></script>
 
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>jcookie.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>jquery.jcarousel-core.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
