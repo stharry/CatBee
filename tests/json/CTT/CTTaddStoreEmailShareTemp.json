@@ -72,26 +72,35 @@
                                                         "name": "td",
                                                         "children": [
                                                             {
-                                                                "attrs": {
-                                                                    "alt": "",
-                                                                    "border": "0",
-                                                                    "width": "598",
-                                                                    "height": "98"
-                                                                },
-                                                                "style": {
-                                                                    "border": "px none",
-                                                                    " border-color": "",
-                                                                    " border-style": "none",
-                                                                    " border-width": "px",
-                                                                    " height": "98px",
-                                                                    " width": "598px",
-                                                                    " margin": "0",
-                                                                    " padding": "0",
-                                                                    "padding": "0px"
-                                                                },
-                                                                "source": "http://www.charmstotreasure.com/images/eblast/template/charmstotreasure_eBlast_Logo_HEART.gif",
-                                                                "type": "image",
-                                                                "name": "img"
+
+                                                                "linkSource": "[context.link]",
+                                                                "type": "text",
+                                                                "name": "a",
+                                                                "children": [
+                                                                    {
+                                                                        "source": "http://www.charmstotreasure.com/images/eblast/template/charmstotreasure_eBlast_Logo_HEART.gif",
+                                                                        "type": "image",
+                                                                        "name": "img",
+                                                                        "attrs":
+                                                                        {
+                                                                        "alt": "",
+                                                                        "border": "0",
+                                                                        "width": "598",
+                                                                        "height": "98"
+                                                                        },"style": {
+                                                                        "border": "px none",
+                                                                        " border-color": "",
+                                                                        " border-style": "none",
+                                                                        " border-width": "px",
+                                                                        " height": "98px",
+                                                                        " width": "598px",
+                                                                        " margin": "0",
+                                                                        " padding": "0",
+                                                                        "padding": "0px"
+                                                                    }
+
+                                                                    }
+                                                                ]
                                                             }
                                                         ]
                                                     },
