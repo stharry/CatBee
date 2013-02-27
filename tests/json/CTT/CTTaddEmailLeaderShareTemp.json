@@ -253,59 +253,9 @@
                                                                                                                                                 "style": {
                                                                                                                                                     "font-family": "'comic sans ms', cursive"
                                                                                                                                                 },
-                                                                                                                                                "source": "to claim your Gift Card: [reward.leaderReward.code]",
+                                                                                                                                                "source": "The Gift Card code will be sent in the following week",
                                                                                                                                                 "type": "text",
                                                                                                                                                 "name": "span"
-                                                                                                                                            }
-                                                                                                                                        ]
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        "type": "text",
-                                                                                                                                        "name": "br",
-                                                                                                                                        "children": [
-                                                                                                                                            {
-                                                                                                                                                "style": {
-                                                                                                                                                    "font-size": "60px",
-                                                                                                                                                    " font-weight": "normal",
-                                                                                                                                                    " letter-spacing": "-4px",
-                                                                                                                                                    " line-height": "60px",
-                                                                                                                                                    " margin": "0px 0px 10px",
-                                                                                                                                                    " text-align": "center"
-                                                                                                                                                },
-                                                                                                                                                "source": "\r\n\t\t\t\r\n\t",
-                                                                                                                                                "type": "text",
-                                                                                                                                                "name": "h1",
-                                                                                                                                                "children": [
-                                                                                                                                                    {
-                                                                                                                                                        "attrs": {
-                                                                                                                                                            "target": "_blank"
-                                                                                                                                                        },
-                                                                                                                                                        "style": {
-                                                                                                                                                            "color": "#ff8e6b",
-                                                                                                                                                            "text-decoration": "underline",
-                                                                                                                                                            "font-weight": "normal"
-                                                                                                                                                        },
-                                                                                                                                                        "linkSource": "[deal.order.branch.url]",
-                                                                                                                                                        "type": "text",
-                                                                                                                                                        "name": "a",
-                                                                                                                                                        "children": [
-                                                                                                                                                            {
-                                                                                                                                                                "attrs": {
-                                                                                                                                                                    "align": "none",
-                                                                                                                                                                    "height": "51",
-                                                                                                                                                                    "width": "165"
-                                                                                                                                                                },
-                                                                                                                                                                "style": {
-                                                                                                                                                                    "width": "165px",
-                                                                                                                                                                    " height": "51px"
-                                                                                                                                                                },
-                                                                                                                                                                "source": "http://gallery.mailchimp.com/f503f7e5aac319051c907e2fb/images/Redeem_Now.jpg",
-                                                                                                                                                                "type": "image",
-                                                                                                                                                                "name": "img"
-                                                                                                                                                            }
-                                                                                                                                                        ]
-                                                                                                                                                    }
-                                                                                                                                                ]
                                                                                                                                             }
                                                                                                                                         ]
                                                                                                                                     }
