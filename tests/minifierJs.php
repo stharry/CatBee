@@ -7,7 +7,9 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/CatBee/scripts/globals.php");
 
 $jsFiles = array("TribZi.js", "email.js",
     "facebook.js", "landing.js", "pinterest.js",
-    "twitter.js", "jcookie.js");
+    "twitter.js", "jcookie.js",
+    "jquery.jcarousel-core.js",
+    "jquery.jcarousel-autoscroll.js");
 
 foreach ($jsFiles as $jsFile)
 {
