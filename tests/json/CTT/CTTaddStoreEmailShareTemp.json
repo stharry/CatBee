@@ -72,32 +72,37 @@
                                                         "name": "td",
                                                         "children": [
                                                             {
-
+                                                                "attrs": {
+                                                                    "alt": "",
+                                                                    "border": "0",
+                                                                    "width": "598",
+                                                                    "height": "98"
+                                                                },
+                                                                "style": {
+                                                                    "border": "px none",
+                                                                    " border-color": "",
+                                                                    " border-style": "none",
+                                                                    " border-width": "px",
+                                                                    " height": "98px",
+                                                                    " width": "598px",
+                                                                    " margin": "0",
+                                                                    " padding": "0",
+                                                                    "padding": "0px"
+                                                                },
                                                                 "linkSource": "[context.link]",
                                                                 "type": "text",
                                                                 "name": "a",
                                                                 "children": [
                                                                     {
-                                                                        "source": "http://www.charmstotreasure.com/images/eblast/template/charmstotreasure_eBlast_Logo_HEART.gif",
+                                                                        "source": "[deal.order.branch.logoUrl]",
                                                                         "type": "image",
                                                                         "name": "img",
-                                                                        "attrs":
-                                                                        {
+                                                                        "attrs": {
                                                                         "alt": "",
                                                                         "border": "0",
                                                                         "width": "598",
                                                                         "height": "98"
-                                                                        },"style": {
-                                                                        "border": "px none",
-                                                                        " border-color": "",
-                                                                        " border-style": "none",
-                                                                        " border-width": "px",
-                                                                        " height": "98px",
-                                                                        " width": "598px",
-                                                                        " margin": "0",
-                                                                        " padding": "0",
-                                                                        "padding": "0px"
-                                                                    }
+                                                                                 }
 
                                                                     }
                                                                 ]
@@ -203,94 +208,22 @@
                                                                                                                                     " line-height": "14px",
                                                                                                                                     " color": "rgb(0, 0, 0)"
                                                                                                                                 },
-                                                                                                                                "source": "I just ",
+                                                                                                                                "source": "[customMessage] ",
                                                                                                                                 "type": "text",
-                                                                                                                                "name": "span",
+                                                                                                                                "name": "span"
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "br",
                                                                                                                                 "children": [
                                                                                                                                     {
-                                                                                                                                        "style": {
-                                                                                                                                            "color": "rgb(0, 0, 0)"
-                                                                                                                                        },
                                                                                                                                         "type": "text",
-                                                                                                                                        "name": "span",
-                                                                                                                                        "children": [
-                                                                                                                                            {
-                                                                                                                                                "attrs": {
-                                                                                                                                                    "face": "comic sans ms, cursive"
-                                                                                                                                                },
-                                                                                                                                                "type": "text",
-                                                                                                                                                "name": "font",
-                                                                                                                                                "children": [
-                                                                                                                                                    {
-                                                                                                                                                        "style": {
-                                                                                                                                                            "font-size": "14px",
-                                                                                                                                                            " line-height": "14px"
-                                                                                                                                                        },
-                                                                                                                                                        "source": "bought ",
-                                                                                                                                                        "type": "text",
-                                                                                                                                                        "name": "span"
-                                                                                                                                                    },
-                                                                                                                                                    {
-                                                                                                                                                        "attrs": {
-                                                                                                                                                            "face": "Comic Sans MS",
-                                                                                                                                                            "size": "2"
-                                                                                                                                                        },
-                                                                                                                                                        "type": "text",
-                                                                                                                                                        "name": "font",
-                                                                                                                                                        "children": [
-                                                                                                                                                            {
-                                                                                                                                                                "style": {
-                                                                                                                                                                    "line-height": "normal",
-                                                                                                                                                                    " white-space": "pre-wrap"
-                                                                                                                                                                },
-                                                                                                                                                                "source": "at",
-                                                                                                                                                                "type": "text",
-                                                                                                                                                                "name": "span"
-                                                                                                                                                            }
-                                                                                                                                                        ]
-                                                                                                                                                    }
-                                                                                                                                                ]
-                                                                                                                                            },
-                                                                                                                                            {
-                                                                                                                                                "style": {
-                                                                                                                                                    "font-family": "'comic sans ms', cursive",
-                                                                                                                                                    " font-size": "14px",
-                                                                                                                                                    " line-height": "14px"
-                                                                                                                                                },
-                                                                                                                                                "type": "text",
-                                                                                                                                                "name": "span",
-                                                                                                                                                "children": [
-                                                                                                                                                    {
-                                                                                                                                                        "style": {
-                                                                                                                                                            "color": "rgb(0, 0, 0)"
-                                                                                                                                                        },
-                                                                                                                                                        "source": "CharmsToTreasure.com",
-                                                                                                                                                        "type": "text",
-                                                                                                                                                        "name": "span",
-                                                                                                                                                        "children": [
-                                                                                                                                                            {
-                                                                                                                                                                "source": "\r\n\t\tThey gave me a special friend-only gift to share with you.\r",
-                                                                                                                                                                "type": "text",
-                                                                                                                                                                "name": "br"
-                                                                                                                                                            },
-                                                                                                                                                            {
-                                                                                                                                                                "source": "\r\n\t\t",
-                                                                                                                                                                "type": "text",
-                                                                                                                                                                "name": "br"
-                                                                                                                                                            }
-                                                                                                                                                        ]
-                                                                                                                                                    },
-                                                                                                                                                    {
-                                                                                                                                                        "source": "\r\n\t\t",
-                                                                                                                                                        "type": "text",
-                                                                                                                                                        "name": "br"
-                                                                                                                                                    }
-                                                                                                                                                ]
-                                                                                                                                            }
-                                                                                                                                        ]
+                                                                                                                                        "name": "br"
                                                                                                                                     }
                                                                                                                                 ]
+
                                                                                                                             }
+
                                                                                                                         ]
                                                                                                                     }
                                                                                                                 ]

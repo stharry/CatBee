@@ -83,6 +83,7 @@ class RestUtils
 
     public static function SendFreePostRequest($url, $obj)
     {
+        set_time_limit(0);
         $postData = http_build_query($obj);
 
         $ch = curl_init($url);

@@ -61,7 +61,7 @@ function CreateAndInitializeEmailForm() {
             }
             TribZi.share(null); //Increment the number of shares
 
-            showSuccess('Your message has been sent! Your coupon for next purchase is on the way! Keep on sharing');
+            showSuccess('Your message has been sent! Your reward for next purchase is on the way! Keep on sharing');
 
             switchToTwitter();
          }
