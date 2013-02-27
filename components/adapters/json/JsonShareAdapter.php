@@ -10,9 +10,9 @@ class JsonShareAdapter implements IModelAdapter
     function __construct()
     {
         $this->jsonShareContextAdapter = new JsonShareContextAdapter();
-        $this->jsonRewardAdapter = new JsonLandingRewardAdapter();
-        $this->jsonDealAdapter = new JsonLeaderDealAdapter();
-        $this->targetAdapter = new JsonShareTargetAdapter();
+        $this->jsonRewardAdapter       = new JsonLandingRewardAdapter();
+        $this->jsonDealAdapter         = new JsonLeaderDealAdapter();
+        $this->targetAdapter           = new JsonShareTargetAdapter();
 
     }
 
@@ -20,14 +20,16 @@ class JsonShareAdapter implements IModelAdapter
     {
         //todo add targets
         return array(
-            'id' => $obj->id,
-            'status' => $obj->status,
-            'message' => $obj->message,
+            'id'            => $obj->id,
+            'status'        => $obj->status,
+            'message'       => $obj->message,
             'customMessage' => $obj->customMessage,
-            'subject' => $obj->subject,
-            'context' => $this->jsonShareContextAdapter->toArray($obj->context),
-            'reward' => $this->jsonRewardAdapter->toArray($obj->reward),
-        );
+            'subject'       => $obj->subject,
+            'context'       => $this->jsonShareContextAdapter->toArray($obj->context),
+            'reward'        => $this->jsonRewardAdapter->toArray($obj->reward),
+            'urlShare'      => $obj->urlShare
+    );
+
     }
 
     public function fromArray($obj)
@@ -35,13 +37,15 @@ class JsonShareAdapter implements IModelAdapter
         $share = new Share();
 
         RestLogger::log("1");
-        $share->id = $obj['id'];
-        $share->status = $obj['status'];
-        $share->message = $obj["message"];
+        $share->id            = $obj['id'];
+        $share->status        = $obj['status'];
+        $share->message       = $obj["message"];
         $share->customMessage = $obj["customMessage"];
-        $share->subject = $obj["subject"];
-        $share->context = $this->jsonShareContextAdapter->fromArray($obj["context"]);
-        $share->reward = $this->jsonRewardAdapter->fromArray($obj["reward"]);
+        $share->subject       = $obj["subject"];
+        $share->urlShare      = $obj["urlShare"];
+        $share->context       = $this->jsonShareContextAdapter->fromArray($obj["context"]);
+        $share->reward        = $this->jsonRewardAdapter->fromArray($obj["reward"]);
+
 
         RestLogger::log("2");
         if (isset($obj['deal']))
@@ -55,6 +59,7 @@ class JsonShareAdapter implements IModelAdapter
         {
             array_push($share->targets, $this->targetAdapter->fromArray($target));
         }
+
         return $share;
     }
 }

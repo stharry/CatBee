@@ -1,9 +1,8 @@
 TribZi = {
 
-    setupTribZi: function()
-    {
-        if(typeof String.prototype.trim !== 'function') {
-            String.prototype.trim = function() {
+    setupTribZi:function () {
+        if (typeof String.prototype.trim !== 'function') {
+            String.prototype.trim = function () {
                 return this.replace(/^\s+|\s+$/g, '');
             }
         }
@@ -175,6 +174,7 @@ TribZi = {
                     type:this.targets[0].context.type
                 },
                 reward       :this.deal.landing.landingRewards[this.selectedRewardIndex],
+                urlShare     :this.deal.urlShareContext.link,
                 targets      :this.targets
             }
         };

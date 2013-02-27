@@ -25,6 +25,7 @@ class LeaderDeal
     public $fbcContext;//social application details for facebook. Used in the facebook.js only
     public $twitContext;//same for twitter
     public $pintContext;//same for pinterest
+    public $urlShareContext;//same for copies link
     public $initDate;
     public $leads;
 }

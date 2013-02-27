@@ -49,8 +49,7 @@ cbf = {
         return document.getElementById(str);
     },
 
-    byClassList: function(str, parent)
-    {
+    byClassList:function (str, parent) {
         if (parent == null || typeof parent == 'undefined') {
             var descendants = document.getElementsByTagName('*');
         }
@@ -586,16 +585,8 @@ cbWidgets = {
 
     postPurchaseWidget:function (orderParams) {
 
-        var askParams = "action=get+config&context%5BshopId%5D=" + orderParams.branch.shopId + "&context%5BwidgetId%5D=1"
-
-        cbf.askApi('store', askParams, function (response) {
-
-            var referralUid = cbf.getCookie('CatBeeRefId');
-            if (referralUid) {
-                orderParams.successfulReferral = referralUid;
-            }
-
-            guiParams = response.length > 0 && cbf.valOrDefault(response[0].gui, null) ? response[0].gui : {closeButton: true, appendTo: null};
+        function callFrame(orderParams, guiParams)
+        {
             cbf.setupFrame(
                 {
                     initWidth   :424,
@@ -606,8 +597,28 @@ cbWidgets = {
                     appendTo    :guiParams.appendTo,
                     setBefore   :guiParams.setBefore
                 });
-        });
+        }
 
+        var referralUid = cbf.getCookie('CatBeeRefId');
+        if (referralUid) {
+            orderParams.successfulReferral = referralUid;
+        }
+
+
+        if (cbf.valOrDefault(cbfSettings.gui, null)) {
+            callFrame(orderParams, cbfSettings.gui);
+        }
+        else {
+            var askParams = "action=get+config&context%5BshopId%5D=" + orderParams.branch.shopId + "&context%5BwidgetId%5D=1";
+            cbf.askApi('store', askParams, function (response) {
+
+                guiParams = response.length > 0 && cbf.valOrDefault(response[0].gui, null)
+                    ? response[0].gui
+                    : {closeButton:true, appendTo:null};
+
+                callFrame(orderParams, guiParams);
+            });
+        }
 
     },
 

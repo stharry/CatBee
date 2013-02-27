@@ -59,12 +59,9 @@ function StartFacebookSharing() {
                     .setRewardIndex($("#slider").slider("value"))
 
                 if (TribZi.sharedTimes == 0) {
-                    TribZi.addTarget(
-                        TribZi.deal.order.branch.email,
-                        TribZi.deal.order.customer.email,
-                        'leader', 'email');
+                    TribZi.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email')
+                        .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'friend', 'urlShare');
                 }
-                ;
 
                 TribZi.share();
 

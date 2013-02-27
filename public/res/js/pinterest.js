@@ -80,7 +80,8 @@ $(document).ready(function () {
             .setUid(TribZi.deal.pintContext.uid);
 
         if (TribZi.sharedTimes == 0) {
-            TribZi.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email');
+            TribZi.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email')
+                .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'friend', 'urlShare');
 
         }
 

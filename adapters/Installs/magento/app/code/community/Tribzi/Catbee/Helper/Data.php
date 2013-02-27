@@ -16,10 +16,11 @@ class Tribzi_Catbee_Helper_Data extends Mage_Core_Helper_Abstract
         $catBeeClient = new CatBeeClient();
         $catBeeClient->setServer($apiServer);
 
-        $catBeeClient->setShop(
-            $this->getStoreConfig('Store_Id'),
-            $this->getStoreConfig('Adpter_Id'));
+        $storeId = $this->getStoreConfig('Store_Id');
+        $adapterId = $this->getStoreConfig('Adpter_Id');
+        $catBeeClient->setShop($storeId, $adapterId);
 
+        Mage::log('Tribzi client created. server: '.$apiServer.' shop: '.$storeId.' adapter: '.$adapterId);
         return $catBeeClient;
     }
 
@@ -30,22 +31,37 @@ class Tribzi_Catbee_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getCampaigns()
     {
+        $mageArray[] = array('value' => '',
+                             'label' => '<none>');
+
+        $c = $this->getStoreConfig('Store_Id');
+        $d = $this->getStoreConfig('Adpter_Id');
+        if (!$c || !$d)
+        {
+            return $mageArray;
+        }
 
         $campaigns = $this->getCatBeeClient()->getCampaigns();
 
         if ($campaigns)
         {
-            $arr = Mage::helper('core')->jsonDecode($campaigns);
-
-            $mageArray[] = array('value' => '',
-                                 'label' => '<none>');
-
-            foreach ($arr as $campaign)
+            try
             {
-                $mageArray[] = array('value' => $campaign['code'],
-                                     'label' => $campaign['description']);
-            }
+                Mage::log('Tribzi campaigns: '.$campaigns);
 
+                $arr = Mage::helper('core')->jsonDecode($campaigns);
+
+
+                foreach ($arr as $campaign)
+                {
+                    $mageArray[] = array('value' => $campaign['code'],
+                                         'label' => $campaign['description']);
+                }
+            }
+            catch (Exception $e)
+            {
+                return $mageArray;
+            }
             return $mageArray;
         }
 

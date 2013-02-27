@@ -13,9 +13,6 @@ $(document).ready(function () {
 
         if ($('#tbox').css('display') == 'none') {
 
-            //createTwitterBox();
-
-
             setTwitterMessage();
 
             if ($('.email-form').css('display') !== 'none') {
@@ -114,7 +111,9 @@ function createTwitterBox() {
                         .setUid(TribZi.deal.twitContext.uid);
 
                     if (TribZi.sharedTimes == 0) {
-                        TribZi.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email');
+                        TribZi
+                            .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email')
+                            .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'friend', 'urlShare');
 
                     }
 

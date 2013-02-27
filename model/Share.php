@@ -51,6 +51,7 @@ class Share
     public $targets;
     public $currentTarget;
     public $status;
+    public $urlShare;
     public $impressions;
     public $successfulReferrals;
 

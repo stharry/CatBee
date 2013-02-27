@@ -17,6 +17,8 @@ class Tribzi_Catbee_Adminhtml_CatbeeadminController extends Mage_Adminhtml_Contr
         foreach ($post as $key => $value)
         {
             Mage::helper('Tribzi_Catbee')->setStoreConfig($key, $value);
+
+            Mage::log('Saving tribzi config: ' . $key.' value: '.$value);
         }
 
 
@@ -24,6 +26,9 @@ class Tribzi_Catbee_Adminhtml_CatbeeadminController extends Mage_Adminhtml_Contr
         {
             $campaign = Mage::helper('Tribzi_Catbee')->getCampaign($post['campaign']);
             $this->create_coupon($campaign);
+        }
+        else{
+            Mage::log('There is no tribzi campaign to save');
         }
     }
 

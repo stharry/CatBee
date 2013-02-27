@@ -98,6 +98,10 @@ class ShareManager implements IShareManager
                 return new PlainTextTemplateDecorator();
             case 3:
                 return new PlainTextTemplateDecorator();
+            case 4:
+                return new PlainTextTemplateDecorator();
+            case 5:
+                return new PlainTextTemplateDecorator();
             case 1024:
                 return new HtmlTemplateDecorator();
             default:
@@ -154,6 +158,10 @@ class ShareManager implements IShareManager
                 return new FacebookShareProvider(new PdoAuthorizationDao());
             case 3:
                 return new TwitterShareProvider();
+            case 4:
+                return new PinterestShareProvider();
+            case 4:
+                return new UrlShareProvider();
             case 1024:
                 return new TribziShareProvider();
             default:
@@ -374,13 +382,16 @@ class ShareManager implements IShareManager
         //todo: put strategy class here
         if (count($shareTemplates) == 0)
         {
-            die ("There is no any share template for given store");
+            RestLogger::log("WARNING!. There is no any share template for given store");
         }
+        else
+        {
 
-        $shareTemplate          = $shareTemplates[0];
-        $context->message       = $shareTemplate->message;
-        $context->customMessage = $shareTemplate->customMessage;
-        $context->link          = $this->createShareLink($deal, $context);
+            $shareTemplate          = $shareTemplates[0];
+            $context->message       = $shareTemplate->message;
+            $context->customMessage = $shareTemplate->customMessage;
+        }
+        $context->link = $this->createShareLink($deal, $context);
     }
 
     public function addDealShare($share)

@@ -12,6 +12,8 @@ class LeaderDealFilter
         $this->AddToShareTypeArray($ShareTypeTwt);
         $ShareTypePnt = new ShareType("pinterest");
         $this->AddToShareTypeArray($ShareTypePnt);
+        $ShareTypePnt = new ShareType("urlShare");
+        $this->AddToShareTypeArray($ShareTypePnt);
 
     }
     public function AddToShareTypeArray($shareType)

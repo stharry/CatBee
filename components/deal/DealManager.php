@@ -37,7 +37,8 @@ class DealManager implements IDealManager
     {
         $clientContexts = array('facebook'  => 'fbcContext',
                                 'twitter'   => 'twitContext',
-                                'pinterest' => 'pintContext'
+                                'pinterest' => 'pintContext',
+                                'urlShare'  => 'urlShareContext',
         );
 
         foreach ($clientContexts as $ctxKey => $ctxProp)

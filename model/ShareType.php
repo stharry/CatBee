@@ -21,6 +21,10 @@ class ShareType
                 $this->type = 4;
                 break;
 
+            case  "urlShare":
+                $this->type = 5;
+                break;
+
             case  "tribzi":
                 $this->type = 1024;
                 break;
