@@ -110,13 +110,6 @@ function createTwitterBox() {
                         .setRewardIndex($("#slider").slider("value"))
                         .setUid(TribZi.deal.twitContext.uid);
 
-                    if (TribZi.sharedTimes == 0) {
-                        TribZi
-                            .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email')
-                            .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'friend', 'urlShare');
-
-                    }
-
                     TribZi.share(null);
 
                     showSuccess('Thanks For Tweeting! Your Coupon for next purchase is on the way! Keep on sharing');

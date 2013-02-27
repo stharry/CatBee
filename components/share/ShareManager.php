@@ -160,7 +160,7 @@ class ShareManager implements IShareManager
                 return new TwitterShareProvider();
             case 4:
                 return new PinterestShareProvider();
-            case 4:
+            case 5:
                 return new UrlShareProvider();
             case 1024:
                 return new TribziShareProvider();
@@ -185,14 +185,16 @@ class ShareManager implements IShareManager
         if (count($shareTemplates) == 0)
         {
             RestLogger::log('ERROR', "There is no any share template for given store");
-            die ("There is no any share template for given store");
+        }
+        else
+        {
+            $this->createMessage($share, $shareTemplates[0]);
         }
         $share->context->link = $this->createShareLink($share->deal, $share->context);
 
         $this->validateCustomer($share->currentTarget->from);
         $this->validateCustomer($share->currentTarget->to);
 
-        $this->createMessage($share, $shareTemplates[0]);
 
         $this->landingRewardDao->fillLandingRewardById($share->reward);
 

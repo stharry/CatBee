@@ -191,8 +191,22 @@ TribZi = {
 
     share:function (callback) {
 
+        if (this.sharedTimes == 0) {
+            this.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email');
+        }
+
+        this.doShareAction('share deal', callback);
+
+        if (this.sharedTimes == 0) {
+            this.clearTargets()
+                .addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'friend', 'urlShare')
+                .setUid(TribZi.deal.urlShareContext.uid)
+                .doShareAction('share deal', null);
+        }
+
         this.sharedTimes++;
-        return this.doShareAction('share deal', callback);
+
+        return this;
     },
 
     fillShare:function (context, callback) {

@@ -22,7 +22,7 @@ class ShareContext
                 $this->id = 4;
                 break;
 
-            case  "urlShare":
+            case  "urlshare":
                 $this->id = 5;
                 break;
 
