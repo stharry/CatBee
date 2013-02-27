@@ -134,7 +134,7 @@
                         "leaderReward":{
                             "description":"You get",
                             "value":"4",
-                            "type":"coupon",
+                            "type":"Gift Card",
                             "code":"",
                             "typeDescription": "$"
 
