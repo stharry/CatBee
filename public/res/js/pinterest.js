@@ -54,6 +54,9 @@ $(document).ready(function () {
     $('#pinterestSubmit').click(function(event) {
 
         event.preventDefault();
+
+        var message = $('#pinterest-message').text();
+
         $('a#pinterestSubmit').attr('href', function(index, val) {
 
             //Format of URL parameters: url=&media=&description=
@@ -64,11 +67,25 @@ $(document).ready(function () {
             var newUrl = encodeURIComponent(TribZi.deal.pintContext.link);
             var newImg = encodeURIComponent($('.selected-image').children().attr('src'));
             var newDescrip = encodeURIComponent($('#pinterest-message').val());
-            console.log("returning " + val.substr(0,loc) + newUrl + '&media=' + newImg + '&description=' + newDescrip )
-            return (val.substr(0,loc + 4) + newUrl + '&media=' + newImg + '&description=' + newDescrip);
+            console.log("returning " + val.substr(0,loc) + newUrl + '&media=' + newImg + '&description=' + message )
+            return (val.substr(0,loc + 4) + newUrl + '&media=' + newImg + '&description=' + message);
         });
 
         window.open($('a#pinterestSubmit').attr('href'), "Pinterest", "width=690,height=255");
+
+        TribZi.clearTargets()
+            .addTarget(TribZi.deal.order.customer.email, TribZi.deal.order.customer.email, 'friend', 'pinterest')
+            .setCustomMessage(message)
+            .setRewardIndex($("#slider").slider("value"))
+            .setUid(TribZi.deal.pintContext.uid);
+
+        if (TribZi.sharedTimes == 0) {
+            TribZi.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email');
+
+        }
+
+        TribZi.share(null);
+
     });
 
 
@@ -122,4 +139,11 @@ function createPinterestBox() {
 
 }
 
+function setPinterestMessage()
+{
+    var message = TribZi.setShareLink(TribZi.deal.pintContext.link)
+        .parseMessage(TribZi.deal.pintContext.message);
+
+    $('#pinterest-message').text(message);
+}
 

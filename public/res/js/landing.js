@@ -348,6 +348,7 @@ function updateRewards(sliderVal) {
     TribZi.setRewardIndex(sliderVal);
 
     setTwitterMessage();
+    setPinterestMessage();
 }
 function updateBoxPosition(){
     //Get the window height and width
