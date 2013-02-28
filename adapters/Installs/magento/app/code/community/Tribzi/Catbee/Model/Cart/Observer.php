@@ -24,7 +24,7 @@ class Tribzi_Catbee_Model_Cart_Observer
                 'email' => $order->getCustomerEmail(),
                 'firstName' => $order->getCustomerName()),
             'branch'   => array(
-                'shopId' => Mage::getStoreConfig('tribzi/tribziGlobal/shopId'))
+                'shopId' => Mage::helper('Tribzi_Catbee')->getStoreConfig('Store_Id'))
 
 //            'icnt'     => 1, //count($items),
 //            'i0upc'    => $prod->getSku(),
