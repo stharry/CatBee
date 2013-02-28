@@ -87,7 +87,7 @@ function createTwitterBox() {
             .parseMessage(TribZi.deal.twitContext.message);
 
         //todo get from application callback
-        var backUrl = location.origin + "/CatBee/components/share/twitter/twitterCallback.php";
+        var backUrl = window.location.protocol + '//' + window.location.host + "/CatBee/components/share/twitter/twitterCallback.php";
         twttr.anywhere.config({ callbackURL: backUrl });
 
         twttr.anywhere(function (T) {

@@ -7,6 +7,8 @@ class Tribzi_Catbee_Block_Footerscripts extends Mage_Core_Block_Template
 {
     protected function _beforeToHtml()
     {
+        Mage::log('Tribzi_Catbee_Block_Footerscripts _beforeToHtml');
+
         $uriPrefix = Mage::helper('Tribzi_Catbee')->getApiServer();
 
         $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/catbeeframe.js?host='.$uriPrefix.'/CatBee/';
