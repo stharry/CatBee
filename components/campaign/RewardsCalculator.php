@@ -4,7 +4,7 @@ class RewardsCalculator
 {
     private $deal;
     private static $GIFT_CARD_AMOUNT_OFF = 'amount off gift';
-    private static $GIFT_CARD = 'gift card';
+    private static $GIFT_CARD = 'Gift Card';
 
     function __construct($deal)
     {
@@ -15,7 +15,8 @@ class RewardsCalculator
     {
         if (strtolower($reward->type) == RewardsCalculator::$GIFT_CARD_AMOUNT_OFF)
         {
-            $reward->value = round($this->deal->amount / $reward->value * 100);
+            RestLogger::log('calculator '.$this->deal->order->amount.' val: '.$reward->value);
+            $reward->value = max(round($this->deal->order->amount / 100 * $reward->value), 5);
             $reward->type = RewardsCalculator::$GIFT_CARD;
         }
 
