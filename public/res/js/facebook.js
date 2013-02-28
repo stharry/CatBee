@@ -60,7 +60,7 @@ function StartFacebookSharing() {
 
                 TribZi.share();
 
-                showSuccess('Thanks For Sharing! Your Coupon for next purchase is on the way - Keep on sharing');
+                showSuccess('Thanks For Sharing! Your reward for next purchase is on the way - Keep on sharing');
 
                 $('#emailShare').click();
             }

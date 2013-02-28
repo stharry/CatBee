@@ -113,7 +113,7 @@ function createTwitterBox() {
 
                     TribZi.share(null);
 
-                    showSuccess('Thanks For Tweeting! Your Coupon for next purchase is on the way! Keep on sharing');
+                    showSuccess('Thanks For Tweeting! Your reward for next purchase is on the way! Keep on sharing');
 
                     $('#twitterShare').click();
                     $('#emailShare').click();

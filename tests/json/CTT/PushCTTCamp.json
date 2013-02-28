@@ -32,7 +32,7 @@
                         "leaderReward":{
                             "description":"You get",
                             "value":"10",
-                            "type":"Gift Card",
+                            "type":"Amount off Gift",
                             "code":"",
                             "typeDescription": "$"
 
@@ -49,7 +49,7 @@
                         "leaderReward":{
                             "description":"You get",
                             "value":"9",
-                            "type":"Gift Card",
+                            "type":"Amount off Gift",
                             "code":"",
                             "typeDescription": "$"
 
@@ -83,7 +83,7 @@
                         "leaderReward":{
                             "description":"You get",
                             "value":"7",
-                            "type":"Gift Card",
+                            "type":"Amount off Gift",
                             "code":"",
                             "typeDescription": "$"
 
@@ -100,7 +100,7 @@
                         "leaderReward":{
                             "description":"You get",
                             "value":"6",
-                            "type":"Gift Card",
+                            "type":"Amount off Gift",
                             "code":"",
                             "typeDescription": "$"
 
@@ -117,7 +117,7 @@
                         "leaderReward":{
                             "description":"You get",
                             "value":"5",
-                            "type":"Gift Card",
+                            "type":"Amount off Gift",
                             "code":"",
                             "typeDescription": "$"
 
@@ -134,7 +134,7 @@
                         "leaderReward":{
                             "description":"You get",
                             "value":"4",
-                            "type":"Gift Card",
+                            "type":"Amount off Gift",
                             "code":"",
                             "typeDescription": "$"
 
