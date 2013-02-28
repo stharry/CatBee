@@ -66,9 +66,24 @@
                                                             " padding": "0",
                                                             "padding": "0px"
                                                         },
-                                                        "source": "[deal.order.branch.logoUrl]",
-                                                        "type": "image",
-                                                        "name": "img"
+                                                        "linkSource": "[deal.order.branch.url]",
+                                                        "type": "text",
+                                                        "name": "a",
+                                                        "children": [
+                                                            {
+                                                                "source": "[deal.order.branch.logoUrl]",
+                                                                "type": "image",
+                                                                "name": "img",
+                                                                "attrs": {
+                                                                    "alt": "",
+                                                                    "border": "0",
+                                                                    "width": "598",
+                                                                    "height": "98"
+                                                                }
+
+                                                            }
+                                                                ]
+
                                                     }
                                                 ]
                                             },
