@@ -81,6 +81,8 @@ $(document).ready(function () {
 
         TribZi.share(null);
 
+        showSuccess('Thanks For sharing! Your reward for next purchase is on the way!');
+
     });
 
 
