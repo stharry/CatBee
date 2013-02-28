@@ -46,6 +46,8 @@ class Tribzi_Catbee_Model_Cart_Observer
         }
         $catBeeArray['items'] = $cbItems;
         Mage::getSingleton('checkout/session')->setData('catbee', $catBeeArray);
+
+        Mage::log('Cat Bee observer - data set');
     }
 }
 
