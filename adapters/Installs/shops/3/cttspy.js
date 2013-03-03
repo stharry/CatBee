@@ -19,8 +19,6 @@ function checkPages() {
                 var ind = items[i].innerText.indexOf('Product ID: ');
                 if (ind > 0) {
                     codes.push(items[i].innerText.substr(ind + 12, 9));
-                    alert(ind);
-                    alert(items[i].innerText);
                 }
             }
         }
@@ -44,7 +42,7 @@ function checkPages() {
         setOrderProp('address_name');
         setOrderProp('email');
     }
-    else if (cbf.valOrDefault(uriParams.p, '') == 'complete') {
+    else if (cbf.valOrDefault(uriParams.p, '') == 'completed') {
         showPPWidget();
     }
 

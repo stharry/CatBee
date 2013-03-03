@@ -422,7 +422,16 @@ cbf = {
             }
         }
         else {
-            cbf.addDiv('cbfFrame', params.appendTo, params.setBefore).addDiv('cbfContainer', 'cbfFrame');
+            var cbfFrame = cbf.byId('cbfFrame');
+            if (cbfFrame !== null)
+            {
+                //add code to remove children, if exists
+            }
+            else
+            {
+                cbfFrame = cbf.addDiv('cbfFrame', params.appendTo, params.setBefore);
+            }
+            cbfFrame.addDiv('cbfContainer', 'cbfFrame');
         }
         var cssFrame = {
 
@@ -502,25 +511,24 @@ cbf = {
             if (typeof JSON == 'undefined') {
                 var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/json2.min.js";
                 cbf.loadScript(jsSrc);
-
             }
-            var jsSrc = "https://api.cloudsponge.com/address_books.js";
+
+            var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.js?reload";
             cbf.loadScript(jsSrc, function () {
-
-                cloudsponge.init({
-                    domain_key         :"RFULLDSNJ8E62YBDLS7S",
-                    afterSubmitContacts:function (array_of_contacts) {
-                        alert(1);
-                    }
-                })
-                var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/easyXDM.js?reload";
-                cbf.loadScript(jsSrc, function () {
-                    //cbf.loadCss(cbf.getCatBeeUrl() + "adapters/Installs/style/catbeeframe.css");
-                    cbf.buildFrame();
-                });
-
-
+                //cbf.loadCss(cbf.getCatBeeUrl() + "adapters/Installs/style/catbeeframe.css");
+                cbf.buildFrame();
             });
+
+//            var jsSrc = "https://api.cloudsponge.com/address_books.js";
+//            cbf.loadScript(jsSrc, function () {
+//
+//                cloudsponge.init({
+//                    domain_key         :"RFULLDSNJ8E62YBDLS7S",
+//                    afterSubmitContacts:function (array_of_contacts) {
+//                        alert(1);
+//                    }
+//                })
+//            });
 
 
         }
@@ -531,6 +539,12 @@ cbf = {
     },
 
     askApi:function (api, data, callback) {
+
+        if (typeof JSON == 'undefined') {
+            var jsSrc = cbf.getCatBeeUrl() + "public/res/js/min/json2.min.js";
+            cbf.loadScript(jsSrc);
+        }
+
         var sharePoint = cbf.getCatBeeUrl() + 'api/' + api + '/';
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -563,7 +577,6 @@ cbf = {
                 xmlhttp.open("POST", sharePoint, true);
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-                xmlhttp.setRequestHeader("Content-Length", data2Send.length);
                 xmlhttp.send(data2Send);
             }
             else {

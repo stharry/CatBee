@@ -48,7 +48,7 @@ $(document).ready(function () {
 
     //highlight first item
     if ($("ul.jcarousel-list li").length >= 1) {
-        $("ul.jcarousel-list li")[0].click();
+        $("ul.jcarousel-list li:first").click();
     }
 
     $('#pinterestSubmit').click(function(event) {

@@ -606,7 +606,7 @@ img {
     float: left;
     display: block;
     position: relative;
-    right: 50%;
+    /*right: 50%;*/
 }
 
 #share_list a {
@@ -617,18 +617,22 @@ img {
     background: url(../images/shareSprite2.png) no-repeat;
 }
 
+#share_list {
+    margin-left: 5px;
+}
+
 #pinterestShare {
-    margin-right: 7px;
+    margin-right: 5px;
     background-position: 0px 0px !important;
 }
 #facebookShare {
-    margin-right: 7px;
+    margin-right: 5px;
     background-position: -99px 0px !important;
 }
 
 #twitterShare {
     background-position: -198px 0px !important;
-    margin-right: 7px;
+    margin-right: 5px;
 }
 
 #emailShare {
@@ -646,7 +650,7 @@ img {
     clear: left;
     float: left;
     position: relative;
-    left: 50%;
+    /*left: 50%;*/
     text-align: center;
 }
 
@@ -675,6 +679,10 @@ img {
     width: 100%;
     margin: 0;
 }
+
+/*.shareButton {*/
+    /*width: 99px;*/
+/*}*/
 
 li.active #emailShare {
     border-bottom: 5px solid #d4d4d4;

@@ -41,3 +41,5 @@ foreach ($jsFiles as $jsFile)
 
     echo "Finished " . $fileName . "...</p>";
 }
+
+echo "The END";
