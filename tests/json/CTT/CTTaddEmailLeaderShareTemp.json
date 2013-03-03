@@ -148,7 +148,7 @@
                                                                             " padding": "0",
                                                                             "padding": "0px"
                                                                         },
-                                                                        "source": "./bbb_files/CTT_email_header_v3.jpg",
+                                                                        "source": "http://gallery.mailchimp.com/f503f7e5aac319051c907e2fb/images/CTT_email_header_v3.jpg",
                                                                         "type": "image",
                                                                         "name": "img"
                                                                     }
@@ -221,7 +221,7 @@
                                                                         "name": "h1",
                                                                         "children": [
                                                                             {
-                                                                                "source": "[reward.leaderReward.typeDescription] [reward.leaderReward.value] [reward.leaderReward.type]",
+                                                                                "source": "[reward.leaderReward.typeDescription] [reward.leaderReward.value] Gift Card",
                                                                                 "type": "text",
                                                                                 "name": "span"
                                                                             }
@@ -270,7 +270,7 @@
                                                                                         "name": "span",
                                                                                         "children": [
                                                                                             {
-                                                                                                "source": "{customer name} Thank you for being a great customer and the best friend ever...",
+                                                                                                "source": "[deal.order.customer.firstName] Thank you for being a great customer and the best friend ever...",
                                                                                                 "type": "text",
                                                                                                 "name": "span"
                                                                                             }
@@ -416,7 +416,7 @@
                                                                                                         "name": "b",
                                                                                                         "children": [
                                                                                                             {
-                                                                                                                "source": "VoucherCode:",
+                                                                                                                "source": "Voucher Code:",
                                                                                                                 "type": "text",
                                                                                                                 "name": "span"
                                                                                                             }
@@ -444,7 +444,7 @@
                                                                                     " text-align": "center",
                                                                                     " -webkit-text-size-adjust": "none"
                                                                                 },
-                                                                                "source": "{customer email} replace</strong>",
+                                                                                "source": "[deal.order.customer.email] replace</strong>",
                                                                                 "type": "text",
                                                                                 "name": "h4",
                                                                                 "children": [
@@ -504,7 +504,7 @@
                                                                                                     "width": "165px",
                                                                                                     " height": "51px"
                                                                                                 },
-                                                                                                "source": "./bbb_files/Redeem_Now.jpg",
+                                                                                                "source": "http://gallery.mailchimp.com/f503f7e5aac319051c907e2fb/images/Redeem_Now.jpg",
                                                                                                 "type": "image",
                                                                                                 "name": "img"
                                                                                             }
@@ -535,7 +535,7 @@
                                                                                     },
                                                                                     {
                                                                                         "style": {
-                                                                                            "font-size": "24px"
+                                                                                            "font-size": "16px"
                                                                                         },
                                                                                         "type": "text",
                                                                                         "name": "span",
@@ -559,7 +559,7 @@
                                                                                                 "name": "br"
                                                                                             },
                                                                                             {
-                                                                                                "source": "xxxxxxx",
+                                                                                                "source": "[urlShare]",
                                                                                                 "type": "text",
                                                                                                 "name": "span"
                                                                                             }
@@ -869,7 +869,7 @@
                                                                 "name": "span"
                                                             },
                                                             {
-                                                                "source": "./bbb_files/beauty_coupon_footer.png",
+                                                                "source": "http://gallery.mailchimp.com/0d61bb2ec9002f0e9872b8c36/images/beauty_coupon_footer.png",
                                                                 "type": "image",
                                                                 "name": "img"
                                                             }
