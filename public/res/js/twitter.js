@@ -1,5 +1,19 @@
 $(document).ready(function () {
 
+    load(window.location.protocol + '//platform.twitter.com/anywhere.js?id=' +
+        TribZi.deal.twitContext.application.applicationCode + '&v=1')
+        .thenRun(function () {
+            InitTwitter();
+        });
+});
+
+$("#twit_it").live('click', function () {
+    //tweeting-button button needs to be clicked.
+    $('#tbox').find('iframe').contents().find('#tweeting-button').click();
+    return false;
+});
+
+function InitTwitter(){
     try {
         createTwitterBox();
         hideTwitterBox();
@@ -27,13 +41,7 @@ $(document).ready(function () {
         }
     });
 
-});
-
-$("#twit_it").live('click', function () {
-    //tweeting-button button needs to be clicked.
-    $('#tbox').find('iframe').contents().find('#tweeting-button').click();
-    return false;
-});
+}
 
 function hideTwitterBox() {
     $('#tbox').hide();

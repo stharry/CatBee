@@ -11,6 +11,15 @@ $jsFiles = array("TribZi.js", "email.js",
     "jquery.jcarousel-core.js",
     "jquery.jcarousel-autoscroll.js");
 
+$jsJoins = array('TribZi.ui.js' => array(
+    'landing.js',
+    'pinterest.js',
+    'email.js',
+    'twitter.js',
+    'facebook.js'
+));
+
+$minFolder = $_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/CatBee/public/res/js/min/";
 foreach ($jsFiles as $jsFile)
 {
     $fileName = $_SERVER['DOCUMENT_ROOT'] . "/CatBee/public/res/js/{$jsFile}";
@@ -26,7 +35,7 @@ foreach ($jsFiles as $jsFile)
     $result = json_decode(RestUtils::SendFreePostRequest("http://closure-compiler.appspot.com/compile", $post), true);
 
     $in  = fopen("http://closure-compiler.appspot.com" . $result['outputFilePath'], 'r');
-    $out = fopen($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/CatBee/public/res/js/min/{$jsFile}", 'w');
+    $out = fopen($minFolder.$jsFile, 'w');
 
     while (!feof($in))
     {
@@ -42,4 +51,30 @@ foreach ($jsFiles as $jsFile)
     echo "Finished " . $fileName . "...</p>";
 }
 
+
+foreach ($jsJoins as $jsJoinName => $jsFiles)
+{
+    unlink($minFolder.$jsJoinName);
+
+    $out = fopen($minFolder.$jsJoinName, 'w');
+
+    foreach ($jsFiles as $jsFile)
+    {
+        $in = fopen($minFolder.$jsFile, 'r');
+        while (!feof($in))
+        {
+
+            $buffer = fread($in, 2048);
+
+            fwrite($out, $buffer);
+        }
+
+        fclose($in);
+        fwrite($out, "\n");
+
+    }
+    fclose($out);
+
+    echo "Finished Join " . $jsJoinName . "...</p>";
+}
 echo "The END";

@@ -21,7 +21,7 @@ try
 //    }
 
 //    $html = file_get_contents("http://127.0.0.1:8080/bbb.html");
-    $html = file_get_contents("http://127.0.0.1:8080/bbb.html");
+    $html = file_get_contents("c:\\temp\\bbb.htm");
 
     $dom = new DOMDocument();
     //if (!$dom->load("C:/Program Files/EasyPHP-12.1/www/CatBee/tests/json/res/RichEmailTemplate001.html"))
@@ -38,7 +38,7 @@ try
 
 
 
-        $template = $adapter->convertToTribziTemplate($dom);
+        $template = $adapter->convertToTribziTemplate($dom, null);
 
         $jsonAdapter = new JsonTemplateAdapter();
 
