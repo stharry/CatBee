@@ -43,7 +43,7 @@
 				left: 0px;
 			}
 			#share_list li a{
-				width: 131px;
+				/*width: 131px;*/
 				height: 37px;
 			}
 			

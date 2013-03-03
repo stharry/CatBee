@@ -4,30 +4,57 @@ class MailChimpTemplateAdapter
 {
     private $currentTemplate;
     private $currentField;
+    private $parentField;
     private $supportedTextFieldNames;
 
     function __construct()
     {
         $this->supportedTextFieldNames = array(
-            'td', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6','a', 'span','div'
+            'td', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'span', 'div'
         );
     }
 
-    public function convertToTribziTemplate($dom)
+    private function printHierarchy($node, $tab)
+    {
+        //return;
+        echo $tab.$node->nodeName;
+        if ($node->nodeType == XML_TEXT_NODE) {echo $node->nodeValue;}
+        echo '</p>';
+
+        foreach ($node->childNodes as $childNode)
+        {
+
+            $this->printHierarchy($childNode, $tab.'___ ');
+
+        }
+    }
+
+    public function convertToTribziTemplate($dom, $rootId)
     {
         $this->currentTemplate = new Template();
 
-        $tables = $dom->getElementsByTagName('body');
+        if (isset($rootId))
+        {
+            $tables = array($dom->getElementById($rootId));
+        }
+        else
+        {
+            $tables = $dom->getElementsByTagName('body');
+        }
 
         if (isset($tables) && (count($tables) > 0))
         {
             foreach ($tables as $table)
             {
+                $this->printHierarchy($table, '');
                 foreach ($table->childNodes as $node)
                 {
                     $this->parseNode($node);
                 }
             }
+        }
+        else{
+            echo "No elements";
         }
 
         //under consruction $this->removeEmptySections();
@@ -37,6 +64,8 @@ class MailChimpTemplateAdapter
 
     private function scanChildren($node)
     {
+        //echo "scan children for ".$node->nodeName.' parent '.$node->parentNode->nodeName.'</p>';
+
         if ($node->hasChildNodes())
         {
             $fld = $this->currentField;
@@ -47,6 +76,9 @@ class MailChimpTemplateAdapter
 
             }
             $this->currentField = $fld;
+
+            //echo 'after children '.$node->nodeName.'</p>';
+            //echo 'curr field returned: '. $this->currentField->name.'</p>';
         }
 
     }
@@ -62,17 +94,22 @@ class MailChimpTemplateAdapter
         if (!isset($this->currentField))
         {
             $this->currentField = $this->currentTemplate->addField();
+
         }
         else
         {
+            $this->parentField = $this->currentField;
             $this->currentField = $this->currentField->addChild();
         }
         $this->currentField->name = $name;
         $this->currentField->type = $type;
+
+        //echo 'curr field: '. $this->currentField->name.'</p>';
     }
 
     private function parseNode($node)
     {
+        $fld = $this->currentField;
         if ($this->isImageField($node->nodeName))
         {
             $this->setNewCurrentField($node->nodeName, 'image');
@@ -94,13 +131,17 @@ class MailChimpTemplateAdapter
                 //echo 'text for text node '.$node->nodeValue.'<br>';
             }
         }
-        else if ($node->nodeType == XML_TEXT_NODE)
+        else if (($node->nodeType == XML_TEXT_NODE))
         {
-            if (isset($this->currentField))
-            {
-                $this->currentField->source .= $this->removeSpecCharacters($node->nodeValue);
-                //echo 'text for text node '.$node->nodeValue.' curr is: '.$this->currentField->name.'<br>';
-            }
+
+            $this->setNewCurrentField($node->nodeName, 'text');
+            $this->currentField->name = 'span';
+            $this->currentField->source = $this->removeTabs($this->removeSpecCharacters($node->nodeValue));
+//            if (isset($this->currentField))
+//            {
+//                $this->currentField->source .= $this->removeSpecCharacters($node->nodeValue);
+//                //echo 'text for text node '.$node->nodeValue.' curr is: '.$this->currentField->name.'<br>';
+//            }
         }
         else if ($this->isCommentNode($node->nodeName))
         {
@@ -108,15 +149,18 @@ class MailChimpTemplateAdapter
         }
         else if ($this->isBoldNode($node->nodeName))
         {
-            $this->currentField->source .= '<strong>'.$this->removeSpecCharacters($node->nodeValue).'</strong>';
+            $this->currentField->source .= '<strong>' . $this->removeSpecCharacters($node->nodeValue) . '</strong>';
             //echo 'strong for text node '.$node->nodeValue.' curr is: '.$this->currentField->name.'<br>';
         }
         else
         {
+
             $this->setNewCurrentField($node->nodeName, 'text');
             $this->setFieldProps($node);
+
             //echo 'text node '.$node->nodeName.' val '.$node->nodeValue.'<br>';
         }
+        $this->currentField = $fld;
 
     }
 
@@ -159,6 +203,7 @@ class MailChimpTemplateAdapter
         {
             return true;
         }
+
         return false;
     }
 
@@ -169,7 +214,7 @@ class MailChimpTemplateAdapter
 
     private function isCaretField($fieldName)
     {
-        return false;//$fieldName == 'br';
+        return false; //$fieldName == 'br';
     }
 
     private function isImageField($fieldName)
@@ -190,6 +235,11 @@ class MailChimpTemplateAdapter
     private function removeSpecCharacters($string)
     {
         return str_replace("\\u00a0", "", $string);
+    }
+
+    private function removeTabs($string)
+    {
+        return str_replace("\n", '', str_replace("\t", '', $string));
     }
 
 }
