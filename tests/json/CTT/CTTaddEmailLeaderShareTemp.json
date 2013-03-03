@@ -13,77 +13,158 @@
             "context":{
                 "fields": [
                     {
+                        "source": "",
                         "type": "text",
-                        "name": "tbody",
+                        "name": "span",
+                        "loop": "1"
+                    },
+                    {
+                        "attrs": {
+                            "id": "wrap"
+                        },
+                        "style": {
+                            "background-color": "#d2efef",
+                            "text-align": "center"
+                        },
+                        "type": "text",
+                        "name": "div",
                         "loop": "1",
                         "children": [
                             {
+                                "source": "",
                                 "type": "text",
-                                "name": "tr",
+                                "name": "span"
+                            },
+                            {
+                                "attrs": {
+                                    "id": "layout",
+                                    "border": "0",
+                                    "cellspacing": "0",
+                                    "cellpadding": "0",
+                                    "width": "600"
+                                },
+                                "style": {
+                                    "margin": "10px auto",
+                                    "text-align": "left"
+                                },
+                                "type": "text",
+                                "name": "table",
                                 "children": [
                                     {
-                                        "attrs": {
-                                            "id": "topbar"
-                                        },
-                                        "style": {
-                                            "background-color": "transparent",
-                                            "padding": "10px 0 20px",
-                                            "color": "#ff8e6b",
-                                            "font-size": "11px",
-                                            "font-family": "Georgia",
-                                            "font-weight": "normal",
-                                            "text-align": "center",
-                                            "text-decoration": "underline"
-                                        },
-                                        "source": "\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t",
                                         "type": "text",
-                                        "name": "td"
-                                    },
-                                    {
-                                        "type": "text",
-                                        "name": "tr",
+                                        "name": "tbody",
                                         "children": [
                                             {
-                                                "source": "\r\n\t\t\t\t\t\t\r\n\t\t\t\t",
                                                 "type": "text",
-                                                "name": "td",
+                                                "name": "tr",
                                                 "children": [
                                                     {
                                                         "attrs": {
-                                                            "alt": "",
-                                                            "border": "0",
-                                                            "height": "98",
-                                                            "width": "598"
+                                                            "id": "topbar"
                                                         },
                                                         "style": {
-                                                            "border": "px none",
-                                                            " border-color": "",
-                                                            " border-style": "none",
-                                                            " border-width": "px",
-                                                            " height": "98px",
-                                                            " width": "598px",
-                                                            " margin": "0",
-                                                            " padding": "0",
-                                                            "padding": "0px"
+                                                            "background-color": "transparent",
+                                                            "padding": "10px 0 20px",
+                                                            "color": "#ff8e6b",
+                                                            "font-size": "11px",
+                                                            "font-family": "Georgia",
+                                                            "font-weight": "normal",
+                                                            "text-align": "center",
+                                                            "text-decoration": "underline"
                                                         },
-                                                        "linkSource": "[deal.order.branch.url]",
                                                         "type": "text",
-                                                        "name": "a",
+                                                        "name": "td",
                                                         "children": [
                                                             {
-                                                                "source": "[deal.order.branch.logoUrl]",
-                                                                "type": "image",
-                                                                "name": "img",
-                                                                "attrs": {
-                                                                    "alt": "",
-                                                                    "border": "0",
-                                                                    "width": "598",
-                                                                    "height": "98"
-                                                                }
-
+                                                                "source": "",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            },
+                                                            {
+                                                                "source": "",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            },
+                                                            {
+                                                                "source": "",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            },
+                                                            {
+                                                                "source": "",
+                                                                "type": "text",
+                                                                "name": "span"
                                                             }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "source": "",
+                                                        "type": "text",
+                                                        "name": "span"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "text",
+                                                "name": "tr",
+                                                "children": [
+                                                    {
+                                                        "type": "text",
+                                                        "name": "td",
+                                                        "children": [
+                                                            {
+                                                                "source": "",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            },
+                                                            {
+                                                                "attrs": {
+                                                                    "target": "_blank"
+                                                                },
+                                                                "style": {
+                                                                    "color": "#ff8e6b",
+                                                                    "text-decoration": "underline",
+                                                                    "font-weight": "normal"
+                                                                },
+                                                                "linkSource": "http://www.charmstotreasure.com/",
+                                                                "type": "text",
+                                                                "name": "a",
+                                                                "children": [
+                                                                    {
+                                                                        "attrs": {
+                                                                            "alt": "Charms to Treasure",
+                                                                            "border": "0",
+                                                                            "width": "632",
+                                                                            "height": "92"
+                                                                        },
+                                                                        "style": {
+                                                                            "border": "px none",
+                                                                            " border-color": "",
+                                                                            " border-style": "none",
+                                                                            " border-width": "px",
+                                                                            " height": "92px",
+                                                                            " width": "632px",
+                                                                            " margin": "0",
+                                                                            " padding": "0",
+                                                                            "padding": "0px"
+                                                                        },
+                                                                        "source": "./bbb_files/CTT_email_header_v3.jpg",
+                                                                        "type": "image",
+                                                                        "name": "img"
+                                                                    }
                                                                 ]
-
+                                                            },
+                                                            {
+                                                                "source": "",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "source": "",
+                                                        "type": "text",
+                                                        "name": "span"
                                                     }
                                                 ]
                                             },
@@ -101,7 +182,6 @@
                                                             "padding": "10px 20px 30px 40px",
                                                             "vertical-align": "top"
                                                         },
-                                                        "source": "\r\n\t\t\t\t",
                                                         "type": "text",
                                                         "name": "td",
                                                         "children": [
@@ -113,162 +193,609 @@
                                                                     " line-height": "18px",
                                                                     " background-color": "rgb(255, 255, 255)"
                                                                 },
-                                                                "source": "\r\n\t\r\n",
                                                                 "type": "text",
                                                                 "name": "div",
                                                                 "children": [
                                                                     {
+                                                                        "source": "",
+                                                                        "type": "text",
+                                                                        "name": "span"
+                                                                    },
+                                                                    {
                                                                         "type": "line",
-                                                                        "name": "hr",
+                                                                        "name": "hr"
+                                                                    },
+                                                                    {
+                                                                        "style": {
+                                                                            "color": "rgb(38, 171, 226)",
+                                                                            " font-family": "Helvetica",
+                                                                            " font-size": "60px",
+                                                                            " font-weight": "normal",
+                                                                            " letter-spacing": "-4px",
+                                                                            " line-height": "60px",
+                                                                            " margin": "0px 0px 10px",
+                                                                            " text-align": "center",
+                                                                            " -webkit-text-size-adjust": "none"
+                                                                        },
+                                                                        "type": "text",
+                                                                        "name": "h1",
                                                                         "children": [
+                                                                            {
+                                                                                "source": "[reward.leaderReward.typeDescription] [reward.leaderReward.value] [reward.leaderReward.type]",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "source": "",
+                                                                        "type": "text",
+                                                                        "name": "span"
+                                                                    },
+                                                                    {
+                                                                        "type": "text",
+                                                                        "name": "br"
+                                                                    },
+                                                                    {
+                                                                        "style": {
+                                                                            "color": "rgb(38, 171, 226)",
+                                                                            " font-family": "Helvetica",
+                                                                            " font-size": "14px",
+                                                                            " font-weight": "normal",
+                                                                            " line-height": "14px",
+                                                                            " margin": "0px 0px 10px",
+                                                                            " text-align": "center",
+                                                                            " -webkit-text-size-adjust": "none"
+                                                                        },
+                                                                        "type": "text",
+                                                                        "name": "h4",
+                                                                        "children": [
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            },
+                                                                            {
+                                                                                "style": {
+                                                                                    "font-family": "comic sans ms,cursive"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "span",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "style": {
+                                                                                            "color": "#000000"
+                                                                                        },
+                                                                                        "type": "text",
+                                                                                        "name": "span",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "source": "{customer name} Thank you for being a great customer and the best friend ever...",
+                                                                                                "type": "text",
+                                                                                                "name": "span"
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "type": "text",
+                                                                                "name": "br"
+                                                                            },
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "source": "",
+                                                                        "type": "text",
+                                                                        "name": "span"
+                                                                    },
+                                                                    {
+                                                                        "type": "text",
+                                                                        "name": "br"
+                                                                    },
+                                                                    {
+                                                                        "type": "text",
+                                                                        "name": "div",
+                                                                        "children": [
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            },
                                                                             {
                                                                                 "style": {
                                                                                     "color": "rgb(38, 171, 226)",
                                                                                     " font-family": "Helvetica",
-                                                                                    " font-size": "60px",
+                                                                                    " font-size": "14px",
                                                                                     " font-weight": "normal",
-                                                                                    " letter-spacing": "-4px",
-                                                                                    " line-height": "60px",
+                                                                                    " line-height": "14px",
                                                                                     " margin": "0px 0px 10px",
                                                                                     " text-align": "center",
                                                                                     " -webkit-text-size-adjust": "none"
                                                                                 },
-                                                                                "source": "\r\n\t\t\r\n\t",
                                                                                 "type": "text",
-                                                                                "name": "h1",
+                                                                                "name": "h4",
                                                                                 "children": [
                                                                                     {
-                                                                                        "style": {
-                                                                                            "font-family": "comic sans ms,cursive"
-                                                                                        },
-                                                                                        "source": "[reward.leaderReward.typeDescription] [reward.leaderReward.value] [reward.leaderReward.type]",
+                                                                                        "source": "",
                                                                                         "type": "text",
                                                                                         "name": "span"
                                                                                     },
                                                                                     {
+                                                                                        "style": {
+                                                                                            "font-size": "24px"
+                                                                                        },
                                                                                         "type": "text",
-                                                                                        "name": "br",
+                                                                                        "name": "span",
                                                                                         "children": [
                                                                                             {
                                                                                                 "style": {
-                                                                                                    "color": "rgb(38, 171, 226)",
-                                                                                                    " font-family": "Helvetica",
-                                                                                                    " font-size": "14px",
-                                                                                                    " font-weight": "normal",
-                                                                                                    " line-height": "14px",
-                                                                                                    " margin": "0px 0px 10px",
-                                                                                                    " text-align": "center",
-                                                                                                    " -webkit-text-size-adjust": "none"
+                                                                                                    "font-family": "'comic sans ms', cursive"
                                                                                                 },
-                                                                                                "source": "\r\n\t\t\r\n\t",
                                                                                                 "type": "text",
-                                                                                                "name": "h4",
+                                                                                                "name": "span",
                                                                                                 "children": [
                                                                                                     {
-                                                                                                        "style": {
-                                                                                                            "font-family": "comic sans ms,cursive"
-                                                                                                        },
+                                                                                                        "source": "CharmsToTreasure.com",
                                                                                                         "type": "text",
-                                                                                                        "name": "span",
+                                                                                                        "name": "span"
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            },
+                                                                            {
+                                                                                "style": {
+                                                                                    "color": "rgb(38, 171, 226)",
+                                                                                    " font-family": "Helvetica",
+                                                                                    " font-size": "14px",
+                                                                                    " font-weight": "normal",
+                                                                                    " line-height": "14px",
+                                                                                    " margin": "0px 0px 10px",
+                                                                                    " text-align": "center",
+                                                                                    " -webkit-text-size-adjust": "none"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "h4",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "source": "",
+                                                                                        "type": "text",
+                                                                                        "name": "span"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            },
+                                                                            {
+                                                                                "attrs": {
+                                                                                    "class": "p1"
+                                                                                },
+                                                                                "style": {
+                                                                                    "text-align": "center"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "p",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "source": "",
+                                                                                        "type": "text",
+                                                                                        "name": "span"
+                                                                                    },
+                                                                                    {
+                                                                                        "style": {
+                                                                                            "font-size": "14px"
+                                                                                        },
+                                                                                        "type": "text",
+                                                                                        "name": "span",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "style": {
+                                                                                                    "color": "rgb(0, 0, 0)"
+                                                                                                },
+                                                                                                "type": "text",
+                                                                                                "name": "span",
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "type": "text",
+                                                                                                        "name": "b",
                                                                                                         "children": [
                                                                                                             {
-                                                                                                                "style": {
-                                                                                                                    "color": "#000000"
-                                                                                                                },
-                                                                                                                "source": "Thank you for being a great customer and the best friend ever...",
+                                                                                                                "source": "VoucherCode:",
+                                                                                                                "type": "text",
+                                                                                                                "name": "span"
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            },
+                                                                            {
+                                                                                "style": {
+                                                                                    "color": "rgb(38, 171, 226)",
+                                                                                    " font-family": "Helvetica",
+                                                                                    " font-size": "14px",
+                                                                                    " font-weight": "normal",
+                                                                                    " line-height": "14px",
+                                                                                    " margin": "0px 0px 10px",
+                                                                                    " text-align": "center",
+                                                                                    " -webkit-text-size-adjust": "none"
+                                                                                },
+                                                                                "source": "{customer email} replace</strong>",
+                                                                                "type": "text",
+                                                                                "name": "h4",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "source": "",
+                                                                                        "type": "text",
+                                                                                        "name": "span"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            },
+                                                                            {
+                                                                                "type": "text",
+                                                                                "name": "br"
+                                                                            },
+                                                                            {
+                                                                                "style": {
+                                                                                    "font-size": "60px",
+                                                                                    " font-weight": "normal",
+                                                                                    " letter-spacing": "-4px",
+                                                                                    " line-height": "60px",
+                                                                                    " margin": "0px 0px 10px",
+                                                                                    " text-align": "center"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "h1",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "source": "",
+                                                                                        "type": "text",
+                                                                                        "name": "span"
+                                                                                    },
+                                                                                    {
+                                                                                        "attrs": {
+                                                                                            "target": "_blank"
+                                                                                        },
+                                                                                        "style": {
+                                                                                            "color": "#ff8e6b",
+                                                                                            "text-decoration": "underline",
+                                                                                            "font-weight": "normal"
+                                                                                        },
+                                                                                        "linkSource": "http://www.charmstotreasure.com/",
+                                                                                        "type": "text",
+                                                                                        "name": "a",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "attrs": {
+                                                                                                    "align": "none",
+                                                                                                    "height": "51",
+                                                                                                    "width": "165"
+                                                                                                },
+                                                                                                "style": {
+                                                                                                    "width": "165px",
+                                                                                                    " height": "51px"
+                                                                                                },
+                                                                                                "source": "./bbb_files/Redeem_Now.jpg",
+                                                                                                "type": "image",
+                                                                                                "name": "img"
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            },
+                                                                            {
+                                                                                "type": "text",
+                                                                                "name": "br"
+                                                                            },
+                                                                            {
+                                                                                "style": {
+                                                                                    "text-align": "center"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "div",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "source": "",
+                                                                                        "type": "text",
+                                                                                        "name": "span"
+                                                                                    },
+                                                                                    {
+                                                                                        "style": {
+                                                                                            "font-size": "24px"
+                                                                                        },
+                                                                                        "type": "text",
+                                                                                        "name": "span",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "style": {
+                                                                                                    "font-size": "18px"
+                                                                                                },
+                                                                                                "type": "text",
+                                                                                                "name": "span",
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "source": "You can Use the following link to share the offer with more friends:",
+                                                                                                        "type": "text",
+                                                                                                        "name": "span"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "text",
+                                                                                                "name": "br"
+                                                                                            },
+                                                                                            {
+                                                                                                "source": "xxxxxxx",
+                                                                                                "type": "text",
+                                                                                                "name": "span"
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "text",
+                                                                                        "name": "br"
+                                                                                    },
+                                                                                    {
+                                                                                        "source": "",
+                                                                                        "type": "text",
+                                                                                        "name": "span"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "source": "",
+                                                                                "type": "text",
+                                                                                "name": "span"
+                                                                            },
+                                                                            {
+                                                                                "attrs": {
+                                                                                    "cellpadding": "0",
+                                                                                    "cellspacing": "0"
+                                                                                },
+                                                                                "type": "text",
+                                                                                "name": "table",
+                                                                                "children": [
+                                                                                    {
+                                                                                        "type": "text",
+                                                                                        "name": "tbody",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "type": "text",
+                                                                                                "name": "tr",
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "attrs": {
+                                                                                                            "class": "td1",
+                                                                                                            "valign": "top"
+                                                                                                        },
+                                                                                                        "type": "text",
+                                                                                                        "name": "td",
+                                                                                                        "children": [
+                                                                                                            {
+                                                                                                                "source": "",
                                                                                                                 "type": "text",
                                                                                                                 "name": "span"
                                                                                                             },
                                                                                                             {
-                                                                                                                "source": "\r\n\t\t",
+                                                                                                                "attrs": {
+                                                                                                                    "class": "p1"
+                                                                                                                },
                                                                                                                 "type": "text",
-                                                                                                                "name": "br"
-                                                                                                            }
-                                                                                                        ]
-                                                                                                    },
-                                                                                                    {
-                                                                                                        "type": "text",
-                                                                                                        "name": "br",
-                                                                                                        "children": [
-                                                                                                            {
-                                                                                                                "source": "\r\n\t\t\r\n",
-                                                                                                                "type": "text",
-                                                                                                                "name": "div",
+                                                                                                                "name": "p",
                                                                                                                 "children": [
                                                                                                                     {
-                                                                                                                        "style": {
-                                                                                                                            "color": "rgb(38, 171, 226)",
-                                                                                                                            " font-family": "Helvetica",
-                                                                                                                            " font-size": "14px",
-                                                                                                                            " font-weight": "normal",
-                                                                                                                            " line-height": "14px",
-                                                                                                                            " margin": "0px 0px 10px",
-                                                                                                                            " text-align": "center",
-                                                                                                                            " -webkit-text-size-adjust": "none"
-                                                                                                                        },
-                                                                                                                        "source": "\r\n\t\t\t\r\n\t\t",
+                                                                                                                        "source": "To use this gift certificate please go to",
                                                                                                                         "type": "text",
-                                                                                                                        "name": "h4",
+                                                                                                                        "name": "span"
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "attrs": {
+                                                                                                                            "target": "_self"
+                                                                                                                        },
+                                                                                                                        "style": {
+                                                                                                                            "color": "#ff8e6b",
+                                                                                                                            "text-decoration": "underline",
+                                                                                                                            "font-weight": "normal"
+                                                                                                                        },
+                                                                                                                        "linkSource": "http://www.charmstotreasure.com/",
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "a",
                                                                                                                         "children": [
                                                                                                                             {
-                                                                                                                                "style": {
-                                                                                                                                    "font-size": "24px"
+                                                                                                                                "source": "",
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "span"
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "style": {
+                                                                                                                            "color": "#ff8e6b",
+                                                                                                                            "text-decoration": "underline",
+                                                                                                                            "font-weight": "normal"
+                                                                                                                        },
+                                                                                                                        "linkSource": "http://www.charmstotreasure.com/",
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "a",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "attrs": {
+                                                                                                                                    "class": "s1"
                                                                                                                                 },
                                                                                                                                 "type": "text",
                                                                                                                                 "name": "span",
                                                                                                                                 "children": [
                                                                                                                                     {
-                                                                                                                                        "style": {
-                                                                                                                                            "font-family": "'comic sans ms', cursive"
-                                                                                                                                        },
+                                                                                                                                        "source": "http://www.charmstotreasure.com",
                                                                                                                                         "type": "text",
-                                                                                                                                        "name": "span",
-                                                                                                                                        "children": [
-                                                                                                                                            {
-                                                                                                                                                "attrs": {
-                                                                                                                                                    "target": "_blank"
-                                                                                                                                                },
-                                                                                                                                                "style": {
-                                                                                                                                                    "color": "rgb(38, 171, 226)",
-                                                                                                                                                    "text-decoration": "underline",
-                                                                                                                                                    "font-weight": "normal"
-                                                                                                                                                },
-                                                                                                                                                "source": "charmstotreasure.com",
-                                                                                                                                                "linkSource": "[deal.order.branch.url]",
-                                                                                                                                                "type": "text",
-                                                                                                                                                "name": "a"
-                                                                                                                                            }
-                                                                                                                                        ]
+                                                                                                                                        "name": "span"
                                                                                                                                     }
                                                                                                                                 ]
-                                                                                                                            },
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "style": {
+                                                                                                                            "color": "#ff8e6b",
+                                                                                                                            "text-decoration": "underline",
+                                                                                                                            "font-weight": "normal"
+                                                                                                                        },
+                                                                                                                        "linkSource": "http://www.charmstotreasure.com/",
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "a",
+                                                                                                                        "children": [
                                                                                                                             {
-                                                                                                                                "style": {
-                                                                                                                                    "color": "rgb(38, 171, 226)",
-                                                                                                                                    " font-family": "Helvetica",
-                                                                                                                                    " font-size": "14px",
-                                                                                                                                    " font-weight": "normal",
-                                                                                                                                    " line-height": "14px",
-                                                                                                                                    " margin": "0px 0px 10px",
-                                                                                                                                    " text-align": "center",
-                                                                                                                                    " -webkit-text-size-adjust": "none"
-                                                                                                                                },
-                                                                                                                                "source": "\r\n\t\t\t\r\n\t\t",
+                                                                                                                                "source": ".",
                                                                                                                                 "type": "text",
-                                                                                                                                "name": "h4",
+                                                                                                                                "name": "span"
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "br"
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "source": "You must enter first name, last name and voucher code shown here to use this certificate on the payment page of your check-out process, please click \"Use a Gift Certificate\" as your payment method.",
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "span"
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "source": "",
+                                                                                                                "type": "text",
+                                                                                                                "name": "span"
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "attrs": {
+                                                                                                                    "class": "p2"
+                                                                                                                },
+                                                                                                                "type": "text",
+                                                                                                                "name": "p",
+                                                                                                                "children": [
+                                                                                                                    {
+                                                                                                                        "source": "Please contact us if you have any questions.",
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "span"
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "source": "",
+                                                                                                                "type": "text",
+                                                                                                                "name": "span"
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "attrs": {
+                                                                                                                    "class": "p3"
+                                                                                                                },
+                                                                                                                "type": "text",
+                                                                                                                "name": "p",
+                                                                                                                "children": [
+                                                                                                                    {
+                                                                                                                        "source": "",
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "span"
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "i",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "source": "CharmsToTreasure.com",
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "span"
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "br"
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "i",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "source": "1450 Sutter st PMB #511 | San Francisco, CA | 94109",
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "span"
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "br"
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "i",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "source": "p:",
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "span"
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "style": {
+                                                                                                                            "color": "#ff8e6b",
+                                                                                                                            "text-decoration": "underline",
+                                                                                                                            "font-weight": "normal"
+                                                                                                                        },
+                                                                                                                        "linkSource": "tel:1.800.772.8650",
+                                                                                                                        "type": "text",
+                                                                                                                        "name": "a",
+                                                                                                                        "children": [
+                                                                                                                            {
+                                                                                                                                "attrs": {
+                                                                                                                                    "class": "s3"
+                                                                                                                                },
+                                                                                                                                "type": "text",
+                                                                                                                                "name": "span",
                                                                                                                                 "children": [
                                                                                                                                     {
-                                                                                                                                        "style": {
-                                                                                                                                            "font-size": "18px"
-                                                                                                                                        },
                                                                                                                                         "type": "text",
-                                                                                                                                        "name": "span",
+                                                                                                                                        "name": "i",
                                                                                                                                         "children": [
                                                                                                                                             {
-                                                                                                                                                "style": {
-                                                                                                                                                    "font-family": "'comic sans ms', cursive"
-                                                                                                                                                },
-                                                                                                                                                "source": "The Gift Card code will be sent in the following week",
+                                                                                                                                                "source": "1.800.772.8650",
                                                                                                                                                 "type": "text",
                                                                                                                                                 "name": "span"
                                                                                                                                             }
@@ -279,8 +806,18 @@
                                                                                                                         ]
                                                                                                                     }
                                                                                                                 ]
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "source": "",
+                                                                                                                "type": "text",
+                                                                                                                "name": "span"
                                                                                                             }
                                                                                                         ]
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "source": "",
+                                                                                                        "type": "text",
+                                                                                                        "name": "span"
                                                                                                     }
                                                                                                 ]
                                                                                             }
@@ -291,71 +828,143 @@
                                                                         ]
                                                                     },
                                                                     {
+                                                                        "source": "",
                                                                         "type": "text",
-                                                                        "name": "br"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "text",
-                                                        "name": "tr",
-                                                        "children": [
-                                                            {
-                                                                "attrs": {
-                                                                    "id": "page_curl"
-                                                                },
-                                                                "source": "\r\n\t\t\t\t\t\t\r\n\t\t\t\t",
-                                                                "type": "text",
-                                                                "name": "td",
-                                                                "children": [
-                                                                    {
-                                                                        "source": "http://gallery.mailchimp.com/0d61bb2ec9002f0e9872b8c36/images/beauty_coupon_footer.png",
-                                                                        "type": "image",
-                                                                        "name": "img"
+                                                                        "name": "span"
                                                                     }
                                                                 ]
                                                             },
                                                             {
+                                                                "source": "",
                                                                 "type": "text",
-                                                                "name": "tr",
-                                                                "children": [
-                                                                    {
-                                                                        "attrs": {
-                                                                            "id": "footer"
-                                                                        },
-                                                                        "style": {
-                                                                            "background-color": "transparent",
-                                                                            "padding": "20px",
-                                                                            "font-size": "10px",
-                                                                            "color": "#666",
-                                                                            "line-height": "100%",
-                                                                            "font-family": "Georgia",
-                                                                            "text-align": "center"
-                                                                        },
-                                                                        "source": "\r\n\t\t\t\t",
-                                                                        "type": "text",
-                                                                        "name": "td",
-                                                                        "children": [
-                                                                            {
-                                                                                "source": "\r\n\t\r\n*|Powered By: ",
-                                                                                "type": "text",
-                                                                                "name": "p",
-                                                                                "children": [
-                                                                                    {
-                                                                                        "source": "Tribzi\r\n",
-                                                                                        "linkSource": "http://www.tribzi.com",
-                                                                                        "type": "text",
-                                                                                        "name": "a"
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ]
+                                                                "name": "span"
+                                                            },
+                                                            {
+                                                                "type": "text",
+                                                                "name": "br"
                                                             }
                                                         ]
+                                                    },
+                                                    {
+                                                        "source": "",
+                                                        "type": "text",
+                                                        "name": "span"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "text",
+                                                "name": "tr",
+                                                "children": [
+                                                    {
+                                                        "attrs": {
+                                                            "id": "page_curl"
+                                                        },
+                                                        "type": "text",
+                                                        "name": "td",
+                                                        "children": [
+                                                            {
+                                                                "source": "",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            },
+                                                            {
+                                                                "source": "./bbb_files/beauty_coupon_footer.png",
+                                                                "type": "image",
+                                                                "name": "img"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "source": "",
+                                                        "type": "text",
+                                                        "name": "span"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "text",
+                                                "name": "tr",
+                                                "children": [
+                                                    {
+                                                        "attrs": {
+                                                            "id": "footer"
+                                                        },
+                                                        "style": {
+                                                            "background-color": "transparent",
+                                                            "padding": "20px",
+                                                            "font-size": "10px",
+                                                            "color": "#666",
+                                                            "line-height": "100%",
+                                                            "font-family": "Georgia",
+                                                            "text-align": "center"
+                                                        },
+                                                        "type": "text",
+                                                        "name": "td",
+                                                        "children": [
+                                                            {
+                                                                "type": "text",
+                                                                "name": "p",
+                                                                "children": [
+                                                                    {
+                                                                        "source": "",
+                                                                        "type": "text",
+                                                                        "name": "span"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "source": "*|Powered By: ",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            },
+                                                            {
+                                                                "attrs": {
+                                                                    "target": "_blank"
+                                                                },
+                                                                "style": {
+                                                                    "color": "#ff8e6b",
+                                                                    "text-decoration": "underline",
+                                                                    "font-weight": "normal"
+                                                                },
+                                                                "linkSource": "http://www.tribzi.com/",
+                                                                "type": "text",
+                                                                "name": "a",
+                                                                "children": [
+                                                                    {
+                                                                        "source": "Tribzi",
+                                                                        "type": "text",
+                                                                        "name": "span"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "source": "*",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            },
+                                                            {
+                                                                "type": "text",
+                                                                "name": "p",
+                                                                "children": [
+                                                                    {
+                                                                        "source": "Copyright (C) *|CURRENT_YEAR|* *|LIST:COMPANY|* All rights reserved.",
+                                                                        "type": "text",
+                                                                        "name": "span"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "source": "",
+                                                                "type": "text",
+                                                                "name": "span"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "source": "",
+                                                        "type": "text",
+                                                        "name": "span"
                                                     }
                                                 ]
                                             }
@@ -364,8 +973,29 @@
                                 ]
                             }
                         ]
+                    },
+                    {
+                        "source": "",
+                        "type": "text",
+                        "name": "span",
+                        "loop": "1"
+                    },
+                    {
+                        "style": {
+                            "padding": "0px"
+                        },
+                        "type": "text",
+                        "name": "span",
+                        "loop": "1"
+                    },
+                    {
+                        "source": "",
+                        "type": "text",
+                        "name": "span",
+                        "loop": "1"
                     }
                 ]
+
             },
             "type":"template"
         }
