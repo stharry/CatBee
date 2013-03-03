@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
-    load(window.location.protocol + '//connect.facebook.net/en_US/all.js')
-        .thenRun(function () {
-            InitFacebook();
-        });
+    InitFacebook();
+
+//    load(window.location.protocol + '//connect.facebook.net/en_US/all.js')
+//        .thenRun(function () {
+//            InitFacebook();
+//        });
 });
 
 function InitFacebook()

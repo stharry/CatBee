@@ -70,7 +70,7 @@ foreach ($jsJoins as $jsJoinName => $jsFiles)
         }
 
         fclose($in);
-        fwrite($out, "\n");
+        fwrite($out, "\n\n");
 
     }
     fclose($out);
