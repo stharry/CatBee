@@ -181,6 +181,8 @@ class ShareManager implements IShareManager
 
         $shareTemplates = $this->getShareTemplates($shareFilter);
 
+        $share->context->link = $this->createShareLink($share->deal, $share->context);
+
         //todo: put strategy class here
         if (count($shareTemplates) == 0)
         {
@@ -190,7 +192,6 @@ class ShareManager implements IShareManager
         {
             $this->createMessage($share, $shareTemplates[0]);
         }
-        $share->context->link = $this->createShareLink($share->deal, $share->context);
 
         $this->validateCustomer($share->currentTarget->from);
         $this->validateCustomer($share->currentTarget->to);
