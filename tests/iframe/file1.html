@@ -1,17 +1,18 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="http://www.apid2.tribzi.com/CatBee/public/res/js/min/jquery.min.js"></script>
-    <script type="text/javascript" src="http://www.apid2.tribzi.com/CatBee/adapters/Installs/catbeeframe.js?host=http://www.apid2.tribzi.com/CatBee/"></script>
-    <script type="text/javascript" src="http://www.apid2.tribzi.com/CatBee/adapters/Installs/catbeecart.js?cfid=coupon_code"></script>
+    <!--<script type="text/javascript" src="http://www.apid2.tribzi.com/CatBee/public/res/js/min/jquery.min.js"></script>-->
+    <script type="text/javascript" src="/CatBee/public/res/js/min/catbeeframe.js"></script>
+    <script type="text/javascript" src="/CatBee/adapters/Installs/shops/3/cbfdefaults.js"></script>
 
     <script>
         window.cbWidgets.postPurchaseWidget(
                 {
-                    amount:24.95,
+                    amount:124.95,
                     id:810,
                     customer:{
-                        email:'spidernah%40gmail.com',
+                        email:'tomer@tribzi.com',
                         firstName:'vad'
                     },
                     branch:{
@@ -21,22 +22,23 @@
                         {
                             itemCode:'1234567890',
                             url:'http%3A%2F%2Fwww.glassesmarket.com%2Ftest%2Fmedia%2Fcatalog%2Fproduct%2Fi%2Fm%2Fimg_1625_web_version__1.jpg'
+                        },
+                        {
+                            itemCode:'1234567890',
+                            url:'http%3A%2F%2Fcdn.glassesmarket.com/catalog/product/cache/1/thumbnail/133x133/9df78eab33525d08d6e5fb8d27136e95/i/m/img_2267_web_version_.jpg'
                         }
                     ]
-                },
-                {
-                    appendTo: "col-main",
-                    setBefore: "buttons-set"
                 }
         );
     </script>
-    <!--<script type="text/javascript" src="http://www.apid.tribzi.com/CatBee/adapters/Installs/catbeepostpurchase.js?id=810&ce=spidernah%40gmail.com&cn=vd+vad&ot=24.9500&icnt=1&i0upc=Y292-LRoche103c283&i0url=http%3A%2F%2Fwww.glassesmarket.com%2Ftest%2Fmedia%2Fcatalog%2Fproduct%2Fi%2Fm%2Fimg_1625_web_version__1.jpg&shop=2&adpt=54c5e6c3-6349-11e2-a702-0008cae720a7"></script>-->
+    <!--<script type="text/javascript" src="http://www.apid.tribzi.com/CatBee/adapters/Installs/catbeepostpurchase.js?i…g_1625_web_version__1.jpg&shop=2&adpt=54c5e6c3-6349-11e2-a702-0008cae720a7"></script>-->
 
 </head>
 <body>
 <div class="col-main">
-<a>Append after it</a>
+    <a>Append after it</a>
     <a class="buttons-set">Add before this node</a>
 </div>
+<div name="cbfRoot">CTT root</div>
 </body>
 </html>
