@@ -10,8 +10,7 @@ $jsFiles = array("TribZi.js", "email.js",
     "twitter.js", "jcookie.js",
     "jquery.jcarousel-core.js",
     "jquery.jcarousel-autoscroll.js",
-    "catbeeframe.js",
-    "catbeecart.js");
+    "catbeeframe.js");
 
 $jsJoins = array('TribZi.ui.js' => array(
     'landing.js',
