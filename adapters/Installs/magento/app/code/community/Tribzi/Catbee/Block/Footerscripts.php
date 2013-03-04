@@ -13,7 +13,7 @@ class Tribzi_Catbee_Block_Footerscripts extends Mage_Core_Block_Template
         $shopId = Mage::helper('Tribzi_Catbee')->getStoreConfig('Store_Id');
 
         $srcs[ ] = $uriPrefix . '/CatBee/public/res/js/min/catbeeframe.js';
-        $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/shops/'.$shopId.'/cbfDefaults.js';
+        $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/shops/'.$shopId.'/cbfdefaults.js';
         $this->setScripts($srcs);
     }
 }
