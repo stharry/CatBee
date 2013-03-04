@@ -2,7 +2,7 @@ cbfSettings.redirectTo = 'https://www.apid2.tribzi.com/CatBee/';
 
 cbfSettings.widgets.ppw = {
     gui:{
-        appendTo   :null,
+        appendTo   :'cbfRoot',
         setBefore  :null,
         closeButton:true
     },

@@ -627,7 +627,7 @@ cbWidgets = {
 
         if (cbf.valOrDefault(cbfSettings.widgets.ppw.gui, null)) {
             if (cbfSettings.widgets.ppw.sites.run) {
-                callFrame(orderParams, cbfSettings.gui);
+                callFrame(orderParams, cbfSettings.widgets.ppw.gui);
             }
         }
         else {
