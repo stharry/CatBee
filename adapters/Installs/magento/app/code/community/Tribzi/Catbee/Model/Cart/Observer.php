@@ -14,7 +14,7 @@ class Tribzi_Catbee_Model_Cart_Observer
         }
         $order       = Mage::getModel('sales/order')->load(reset($orderIds));
         $data        = $order->getData();
-        $items       = $order->getAllItems();
+        $items       = $order->getAllVisibleItems();
 //        $fistItem    = reset($items);
 //        $prod        = Mage::getModel('catalog/product')->load($fistItem->getProductId());
         $catBeeArray = array(
