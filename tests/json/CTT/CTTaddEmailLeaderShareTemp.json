@@ -270,7 +270,7 @@
                                                                                         "name": "span",
                                                                                         "children": [
                                                                                             {
-                                                                                                "source": "[deal.order.customer.firstName] Thank you for being a great customer and the best friend ever...",
+                                                                                                "source": "[deal.order.customer.firstName] [deal.order.customer.lastName] Thank you for being a great customer and the best friend ever...",
                                                                                                 "type": "text",
                                                                                                 "name": "span"
                                                                                             }
@@ -516,65 +516,6 @@
                                                                                 "source": "",
                                                                                 "type": "text",
                                                                                 "name": "span"
-                                                                            },
-                                                                            {
-                                                                                "type": "text",
-                                                                                "name": "br"
-                                                                            },
-                                                                            {
-                                                                                "style": {
-                                                                                    "text-align": "center"
-                                                                                },
-                                                                                "type": "text",
-                                                                                "name": "div",
-                                                                                "children": [
-                                                                                    {
-                                                                                        "source": "",
-                                                                                        "type": "text",
-                                                                                        "name": "span"
-                                                                                    },
-                                                                                    {
-                                                                                        "style": {
-                                                                                            "font-size": "16px"
-                                                                                        },
-                                                                                        "type": "text",
-                                                                                        "name": "span",
-                                                                                        "children": [
-                                                                                            {
-                                                                                                "style": {
-                                                                                                    "font-size": "18px"
-                                                                                                },
-                                                                                                "type": "text",
-                                                                                                "name": "span",
-                                                                                                "children": [
-                                                                                                    {
-                                                                                                        "source": "You can Use the following link to share the offer with more friends:",
-                                                                                                        "type": "text",
-                                                                                                        "name": "span"
-                                                                                                    }
-                                                                                                ]
-                                                                                            },
-                                                                                            {
-                                                                                                "type": "text",
-                                                                                                "name": "br"
-                                                                                            },
-                                                                                            {
-                                                                                                "source": "[urlShare]",
-                                                                                                "type": "text",
-                                                                                                "name": "span"
-                                                                                            }
-                                                                                        ]
-                                                                                    },
-                                                                                    {
-                                                                                        "type": "text",
-                                                                                        "name": "br"
-                                                                                    },
-                                                                                    {
-                                                                                        "source": "",
-                                                                                        "type": "text",
-                                                                                        "name": "span"
-                                                                                    }
-                                                                                ]
                                                                             },
                                                                             {
                                                                                 "source": "",
