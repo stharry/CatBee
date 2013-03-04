@@ -34,15 +34,21 @@ class Tribzi_Catbee_Model_Cart_Observer
         );
 
         $cbItems = array();
+        $lastProdID =0;
         foreach ($items as $itemId => $item)
         {
-            $prod      = Mage::getModel('catalog/product')->load($item->getProductId());
-            $itemProps = array(
+            if($item->getProductId()!=$lastProdID)
+            {
+                $lastProdID=$item->getProductId();
+
+                $prod      = Mage::getModel('catalog/product')->load($item->getProductId());
+                $itemProps = array(
                 'itemCode' => $prod->getSku(),
                 'url'      => Mage::getModel('catalog/product_media_config')->getMediaUrl($prod->getImage())
-            );
+                );
 
             array_push($cbItems, $itemProps);
+            }
         }
         $catBeeArray['items'] = $cbItems;
         Mage::getSingleton('checkout/session')->setData('catbee', $catBeeArray);
