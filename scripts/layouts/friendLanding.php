@@ -5,8 +5,10 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <title><?php echo $GLOBALS["page_title"] ?></title>
 
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery.min.js"></script>
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+<!--    <script src="--><?php //echo $GLOBALS[ "rootPath" ] ?><!--res/js/min/jquery.min.js"></script>-->
+<!--    <script src="--><?php //echo $GLOBALS[ "rootPath" ] ?><!--res/js/min/jquery-ui.min.js"></script>-->
 
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/mutate.events.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>/res/js/mutate.min.js?v=1" type="text/javascript"></script>
@@ -16,7 +18,7 @@
     <!--
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js?v=1" type="text/javascript"></script>
 -->
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.js?v=1" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.min.js?v=1" type="text/javascript"></script>
     <script type="text/javascript">
         easyXDM.DomHelper.requiresJSON("<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js");
     </script>

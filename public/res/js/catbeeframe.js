@@ -685,7 +685,11 @@ cbf.hasFrame = false;
 window.cbWidgets = cbWidgets;
 
 cbf.addLoadEvt(function () {
+    checkCbfActions();
+});
 
+function checkCbfActions()
+{
     var uriParams = cbf.parseUrl(location.href);
 
     var tribzisid = cbf.valOrDefault(uriParams.tribzisid, null);
@@ -728,6 +732,5 @@ cbf.addLoadEvt(function () {
         }
     }
 
-});
-
+}
 
