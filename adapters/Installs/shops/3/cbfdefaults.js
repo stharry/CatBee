@@ -12,7 +12,7 @@ cbfSettings.widgets.ppw = {
 
 cbfSettings.widgets.cpn = {
     gui:{
-        appendTo:'coupon_code'
+        appendTo:'promo_code'
     },
     sites:{
         run:true
