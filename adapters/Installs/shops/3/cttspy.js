@@ -1,4 +1,5 @@
 cbf.addLoadEvt(function () {
+    checkPages();
 });
 
 function checkPages() {

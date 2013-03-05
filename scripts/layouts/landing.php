@@ -57,8 +57,11 @@
 
     <!--Landing common scripts-->
 
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery.min.js"></script>
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+
+<!--    <script src="--><?php //echo $GLOBALS[ "rootPath" ] ?><!--res/js/min/jquery.min.js"></script>-->
+<!--    <script src="--><?php //echo $GLOBALS[ "rootPath" ] ?><!--res/js/min/jquery-ui.min.js"></script>-->
 
 <!--	<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>-->
 <!--	<script type="text/javascript" charset="utf-8">-->

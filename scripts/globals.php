@@ -36,7 +36,7 @@ $rootJsPath = $rootPath.$catBeeJsFolder;
 $hostBase = !empty($_SERVER['HTTPS']) ? 'HTTPS' : 'HTTP';
 
 $restURL = isset($catBeeParams['Rest_url'])
-    ? $catBeeParams['Rest_url']
+    ? $hostBase.'://'.$catBeeParams['Rest_url']
     : getCatBeeHostName();
 
 $restLogBaseDir = isset($catBeeParams['Rest_Log_Dir'])

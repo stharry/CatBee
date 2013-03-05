@@ -7,11 +7,15 @@ $(document).ready(function () {
         });
 });
 
+try
+{
 $("#twit_it").live('click', function () {
     //tweeting-button button needs to be clicked.
     $('#tbox').find('iframe').contents().find('#tweeting-button').click();
     return false;
 });
+}
+catch(e){}
 
 function InitTwitter(){
     try {

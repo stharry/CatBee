@@ -146,7 +146,7 @@ TribZi = {
                 xmlhttp.open("POST", sharePoint, true);
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-                xmlhttp.setRequestHeader("Content-Length", data2Send.length);
+                //xmlhttp.setRequestHeader("Content-Length", data2Send.length);
                 xmlhttp.send(data2Send);
             }
             else {
