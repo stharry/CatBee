@@ -7,7 +7,7 @@ cbfSettings.widgets.ppw = {
         closeButton:true
     },
     sites:{
-        run:false
+        run:true
     }};
 
 cbfSettings.widgets.cpn = {
