@@ -4,7 +4,7 @@ $(document).ready(function () {
         TribZi.resizeFrame(2, 2, '.box-wrapper');
     });
 
-    var imageSrc = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc6/c27.138.173.173/s160x160/183798_10150146597285056_6304744_n.jpg";
+    var imageSrc = "http://sphotos-b.ak.fbcdn.net/hphotos-ak-snc6/180251_10150132162005056_6394899_n.jpg";
 
     setTimeout(function(){
         $("#product-img").attr("src", imageSrc);
