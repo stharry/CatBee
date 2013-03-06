@@ -7,7 +7,7 @@ cbfSettings.widgets.ppw = {
         closeButton:true
     },
     sites:{
-        run:true
+        run:false
     }};
 
 cbfSettings.widgets.cpn = {
@@ -38,9 +38,10 @@ function checkPages() {
                 urls.push(imgs[0].src);
             }
             else {
-                var ind = items[i].innerText.indexOf('Product ID: ');
+                var itemText = cbf.valOrDefault(items[i].innerText, cbf.valOrDefault(items[i].textContent, ''));
+                var ind = itemText.indexOf('Product ID: ');
                 if (ind > 0) {
-                    codes.push(items[i].innerText.substr(ind + 12, 9));
+                    codes.push(itemText.substr(ind + 12, 9));
                 }
             }
         }
