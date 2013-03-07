@@ -26,6 +26,7 @@ class JsonLeaderDealFilterAdapter implements IModelAdapter
         $DealFilter->initDateEarlierThen = $obj["initDateEarlierThen"];
         $DealFilter->ReferralsFlag       = $obj["ReferralsFlag"];
         $DealFilter->ImpressionFlag      = $obj["ImpressionFlag"];
+
         if ($obj["ActiveShareType"] == "all")
         {
             $DealFilter->FillAllActiveShareTypes();

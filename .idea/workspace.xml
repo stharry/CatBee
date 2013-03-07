@@ -7,34 +7,16 @@
     <bookmark url="file://$PROJECT_DIR$/components/campaign/CampaignManager.php" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="Friend Widget Design&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adapters/demo/res/demoDiscount.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/getDiscount.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/json/res/getDiscount.json" />
+    <list default="true" id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="Change the DealPDO to support Filter&#10;&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/FeedJson.json" />
       <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee\.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee\model\OperationStatus.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee\Config\.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee\tests\.htaccess" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/config.ini" afterPath="$PROJECT_DIR$/Config/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" afterPath="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonOrderAdapter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/campaign/restrictions/RestrictionsManager.php" afterPath="$PROJECT_DIR$/components/campaign/restrictions/RestrictionsManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dao/PDO/PdoCampaignRestrictionsDao.php" afterPath="$PROJECT_DIR$/components/dao/PDO/PdoCampaignRestrictionsDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/loyalty/discounts/DiscountManager.php" afterPath="$PROJECT_DIR$/components/loyalty/discounts/DiscountManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/rest/RestLogger.php" afterPath="$PROJECT_DIR$/components/rest/RestLogger.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Customer.php" afterPath="$PROJECT_DIR$/model/Customer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/LeaderDeal.php" afterPath="$PROJECT_DIR$/model/LeaderDeal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/LeaderLanding.php" afterPath="$PROJECT_DIR$/model/LeaderLanding.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/OAuthApplication.php" afterPath="$PROJECT_DIR$/model/OAuthApplication.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Order.php" afterPath="$PROJECT_DIR$/model/Order.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/js/landing.js" afterPath="$PROJECT_DIR$/public/res/js/landing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/comps/landing.php" afterPath="$PROJECT_DIR$/scripts/comps/landing.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/CreateTables.sql" afterPath="$PROJECT_DIR$/sql/CreateTables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/getCampaigns.php" afterPath="$PROJECT_DIR$/tests/json/getCampaigns.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/res/GetDealsByCustomer.json" afterPath="$PROJECT_DIR$/tests/json/res/GetDealsByCustomer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/res/pushCampaign.json" afterPath="$PROJECT_DIR$/tests/json/res/pushCampaign.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/json/res/pushDeal.json" afterPath="$PROJECT_DIR$/tests/json/res/pushDeal.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/adapters/json/JsonLeaderDealFilterAdapter.php" afterPath="$PROJECT_DIR$/components/adapters/json/JsonLeaderDealFilterAdapter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/res/.htaccess" afterPath="$PROJECT_DIR$/public/res/.htaccess" />
     </list>
-    <list id="7cdf64f8-03e9-4a67-b55a-677c22d69ac1" name="Facebook" comment="Facebook" />
     <ignored path="CatBee.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="workspace.xml" />
@@ -46,7 +28,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee" />
   </component>
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
@@ -54,6 +36,62 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="CTTaddEmailLeaderShareTemp.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/CTT/CTTaddEmailLeaderShareTemp.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="272" column="168" selection-start="19594" selection-end="19602" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="friendLanding.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adapters/Installs/shops/3/friendLanding.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="16" selection-start="161" selection-end="169" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="friendLanding.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/comps/friendLanding.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="179" selection-start="1774" selection-end="1779" vertical-scroll-proportion="-15.461538">
+              <folding>
+                <element signature="e#1825#2315#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CTTaddTwitterShareTemp.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/json/CTT/CTTaddTwitterShareTemp.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="210" selection-start="374" selection-end="374" vertical-scroll-proportion="0.13754046">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="landing.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/comps/landing.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pinterest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/res/js/pinterest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="config.ini" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config/config.ini">
           <provider selected="true" editor-type-id="text-editor">
@@ -63,62 +101,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PdoAdaptorDao.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoAdaptorDao.php">
+      <file leaf-file-name="file1.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/iframe/file1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="90" selection-start="920" selection-end="920" vertical-scroll-proportion="-5.230769">
+            <state line="29" column="21" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PdoCampaignDao.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="29" selection-start="475" selection-end="475" vertical-scroll-proportion="36.03846">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FriendLandingManager.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/FriendLanding/FriendLandingManager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="55" selection-start="3078" selection-end="3078" vertical-scroll-proportion="-10.846154">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="33" selection-start="2465" selection-end="2489" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShareManager.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="290" column="20" selection-start="8570" selection-end="8570" vertical-scroll-proportion="-9.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addEmailLeaderShareTemplate.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/json/res/addEmailLeaderShareTemplate.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="9" selection-start="0" selection-end="29128" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LandingReward.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model/LandingReward.php">
+      <file leaf-file-name="CTTaddFBShareTemp.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/CTT/CTTaddFBShareTemp.json">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -126,17 +119,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="facebook.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/res/js/facebook.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="0" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shareStoreShareTemplate.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/json/res/shareStoreShareTemplate.json">
+      <file leaf-file-name="CTTPushDeal.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/json/CTT/CTTPushDeal.json">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -165,22 +149,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/model/StoreBranch.php" />
-        <option value="$PROJECT_DIR$/api/store/index.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonCampaignFilterAdapter.php" />
-        <option value="$PROJECT_DIR$/tests/json/res/getCampaigns.json" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonShareFilterAdapter.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonShareTemplateAdapter.php" />
-        <option value="$PROJECT_DIR$/components/adapters/json/JsonStoreBranchAdapter.php" />
-        <option value="$PROJECT_DIR$/components/dao/PDO/PdoStoreBranchDao.php" />
-        <option value="$PROJECT_DIR$/components/share/ShareManager.php" />
-        <option value="$PROJECT_DIR$/components/campaign/CampaignManager.php" />
-        <option value="$PROJECT_DIR$/tests/json/PrepareForDemo.php" />
-        <option value="$PROJECT_DIR$/adapters/demo/res/demoDeal.json" />
-        <option value="$PROJECT_DIR$/components/dao/PDO/PdoAdaptorDao.php" />
-        <option value="$PROJECT_DIR$/components/deal/DealManager.php" />
         <option value="$PROJECT_DIR$/public/res/js/email.js" />
         <option value="$PROJECT_DIR$/public/res/js/facebook.js" />
+        <option value="$PROJECT_DIR$/public/res/js/twitter.js" />
+        <option value="$PROJECT_DIR$/tests/json/CTT/PushCTTCamp.json" />
+        <option value="$PROJECT_DIR$/components/adapters/json/JsonLeaderDealFilterAdapter.php" />
+        <option value="$PROJECT_DIR$/components/dao/PDO/PdoDealDao.php" />
+        <option value="$PROJECT_DIR$/scripts/comps/friendLanding.php" />
+        <option value="$PROJECT_DIR$/adapters/Installs/shops/3/friendLanding.js" />
+        <option value="$PROJECT_DIR$/tests/iframe/file1.html" />
+        <option value="$PROJECT_DIR$/tests/json/CTT/CTTPushDeal.json" />
+        <option value="$PROJECT_DIR$/tests/json/CTT/PrepareCTT.php" />
+        <option value="$PROJECT_DIR$/tests/json/CTT/RegisterCTTStore.json" />
+        <option value="$PROJECT_DIR$/tests/json/CTT/CTTaddEmailLeaderShareTemp.json" />
+        <option value="$PROJECT_DIR$/adapters/Installs/catbeepostpurchase.js" />
+        <option value="$PROJECT_DIR$/adapters/Installs/magento/app/code/community/Tribzi/Catbee/Model/Cart/Observer.php" />
+        <option value="$PROJECT_DIR$/tests/json/CTT/CTTaddTwitterShareTemp.json" />
       </list>
     </option>
   </component>
@@ -189,7 +173,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
+    <option name="width" value="1164" />
     <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -302,7 +286,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
+              <option name="myItemId" value="CTT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -335,42 +333,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatBee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -388,26 +350,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatBee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="190" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="213" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="221" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="234" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="248" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="304" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/components/dao/PDO" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="216" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="764" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="889" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="250" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="236" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="598" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="820" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="307" />
     <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="246" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="302" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
@@ -421,13 +397,38 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
   </component>
+  <component name="PublishConfig" serverName="Amazon apiD" serverId="366b6d17-4097-43bb-9b69-fcdce47b1b58">
+    <servers>
+      <server id="366b6d17-4097-43bb-9b69-fcdce47b1b58">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/var/www/html/CatBee" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+      <server id="a34a3103-6140-429c-9dfa-544912ac9d3e">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/var/www/html/CatBee" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+      <server id="a35183a2-7026-48dc-9765-72a0fcc554a1">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/var/www/html/CatBee" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee\adapters\Installs\shops\2" />
       <recent name="C:\Program Files (x86)\EasyPHP-12.1\www\CatBee\public\res\images" />
       <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json\res" />
       <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\tests\json" />
       <recent name="C:\Program Files (x86)\EasyPHP-5.3.9\www\CatBee\public\res\images" />
-      <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\adapters\demo\res" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Program Files\EasyPHP-12.1\www\CatBee\adapters\demo\demoActions" />
@@ -443,6 +444,16 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="366b6d17-4097-43bb-9b69-fcdce47b1b58" server_name="Amazon apiD">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="PrepareForDemo.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/tests/json/PrepareForDemo.php">
@@ -477,7 +488,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="46da139a-79ab-4e43-b379-12282a536366" name="Default" comment="" />
-      <changelist id="7cdf64f8-03e9-4a67-b55a-677c22d69ac1" name="Facebook" comment="" />
       <created>1347565768546</created>
       <updated>1347565768546</updated>
     </task>
@@ -673,7 +683,203 @@
       <created>1355757338036</created>
       <updated>1355757338036</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="fake check in&#10;">
+      <created>1357509947094</created>
+      <updated>1357509947094</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Impression Bug">
+      <created>1358451806390</created>
+      <updated>1358451806391</updated>
+    </task>
+    <task id="LOCAL-00052" summary="GM Test&#10;">
+      <created>1358845338926</created>
+      <updated>1358845338926</updated>
+    </task>
+    <task id="LOCAL-00053" summary="GM Test&#10;">
+      <created>1358865067512</created>
+      <updated>1358865067512</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Fix DL lower case&#10;">
+      <created>1358879660419</created>
+      <updated>1358879660419</updated>
+    </task>
+    <task id="LOCAL-00055" summary="CloudSponge&#10;">
+      <created>1358940087052</created>
+      <updated>1358940087052</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Fix DL lower case&#10;">
+      <created>1358940454000</created>
+      <updated>1358940454000</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Fix CloudSponge&#10;">
+      <created>1358944077393</created>
+      <updated>1358944077393</updated>
+    </task>
+    <task id="LOCAL-00058" summary="fix Validation OF email&#10;">
+      <created>1358946566839</created>
+      <updated>1358946566839</updated>
+    </task>
+    <task id="LOCAL-00059" summary="email Validation&#10;">
+      <created>1358947106201</created>
+      <updated>1358947106201</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1359237288960</created>
+      <updated>1359237288960</updated>
+    </task>
+    <task id="LOCAL-00061" summary="remove table shop actions&#10;&#10;">
+      <created>1359388409312</created>
+      <updated>1359388409312</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Fix Overlay&#10;&#10;">
+      <created>1359548329047</created>
+      <updated>1359548329047</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Validate Email&#10;&#10;">
+      <created>1359552070589</created>
+      <updated>1359552070589</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Fix GM Test Bugs&#10;&#10;">
+      <created>1360255023234</created>
+      <updated>1360255023234</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1360364721912</created>
+      <updated>1360364721912</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1360364918927</created>
+      <updated>1360364918927</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Email Friend Bug&#10;&#10;">
+      <created>1360488180610</created>
+      <updated>1360488180610</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Email bugs&#10;&#10;">
+      <created>1360490511721</created>
+      <updated>1360490511721</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Email Bugs&#10;&#10;">
+      <created>1360495289268</created>
+      <updated>1360495289269</updated>
+    </task>
+    <task id="LOCAL-00070" summary="change Twitter message&#10;&#10;">
+      <created>1360498527413</created>
+      <updated>1360498527413</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1360849511638</created>
+      <updated>1360849511638</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1360851022638</created>
+      <updated>1360851022638</updated>
+    </task>
+    <task id="LOCAL-00073" summary="add Production Script&#10;&#10;">
+      <created>1360851692292</created>
+      <updated>1360851692292</updated>
+    </task>
+    <task id="LOCAL-00074" summary="going live&#10;&#10;">
+      <created>1360852801101</created>
+      <updated>1360852801101</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Leader Email small bug&#10;">
+      <created>1361351406724</created>
+      <updated>1361351406724</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1361361145950</created>
+      <updated>1361361145950</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1361713375602</created>
+      <updated>1361713375602</updated>
+    </task>
+    <task id="LOCAL-00078" summary="CTT Prepare &#10;&#10;">
+      <created>1361782416333</created>
+      <updated>1361782416333</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1361783251189</created>
+      <updated>1361783251189</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1361883860358</created>
+      <updated>1361883860358</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Make Image Clickable&#10;&#10;">
+      <created>1361954054303</created>
+      <updated>1361954054303</updated>
+    </task>
+    <task id="LOCAL-00082" summary="New Min For CTT&#10;&#10;">
+      <created>1361959099432</created>
+      <updated>1361959099432</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Prepare For CTT&#10;">
+      <created>1361969738025</created>
+      <updated>1361969738025</updated>
+    </task>
+    <task id="LOCAL-00084" summary="bug fixes CTT&#10;">
+      <created>1361997033397</created>
+      <updated>1361997033397</updated>
+    </task>
+    <task id="LOCAL-00085" summary="CTT Going Live&#10;&#10;">
+      <created>1362037510548</created>
+      <updated>1362037510548</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1362042050770</created>
+      <updated>1362042050770</updated>
+    </task>
+    <task id="LOCAL-00087" summary="fix bug PDO DAO&#10;&#10;">
+      <created>1362054643518</created>
+      <updated>1362054643518</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Image For &#10;&#10;">
+      <created>1362057203144</created>
+      <updated>1362057203144</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1362292332102</created>
+      <updated>1362292332102</updated>
+    </task>
+    <task id="LOCAL-00090" summary="CTT&#10;&#10;">
+      <created>1362316864876</created>
+      <updated>1362316864876</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1362317394946</created>
+      <updated>1362317394946</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1362317427931</created>
+      <updated>1362317427931</updated>
+    </task>
+    <task id="LOCAL-00093" summary="ctt&#10;&#10;">
+      <created>1362322598319</created>
+      <updated>1362322598319</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Change in the Observer&#10;&#10;">
+      <created>1362385934802</created>
+      <updated>1362385934802</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Change the DealPDO to support Filter&#10;&#10;">
+      <created>1362386347301</created>
+      <updated>1362386347301</updated>
+    </task>
+    <task id="LOCAL-00096" summary="CTT&#10;">
+      <created>1362405317879</created>
+      <updated>1362405317879</updated>
+    </task>
+    <task id="LOCAL-00097" summary="CTT&#10;&#10;">
+      <created>1362470776483</created>
+      <updated>1362470776483</updated>
+    </task>
+    <task id="LOCAL-00098" summary="CTT&#10;">
+      <created>1362494504542</created>
+      <updated>1362494504542</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -697,24 +903,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1164" height="876" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7234637" sideWeight="0.497426" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32714286" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282123" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7234637" sideWeight="0.494852" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32681563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1975547" sideWeight="0.6703911" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34749034" sideWeight="0.48044693" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1975547" sideWeight="0.67178774" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44555354" sideWeight="0.6522346" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34749034" sideWeight="0.43715084" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7234637" sideWeight="0.4980695" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19880952" sideWeight="0.66450566" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51955307" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34776536" sideWeight="0.497426" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23184358" sideWeight="0.3298217" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282123" sideWeight="0.49675852" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29434448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -755,7 +962,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor and Naming" />
+    <option name="LAST_COMMIT_MESSAGE" value="CTT&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -768,143 +975,138 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Last Tomer's changes" />
-    <MESSAGE value="added email as assorted" />
-    <MESSAGE value="first stable version with email showed but still not sending (need to connect pear)&#10;Also need to merge css" />
-    <MESSAGE value="new classes model" />
-    <MESSAGE value="remodelling finished:&#10;1. Model completed&#10;2. dao services completed&#10;3. components completed&#10;4. base tests (add compaign/push deal) added" />
-    <MESSAGE value="connection to database was commented... just uncommented the connection" />
-    <MESSAGE value="added Include Component Class" />
-    <MESSAGE value="added friend link creation" />
-    <MESSAGE value="facebook goes live" />
-    <MESSAGE value="Lead Tracking" />
-    <MESSAGE value="Bug Fix - ShareDao" />
-    <MESSAGE value="Bug Fix ILeadDao" />
-    <MESSAGE value="Store.php" />
-    <MESSAGE value="Guide Demo" />
-    <MESSAGE value="Fix Bug Store Name was empty at Welcome Friend Widget&#10;" />
-    <MESSAGE value="Friend Widget Design&#10;" />
-    <MESSAGE value="Remove column LandingRewardID from Deal" />
-    <MESSAGE value="Leads -Creating a Test for Retrieving the data&#10;" />
-    <MESSAGE value="Refactor and Naming" />
+    <MESSAGE value="email Validation&#10;" />
+    <MESSAGE value="remove table shop actions&#10;&#10;" />
+    <MESSAGE value="Fix Overlay&#10;&#10;" />
+    <MESSAGE value="Validate Email&#10;&#10;" />
+    <MESSAGE value="Fix GM Test Bugs&#10;&#10;" />
+    <MESSAGE value="Email Friend Bug&#10;&#10;" />
+    <MESSAGE value="Email bugs&#10;&#10;" />
+    <MESSAGE value="Email Bugs&#10;&#10;" />
+    <MESSAGE value="change Twitter message&#10;&#10;" />
+    <MESSAGE value="add Production Script&#10;&#10;" />
+    <MESSAGE value="going live&#10;&#10;" />
+    <MESSAGE value="Leader Email small bug&#10;" />
+    <MESSAGE value="CTT Prepare &#10;&#10;" />
+    <MESSAGE value="Make Image Clickable&#10;&#10;" />
+    <MESSAGE value="New Min For CTT&#10;&#10;" />
+    <MESSAGE value="Prepare For CTT&#10;" />
+    <MESSAGE value="bug fixes CTT&#10;" />
+    <MESSAGE value="CTT Going Live&#10;&#10;" />
+    <MESSAGE value="fix bug PDO DAO&#10;&#10;" />
+    <MESSAGE value="Image For &#10;&#10;" />
+    <MESSAGE value="ctt&#10;&#10;" />
+    <MESSAGE value="Change in the Observer&#10;&#10;" />
+    <MESSAGE value="Change the DealPDO to support Filter&#10;&#10;" />
+    <MESSAGE value="CTT&#10;&#10;" />
+    <MESSAGE value="CTT&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/share/index.php">
+    <entry file="file://$PROJECT_DIR$/adapters/Installs/catbeeframe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="395" selection-end="395" vertical-scroll-proportion="-5.576923">
+        <state line="621" column="33" selection-start="19077" selection-end="19088" vertical-scroll-proportion="-45.92" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/Installs/magento/app/code/community/Tribzi/Catbee/Helper/Data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="52.653847" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/Installs/magento/app/code/community/Tribzi/Catbee/Helper/CatBeeClient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/Installs/magento/app/code/community/Tribzi/Catbee/Block/Popup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/Installs/magento/app/code/community/Tribzi/Catbee/Block/Footerscripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapters/Installs/magento/app/code/community/Tribzi/Catbee/Model/Cart/Observer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="49" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/deal/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="8" selection-start="919" selection-end="919" vertical-scroll-proportion="-5.576923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/res/pushDeal.json">
+    <entry file="file://$PROJECT_DIR$/tests/json/CTT/CTTPushDeal.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/FriendLanding/FriendLandingManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="55" selection-start="3078" selection-end="3078" vertical-scroll-proportion="-10.846154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/deal/DealManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="82" selection-start="7359" selection-end="7359" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dao/PDO/PdoCampaignDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="29" selection-start="475" selection-end="475" vertical-scroll-proportion="36.03846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/res/shareStoreShareTemplate.json">
+    <entry file="file://$PROJECT_DIR$/tests/json/CTT/CTTaddFBShareTemp.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/js/facebook.js">
+    <entry file="file://$PROJECT_DIR$/Config/config.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/js/email.js">
+    <entry file="file://$PROJECT_DIR$/tests/iframe/file1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="33" selection-start="2465" selection-end="2489" vertical-scroll-proportion="0.0">
+        <state line="29" column="21" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/campaign/CampaignManager.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/CTT/CTTaddEmailLeaderShareTemp.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="77" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.627451">
+        <state line="272" column="168" selection-start="19594" selection-end="19602" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/share/ShareManager.php">
+    <entry file="file://$PROJECT_DIR$/public/res/js/pinterest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="290" column="20" selection-start="8570" selection-end="8570" vertical-scroll-proportion="-9.5">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/PrepareForDemo.php">
+    <entry file="file://$PROJECT_DIR$/adapters/Installs/shops/3/friendLanding.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="593" selection-end="593" vertical-scroll-proportion="-11.115385">
+        <state line="6" column="16" selection-start="161" selection-end="169" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/json/res/addEmailLeaderShareTemplate.json">
+    <entry file="file://$PROJECT_DIR$/scripts/comps/landing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="9" selection-start="0" selection-end="29128" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adapters/demo/res/demoDeal.json">
+    <entry file="file://$PROJECT_DIR$/scripts/comps/friendLanding.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+        <state line="37" column="179" selection-start="1774" selection-end="1779" vertical-scroll-proportion="-15.461538">
           <folding>
-            <marker date="1355757614832" expanded="true" signature="384:522" placeholder="{&quot;email&quot;: &quot;vadim.chebyshev@retalix.com&quot;...}" />
-            <marker date="1355757614832" expanded="true" signature="361:386" placeholder="{&quot;shopId&quot;: &quot;1&quot;...}" />
+            <element signature="e#1825#2315#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/LandingReward.php">
+    <entry file="file://$PROJECT_DIR$/tests/json/CTT/CTTaddTwitterShareTemp.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="5" column="210" selection-start="374" selection-end="374" vertical-scroll-proportion="0.13754046">
           <folding />
         </state>
       </provider>
