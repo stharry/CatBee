@@ -1,0 +1,9 @@
+{
+    "action":"get",
+        "context":
+        {
+            "Customer":{
+                "email":"tomer.harry@gmail.com"
+            }
+        }
+}
