@@ -62,6 +62,7 @@ foreach ($jsJoins as $jsJoinName => $jsFiles)
     foreach ($jsFiles as $jsFile)
     {
         $in = fopen($minFolder.$jsFile, 'r');
+        fwrite($out, "//--".$jsFile."\n");
         while (!feof($in))
         {
 
