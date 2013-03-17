@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS customers (
    firstName VARCHAR(50),
    lastName VARCHAR(50),
    nickName VARCHAR(50),
+   sharedPhoto VARCHAR(100),
    PRIMARY KEY(id)
 );
 
