@@ -18,8 +18,8 @@ class PdoCustomerDao implements ICustomerDao
 
     public function insertCustomer($customer)
     {
-        $names = array("email", "firstName", "lastName", "nickName");
-        $values = array($customer->email, $customer->firstName, $customer->lastName, $customer->nickName);
+        $names = array("email", "firstName", "lastName", "nickName","sharedPhoto");
+        $values = array($customer->email, $customer->firstName, $customer->lastName, $customer->nickName,$customer->sharedPhoto);
 
         $customer->id = DbManager::insertAndReturnId("customers", $names, $values);
     }
@@ -31,7 +31,7 @@ class PdoCustomerDao implements ICustomerDao
 
     public function loadCustomerById($id)
     {
-        $rows = DbManager::selectValues("SELECT email, firstName, lastName, nickName
+        $rows = DbManager::selectValues("SELECT email, firstName, lastName, nickName,sharedPhoto
             FROM customers WHERE id =?",
             array(new DbParameter($id,PDO::PARAM_INT)));
 
@@ -45,13 +45,14 @@ class PdoCustomerDao implements ICustomerDao
         $customer->firstName = $rows[0]["firstName"];
         $customer->lastName = $rows[0]["lastName"];
         $customer->nickName = $rows[0]["nickName"];
+        $customer->sharedPhoto = $rows[0]["sharedPhoto"];
 
         return $customer;
     }
 
     public function loadCustomerByEmail($customer)
     {
-        $rows = DbManager::selectValues("SELECT firstName, lastName, nickName, id
+        $rows = DbManager::selectValues("SELECT firstName, lastName, nickName, id,sharedPhoto
             FROM customers WHERE email =?",
             array(new DbParameter($customer->email,PDO::PARAM_INT)));
 
@@ -63,5 +64,6 @@ class PdoCustomerDao implements ICustomerDao
         $customer->firstName = $rows[0]["firstName"];
         $customer->lastName = $rows[0]["lastName"];
         $customer->nickName = $rows[0]["nickName"];
+        $customer->sharedPhoto = $rows[0]["sharedPhoto"];
     }
 }
