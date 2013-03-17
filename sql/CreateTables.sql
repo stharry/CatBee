@@ -216,9 +216,12 @@ CREATE TABLE  If NOT EXISTS tribes (
 CREATE  TABLE If NOT EXISTS tribeCustomers (
 
   id INT NOT NULL ,
-
   TribeId INT NULL ,
-
   CustomerID INT NULL ,
+  PRIMARY KEY (id) );
 
+  CREATE  TABLE If NOT EXISTS tribeStores (
+  id INT NOT NULL ,
+  TribeID INT NULL ,
+  StoreID INT NULL ,
   PRIMARY KEY (id) );

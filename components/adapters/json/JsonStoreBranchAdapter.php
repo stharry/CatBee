@@ -23,15 +23,44 @@ class JsonStoreBranchAdapter implements IModelAdapter
     {
         $this->jsonAdaptorAdapter         = new JsonAdaptorAdapter();
     }
+//    public function toArray($obj)
+//    {
+//        RestLogger::log("Starting Json store adaptor",$obj);
+//        return array(
+//            'shopId' => $obj->shopId,
+//            'shopName' => $obj->shopName,
+//            'url' => $obj->url,
+//            'email' => $obj->email,
+//            'store' => $this->jsonAdaptorAdapter->toArray($obj->adaptor)
+//
+//        );
+//    }
+
     public function toArray($obj)
     {
-        return array(
-            'shopId' => $obj->shopId,
-            'shopName' => $obj->shopName,
-            'url' => $obj->url,
-            'email' => $obj->email,
-            'store' => $this->jsonAdaptorAdapter->toArray($obj->adaptor)
+        if (is_array($obj))
+        {
+            $stores= array();
 
+            foreach ($obj as $store)
+            {
+                array_push($stores, $this->singleStoreToArray($store));
+            }
+            return $stores;
+        }
+        else
+        {
+            return $this->singleStoreToArray($obj);
+        }
+    }
+    private function singleStoreToArray($store)
+    {
+        return array("id" => $store->id,
+            "shopId" => $store->shopId,
+            "shopName" => $store->shopName,
+            "url" => $store->url,
+            "email" => $store->email,
+            "store" => $this->jsonAdaptorAdapter->toArray($store->adaptor)
         );
     }
 
@@ -45,6 +74,7 @@ class JsonStoreBranchAdapter implements IModelAdapter
                 array_push($branches, $this->singleBranchFromArray($branch));
 
             }
+
             return $branches;
         }
         return $this->singleBranchFromArray($obj);

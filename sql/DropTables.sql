@@ -20,4 +20,5 @@ DROP Table If EXISTS impression;
 DROP Table If EXISTS shopWidgets;
 DROP Table If EXISTS tribes;
 DROP Table If EXISTS tribeCustomers;
+DROP Table If EXISTS tribeStores;
 
