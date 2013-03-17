@@ -4,11 +4,15 @@
 include_once($_SERVER[ 'DOCUMENT_ROOT' ] . "/CatBee/scripts/globals.php");
 IncludeComponent('rest', 'RestUtils');
 
-$Store = json_decode(file_get_contents("RegisterCTTStore.json"));
-
 $restUtils = new RestUtils();
-$restUtils->SendPostRequest("store", "", $Store);
 
+$Store = json_decode(file_get_contents("RegisterCTTStore.json"));
+$restUtils->SendPostRequest("store", "", $Store);
+echo "Store register - OK </p>";
+
+$StoreCfg = json_decode(file_get_contents("CTTSetStoreBranchConfig.json"));
+$restUtils->SendPostRequest("store", "", $StoreCfg);
+echo "Store config - OK </p>";
 
 $campaign = json_decode(file_get_contents("PushCTTCamp.json"));
 $restUtils->SendPostRequest("campaign", "", $campaign);

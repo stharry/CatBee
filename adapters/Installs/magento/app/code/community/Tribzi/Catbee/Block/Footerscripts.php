@@ -7,10 +7,13 @@ class Tribzi_Catbee_Block_Footerscripts extends Mage_Core_Block_Template
 {
     protected function _beforeToHtml()
     {
-        $uriPrefix = Mage::helper('Tribzi_Catbee')->getApiServer();
+        Mage::log('Tribzi_Catbee_Block_Footerscripts _beforeToHtml');
 
-        $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/catbeeframe.js?host='.$uriPrefix.'/CatBee/';
-        $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/catbeecart.js?cfid=coupon_code';
+        $uriPrefix = Mage::helper('Tribzi_Catbee')->getApiServer();
+        $shopId = Mage::helper('Tribzi_Catbee')->getStoreConfig('Store_Id');
+
+        $srcs[ ] = $uriPrefix . '/CatBee/public/res/js/min/catbeeframe.js';
+        $srcs[ ] = $uriPrefix . '/CatBee/adapters/Installs/shops/'.$shopId.'/cbfdefaults.js';
         $this->setScripts($srcs);
     }
 }

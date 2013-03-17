@@ -1,13 +1,17 @@
 $(document).ready(function () {
 
+    InitFacebook();
+
+//    load(window.location.protocol + '//connect.facebook.net/en_US/all.js')
+//        .thenRun(function () {
+//            InitFacebook();
+//        });
+});
+
+function InitFacebook()
+{
     $('.facebook-form').hide();
     $('#ContactsArea').hide();
-
-//    TribZi.shortenLink(TribZi.deal.fbcContext.link,
-//        function(shortLink){
-//
-//            TribZi.deal.fbcContext.link = shortLink;
-//        });
 
     FB.init({appId:TribZi.deal.fbcContext.application.applicationCode, //'345229122250809'
         status    :true,
@@ -23,9 +27,7 @@ $(document).ready(function () {
         hideTwitterBox();
         StartFacebookSharing();
     });
-
-
-});
+}
 
 function StartFacebookSharing() {
     try {
@@ -60,7 +62,7 @@ function StartFacebookSharing() {
 
                 TribZi.share();
 
-                showSuccess('Thanks For Sharing! Your Coupon for next purchase is on the way - Keep on sharing');
+                showSuccess('Thanks For Sharing! Your reward for next purchase is on the way - Keep on sharing');
 
                 $('#emailShare').click();
             }

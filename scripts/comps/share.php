@@ -4,16 +4,16 @@
 	<div class="centered-share-menu">
 		<ul id="share_list">
             <li>
-                <a href="#pinterestForm" rel="pinterest" id="pinterestShare">Pinterest</a>
+                <a href="#pinterestForm" rel="pinterest" id="pinterestShare"></a>
             </li>
             <li>
-                <a href="#facebookForm" rel="facebook" id="facebookShare">Facebook</a>
+                <a href="#facebookForm" rel="facebook" id="facebookShare"></a>
             </li>
 			<li>
-				<a href="#twittForm" rel="twitter" id="twitterShare">Twitter</a>
+				<a href="#twittForm" rel="twitter" id="twitterShare"></a>
 			</li>
 			<li>
-				<a href="#emailForm" rel="email" id="emailShare">Email</a>
+				<a href="#emailForm" rel="email" id="emailShare"></a>
 			</li>
 		</ul>
 	</div>

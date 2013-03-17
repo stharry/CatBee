@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<script type="text/javascript" src="http://www.apid2.tribzi.com/CatBee/public/res/js/min/jquery.min.js"></script>-->
+    <script type="text/javascript" src="/CatBee/public/res/js/min/catbeeframe.js"></script>
+    <script type="text/javascript" src="/CatBee/adapters/Installs/shops/3/cbfdefaults.js"></script>
+
+    <script>
+        window.cbWidgets.postPurchaseWidget(
+                {
+                    amount:124.95,
+                    id:810,
+                    customer:{
+                        email:'spidernah@gmail.com',
+                        firstName:'vad'
+                    },
+                    branch:{
+                        shopId:'3'
+                    },
+                    items:[
+                        {
+                            itemCode:'1234567890',
+                            url:'http%3A%2F%2Fwww.glassesmarket.com%2Ftest%2Fmedia%2Fcatalog%2Fproduct%2Fi%2Fm%2Fimg_1625_web_version__1.jpg'
+                        },
+                        {
+                            itemCode:'1234567890',
+                            url:'http%3A%2F%2Fcdn.glassesmarket.com/catalog/product/cache/1/thumbnail/133x133/9df78eab33525d08d6e5fb8d27136e95/i/m/img_2267_web_version_.jpg'
+                        }
+                    ]
+                }
+        );
+    </script>
+    <!--<script type="text/javascript" src="http://www.apid.tribzi.com/CatBee/adapters/Installs/catbeepostpurchase.js?i…g_1625_web_version__1.jpg&shop=2&adpt=54c5e6c3-6349-11e2-a702-0008cae720a7"></script>-->
+
+</head>
+<body>
+<div class="col-main">
+    <a>Append after it</a>
+    <a class="buttons-set">Add before this node</a>
+</div>
+<div id="cbfRoot"></div>
+</body>
+</html>

@@ -1,6 +1,6 @@
-<div id="header-section" class="zContainer">
+<!--<div id="header-section" class="zContainer">
 	<img src="/CatBee/public/res/images/friendDeal/logo.jpg" alt="Glasses Market" />
-</div>
+</div>-->
 
 <div id="product-photo-coupon" class="zContainer">
 	<div id="product-photo" class="fl">
@@ -31,11 +31,11 @@
 	<div id="footer-left" class="fl footer-box">
 		<h5>How Does This Deal Work?</h5>
 		<!--<p>Copy the coupon code <?php echo $p[0]->share->reward->friendReward->code?> and place it on the shopping cart page for your instant discount</p>-->
-        <p>Just click the "Start Shopping" button and the discount code will display on checkout</p>
+        <p>Copy the coupon code <?php echo $p[0]->share->reward->friendReward->code?> and place it on the shopping cart page for your instant discount</p>
 	</div>
 	<div id="footer-right" class="fl footer-box last">
 		<h5>Have a Question?</h5>
-		<p>We're here to help, contact with any question that you may have: <a class="support-email" href="mailto:<?php echo $p[0]->order->branch->email?>"><?php echo $p[0]->order->branch->email?><a></p>
+		<p>We're here to help, contact with any question that you may have: <a id="support-email" class="support-email" href="mailto:<?php echo $p[0]->order->branch->email?>"><?php echo $p[0]->order->branch->email?><a></p>
 	</div>
 </div>
 <?php /* <div class="deal-text">

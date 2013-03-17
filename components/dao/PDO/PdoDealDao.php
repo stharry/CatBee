@@ -220,7 +220,7 @@ class PdoDealDao implements IDealDao
             {
                 $selectClause = $selectClause . $val->type . ",";
             }
-            $selectClause = substr_replace($selectClause, "", -1);
+            $selectClause = rtrim($selectClause,",");
             $selectClause = $selectClause . ") and s.status=2 ";
 
             $selectClause = $selectClause . " Order by d.id,activeShareID";
@@ -303,7 +303,7 @@ class PdoDealDao implements IDealDao
                 {
                     $selectClause = $selectClause . $val->type . ",";
                 }
-                $selectClause = substr_replace($selectClause, "", -1);
+                $selectClause = rtrim($selectClause,",");
                 $selectClause = $selectClause . ") and s.status=2 ";
             }
 

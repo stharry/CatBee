@@ -33,6 +33,12 @@ class DealManager implements IDealManager
         }
     }
 
+    private function calculateCustomerRewards($deal)
+    {
+        $rewardsCalculator = new RewardsCalculator($deal);
+        $rewardsCalculator->calculateRewards($deal->landing->landingRewards);
+    }
+
     private function createShareContexts($deal)
     {
         $clientContexts = array('facebook'  => 'fbcContext',
@@ -157,7 +163,10 @@ class DealManager implements IDealManager
             $leaderLanding = $this->campaignManager->chooseLeaderLanding($campaign, $order);
             RestLogger::log("DealManager::pushDeal after landing choosing ", $leaderLanding);
 
+
             $leaderDeal = $this->createPendingDeal($leaderLanding, $order, $campaign);
+
+            $this->calculateCustomerRewards($leaderDeal);
 
             $this->createShareContexts($leaderDeal);
 

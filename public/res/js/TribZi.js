@@ -146,7 +146,7 @@ TribZi = {
                 xmlhttp.open("POST", sharePoint, true);
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-                xmlhttp.setRequestHeader("Content-Length", data2Send.length);
+                //xmlhttp.setRequestHeader("Content-Length", data2Send.length);
                 xmlhttp.send(data2Send);
             }
             else {
@@ -192,7 +192,7 @@ TribZi = {
     share:function (callback) {
 
         if (this.sharedTimes == 0) {
-            this.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.customer.email, 'leader', 'email');
+            this.addTarget(TribZi.deal.order.branch.email, TribZi.deal.order.branch.email, 'leader', 'email');
         }
 
         this.doShareAction('share deal', callback);

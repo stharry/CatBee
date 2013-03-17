@@ -43,22 +43,25 @@
 				left: 0px;
 			}
 			#share_list li a{
-				width: 131px;
+				/*width: 131px;*/
 				height: 37px;
 			}
 			
 		</style>
 	<![endif]-->
 	
-    <link rel="stylesheet" type="text/css" media="all"
-          href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/emailForm.css<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>">
-    <link rel="stylesheet" type="text/css" media="all"
-          href="<?php echo $GLOBALS[ "rootPath" ] ?>res/css/tweetForm.css<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>">
+<!--    <link rel="stylesheet" type="text/css" media="all"-->
+<!--          href="--><?php //echo $GLOBALS[ "rootPath" ] ?><!--res/css/emailForm.css--><?php //echo $GLOBALS[ "catBeeJsVersion" ] ?><!--">-->
+<!--    <link rel="stylesheet" type="text/css" media="all"-->
+<!--          href="--><?php //echo $GLOBALS[ "rootPath" ] ?><!--res/css/tweetForm.css--><?php //echo $GLOBALS[ "catBeeJsVersion" ] ?><!--">-->
 
     <!--Landing common scripts-->
 
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery.min.js"></script>
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+
+<!--    <script src="--><?php //echo $GLOBALS[ "rootPath" ] ?><!--res/js/min/jquery.min.js"></script>-->
+<!--    <script src="--><?php //echo $GLOBALS[ "rootPath" ] ?><!--res/js/min/jquery-ui.min.js"></script>-->
 
 <!--	<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>-->
 <!--	<script type="text/javascript" charset="utf-8">-->
@@ -68,20 +71,20 @@
 <!--		};-->
 <!--	</script>-->
 
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/dev/chain-dev.js?v=1" type="text/javascript"></script>
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/dev/load-dev.js?v=1" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/chain-min.js?v=1" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/load-min.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/mutate.events.js?v=1" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/mutate.min.js?v=1" type="text/javascript"></script>
 <!--
     <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js?v=1" type="text/javascript"></script>
 -->
-    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.js?v=1" type="text/javascript"></script>
+    <script src="<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/easyXDM.min.js?v=1" type="text/javascript"></script>
     <script type="text/javascript">
         easyXDM.DomHelper.requiresJSON("<?php echo $GLOBALS[ "rootPath" ] ?>res/js/min/json2.js");
     </script>
 
     <script src="<?php echo $GLOBALS[ "hostBase" ] ?>://connect.facebook.net/en_US/all.js"></script>
-    <script src="<?php echo $GLOBALS[ "hostBase" ] ?>://platform.twitter.com/anywhere.js?v=1&id=<?php echo $p[0]['params'][0]->twitContext->application->applicationCode; ?>"></script>
+<!--    <script src="--><?php //echo $GLOBALS[ "hostBase" ] ?><!--://platform.twitter.com/anywhere.js?v=1&id=--><?php //echo $p[0]['params'][0]->twitContext->application->applicationCode; ?><!--"></script>-->
 
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>jcookie.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>jquery.jcarousel-core.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
@@ -90,12 +93,15 @@
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>TribZi.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script language="javascript">TribZi.init(<?php echo $p[0]['params'][1]; ?>);</script>
 
+<?php if ($GLOBALS[ "catBeeUnderDebug" ]) {?>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>landing.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>pinterest.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>email.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>facebook.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
     <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>twitter.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
-
+<?php } else {?>
+    <script src="<?php echo $GLOBALS[ "rootJsPath" ] ?>TribZi.ui.js<?php echo $GLOBALS[ "catBeeJsVersion" ] ?>" type="text/javascript"></script>
+<?php }?>
     <!--email scripts
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
 </head>
@@ -136,11 +142,11 @@
         <?php catbeeRender($p); ?>
     </div>
 </div>
-<script type="text/javascript">
-    setTimeout(function(){var a=document.createElement("script");
-        var b=document.getElementsByTagName("script")[0];
-        a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0014/1321.js?"+Math.floor(new Date().getTime()/3600000);
-        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
-</script>
+<!--<script type="text/javascript">-->
+<!--    setTimeout(function(){var a=document.createElement("script");-->
+<!--        var b=document.getElementsByTagName("script")[0];-->
+<!--        a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0014/1321.js?"+Math.floor(new Date().getTime()/3600000);-->
+<!--        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);-->
+<!--</script>-->
 </body>
 </html>

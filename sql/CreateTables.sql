@@ -206,3 +206,18 @@ CREATE TABLE  If NOT EXISTS shopWidgets (
   widgetId INT NOT NULL,
   widgetParams TEXT NULL
 );
+
+CREATE TABLE  If NOT EXISTS tribes (
+  id int(11) NOT NULL,
+  tribeName varchar(60) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+CREATE  TABLE If NOT EXISTS tribeCustomers (
+
+  id INT NOT NULL ,
+
+  TribeId INT NULL ,
+
+  CustomerID INT NULL ,
+
+  PRIMARY KEY (id) );

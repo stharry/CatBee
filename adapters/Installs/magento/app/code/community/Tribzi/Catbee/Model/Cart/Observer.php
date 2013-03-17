@@ -14,7 +14,7 @@ class Tribzi_Catbee_Model_Cart_Observer
         }
         $order       = Mage::getModel('sales/order')->load(reset($orderIds));
         $data        = $order->getData();
-        $items       = $order->getAllItems();
+        $items       = $order->getAllVisibleItems();
 //        $fistItem    = reset($items);
 //        $prod        = Mage::getModel('catalog/product')->load($fistItem->getProductId());
         $catBeeArray = array(
@@ -34,18 +34,26 @@ class Tribzi_Catbee_Model_Cart_Observer
         );
 
         $cbItems = array();
+        $lastProdID =0;
         foreach ($items as $itemId => $item)
         {
-            $prod      = Mage::getModel('catalog/product')->load($item->getProductId());
-            $itemProps = array(
+            if($item->getProductId()!=$lastProdID)
+            {
+                $lastProdID=$item->getProductId();
+
+                $prod      = Mage::getModel('catalog/product')->load($item->getProductId());
+                $itemProps = array(
                 'itemCode' => $prod->getSku(),
                 'url'      => Mage::getModel('catalog/product_media_config')->getMediaUrl($prod->getImage())
-            );
+                );
 
             array_push($cbItems, $itemProps);
+            }
         }
         $catBeeArray['items'] = $cbItems;
         Mage::getSingleton('checkout/session')->setData('catbee', $catBeeArray);
+
+        Mage::log('Cat Bee observer - data set');
     }
 }
 
