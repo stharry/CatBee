@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS customers (
    firstName VARCHAR(50),
    lastName VARCHAR(50),
    nickName VARCHAR(50),
+   sharedPhoto VARCHAR(100),
    PRIMARY KEY(id)
 );
 
@@ -206,3 +207,21 @@ CREATE TABLE  If NOT EXISTS shopWidgets (
   widgetId INT NOT NULL,
   widgetParams TEXT NULL
 );
+
+CREATE TABLE  If NOT EXISTS tribes (
+  id int(11) NOT NULL,
+  tribeName varchar(60) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+CREATE  TABLE If NOT EXISTS tribeCustomers (
+
+  id INT NOT NULL ,
+  TribeId INT NULL ,
+  CustomerID INT NULL ,
+  PRIMARY KEY (id) );
+
+  CREATE  TABLE If NOT EXISTS tribeStores (
+  id INT NOT NULL ,
+  TribeID INT NULL ,
+  StoreID INT NULL ,
+  PRIMARY KEY (id) );
