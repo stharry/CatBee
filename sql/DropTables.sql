@@ -21,4 +21,8 @@ DROP Table If EXISTS shopWidgets;
 DROP Table If EXISTS tribes;
 DROP Table If EXISTS tribeCustomers;
 DROP Table If EXISTS tribeStores;
+DROP Table If EXISTS rule;
+DROP Table If EXISTS storerules;
+DROP Table If EXISTS rewardrules;
+
 

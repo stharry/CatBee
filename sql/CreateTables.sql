@@ -225,3 +225,27 @@ CREATE  TABLE If NOT EXISTS tribeCustomers (
   TribeID INT NULL ,
   StoreID INT NULL ,
   PRIMARY KEY (id) );
+  
+  CREATE  TABLE If NOT EXISTS rule (
+  id INT NOT NULL ,
+  name VARCHAR(60) NULL ,
+  actionTriger INT NULL ,
+  reward INT NULL ,
+  type VARCHAR(45) NULL ,
+  rewardval INT NULL,
+  PRIMARY KEY (id) );
+  
+  CREATE  TABLE If NOT EXISTS storerules (
+  id INT NOT NULL ,
+  storeid INT NULL ,
+  ruleid INT NULL ,
+  PRIMARY KEY (id) );
+  
+  CREATE TABLE If NOT EXISTS rewardrules (
+  id int(11) NOT NULL,
+  Name varchar(60) DEFAULT NULL,
+  type varchar(60) DEFAULT NULL,
+  value varchar(60) DEFAULT NULL,
+  PRIMARY KEY (id));
+
+

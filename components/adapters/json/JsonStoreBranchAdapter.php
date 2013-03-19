@@ -12,7 +12,7 @@ class JsonStoreBranchAdapter implements IModelAdapter
 
         $storeBranch->shopId = $obj['shopId'];
         $storeBranch->shopName = $obj['shopName'];
-        $storeBranch->url = $obj['url'];
+        $storeBranch->redirectUrl = $obj['url'];
         $storeBranch->logoUrl = $obj['logoUrl'];
         $storeBranch->email = $obj['email'];
         $storeBranch->adaptor = $this->jsonAdaptorAdapter->fromArray($obj["store"]);
@@ -58,7 +58,8 @@ class JsonStoreBranchAdapter implements IModelAdapter
         return array("id" => $store->id,
             "shopId" => $store->shopId,
             "shopName" => $store->shopName,
-            "url" => $store->url,
+            "url" => $store->redirectUrl,
+            "logoUrl" => $store->logoUrl,
             "email" => $store->email,
             "store" => $this->jsonAdaptorAdapter->toArray($store->adaptor)
         );
