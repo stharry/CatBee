@@ -9,7 +9,8 @@ class PdoTribeDao
 
         try
         {
-            $selectClause = " select TR.id as TribeID,TR.tribeName,Cu.email,Cu.firstName,Cu.lastName,SB.shopname,SB.id as storeid,SB.logoUrl  from tribes as TR inner join tribeCustomers as TC";
+            $selectClause = " select TR.id as TribeID,TR.tribeName,Cu.email,Cu.firstName,Cu.lastName,Cu.sharedPhoto,SB.shopname,SB.id as storeid,SB.logoUrl";
+            $selectClause = $selectClause." from tribes as TR inner join tribeCustomers as TC";
             $selectClause = $selectClause." on TR.id=TC.TribeId";
             $selectClause = $selectClause. " inner join customers Cu on TC.CustomerID=Cu.id";
             $selectClause = $selectClause. " inner join tribeStores TS on TR.id=TS.TribeID inner join StoreBranch SB on TS.StoreID=SB.id";
@@ -51,6 +52,7 @@ class PdoTribeDao
         $customer->email = $row["email"];
         $customer->firstName = $row["firstName"];
         $customer->lastName = $row["lastName"];
+        $customer->sharedPhoto = $row["sharedPhoto"];
         return $customer;
     }
     private function AddStore($row)

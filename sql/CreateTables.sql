@@ -229,6 +229,7 @@ CREATE  TABLE If NOT EXISTS tribeCustomers (
   CREATE  TABLE If NOT EXISTS rule (
   id INT NOT NULL ,
   name VARCHAR(60) NULL ,
+  description VARCHAR(100) NULL,
   actionTriger INT NULL ,
   reward INT NULL ,
   type VARCHAR(45) NULL ,

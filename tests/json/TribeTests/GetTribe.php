@@ -12,7 +12,6 @@ foreach ($insertSql as $sql)
         DbManager::selectValues($sql);
     }
 }
-echo "I am here";
 $filter = json_decode(file_get_contents("res/GetTribeByFilter.json"));
 $tribe = json_decode($restUtils->SendPostRequestAndReturnResult("tribe", "", $filter), true);
 var_export($tribe);

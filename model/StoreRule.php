@@ -16,5 +16,6 @@ class StoreRule
     public $ruleReward;//ID
     public $type;
     public $actionTriger;//ID
+    public $description;
 
 }
