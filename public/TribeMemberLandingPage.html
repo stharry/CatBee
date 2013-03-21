@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="facebook" class="no_js" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <title>
+
+    </title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="res/css/tribestyle.css" type="text/css">
+
+     <link rel="stylesheet" href="res/css/styles.css">
+    <link rel="stylesheet" href="res/css/photobox.css">
+    <link rel="stylesheet" href="res/css/jquery-ui.css">
+
+    <link rel="stylesheet" type="text/css" href="res/css/test.css" media="screen"/>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src='res/js/photobox.js'></script>
+    <script src='res/js/tribelanding.js'></script>
+
+
+
+
+    <script src="res/js/min/jquery.masonry.min.js"></script>
+
+
+    <script src="res/js/min/jquery.simplemodal.1.4.4.min.js"></script>
+    <meta property="og:title" content="Tribzi"/>
+    <meta property="og:image" content="https://d2zc23renulrga.cloudfront.net/assets/8843/932sydcah57mo8kyhwkn/logo-300x69.png"/>
+    <meta property="og:url" content="http://www.apid.tribzi.com/"/>
+    <meta property="fb:app_id" content="369374193139831"/>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        // init the FB JS SDK
+        FB.init({
+            appId      : '369374193139831', // App ID from the App Dashboard
+            channelUrl : '//www.apid.tribzi.com/Pinboard/channel.html', // Channel File for x-domain communication
+            status     : true, // check the login status upon init?
+            cookie     : true, // set sessions cookies to allow your server to access the session?
+            xfbml      : true  // parse XFBML tags on this page?
+        });
+
+        // Additional initialization code such as adding Event Listeners goes here
+
+    };
+
+    // Load the SDK's source Asynchronously
+    // Note that the debug version is being actively developed and might
+    // contain some type checks that are overly strict.
+    // Please report such bugs using the bugs tool.
+    (function(d, debug){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document, /*debug*/ false));
+</script>
+<div id="container">
+    <div id="header">
+        TRIBEZONE HEADER
+        <div id="header-tabs">
+            My Tribe Zone | <a href="">Explore</a>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="sidebar">
+            <div id="tribe-name">
+                Awesome Tribe
+            </div>
+            <div id="tribe-blurb">
+                BLURB: Awesome Tribe is the awesomest tribe in the entire world. Our goal is to be even more awesome.
+            </div>
+            <div id="tribe-points">
+                18 points
+            </div>
+            <div id="members">
+						<span id="members-title">
+							Tribe members:
+						</span>
+                <button type="button" id="members-invite">Invite</button>
+                <ul id='gallery'>
+
+                    <li  class="loaded">
+                        <a href="http://www.somedomain.com/images/image2_large.jpg">
+                            <img src="res/images/pope_francis.jpg" height="50" width="50" alt="photo2 title">
+                        </a></li>
+                    <li  class="loaded">
+                        <a href="http://www.somedomain.com/images/image3_large.jpg">
+                            <img src="res/images/Mark-Zuckerberg.jpg" height="50" width="50" alt="photo3 title">
+                        </a></li>
+                    <li class="loaded">
+                        <a href="http://www.somedomain.com/images/image4_large.jpg">
+                            <img src="res/images/Yair_Lapid.jpg" height="50" width="50" alt="photo4 title">
+                        </a></li>
+                    <li class="loaded">
+                        <a href="http://www.somedomain.com/images/image4_large.jpg">
+                            <img src="res/images/Mark-Zuckerberg.jpg" height="50" width="50" alt="photo4 title">
+                        </a></li>
+
+
+                    </ul>
+                <a href="" id="members-seemore">See all 10 members...</a>
+            </div>
+        </div>
+        <div id="main">
+            <div id="title">
+                <!-- Stores:
+                <select id="stores-select">
+                    <option>All</option>
+                    <option>Charms To Treasure</option>
+                    <option>Tea</option>
+                </select> -->
+            </div>
+            <div id="stores">
+
+
+
+
+            </div>
+            <div id="store">
+                <div id="pinBoard"></div>
+                <div id="basic-modal-content">
+                    <div class="commentToolHeader">
+                        <div class="imageCt">
+                            <img>
+                        </div>
+                        <div class="content">
+                            <h3>Add a comment on </h3>
+                            <span></span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="footer">
+<span>
+<a>View all comments</a>
+</span>
+                        <div id="commentsCt">
+
+                            <fb:comments href="http://www.apid.tribzi.com/CatBee/tests/TribeMemberLanding.html" width="600" num_posts="10"></fb:comments>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div style='display:none'>
+                    <img src='res/images/x.png' alt='' />
+                </div>
+            </div>
+        </div>
+        <div class="floatfix"></div>
+    </div>
+    <div id="footer">
+        FOOTER CONTENT
+    </div>
+</div>
+<script src="res/js/testBoard.js"></script>
+<script>
+
+    $('#gallery').photobox('a');
+    // or with a fancier selector and some settings, and a callback:
+    /*  $('#gallery').photobox('a', { thumbs:true, time:0 }, imageLoaded);
+     function imageLoaded(){
+     console.log('image has been loaded...');
+     }*/
+
+</script>
+</body>
+</html>

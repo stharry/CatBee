@@ -1,0 +1,191 @@
+#pinBoard {
+    margin: 0 auto;
+}
+
+.storeItem {
+    width: 200px;
+    float: left;
+    border: 1px dotted #7F7F7F;
+    background: none repeat scroll 0 0 white;
+    color: #333333;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin: 15px auto;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+
+}
+
+.button {
+    cursor: pointer;
+    float: right;
+    font-family: Georgia,serif;
+    font-size: 12px;
+    margin: 5px 5px 5px 0;
+}
+
+.bottomToolbar {
+    border-bottom: 0 none;
+    color: #999999;
+    font-style: italic;
+    letter-spacing: -0.001em;
+    line-height: 20px;
+    min-height: 28px;
+    padding-bottom: 2px;
+}
+/*
+.imageContainer {
+    min-height: 205px;
+    overflow: hidden;
+    position: relative;
+}
+
+.tbCt {
+    overflow: hidden;
+    position: relative;
+}
+
+.comments {
+    background-color: #F2F2F2;
+    border-top: 1px dotted #7F7F7F;
+}*/
+/*
+div {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+}
+*/
+/*
+#fabModal {
+    margin-left: -322.5px;
+    opacity: 1;
+    top: 349px;
+    visibility: hidden;
+}
+
+.crossIcon {
+    background: url("../images/close.png") repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 29px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 30px;
+    z-index: 3000;
+}
+
+#fabModalContent {
+    background: none repeat scroll 0 0 white;
+    width: 600px;
+}
+
+.modalContent {
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    margin: 15px 0 0 15px;
+    padding: 15px;
+    width: 520px;
+}
+
+.modal {
+    left: 50%;
+    position: fixed;
+    top: 100px !important;
+    visibility: hidden;
+    z-index: 1002;
+}
+
+
+#fbCommentsModal-overlay {background-color:#000;}
+#fbCommentsModal-container {background-color:white; border:8px solid #444; padding:12px; display: none;}
+
+
+#fbCommentsModal-container a.modalCloseImg {
+    background:url(../images/x.png) no-repeat;
+    width:25px;
+    height:29px;
+    display:inline;
+    z-index:3200;
+    position:absolute;
+    top:-15px;
+    right:-18px;
+    cursor:pointer;
+}
+
+*/
+#simplemodal-container a.modalCloseImg {
+    background: url("../images/x.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline;
+    height: 29px;
+    position: absolute;
+    right: -16px;
+    top: -15px;
+    width: 25px;
+    z-index: 3200;
+}
+
+#simplemodal-container .simplemodal-data {
+    padding: 8px;
+}
+
+#simplemodal-container {
+    background-color: white;
+    border: 4px solid #444444;
+    color: #BBBBBB;
+
+    padding: 12px;
+
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#simplemodal-overlay {
+    background-color: #000000;
+}
+
+#basic-modal-content {
+    display: none;
+}
+
+#simplemodal-container .commentToolHeader .imageCt {
+    float: left;
+}
+
+#simplemodal-container .commentToolHeader .content {
+    margin: 20px;
+    float: left;
+}
+
+#simplemodal-container .commentToolHeader .content h3 {
+    color: #333333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer > span {
+color: #333333;
+display: inline;
+font-weight: lighter;
+    float:right;
+}
+
+#simplemodal-wrap {
+    display: block;
+}
+
+.footer a {
+    color: black;
+    display: inline;
+    outline: 0 none;
+    text-decoration: none;
+
+}
