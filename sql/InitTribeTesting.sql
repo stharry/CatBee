@@ -2,10 +2,10 @@ INSERT INTO tribes(id,tribeName) VALUES(2,'Test1');
 INSERT INTO tribes(id,tribeName) VALUES(1,'Test2');
 
 
-INSERT INTO storebranch(id,storeId,shopId,shopName,url,logoUrl,email)
+INSERT INTO StoreBranch(id,storeId,shopId,shopName,url,logoUrl,email)
 VALUES(2,2,2,'glassesmarket','http://www.glassesmarket.com','http://www.glassesmarket.com/skin/frontend/glassesmarket2/default/images/logo.png','');
 
-INSERT INTO storebranch(id,storeId,shopId,shopName,url,logoUrl,email)
+INSERT INTO StoreBranch(id,storeId,shopId,shopName,url,logoUrl,email)
 VALUES(3,3,3,'CharmsToTreasure','http://www.glassesmarket.com','http://gallery.mailchimp.com/f503f7e5aac319051c907e2fb/images/CTT_email_header_v3.jpg','');
 
 INSERT INTO customers(id,email,firstName,lastName,nickName,sharedPhoto)VALUES(3,'Navot@tribzi.com','Navot','Dgani','Navot','');

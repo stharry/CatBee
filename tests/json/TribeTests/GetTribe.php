@@ -9,7 +9,7 @@ foreach ($insertSql as $sql)
 {
     if (trim($sql) != '')
     {
-        DbManager::selectValues($sql);
+        DbManager::insertValues($sql);
     }
 }
 $filter = json_decode(file_get_contents("res/GetTribeByFilter.json"));

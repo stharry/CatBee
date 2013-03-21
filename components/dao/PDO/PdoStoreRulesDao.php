@@ -15,7 +15,7 @@ class PdoStoreRulesDao
         }
         $selectClause = " select R.id,R.name,R.description,R.actionTriger,R.reward,R.type,R.rewardval,SR.storeid ";
         $selectClause = $selectClause . " FROM rule as R inner join storerules SR on R.id=SR.ruleid";
-        $selectClause = $selectClause ." inner join tribestores TS on TS.StoreID=SR.storeid";
+        $selectClause = $selectClause ." inner join tribeStores TS on TS.StoreID=SR.storeid";
         $selectClause = $selectClause ." where TS.TribeID = ? and TS.StoreID in (";
         foreach ($stores as $storeid)
         {
