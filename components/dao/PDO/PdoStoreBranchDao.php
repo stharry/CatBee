@@ -81,6 +81,16 @@ class PdoStoreBranchDao implements IStoreBranchDao
 
         return true;
     }
+    public function FillStoreRules($stores)
+    {
+        $storeID = array();
+        foreach ($stores as $store)
+        {
+            array_push($storeID,$store->id);
+        }
+
+
+    }
 
 
 }
