@@ -25,7 +25,7 @@ INSERT INTO tribeStores(id,TribeID,StoreID) VALUES(3,2,3);
 
 INSERT INTO rule(id,name,description,actionTriger,reward,type,rewardval)VALUES(1,'Purchase','1 point for every $10 Spent',1,1,'social credit',50);
 INSERT INTO rule(id,name,description,actionTriger,reward,type,rewardval)VALUES(2,'Reigister','5 point for New Tribe Member registration',1,1,'social credit',5);
-INSERT INTO rule(id,name,description,actionTriger,reward,type,rewardval)VALUES(3,'Gift Card Tribe Goal','$25 gift Card For ',1,1,'Tribe Goal',5);
+INSERT INTO rule(id,name,description,actionTriger,reward,type,rewardval)VALUES(3,'Gift Card Tribe Goal','500 points = $25 gift Card ',1,1,'Tribe Goal',5);
 
 
 INSERT INTO rewardrules(id,Name,type,value) VALUES(1,'Credit for purchase','points','$10');
